@@ -12,11 +12,15 @@ id: webform_node_test_multiple_b
 title: 'Test: Webform Node Multiple B'
 description: 'Test Webform Node Multiple B'
 category: 'Test: Webform Node'
-elements: "textfield_b:\n  '#title': textfield_b\n  '#type': textfield\n"
+elements: |
+  textfield_b:
+    '#title': textfield_b
+    '#type': textfield
 css: ''
 javascript: ''
 settings:
   ajax: true
+  ajax_scroll_top: form
   page: true
   page_submit_path: ''
   page_confirm_path: ''
@@ -46,8 +50,8 @@ settings:
   wizard_progress_pages: false
   wizard_progress_percentage: false
   wizard_start_label: ''
-  wizard_complete: true
-  wizard_complete_label: ''
+  wizard_confirmation: true
+  wizard_confirmation_label: ''
   preview: 0
   preview_label: ''
   preview_title: ''

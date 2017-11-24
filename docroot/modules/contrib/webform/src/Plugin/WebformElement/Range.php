@@ -22,7 +22,7 @@ class Range extends NumericBase {
    * {@inheritdoc}
    */
   public function getDefaultProperties() {
-    return parent::getDefaultProperties() + [
+    return [
       // Form validation.
       'min' => '',
       'max' => '',
@@ -31,7 +31,7 @@ class Range extends NumericBase {
       'range__output' => FALSE,
       'range__output_prefix' => '',
       'range__output_suffix' => '',
-    ];
+    ] + parent::getDefaultProperties();
   }
 
   /**
@@ -56,7 +56,7 @@ class Range extends NumericBase {
       $element['#attached']['library'][] = 'webform/webform.element.range';
     }
   }
-  
+
   /**
    * {@inheritdoc}
    */
@@ -81,7 +81,7 @@ class Range extends NumericBase {
 
     $form['number']['range__output'] = [
       '#type' => 'checkbox',
-      '#title' => $this->t("Output the range's value."),
+      '#title' => $this->t("Output the range's value"),
       '#return_type' => TRUE,
     ];
     $form['number']['range__output_prefix'] = [

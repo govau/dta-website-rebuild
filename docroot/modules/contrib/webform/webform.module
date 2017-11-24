@@ -127,8 +127,8 @@ function webform_local_tasks_alter(&$local_tasks) {
   if (isset($local_tasks['config_translation.local_tasks:entity.webform.config_translation_overview'])) {
     $local_tasks['config_translation.local_tasks:entity.webform.config_translation_overview']['base_route'] = 'entity.webform.canonical';
   }
-  if (isset($local_tasks['config_translation.local_tasks:config_translation.item.overview.webform.settings'])) {
-    $local_tasks['config_translation.local_tasks:config_translation.item.overview.webform.settings']['parent_id'] = 'webform.settings';
+  if (isset($local_tasks['config_translation.local_tasks:config_translation.item.overview.webform.config'])) {
+    $local_tasks['config_translation.local_tasks:config_translation.item.overview.webform.config']['parent_id'] = 'webform.config';
   }
 
   // Disable 'About' tab.
@@ -149,8 +149,8 @@ function webform_menu_local_tasks_alter(&$data, $route_name) {
   if (isset($data['tabs'][0]['config_translation.local_tasks:entity.webform.config_translation_overview']['#link']['title'])) {
     $data['tabs'][0]['config_translation.local_tasks:entity.webform.config_translation_overview']['#link']['title'] = t('Translate');
   }
-  if (isset($data['tabs'][1]['config_translation.local_tasks:config_translation.item.overview.webform.settings'])) {
-    $data['tabs'][1]['config_translation.local_tasks:config_translation.item.overview.webform.settings']['#link']['title'] = t('Translate');
+  if (isset($data['tabs'][1]['config_translation.local_tasks:config_translation.item.overview.webform.config'])) {
+    $data['tabs'][1]['config_translation.local_tasks:config_translation.item.overview.webform.config']['#link']['title'] = t('Translate');
   }
 
   // ISSUE:
@@ -238,7 +238,7 @@ function webform_form_webform_submission_form_alter(&$form, FormStateInterface $
   _webform_page_attachments($form);
 
   // Execute hook_form_BASE_FORM_ID_alter for the webform & source entity
-  // without the operation. (ie 'add', 'edit', 'notes', etc...)
+  // without the operation. (i.e. 'add', 'edit', 'notes', etc...)
   // @see \Drupal\webform\WebformSubmissionForm::getFormId
   $form_object = $form_state->getFormObject();
 
@@ -288,7 +288,7 @@ function webform_system_breadcrumb_alter(Breadcrumb &$breadcrumb, RouteMatchInte
   // Remove 'Webforms' prefix from breadcrumb links generated path breadcrumbs.
   // @see \Drupal\system\PathBasedBreadcrumbBuilder
   $path = Url::fromRouteMatch($route_match)->toString();
-  if (strpos($path, '/admin/structure/webform/settings/') !== FALSE) {
+  if (strpos($path, '/admin/structure/webform/config/') !== FALSE) {
     $links = $breadcrumb->getLinks();
     foreach ($links as $link) {
       $text = $link->getText();
@@ -446,6 +446,20 @@ function _webform_page_attachments(array &$attachments) {
   if (\Drupal::config('webform.settings')->get('ui.details_save')) {
     $attachments['#attached']['library'][] = 'webform/webform.element.details.save';
   }
+
+  // Assets: Add custom shared and webform specific CSS and JS.
+  // @see webform_library_info_build()
+  /** @var \Drupal\webform\WebformRequestInterface $request_handler */
+  $request_handler = \Drupal::service('webform.request');
+  if ($webform = $request_handler->getCurrentWebform()) {
+    $assets = $webform->getAssets();
+    foreach ($assets as $type => $value) {
+      if ($value) {
+        $attachments['#attached']['library'][] = 'webform/webform.' . $type . '.' . $webform->id() ;
+      }
+    }
+  }
+
 }
 
 /**
@@ -537,7 +551,6 @@ function webform_file_access(FileInterface $file, $operation, AccountInterface $
 function webform_file_download($uri) {
   return ManagedFile::accessFileDownload($uri);
 }
-
 
 /**
  * Implements hook_contextual_links_view_alter().

@@ -77,6 +77,10 @@ class WebformSubmissionConditionsValidator implements WebformSubmissionCondition
     foreach ($elements as &$element) {
       $states = static::getElementStates($element);
       foreach ($states as $state => $conditions) {
+        if (!is_array($conditions)) {
+          continue;
+        }
+
         if ($this->isConditionsTargetsVisible($conditions, $elements)) {
           list($state, $negate) = $this->processState($state);
           if ($state == 'required') {
@@ -251,8 +255,8 @@ class WebformSubmissionConditionsValidator implements WebformSubmissionCondition
       $trigger_state = key($condition);
       $trigger_value = $condition[$trigger_state];
 
-      $element_handler = $this->elementManager->getElementInstance($element);
-      $element_value = $element_handler->getElementSelectorInputValue($selector, $trigger_state, $element, $webform_submission);
+      $element_plugin = $this->elementManager->getElementInstance($element);
+      $element_value = $element_plugin->getElementSelectorInputValue($selector, $trigger_state, $element, $webform_submission);
 
       // Process trigger state/negate.
       list($trigger_state, $trigger_negate) = $this->processState($trigger_state);
@@ -269,7 +273,7 @@ class WebformSubmissionConditionsValidator implements WebformSubmissionCondition
           break;
 
         case 'value':
-          if ($element_handler->hasMultipleValues($element)) {
+          if ($element_plugin->hasMultipleValues($element)) {
             $trigger_values = (array) $trigger_value;
             $element_values = (array) $element_value;
             $result = (array_intersect($trigger_values, $element_values)) ? TRUE : FALSE;

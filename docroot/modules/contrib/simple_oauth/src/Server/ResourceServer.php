@@ -3,7 +3,6 @@
 namespace Drupal\simple_oauth\Server;
 
 use Drupal\Core\Config\ConfigFactoryInterface;
-use League\OAuth2\Server\Exception\OAuthServerException;
 use League\OAuth2\Server\Repositories\AccessTokenRepositoryInterface;
 use League\OAuth2\Server\ResourceServer as LeageResourceServer;
 use Symfony\Bridge\PsrHttpMessage\HttpFoundationFactoryInterface;
@@ -44,7 +43,8 @@ class ResourceServer implements ResourceServerInterface {
         );
       }
     }
-    catch (\LogicException $exception) {}
+    catch (\LogicException $exception) {
+    }
     $this->messageFactory = $message_factory;
     $this->foundationFactory = $foundation_factory;
   }

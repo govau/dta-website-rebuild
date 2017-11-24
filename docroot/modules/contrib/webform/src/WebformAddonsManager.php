@@ -191,14 +191,7 @@ class WebformAddonsManager implements WebformAddonsManagerInterface {
       'description' => $this->t('Provides configuration filter for importing and exporting split config.'),
       'url' => Url::fromUri('https://www.drupal.org/project/config_split'),
       'category' => 'config',
-    ];
-
-    // Element: Webform Crosspage Conditions.
-    $projects['webform_crosspage_conditions'] = [
-      'title' => $this->t('Webform Crosspage Conditions'),
-      'description' => $this->t('Provides the handler that evaluates the field state conditions with the fields from other than current page'),
-      'url' => Url::fromUri('https://github.com/artemvd/webform_crosspage_conditions'),
-      'category' => 'element',
+      'recommended' => TRUE,
     ];
 
     // Element: Webform Layout Container.
@@ -305,6 +298,14 @@ class WebformAddonsManager implements WebformAddonsManagerInterface {
       'category' => 'mail',
     ];
 
+    // Mail: Webform Mass Email.
+    $projects['webform_mass_email'] = [
+      'title' => $this->t('Webform Mass Email'),
+      'description' => $this->t('Provides a functionality to send mass email for the subscribers of a webform.'),
+      'url' => Url::fromUri('https://www.drupal.org/project/webform_mass_email'),
+      'category' => 'mail',
+    ];
+
     // Mail: SMTP Authentication Support.
     $projects['smtp'] = [
       'title' => $this->t('SMTP Authentication Support'),
@@ -319,6 +320,7 @@ class WebformAddonsManager implements WebformAddonsManagerInterface {
       'description' => $this->t('Translates content, configuration, and interface using the Lingotek Translation Management System.'),
       'url' => Url::fromUri('https://www.drupal.org/project/lingotek'),
       'category' => 'multilingual',
+      'recommended' => TRUE,
     ];
 
     // Migrate: Webform Migrate.
@@ -327,6 +329,7 @@ class WebformAddonsManager implements WebformAddonsManagerInterface {
       'description' => $this->t('Provides migration routines from d6, d7 webform to d8 webform.'),
       'url' => Url::fromUri('https://www.drupal.org/project/webform_migrate'),
       'category' => 'migrate',
+      'recommended' => TRUE,
     ];
 
     // Spam: Antibot.
@@ -344,6 +347,8 @@ class WebformAddonsManager implements WebformAddonsManagerInterface {
       'description' => $this->t('Provides CAPTCHA for adding challenges to arbitrary forms.'),
       'url' => Url::fromUri('https://www.drupal.org/project/captcha'),
       'category' => 'spam',
+      'recommended' => TRUE,
+
     ];
 
     // Spam: Honeypot.
@@ -353,6 +358,7 @@ class WebformAddonsManager implements WebformAddonsManagerInterface {
       'url' => Url::fromUri('https://www.drupal.org/project/honeypot'),
       'category' => 'spam',
       'third_party_settings' => TRUE,
+      'recommended' => TRUE,
     ];
 
     // Submissions: Webform Views Integration.
@@ -361,6 +367,15 @@ class WebformAddonsManager implements WebformAddonsManagerInterface {
       'description' => $this->t('Integrates Webform 8.x-5.x and Views modules.'),
       'url' => Url::fromUri('https://www.drupal.org/project/webform_views'),
       'category' => 'submission',
+      'recommended' => TRUE,
+    ];
+
+    // Webform Invitation.
+    $projects['webform_invitation'] = [
+      'title' => $this->t('Webform Invitation'),
+      'description' => $this->t('Allows you to restrict submissions to a webform by generating codes (which may then be distributed e.g. by email to participants).'),
+      'url' => Url::fromUri('https://www.drupal.org/project/webform_invitation'),
+      'category' => 'submission',
     ];
 
     // Submissions: Webform Permissions By Term.
@@ -368,6 +383,14 @@ class WebformAddonsManager implements WebformAddonsManagerInterface {
       'title' => $this->t('Webform Permissions By Term'),
       'description' => $this->t('Extends the functionality of Permissions By Term to be able to limit the webform submissions access by users or roles.'),
       'url' => Url::fromUri('https://www.drupal.org/project/webform_permissions_by_term'),
+      'category' => 'submission',
+    ];
+
+    // Submissions: Webform Sanitize.
+    $projects['webform_sanitize'] = [
+      'title' => $this->t('Webform Sanitize'),
+      'description' => $this->t('Sanitizes submissions to remove potentially sensitive data.'),
+      'url' => Url::fromUri('https://www.drupal.org/project/webform_sanitize'),
       'category' => 'submission',
     ];
 
@@ -400,8 +423,9 @@ class WebformAddonsManager implements WebformAddonsManagerInterface {
       'title' => $this->t('IMCE'),
       'description' => $this->t('IMCE is an image/file uploader and browser that supports personal directories and quota.'),
       'url' => Url::fromUri('https://www.drupal.org/project/imce'),
-      'recommended' => TRUE,
       'category' => 'utility',
+      'install' => TRUE,
+      'recommended' => TRUE,
     ];
 
     // Utility: Token.
@@ -409,8 +433,9 @@ class WebformAddonsManager implements WebformAddonsManagerInterface {
       'title' => $this->t('Token'),
       'description' => $this->t('Provides a user interface for the Token API and some missing core tokens.'),
       'url' => Url::fromUri('https://www.drupal.org/project/token'),
-      'recommended' => TRUE,
       'category' => 'utility',
+      'install' => TRUE,
+      'recommended' => TRUE,
     ];
 
     // Validation: Clientside Validation.
@@ -419,6 +444,7 @@ class WebformAddonsManager implements WebformAddonsManagerInterface {
       'description' => $this->t('Adds clientside validation to forms.'),
       'url' => Url::fromUri('https://www.drupal.org/project/clientside_validation'),
       'category' => 'validation',
+      'recommended' => TRUE,
     ];
 
     // Validation: Validators.
@@ -435,6 +461,7 @@ class WebformAddonsManager implements WebformAddonsManagerInterface {
       'description' => $this->t('Utility to log all Mails for debugging purposes. It is possible to suppress mail delivery for e.g. dev or staging systems.'),
       'url' => Url::fromUri('https://www.drupal.org/project/maillog'),
       'category' => 'development',
+      'recommended' => TRUE,
     ];
 
     return $projects;

@@ -66,6 +66,10 @@ class FieldGroupAddForm extends FormBase {
    */
   public function buildForm(array $form, FormStateInterface $form_state, $entity_type_id = NULL, $bundle = NULL, $context = NULL) {
 
+    $this->entityTypeId = $entity_type_id;
+    $this->bundle = $bundle;
+    $this->context = $context;
+
     if ($context == 'form') {
       $this->mode = \Drupal::request()->get('form_mode_name');
     }
@@ -77,22 +81,9 @@ class FieldGroupAddForm extends FormBase {
       $this->mode = 'default';
     }
 
-    if (!$form_state->get('context')) {
-      $form_state->set('context', $context);
-    }
-    if (!$form_state->get('entity_type_id')) {
-      $form_state->set('entity_type_id', $entity_type_id);
-    }
-    if (!$form_state->get('bundle')) {
-      $form_state->set('bundle', $bundle);
-    }
     if (!$form_state->get('step')) {
       $form_state->set('step', 'formatter');
     }
-
-    $this->entityTypeId = $form_state->get('entity_type_id');
-    $this->bundle = $form_state->get('bundle');
-    $this->context = $form_state->get('context');
     $this->currentStep = $form_state->get('step');
 
     if ($this->currentStep == 'formatter') {
@@ -103,7 +94,6 @@ class FieldGroupAddForm extends FormBase {
     }
 
     return $form;
-
   }
 
   /**
@@ -112,7 +102,7 @@ class FieldGroupAddForm extends FormBase {
   function buildFormatterSelectionForm(array &$form, FormStateInterface $form_state) {
 
     // Gather group formatters.
-    $formatter_options = \field_group_field_formatter_options($form_state->get('context'));
+    $formatter_options = \field_group_field_formatter_options($this->context);
     $form['add'] = array(
       '#type' => 'container',
       '#attributes' => array('class' => array('form--inline', 'clearfix')),
@@ -279,12 +269,8 @@ class FieldGroupAddForm extends FormBase {
 
     // Add the prefix.
     $group_name = self::GROUP_PREFIX . $value;
-    $entity_type = $form_state->get('entity_type_id');
-    $bundle = $form_state->get('bundle');
-    $context = $form_state->get('context');
-    $mode = $form_state->get('mode');
 
-    return field_group_exists($group_name, $entity_type, $bundle, $context, $mode);
+    return field_group_exists($group_name, $this->entityTypeId, $this->bundle, $this->context, $this->mode);
   }
 
 }

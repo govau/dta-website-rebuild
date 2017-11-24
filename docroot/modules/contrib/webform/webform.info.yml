@@ -9,8 +9,8 @@ dependencies:
   - 'drupal:system (>= 8.3)'
   - 'drupal:user'
 
-# Information added by Drupal.org packaging script on 2017-09-28
-version: '8.x-5.0-beta19'
+# Information added by Drupal.org packaging script on 2017-11-16
+version: '8.x-5.0-beta24'
 core: '8.x'
 project: 'webform'
-datestamp: 1506634751
+datestamp: 1510867692

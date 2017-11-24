@@ -11,7 +11,7 @@ use Drupal\user\RoleInterface;
 use Psr\Http\Message\ResponseInterface;
 
 /**
- * Class TokenBearerFunctionalTestBase
+ * Class TokenBearerFunctionalTestBase.
  *
  * Base class that handles common logic and config for the token tests.
  *

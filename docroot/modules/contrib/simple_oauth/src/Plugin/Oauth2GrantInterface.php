@@ -8,7 +8,7 @@ use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 /**
  * Defines an interface for OAuth2 Grant plugins.
  */
-interface Oauth2GrantInterface extends PluginInspectionInterface, ContainerFactoryPluginInterface  {
+interface Oauth2GrantInterface extends PluginInspectionInterface, ContainerFactoryPluginInterface {
 
   /**
    * Gets the grant object.

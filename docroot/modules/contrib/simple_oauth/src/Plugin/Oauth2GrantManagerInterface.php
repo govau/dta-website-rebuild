@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Drupal\simple_oauth\Plugin;
 
 interface Oauth2GrantManagerInterface {

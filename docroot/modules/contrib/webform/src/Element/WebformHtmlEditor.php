@@ -72,8 +72,9 @@ class WebformHtmlEditor extends FormElement {
       $element['value']['#required'] = $element['#required'];
     }
 
-    // If HTML disabled return simple CodeMirror HTML editor.
-    $disabled = \Drupal::config('webform.settings')->get('html_editor.disabled') ?: $element['#format'];
+    // If HTML disabled and no #format is specified return simple CodeMirror
+    // HTML editor.
+    $disabled = \Drupal::config('webform.settings')->get('html_editor.disabled') ?: ($element['#format'] ===  FALSE);
     if ($disabled) {
       $element['value'] += [
         '#type' => 'webform_codemirror',
@@ -83,8 +84,9 @@ class WebformHtmlEditor extends FormElement {
       return $element;
     }
 
-    // If #context and format is defined return 'text_format' element.
-    $format = \Drupal::config('webform.settings')->get('html_editor.format') ?: $element['#format'];
+    // If #format or 'webform.settings.html_editor.format' is defined return
+    // a 'text_format' element.
+    $format = $element['#format'] ?: \Drupal::config('webform.settings')->get('html_editor.format');
     if ($format) {
       $element['value'] += [
         '#type' => 'text_format',
@@ -105,8 +107,8 @@ class WebformHtmlEditor extends FormElement {
     $element['#attached']['library'][] = 'webform/webform.element.html_editor';
     $element['#attached']['drupalSettings']['webform']['html_editor']['allowedContent'] = static::getAllowedContent();
 
-    /** @var \Drupal\webform\WebformLibrariesManagerInterface $libaries_manager */
     $base_path = base_path();
+    /** @var \Drupal\webform\WebformLibrariesManagerInterface $libaries_manager */
     $libaries_manager = \Drupal::service('webform.libraries_manager');
     $libraries = $libaries_manager->getLibraries(TRUE);
     $element['#attached']['drupalSettings']['webform']['html_editor']['plugins'] = [];
@@ -182,7 +184,7 @@ class WebformHtmlEditor extends FormElement {
    * @return array
    *   Allowed tags.
    */
-  protected static function getAllowedTags() {
+  public static function getAllowedTags() {
     $allowed_tags = \Drupal::config('webform.settings')->get('element.allowed_tags');
     switch ($allowed_tags) {
       case 'admin':

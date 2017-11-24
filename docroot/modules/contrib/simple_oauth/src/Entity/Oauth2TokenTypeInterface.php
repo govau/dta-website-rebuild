@@ -5,7 +5,7 @@ namespace Drupal\simple_oauth\Entity;
 /**
  * Provides an interface defining Access Token Type entities.
  */
-interface Oauth2TokenTypeInterface extends ConfigEntityLockableInterface  {
+interface Oauth2TokenTypeInterface extends ConfigEntityLockableInterface {
 
   /**
    * Get the description.
@@ -19,7 +19,7 @@ interface Oauth2TokenTypeInterface extends ConfigEntityLockableInterface  {
    * Set the description.
    *
    * @param string $description
-   *   The description
+   *   The description.
    */
   public function setDescription($description);
 

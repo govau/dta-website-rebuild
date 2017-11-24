@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Drupal\simple_oauth_extras\Plugin\Oauth2Grant;
 
 use Drupal\Core\Config\ConfigFactoryInterface;

@@ -1,9 +1,8 @@
 <?php
 
-
 namespace Drupal\simple_oauth\Entities;
 
-use \League\OAuth2\Server\Entities\ClientEntityInterface as LeagueClientEntityInterface;
+use League\OAuth2\Server\Entities\ClientEntityInterface as LeagueClientEntityInterface;
 
 interface ClientEntityInterface extends LeagueClientEntityInterface {
 

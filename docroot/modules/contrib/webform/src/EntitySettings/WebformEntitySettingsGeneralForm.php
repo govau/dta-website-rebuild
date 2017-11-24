@@ -101,7 +101,7 @@ class WebformEntitySettingsGeneralForm extends WebformEntitySettingsBaseForm {
     ];
     $form['general_settings']['template'] = [
       '#type' => 'checkbox',
-      '#title' => $this->t('Allow this webform to be used as a template.'),
+      '#title' => $this->t('Allow this webform to be used as a template'),
       '#description' => $this->t('If checked, this webform will be available as a template to all users who can create new webforms.'),
       '#return_value' => TRUE,
       '#access' => $this->moduleHandler->moduleExists('webform_templates'),
@@ -109,8 +109,8 @@ class WebformEntitySettingsGeneralForm extends WebformEntitySettingsBaseForm {
     ];
     $form['general_settings']['results_disabled'] = [
       '#type' => 'checkbox',
-      '#title' => $this->t('Disable saving of submissions.'),
-      '#description' => $this->t('If saving of submissions is disabled, submission settings, submission limits, purging and the saving of drafts will be disabled. Submissions must be sent via an email or handled using a custom <a href=":href">webform handler</a>.', [':href' => Url::fromRoute('entity.webform.handlers', ['webform' => $webform->id()])->toString()]),
+      '#title' => $this->t('Disable saving of submissions'),
+      '#description' => $this->t('If saving of submissions is disabled, submission settings, submission limits, purging and the saving of drafts will be disabled. Submissions must be sent via an email or processed using a custom <a href=":href">webform handler</a>.', [':href' => Url::fromRoute('entity.webform.handlers', ['webform' => $webform->id()])->toString()]),
       '#return_value' => TRUE,
       '#default_value' => $settings['results_disabled'],
     ];
@@ -168,15 +168,27 @@ class WebformEntitySettingsGeneralForm extends WebformEntitySettingsBaseForm {
     $t_args = [
       ':node_href' => ($this->moduleHandler->moduleExists('node')) ? Url::fromRoute('node.add', ['node_type' => 'webform'])->toString() : '',
       ':block_href' => ($this->moduleHandler->moduleExists('block')) ? Url::fromRoute('block.admin_display')->toString() : '',
+      ':view_href' => $webform->toUrl()->toString(),
+      ':test_href' => $webform->toUrl('test-form')->toString(),
     ];
     $default_settings['default_page_submit_path'] = $default_page_submit_path;
     $default_settings['default_page_confirm_path'] = $default_page_submit_path . '/confirmation';
     $form['page_settings']['page'] = [
       '#type' => 'checkbox',
-      '#title' => $this->t('Allow users to post submission from a dedicated URL.'),
+      '#title' => $this->t('Allow users to post submissions from a dedicated URL'),
       '#description' => $this->t('If unchecked, this webform must be attached to a <a href=":node_href">node</a> or a <a href=":block_href">block</a> to receive submissions.', $t_args),
       '#return_value' => TRUE,
       '#default_value' => $settings['page'],
+    ];
+    $form['page_settings']['page_message'] = [
+      '#type' => 'webform_message',
+      '#message_type' => 'warning',
+      '#message_message' => $this->t('Any user who can update this webform will still be able to <a href=":view_href">view</a> and <a href=":test_href">test</a> this webform with the administrative theme.', $t_args),
+      '#states' => [
+        'visible' => [
+          ':input[name="page"]' => ['checked' => FALSE],
+        ],
+      ],
     ];
     if ($this->moduleHandler->moduleExists('path')) {
       $form['page_settings']['page_submit_path'] = [
@@ -223,6 +235,22 @@ class WebformEntitySettingsGeneralForm extends WebformEntitySettingsBaseForm {
       '#description' => $this->t('If checked, paging, saving of drafts, previews, submissions, and confirmations will not initiate a page refresh.'),
       '#return_value' => TRUE,
       '#default_value' => $settings['ajax'],
+    ];
+    $form['ajax_settings']['ajax_scroll_top'] = [
+      '#type' => 'radios',
+      '#title' => $this->t('On Ajax load, scroll to the top of the...'),
+      '#description' => $this->t("Select where the page should be scrolled to when paging, saving of drafts, previews, submissions, and confirmations. Select 'None' to disable scrolling."),
+      '#options' => [
+        '' => $this->t('None'),
+        'form' => $this->t('Form'),
+        'page' => $this->t('Page'),
+      ],
+      '#states' => [
+        'visible' => [
+          ':input[name="ajax"]' => ['checked' => TRUE],
+        ],
+      ],
+      '#default_value' => $settings['ajax_scroll_top'],
     ];
 
     // Author information.

@@ -148,6 +148,20 @@ webform.help:
     - core/jquery.once
     - core/jquery.ui.accordion
 
+# More.
+
+webform.element.more:
+  version: VERSION
+  css:
+    component:
+      css/webform.element.more.css: {}
+  js:
+    js/webform.element.more.js: {}
+  dependencies:
+    - core/drupal
+    - core/jquery
+    - core/jquery.once
+
 # Navigation.
 
 webform.navigation:
@@ -268,6 +282,15 @@ webform.form.unsaved:
     - core/jquery.once
     - core/drupal
 
+webform.form.wizard:
+  version: VERSION
+  js:
+    js/webform.form.wizard.js:  {}
+  dependencies:
+    - core/jquery
+    - core/jquery.once
+    - core/drupal
+
 # Element.
 
 # Drupal 8.3.x and below
@@ -331,6 +354,16 @@ webform.element.codemirror.html:
   dependencies:
     - webform/libraries.codemirror.html
 
+webform.element.codemirror.htmlmixed:
+  version: VERSION
+  css:
+    component:
+      css/webform.element.codemirror.css: {}
+  js:
+    js/webform.element.codemirror.js: {weight: -1}
+  dependencies:
+    - webform/libraries.codemirror.htmlmixed
+
 webform.element.codemirror.css:
   version: VERSION
   css:
@@ -361,6 +394,16 @@ webform.element.codemirror.php:
   dependencies:
     - webform/libraries.codemirror.php
 
+webform.element.codemirror.twig:
+  version: VERSION
+  css:
+    component:
+      css/webform.element.codemirror.css: {}
+  js:
+    js/webform.element.codemirror.js: {weight: -1}
+  dependencies:
+    - webform/libraries.codemirror.twig
+
 webform.element.color:
   version: VERSION
   css:
@@ -378,11 +421,23 @@ webform.element.composite:
     component:
       css/webform.element.composite.css: {}
 
-webform.element.composite_telephone:
+webform.element.composite.telephone:
   version: VERSION
   css:
     component:
-      css/webform.element.composite_telephone.css: {}
+      css/webform.element.composite.telephone.css: {}
+
+webform.element.composite.admin:
+  version: VERSION
+  css:
+    component:
+      css/webform.element.composite.admin.css: {}
+  js:
+    js/webform.element.composite.admin.js: {}
+  dependencies:
+    - core/drupal
+    - core/jquery
+    - core/jquery.once
 
 webform.element.counter:
   version: VERSION
@@ -459,6 +514,12 @@ webform.element.html_editor:
     - core/drupalSettings
     - core/jquery
     - core/jquery.once
+
+webform.element.horizontal_rule:
+  version: VERSION
+  css:
+    component:
+      css/webform.element.horizontal_rule.css: {}
 
 webform.element.icheck:
   version: VERSION
@@ -742,6 +803,7 @@ libraries.codemirror.text:
   js:
     /libraries/codemirror/lib/codemirror.js: {weight: -1}
     /libraries/codemirror/addon/runmode/runmode.js: {}
+    /libraries/codemirror/addon/display/placeholder.js: {}
 
 libraries.codemirror.yaml:
   version: *webform_codemirror_version
@@ -761,6 +823,18 @@ libraries.codemirror.html:
     /libraries/codemirror/mode/htmlmixed/htmlmixed.js: {}
   dependencies:
     - webform/libraries.codemirror.text
+
+libraries.codemirror.htmlmixed:
+  version: *webform_codemirror_version
+  license: *webform_codemirror_license
+  cdn: *webform_codemirror_cdn
+  js:
+    /libraries/codemirror/mode/xml/xml.js: {}
+    /libraries/codemirror/mode/htmlmixed/htmlmixed.js: {}
+  dependencies:
+    - webform/libraries.codemirror.text
+    - webform/libraries.codemirror.css
+    - webform/libraries.codemirror.js
 
 libraries.codemirror.css:
   version: *webform_codemirror_version
@@ -788,6 +862,15 @@ libraries.codemirror.php:
     /libraries/codemirror/mode/php/php.js: {}
     /libraries/codemirror/mode/clike/clike.js: {}
 
+  dependencies:
+    - webform/libraries.codemirror.text
+
+libraries.codemirror.twig:
+  version: *webform_codemirror_version
+  license: *webform_codemirror_license
+  cdn: *webform_codemirror_cdn
+  js:
+    /libraries/codemirror/mode/twig/twig.js: {}
   dependencies:
     - webform/libraries.codemirror.text
 

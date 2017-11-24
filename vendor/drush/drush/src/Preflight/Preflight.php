@@ -1,7 +1,6 @@
 <?php
 namespace Drush\Preflight;
 
-use Drush\Drush;
 use Drush\Config\Environment;
 use Drush\Config\ConfigLocator;
 use Drush\Config\EnvironmentConfigLoader;
@@ -13,7 +12,7 @@ use DrupalFinder\DrupalFinder;
  * The preflight happens after Drush has loaded its autoload file, but
  * prior to loading Drupal's autoload file and setting up the DI container.
  *
- * - Pre-parse commandline arguements
+ * - Pre-parse commandline arguments
  * - Read configuration .yml files
  * - Determine the site to use
  */
@@ -135,7 +134,8 @@ class Preflight
     {
         $argProcessor = new ArgsPreprocessor();
         $remapper = new ArgsRemapper($this->remapOptions(), $this->remapCommandAliases());
-        $preflightArgs = new PreflightArgs([]);
+        $preflightArgs = new PreflightArgs();
+        $preflightArgs->setHomeDir($this->environment()->homeDir());
         $argProcessor->setArgsRemapper($remapper);
 
         $argProcessor->parse($argv, $preflightArgs);

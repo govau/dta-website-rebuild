@@ -2,13 +2,11 @@
 
 namespace Drupal\simple_oauth\Entity;
 
-use Drupal\Core\Entity\EntityStorageInterface;
 use Drupal\Core\Field\BaseFieldDefinition;
 use Drupal\Core\Entity\ContentEntityBase;
 use Drupal\Core\Entity\EntityChangedTrait;
 use Drupal\Core\Entity\EntityTypeInterface;
 use Drupal\Core\Field\FieldStorageDefinitionInterface;
-use Drupal\user\UserInterface;
 
 /**
  * Defines the Oauth2 Token entity.
@@ -66,11 +64,11 @@ class Oauth2Token extends ContentEntityBase implements Oauth2TokenInterface {
       ->setDescription(t('The bundle property.'))
       ->setRevisionable(FALSE)
       ->setReadOnly(TRUE)
-      ->setDisplayOptions('view', array(
+      ->setDisplayOptions('view', [
         'label' => 'inline',
         'type' => 'entity_reference_label',
         'weight' => 0,
-      ))
+      ])
       ->setSetting('target_type', 'oauth2_token_type');
 
     $fields['auth_user_id'] = BaseFieldDefinition::create('entity_reference')
@@ -81,22 +79,22 @@ class Oauth2Token extends ContentEntityBase implements Oauth2TokenInterface {
       ->setSetting('handler', 'default')
       ->setDefaultValueCallback('Drupal\node\Entity\Node::getCurrentUserId')
       ->setTranslatable(FALSE)
-      ->setDisplayOptions('view', array(
+      ->setDisplayOptions('view', [
         'label' => 'inline',
         'type' => 'author',
         'weight' => 1,
-      ))
+      ])
       ->setCardinality(1)
-      ->setDisplayOptions('form', array(
+      ->setDisplayOptions('form', [
         'type' => 'entity_reference_autocomplete',
         'weight' => 0,
-        'settings' => array(
+        'settings' => [
           'match_operator' => 'CONTAINS',
           'size' => '60',
           'autocomplete_type' => 'tags',
           'placeholder' => '',
-        ),
-      ));
+        ],
+      ]);
 
     $fields['client'] = BaseFieldDefinition::create('entity_reference')
       ->setLabel(t('Client'))
@@ -105,15 +103,15 @@ class Oauth2Token extends ContentEntityBase implements Oauth2TokenInterface {
       ->setSetting('target_type', 'consumer')
       ->setSetting('handler', 'default')
       ->setTranslatable(FALSE)
-      ->setDisplayOptions('view', array(
+      ->setDisplayOptions('view', [
         'label' => 'inline',
         'type' => 'entity_reference_label',
         'weight' => 2,
-      ))
-      ->setDisplayOptions('form', array(
+      ])
+      ->setDisplayOptions('form', [
         'type' => 'entity_reference_autocomplete',
         'weight' => 2,
-      ));
+      ]);
 
     $fields['scopes'] = BaseFieldDefinition::create('entity_reference')
       ->setLabel(t('Scopes'))
@@ -123,76 +121,76 @@ class Oauth2Token extends ContentEntityBase implements Oauth2TokenInterface {
       ->setSetting('handler', 'default')
       ->setCardinality(FieldStorageDefinitionInterface::CARDINALITY_UNLIMITED)
       ->setTranslatable(FALSE)
-      ->setDisplayOptions('view', array(
+      ->setDisplayOptions('view', [
         'label' => 'inline',
         'type' => 'entity_reference_label',
         'weight' => 3,
-      ))
-      ->setDisplayOptions('form', array(
+      ])
+      ->setDisplayOptions('form', [
         'type' => 'entity_reference_autocomplete',
         'weight' => 3,
-        'settings' => array(
+        'settings' => [
           'match_operator' => 'CONTAINS',
           'size' => '60',
           'autocomplete_type' => 'tags',
           'placeholder' => '',
-        ),
-      ));
+        ],
+      ]);
 
     $fields['value'] = BaseFieldDefinition::create('string')
       ->setLabel(t('Token'))
       ->setDescription(t('The token value.'))
-      ->setSettings(array(
+      ->setSettings([
         'max_length' => 128,
         'text_processing' => 0,
-      ))
+      ])
       ->setRequired(TRUE)
-      ->setDisplayOptions('view', array(
+      ->setDisplayOptions('view', [
         'label' => 'inline',
         'type' => 'timestamp',
         'weight' => 4,
-      ));
+      ]);
 
     $fields['created'] = BaseFieldDefinition::create('created')
       ->setLabel(t('Created'))
       ->setDescription(t('The time that the entity was created.'))
-      ->setDisplayOptions('view', array(
+      ->setDisplayOptions('view', [
         'label' => 'inline',
         'type' => 'timestamp',
         'weight' => 5,
-      ));
+      ]);
 
     $fields['changed'] = BaseFieldDefinition::create('changed')
       ->setLabel(t('Changed'))
       ->setDescription(t('The time that the entity was last edited.'))
-      ->setDisplayOptions('view', array(
+      ->setDisplayOptions('view', [
         'label' => 'inline',
         'type' => 'timestamp',
         'weight' => 6,
-      ));
+      ]);
 
     $fields['expire'] = BaseFieldDefinition::create('timestamp')
       ->setLabel(t('Expire'))
       ->setDescription(t('The time when the token expires.'))
-      ->setDisplayOptions('form', array(
+      ->setDisplayOptions('form', [
         'type' => 'datetime_timestamp',
         'weight' => 7,
-      ))
-      ->setDisplayOptions('view', array(
+      ])
+      ->setDisplayOptions('view', [
         'label' => 'inline',
         'type' => 'timestamp',
         'weight' => 7,
-      ))
+      ])
       ->setRequired(TRUE);
 
     $fields['status'] = BaseFieldDefinition::create('boolean')
       ->setLabel(t('Publishing status'))
       ->setDescription(t('A boolean indicating whether the token is available.'))
-      ->setDisplayOptions('view', array(
+      ->setDisplayOptions('view', [
         'label' => 'inline',
         'type' => 'boolean',
         'weight' => 8,
-      ))
+      ])
       ->setRevisionable(TRUE)
       ->setTranslatable(TRUE)
       ->setDefaultValue(TRUE);

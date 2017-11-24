@@ -4,7 +4,6 @@ namespace Drupal\simple_oauth\Normalizer;
 
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\serialization\Normalizer\NormalizerBase;
-use Symfony\Component\Serializer\Normalizer\scalar;
 
 class TokenEntityNormalizer extends NormalizerBase implements TokenEntityNormalizerInterface {
 
@@ -27,11 +26,10 @@ class TokenEntityNormalizer extends NormalizerBase implements TokenEntityNormali
     $this->entityTypeManager = $entity_type_manager;
   }
 
-
   /**
    * {@inheritdoc}
    */
-  public function normalize($token_entity, $format = NULL, array $context = array()) {
+  public function normalize($token_entity, $format = NULL, array $context = []) {
     /** @var \League\OAuth2\Server\Entities\TokenInterface $token_entity */
 
     $scopes = array_map(function ($scope_entity) {

@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Drupal\simple_oauth\Entity;
 
 trait ConfigEntityLockableTrait {
@@ -11,7 +10,6 @@ trait ConfigEntityLockableTrait {
    * @var bool
    */
   protected $locked = FALSE;
-
 
   /**
    * {@inheritdoc}

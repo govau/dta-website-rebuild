@@ -9,6 +9,7 @@ use Drupal\Core\Serialization\Yaml;
 use Drupal\system\Entity\Action;
 use Drupal\webform\Entity\Webform;
 use Drupal\webform\WebformInterface;
+use Drupal\webform\Plugin\WebformHandlerInterface;
 
 /**
  * Update admin settings to reflect changes in the default settings.
@@ -17,9 +18,9 @@ use Drupal\webform\WebformInterface;
  * done via an update hook.
  *
  * @param bool $reset
- *  If set TRUE old admin settings will be completly deleted.
+ *   If set TRUE old admin settings will be completly deleted.
  *
- * @see drush_webform_repair().
+ * @see drush_webform_repair()
  */
 function _webform_update_admin_settings($reset = FALSE) {
   $admin_config = \Drupal::configFactory()->getEditable('webform.settings');
@@ -130,14 +131,14 @@ function _webform_update_webform_settings() {
 /**
  * Update webform handler setting to reflect changes in a handler's default configuration.
  *
- * Must be called by passing in the handler's class using ::class
+ * Must be called by passing in the handler's class using ::class.
  *
  * Example usage:
  * @code
  * _webform_update_webform_handler_class_settings(EmailWebformHandler::class);
  * @endcode
  *
- * @param \Drupal\webform\Plugin\WebformHandlerInterface $handler_class
+ * @param string $handler_class
  *   A handler class instance.
  *
  * @see \Drupal\webform\Plugin\WebformHandlerInterface

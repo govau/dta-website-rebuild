@@ -5,7 +5,6 @@ namespace Drupal\webform\Plugin\Block;
 use Drupal\Component\Render\FormattableMarkup;
 use Drupal\Core\Access\AccessResult;
 use Drupal\Core\Block\BlockBase;
-use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
@@ -118,17 +117,17 @@ class WebformSubmissionLimitBlock extends BlockBase implements ContainerFactoryP
    */
   public function blockForm($form, FormStateInterface $form_state) {
     $form['type'] = [
-      '#title' => $this->t('Display limit and total submissions for'),
+      '#title' => $this->t('Display limit and total submissions for the'),
       '#type' => 'select',
       '#options' => [
-        'webform' => $this->t('Webform'),
+        'webform' => $this->t('Current webform'),
         'user' => $this->t('Current user'),
       ],
       '#ajax' => self::getTokenAjaxSettings(),
       '#default_value' => $this->configuration['type'],
     ];
     $form['source_entity'] = [
-      '#title' => $this->t('Restrict limit and total submissions to current or specified source entity.'),
+      '#title' => $this->t('Restrict limit and total submissions to current or specified source entity'),
       '#type' => 'checkbox',
       '#return_value' => TRUE,
       '#ajax' => self::getTokenAjaxSettings(),
@@ -475,7 +474,7 @@ class WebformSubmissionLimitBlock extends BlockBase implements ContainerFactoryP
    *   Token prefix which can be 'total' or 'limit'.
    * @param string $type
    *   The submission type which can be 'webform' or 'user'.
-   * @param $source_entity
+   * @param bool $source_entity
    *   Flag indicating if source entity should be included in available tokens.
    *
    * @return string

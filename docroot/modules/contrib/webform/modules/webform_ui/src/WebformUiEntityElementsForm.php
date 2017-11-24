@@ -310,7 +310,7 @@ class WebformUiEntityElementsForm extends BundleEntityFormBase {
 
     $elements = $webform->getElementsInitializedAndFlattened();
     $weights = [];
-    foreach ($elements as &$element) {
+    foreach ($elements as $element_key => &$element) {
       $parent_key = $element['#webform_parent_key'];
       if (!isset($weights[$parent_key])) {
         $element['#weight'] = $weights[$parent_key] = 0;
@@ -333,7 +333,7 @@ class WebformUiEntityElementsForm extends BundleEntityFormBase {
           $element['#title'] = Unicode::truncate(strip_tags($element['#markup']), 100, TRUE, TRUE);
         }
         else {
-          $element['#title'] = '[' . t('blank') . ']';
+          $element['#title'] = '[' .  $element_key . ']';
         }
       }
     }
@@ -661,7 +661,7 @@ class WebformUiEntityElementsForm extends BundleEntityFormBase {
       ];
       $row['operations']['#links']['customize'] = [
         'title' => $this->t('Customize'),
-        'url' => new Url('entity.webform_ui.element.add_form', ['webform' => $webform->id(), 'type' => 'webform_actions'], ['query' => ['key' => 'actions']]),
+        'url' => new Url('entity.webform_ui.element.add_form', ['webform' => $webform->id(), 'type' => 'webform_actions']),
         'attributes' => WebformDialogHelper::getModalDialogAttributes(800),
       ];
     }

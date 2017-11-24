@@ -7,10 +7,11 @@
 
 use Drupal\Core\Link;
 use Drupal\Core\Render\Element;
+use Drupal\Core\Render\Markup;
 use Drupal\Core\Url;
 use Drupal\Core\Serialization\Yaml;
+use Drupal\Core\Render\Element\RenderElement;
 use Drupal\Core\Template\Attribute;
-use Drupal\Component\Utility\Xss;
 use Drupal\image\Entity\ImageStyle;
 use Drupal\webform\Element\WebformCodeMirror;
 use Drupal\webform\Element\WebformHtmlEditor;
@@ -188,11 +189,11 @@ function template_preprocess_webform_confirmation(array &$variables) {
   $settings = $webform->getSettings();
 
   // Set progress.
-  if ($webform->getPages() && $settings['wizard_complete'] && ($settings['wizard_progress_bar'] || $settings['wizard_progress_pages'] || $settings['wizard_progress_percentage'])) {
+  if ($webform->getPages() && $settings['wizard_confirmation'] && ($settings['wizard_progress_bar'] || $settings['wizard_progress_pages'] || $settings['wizard_progress_percentage'])) {
     $variables['progress'] = [
       '#theme' => 'webform_progress',
       '#webform' => $webform,
-      '#current_page' => 'webform_complete',
+      '#current_page' => 'webform_confirmation',
     ];
   }
 
@@ -219,7 +220,7 @@ function template_preprocess_webform_confirmation(array &$variables) {
   }
 
   // Apply all passed query string parameters to the 'Back to form' link.
-  unset($query['webform_id'], $query['ajax_form'], $query['_wrapper_format'], $query['token']);
+  unset($query['webform_id'], $query['ajax_form'], $query['_wrapper_format'], $query['token'], $query['page']);
   $options = ($query) ? ['query' => $query] : [];
 
   // Set back_url.
@@ -227,11 +228,17 @@ function template_preprocess_webform_confirmation(array &$variables) {
     $variables['back_url'] = $source_entity->toUrl('canonical', $options)->toString();
   }
   elseif ($webform_submission) {
-    $variables['back_url'] = $webform_submission->getSourceUrl()->toString();
+    $source_url = $webform_submission->getSourceUrl();
+    $query = $source_url->getOption('query');
+    unset($query['webform_id'], $query['ajax_form'], $query['_wrapper_format'], $query['token'], $query['page']);
+    $source_url->setOption('query', $query);
+    $variables['back_url'] = $source_url->toString();
   }
   else {
     $variables['back_url'] = $webform->toUrl('canonical', $options)->toString();
   }
+
+  $webform->invokeHandlers('preprocessConfirmation', $variables);
 }
 
 /**
@@ -492,10 +499,7 @@ function template_preprocess_webform_submission_yaml(array &$variables) {
   $data = $webform_submission->toArray(TRUE, TRUE);
   $yaml = Yaml::encode($data);
   $yaml = WebformYaml::tidy($yaml);
-  $variables['yaml'] = [
-    '#markup' => $yaml,
-    '#allowed_tags' => Xss::getAdminTagList(),
-  ];;
+  $variables['yaml'] = $yaml;
 }
 
 /**
@@ -511,10 +515,8 @@ function template_preprocess_webform_submission_yaml(array &$variables) {
 function template_preprocess_webform_codemirror(array &$variables) {
   $variables['mode'] = WebformCodeMirror::getMode($variables['type']);
   if (is_string($variables['code'])) {
-    $variables['code'] = [
-      '#markup' => $variables['code'],
-      '#allowed_tags' => Xss::getAdminTagList(),
-    ];
+    // Encode all HTML entities include tags.
+    $variables['code'] = Markup::create(htmlentities($variables['code']));
   }
 }
 
@@ -751,6 +753,75 @@ function template_preprocess_webform_message(array &$variables) {
   }
 }
 
+/**
+ * Prepares variables for Webform horizontal rule templates.
+ *
+ * Default template: webform-horizontal-rule.html.twig.
+ *
+ * @param array $variables
+ *   An associative array containing:
+ *   - element: An associative array containing the properties of the element.
+ *     Properties used: #id, #attributes.
+ */
+function template_preprocess_webform_horizontal_rule(array &$variables) {
+  $element = $variables['element'];
+
+  if (!empty($element['#id'])) {
+    $variables['attributes']['id'] = $element['#id'];
+  }
+}
+
+/**
+ * Prepares variables for webform section element templates.
+ *
+ * Default template: webform-section.html.twig.
+ *
+ * Copied from: template_preprocess_fieldset()
+ *
+ * @param array $variables
+ *   An associative array containing:
+ *   - element: An associative array containing the properties of the element.
+ *     Properties used: #attributes, #children, #description, #id, #title,
+ *     #value.
+ */
+function template_preprocess_webform_section(array &$variables) {
+  $element = $variables['element'];
+  Element::setAttributes($element, ['id']);
+  RenderElement::setAttributes($element);
+  $variables['attributes'] = isset($element['#attributes']) ? $element['#attributes'] : [];
+  $variables['prefix'] = isset($element['#field_prefix']) ? $element['#field_prefix'] : NULL;
+  $variables['suffix'] = isset($element['#field_suffix']) ? $element['#field_suffix'] : NULL;
+  $variables['title_display'] = isset($element['#title_display']) ? $element['#title_display'] : NULL;
+  $variables['title_tag'] = isset($element['#title_tag']) ? $element['#title_tag'] : 'h2';
+  $variables['title_attributes'] = isset($element['#title_attributes']) ? $element['#title_attributes'] : [];
+  $variables['children'] = $element['#children'];
+  $variables['required'] = !empty($element['#required']) ? $element['#required'] : NULL;
+
+  // Allow markup in title.
+  if (isset($element['#title']) && $element['#title'] !== '') {
+    $variables['title'] = ['#markup' => $element['#title']];
+  }
+
+  // Add 'visually-hidden' class to title attributes.
+  if ($variables['title_display'] == 'invisible') {
+    $variables['title_attributes']['class'][] = 'visually-hidden';
+  }
+  $variables['title_attributes'] = new Attribute($variables['title_attributes']);
+
+  if (!empty($element['#description'])) {
+    $description_id = $element['#attributes']['id'] . '--description';
+    $description_attributes['id'] = $description_id;
+    $variables['description']['attributes'] = new Attribute($description_attributes);
+    $variables['description']['content'] = $element['#description'];
+
+    // Add the description's id to the fieldset aria attributes.
+    $variables['attributes']['aria-describedby'] = $description_id;
+  }
+
+  // Suppress error messages.
+  $variables['errors'] = NULL;
+}
+
 /******************************************************************************/
 // Composite templates
 /******************************************************************************/
@@ -893,6 +964,30 @@ function template_preprocess_webform_element_help(array &$variables) {
       'class' => ['webform-element-help'],
     ],
   ];
+}
+
+/**
+ * Prepares variables for element more.
+ *
+ * Default template: webform-element-more.html.twig.
+ *
+ * @param array $variables
+ *   An associative array containing the following key:
+ *   - element: The webform element.
+ */
+function template_preprocess_webform_element_more(array &$variables) {
+  if (empty($variables['more_title'])) {
+    $variables['more_title'] = \Drupal::config('webform.settings')->get('element.default_more_title');
+  }
+
+  if (!is_array($variables['more'])) {
+    $variables['more'] = [
+      '#markup' => $variables['more'],
+      '#allowed_tags' => WebformHtmlEditor::getAllowedTags(),
+    ];
+  }
+
+  $variables['attributes'] = new Attribute($variables['attributes']);
 }
 
 /**

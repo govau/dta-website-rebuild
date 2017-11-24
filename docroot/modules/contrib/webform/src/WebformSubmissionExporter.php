@@ -264,10 +264,10 @@ class WebformSubmissionExporter implements WebformSubmissionExporterInterface {
 
     // Append element handler default options.
     $element_types = $this->getWebformElementTypes();
-    $element_handlers = $this->elementManager->getInstances();
-    foreach ($element_handlers as $element_type => $element_handler) {
+    $element_plugins = $this->elementManager->getInstances();
+    foreach ($element_plugins as $element_type => $element_plugin) {
       if (empty($element_types) || isset($element_types[$element_type])) {
-        $this->defaultOptions += $element_handler->getExportDefaultOptions();
+        $this->defaultOptions += $element_plugin->getExportDefaultOptions();
       }
     }
 
@@ -332,7 +332,7 @@ class WebformSubmissionExporter implements WebformSubmissionExporterInterface {
     $form['export']['element']['multiple_delimiter'] = [
       '#type' => 'select',
       '#title' => $this->t('Element multiple values delimiter'),
-      '#description' => $this->t('This is the delimiter when an element has multiple values.'),
+      '#description' => $this->t('The delimiter used when an element has multiple values.'),
       '#required' => TRUE,
       '#options' => [
         ';' => $this->t('Semicolon (;)'),
@@ -365,7 +365,7 @@ class WebformSubmissionExporter implements WebformSubmissionExporterInterface {
 
     $form['export']['header']['header_prefix'] = [
       '#type' => 'checkbox',
-      '#title' => $this->t("Include an element's title with all sub elements and values in each column header."),
+      '#title' => $this->t("Include an element's title with all sub elements and values in each column header"),
       '#return_value' => TRUE,
       '#default_value' => $export_options['header_prefix'],
     ];
@@ -405,11 +405,11 @@ class WebformSubmissionExporter implements WebformSubmissionExporterInterface {
       '#states' => $states_options,
     ];
     $element_types = $this->getWebformElementTypes();
-    $element_handlers = $this->elementManager->getInstances();
-    foreach ($element_handlers as $element_type => $element_handler) {
+    $element_plugins = $this->elementManager->getInstances();
+    foreach ($element_plugins as $element_type => $element_plugin) {
       if (empty($element_types) || isset($element_types[$element_type])) {
         $subform_state = SubformState::createForSubform($form['export']['elements'], $form, $form_state);
-        $element_handler->buildExportOptionsForm($form['export']['elements'], $subform_state, $export_options);
+        $element_plugin->buildExportOptionsForm($form['export']['elements'], $subform_state, $export_options);
       }
     }
 

@@ -46,7 +46,7 @@ class FieldGroupDeleteForm extends ConfirmFormBase {
    * {@inheritdoc}
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
-    $bundles = entity_get_bundles();
+    $bundles = \Drupal::service('entity_type.bundle.info')->getAllBundleInfo();
     $bundle_label = $bundles[$this->fieldGroup->entity_type][$this->fieldGroup->bundle]['label'];
 
     field_group_group_delete($this->fieldGroup);

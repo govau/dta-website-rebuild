@@ -31,10 +31,12 @@ class WebformLikert extends WebformElementBase {
   public function getDefaultProperties() {
     return [
       'title' => '',
-      // General settings.
+      'default_value' => [],
+      // Description/Help.
       'help' => '',
       'description' => '',
-      'default_value' => [],
+      'more' => '',
+      'more_title' => '',
       // Form display.
       'title_display' => '',
       'description_display' => '',
@@ -44,6 +46,8 @@ class WebformLikert extends WebformElementBase {
       'required_error' => '',
       // Submission display.
       'format' => $this->getItemDefaultFormat(),
+      'format_html' => '',
+      'format_text' => '',
       // Likert settings.
       'questions' => [],
       'questions_randomize' => FALSE,
@@ -168,11 +172,6 @@ class WebformLikert extends WebformElementBase {
    */
   public function formatTextItem(array $element, WebformSubmissionInterface $webform_submission, array $options = []) {
     $value = $this->getValue($element, $webform_submission, $options);
-
-    // Return empty value.
-    if ($value === '' || $value === NULL || (is_array($value) && empty($value))) {
-      return '';
-    }
 
     $format = $this->getItemFormat($element);
     switch ($format) {

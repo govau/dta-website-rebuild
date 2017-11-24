@@ -3,14 +3,12 @@ namespace Drush;
 
 use Consolidation\AnnotatedCommand\AnnotatedCommand;
 use Consolidation\AnnotatedCommand\CommandFileDiscovery;
-use Consolidation\Config\ConfigInterface;
 use Drush\Boot\BootstrapManager;
 use Drush\Runtime\TildeExpansionHook;
-use Drush\SiteAlias\AliasManager;
+use Drush\SiteAlias\SiteAliasManager;
 use Drush\Log\LogLevel;
 use Drush\Command\RemoteCommandProxy;
 use Drush\Runtime\RedispatchHook;
-
 use Robo\Common\ConfigAwareTrait;
 use Robo\Contract\ConfigAwareInterface;
 use Symfony\Component\Console\Application as SymfonyApplication;
@@ -37,7 +35,7 @@ class Application extends SymfonyApplication implements LoggerAwareInterface, Co
     /** @var BootstrapManager */
     protected $bootstrapManager;
 
-    /** @var AliasManager */
+    /** @var SiteAliasManager */
     protected $aliasManager;
 
     /** @var RedispatchHook */
@@ -162,12 +160,24 @@ class Application extends SymfonyApplication implements LoggerAwareInterface, Co
         $uri = $selfAliasRecord->uri();
 
         if (empty($uri)) {
-            $uri = $this->bootstrapManager()->selectUri($cwd);
+            $uri = $this->selectUri($cwd);
             $selfAliasRecord->setUri($uri);
             $this->aliasManager->setSelf($selfAliasRecord);
         }
         // Update the uri in the bootstrap manager
         $this->bootstrapManager->setUri($uri);
+    }
+
+    /**
+     * Select a URI to use for the site, based on directory or config.
+     */
+    public function selectUri($cwd)
+    {
+        $uri = $this->config->get('options.uri');
+        if ($uri) {
+            return $uri;
+        }
+        return $this->bootstrapManager()->selectUri($cwd);
     }
 
     /**
@@ -207,10 +217,14 @@ class Application extends SymfonyApplication implements LoggerAwareInterface, Co
                 throw $e;
             }
 
-            // TODO: We could also fail-fast (throw $e) if bootstrapMax made no progress.
             $this->logger->log(LogLevel::DEBUG, 'Bootstrap further to find {command}', ['command' => $name]);
             $this->bootstrapManager->bootstrapMax();
             $this->logger->log(LogLevel::DEBUG, 'Done with bootstrap max in Application::find(): trying to find {command} again.', ['command' => $name]);
+
+            if (!$this->bootstrapManager()->hasBootstrapped(DRUSH_BOOTSTRAP_DRUPAL_ROOT)) {
+                // Unable to progress in the bootstrap. Give friendly error message.
+                throw new CommandNotFoundException(dt('Command !command was not found. Pass --root or a @siteAlias in order to run Drupal-specific commands.', ['!command' => $name]));
+            }
 
             // Try to find it again. This time the exception will
             // not be caught if the command cannot be found.

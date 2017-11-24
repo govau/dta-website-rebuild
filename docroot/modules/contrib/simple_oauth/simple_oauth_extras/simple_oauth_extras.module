@@ -2,10 +2,10 @@
 
 /**
  * @file
- *
  * Module implementation file.
  */
 
+use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Entity\EntityTypeInterface;
 use Drupal\Core\Field\BaseFieldDefinition;
 use Drupal\Core\Link;
@@ -15,7 +15,7 @@ use Drupal\Core\Url;
 /**
  * Implements hook_form_FORM_ID_alter().
  */
-function simple_oauth_extras_form_oauth2_token_settings_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+function simple_oauth_extras_form_oauth2_token_settings_alter(&$form, FormStateInterface $form_state, $form_id) {
   $form['use_implicit'] = [
     '#type' => 'checkbox',
     '#title' => t('Enable the implicit grant?'),
@@ -33,7 +33,7 @@ function simple_oauth_extras_form_oauth2_token_settings_alter(&$form, \Drupal\Co
  * @param \Drupal\Core\Form\FormStateInterface $form_state
  *   The current state of the form.
  */
-function simple_oauth_extras_form_oauth2_token_settings_submit(array &$form, \Drupal\Core\Form\FormStateInterface $form_state) {
+function simple_oauth_extras_form_oauth2_token_settings_submit(array &$form, FormStateInterface $form_state) {
   $settings = \Drupal::configFactory()->getEditable('simple_oauth_extras.settings');
   $settings->set('use_implicit', $form_state->getValue('use_implicit'));
   $settings->save();
@@ -95,7 +95,7 @@ function simple_oauth_extras_consumers_list_alter(&$data, $context) {
   if ($context['type'] === 'header') {
     $data['redirect'] = t('Redirect');
   }
-  else if ($context['type'] === 'row') {
+  elseif ($context['type'] === 'row') {
     $data['redirect'] = NULL;
     if ($redirect_url = $context['entity']->get('redirect')->value) {
       $data['redirect'] = Link::fromTextAndUrl($redirect_url, Url::fromUri($redirect_url));

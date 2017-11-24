@@ -57,3 +57,10 @@ services:
     class: Drupal\simple_oauth\HttpMiddleware\BasicAuthSwap
     tags:
       - { name: http_middleware }
+# Keys Generator Services
+  simple_oauth.filesystem:
+    class: Drupal\simple_oauth\Service\Filesystem\Filesystem
+    arguments: ['@file_system']
+  simple_oauth.key.generator:
+    class: Drupal\simple_oauth\Service\KeyGeneratorService
+    arguments: ['@simple_oauth.filesystem']

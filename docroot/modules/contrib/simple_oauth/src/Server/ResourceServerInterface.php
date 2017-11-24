@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Drupal\simple_oauth\Server;
-
 
 use Symfony\Component\HttpFoundation\Request;
 
@@ -20,4 +18,5 @@ interface ResourceServerInterface {
    *   The request object augmented with the token information.
    */
   public function validateAuthenticatedRequest(Request $request);
+
 }

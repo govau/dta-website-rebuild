@@ -17,6 +17,9 @@ core.entity_view_display.*.*.*.third_party.field_group:
         parent_name:
           type: string
           label: 'The parent group of this group'
+        region:
+          type: string
+          label: 'The region of this group'
         weight:
           type: integer
           label: 'The weight of the group'
@@ -42,6 +45,9 @@ core.entity_form_display.*.*.*.third_party.field_group:
         label:
           type: string
           label: Readable name of the group
+        region:
+          type: string
+          label: 'The region of this group'
         parent_name:
           type: string
           label: 'The parent group of this group'

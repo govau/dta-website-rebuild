@@ -4,8 +4,6 @@ namespace Drupal\simple_oauth_extras\Plugin\Oauth2Grant;
 
 use Drupal\simple_oauth\Plugin\Oauth2GrantBase;
 use League\OAuth2\Server\Grant\ClientCredentialsGrant;
-use League\OAuth2\Server\Repositories\RefreshTokenRepositoryInterface;
-use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * @Oauth2Grant(

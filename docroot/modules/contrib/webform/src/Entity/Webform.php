@@ -327,7 +327,7 @@ class Webform extends ConfigEntityBundleBase implements WebformInterface {
   protected $hasContainer = FALSE;
 
   /**
-   * Track if the webform has conditions (ie #states).
+   * Track if the webform has conditions (i.e. #states).
    *
    * @var bool
    */
@@ -763,6 +763,7 @@ class Webform extends ConfigEntityBundleBase implements WebformInterface {
   public static function getDefaultSettings() {
     return [
       'ajax' => FALSE,
+      'ajax_scroll_top' => 'form',
       'page' => TRUE,
       'page_submit_path' => '',
       'page_confirm_path' => '',
@@ -792,8 +793,9 @@ class Webform extends ConfigEntityBundleBase implements WebformInterface {
       'wizard_progress_pages' => FALSE,
       'wizard_progress_percentage' => FALSE,
       'wizard_start_label' => '',
-      'wizard_complete' => TRUE,
-      'wizard_complete_label' => '',
+      'wizard_confirmation' => TRUE,
+      'wizard_confirmation_label' => '',
+      'wizard_track' => '',
       'preview' => DRUPAL_DISABLED,
       'preview_label' => '',
       'preview_title' => '',
@@ -1081,8 +1083,8 @@ class Webform extends ConfigEntityBundleBase implements WebformInterface {
     /** @var \Drupal\webform\Plugin\WebformElementManagerInterface $element_manager */
     $element_manager = \Drupal::service('plugin.manager.webform.element');
     foreach ($elements as $key => $element) {
-      $element_handler = $element_manager->getElementInstance($element);
-      if (!$element_handler->checkAccessRules($operation, $element)) {
+      $element_plugin = $element_manager->getElementInstance($element);
+      if (!$element_plugin->checkAccessRules($operation, $element)) {
         unset($elements[$key]);
       }
     }
@@ -1099,8 +1101,8 @@ class Webform extends ConfigEntityBundleBase implements WebformInterface {
     $selectors = [];
     $elements = $this->getElementsInitializedAndFlattened();
     foreach ($elements as $element) {
-      $element_handler = $element_manager->getElementInstance($element);
-      $selectors += $element_handler->getElementSelectorOptions($element);
+      $element_plugin = $element_manager->getElementInstance($element);
+      $selectors += $element_plugin->getElementSelectorOptions($element);
     }
     return $selectors;
   }
@@ -1264,19 +1266,19 @@ class Webform extends ConfigEntityBundleBase implements WebformInterface {
         $element['#type'] = 'webform_markup';
       }
 
-      $element_handler = NULL;
+      $element_plugin = NULL;
       if (isset($element['#type'])) {
         // Load the element's handler.
-        $element_handler = $element_manager->getElementInstance($element);
+        $element_plugin = $element_manager->getElementInstance($element);
 
         // Initialize the element.
         // Note: Composite sub elements are initialized via
         // \Drupal\webform\Plugin\WebformElement\WebformCompositeBase::initialize
         // and stored in the '#webform_composite_elements' property.
-        $element_handler->initialize($element);
+        $element_plugin->initialize($element);
 
         // Track managed file upload.
-        if ($element_handler instanceof WebformManagedFileBase) {
+        if ($element_plugin instanceof WebformManagedFileBase) {
           $this->hasManagedFile = TRUE;
         }
 
@@ -1286,7 +1288,7 @@ class Webform extends ConfigEntityBundleBase implements WebformInterface {
         }
 
         // Track container.
-        if ($element_handler->isContainer($element)) {
+        if ($element_plugin->isContainer($element)) {
           $this->hasContainer = TRUE;
         }
 
@@ -1296,17 +1298,17 @@ class Webform extends ConfigEntityBundleBase implements WebformInterface {
         }
 
         // Track actions.
-        if ($element_handler instanceof WebformActions) {
+        if ($element_plugin instanceof WebformActions) {
           $this->elementsActions[$key] = $key;
         }
 
         // Track wizard.
-        if ($element_handler instanceof WebformWizardPage) {
+        if ($element_plugin instanceof WebformWizardPage) {
           $this->elementsWizardPages[$key] = $key;
         }
 
-        $element['#webform_multiple'] = $element_handler->hasMultipleValues($element);
-        $element['#webform_composite'] = $element_handler->isComposite();
+        $element['#webform_multiple'] = $element_plugin->hasMultipleValues($element);
+        $element['#webform_composite'] = $element_plugin->isComposite();
       }
 
       // Copy only the element properties to initialized and flattened elements.
@@ -1314,7 +1316,7 @@ class Webform extends ConfigEntityBundleBase implements WebformInterface {
 
       // Check if element has value (aka can be exported) and add it to
       // flattened has value array.
-      if ($element_handler && $element_handler->isInput($element)) {
+      if ($element_plugin && $element_plugin->isInput($element)) {
         $this->elementsInitializedFlattenedAndHasValue[$key] = &$this->elementsInitializedAndFlattened[$key];
       }
 
@@ -1544,9 +1546,9 @@ class Webform extends ConfigEntityBundleBase implements WebformInterface {
     }
 
     // Only add complete page, if there are some pages.
-    if ($pages && $this->getSetting('wizard_complete')) {
-      $pages['webform_complete'] = [
-        '#title' => $this->getSetting('wizard_complete_label', TRUE),
+    if ($pages && $this->getSetting('wizard_confirmation')) {
+      $pages['webform_confirmation'] = [
+        '#title' => $this->getSetting('wizard_confirmation_label', TRUE),
         '#access' => TRUE,
       ];
     }

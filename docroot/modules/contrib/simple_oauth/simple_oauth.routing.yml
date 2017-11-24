@@ -41,6 +41,16 @@ oauth2_token.settings:
     _admin_route: TRUE
   base_route: entity.user.admin_form
 
+oauth2_token.settings.generate_key:
+  path: '/admin/config/people/simple_oauth/generate_key'
+  defaults:
+    _title: 'Generate Key Form'
+    _controller: 'Drupal\simple_oauth\Controller\Oauth2GenerateKey::generateKeysModalAjaxResponse'
+  requirements:
+    _permission: 'administer simple_oauth entities'
+  options:
+    _admin_route: TRUE
+
 oauth2_token.token:
   path: '/oauth/token'
   defaults:

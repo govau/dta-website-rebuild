@@ -150,7 +150,7 @@ function simple_oauth_consumers_list_alter(&$data, $context) {
   if ($context['type'] === 'header') {
     $data['scopes'] = t('Scopes');
   }
-  else if ($context['type'] === 'row') {
+  elseif ($context['type'] === 'row') {
     $entity = $context['entity'];
     $data['scopes'] = [
       'data' => ['#theme' => 'item_list', '#items' => []],

@@ -284,7 +284,6 @@ class RolesNegotiationFunctionalTest extends BrowserTestBase {
     );
     $parsed_response = Json::decode($response->getBody()->getContents());
     $this->assertEquals($this->user->id(), $parsed_response['id']);
-    //
     $this->assertEquals(['authenticated', 'oof'], $parsed_response['roles']);
     $this->assertFalse($parsed_response['permissions']['view own simple_oauth entities']['access']);
   }

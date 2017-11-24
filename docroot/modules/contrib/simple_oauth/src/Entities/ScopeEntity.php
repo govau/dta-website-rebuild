@@ -21,7 +21,6 @@ class ScopeEntity implements ScopeEntityInterface {
     $this->setIdentifier($role->id());
   }
 
-
   public function jsonSerialize() {
     return $this->getIdentifier();
   }

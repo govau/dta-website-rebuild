@@ -32,7 +32,7 @@ interface WebformHandlerInterface extends PluginInspectionInterface, Configurabl
   const CARDINALITY_SINGLE = 1;
 
   /**
-   * Value indicating webform submissions are not processed (ie email or saved) by the handler.
+   * Value indicating webform submissions are not processed (i.e. email or saved) by the handler.
    */
   const RESULTS_IGNORED = 0;
 
@@ -47,7 +47,7 @@ interface WebformHandlerInterface extends PluginInspectionInterface, Configurabl
   const SUBMISSION_OPTIONAL = 0;
 
   /**
-   * Value indicating webform submissions are processed (ie email or saved) by the handler.
+   * Value indicating webform submissions are processed (i.e. email or saved) by the handler.
    */
   const RESULTS_PROCESSED = 1;
 
@@ -396,6 +396,23 @@ interface WebformHandlerInterface extends PluginInspectionInterface, Configurabl
    *   A webform submission.
    */
   public function postDelete(WebformSubmissionInterface $webform_submission);
+
+  /****************************************************************************/
+  // Preprocessing methods.
+  /****************************************************************************/
+
+  /**
+   * Prepares variables for webform confirmation templates.
+   *
+   * Default template: webform-confirmation.html.twig.
+   *
+   * @param array $variables
+   *   An associative array containing the following key:
+   *   - webform: A webform.
+   *   - webform_submission: A webform submission.
+   *   - source_entity: A webform submission source entity.
+   */
+  public function preprocessConfirmation(array &$variables);
 
   /****************************************************************************/
   // Handler methods.

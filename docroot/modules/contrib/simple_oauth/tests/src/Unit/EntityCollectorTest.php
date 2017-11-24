@@ -11,7 +11,6 @@ use Drupal\consumers\Entity\Consumer;
 use Drupal\simple_oauth\Entity\Oauth2Token;
 use Drupal\simple_oauth\ExpiredCollector;
 use Drupal\Tests\UnitTestCase;
-use Prophecy\Argument;
 
 /**
  * @coversDefaultClass \Drupal\simple_oauth\ExpiredCollector

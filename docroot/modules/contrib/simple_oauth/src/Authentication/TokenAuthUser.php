@@ -34,6 +34,7 @@ class TokenAuthUser implements TokenAuthUserInterface {
    *
    * @param \Drupal\simple_oauth\Entity\Oauth2TokenInterface $token
    *   The underlying token.
+   *
    * @throws \Exception
    *   When there is no user.
    */
@@ -67,7 +68,7 @@ class TokenAuthUser implements TokenAuthUserInterface {
   }
 
   /* ---------------------------------------------------------------------------
-     All the methods below are delegated to the decorated user.
+  All the methods below are delegated to the decorated user.
   --------------------------------------------------------------------------- */
 
   /**
@@ -281,14 +282,14 @@ class TokenAuthUser implements TokenAuthUserInterface {
   /**
    * {@inheritdoc}
    */
-  public function urlInfo($rel = 'canonical', array $options = array()) {
+  public function urlInfo($rel = 'canonical', array $options = []) {
     return $this->subject->urlInfo($rel, $options);
   }
 
   /**
    * {@inheritdoc}
    */
-  public function url($rel = 'canonical', $options = array()) {
+  public function url($rel = 'canonical', $options = []) {
     return $this->subject->url($rel, $options);
   }
 
@@ -330,7 +331,7 @@ class TokenAuthUser implements TokenAuthUserInterface {
   /**
    * {@inheritdoc}
    */
-  public static function create(array $values = array()) {
+  public static function create(array $values = []) {
     return User::create($values);
   }
 
@@ -666,7 +667,7 @@ class TokenAuthUser implements TokenAuthUserInterface {
   /**
    * {@inheritdoc}
    */
-  public function addTranslation($langcode, array $values = array()) {
+  public function addTranslation($langcode, array $values = []) {
     return $this->subject->addTranslation($langcode, $values);
   }
 
@@ -820,7 +821,7 @@ class TokenAuthUser implements TokenAuthUserInterface {
   /**
    * {@inheritdoc}
    */
-  public function toUrl($rel = 'canonical', array $options = array()) {
+  public function toUrl($rel = 'canonical', array $options = []) {
     $this->subject->toUrl($rel, $options);
   }
 

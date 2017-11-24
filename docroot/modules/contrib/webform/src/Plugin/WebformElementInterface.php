@@ -327,8 +327,14 @@ interface WebformElementInterface extends PluginInspectionInterface, PluginFormI
   /**
    * Set an element's default value using saved data.
    *
+   * The method allows the submission's 'saved' #default_value to be different
+   * from the element's #default_value.
+   *
    * @param array $element
    *   An element.
+   *
+   * @see \Drupal\webform\Plugin\WebformElement\DateBase::setDefaultValue
+   * @see \Drupal\webform\Plugin\WebformElement\EntityAutocomplete::setDefaultValue
    */
   public function setDefaultValue(array &$element);
 
@@ -428,6 +434,21 @@ interface WebformElementInterface extends PluginInspectionInterface, PluginFormI
    *   The element's value formatted as plain text or a render array.
    */
   public function formatText(array $element, WebformSubmissionInterface $webform_submission, array $options = []);
+
+  /**
+   * Determine if an element's has a submission value.
+   *
+   * @param array $element
+   *   An element.
+   * @param \Drupal\webform\WebformSubmissionInterface $webform_submission
+   *   A webform submission.
+   * @param array $options
+   *   An array of options.
+   *
+   * @return bool
+   *   TRUE if them element's has a submission value.
+   */
+  public function hasValue(array $element, WebformSubmissionInterface $webform_submission, array $options = []);
 
   /**
    * Get an element's submission value.

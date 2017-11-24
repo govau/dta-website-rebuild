@@ -6,9 +6,11 @@
  */
 
 use Drupal\Core\Cache\Cache;
+use Drupal\Core\Database\Database;
 use Drupal\Core\Serialization\Yaml;
 use Drupal\webform\Entity\Webform;
 use Drupal\webform\Plugin\WebformHandler\EmailWebformHandler;
+use Drupal\webform\Plugin\WebformHandler\RemotePostWebformHandler;
 use Drupal\webform\Utility\WebformOptionsHelper;
 use Drupal\webform\Utility\WebformReflectionHelper;
 
@@ -226,7 +228,7 @@ function webform_update_8043() {
 }
 
 /**
- * Issue #2872464: MultiStep Preview Page - change the Page Title and Progress Bar Title
+ * Issue #2872464: MultiStep Preview Page - change the Page Title and Progress Bar Title.
  */
 function webform_update_8044() {
   _webform_update_admin_settings();
@@ -408,7 +410,7 @@ function webform_update_8048() {
     $config->clear('purge_settings');
   }
 
-  // Change webform.settings.elements to webform.settings.element.
+  // Change webform.config.elements to webform.settings.element.
   if ($config->get('elements')) {
     $config->set('element', $config->get('elements'));
     $config->clear('elements');
@@ -738,7 +740,7 @@ function webform_update_8071() {
     $has_remote_post = FALSE;
     $handlers = $webform->getHandlers();
     foreach ($handlers as $handler) {
-      if ($handler instanceof \Drupal\webform\Plugin\WebformHandler\RemotePostWebformHandler) {
+      if ($handler instanceof RemotePostWebformHandler) {
         $has_remote_post = TRUE;
         $configuration = $handler->getConfiguration();
         foreach ($configuration['settings'] as $key => $value) {
@@ -762,7 +764,7 @@ function webform_update_8071() {
  */
 function webform_update_8072() {
   drupal_flush_all_caches();
-  
+
   /** @var \Drupal\webform\WebformInterface[] $webforms */
   $webforms = Webform::loadMultiple();
   foreach ($webforms as $webform) {
@@ -783,7 +785,7 @@ function webform_update_8073() {
 }
 
 /**
- * Issue #2906292: Display element description as help icon (tooltip).
+ * Issue #2906292: Display element description as help text (tooltip).
  */
 function webform_update_8074() {
   _webform_update_admin_settings();
@@ -821,8 +823,8 @@ function webform_update_8075() {
           case 'id':
             $value['entity_reference_items'] = ['id'];
             break;
-          default:
 
+          default:
           case 'link':
             $value['entity_reference_items'] = ['id', 'title', 'url'];
             break;
@@ -898,7 +900,101 @@ function webform_update_8079() {
   // Convert ui.help_menu_disabled to ui.about_disabled.
   $admin_config = \Drupal::configFactory()->getEditable('webform.settings');
   $help_menu_disabled = $admin_config->get('ui.help_menu_disabled') ?: FALSE;
-  $admin_config->set('ui.about_disabled', $help_menu_disabled );
+  $admin_config->set('ui.about_disabled', $help_menu_disabled);
   $admin_config->clear('ui.help_menu_disabled');
   $admin_config->save();
+}
+
+/**
+ * Issue #2914153: Add 'More' hide/show text support to elements.
+ */
+function webform_update_8080() {
+  _webform_update_admin_settings();
+}
+
+/**
+ * Issue #2913215: Remote Post handler add GET method support.
+ */
+function webform_update_8081() {
+  _webform_update_webform_handler_class_settings(RemotePostWebformHandler::class);
+}
+
+/**
+ * Issue #2912672: Mismatch entity Webform submission caused by langcode changes.
+ */
+function webform_update_8082() {
+  // Set webform_submission.langcode to NOT NULL.
+  // Copied from: system_update_8007().
+  $schema = \Drupal::keyValue('entity.storage_schema.sql')->getAll();
+  $item = &$schema['webform_submission.field_schema_data.langcode'];
+  foreach ($item as $table_name => &$table_schema) {
+    foreach ($table_schema['fields'] as $field_name => &$field) {
+      $field['not null'] = TRUE;
+    }
+  }
+  \Drupal::keyValue('entity.storage_schema.sql')->setMultiple($schema);
+
+  // Update field definition.
+  // Copied from: node_update_8300().
+  $spec = [
+    'type' => 'varchar_ascii',
+    'length' => 12,
+    'not null' => TRUE,
+  ];
+  Database::getConnection()->schema()->changeField('webform_submission', 'langcode', 'langcode', $spec);
+}
+
+/**
+ * Issue #2914904: Add section element.
+ */
+function webform_update_8083() {
+  _webform_update_admin_settings();
+}
+
+/**
+ * Issue #2917174: Improve "Webform Scheduled Email Handler".
+ */
+function webform_update_8084() {
+  _webform_update_admin_settings();
+}
+
+/**
+ * Issue #2908882: Loading next or previous page with AJAX should scroll to top of the window.
+ */
+function webform_update_8085() {
+  _webform_update_webform_settings();
+}
+
+/**
+ * Issue #2918860: Webform MultiStep URL Params.
+ */
+function webform_update_8086() {
+  _webform_update_webform_settings();
+}
+
+/**
+ * Issue #2918860: Webform MultiStep URL Params.
+ */
+function webform_update_8087() {
+  $config_factory = \Drupal::configFactory();
+  foreach ($config_factory->listAll('webform.webform.') as $webform_config_name) {
+    $webform_config = $config_factory->getEditable($webform_config_name);
+    $data = $webform_config->getRawData();
+    if (isset($data['settings']['wizard_complete'])) {
+      $data['settings']['wizard_comfirmation'] = $data['settings']['wizard_complete'];
+      unset($data['settings']['wizard_complete']);
+    }
+    if (isset($data['settings']['wizard_complete_label'])) {
+      $data['settings']['wizard_comfirmation_label'] = $data['settings']['wizard_complete_label'];
+      unset($data['settings']['wizard_complete_label']);
+    }
+    $webform_config->setData($data)->save();
+  }
+}
+
+/**
+ * Issue #2919989: Add horizontal rule element.
+ */
+function webform_update_8088() {
+  _webform_update_admin_settings();
 }

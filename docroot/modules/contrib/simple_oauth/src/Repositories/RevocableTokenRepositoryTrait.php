@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Drupal\simple_oauth\Repositories;
 
 use Drupal\Core\Entity\EntityTypeManagerInterface;
@@ -35,7 +34,7 @@ trait RevocableTokenRepositoryTrait {
    * {@inheritdoc}
    */
   public function persistNew($token_entity) {
-    if (!is_a($token_entity, static::$entity_interface)){
+    if (!is_a($token_entity, static::$entity_interface)) {
       throw new \InvalidArgumentException(sprintf('%s does not implement %s.', get_class($token_entity), static::$entity_interface));
     }
     $values = $this->serializer->normalize($token_entity);

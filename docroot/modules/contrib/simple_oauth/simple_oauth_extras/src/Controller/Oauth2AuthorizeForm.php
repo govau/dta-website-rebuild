@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Drupal\simple_oauth_extras\Controller;
 
 use Drupal\Component\Utility\UrlHelper;
@@ -93,7 +92,7 @@ class Oauth2AuthorizeForm extends FormBase {
    *   The form structure.
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
-      if (!$this->currentUser()->isAuthenticated()) {
+    if (!$this->currentUser()->isAuthenticated()) {
       $form['redirect_params'] = ['#type' => 'hidden', '#value' => $this->getRequest()->getQueryString()];
       $form['description'] = [
         '#type' => 'html_tag',
@@ -164,8 +163,8 @@ class Oauth2AuthorizeForm extends FormBase {
     $form['redirect_uri'] = [
       '#type' => 'hidden',
       '#value' => $request->get('redirect_uri') ?
-        $request->get('redirect_uri') :
-        $client_drupal_entity->get('redirect')->value,
+      $request->get('redirect_uri') :
+      $client_drupal_entity->get('redirect')->value,
     ];
     $form['submit'] = [
       '#type' => 'submit',

@@ -53,9 +53,9 @@ webform.settings:
         default_wizard_start_label:
           type: label
           label: 'Default wizard start label'
-        default_wizard_complete_label:
+        default_wizard_confirmation_label:
           type: label
-          label: 'Default wizard complete label'
+          label: 'Default wizard confirmation label'
         default_preview_next_button_label:
           type: label
           label: 'Default preview button label'
@@ -139,12 +139,21 @@ webform.settings:
         classes:
           type: string
           label: 'Element CSS classes'
+        horizontal_rule_classes:
+          type: string
+          label: 'Horizontal rule CSS classes'
         default_icheck:
           type: string
           label: 'Default iCheck style'
         default_description_display:
           type: string
           label: 'Default title display'
+        default_more_title:
+          type: label
+          label: 'Default more title'
+        default_section_title_tag:
+          type: label
+          label: 'Default section title tag'
         default_empty_option:
           type: boolean
           label: 'Default empty option'
@@ -322,6 +331,9 @@ webform.settings:
         default_batch_delete_size:
           type: integer
           label: 'Batch delete size'
+        default_batch_email_size:
+          type: integer
+          label: 'Batch email size'
     purge:
       type: mapping
       label: 'Purging settings'
@@ -363,7 +375,7 @@ webform.settings:
           label: 'Save details open/close state'
         description_help:
           type: boolean
-          label: 'Display element description as help icon (tooltip)'
+          label: 'Display element description as help text (tooltip)'
     libraries:
       type: mapping
       label: 'Library settings'
@@ -380,13 +392,13 @@ webform.settings:
       mapping:
         cdn:
           type: boolean
-          label: 'Check if CDN is being used for external libraries.'
+          label: 'Check if CDN is being used for external libraries'
         bootstrap:
           type: boolean
-          label: 'Check if Webform Bootstrap Integration module is installed when using the Bootstrap theme.'
+          label: 'Check if Webform Bootstrap Integration module is installed when using the Bootstrap theme'
         spam:
           type: boolean
-          label: 'Check if SPAM protection module is installed.'
+          label: 'Check if SPAM protection module is installed'
     third_party_settings:
       type: sequence
       label: 'Third party settings'
@@ -440,6 +452,9 @@ webform.webform.*:
         ajax:
           type: boolean
           label: 'Use Ajax'
+        ajax_scroll_top:
+          type: string
+          label: 'Ajax scroll top'
         page:
           type: boolean
           label: 'Enable page'
@@ -533,12 +548,15 @@ webform.webform.*:
         wizard_start_attributes:
           type: ignore
           label: 'Wizard start attributes'
-        wizard_complete:
+        wizard_confirmation:
           type: boolean
           label: 'Include confirmation page in progress'
-        wizard_complete_label:
+        wizard_confirmation_label:
           type: label
-          label: 'Wizard complete label'
+          label: 'Wizard confirmation label'
+        wizard_track:
+          type: text
+          label: 'Track wizard progress in the URL'
         preview:
           type: integer
           label: 'Enable preview page'
@@ -568,7 +586,7 @@ webform.webform.*:
           label: 'Allow users to save and finish the webform later.'
         draft_multiple:
           type: boolean
-          label: 'Allow users to save multiple drafts.'
+          label: 'Allow users to save multiple drafts'
         draft_auto_save:
           type: boolean
           label: 'Automatically save as draft when previewing and when there are validation errors.'
@@ -937,6 +955,9 @@ webform.handler.remote_post:
   type: mapping
   label: 'Remote Post'
   mapping:
+    method:
+      label: 'Method'
+      type: string
     type:
       label: 'Type'
       type: string
