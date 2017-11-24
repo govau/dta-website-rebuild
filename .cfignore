@@ -1,0 +1,6 @@
+docroot/sites/*/local.services.yml
+docroot/sites/*/settings.local.php
+docroot/sites/*/private
+docroot/sites/simpletest
+composer.json
+composer.lock

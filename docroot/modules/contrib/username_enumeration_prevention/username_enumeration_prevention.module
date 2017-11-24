@@ -1,0 +1,71 @@
+<?php
+
+/**
+ * @file
+ * Main file for the Username Enumeration Prevention module.
+ *
+ * Adds the required functionality for removing the reset password error
+ * message. Also, if views is installed restricts the callback function to work
+ * only for users with the access user profiles permission.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implements hook_form_alter().
+ *
+ * Checks for the user password reset form and changes the validate and submit
+ * functions. Uses the overridden functions defined in this module instead of
+ * Drupal cores.
+ */
+function username_enumeration_prevention_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  // Check to see if form is the reset password form.
+  if ($form_id == 'user_pass') {
+    // Override core validate and submit actions.
+    $form['#validate'][0] = 'username_enumeration_prevention_pass_validate';
+    $form['#submit'][0] = 'username_enumeration_prevention_pass_submit';
+  }
+}
+
+/**
+ * Overrides user_pass_validate() found in user.pages.inc.
+ */
+function username_enumeration_prevention_pass_validate($form, FormStateInterface $form_state) {
+  $name = trim($form_state->getValue('name'));
+
+  // Try to load by email.
+  $account = user_load_by_mail($name);
+
+  if (empty($account)) {
+    // No success, try to load by name.
+    $account = user_load_by_name($name);
+  }
+
+  if ($account && $account->id()) {
+    $form_state->setValueForElement(array('#parents' => array('account')), $account);
+  }
+  else {
+    // Reuse the 'send email' message if a value was entered in form.
+    if ($name != '') {
+      drupal_set_message(t('Further instructions have been sent to your e-mail address.'));
+    }
+  }
+}
+
+/**
+ * Overrides the user_pass_submit() found in user.pages.inc.
+ */
+function username_enumeration_prevention_pass_submit($form, FormStateInterface $form_state) {
+  $account = $form_state->getValue('account');
+  if (isset($account)) {
+    $langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
+
+    // Mail one time login URL and instructions using current language.
+    $mail = _user_mail_notify('password_reset', $account, $langcode);
+    if (!empty($mail)) {
+      \Drupal::logger('username_enumeration_prevention')->notice('Password reset instructions mailed to %name at %email.', array('%name' => $account->getUsername(), '%email' => $account->getEmail()));
+    }
+    drupal_set_message(t('Further instructions have been sent to your e-mail address.'));
+  }
+  $form_state->setRedirect('user.page');
+}

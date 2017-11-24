@@ -1,0 +1,3 @@
+[submodule "docroot/themes/contrib/govcms-ui"]
+	path = docroot/themes/contrib/govcms-ui
+	url = /Applications/MAMP/htdocs/au.gov.dta.dev/docroot/themes/contrib/govcms-ui

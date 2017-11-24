@@ -1,0 +1,9 @@
+---
+applications:
+- name: govcms8-test
+  memory: 512M
+  instances: 1
+  path: .
+  services:
+  - govcms8-test-db
+  buildpack: php_buildpack

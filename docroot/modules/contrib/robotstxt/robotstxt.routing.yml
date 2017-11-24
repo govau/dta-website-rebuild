@@ -1,0 +1,14 @@
+robotstxt.admin_settings_form:
+  path: '/admin/config/search/robotstxt'
+  defaults:
+    _form: '\Drupal\robotstxt\Form\RobotsTxtAdminSettingsForm'
+    _title: 'RobotsTxt'
+  requirements:
+    _permission: 'administer robots.txt'
+
+robotstxt.content:
+  path: '/robots.txt'
+  defaults:
+    _controller: '\Drupal\robotstxt\Controller\RobotsTxtController::content'
+  requirements:
+    _access: 'TRUE'

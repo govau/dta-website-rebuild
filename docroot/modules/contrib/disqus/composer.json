@@ -1,0 +1,11 @@
+{
+    "name": "drupal/disqus",
+    "type": "drupal-module",
+    "description": ".",
+    "homepage": "http://drupal.org/project/disqus",
+    "license": "GPL-2.0+",
+    "require": {
+        "drexarj/disqus-php": "dev-master"
+    },
+    "minimum-stability": "dev"
+}

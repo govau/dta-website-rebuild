@@ -1,0 +1,8 @@
+services:
+  shield.middleware:
+    class: Drupal\shield\ShieldMiddleware
+    arguments: ['@config.factory']
+    tags:
+      # Ensure to come before page caching, so you don't serve cached pages to
+      # banned users.
+      - { name: http_middleware, priority: 250 }

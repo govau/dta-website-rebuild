@@ -1,0 +1,12 @@
+name: Security Kit
+description: "Enhance security of your Drupal website."
+package: Security
+# core: 8.x
+configure: seckit.settings
+type: module
+
+# Information added by Drupal.org packaging script on 2016-08-10
+version: '8.x-1.0-alpha2'
+core: '8.x'
+project: 'seckit'
+datestamp: 1470854232

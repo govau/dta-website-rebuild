@@ -1,0 +1,50 @@
+<?php
+
+/**
+ * @file
+ * Login Security installation routines.
+ */
+
+/**
+ * Implements hook_schema().
+ */
+function login_security_schema() {
+  $schema['login_security_track'] = [
+    'description' => 'Keeps track of failed login attempts, as a pair of the IP address and user name.',
+    'fields' => [
+      'id' => [
+        'type' => 'serial',
+        'not null' => TRUE,
+        'description' => "ID of each login event.",
+      ],
+      'host' => [
+        'type' => 'varchar',
+        'length' => 39,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => "The IP address of the request.",
+      ],
+      'name' => [
+        'type' => 'varchar',
+        'length' => 64,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => "Clean username, submitted using the login form.",
+      ],
+      'timestamp' => [
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+        'description' => "Timestamp of the event.",
+      ],
+    ],
+    'indexes' => [
+      'name' => ['name'],
+      'host' => ['host'],
+      'timestamp' => ['timestamp'],
+    ],
+    'primary key' => ['id'],
+  ];
+
+  return $schema;
+}

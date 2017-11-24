@@ -1,0 +1,16 @@
+<?php
+
+/**
+ * @file
+ * Contains install and update related functions for Shield.
+ */
+
+/**
+ * Update allow_cli config to boolean value.
+ */
+function shield_update_8001() {
+  $config = \Drupal::configFactory()->getEditable('shield.settings');
+  $allow_cli = (bool) $config->get('allow_cli');
+  $config->set('allow_cli', $allow_cli);
+  $config->save(TRUE);
+}

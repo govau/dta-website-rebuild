@@ -1,0 +1,16 @@
+name: 'Linkit media test module'
+description: 'Support module for Linkit media testing.'
+package: Testing
+type: module
+# core: 8.x
+dependencies:
+  - linkit
+  - field
+  - text
+  - media_entity
+
+# Information added by Drupal.org packaging script on 2017-09-13
+version: '8.x-5.0-beta6'
+core: '8.x'
+project: 'linkit'
+datestamp: 1505341914
