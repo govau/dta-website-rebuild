@@ -26,8 +26,8 @@ jobs:
           # fallback to using the latest cache if no exact match is found
           - v1-dependencies-
       - run:
-        name: Install the Cloud Foundry app.
-        command: wget -q -O - https://packages.cloudfoundry.org/debian/cli.cloudfoundry.org.key | sudo apt-key add - && echo "deb http://packages.cloudfoundry.org/debian stable main" | sudo tee /etc/apt/sources.list.d/cloudfoundry-cli.list && sudo apt-get update && sudo apt-get install cf-cli
+          name: Install the Cloud Foundry app.
+          command: wget -q -O - https://packages.cloudfoundry.org/debian/cli.cloudfoundry.org.key | sudo apt-key add - && echo "deb http://packages.cloudfoundry.org/debian stable main" | sudo tee /etc/apt/sources.list.d/cloudfoundry-cli.list && sudo apt-get update && sudo apt-get install cf-cli
       - run: rm -rf vendor && composer install -n --prefer-dist
 
       - save_cache:
