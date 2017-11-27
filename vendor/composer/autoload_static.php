@@ -128,6 +128,10 @@ class ComposerStaticInit74aebfcf896c071f15e2169312020630
             'League\\Container\\' => 17,
             'Lcobucci\\JWT\\' => 13,
         ),
+        'J' => 
+        array (
+            'JsonSchema\\' => 11,
+        ),
         'I' => 
         array (
             'Interop\\Container\\' => 18,
@@ -432,6 +436,10 @@ class ComposerStaticInit74aebfcf896c071f15e2169312020630
         array (
             0 => __DIR__ . '/..' . '/lcobucci/jwt/src',
         ),
+        'JsonSchema\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/justinrainbow/json-schema/src/JsonSchema',
+        ),
         'Interop\\Container\\' => 
         array (
             0 => __DIR__ . '/..' . '/container-interop/container-interop/src/Interop/Container',
@@ -574,6 +582,13 @@ class ComposerStaticInit74aebfcf896c071f15e2169312020630
     );
 
     public static $prefixesPsr0 = array (
+        'o' => 
+        array (
+            'org\\bovigo\\vfs\\' => 
+            array (
+                0 => __DIR__ . '/..' . '/mikey179/vfsStream/src/main/php',
+            ),
+        ),
         'W' => 
         array (
             'WebDriver' => 

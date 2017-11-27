@@ -38,9 +38,13 @@
         "drupal/imce": "^1.6",
         "drupal/link_css": "1.x-dev",
         "phpunit/php-code-coverage": "2.2.4",
-        "phpunit/phpunit": "^4.8.36"
+        "phpunit/phpunit": "^4.8.36",
+        "justinrainbow/json-schema": "^5.2"
     },
-    "require-dev": {},
+    "require-dev": {
+        "mikey179/vfsStream": "^1.6",
+        "phpspec/prophecy": "^1.7"
+    },
     "extra": {
         "enable-patching": true,
         "installer-types": [

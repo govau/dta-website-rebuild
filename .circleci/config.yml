@@ -33,4 +33,6 @@ jobs:
           key: v1-dependencies-{{ checksum "composer.json" }}
 
       # run tests!
-      - run: ./vendor/phpunit/phpunit/phpunit
+      - run: cd docroot/core && ../../vendor/bin/phpunit --testsuite=unit
+
+      # Deploy here.

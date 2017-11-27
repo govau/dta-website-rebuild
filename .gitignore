@@ -20,6 +20,9 @@ docroot/sites/README.txt
 docroot/sites/all/modules/README.txt
 docroot/sites/all/themes/README.txt
 
+# Ignore the extra 'vendor' folder.
+/docroot/vendor
+
 # Ignore everything but the "sites" folder ( for non core developer )
 #.htaccess
 #web.config
