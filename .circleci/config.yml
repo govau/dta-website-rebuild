@@ -27,7 +27,9 @@ jobs:
           - v1-dependencies-
       - run:
           name: Install the Cloud Foundry app.
-          command: wget -q -O - https://packages.cloudfoundry.org/debian/cli.cloudfoundry.org.key | sudo apt-key add - && echo "deb http://packages.cloudfoundry.org/debian stable main" | sudo tee /etc/apt/sources.list.d/cloudfoundry-cli.list && sudo apt-get update && sudo apt-get install cf-cli
+          command: curl -v -L -o cf-cli_amd64.deb 'https://cli.run.pivotal.io/stable?release=debian64&source=github'
+          command: sudo dpkg -i cf-cli_amd64.deb
+          command: cf -v
       - run: rm -rf vendor && composer install -n --prefer-dist
 
       - save_cache:
