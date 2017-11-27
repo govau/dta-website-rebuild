@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "8c3a36044ae2cc0bf50fbda37ab088b6",
+    "content-hash": "9bdc6c1f83b3214cd3d17e2d2c898f20",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -6196,12 +6196,12 @@
             "version": "1.x-dev",
             "source": {
                 "type": "git",
-                "url": "https://github.com/govCMS/govCMS8-config.git",
+                "url": "https://github.com/govCMS/govCMS8.git",
                 "reference": "d8bdf8d7eae30f3c6f6a599e0c402748fc7458f0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/govCMS/govCMS8-config/zipball/d8bdf8d7eae30f3c6f6a599e0c402748fc7458f0",
+                "url": "https://api.github.com/repos/govCMS/govCMS8/zipball/d8bdf8d7eae30f3c6f6a599e0c402748fc7458f0",
                 "reference": "d8bdf8d7eae30f3c6f6a599e0c402748fc7458f0",
                 "shasum": ""
             },

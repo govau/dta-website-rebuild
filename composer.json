@@ -36,7 +36,9 @@
     "require": {
         "govcms/govcms8-config": "1.x-dev",
         "drupal/imce": "^1.6",
-        "drupal/link_css": "1.x-dev"
+        "drupal/link_css": "1.x-dev",
+        "phpunit/php-code-coverage": "2.2.4",
+        "phpunit/phpunit": "^4.8.36"
     },
     "require-dev": {},
     "extra": {

@@ -9114,12 +9114,12 @@
         "version_normalized": "1.9999999.9999999.9999999-dev",
         "source": {
             "type": "git",
-            "url": "https://github.com/govCMS/govCMS8-config.git",
+            "url": "https://github.com/govCMS/govCMS8.git",
             "reference": "d8bdf8d7eae30f3c6f6a599e0c402748fc7458f0"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/govCMS/govCMS8-config/zipball/d8bdf8d7eae30f3c6f6a599e0c402748fc7458f0",
+            "url": "https://api.github.com/repos/govCMS/govCMS8/zipball/d8bdf8d7eae30f3c6f6a599e0c402748fc7458f0",
             "reference": "d8bdf8d7eae30f3c6f6a599e0c402748fc7458f0",
             "shasum": ""
         },
