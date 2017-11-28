@@ -20,7 +20,10 @@ docroot/sites/all/modules/README.txt
 docroot/sites/all/themes/README.txt
 
 # Ignore the extra 'vendor' folder.
-/docroot/vendor
+docroot/vendor
+docroot/composer.*
+docroot/autoload.php
+
 
 # Ignore core and vendor folders as they are built out by Composer.
 docroot/core
