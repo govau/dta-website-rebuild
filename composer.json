@@ -85,7 +85,7 @@
         "patches": [],
         "merge-plugin": {
             "require": [
-                "vendor/govcms/govcms8-config/composer.config.json"
+                "vendor/govcms/govcms8-config/composer.govcms8.json"
             ],
             "merge-extra": true,
             "merge-extra-deep": true,
