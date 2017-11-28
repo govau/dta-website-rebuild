@@ -26,9 +26,11 @@ jobs:
           # fallback to using the latest cache if no exact match is found
           - v1-dependencies-
       - run:
-          name: Install the Cloud Foundry app.
+          name: Installing the Cloud Foundry app.
           command: curl -v -L -o cf-cli_amd64.deb 'https://cli.run.pivotal.io/stable?release=debian64&source=github' && sudo dpkg -i cf-cli_amd64.deb && cf -v
-      - run: rm -rf vendor && composer install -n --prefer-dist
+      - run:
+          name: Installing dependencies
+          command: rm -rf vendor && composer install -n --prefer-dist
 
       - save_cache:
           paths:
@@ -40,3 +42,6 @@ jobs:
       #- run: cd docroot/core && ../../vendor/bin/phpunit --testsuite=unit --exclude-group DependencyInjection,PageManager
 
       # Deploy here.
+      - run:
+          name: Deploying to cloud.gov.au
+          command: bin/cideploy.sh
