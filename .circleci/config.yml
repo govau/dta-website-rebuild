@@ -30,7 +30,8 @@ jobs:
           command: curl -v -L -o cf-cli_amd64.deb 'https://cli.run.pivotal.io/stable?release=debian64&source=github' && sudo dpkg -i cf-cli_amd64.deb && cf -v
       - run:
           name: Installing dependencies
-          command: rm -rf vendor && composer install -n --prefer-dist
+          #command: rm -rf vendor
+          command: composer install -n --prefer-dist
 
       - save_cache:
           paths:
@@ -44,4 +45,4 @@ jobs:
       # Deploy here.
       - run:
           name: Deploying to cloud.gov.au
-          command: bin/cideploy.sh
+          command: ./bin/cideploy.sh
