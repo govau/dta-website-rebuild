@@ -1,4 +1,0 @@
-filefield_paths.admin_settings:
-  route_name: filefield_paths.admin_settings
-  base_route: system.file_system_settings
-  title: File (Field) Paths settings
