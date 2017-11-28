@@ -1,0 +1,12 @@
+name: 'File (Field) Paths tests'
+description: 'Support module for File (Field) Paths related testing.'
+package: Testing
+# core: 8.x
+type: module
+dependencies:
+  - filefield_paths
+# Information added by Drupal.org packaging script on 2015-12-25
+version: '8.x-1.0-beta1'
+core: '8.x'
+project: 'filefield_paths'
+datestamp: 1451020748

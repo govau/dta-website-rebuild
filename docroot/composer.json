@@ -1,0 +1,6 @@
+{
+    "require": {
+        "drupal/console": "^1.0",
+        "drupal/core": "^8.4"
+    }
+}

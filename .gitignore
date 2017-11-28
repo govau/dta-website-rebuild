@@ -8,40 +8,37 @@ docroot/sites/*/private
 
 # Ignore default text files
 #robots.txt
-/CHANGELOG.txt
-/COPYRIGHT.txt
-/INSTALL*.txt
-/LICENSE.txt
-/MAINTAINERS.txt
-/UPGRADE.txt
-/README.txt
-docroot/sites/README.txt
-docroot/sites/all/modules/README.txt
-docroot/sites/all/themes/README.txt
+CHANGELOG.txt
+COPYRIGHT.txt
+INSTALL*.txt
+LICENSE.txt
+MAINTAINERS.txt
+UPGRADE.txt
+README.txt
 
 # Ignore the extra 'vendor' folder.
-docroot/vendor
-docroot/composer.*
-docroot/autoload.php
+#docroot/vendor
+#docroot/composer.*
+#docroot/autoload.php
 
 
 # Ignore core and vendor folders as they are built out by Composer.
-docroot/core
+#docroot/core
 vendor
 
 # Ignore everything but the "sites" folder ( for non core developer )
-.htaccess
-web.config
-authorize.php
-cron.php
-index.php
-install.php
-update.php
-xmlrpc.php
-docroot/includes
-docroot/misc
-docroot/modules
-docroot/profiles
-docroot/scripts
-docroot/themes
-docroot/libraries
+#.htaccess
+#web.config
+#authorize.php
+#cron.php
+#index.php
+#install.php
+#update.php
+#xmlrpc.php
+#docroot/includes
+#docroot/misc
+#docroot/modules
+#docroot/profiles
+#docroot/scripts
+#docroot/themes
+#docroot/libraries

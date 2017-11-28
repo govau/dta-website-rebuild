@@ -1,0 +1,10 @@
+name: Username Enumeration Prevention
+type: module
+description: Removes the error message produced, from the forgot password form, when an incorrect user has been supplied.
+# core: 8.x
+
+# Information added by Drupal.org packaging script on 2016-06-22
+version: '8.x-1.0-beta1'
+core: '8.x'
+project: 'username_enumeration_prevention'
+datestamp: 1466633343
