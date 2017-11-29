@@ -69,12 +69,9 @@ AddEncoding gzip svgz
 <IfModule mod_rewrite.c>
   RewriteEngine on
 
-  # Make sure all SSL pages for dot-com are redirected to HTTP.
-  RewriteCond %{SERVER_PORT} 443 [OR]
-  RewriteCond %{HTTPS} on [OR]
-  RewriteCond %{HTTP:X-Forwarded-Proto} https [OR]
-  RewriteCond %{HTTP:X-Forwarded_Proto} https
-  RewriteRule (.*) https://%{HTTP_HOST}/$1 [R=301,L]
+  # Make sure HTTP requests are forwarded to HTTPS
+ RewriteCond %{HTTP:X-Forwarded-Proto} !https
+ RewriteRule (.*) https://%{HTTP_HOST}/$1 [R=301,L]
 
   # Set "protossl" to "s" if we were accessed via https://.  This is used later
   # if you enable "www." stripping or enforcement, in order to ensure that
