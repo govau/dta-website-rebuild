@@ -45,4 +45,6 @@ jobs:
       # Deploy here.
       - run:
           name: Deploying to cloud.gov.au
-          command: ./bin/cideploy.sh
+          command: |
+            ./bin/ciprepare.sh
+            ./bin/cideploy.sh
