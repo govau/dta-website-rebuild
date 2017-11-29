@@ -69,6 +69,10 @@ AddEncoding gzip svgz
 <IfModule mod_rewrite.c>
   RewriteEngine on
 
+  # Force HTTPS for the whole website :
+  RewriteCond %{HTTP:HTTPS} !on
+  RewriteRule (.*) https://%{SERVER_NAME}/$1 [QSA,L,R=301]
+
   # Set "protossl" to "s" if we were accessed via https://.  This is used later
   # if you enable "www." stripping or enforcement, in order to ensure that
   # you don't bounce between http and https.
