@@ -10,8 +10,8 @@ set -o pipefail
 
 main() {
 
-  rm -rf /docroot/.htaccess
-  mv .htaccess-deploy /docroot/.htaccess
+  rm -rf docroot/.htaccess
+  mv .htaccess-deploy docroot/.htaccess
 
 }
 
