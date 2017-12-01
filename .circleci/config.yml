@@ -22,9 +22,9 @@ jobs:
       # Download and cache dependencies
       - restore_cache:
           keys:
-          - v2-dependencies-{{ checksum "composer.json" }}
+          - v3-dependencies-{{ checksum "composer.json" }}
           # fallback to using the latest cache if no exact match is found
-          - v2-dependencies-
+          - v3-dependencies-
       - run:
           name: Installing the Cloud Foundry app.
           command: curl -v -L -o cf-cli_amd64.deb 'https://cli.run.pivotal.io/stable?release=debian64&source=github' && sudo dpkg -i cf-cli_amd64.deb && cf -v
@@ -36,7 +36,7 @@ jobs:
       - save_cache:
           paths:
             - ./vendor
-          key: v1-dependencies-{{ checksum "composer.json" }}
+          key: v3-dependencies-{{ checksum "composer.json" }}
 
       # run tests! Skipping the DependencyInjection and PageManager groups as they are core issues.
       # Removing tests for now to work on other things.
