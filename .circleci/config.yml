@@ -48,7 +48,3 @@ jobs:
           command: |
             ./bin/ciprepare.sh
             ./bin/cideploy.sh
-
-      # Run any post-deploy tasks here.
-      - run:
-          name: Performing post-deploy tasks
