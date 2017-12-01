@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "8e60fb9924e8b32018d0eb3099157e9c",
+    "content-hash": "965b7e72528dc60a7037c4afd9e6d6d6",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -6020,6 +6020,17 @@
             "time": "2017-03-07T22:26:54+00:00"
         },
         {
+            "name": "govau/dta-uikit-base-theme",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/govau/dta-uikit-base-theme",
+                "reference": "master"
+            },
+            "type": "drupal-custom-theme",
+            "time": "2017-11-30 05:57:06"
+        },
+        {
             "name": "govcms/govcms",
             "version": "8.4.x-dev",
             "source": {
@@ -11821,6 +11832,7 @@
     "stability-flags": {
         "govcms/govcms8-config": 20,
         "drupal/link_css": 20,
+        "govau/dta-uikit-base-theme": 20,
         "govcms/govcms": 20
     },
     "prefer-stable": true,

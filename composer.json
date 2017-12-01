@@ -1,97 +1,113 @@
 {
-    "name": "govcms/govcms8",
-    "description": "Project template for the govCMS8 Drupal Distribution",
-    "keywords": [
-        "govCMS",
-        "govCMS8"
-    ],
-    "type": "project",
-    "minimum-stability": "dev",
-    "prefer-stable": true,
-    "license": "GPL-2.0+",
-    "authors": [
-        {
-            "name": "Joseph Zhao",
-            "email": "joseph.zhao@xing.net.au"
-        },
-        {
-            "name": "Jason Guo",
-            "email": "jason.guo@xing.net.au"
-        },
-        {
-            "name": "Tim Hurley",
-            "email": "tim@timhurley.net"
-        },
-        {
-            "name": "ruwanl",
-            "email": "ruwan.lk@gmail.com"
-        }
-    ],
-    "homepage": "https://www.govcms.gov.au",
-    "support": {
-        "issues:": "https://github.com/govCMS/govCMS8/issues",
-        "wik": "https://github.com/govCMS/govCMS8/wiki",
-        "source": "https://github.com/govCMS/govCMS8/releases"
+  "name": "govcms/govcms8",
+  "description": "Project template for the govCMS8 Drupal Distribution",
+  "keywords": [
+    "govCMS",
+    "govCMS8"
+  ],
+  "type": "project",
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "license": "GPL-2.0+",
+  "authors": [
+    {
+      "name": "Joseph Zhao",
+      "email": "joseph.zhao@xing.net.au"
     },
-    "require": {
-        "govcms/govcms8-config": "1.x-dev",
-        "drupal/imce": "^1.6",
-        "drupal/link_css": "1.x-dev",
-        "phpunit/php-code-coverage": "2.2.4",
-        "phpunit/phpunit": "^4.8.36",
-        "justinrainbow/json-schema": "^5.2"
+    {
+      "name": "Jason Guo",
+      "email": "jason.guo@xing.net.au"
     },
-    "require-dev": {
-        "mikey179/vfsStream": "^1.6",
-        "phpspec/prophecy": "^1.7"
+    {
+      "name": "Tim Hurley",
+      "email": "tim@timhurley.net"
     },
-    "extra": {
-        "enable-patching": true,
-        "installer-types": [
-            "bower-asset",
-            "npm-asset"
-        ],
-        "installer-paths": {
-            "docroot/core": [
-                "type:drupal-core"
-            ],
-            "docroot/modules/contrib/{$name}": [
-                "type:drupal-module"
-            ],
-            "docroot/modules/custom/{$name}": [
-                "type:drupal-custom-module"
-            ],
-            "docroot/profiles/{$name}": [
-                "type:drupal-profile"
-            ],
-            "docroot/profiles/custom/{$name}": [
-                "type:drupal-custom-profile"
-            ],
-            "docroot/themes/contrib/{$name}": [
-                "type:drupal-theme"
-            ],
-            "docroot/themes/custom/{$name}": [
-                "type:drupal-custom-theme"
-            ],
-            "docroot/libraries/{$name}": [
-                "type:drupal-library",
-                "type:bower-asset",
-                "type:npm-asset"
-            ],
-            "drush/contrib/{$name}": [
-                "type:drupal-drush"
-            ]
-        },
-        "patches": [],
-        "merge-plugin": {
-            "require": [
-                "vendor/govcms/govcms8-config/composer.config.json"
-            ],
-            "merge-extra": true,
-            "merge-extra-deep": true,
-            "merge-scripts": true,
-            "replace": false,
-            "ignore-duplicates": true
-        }
+    {
+      "name": "ruwanl",
+      "email": "ruwan.lk@gmail.com"
     }
+  ],
+  "homepage": "https://www.govcms.gov.au",
+  "support": {
+    "issues:": "https://github.com/govCMS/govCMS8/issues",
+    "wik": "https://github.com/govCMS/govCMS8/wiki",
+    "source": "https://github.com/govCMS/govCMS8/releases"
+  },
+  "require": {
+    "govcms/govcms8-config": "1.x-dev",
+    "drupal/imce": "^1.6",
+    "drupal/link_css": "1.x-dev",
+    "phpunit/php-code-coverage": "2.2.4",
+    "phpunit/phpunit": "^4.8.36",
+    "justinrainbow/json-schema": "^5.2",
+    "govau/dta-uikit-base-theme": "dev-master"
+  },
+  "require-dev": {
+    "mikey179/vfsStream": "^1.6",
+    "phpspec/prophecy": "^1.7"
+  },
+  "extra": {
+    "enable-patching": true,
+    "installer-types": [
+      "bower-asset",
+      "npm-asset"
+    ],
+    "installer-paths": {
+      "docroot/core": [
+        "type:drupal-core"
+      ],
+      "docroot/modules/contrib/{$name}": [
+        "type:drupal-module"
+      ],
+      "docroot/modules/custom/{$name}": [
+        "type:drupal-custom-module"
+      ],
+      "docroot/profiles/{$name}": [
+        "type:drupal-profile"
+      ],
+      "docroot/profiles/custom/{$name}": [
+        "type:drupal-custom-profile"
+      ],
+      "docroot/themes/contrib/{$name}": [
+        "type:drupal-theme"
+      ],
+      "docroot/themes/custom/{$name}": [
+        "type:drupal-custom-theme"
+      ],
+      "docroot/libraries/{$name}": [
+        "type:drupal-library",
+        "type:bower-asset",
+        "type:npm-asset"
+      ],
+      "drush/contrib/{$name}": [
+        "type:drupal-drush"
+      ]
+    },
+    "patches": [],
+    "merge-plugin": {
+      "require": [
+        "vendor/govcms/govcms8-config/composer.config.json"
+      ],
+      "merge-extra": true,
+      "merge-extra-deep": true,
+      "merge-scripts": true,
+      "replace": false,
+      "ignore-duplicates": true
+    }
+  },
+  "repositories": [
+    {
+      "type": "package",
+      "package": {
+        "name": "govau/dta-uikit-base-theme",
+        "type": "drupal-custom-theme",
+        "version": "dev-master",
+        "source": {
+          "type": "git",
+          "url": "https://github.com/govau/dta-uikit-base-theme",
+          "reference": "master"
+        }
+      }
+    }
+  ]
 }
