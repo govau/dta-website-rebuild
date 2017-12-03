@@ -1,0 +1,19 @@
+uuid: c0fd43a4-1007-4466-9632-bd1cb8e7bf64
+langcode: en
+status: true
+dependencies:
+  module:
+    - search_api_db
+_core:
+  default_config_hash: Mam_HMc_j6TDyUYtqYOiocoW_6QAN1kdRQ5cdIaysGM
+id: database_search
+name: 'Database search'
+description: 'Default database search server'
+backend: search_api_db
+backend_config:
+  database: 'default:default'
+  min_chars: 1
+  partial_matches: false
+  autocomplete:
+    suggest_suffix: true
+    suggest_words: true

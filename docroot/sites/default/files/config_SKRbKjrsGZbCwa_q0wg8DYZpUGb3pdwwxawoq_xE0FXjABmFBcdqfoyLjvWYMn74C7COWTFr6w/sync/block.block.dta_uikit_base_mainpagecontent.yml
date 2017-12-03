@@ -1,0 +1,22 @@
+uuid: 11dd3bbe-af05-4315-ba37-c3df49068284
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - dta_uikit_base
+_core:
+  default_config_hash: SN5O4USMIjJN3W2ACICn7niq8JUUgNoMRGwhwmjMfkw
+id: dta_uikit_base_mainpagecontent
+theme: dta_uikit_base
+region: content
+weight: -2
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  provider: system
+  label_display: '0'
+visibility: {  }

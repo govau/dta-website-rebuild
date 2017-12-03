@@ -2,8 +2,8 @@
 docroot/sites/*/settings.local.php
 
 # Ignore paths that contain generated content.
-docroot/files/
-docroot/sites/*/files
+docroot/sites/*/files/*
+!docroot/sites/*/files/config*
 docroot/sites/*/private
 
 # Ignore default text files
@@ -21,9 +21,7 @@ README.txt
 #docroot/composer.*
 #docroot/autoload.php
 
-
-# Ignore core and vendor folders as they are built out by Composer.
-#docroot/core
+# Ignore vendor folder.
 vendor
 
 # Ignore everything but the "sites" folder ( for non core developer )
