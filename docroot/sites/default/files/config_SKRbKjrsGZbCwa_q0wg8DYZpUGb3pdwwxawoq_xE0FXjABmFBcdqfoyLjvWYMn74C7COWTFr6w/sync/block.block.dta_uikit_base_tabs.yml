@@ -1,0 +1,22 @@
+uuid: 5d5c104b-37ef-42bf-8942-8423b724d009
+langcode: en
+status: true
+dependencies:
+  theme:
+    - dta_uikit_base
+_core:
+  default_config_hash: E2_aqYijN4g4aeimnkmXyGsVy-3GSNc2G8ZeHwwifEU
+id: dta_uikit_base_tabs
+theme: dta_uikit_base
+region: content
+weight: -3
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: Tabs
+  provider: core
+  label_display: '0'
+  primary: true
+  secondary: true
+visibility: {  }
