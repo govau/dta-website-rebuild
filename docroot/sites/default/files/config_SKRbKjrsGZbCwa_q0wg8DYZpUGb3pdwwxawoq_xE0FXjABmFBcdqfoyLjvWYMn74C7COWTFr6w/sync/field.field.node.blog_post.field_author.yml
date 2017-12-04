@@ -1,0 +1,29 @@
+uuid: 07b90a15-bf6b-4f86-ab59-9cf6126e5af0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_author
+    - node.type.blog_post
+    - taxonomy.vocabulary.blog_authors
+id: node.blog_post.field_author
+field_name: field_author
+entity_type: node
+bundle: blog_post
+label: Author
+description: 'Select the author of this blog post. If the author is not yet added to the site, please create a new one.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      blog_authors: blog_authors
+    sort:
+      field: name
+      direction: asc
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference

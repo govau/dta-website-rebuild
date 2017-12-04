@@ -1,0 +1,21 @@
+uuid: e42a6c5c-2733-4840-b123-433e1ae2f58b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_lede
+    - node.type.blog_post
+  module:
+    - text
+id: node.blog_post.field_lede
+field_name: field_lede
+entity_type: node
+bundle: blog_post
+label: Lede
+description: 'The lede is the introductory text appearing above the main body text.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

@@ -1,0 +1,28 @@
+uuid: 06bf35bb-ee7f-463a-916d-9b3330d82829
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_tags
+    - node.type.news_item
+    - taxonomy.vocabulary.tags
+id: node.news_item.field_tags
+field_name: field_tags
+entity_type: node
+bundle: news_item
+label: Tags
+description: 'Tags collect content across the site. Select up to three tags for this news item.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      tags: tags
+    sort:
+      field: _none
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference

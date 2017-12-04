@@ -1,0 +1,41 @@
+uuid: 7d3b4e0a-05c1-40da-b882-f6a9763f6a1d
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.govcms_event.body
+    - field.field.node.govcms_event.field_attachments
+    - field.field.node.govcms_event.field_event_categories
+    - field.field.node.govcms_event.field_event_date
+    - field.field.node.govcms_event.field_event_location
+    - field.field.node.govcms_event.field_featured_image
+    - node.type.govcms_event
+  module:
+    - text
+    - user
+_core:
+  default_config_hash: IEp09h4-maPrqeSkafVfyNWaCt8zDY1eT9FGW8fRg_0
+id: node.govcms_event.teaser
+targetEntityType: node
+bundle: govcms_event
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    region: content
+hidden:
+  field_attachments: true
+  field_event_: true
+  field_event_categories: true
+  field_event_date: true
+  field_event_location: true
+  field_featured_image: true

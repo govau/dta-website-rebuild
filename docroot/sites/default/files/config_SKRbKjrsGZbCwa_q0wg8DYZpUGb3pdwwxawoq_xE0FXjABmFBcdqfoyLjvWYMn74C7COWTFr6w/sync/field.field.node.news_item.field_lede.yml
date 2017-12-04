@@ -1,0 +1,21 @@
+uuid: 89e4eb97-3b5d-4846-a933-9d65c3186f79
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_lede
+    - node.type.news_item
+  module:
+    - text
+id: node.news_item.field_lede
+field_name: field_lede
+entity_type: node
+bundle: news_item
+label: Lede
+description: 'News items contain a lede paragraph appearing after the tag list and before the hero image.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

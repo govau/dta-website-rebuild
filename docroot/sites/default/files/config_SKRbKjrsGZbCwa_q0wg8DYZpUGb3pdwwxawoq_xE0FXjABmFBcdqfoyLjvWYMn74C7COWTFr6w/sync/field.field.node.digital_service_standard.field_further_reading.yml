@@ -1,0 +1,23 @@
+uuid: 16c74575-d7c3-4220-9af2-d880837cfc76
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_further_reading
+    - node.type.digital_service_standard
+  module:
+    - link
+id: node.digital_service_standard.field_further_reading
+field_name: field_further_reading
+entity_type: node
+bundle: digital_service_standard
+label: 'Further reading'
+description: 'Use further reading links to give users more information about the criterion.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 2
+field_type: link

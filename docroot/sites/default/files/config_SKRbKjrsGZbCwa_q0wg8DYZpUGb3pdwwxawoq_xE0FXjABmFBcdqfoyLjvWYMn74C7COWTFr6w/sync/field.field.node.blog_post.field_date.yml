@@ -1,0 +1,24 @@
+uuid: 8887ffc2-56f4-4257-a5fc-7f22bd0c90ef
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_date
+    - node.type.blog_post
+  module:
+    - datetime
+id: node.blog_post.field_date
+field_name: field_date
+entity_type: node
+bundle: blog_post
+label: Date
+description: 'Enter the date of the blog post.'
+required: true
+translatable: false
+default_value:
+  -
+    default_date_type: now
+    default_date: now
+default_value_callback: ''
+settings: {  }
+field_type: datetime

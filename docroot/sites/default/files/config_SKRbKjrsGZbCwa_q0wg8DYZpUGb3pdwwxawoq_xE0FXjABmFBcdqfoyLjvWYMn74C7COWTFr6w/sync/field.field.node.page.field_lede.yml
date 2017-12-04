@@ -1,0 +1,21 @@
+uuid: 12a3bb6d-47eb-4b92-8af8-b8c730f92c3d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_lede
+    - node.type.page
+  module:
+    - text
+id: node.page.field_lede
+field_name: field_lede
+entity_type: node
+bundle: page
+label: Lede
+description: 'Pages can contain a lede paragraph appearing after the heading and before the body text.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

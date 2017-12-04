@@ -1,6 +1,6 @@
 ---
 applications:
-- name: govcms8-test
+- name: dta-website-rebuild-develop
   memory: 512M
   instances: 1
   path: .

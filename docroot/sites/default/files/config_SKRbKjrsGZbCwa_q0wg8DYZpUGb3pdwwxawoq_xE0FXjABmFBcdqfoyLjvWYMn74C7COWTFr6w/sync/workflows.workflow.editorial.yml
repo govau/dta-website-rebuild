@@ -1,7 +1,12 @@
-uuid: 9daf4098-3363-4f41-b6c7-c9028f869c85
+uuid: ffd08d37-2676-46d3-83a8-70e529043f4c
 langcode: en
 status: true
 dependencies:
+  config:
+    - node.type.blog_post
+    - node.type.digital_service_standard
+    - node.type.news_item
+    - node.type.page
   module:
     - content_moderation
 _core:
@@ -64,4 +69,9 @@ type_settings:
       from:
         - draft
         - published
-  entity_types: {  }
+  entity_types:
+    node:
+      - blog_post
+      - digital_service_standard
+      - news_item
+      - page

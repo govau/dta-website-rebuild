@@ -40,7 +40,9 @@
     "phpunit/php-code-coverage": "2.2.4",
     "phpunit/phpunit": "^4.8.36",
     "justinrainbow/json-schema": "^5.2",
-    "govau/dta-uikit-base-theme": "dev-master"
+    "govau/dta-uikit-base-theme": "dev-master",
+    "govcms/govcms8": "dev-develop",
+    "drupal/backup_migrate": "^4.0@beta"
   },
   "require-dev": {
     "mikey179/vfsStream": "^1.6",

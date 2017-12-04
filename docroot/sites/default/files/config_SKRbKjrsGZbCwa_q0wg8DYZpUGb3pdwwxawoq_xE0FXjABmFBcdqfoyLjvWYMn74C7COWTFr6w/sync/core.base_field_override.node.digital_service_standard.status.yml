@@ -1,0 +1,22 @@
+uuid: 6305222b-fdb0-4eb2-8f1c-6d5b68d981a1
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.digital_service_standard
+id: node.digital_service_standard.status
+field_name: status
+entity_type: node
+bundle: digital_service_standard
+label: Published
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

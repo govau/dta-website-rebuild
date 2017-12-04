@@ -1,0 +1,35 @@
+uuid: aebb4b5a-f142-4156-9c16-bc4bc0e33a3d
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.digital_service_standard.body
+    - node.type.digital_service_standard
+  module:
+    - text
+    - user
+id: node.digital_service_standard.teaser
+targetEntityType: node
+bundle: digital_service_standard
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  content_moderation_control:
+    weight: -20
+    region: content
+  links:
+    weight: 100
+    region: content
+hidden:
+  field_criterion: true
+  field_further_reading: true
+  field_guidance_links: true
+  field_lede: true

@@ -1,0 +1,30 @@
+uuid: 77c26abb-7e69-4af5-8cca-91b7f83b9f0b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.blog_authors.field_position
+    - taxonomy.vocabulary.blog_authors
+  module:
+    - text
+id: taxonomy_term.blog_authors.default
+targetEntityType: taxonomy_term
+bundle: blog_authors
+mode: default
+content:
+  description:
+    label: hidden
+    type: text_default
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_position:
+    weight: 1
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden: {  }
