@@ -1,0 +1,25 @@
+uuid: 80407eb6-5963-4d78-9d49-03f5a514031b
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.contact_module
+  module:
+    - views
+  theme:
+    - govcmsui
+id: views_block__contact_module_block_1
+theme: govcmsui
+region: content
+weight: 0
+provider: null
+plugin: 'views_block:contact_module-block_1'
+settings:
+  id: 'views_block:contact_module-block_1'
+  label: ''
+  provider: views
+  label_display: visible
+  views_label: ''
+  items_per_page: none
+  context_mapping: {  }
+visibility: {  }

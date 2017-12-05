@@ -1,0 +1,14 @@
+uuid: a0028ebc-b90b-4560-a5b8-2ae33ab936ef
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.site_viewer
+  module:
+    - user
+id: user_remove_role_action.site_viewer
+label: 'Remove the Site viewer role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: site_viewer

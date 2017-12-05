@@ -15,8 +15,20 @@ settings:
     rows:
       -
         -
+          name: Edit
+          items:
+            - Cut
+            - Copy
+            - Paste
+            - PasteText
+            - PasteFromWord
+            - Undo
+            - Redo
+        -
           name: Formatting
           items:
+            - Source
+            - RemoveFormat
             - Bold
             - Italic
             - JustifyLeft
@@ -28,6 +40,7 @@ settings:
             - Superscript
             - Subscript
             - Format
+            - Styles
         -
           name: Links
           items:
@@ -44,11 +57,6 @@ settings:
           items:
             - Blockquote
             - DrupalImage
-        -
-          name: Tools
-          items:
-            - PasteFromWord
-            - Source
   plugins:
     drupallink:
       linkit_enabled: true

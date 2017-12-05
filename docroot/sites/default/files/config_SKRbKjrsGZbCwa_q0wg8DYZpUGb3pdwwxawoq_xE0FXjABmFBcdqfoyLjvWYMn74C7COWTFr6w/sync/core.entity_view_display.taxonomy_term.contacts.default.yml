@@ -1,0 +1,38 @@
+uuid: 43b93452-b398-4a7b-a5f3-1c47a86ca9e7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.contacts.field_email_address
+    - field.field.taxonomy_term.contacts.field_referred_to_as_
+    - taxonomy.vocabulary.contacts
+  module:
+    - text
+id: taxonomy_term.contacts.default
+targetEntityType: taxonomy_term
+bundle: contacts
+mode: default
+content:
+  description:
+    label: hidden
+    type: text_default
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_email_address:
+    weight: 1
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_referred_to_as_:
+    weight: 2
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden: {  }

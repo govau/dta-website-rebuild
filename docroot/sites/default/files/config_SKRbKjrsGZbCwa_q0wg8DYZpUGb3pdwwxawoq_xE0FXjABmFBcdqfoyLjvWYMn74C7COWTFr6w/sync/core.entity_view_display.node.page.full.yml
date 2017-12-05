@@ -5,10 +5,12 @@ dependencies:
   config:
     - core.entity_view_mode.node.full
     - field.field.node.page.body
-    - field.field.node.page.field_lede
+    - field.field.node.page.field_contact_module
+    - field.field.node.page.field_links
     - node.type.page
   module:
     - ds
+    - link
     - panelizer
     - text
     - user
@@ -23,8 +25,8 @@ third_party_settings:
     regions:
       content:
         - content_moderation_control
-        - field_lede
         - body
+        - field_links
   panelizer:
     enable: false
     custom: false
@@ -38,7 +40,7 @@ content:
   body:
     label: hidden
     type: text_default
-    weight: 2
+    weight: 1
     settings: {  }
     third_party_settings: {  }
     region: content
@@ -47,40 +49,47 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_lede:
-    type: text_default
-    weight: 1
+  field_links:
+    type: link
+    weight: 2
     region: content
-    label: hidden
-    settings: {  }
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: '0'
+      target: '0'
     third_party_settings:
       ds:
+        ds_limit: ''
         ft:
           id: expert
           settings:
             lb: ''
             prefix: ''
-            lbw-el: ''
+            lbw: true
+            lbw-el: h2
             lbw-cl: ''
             lbw-at: ''
-            ow: true
-            ow-el: div
-            ow-cl: lede
+            ow-el: ''
+            ow-cl: ''
             ow-at: ''
-            fis-el: ''
+            fis: true
+            fis-el: ul
             fis-cl: ''
             fis-at: ''
-            fi-el: ''
+            fi: true
+            fi-el: li
             fi-cl: ''
             fi-at: ''
             suffix: ''
-            lbw: false
             lb-col: false
+            ow: false
             ow-def-at: false
             ow-def-cl: false
-            fis: false
             fis-def-at: false
-            fi: false
             fi-def-at: false
 hidden:
+  field_contact_module: true
   links: true

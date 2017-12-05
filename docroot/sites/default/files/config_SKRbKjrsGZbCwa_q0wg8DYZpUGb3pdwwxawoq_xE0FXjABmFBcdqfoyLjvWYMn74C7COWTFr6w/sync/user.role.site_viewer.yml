@@ -1,0 +1,19 @@
+uuid: fb798d64-d620-4e6c-93f6-00abb1c4a167
+langcode: en
+status: true
+dependencies: {  }
+id: site_viewer
+label: 'Site viewer'
+weight: -8
+is_admin: null
+permissions:
+  - 'access administration pages'
+  - 'access content'
+  - 'access content overview'
+  - 'access files overview'
+  - 'access site in maintenance mode'
+  - 'access toolbar'
+  - 'search content'
+  - 'use advanced search'
+  - 'view disqus comments'
+  - 'view the administration theme'

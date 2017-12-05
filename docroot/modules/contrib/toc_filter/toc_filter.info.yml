@@ -1,0 +1,16 @@
+name: 'TOC filter'
+type: module
+description: 'Converts header tags into a hierarchical table of contents.'
+package: 'Input filters'
+# version: VERSION
+# core: 8.x
+dependencies:
+  - toc_api
+  - filter
+configure: entity.toc_type.list
+
+# Information added by Drupal.org packaging script on 2016-05-15
+version: '8.x-2.0-beta1'
+core: '8.x'
+project: 'toc_filter'
+datestamp: 1463354653
