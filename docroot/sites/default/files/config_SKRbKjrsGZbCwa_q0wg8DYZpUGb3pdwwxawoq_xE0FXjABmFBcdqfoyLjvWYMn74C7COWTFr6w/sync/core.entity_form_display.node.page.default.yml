@@ -4,12 +4,14 @@ status: true
 dependencies:
   config:
     - field.field.node.page.body
-    - field.field.node.page.field_lede
+    - field.field.node.page.field_contact_module
+    - field.field.node.page.field_links
     - node.type.page
   module:
     - content_moderation
     - field_layout
     - layout_discovery
+    - link
     - path
     - text
 third_party_settings:
@@ -36,13 +38,22 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_lede:
-    weight: 8
+  field_contact_module:
+    weight: 26
     settings:
-      rows: 5
+      match_operator: CONTAINS
+      size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: text_textarea
+    type: entity_reference_autocomplete
+    region: content
+  field_links:
+    weight: 27
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
     region: content
   moderation_state:
     type: moderation_state_default

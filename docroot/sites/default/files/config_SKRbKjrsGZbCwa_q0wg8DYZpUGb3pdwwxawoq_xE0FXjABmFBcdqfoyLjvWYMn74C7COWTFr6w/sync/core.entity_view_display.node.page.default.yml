@@ -4,10 +4,12 @@ status: true
 dependencies:
   config:
     - field.field.node.page.body
-    - field.field.node.page.field_lede
+    - field.field.node.page.field_contact_module
+    - field.field.node.page.field_links
     - node.type.page
   module:
     - ds
+    - link
     - panelizer
     - text
     - user
@@ -50,12 +52,25 @@ content:
   content_moderation_control:
     weight: -20
     region: content
-  field_lede:
+  field_contact_module:
     weight: 102
     label: above
-    settings: {  }
+    settings:
+      link: true
     third_party_settings: {  }
-    type: text_default
+    type: entity_reference_label
+    region: content
+  field_links:
+    weight: 103
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
     region: content
   links:
     weight: 100

@@ -1,0 +1,14 @@
+name: 'TOC filter test'
+type: module
+description: 'Support module for TOC filter testing.'
+package: Testing
+# version: VERSION
+# core: 8.x
+dependencies:
+  - toc_api
+
+# Information added by Drupal.org packaging script on 2016-05-15
+version: '8.x-2.0-beta1'
+core: '8.x'
+project: 'toc_filter'
+datestamp: 1463354653
