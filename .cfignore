@@ -4,3 +4,5 @@ docroot/sites/*/private
 docroot/sites/simpletest
 composer.json
 composer.lock
+docroot/themes/*/*/node_modules
+docroot/tmp

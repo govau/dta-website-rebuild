@@ -5,6 +5,7 @@ docroot/sites/*/settings.local.php
 docroot/sites/*/files/*
 !docroot/sites/*/files/config*
 docroot/sites/*/private
+docroot/tmp
 
 # Ignore default text files
 #robots.txt
