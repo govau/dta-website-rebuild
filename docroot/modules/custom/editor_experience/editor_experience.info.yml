@@ -1,8 +1,0 @@
-name: Editor Experience
-description: Improve the experience of editors in the DTA Website
-package: Custom
-
-type: module
-core: 8.x
-dependencies:
-  - ckeditor
