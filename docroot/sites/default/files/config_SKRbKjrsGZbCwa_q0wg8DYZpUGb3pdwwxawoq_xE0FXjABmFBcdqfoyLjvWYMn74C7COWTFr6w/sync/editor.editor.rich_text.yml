@@ -57,6 +57,7 @@ settings:
           items:
             - Blockquote
             - DrupalImage
+            - video_embed
   plugins:
     drupallink:
       linkit_enabled: true
@@ -65,6 +66,13 @@ settings:
       language_list: un
     stylescombo:
       styles: ''
+    video_embed:
+      defaults:
+        children:
+          autoplay: false
+          responsive: true
+          width: '854'
+          height: '480'
 image_upload:
   status: false
   scheme: public
