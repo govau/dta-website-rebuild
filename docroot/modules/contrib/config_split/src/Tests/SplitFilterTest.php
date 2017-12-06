@@ -476,7 +476,7 @@ class SplitFilterTest extends UnitTestCase {
   }
 
   /**
-   * Test that the static create method works and folders contain the htacces.
+   * Test that the static create method works and folders contain the htaccess.
    */
   public function testSplitFilterCreate() {
     $name = 'config_split.' . $this->getRandomGenerator()->name();

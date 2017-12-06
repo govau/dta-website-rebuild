@@ -176,8 +176,10 @@ class ConfigSplitCliService {
    *   The io interface of the cli tool calling the method.
    * @param callable $t
    *   The translation function akin to t().
+   * @param bool $confirmed
+   *   Whether the export is already confirmed by the console input.
    */
-  public function ioExport($split, $io, callable $t) {
+  public function ioExport($split, $io, callable $t, $confirmed = FALSE) {
     if (!$split) {
       $message = $t('Do a normal (including filters) config export?');
       $storage = $this->syncStorage;
@@ -185,7 +187,7 @@ class ConfigSplitCliService {
     else {
       $config_name = $this->getSplitName($split);
 
-      $plugin_id = $this->getPliginIdFromConfigName($config_name);
+      $plugin_id = $this->getPluginIdFromConfigName($config_name);
       $filter = $this->configFilterManager->getFilterInstance($plugin_id);
 
       // Use a GhostStorage so that we only export the split.
@@ -199,7 +201,7 @@ class ConfigSplitCliService {
       $message .= $t('Export the configuration?');
     }
 
-    if ($io->confirm($message)) {
+    if ($confirmed || $io->confirm($message)) {
       $this->export($storage);
       $io->success($t("Configuration successfully exported."));
     }
@@ -214,15 +216,17 @@ class ConfigSplitCliService {
    *   The $io interface of the cli tool calling.
    * @param callable $t
    *   The translation function akin to t().
+   * @param bool $confirmed
+   *   Whether the import is already confirmed by the console input.
    */
-  public function ioImport($split, $io, callable $t) {
+  public function ioImport($split, $io, callable $t, $confirmed = FALSE) {
     if (!$split) {
       $message = $t('Do a normal (including filters) config import?');
       $storage = $this->syncStorage;
     }
     else {
       $config_name = $this->getSplitName($split);
-      $filter = $this->configFilterManager->getFilterInstance($this->getPliginIdFromConfigName($config_name));
+      $filter = $this->configFilterManager->getFilterInstance($this->getPluginIdFromConfigName($config_name));
 
       // Filter the active storage so we only import the split.
       $storage = new FilteredStorage($this->activeStorage, [$filter]);
@@ -235,7 +239,7 @@ class ConfigSplitCliService {
     }
 
     try {
-      if ($io->confirm($message)) {
+      if ($confirmed || $io->confirm($message)) {
         $status = $this->import($storage);
         switch ($status) {
           case ConfigSplitCliService::COMPLETE:
@@ -384,7 +388,7 @@ class ConfigSplitCliService {
    * @return string
    *   The plugin id.
    */
-  protected function getPliginIdFromConfigName($name) {
+  protected function getPluginIdFromConfigName($name) {
     return 'config_split:' . str_replace('config_split.config_split.', '', $name);
   }
 

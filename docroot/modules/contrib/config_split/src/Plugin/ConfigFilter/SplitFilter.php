@@ -75,7 +75,7 @@ class SplitFilter extends ConfigFilterBase implements ContainerFactoryPluginInte
     $this->manager = $manager;
     $this->secondaryStorage = $secondary;
     $this->calculateBlacklist();
-    $this->calcualteGraylist();
+    $this->calculateGraylist();
   }
 
   /**
@@ -346,7 +346,7 @@ class SplitFilter extends ConfigFilterBase implements ContainerFactoryPluginInte
   /**
    * Calculate the graylist by including dependents and resolving wild cards.
    */
-  protected function calcualteGraylist() {
+  protected function calculateGraylist() {
     $graylist = $this->configuration['graylist'];
     $graylist = array_filter($this->manager->getConfigFactory()->listAll(), function ($name) use ($graylist) {
       // Add the config name to the graylist if it is in the wildcard list.

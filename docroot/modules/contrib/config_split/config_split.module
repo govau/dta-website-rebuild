@@ -111,7 +111,7 @@ exporting the configuration.') . '</dd>';
       when exporting the whole configuration. When importing the whole 
       configuration, the configuration in the split directories is merged with
       the default sync directory and overrides the configuration.
-      The configuration does not end up being overwirtten in the sense of
+      The configuration does not end up being overwritten in the sense of
       configuration overrides such as the overrides from settings.php.') . '</p>';
 
       return $output;

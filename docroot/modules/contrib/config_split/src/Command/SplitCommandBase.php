@@ -64,7 +64,7 @@ abstract class SplitCommandBase extends Command {
   }
 
   /**
-   * The translation function akin to drupals t().
+   * The translation function akin to Drupal's t().
    *
    * @param string $string
    *   The string to translate.

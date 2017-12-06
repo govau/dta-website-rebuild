@@ -202,14 +202,23 @@ class FilteredStorage implements FilteredStorageInterface {
    */
   public function createCollection($collection) {
     $filters = [];
-    foreach ($this->filters as $filter) {
+    foreach ($this->filters as $key => $filter) {
       $filter = $filter->filterCreateCollection($collection);
       if ($filter) {
-        $filters[] = $filter;
+        $filters[$key] = $filter;
       }
     }
 
-    return new static($this->storage->createCollection($collection), $filters);
+    $storage = $this->storage->createCollection($collection);
+    $filtered = new static($storage, $filters);
+
+    // Set the storage to all the filters.
+    foreach ($filters as $filter) {
+      $filter->setSourceStorage(new ReadOnlyStorage($storage));
+      $filter->setFilteredStorage($filtered);
+    }
+
+    return $filtered;
   }
 
   /**

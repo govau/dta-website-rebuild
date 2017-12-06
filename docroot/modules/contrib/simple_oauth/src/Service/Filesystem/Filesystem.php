@@ -111,14 +111,14 @@ class Filesystem implements FilesystemInterface {
    * {@inheritdoc}
    */
   public function mkdir($uri, $mode = NULL, $recursive = FALSE, $context = NULL) {
-    return $this->mkdir($uri, $mode, $recursive, $context);
+    return $this->fileSystem->mkdir($uri, $mode, $recursive, $context);
   }
 
   /**
    * {@inheritdoc}
    */
   public function rmdir($uri, $context = NULL) {
-    return $this->rmdir($uri, $context);
+    return $this->fileSystem->rmdir($uri, $context);
   }
 
   /**

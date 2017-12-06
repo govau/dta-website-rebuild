@@ -36,10 +36,12 @@ class ResourceServer implements ResourceServerInterface {
     HttpFoundationFactoryInterface $foundation_factory
   ) {
     try {
-      if ($public_key = $config_factory->get('simple_oauth.settings')->get('public_key')) {
+      $public_key = $config_factory->get('simple_oauth.settings')->get('public_key');
+      $public_key_real = realpath($public_key);
+      if ($public_key && $public_key_real) {
         $this->subject = new LeageResourceServer(
           $access_token_repository,
-          realpath($public_key)
+          $public_key_real
         );
       }
     }

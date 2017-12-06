@@ -52,7 +52,7 @@ class ConfigSplitEntityForm extends EntityForm {
     $form['static_fieldset']['folder'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Folder'),
-      '#description' => $this->t('The directory, relative to the Drupal root, to which to save the filtered config. Recommended is a sibbling directory of what you defined in <code>$config_directories[CONFIG_SYNC_DIRECTORY]</code> in settings.php, for more information consult the README.<br/>Configuration related to the "filtered" items below will be split from the main configuration and exported to this folder.<br/>Leave the folder empty to use a special database storage if you do not want to share the configuration.'),
+      '#description' => $this->t('The directory, relative to the Drupal root, to which to save the filtered config. Recommended is a sibling directory of what you defined in <code>$config_directories[CONFIG_SYNC_DIRECTORY]</code> in settings.php, for more information consult the README.<br/>Configuration related to the "filtered" items below will be split from the main configuration and exported to this folder.<br/>Leave the folder empty to use a special database storage if you do not want to share the configuration.'),
       '#default_value' => $config->get('folder'),
     ];
     $form['static_fieldset']['weight'] = [
