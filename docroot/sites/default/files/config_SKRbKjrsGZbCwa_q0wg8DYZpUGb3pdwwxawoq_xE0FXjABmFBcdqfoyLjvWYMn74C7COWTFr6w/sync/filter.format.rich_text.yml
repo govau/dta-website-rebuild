@@ -57,6 +57,12 @@ filters:
       type: default
       auto: ''
       block: '0'
+  video_embed_wysiwyg:
+    id: video_embed_wysiwyg
+    provider: video_embed_wysiwyg
+    status: true
+    weight: -47
+    settings: {  }
   editor_file_reference:
     id: editor_file_reference
     provider: editor
@@ -69,11 +75,11 @@ filters:
     status: false
     weight: -41
     settings: {  }
-  filter_html_image_secure:
-    id: filter_html_image_secure
+  filter_align:
+    id: filter_align
     provider: filter
     status: false
-    weight: -38
+    weight: -40
     settings: {  }
   filter_html_escape:
     id: filter_html_escape
@@ -81,11 +87,11 @@ filters:
     status: false
     weight: -43
     settings: {  }
-  filter_align:
-    id: filter_align
+  filter_html_image_secure:
+    id: filter_html_image_secure
     provider: filter
     status: false
-    weight: -40
+    weight: -38
     settings: {  }
   linkit:
     id: linkit
@@ -94,9 +100,3 @@ filters:
     weight: -39
     settings:
       title: true
-  video_embed_wysiwyg:
-    id: video_embed_wysiwyg
-    provider: video_embed_wysiwyg
-    status: true
-    weight: -47
-    settings: {  }
