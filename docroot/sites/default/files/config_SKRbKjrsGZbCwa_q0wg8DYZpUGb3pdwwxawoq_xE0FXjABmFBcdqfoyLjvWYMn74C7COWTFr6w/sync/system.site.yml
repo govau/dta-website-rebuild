@@ -1,6 +1,6 @@
 uuid: 875447e6-b8c6-41f8-801c-dcf2e4fc3147
 name: au.gov.dta.dev
-mail: jesse.boyd@digital.gov.au
+mail: website@digital.gov.au
 slogan: ''
 page:
   403: ''
@@ -12,4 +12,4 @@ langcode: en
 default_langcode: en
 _core:
   default_config_hash: AyT9s8OUcclfALRE_imByOMgtZ19eOlqdF6zI3p7yqo
-mail_notification: ''
+mail_notification: website@digital.gov.au

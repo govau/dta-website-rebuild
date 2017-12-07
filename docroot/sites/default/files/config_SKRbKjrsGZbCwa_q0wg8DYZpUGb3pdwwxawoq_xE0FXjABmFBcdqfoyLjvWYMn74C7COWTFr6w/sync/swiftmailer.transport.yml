@@ -1,9 +1,9 @@
-transport: native
-smtp_host: 127.0.0.1
-smtp_port: 25
-smtp_encryption: ''
-smtp_username: ''
-smtp_password: ''
+transport: smtp
+smtp_host: smtp.hasmtp.cld.gov.au
+smtp_port: 587
+smtp_encryption: tls
+smtp_username: website@digital.gov.au
+smtp_password: X+ao7/edDLkXucW5WZPvymtUkXc/OOSU50D2EOVMn6c=
 sendmail_path: /usr/sbin/sendmail
 sendmail_mode: bs
 spool_directory: ''
