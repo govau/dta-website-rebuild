@@ -6,3 +6,4 @@ composer.json
 composer.lock
 docroot/themes/*/*/node_modules
 docroot/tmp
+docroot/themes/*/*/pancake
