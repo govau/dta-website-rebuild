@@ -1,0 +1,20 @@
+uuid: 084fb2bb-cbc4-46b4-b793-9c25e0c0f659
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - dta_gov_au
+id: breadcrumbs_2
+theme: dta_gov_au
+region: content
+weight: -3
+provider: null
+plugin: system_breadcrumb_block
+settings:
+  id: system_breadcrumb_block
+  label: Breadcrumbs
+  provider: system
+  label_display: visible
+visibility: {  }

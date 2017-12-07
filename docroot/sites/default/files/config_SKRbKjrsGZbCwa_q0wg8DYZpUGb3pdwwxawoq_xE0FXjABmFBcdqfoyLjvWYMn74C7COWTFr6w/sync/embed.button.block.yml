@@ -1,0 +1,18 @@
+uuid: 681fa82b-84af-415a-8dc0-710f2b176905
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_content
+    - entity_embed
+label: Block
+id: block
+type_id: entity
+type_settings:
+  entity_type: block_content
+  bundles: {  }
+  display_plugins: {  }
+  entity_browser: ''
+  entity_browser_settings:
+    display_review: false
+icon_uuid: null

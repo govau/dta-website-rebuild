@@ -1,0 +1,22 @@
+uuid: 60fc2a2b-79c8-4d1e-b01f-b9ce554f26b3
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - dta_gov_au
+_core:
+  default_config_hash: SN5O4USMIjJN3W2ACICn7niq8JUUgNoMRGwhwmjMfkw
+id: dta_gov_au_mainpagecontent
+theme: dta_gov_au
+region: content
+weight: 0
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  provider: system
+  label_display: '0'
+visibility: {  }

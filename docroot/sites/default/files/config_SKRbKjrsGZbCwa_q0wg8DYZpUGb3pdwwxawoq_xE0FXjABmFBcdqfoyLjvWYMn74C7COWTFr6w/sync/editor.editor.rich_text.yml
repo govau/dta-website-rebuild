@@ -58,6 +58,8 @@ settings:
             - Blockquote
             - DrupalImage
             - video_embed
+            - node
+            - block
   plugins:
     drupallink:
       linkit_enabled: true

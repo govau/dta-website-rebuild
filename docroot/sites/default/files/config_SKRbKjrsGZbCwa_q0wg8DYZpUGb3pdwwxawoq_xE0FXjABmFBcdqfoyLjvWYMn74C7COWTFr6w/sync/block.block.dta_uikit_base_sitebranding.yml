@@ -1,15 +1,15 @@
-uuid: 107ccaec-411f-4c49-979b-096939a4d4cb
+uuid: ccd55ac1-7b42-425a-bb2a-64e8e40f6e8d
 langcode: en
 status: true
 dependencies:
   module:
     - system
   theme:
-    - govcmsui
+    - dta_uikit_base
 _core:
   default_config_hash: aVyppJvEbReVQwb_QSKI-pGev94RbAWphTE8ZH9THEI
-id: sitebranding
-theme: govcmsui
+id: dta_uikit_base_sitebranding
+theme: dta_uikit_base
 region: header
 weight: -1
 provider: null
@@ -19,7 +19,7 @@ settings:
   label: 'Site branding'
   provider: system
   label_display: '0'
-  use_site_logo: false
+  use_site_logo: true
   use_site_name: true
   use_site_slogan: false
 visibility: {  }

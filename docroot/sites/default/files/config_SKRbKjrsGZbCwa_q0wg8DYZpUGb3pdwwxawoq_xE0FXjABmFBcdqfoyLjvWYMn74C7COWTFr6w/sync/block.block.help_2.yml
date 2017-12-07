@@ -1,0 +1,20 @@
+uuid: 13d9f099-7fdb-46a6-b396-4635235c76e5
+langcode: en
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - dta_gov_au
+id: help_2
+theme: dta_gov_au
+region: content
+weight: -4
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  provider: help
+  label_display: visible
+visibility: {  }

@@ -1,0 +1,24 @@
+uuid: c7d721dd-bf0b-4406-a9b4-4312366b978c
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.main
+  module:
+    - system
+  theme:
+    - dta_gov_au
+id: mainnavigation_2
+theme: dta_gov_au
+region: menu
+weight: 0
+provider: null
+plugin: 'system_menu_block:main'
+settings:
+  id: 'system_menu_block:main'
+  label: 'Main navigation'
+  provider: system
+  label_display: visible
+  level: 1
+  depth: 0
+visibility: {  }

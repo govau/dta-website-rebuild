@@ -1,0 +1,20 @@
+uuid: f95be472-b212-4769-a970-c238460b0f41
+langcode: en
+status: true
+dependencies:
+  theme:
+    - dta_gov_au
+_core:
+  default_config_hash: CsnnUgDUkyggikn46P0sW2qfGHH4zX-cTcKtaLVXDEk
+id: dta_gov_au_pagetitle
+theme: dta_gov_au
+region: content
+weight: -2
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  provider: core
+  label_display: '0'
+visibility: {  }

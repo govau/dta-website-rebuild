@@ -1,0 +1,26 @@
+uuid: 0b8c1d87-8020-4d34-90c6-e09238d35d8c
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.footer
+  module:
+    - system
+  theme:
+    - dta_gov_au
+_core:
+  default_config_hash: ysxTHDgI78L7LIRl4ad8Wd1A5ZbMKMJZtcBG2xFobwo
+id: dta_gov_au_footer
+theme: dta_gov_au
+region: footer
+weight: 0
+provider: null
+plugin: 'system_menu_block:footer'
+settings:
+  id: 'system_menu_block:footer'
+  label: Footer
+  provider: system
+  label_display: '0'
+  level: 1
+  depth: 1
+visibility: {  }

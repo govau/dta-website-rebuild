@@ -1,0 +1,8 @@
+uuid: 90f5975f-58ae-49d6-928e-4f83a73492c5
+langcode: en
+status: true
+dependencies: {  }
+id: script
+label: Script
+revision: 1
+description: 'A block to hold scripts.'

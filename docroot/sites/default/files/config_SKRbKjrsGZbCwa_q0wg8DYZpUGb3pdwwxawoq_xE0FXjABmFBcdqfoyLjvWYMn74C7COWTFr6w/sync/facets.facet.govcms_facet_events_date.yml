@@ -18,12 +18,9 @@ show_only_one_result: true
 field_identifier: field_event_date
 facet_source_id: 'search_api:views_page__govcms_views_searchapi_events__page_1'
 widget:
-  type: datebasic
+  type: links
   config:
     show_numbers: true
-    display_relative: '0'
-    granularity: '5'
-    date_display: 'F Y'
 query_operator: or
 use_hierarchy: false
 expand_hierarchy: false
@@ -32,6 +29,14 @@ hard_limit: 0
 exclude: false
 only_visible_when_facet_source_is_visible: true
 processor_configs:
+  date_item:
+    processor_id: date_item
+    weights:
+      build: 35
+    settings:
+      date_format: 'F Y'
+      granularity: 5
+      date_display: actual_date
   raw_value_widget_order:
     processor_id: raw_value_widget_order
     weights:
