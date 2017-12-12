@@ -28,11 +28,6 @@ jobs:
       - run:
           name: Installing the Cloud Foundry app.
           command: curl -v -L -o cf-cli_amd64.deb 'https://cli.run.pivotal.io/stable?release=debian64&source=github' && sudo dpkg -i cf-cli_amd64.deb && cf -v
-      - run:
-          name: Installing dependencies
-          #command: rm -rf vendor
-          command: composer install -n --prefer-dist
-
       - save_cache:
           paths:
             - ./vendor
