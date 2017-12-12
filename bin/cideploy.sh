@@ -28,6 +28,7 @@ main() {
       ;;
     *)
       appname="${CIRCLE_PROJECT_REPONAME}-${GITBRANCH}"
+      service="${CIRCLE_PROJECT_REPONAME}-${GITBRANCH}-db"
       ;;
   esac
 
@@ -36,7 +37,17 @@ main() {
   cf auth "$CF_USER_STAGING" "$CF_PASSWORD_STAGING"
   cf target -o "$CF_ORG"
   cf target -s "$CF_SPACE"
+
+  if [${GITBRANCH} != master] && [${GITBRANCH} != develop]
+  then
+    echo "Creating service: $service"
+    cf create-service mysql shared "$service"
+    echo "Binding service $service to $appname"
+    cf bind-service "$appname" "$service"
+  fi
+
   cf push "$appname"
+
 }
 
 main $@
