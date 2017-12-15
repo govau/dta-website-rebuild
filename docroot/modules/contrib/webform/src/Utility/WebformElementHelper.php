@@ -8,7 +8,7 @@ use Drupal\Component\Utility\Xss;
 use Drupal\Core\Render\Markup;
 use Drupal\Core\Render\Element;
 use Drupal\Core\Template\Attribute;
-use Drupal\webform\Plugin\WebformElement\WebformComposite;
+use Drupal\webform\Plugin\WebformElement\WebformCompositeBase;
 
 /**
  * Helper class webform element methods.
@@ -121,7 +121,7 @@ class WebformElementHelper {
   }
 
   /**
-   * Set a property on all elements.
+   * Set a property on all elements and sub-elements.
    *
    * @param array $element
    *   A render element.
@@ -133,12 +133,11 @@ class WebformElementHelper {
    * @return array
    *   A render element with with a property set on all elements.
    */
-  public static function setPropertyRecursive(array $element, $property_key, $property_value) {
+  public static function setPropertyRecursive(array &$element, $property_key, $property_value) {
     $element[$property_key] = $property_value;
     foreach (Element::children($element) as $key) {
       self::setPropertyRecursive($element[$key], $property_key, $property_value);
     }
-    return $element;
   }
 
   /**
@@ -251,7 +250,7 @@ class WebformElementHelper {
             }
 
             // Check that sub composite element type is supported.
-            if (isset($composite_value['#type']) && !WebformComposite::isSupportedElementType($composite_value['#type'])) {
+            if (isset($composite_value['#type']) && !WebformCompositeBase::isSupportedElementType($composite_value['#type'])) {
               $composite_type = $composite_value['#type'];
               $ignored_properties["composite.$composite_type"] = t('Custom composite elements do not support the %type element.', ['%type' => $composite_type]);
             }

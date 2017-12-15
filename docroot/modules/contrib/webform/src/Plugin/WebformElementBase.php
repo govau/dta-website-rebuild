@@ -14,11 +14,15 @@ use Drupal\Core\Form\OptGroup;
 use Drupal\Core\Link;
 use Drupal\Core\Render\Element;
 use Drupal\Core\Render\ElementInfoManagerInterface;
+use Drupal\Core\Render\Markup;
 use Drupal\Core\Session\AccountInterface;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
 use Drupal\Core\Url;
 use Drupal\webform\Element\WebformHtmlEditor;
 use Drupal\webform\Entity\WebformOptions;
+use Drupal\webform\Plugin\WebformElement\Checkbox;
+use Drupal\webform\Plugin\WebformElement\Checkboxes;
+use Drupal\webform\Plugin\WebformElement\Details;
 use Drupal\webform\Utility\WebformArrayHelper;
 use Drupal\webform\Utility\WebformElementHelper;
 use Drupal\webform\Utility\WebformFormHelper;
@@ -247,6 +251,7 @@ class WebformElementBase extends PluginBase implements WebformElementInterface {
     return [
       // Administration.
       'admin_title' => '',
+      'prepopulate' => FALSE,
       'private' => FALSE,
       // Flexbox.
       'flex' => 1,
@@ -311,11 +316,13 @@ class WebformElementBase extends PluginBase implements WebformElementInterface {
   /**
    * Get the Webform element's form element class definition.
    *
+   * We use the plugin's base id here to support plugin derivatives.
+   *
    * @return string
    *   A form element class definition.
    */
   protected function getFormElementClassDefinition() {
-    $definition = $this->elementInfo->getDefinition($this->getPluginId());
+    $definition = $this->elementInfo->getDefinition($this->getBaseId());
     return $definition['class'];
   }
 
@@ -486,7 +493,7 @@ class WebformElementBase extends PluginBase implements WebformElementInterface {
    * {@inheritdoc}
    */
   public function getInfo() {
-    return $this->elementInfo->getInfo($this->getPluginId());
+    return $this->elementInfo->getInfo($this->getBaseId());
   }
 
   /****************************************************************************/
@@ -607,6 +614,8 @@ class WebformElementBase extends PluginBase implements WebformElementInterface {
     }
 
     // Add inline title display support.
+    // Inline fieldset layout is handled via webform_preprocess_fieldset().
+    // @see webform_preprocess_fieldset()
     if (isset($element['#title_display']) && $element['#title_display'] == 'inline') {
       // Store reference to unset #title_display.
       $element['#_title_display'] = $element['#title_display'];
@@ -665,6 +674,15 @@ class WebformElementBase extends PluginBase implements WebformElementInterface {
     }
 
     if ($this->isInput($element)) {
+      // Handle #readonly support.
+      // @see \Drupal\Core\Form\FormBuilder::handleInputElement
+      if (!empty($element['#readonly'])) {
+        $element['#attributes']['readonly'] = 'readonly';
+        if ($this->hasProperty('wrapper_attributes')) {
+          $element['#wrapper_attributes']['class'][] = 'webform-readonly';
+        }
+      }
+
       // Set custom required error message as 'data-required-error' attribute.
       // @see Drupal.behaviors.webformRequiredError
       // @see webform.form.js
@@ -1363,31 +1381,42 @@ class WebformElementBase extends PluginBase implements WebformElementInterface {
    * @param array $options
    *   An array of options.
    *
-   * @return string
+   * @return \Drupal\Component\Render\MarkupInterface|string
    *   The element's value formatted as text.
+   *   Use Markup::create() to make sure the element's value is not double
+   *   escaped when used as a token.
+   *
+   * @see _webform_token_get_submission_value()
    */
   protected function formatTextItem(array $element, WebformSubmissionInterface $webform_submission, array $options = []) {
     $value = $this->getValue($element, $webform_submission, $options);
     $format = $this->getItemFormat($element);
 
-    if ($format != 'raw') {
-      // Escape all HTML entities.
-      if (is_string($value)) {
-        $value = Html::escape($value);
-      }
-
-      // Apply #field prefix and #field_suffix to value.
-      if (isset($element['#type'])) {
-        if (isset($element['#field_prefix'])) {
-          $value = $element['#field_prefix'] . $value;
-        }
-        if (isset($element['#field_suffix'])) {
-          $value .= $element['#field_suffix'];
-        }
-      }
+    if ($format === 'raw') {
+      return Markup::create($value);
     }
 
-    return $value;
+    // Build a render that used #plain_text so that HTML characters are escaped.
+    // @see \Drupal\Core\Render\Renderer::ensureMarkupIsSafe
+    if ($value === '0') {
+      // Issue #2765609: #plain_text doesn't render empty-like values
+      // (e.g. 0 and "0").
+      // Workaround: Use #markup until this issue is fixed.
+      $build = ['#markup' => $value];
+    }
+    else {
+      $build = ['#plain_text' => $value];
+    }
+
+    // Apply #field prefix and #field_suffix to the render array.
+    if (isset($element['#field_prefix'])) {
+      $build['#prefix'] = $element['#field_prefix'];
+    }
+    if (isset($element['#field_suffix'])) {
+      $build['#suffix'] = $element['#field_suffix'];
+    }
+
+    return \Drupal::service('renderer')->renderPlain($build);
   }
 
   /**
@@ -1809,21 +1838,29 @@ class WebformElementBase extends PluginBase implements WebformElementInterface {
       'optional' => $this->t('Optional'),
     ];
 
-    // Set element type specific states.
-    switch ($this->getPluginId()) {
-      case 'checkbox':
-        $states += [
-          'checked' => $this->t('Checked'),
-          'unchecked' => $this->t('Unchecked'),
-        ];
-        break;
+    // Set readwrite/readonly states for any element that supports it
+    // and containers.
+    if ($this->hasProperty('readonly') || $this->isContainer(['#type' => $this->getPluginId()])) {
+      $states += [
+        'readwrite' => $this->t('Read/write'),
+        'readonly' => $this->t('Read-only'),
+      ];
+    }
 
-      case 'details':
-        $states += [
-          'expanded' => $this->t('Expanded'),
-          'collapsed' => $this->t('Collapsed'),
-        ];
-        break;
+    // Set checked/unchecked states for any element that contains checkboxes.
+    if ($this instanceof Checkbox || $this instanceof Checkboxes) {
+      $states += [
+        'checked' => $this->t('Checked'),
+        'unchecked' => $this->t('Unchecked'),
+      ];
+    }
+
+    // Set expanded/collapsed states for any details element.
+    if ($this instanceof Details) {
+      $states += [
+        'expanded' => $this->t('Expanded'),
+        'collapsed' => $this->t('Collapsed'),
+      ];
     }
 
     return $states;
@@ -2198,10 +2235,35 @@ class WebformElementBase extends PluginBase implements WebformElementInterface {
     $form['form']['disabled'] = [
       '#type' => 'checkbox',
       '#title' => $this->t('Disabled'),
-      '#description' => $this->t('Make this element non-editable. Useful for displaying default value. Changeable via JavaScript.'),
+      '#description' => $this->t('Make this element non-editable with the value <strong>ignored</strong>. Useful for displaying default value. Changeable via JavaScript.'),
       '#return_value' => TRUE,
       '#weight' => 50,
     ];
+    $form['form']['readonly'] = [
+      '#type' => 'checkbox',
+      '#title' => $this->t('Readonly'),
+      '#description' => $this->t('Make this element non-editable with the value <strong>submitted</strong>. Useful for displaying default value. Changeable via JavaScript.'),
+      '#return_value' => TRUE,
+      '#weight' => 50,
+    ];
+    $form['form']['prepopulate'] = [
+      '#type' => 'checkbox',
+      '#title' => $this->t('Prepopulate'),
+      '#description' => $this->t('Allow element to be populated using query string parameters'),
+      '#return_value' => TRUE,
+      '#weight' => 50,
+    ];
+    // Disabled check element when prepopulate is enabled for all elements.
+    if ($webform->getSetting('form_prepopulate') && $this->hasProperty('prepopulate')) {
+      $form['form']['prepopulate_disabled'] = [
+        '#description' => $this->t('Prepopulation is enabled for all form elements.'),
+        '#value' => TRUE,
+        '#disabled' => TRUE,
+        '#access' => TRUE,
+      ] + $form['form']['prepopulate'];
+      $form['form']['prepopulate']['#value'] = FALSE;
+      $form['form']['prepopulate']['#access'] = FALSE;
+    }
     $form['form']['open'] = [
       '#type' => 'checkbox',
       '#title' => $this->t('Open'),
@@ -2397,6 +2459,19 @@ class WebformElementBase extends PluginBase implements WebformElementInterface {
       '#state_options' => $this->getElementStateOptions(),
       '#selector_options' => $webform->getElementsSelectorOptions(),
     ];
+    if (!$this->hasProperty('state')) {
+      $form['conditional_logic']['states_required_message'] = [
+        '#type' => 'webform_message',
+        '#message_type' => 'warning',
+        '#message_message' => $this->t('Please note when an element is hidden it will not be required.'),
+        '#access' => TRUE,
+        '#states' => [
+          'visible' => [
+            ':input[name="properties[required]"]' => ['checked' => TRUE],
+          ],
+        ],
+      ];
+    }
 
     /* Submission display */
 

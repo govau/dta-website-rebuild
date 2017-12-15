@@ -18,14 +18,14 @@ use Drupal\Core\Field\Plugin\Field\FieldType\EntityReferenceItem;
 use Drupal\jsonapi\Context\CurrentContext;
 use Drupal\jsonapi\Exception\EntityAccessDeniedHttpException;
 use Drupal\jsonapi\Exception\UnprocessableHttpEntityException;
+use Drupal\jsonapi\Query\Filter;
+use Drupal\jsonapi\Query\Sort;
+use Drupal\jsonapi\Query\OffsetPage;
 use Drupal\jsonapi\LinkManager\LinkManager;
-use Drupal\jsonapi\Query\QueryBuilder;
 use Drupal\jsonapi\Resource\EntityCollection;
 use Drupal\jsonapi\Resource\JsonApiDocumentTopLevel;
 use Drupal\jsonapi\ResourceResponse;
 use Drupal\jsonapi\ResourceType\ResourceType;
-use Drupal\jsonapi\Routing\Param\JsonApiParamBase;
-use Drupal\jsonapi\Routing\Param\OffsetPage;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
@@ -60,13 +60,6 @@ class EntityResource {
   protected $fieldManager;
 
   /**
-   * The query builder service.
-   *
-   * @var \Drupal\jsonapi\Query\QueryBuilder
-   */
-  protected $queryBuilder;
-
-  /**
    * The current context service.
    *
    * @var \Drupal\jsonapi\Context\CurrentContext
@@ -94,8 +87,6 @@ class EntityResource {
    *   The JSON API resource type.
    * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entity_type_manager
    *   The entity type manager.
-   * @param \Drupal\jsonapi\Query\QueryBuilder $query_builder
-   *   The query builder.
    * @param \Drupal\Core\Entity\EntityFieldManagerInterface $field_manager
    *   The entity type field manager.
    * @param \Drupal\jsonapi\Context\CurrentContext $current_context
@@ -105,10 +96,9 @@ class EntityResource {
    * @param \Drupal\jsonapi\LinkManager\LinkManager $link_manager
    *   The link manager service.
    */
-  public function __construct(ResourceType $resource_type, EntityTypeManagerInterface $entity_type_manager, QueryBuilder $query_builder, EntityFieldManagerInterface $field_manager, CurrentContext $current_context, FieldTypePluginManagerInterface $plugin_manager, LinkManager $link_manager) {
+  public function __construct(ResourceType $resource_type, EntityTypeManagerInterface $entity_type_manager, EntityFieldManagerInterface $field_manager, CurrentContext $current_context, FieldTypePluginManagerInterface $plugin_manager, LinkManager $link_manager) {
     $this->resourceType = $resource_type;
     $this->entityTypeManager = $entity_type_manager;
-    $this->queryBuilder = $query_builder;
     $this->fieldManager = $field_manager;
     $this->currentContext = $current_context;
     $this->pluginManager = $plugin_manager;
@@ -587,7 +577,7 @@ class EntityResource {
    *
    * @param string $entity_type_id
    *   The entity type for the entity query.
-   * @param \Drupal\jsonapi\Routing\Param\JsonApiParamInterface[] $params
+   * @param array $params
    *   The parameters for the query.
    *
    * @return \Drupal\Core\Entity\Query\QueryInterface
@@ -595,8 +585,38 @@ class EntityResource {
    */
   protected function getCollectionQuery($entity_type_id, $params) {
     $entity_type = $this->entityTypeManager->getDefinition($entity_type_id);
+    $entity_storage = $this->entityTypeManager->getStorage($entity_type_id);
 
-    $query = $this->queryBuilder->newQuery($entity_type, $params);
+    $query = $entity_storage->getQuery();
+
+    // Ensure that access checking is performed on the query.
+    $query->accessCheck(TRUE);
+
+    // Compute and apply an entity query condition from the filter parameter.
+    if (isset($params[Filter::KEY_NAME]) && $filter = $params[Filter::KEY_NAME]) {
+      $query->condition($filter->queryCondition($query));
+    }
+
+    // Apply any sorts to the entity query.
+    if (isset($params[Sort::KEY_NAME]) && $sort = $params[Sort::KEY_NAME]) {
+      foreach ($sort->fields() as $field) {
+        $path = $field[Sort::PATH_KEY];
+        $direction = isset($field[Sort::DIRECTION_KEY]) ? $field[Sort::DIRECTION_KEY] : 'ASC';
+        $langcode = isset($field[Sort::LANGUAGE_KEY]) ? $field[Sort::LANGUAGE_KEY] : NULL;
+        $query->sort($path, $direction, $langcode);
+      }
+    }
+
+    // Apply any pagination options to the query.
+    if (isset($params[OffsetPage::KEY_NAME])) {
+      $pagination = $params[OffsetPage::KEY_NAME];
+    }
+    else {
+      $pagination = new OffsetPage(OffsetPage::DEFAULT_OFFSET, OffsetPage::SIZE_MAX);
+    }
+    // Add one extra element to the page to see if there are more pages needed.
+    $query->range($pagination->getOffset(), $pagination->getSize() + 1);
+    $query->addMetaData('pager_size', (int) $pagination->getSize());
 
     // Limit this query to the bundle type for this resource.
     $bundle = $this->resourceType->getBundle();
@@ -614,7 +634,7 @@ class EntityResource {
    *
    * @param string $entity_type_id
    *   The entity type for the entity query.
-   * @param \Drupal\jsonapi\Routing\Param\JsonApiParamInterface[] $params
+   * @param array $params
    *   The parameters for the query.
    *
    * @return \Drupal\Core\Entity\Query\QueryInterface
@@ -622,7 +642,7 @@ class EntityResource {
    */
   protected function getCollectionCountQuery($entity_type_id, $params) {
     // Override the pagination parameter to get all the available results.
-    $params[OffsetPage::KEY_NAME] = new JsonApiParamBase([]);
+    unset($params[OffsetPage::KEY_NAME]);
     return $this->getCollectionQuery($entity_type_id, $params);
   }
 

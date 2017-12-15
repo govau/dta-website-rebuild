@@ -31,6 +31,9 @@ function webform_theme() {
     'webform_actions' => [
       'render element' => 'element',
     ],
+    'webform_handler_action_summary' => [
+      'variables' => ['settings' => NULL, 'handler' => NULL],
+    ],
     'webform_handler_debug_summary' => [
       'variables' => ['settings' => NULL, 'handler' => NULL],
     ],
@@ -38,6 +41,9 @@ function webform_theme() {
       'variables' => ['settings' => NULL, 'handler' => NULL],
     ],
     'webform_handler_remote_post_summary' => [
+      'variables' => ['settings' => NULL, 'handler' => NULL],
+    ],
+    'webform_handler_settings_summary' => [
       'variables' => ['settings' => NULL, 'handler' => NULL],
     ],
 
@@ -84,10 +90,6 @@ function webform_theme() {
       'variables' => ['element' => [], 'value' => NULL, 'webform_submission' => NULL, 'options' => []],
     ],
     'webform_container_base_text' => [
-      'variables' => ['element' => [], 'value' => NULL, 'webform_submission' => NULL, 'options' => []],
-    ],
-
-    'webform_element_color_value_swatch' => [
       'variables' => ['element' => [], 'value' => NULL, 'webform_submission' => NULL, 'options' => []],
     ],
 
@@ -309,6 +311,12 @@ function webform_preprocess_fieldset(&$variables) {
   _webform_preprocess_form_element_description_more($variables);
 
   $element = &$variables['element'];
+
+  // Apply inline title defined by radios, checkboxes, and buttons.
+  // @see \Drupal\webform\Plugin\WebformElement\OptionsBase::prepare
+  if (isset($element['#_title_display'])) {
+    $variables['attributes']['class'][] = 'webform-fieldset--title-inline';
+  }
 
   // Restructure the fieldset's legend title to include #help.
   if (isset($variables['legend']['title'])) {
@@ -624,16 +632,28 @@ function _webform_theme_suggestions(array $variables, $hook) {
       $suggestions[] = $hook . '__' . $type . '__' . $name;
     }
   }
-  elseif (isset($variables['webform_submission'])) {
-    /** @var \Drupal\webform\WebformSubmissionInterface $webform_submission */
-    $webform_submission = $variables['webform_submission'];
-    $webform = $webform_submission->getWebform();
-    $suggestions[] = $hook . '__' . $webform->id();
-  }
-  elseif (isset($variables['webform'])) {
-    /** @var \Drupal\webform\WebformInterface $webform */
-    $webform = $variables['webform'];
-    $suggestions[] = $hook . '__' . $webform->id();
+  else {
+    if (isset($variables['webform_submission'])) {
+      /** @var \Drupal\webform\WebformSubmissionInterface $webform_submission */
+      $webform_submission = $variables['webform_submission'];
+      $webform = $webform_submission->getWebform();
+    }
+    elseif (isset($variables['webform'])) {
+        /** @var \Drupal\webform\WebformInterface $webform */
+      $webform = $variables['webform'];
+    }
+    else {
+      $webform = NULL;
+    }
+    if ($webform) {
+      $suggestions[] = $hook . '__' . $webform->id();
+      if (isset($variables['handler'])) {
+        /** @var \Drupal\webform\Plugin\WebformHandlerInterface $handler */
+        $handler = $variables['handler'];
+        $suggestions[] = $hook . '__' . $webform->id() . '__' . $handler->getPluginId();
+        $suggestions[] = $hook . '__' . $webform->id() . '__' . $handler->getPluginId() . '__' . $handler->getHandlerId();
+      }
+    }
   }
 
   return $suggestions;

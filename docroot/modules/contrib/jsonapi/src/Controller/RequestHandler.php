@@ -112,7 +112,7 @@ class RequestHandler implements ContainerAwareInterface, ContainerInjectionInter
    */
   public function deserializeBody(Request $request, SerializerInterface $serializer, $serialization_class, CurrentContext $current_context) {
     $received = $request->getContent();
-    if (empty($received) || $request->isMethodSafe()) {
+    if (empty($received) || $request->isMethodCacheable()) {
       return NULL;
     }
     $format = $request->getContentType();
@@ -195,8 +195,6 @@ class RequestHandler implements ContainerAwareInterface, ContainerInjectionInter
     $resource_type_repository = $this->container->get('jsonapi.resource_type.repository');
     /* @var \Drupal\Core\Entity\EntityTypeManagerInterface $entity_type_manager */
     $entity_type_manager = $this->container->get('entity_type.manager');
-    /* @var \Drupal\jsonapi\Query\QueryBuilder $query_builder */
-    $query_builder = $this->container->get('jsonapi.query_builder');
     /* @var \Drupal\Core\Entity\EntityFieldManagerInterface $field_manager */
     $field_manager = $this->container->get('entity_field.manager');
     /* @var \Drupal\Core\Field\FieldTypePluginManagerInterface $plugin_manager */
@@ -206,7 +204,6 @@ class RequestHandler implements ContainerAwareInterface, ContainerInjectionInter
     $resource = new EntityResource(
       $resource_type_repository->get($route->getRequirement('_entity_type'), $route->getRequirement('_bundle')),
       $entity_type_manager,
-      $query_builder,
       $field_manager,
       $current_context,
       $plugin_manager,

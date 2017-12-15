@@ -11,9 +11,11 @@ use Drupal\jsonapi\Context\CurrentContext;
 use Drupal\jsonapi\Controller\EntityResource;
 use Drupal\jsonapi\Resource\EntityCollection;
 use Drupal\jsonapi\Resource\JsonApiDocumentTopLevel;
-use Drupal\jsonapi\Routing\Param\Filter;
-use Drupal\jsonapi\Routing\Param\Sort;
-use Drupal\jsonapi\Routing\Param\OffsetPage;
+use Drupal\jsonapi\Query\EntityCondition;
+use Drupal\jsonapi\Query\EntityConditionGroup;
+use Drupal\jsonapi\Query\Filter;
+use Drupal\jsonapi\Query\Sort;
+use Drupal\jsonapi\Query\OffsetPage;
 use Drupal\node\Entity\Node;
 use Drupal\node\Entity\NodeType;
 use Drupal\Tests\jsonapi\Kernel\JsonapiKernelTestBase;
@@ -29,6 +31,7 @@ use Symfony\Component\Routing\Route;
 /**
  * @coversDefaultClass \Drupal\jsonapi\Controller\EntityResource
  * @group jsonapi
+ * @group legacy
  */
 class EntityResourceTest extends JsonapiKernelTestBase {
 
@@ -106,6 +109,7 @@ class EntityResourceTest extends JsonapiKernelTestBase {
     ]);
     $this->createEntityReferenceField('node', 'article', 'field_relationships', 'Relationship', 'node', 'default', ['target_bundles' => ['article']], FieldStorageDefinitionInterface::CARDINALITY_UNLIMITED);
     $this->user->save();
+
     $this->node = Node::create([
       'title' => 'dummy_title',
       'type' => 'article',
@@ -206,7 +210,7 @@ class EntityResourceTest extends JsonapiKernelTestBase {
    */
   public function testGetFilteredCollection() {
     $field_manager = $this->container->get('entity_field.manager');
-    $filter = new Filter(['type' => ['value' => 'article']]);
+    $filter = new Filter(new EntityConditionGroup('AND', [new EntityCondition('type', 'article')]));
     // The fake route.
     $route = new Route(NULL, [], [
       '_entity_type' => 'node',
@@ -237,7 +241,6 @@ class EntityResourceTest extends JsonapiKernelTestBase {
     $entity_resource = new EntityResource(
       $this->container->get('jsonapi.resource_type.repository')->get('node_type', 'node_type'),
       $this->container->get('entity_type.manager'),
-      $this->container->get('jsonapi.query_builder'),
       $field_manager,
       $current_context,
       $this->container->get('plugin.manager.field.field_type'),
@@ -265,7 +268,7 @@ class EntityResourceTest extends JsonapiKernelTestBase {
       '_entity_type' => 'node',
       '_bundle' => 'article',
     ]);
-    $sort = new Sort('-type');
+    $sort = new Sort([['path' => 'type', 'direction' => 'DESC']]);
     // The request.
     $request = new Request([], [], [
       '_route_params' => [
@@ -291,7 +294,6 @@ class EntityResourceTest extends JsonapiKernelTestBase {
     $entity_resource = new EntityResource(
       $this->container->get('jsonapi.resource_type.repository')->get('node_type', 'node_type'),
       $this->container->get('entity_type.manager'),
-      $this->container->get('jsonapi.query_builder'),
       $field_manager,
       $current_context,
       $this->container->get('plugin.manager.field.field_type'),
@@ -320,7 +322,7 @@ class EntityResourceTest extends JsonapiKernelTestBase {
       '_entity_type' => 'node',
       '_bundle' => 'article',
     ]);
-    $pager = new OffsetPage(['offset' => 1, 'limit' => 1]);
+    $pager = new OffsetPage(1, 1);
     // The request.
     $request = new Request([], [], [
       '_route_params' => [
@@ -346,7 +348,6 @@ class EntityResourceTest extends JsonapiKernelTestBase {
     $entity_resource = new EntityResource(
       $this->container->get('jsonapi.resource_type.repository')->get('node', 'article'),
       $this->container->get('entity_type.manager'),
-      $this->container->get('jsonapi.query_builder'),
       $field_manager,
       $current_context,
       $this->container->get('plugin.manager.field.field_type'),
@@ -369,7 +370,7 @@ class EntityResourceTest extends JsonapiKernelTestBase {
    * @covers ::getCollection
    */
   public function testGetEmptyCollection() {
-    $filter = new Filter(['uuid' => ['value' => 'invalid']]);
+    $filter = new Filter(new EntityConditionGroup('AND', [new EntityCondition('uuid', 'invalid')]));
     $request = new Request([], [], [
       '_route_params' => [
         '_json_api_params' => [
@@ -869,7 +870,6 @@ class EntityResourceTest extends JsonapiKernelTestBase {
     return new EntityResource(
       new ResourceType($entity_type_id, $bundle, NULL),
       $this->container->get('entity_type.manager'),
-      $this->container->get('jsonapi.query_builder'),
       $this->container->get('entity_field.manager'),
       $current_context,
       $this->container->get('plugin.manager.field.field_type'),

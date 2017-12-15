@@ -104,6 +104,7 @@ class WebformOptions extends FormElement {
             '#title_display' => t('invisible'),
             '#placeholder' => t('Enter value'),
             '#maxlength' => 255,
+            '#attributes' => ['class' => ['js-webform-options-value']],
           ],
           'option' => [
             '#type' => 'container',
@@ -134,6 +135,7 @@ class WebformOptions extends FormElement {
             '#title_display' => t('invisible'),
             '#placeholder' => t('Enter value'),
             '#maxlength' => 255,
+            '#attributes' => ['class' => ['js-webform-options-value']],
           ],
           'text' => [
             '#type' => 'textfield',
@@ -144,6 +146,8 @@ class WebformOptions extends FormElement {
           ],
         ];
       }
+
+      $element['#attached']['library'][] = 'webform/webform.element.options.admin';
       return $element;
     }
   }
@@ -193,24 +197,26 @@ class WebformOptions extends FormElement {
    * @return array
    *   An array of options.
    */
-  public static function convertValuesToOptions(array $values = [], $options_description = FALSE) {
+  public static function convertValuesToOptions(array $values = NULL, $options_description = FALSE) {
     $options = [];
-    foreach ($values as $value) {
-      $option_value = $value['value'];
-      $option_text = $value['text'];
-      if ($options_description && !empty($value['description'])) {
-        $option_text .= WebformOptionsHelper::DESCRIPTION_DELIMITER . $value['description'];
-      }
+    if ($values && is_array($values)) {
+      foreach ($values as $value) {
+        $option_value = $value['value'];
+        $option_text = $value['text'];
+        if ($options_description && !empty($value['description'])) {
+          $option_text .= WebformOptionsHelper::DESCRIPTION_DELIMITER . $value['description'];
+        }
 
-      // Populate empty option value or option text.
-      if ($option_value === '') {
-        $option_value = $option_text;
-      }
-      elseif ($option_text === '') {
-        $option_text = $option_value;
-      }
+        // Populate empty option value or option text.
+        if ($option_value === '') {
+          $option_value = $option_text;
+        }
+        elseif ($option_text === '') {
+          $option_text = $option_value;
+        }
 
-      $options[$option_value] = $option_text;
+        $options[$option_value] = $option_text;
+      }
     }
     return $options;
   }

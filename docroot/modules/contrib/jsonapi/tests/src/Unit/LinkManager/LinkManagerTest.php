@@ -4,7 +4,7 @@ namespace Drupal\Tests\jsonapi\Unit\LinkManager;
 
 use Drupal\Core\Routing\UrlGeneratorInterface;
 use Drupal\jsonapi\LinkManager\LinkManager;
-use Drupal\jsonapi\Routing\Param\OffsetPage;
+use Drupal\jsonapi\Query\OffsetPage;
 use Drupal\Tests\UnitTestCase;
 use Prophecy\Argument;
 use Symfony\Cmf\Component\Routing\ChainRouterInterface;
@@ -150,11 +150,11 @@ class LinkManagerTest extends UnitTestCase {
   public function getPagerLinksErrorProvider() {
     return [
       [0, -5, FALSE, 10, TRUE, [
-          'first' => NULL,
-          'prev' => NULL,
-          'last' => NULL,
-          'next' => NULL,
-        ],
+        'first' => NULL,
+        'prev' => NULL,
+        'last' => NULL,
+        'next' => NULL,
+      ],
       ],
     ];
   }

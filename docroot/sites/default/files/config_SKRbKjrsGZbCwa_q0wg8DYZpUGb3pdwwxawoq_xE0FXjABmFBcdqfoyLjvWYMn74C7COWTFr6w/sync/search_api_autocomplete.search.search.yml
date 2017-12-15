@@ -1,0 +1,29 @@
+uuid: c3c76c71-2a07-428f-a140-e2537583f810
+langcode: en
+status: true
+dependencies:
+  config:
+    - search_api.index.database_search_index
+    - search_api_page.search_api_page.search
+  module:
+    - search_api_page
+id: search
+label: Search
+index_id: database_search_index
+suggester_settings:
+  server:
+    fields:
+      - title
+suggester_weights:
+  server: 0
+suggester_limits:
+  server: 10
+search_settings:
+  'page:search': {  }
+options:
+  limit: 10
+  min_length: 1
+  show_count: false
+  autosubmit: true
+  submit_button_selector: ':submit'
+  delay: 0

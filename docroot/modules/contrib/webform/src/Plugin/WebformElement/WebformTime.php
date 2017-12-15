@@ -49,7 +49,7 @@ class WebformTime extends WebformElementBase {
   /**
    * {@inheritdoc}
    */
-  public function formatTextItem(array $element, WebformSubmissionInterface $webform_submission, array $options = []) {
+  protected function formatTextItem(array $element, WebformSubmissionInterface $webform_submission, array $options = []) {
     $value = $this->getValue($element, $webform_submission, $options);
 
     if (empty($value)) {
@@ -115,8 +115,8 @@ class WebformTime extends WebformElementBase {
       '#title' => $this->t('Step'),
       '#description' => $this->t('Specifies the minute intervals.'),
       '#options' => [
-        '' => $this->t('1 minute'),
-        30 => $this->t('5 minutes'),
+        60 => $this->t('1 minute'),
+        300 => $this->t('5 minutes'),
         600 => $this->t('10 minutes'),
         900 => $this->t('15 minutes'),
         1200 => $this->t('20 minutes'),

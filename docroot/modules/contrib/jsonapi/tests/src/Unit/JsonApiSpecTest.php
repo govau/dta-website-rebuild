@@ -19,6 +19,9 @@ class JsonApiSpecTest extends UnitTestCase {
     $this->assertSame($expected, JsonApiSpec::isValidMemberName($member_name));
   }
 
+  /**
+   * Data provider for testIsValidMemberName.
+   */
   public function providerTestIsValidMemberName() {
     // Copied from http://jsonapi.org/format/upcoming/#document-member-names.
     $data = [];
@@ -95,6 +98,9 @@ class JsonApiSpecTest extends UnitTestCase {
     $this->assertSame($expected, JsonApiSpec::isValidCustomQueryParameter($custom_query_parameter));
   }
 
+  /**
+   * Data provider for testIsValidCustomQueryParameter.
+   */
   public function providerTestIsValidCustomQueryParameter() {
     $data = $this->providerTestIsValidMemberName();
 

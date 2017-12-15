@@ -50,6 +50,9 @@ class FieldNormalizerValue implements FieldNormalizerValueInterface {
   public function __construct(array $values, $cardinality) {
     $this->values = $values;
     $this->includes = array_map(function ($value) {
+      if (!$value instanceof FieldItemNormalizerValue) {
+        return new NullFieldNormalizerValue();
+      }
       return $value->getInclude();
     }, $values);
     $this->includes = array_filter($this->includes);
@@ -63,11 +66,15 @@ class FieldNormalizerValue implements FieldNormalizerValueInterface {
     if (empty($this->values)) {
       return NULL;
     }
-    return $this->cardinality == 1 ?
-      $this->values[0]->rasterizeValue() :
-      array_map(function ($value) {
-        return $value->rasterizeValue();
-      }, $this->values);
+
+    if ($this->cardinality == 1) {
+      return $this->values[0] instanceof FieldItemNormalizerValue
+        ? $this->values[0]->rasterizeValue() : NULL;
+    }
+
+    return array_map(function ($value) {
+      return $value instanceof FieldItemNormalizerValue ? $value->rasterizeValue() : NULL;
+    }, $this->values);
   }
 
   /**

@@ -1,0 +1,24 @@
+id: body
+label: Body
+ui_limit: ''
+properties:
+  block: 'entity_field:node:body'
+  use_block_title: true
+  config:
+    id: 'entity_field:node:body'
+    label: ''
+    provider: ctools_block
+    label_display: visible
+    formatter:
+      label: hidden
+      type: text_summary_or_trimmed
+      settings:
+        trim_length: 600
+      third_party_settings: {  }
+      weight: 0
+    context_mapping:
+      entity: '@node.node_route_context:node'
+type: block
+type_label: 'Block field'
+entities:
+  node: node

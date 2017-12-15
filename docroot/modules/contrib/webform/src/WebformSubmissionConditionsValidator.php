@@ -6,6 +6,7 @@ use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Render\Element;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
 use Drupal\webform\Plugin\WebformElementManagerInterface;
+use Drupal\webform\Utility\WebformArrayHelper;
 
 /**
  * Webform submission conditions (#states) validator.
@@ -34,10 +35,10 @@ class WebformSubmissionConditionsValidator implements WebformSubmissionCondition
     'expanded' => '!collapsed',
     'open' => '!collapsed',
     'closed' => 'collapsed',
+    'readwrite' => '!readonly',
     // Below states are never used by the #states API.
     // 'untouched' => '!touched',
     // 'irrelevant' => '!relevant',
-    // 'readwrite' => '!readonly',
   ];
 
   /**
@@ -70,8 +71,8 @@ class WebformSubmissionConditionsValidator implements WebformSubmissionCondition
     /** @var \Drupal\webform\WebformSubmissionInterface $webform_submission */
     $webform_submission = $form_state->getFormObject()->getEntity();
 
-    // Get visible form elements.
-    $elements = &$this->getVisibleElements($form);
+    // Get build and get visible form elements.
+    $elements = &$this->getBuildElements($form);
 
     // Loop through visible elements with #states.
     foreach ($elements as &$element) {
@@ -158,7 +159,7 @@ class WebformSubmissionConditionsValidator implements WebformSubmissionCondition
    */
   protected function validateFormRecursive(array $form, FormStateInterface $form_state) {
     foreach ($form as $key => $element) {
-      if (Element::property($key) || !is_array($element)) {
+      if (!Element::child($key) || !is_array($element)) {
         continue;
       }
 
@@ -189,28 +190,62 @@ class WebformSubmissionConditionsValidator implements WebformSubmissionCondition
     /** @var \Drupal\webform\WebformSubmissionInterface $webform_submission */
     $webform_submission = $form_state->getFormObject()->getEntity();
     foreach ($states as $state => $conditions) {
+      // Only required/optional validation is supported.
       if (!in_array($state, ['required', 'optional'])) {
         continue;
       }
 
+      // Element must be an input to be required or optional.
+      $element_plugin = $this->elementManager->getElementInstance($element);
+      if (!$element_plugin->isInput($element)) {
+        continue;
+      }
+
+      // Determine if the element is required.
       $is_required = $this->validateConditions($conditions, $webform_submission);
       $is_required = ($state == 'optional') ? !$is_required : $is_required;
 
+      // Determine if the element is empty (but not zero).
       if (isset($element['#webform_key'])) {
         $value = $webform_submission->getElementData($element['#webform_key']);
       }
       else {
         $value = $element['#value'];
       }
+      $is_empty = (empty($value) && $value !== '0');
 
-      if ($is_required && ($value === '' || $value === NULL)) {
+      // If required and empty then set required error.
+      if ($is_required && $is_empty) {
         $this->setRequiredError($element, $form_state);
       }
     }
   }
 
   /****************************************************************************/
-  // Condition methods.
+  // Validate state methods.
+  /****************************************************************************/
+
+  /**
+   * {@inheritdoc}
+   */
+  public function validateState($state, array $conditions, WebformSubmissionInterface $webform_submission) {
+    // Process state/negate.
+    list($state, $negate) = $this->processState($state);
+
+    // Validation conditions.
+    $result = $this->validateConditions($conditions, $webform_submission);
+
+    // Skip invalid conditions.
+    if ($result === NULL) {
+      return NULL;
+    }
+
+    // Negate the result.
+    return ($negate) ? !$result : $result;
+  }
+
+  /****************************************************************************/
+  // Validate condition methods.
   /****************************************************************************/
 
   /**
@@ -219,6 +254,7 @@ class WebformSubmissionConditionsValidator implements WebformSubmissionCondition
   public function validateConditions(array $conditions, WebformSubmissionInterface $webform_submission) {
     $condition_logic = 'and';
     $condition_results = [];
+
     foreach ($conditions as $index => $value) {
       if (is_string($value) && in_array($value, ['and', 'or', 'xor'])) {
         $condition_logic = $value;
@@ -252,42 +288,19 @@ class WebformSubmissionConditionsValidator implements WebformSubmissionCondition
         return NULL;
       }
 
-      $trigger_state = key($condition);
-      $trigger_value = $condition[$trigger_state];
-
-      $element_plugin = $this->elementManager->getElementInstance($element);
-      $element_value = $element_plugin->getElementSelectorInputValue($selector, $trigger_state, $element, $webform_submission);
-
-      // Process trigger state/negate.
-      list($trigger_state, $trigger_negate) = $this->processState($trigger_state);
-
-      // Process triggers (aka remote conditions).
-      // @see \Drupal\webform\Element\WebformElementStates::processWebformStates
-      switch ($trigger_state) {
-        case 'empty':
-          $result = (empty($element_value) === (boolean) $trigger_value);
-          break;
-
-        case 'checked':
-          $result = ((boolean) $element_value === (boolean) $trigger_value);
-          break;
-
-        case 'value':
-          if ($element_plugin->hasMultipleValues($element)) {
-            $trigger_values = (array) $trigger_value;
-            $element_values = (array) $element_value;
-            $result = (array_intersect($trigger_values, $element_values)) ? TRUE : FALSE;
-          }
-          else {
-            $result = ((string) $element_value === (string) $trigger_value);
-          }
-          break;
-
-        default:
-          return NULL;
+      // Issue #1149078: States API doesn't work with multiple select fields.
+      // @see https://www.drupal.org/project/drupal/issues/1149078
+      if (WebformArrayHelper::isSequential($condition)) {
+        $sub_condition_results = [];
+        foreach ($condition as $sub_condition) {
+          $sub_condition_results[] = $this->checkCondition($element, $selector, $sub_condition, $webform_submission);
+        }
+        // Evalute sub-conditions using the 'OR' operator.
+        $condition_results[$selector] = (boolean) array_sum($sub_condition_results);
       }
-
-      $condition_results[$selector] = ($trigger_negate) ? !$result : $result;
+      else {
+        $condition_results[$selector] = $this->checkCondition($element, $selector, $condition, $webform_submission);
+      }
     }
 
     // Process condition logic. (XOR, AND, or OR)
@@ -307,6 +320,60 @@ class WebformSubmissionConditionsValidator implements WebformSubmissionCondition
         // Never called.
         return NULL;
     }
+  }
+
+  /**
+   * Check a condition.
+   *
+   * @param array $element
+   *   An element.
+   * @param $selector
+   *   The element's selector.
+   * @param array $condition
+   *   The condition.
+   * @param \Drupal\webform\WebformSubmissionInterface $webform_submission
+   *   A webform submission.
+   *
+   * @return bool|null
+   *   TRUE if condition is validated. NULL if the condition can't be evaluated.
+   */
+  protected function checkCondition(array $element, $selector, array $condition, WebformSubmissionInterface $webform_submission) {
+    $trigger_state = key($condition);
+    $trigger_value = $condition[$trigger_state];
+
+    $element_plugin = $this->elementManager->getElementInstance($element);
+    $element_value = $element_plugin->getElementSelectorInputValue($selector, $trigger_state, $element, $webform_submission);
+
+    // Process trigger state/negate.
+    list($trigger_state, $trigger_negate) = $this->processState($trigger_state);
+
+    // Process triggers (aka remote conditions).
+    // @see \Drupal\webform\Element\WebformElementStates::processWebformStates
+    switch ($trigger_state) {
+      case 'empty':
+        $result = (empty($element_value) === (boolean) $trigger_value);
+        break;
+
+      case 'checked':
+        $result = ((boolean) $element_value === (boolean) $trigger_value);
+        break;
+
+      case 'value':
+        if ($element_plugin->hasMultipleValues($element)) {
+          $trigger_values = (array) $trigger_value;
+          $element_values = (array) $element_value;
+          $result = (array_intersect($trigger_values, $element_values)) ? TRUE : FALSE;
+        }
+        else {
+          $result = ((string) $element_value === (string) $trigger_value);
+        }
+        break;
+
+      default:
+        return NULL;
+    }
+
+    return ($trigger_negate) ? !$result : $result;
   }
 
   /****************************************************************************/
@@ -366,7 +433,7 @@ class WebformSubmissionConditionsValidator implements WebformSubmissionCondition
   /****************************************************************************/
 
   /**
-   * Get visible elements with from a form.
+   * Build and get visible elements from a form.
    *
    * @param array $form
    *   An associative array containing the structure of the form.
@@ -374,24 +441,42 @@ class WebformSubmissionConditionsValidator implements WebformSubmissionCondition
    * @return array
    *   Visible elements.
    */
-  protected function &getVisibleElements(array &$form) {
+  protected function &getBuildElements(array &$form) {
     $elements = [];
-    $this->getVisibleElementsRecusive($elements, $form);
+    $this->getBuildElementsRecusive($elements, $form);
     return $elements;
   }
 
   /**
-   * Recurse through a form and get visible elements.
+   * Recurse through a form, review #states/#required, and get visible elements.
    *
    * @param array $elements
    *   Visible elements with #states property
    * @param array $form
    *   An associative array containing the structure of the form.
    */
-  protected function getVisibleElementsRecusive(array &$elements, array &$form) {
+  protected function getBuildElementsRecusive(array &$elements, array &$form) {
     foreach ($form as $key => &$element) {
       if (Element::property($key) || !is_array($element)) {
         continue;
+      }
+
+      // If element has #states and is #required there may be a conflict where
+      // visiblly hidden elements are required. The solution is to convert
+      // #required into corresponding 'required/optional' states based on
+      // 'visible/invisible' states.
+      if (isset($element['#states']) && !empty($element['#required'])) {
+        if (isset($element['#states']['visible']) && !isset($element['#states']['required'])) {
+          $element['#states']['required'] = $element['#states']['visible'];
+          unset($element['#required']);
+        }
+        if (isset($element['#states']['invisible']) && !isset($element['#states']['optional'])) {
+          $element['#states']['optional'] = $element['#states']['invisible'];
+          unset($element['#required']);
+        }
+        if (!isset($element['#required'])) {
+          $element['#_required'] = TRUE;
+        }
       }
 
       if (isset($element['#access']) && $element['#access'] === FALSE) {
@@ -400,7 +485,7 @@ class WebformSubmissionConditionsValidator implements WebformSubmissionCondition
 
       $elements[$key] = &$element;
 
-      $this->getVisibleElementsRecusive($elements, $element);
+      $this->getBuildElementsRecusive($elements, $element);
     }
   }
 

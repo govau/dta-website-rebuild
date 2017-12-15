@@ -7,6 +7,8 @@ use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Path\PathValidator;
 use Drupal\Core\Config\ConfigFactory;
 use Drupal\Core\Datetime\DateFormatter;
+use Drupal\Component\Datetime\Time;
+use Drupal\simple_sitemap\Plugin\simple_sitemap\UrlGenerator\UrlGeneratorManager;
 
 /**
  * Class Simplesitemap
@@ -50,14 +52,37 @@ class Simplesitemap {
   protected $dateFormatter;
 
   /**
+   * @var \Drupal\Component\Datetime\Time
+   */
+  protected $time;
+
+  /**
+   * @var \Drupal\simple_sitemap\Batch
+   */
+  protected $batch;
+
+  /**
+   * @var \Drupal\Core\Extension\ModuleHandler
+   */
+  protected $moduleHandler;
+
+  /**
+   * @var \Drupal\simple_sitemap\Plugin\simple_sitemap\UrlGenerator\UrlGeneratorManager
+   */
+  protected $urlGeneratorManager;
+
+  /**
    * @var array
    */
-  protected static $allowed_link_settings = [
+  protected static $allowedLinkSettings = [
     'entity' => ['index', 'priority', 'changefreq', 'include_images'],
     'custom' => ['priority', 'changefreq'],
   ];
 
-  protected static $link_setting_defaults = [
+  /**
+   * @var array
+   */
+  protected static $linkSettingDefaults = [
     'index' => 1,
     'priority' => 0.5,
     'changefreq' => '',
@@ -73,6 +98,9 @@ class Simplesitemap {
    * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entityTypeManager
    * @param \Drupal\Core\Path\PathValidator $pathValidator
    * @param \Drupal\Core\Datetime\DateFormatter $dateFormatter
+   * @param \Drupal\Component\Datetime\Time $time
+   * @param \Drupal\simple_sitemap\Batch $batch
+   * @param \Drupal\simple_sitemap\Plugin\simple_sitemap\UrlGenerator\UrlGeneratorManager $urlGeneratorManager
    */
   public function __construct(
     SitemapGenerator $sitemapGenerator,
@@ -81,7 +109,10 @@ class Simplesitemap {
     Connection $database,
     EntityTypeManagerInterface $entityTypeManager,
     PathValidator $pathValidator,
-    DateFormatter $dateFormatter
+    DateFormatter $dateFormatter,
+    Time $time,
+    Batch $batch,
+    UrlGeneratorManager $urlGeneratorManager
   ) {
     $this->sitemapGenerator = $sitemapGenerator;
     $this->entityHelper = $entityHelper;
@@ -90,6 +121,9 @@ class Simplesitemap {
     $this->entityTypeManager = $entityTypeManager;
     $this->pathValidator = $pathValidator;
     $this->dateFormatter = $dateFormatter;
+    $this->time = $time;
+    $this->batch = $batch;
+    $this->urlGeneratorManager = $urlGeneratorManager;
   }
 
   /**
@@ -123,7 +157,7 @@ class Simplesitemap {
    * @return $this
    */
   public function saveSetting($name, $setting) {
-    $this->configFactory->getEditable("simple_sitemap.settings")
+    $this->configFactory->getEditable('simple_sitemap.settings')
       ->set($name, $setting)->save();
     return $this;
   }
@@ -172,7 +206,7 @@ class Simplesitemap {
    */
   protected function fetchSitemapChunkInfo() {
     return $this->db
-      ->query("SELECT id, sitemap_created FROM {simple_sitemap}")
+      ->query('SELECT id, sitemap_created FROM {simple_sitemap}')
       ->fetchAllAssoc('id');
   }
 
@@ -191,17 +225,45 @@ class Simplesitemap {
   }
 
   /**
-   * Generates the sitemap for all languages and saves it to the db.
+   * Generates the XML sitemap and saves it to the db.
    *
    * @param string $from
-   *   Can be 'form', 'cron', 'drush' or 'nobatch'.
+   *   Can be 'form', 'backend', 'drush' or 'nobatch'.
    *   This decides how the batch process is to be run.
+   *
+   * @return bool|\Drupal\simple_sitemap\Simplesitemap
    */
   public function generateSitemap($from = 'form') {
-    $this->sitemapGenerator
-      ->setGenerator($this)
-      ->setGenerateFrom($from)
-      ->startGeneration();
+
+    $this->batch->setBatchSettings([
+      'base_url' => $this->getSetting('base_url', ''),
+      'batch_process_limit' => $this->getSetting('batch_process_limit', NULL),
+      'max_links' => $this->getSetting('max_links', 2000),
+      'skip_untranslated' => $this->getSetting('skip_untranslated', FALSE),
+      'remove_duplicates' => $this->getSetting('remove_duplicates', TRUE),
+      'excluded_languages' => $this->getSetting('excluded_languages', []),
+      'from' => $from,
+    ]);
+
+    $plugins = $this->urlGeneratorManager->getDefinitions();
+
+    usort($plugins, function($a, $b) {
+      return $a['weight'] - $b['weight'];
+    });
+
+    foreach ($plugins as $plugin) {
+      if ($plugin['instantiateForEachDataSet']) {
+        foreach ($this->urlGeneratorManager->createInstance($plugin['id'])->getDataSets() as $data_sets) {
+          $this->batch->addOperation($plugin['id'], $data_sets);
+        }
+      }
+      else {
+        $this->batch->addOperation($plugin['id']);
+      }
+    }
+
+    $success = $this->batch->start();
+    return $from === 'nobatch' ? $this : $success;
   }
 
   /**
@@ -212,10 +274,12 @@ class Simplesitemap {
    *
    * @return string
    *   The sitemap index.
+   *
+   * @todo Need to make sure response is cached.
    */
   protected function getSitemapIndex($chunk_info) {
     return $this->sitemapGenerator
-      ->setGenerator($this)
+      ->setSettings(['base_url' => $this->getSetting('base_url', '')])
       ->generateSitemapIndex($chunk_info);
   }
 
@@ -229,7 +293,7 @@ class Simplesitemap {
     $chunks = $this->fetchSitemapChunkInfo();
     if (isset($chunks[SitemapGenerator::FIRST_CHUNK_INDEX]->sitemap_created)) {
       return $this->dateFormatter
-        ->formatInterval(REQUEST_TIME - $chunks[SitemapGenerator::FIRST_CHUNK_INDEX]
+        ->formatInterval($this->time->getRequestTime() - $chunks[SitemapGenerator::FIRST_CHUNK_INDEX]
             ->sitemap_created);
     }
     return FALSE;
@@ -242,7 +306,7 @@ class Simplesitemap {
    * setBundleSettings() as well.
    *
    * @param string $entity_type_id
-   *   Entity type id like 'node'.
+   *  Entity type id like 'node'.
    *
    * @return $this
    */
@@ -276,7 +340,7 @@ class Simplesitemap {
 
     // Deleting inclusion settings.
     $config_names = $this->configFactory->listAll("simple_sitemap.bundle_settings.$entity_type_id.");
-    foreach($config_names as $config_name) {
+    foreach ($config_names as $config_name) {
       $this->configFactory->getEditable($config_name)->delete();
     }
 
@@ -290,12 +354,12 @@ class Simplesitemap {
    * of an entity type (e.g. page).
    *
    * @param string $entity_type_id
-   *   Entity type id like 'node' the bundle belongs to.
+   *  Entity type id like 'node' the bundle belongs to.
    * @param string $bundle_name
-   *   Name of the bundle. NULL if entity type has no bundles.
+   *  Name of the bundle. NULL if entity type has no bundles.
    * @param array $settings
-   *   An array of sitemap settings for this bundle/entity type.
-   *   Example: ['index' => TRUE, 'priority' => 0.5, 'changefreq' => 'never', 'include_images' => FALSE].
+   *  An array of sitemap settings for this bundle/entity type.
+   *  Example: ['index' => TRUE, 'priority' => 0.5, 'changefreq' => 'never', 'include_images' => FALSE].
    *
    * @return $this
    *
@@ -304,12 +368,16 @@ class Simplesitemap {
   public function setBundleSettings($entity_type_id, $bundle_name = NULL, $settings = []) {
     $bundle_name = empty($bundle_name) ? $entity_type_id : $bundle_name;
 
-    $old_settings = $this->getBundleSettings($entity_type_id, $bundle_name);
-    $settings = !empty($old_settings) ? array_merge($old_settings, $settings) : $this->supplementDefaultSettings('entity', $settings);
+    if (!empty($old_settings = $this->getBundleSettings($entity_type_id, $bundle_name))) {
+      $settings = array_merge($old_settings, $settings);
+    }
+    else {
+      self::supplementDefaultSettings('entity', $settings);
+    }
 
     $bundle_settings = $this->configFactory
       ->getEditable("simple_sitemap.bundle_settings.$entity_type_id.$bundle_name");
-    foreach($settings as $setting_key => $setting) {
+    foreach ($settings as $setting_key => $setting) {
       if ($setting_key === 'index') {
         $setting = intval($setting);
       }
@@ -340,7 +408,7 @@ class Simplesitemap {
       }
 
       $delete_instances = [];
-      foreach($query->execute()->fetchAll() as $result) {
+      foreach ($query->execute()->fetchAll() as $result) {
         $delete = TRUE;
         $instance_settings = unserialize($result->inclusion_settings);
         foreach ($instance_settings as $setting_key => $instance_setting) {
@@ -388,9 +456,9 @@ class Simplesitemap {
       return !empty($bundle_settings) ? $bundle_settings : FALSE;
     }
     else {
-      $config_names = $this->configFactory->listAll("simple_sitemap.bundle_settings.");
+      $config_names = $this->configFactory->listAll('simple_sitemap.bundle_settings.');
       $all_settings = [];
-      foreach($config_names as $config_name) {
+      foreach ($config_names as $config_name) {
         $config_name_parts = explode('.', $config_name);
         $all_settings[$config_name_parts[2]][$config_name_parts[3]] = $this->configFactory->get($config_name)->get();
       }
@@ -402,17 +470,19 @@ class Simplesitemap {
    * Supplements all missing link setting with default values.
    *
    * @param string $type
-   * @param array $settings
-   * @return array
+   *  'entity'|'custom'
+   * @param array &$settings
+   * @param array $overrides
    */
-  protected function supplementDefaultSettings($type, $settings) {
-    foreach(self::$allowed_link_settings[$type] as $allowed_link_setting) {
+  public static function supplementDefaultSettings($type, &$settings, $overrides = []) {
+    foreach (self::$allowedLinkSettings[$type] as $allowed_link_setting) {
       if (!isset($settings[$allowed_link_setting])
-        && isset(self::$link_setting_defaults[$allowed_link_setting])) {
-        $settings[$allowed_link_setting] = self::$link_setting_defaults[$allowed_link_setting];
+        && isset(self::$linkSettingDefaults[$allowed_link_setting])) {
+        $settings[$allowed_link_setting] = isset($overrides[$allowed_link_setting])
+          ? $overrides[$allowed_link_setting]
+          : self::$linkSettingDefaults[$allowed_link_setting];
       }
     }
-    return $settings;
   }
 
   /**
@@ -566,7 +636,7 @@ class Simplesitemap {
     }
     $link_key = isset($link_key) ? $link_key : count($custom_links);
     $custom_links[$link_key] = ['path' => $path] + $settings;
-    $this->configFactory->getEditable("simple_sitemap.custom")
+    $this->configFactory->getEditable('simple_sitemap.custom')
       ->set('links', $custom_links)->save();
     return $this;
   }
@@ -584,7 +654,8 @@ class Simplesitemap {
 
     if ($supplement_default_settings) {
       foreach ($custom_links as $i => $link_settings) {
-        $custom_links[$i] = $this->supplementDefaultSettings('custom', $link_settings);
+        self::supplementDefaultSettings('custom', $link_settings);
+        $custom_links[$i] = $link_settings;
       }
     }
 
@@ -620,7 +691,7 @@ class Simplesitemap {
       if ($link['path'] === $path) {
         unset($custom_links[$key]);
         $custom_links = array_values($custom_links);
-        $this->configFactory->getEditable("simple_sitemap.custom")
+        $this->configFactory->getEditable('simple_sitemap.custom')
           ->set('links', $custom_links)->save();
         break;
       }
@@ -634,7 +705,7 @@ class Simplesitemap {
    * @return $this
    */
   public function removeCustomLinks() {
-    $this->configFactory->getEditable("simple_sitemap.custom")
+    $this->configFactory->getEditable('simple_sitemap.custom')
       ->set('links', [])->save();
     return $this;
   }

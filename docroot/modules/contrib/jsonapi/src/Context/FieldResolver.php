@@ -56,7 +56,7 @@ class FieldResolver {
    * Example:
    *   'field_author.entity.field_first_name' -> 'author.firstName'.
    *
-   * @param string $field_name
+   * @param string $internal_field_name
    *   The Drupal field name to map to a public field name.
    *
    * @return string
@@ -73,14 +73,18 @@ class FieldResolver {
    * Example:
    *   'author.firstName' -> 'field_author.entity.field_first_name'.
    *
-   * @param string $field_name
+   * @param string $entity_type_id
+   *   The type of the entity for which to resolve the field name.
+   * @param string $bundle
+   *   The bundle of the entity for which to resolve the field name.
+   * @param string $external_field_name
    *   The public field name to map to a Drupal field name.
    *
    * @return string
    *   The mapped field name.
    */
-  public function resolveInternal($external_field_name) {
-    $resource_type = $this->currentContext->getResourceType();
+  public function resolveInternal($entity_type_id, $bundle, $external_field_name) {
+    $resource_type = $this->resourceTypeRepository->get($entity_type_id, $bundle);
     if (empty($external_field_name)) {
       throw new BadRequestHttpException('No field name was provided for the filter.');
     }
@@ -93,12 +97,15 @@ class FieldResolver {
     // 'uid.entity.field_category.entity.name'. This may be too simple, but it
     // works for the time being.
     $parts = explode('.', $external_field_name);
-    $entity_type_id = $this->currentContext->getResourceType()->getEntityTypeId();
     $reference_breadcrumbs = [];
     $resource_types = [$resource_type];
     while ($field_name = array_shift($parts)) {
       $field_name = $this->getInternalName($field_name, $resource_types);
-      if (!$definitions = $this->fieldManager->getFieldStorageDefinitions($entity_type_id)) {
+      $definitions = $this->fieldManager->getFieldStorageDefinitions($entity_type_id)
+        // We also need the base field definitions in case there are
+        // relationships coming from computed fields.
+        + $this->fieldManager->getBaseFieldDefinitions($entity_type_id);
+      if (!$definitions) {
         throw new BadRequestHttpException(sprintf(
           'Invalid nested filtering. There is no entity type "%s".',
           $entity_type_id

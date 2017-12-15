@@ -30,6 +30,7 @@ use Symfony\Component\Routing\Route;
 /**
  * @coversDefaultClass \Drupal\jsonapi\Normalizer\JsonApiDocumentTopLevelNormalizer
  * @group jsonapi
+ * @group legacy
  */
 class JsonApiDocumentTopLevelNormalizerTest extends JsonapiKernelTestBase {
 
@@ -196,15 +197,16 @@ class JsonApiDocumentTopLevelNormalizerTest extends JsonapiKernelTestBase {
 
   /**
    * @covers ::normalize
+   * @dataProvider normalizeValueProvider
    */
-  public function testNormalize() {
+  public function testNormalize($include) {
     list($request, $resource_type) = $this->generateProphecies('node', 'article');
     $request->query = new ParameterBag([
       'fields' => [
         'node--article' => 'title,type,uid,field_tags,field_image',
         'user--user' => 'name',
       ],
-      'include' => 'uid,field_tags,field_image',
+      'include' => $include,
     ]);
 
     $response = new ResourceResponse();
@@ -269,6 +271,19 @@ class JsonApiDocumentTopLevelNormalizerTest extends JsonapiKernelTestBase {
       Cache::PERMANENT,
       $response->getCacheableMetadata()->getCacheMaxAge()
     );
+  }
+
+  /**
+   * Data provider for testNormalize.
+   *
+   * @return array
+   *   The data for the test method.
+   */
+  public function normalizeValueProvider() {
+    return [
+      ['uid,field_tags,field_image'],
+      ['uid, field_tags, field_image'],
+    ];
   }
 
   /**

@@ -6,12 +6,11 @@ use Drupal\entity_test\Entity\EntityTestBundle;
 use Drupal\field\Entity\FieldConfig;
 use Drupal\field\Entity\FieldStorageConfig;
 use Drupal\Tests\jsonapi\Kernel\JsonapiKernelTestBase;
-use Symfony\Cmf\Component\Routing\RouteObjectInterface;
-use Symfony\Component\HttpFoundation\Request;
 
 /**
  * @coversDefaultClass \Drupal\jsonapi\Context\FieldResolver
  * @group jsonapi
+ * @group legacy
  */
 class FieldResolverTest extends JsonapiKernelTestBase {
 
@@ -144,31 +143,30 @@ class FieldResolverTest extends JsonapiKernelTestBase {
     ])->save();
   }
 
+  /**
+   * @covers ::resolveInternal
+   */
   public function testResolveInternal() {
-    $request = Request::create('/jsonapi/entity_test_with_bundle/bundle1');
-    $route = \Drupal::service('router.route_provider')->getRouteByName('jsonapi.entity_test_with_bundle--bundle1.collection');
-    $request->attributes->set(RouteObjectInterface::ROUTE_NAME, 'jsonapi.entity_test_with_bundle--bundle1.collection');
-    $request->attributes->set(RouteObjectInterface::ROUTE_OBJECT, $route);
+    $entity_type_id = 'entity_test_with_bundle';
+    $bundle = 'bundle1';
 
-    \Drupal::requestStack()->push($request);
+    $this->assertEquals('field_test1', $this->sut->resolveInternal($entity_type_id, $bundle, 'field_test1'));
+    $this->assertEquals('field_test2', $this->sut->resolveInternal($entity_type_id, $bundle, 'field_test2'));
+    $this->assertEquals('field_test3', $this->sut->resolveInternal($entity_type_id, $bundle, 'field_test3'));
 
-    $this->assertEquals('field_test1', $this->sut->resolveInternal('field_test1'));
-    $this->assertEquals('field_test2', $this->sut->resolveInternal('field_test2'));
-    $this->assertEquals('field_test3', $this->sut->resolveInternal('field_test3'));
+    $this->assertEquals('field_test_ref1.entity.field_test1', $this->sut->resolveInternal($entity_type_id, $bundle, 'field_test_ref1.field_test1'));
+    $this->assertEquals('field_test_ref1.entity.field_test2', $this->sut->resolveInternal($entity_type_id, $bundle, 'field_test_ref1.field_test2'));
+    $this->assertEquals('field_test_ref2.entity.field_test1', $this->sut->resolveInternal($entity_type_id, $bundle, 'field_test_ref2.field_test1'));
+    $this->assertEquals('field_test_ref2.entity.field_test2', $this->sut->resolveInternal($entity_type_id, $bundle, 'field_test_ref2.field_test2'));
+    $this->assertEquals('field_test_ref3.entity.field_test1', $this->sut->resolveInternal($entity_type_id, $bundle, 'field_test_ref3.field_test1'));
+    $this->assertEquals('field_test_ref3.entity.field_test2', $this->sut->resolveInternal($entity_type_id, $bundle, 'field_test_ref3.field_test2'));
 
-    $this->assertEquals('field_test_ref1.entity.field_test1', $this->sut->resolveInternal('field_test_ref1.field_test1'));
-    $this->assertEquals('field_test_ref1.entity.field_test2', $this->sut->resolveInternal('field_test_ref1.field_test2'));
-    $this->assertEquals('field_test_ref2.entity.field_test1', $this->sut->resolveInternal('field_test_ref2.field_test1'));
-    $this->assertEquals('field_test_ref2.entity.field_test2', $this->sut->resolveInternal('field_test_ref2.field_test2'));
-    $this->assertEquals('field_test_ref3.entity.field_test1', $this->sut->resolveInternal('field_test_ref3.field_test1'));
-    $this->assertEquals('field_test_ref3.entity.field_test2', $this->sut->resolveInternal('field_test_ref3.field_test2'));
-
-    $this->assertEquals('field_test_ref1.entity.field_test_text', $this->sut->resolveInternal('field_test_ref1.field_test_text'));
-    $this->assertEquals('field_test_ref1.entity.field_test_text.value', $this->sut->resolveInternal('field_test_ref1.field_test_text.value'));
-    $this->assertEquals('field_test_ref1.entity.field_test_text.format', $this->sut->resolveInternal('field_test_ref1.field_test_text.format'));
-    $this->assertEquals('field_test_ref2.entity.field_test_text', $this->sut->resolveInternal('field_test_ref2.field_test_text'));
-    $this->assertEquals('field_test_ref2.entity.field_test_text.value', $this->sut->resolveInternal('field_test_ref2.field_test_text.value'));
-    $this->assertEquals('field_test_ref2.entity.field_test_text.format', $this->sut->resolveInternal('field_test_ref2.field_test_text.format'));
+    $this->assertEquals('field_test_ref1.entity.field_test_text', $this->sut->resolveInternal($entity_type_id, $bundle, 'field_test_ref1.field_test_text'));
+    $this->assertEquals('field_test_ref1.entity.field_test_text.value', $this->sut->resolveInternal($entity_type_id, $bundle, 'field_test_ref1.field_test_text.value'));
+    $this->assertEquals('field_test_ref1.entity.field_test_text.format', $this->sut->resolveInternal($entity_type_id, $bundle, 'field_test_ref1.field_test_text.format'));
+    $this->assertEquals('field_test_ref2.entity.field_test_text', $this->sut->resolveInternal($entity_type_id, $bundle, 'field_test_ref2.field_test_text'));
+    $this->assertEquals('field_test_ref2.entity.field_test_text.value', $this->sut->resolveInternal($entity_type_id, $bundle, 'field_test_ref2.field_test_text.value'));
+    $this->assertEquals('field_test_ref2.entity.field_test_text.format', $this->sut->resolveInternal($entity_type_id, $bundle, 'field_test_ref2.field_test_text.format'));
   }
 
   /**
@@ -179,21 +177,10 @@ class FieldResolverTest extends JsonapiKernelTestBase {
    * @expectedException \Symfony\Component\HttpKernel\Exception\BadRequestHttpException
    */
   public function testResolveInternalError() {
-    $request = Request::create('/jsonapi/entity_test_with_bundle/bundle1');
-    $route = \Drupal::service('router.route_provider')
-      ->getRouteByName('jsonapi.entity_test_with_bundle--bundle1.collection');
-    $request->attributes->set(
-      RouteObjectInterface::ROUTE_NAME,
-      'jsonapi.entity_test_with_bundle--bundle1.collection'
-    );
-    $request->attributes->set(RouteObjectInterface::ROUTE_OBJECT, $route);
-
-    \Drupal::requestStack()->push($request);
-
     $original = 'host.fail!!.deep';
     $not_expected = 'host.entity.fail!!.entity.deep';
 
-    $this->assertEquals($not_expected, $this->sut->resolveInternal($original));
+    $this->assertEquals($not_expected, $this->sut->resolveInternal('entity_test_with_bundle', 'bundle1', $original));
   }
 
 }

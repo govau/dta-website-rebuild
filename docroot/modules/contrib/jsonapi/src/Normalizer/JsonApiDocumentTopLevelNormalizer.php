@@ -195,7 +195,10 @@ class JsonApiDocumentTopLevelNormalizer extends NormalizerBase implements Denorm
    *   The normalizer value.
    */
   public function buildNormalizerValue($data, $format = NULL, array $context = []) {
-    $context += $this->expandContext($context['request'], $context['resource_type']);
+    if (empty($context['expanded'])) {
+      $context += $this->expandContext($context['request'], $context['resource_type']);
+    }
+
     if ($data instanceof EntityReferenceFieldItemListInterface) {
       $output = $this->serializer->normalize($data, $format, $context);
       // The only normalizer value that computes nested includes automatically is the JsonApiDocumentTopLevelNormalizerValue.
@@ -245,7 +248,11 @@ class JsonApiDocumentTopLevelNormalizer extends NormalizerBase implements Denorm
     // Translate ALL the includes from the public field names to the internal.
     $includes = array_filter(explode(',', $request->query->get('include')));
     $public_includes = array_map(function ($include_str) use ($resource_type) {
-      $resolved = $this->fieldResolver->resolveInternal($include_str);
+      $resolved = $this->fieldResolver->resolveInternal(
+        $resource_type->getEntityTypeId(),
+        $resource_type->getBundle(),
+        trim($include_str)
+      );
       // We don't need the entity information for the includes. Clean it.
       return preg_replace('/\.entity\./', '.', $resolved);
     }, $includes);
@@ -255,6 +262,7 @@ class JsonApiDocumentTopLevelNormalizer extends NormalizerBase implements Denorm
       'sparse_fieldset' => NULL,
       'resource_type' => NULL,
       'include' => $public_includes,
+      'expanded' => TRUE,
     ];
     if ($request->query->get('fields')) {
       $context['sparse_fieldset'] = array_map(function ($item) {

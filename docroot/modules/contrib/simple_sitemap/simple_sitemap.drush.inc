@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Drush integration.
+ * Drush (< 9) integration.
  */
 
 /**
@@ -10,7 +10,7 @@
  */
 function simple_sitemap_drush_command() {
   $items['simple_sitemap-generate'] = [
-    'description' => 'Regenerate XML sitemaps for all languages according to the module settings.',
+    'description' => 'Regenerate the XML sitemap according to the module settings.',
     'callback' => 'drush_simple_sitemap_generate',
     'drupal dependencies' => ['simple_sitemap'],
   ];
@@ -20,7 +20,7 @@ function simple_sitemap_drush_command() {
 /**
  * Callback function for hook_drush_command().
  *
- * Regenerate sitemap for all languages.
+ * Regenerate the XML sitemap.
  */
 function drush_simple_sitemap_generate() {
   \Drupal::service('simple_sitemap.generator')->generateSitemap('drush');

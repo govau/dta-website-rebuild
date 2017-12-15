@@ -6,6 +6,7 @@ dependencies:
     - field.field.node.page.body
     - field.field.node.page.field_contact_module
     - field.field.node.page.field_links
+    - field.field.node.page.field_phase
     - node.type.page
   module:
     - ds
@@ -71,6 +72,14 @@ content:
       target: ''
     third_party_settings: {  }
     type: link
+    region: content
+  field_phase:
+    weight: 104
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
     region: content
   links:
     weight: 100

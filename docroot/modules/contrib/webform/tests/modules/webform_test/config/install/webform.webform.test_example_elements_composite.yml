@@ -24,12 +24,12 @@ elements: |
       '#type': webform_address
       '#title': 'Address multiple'
       '#multiple': true
-  webform_composite_example:
+  webform_custom_composite_example:
     '#type': details
     '#title': 'Composite custom'
     '#open': true
-    webform_composite:
-      '#type': webform_composite
+    webform_custom_composite:
+      '#type': webform_custom_composite
       '#title': 'Composite custom'
       '#element':
         name:
@@ -43,8 +43,8 @@ elements: |
           '#options':
             Male: Male
             Female: Female
-    webform_composite_multiple:
-      '#type': webform_composite
+    webform_custom_composite_multiple:
+      '#type': webform_custom_composite
       '#title': 'Composite custom multiple'
       '#element':
         name:
@@ -191,17 +191,24 @@ settings:
   form_novalidate: false
   form_unsaved: false
   form_disable_back: false
+  form_submit_back: false
   form_autofocus: false
   form_details_toggle: false
+  form_login: false
+  form_login_message: ''
   submission_label: ''
   submission_log: false
   submission_user_columns: {  }
+  submission_login: false
+  submission_login_message: ''
+  submission_exception_message: ''
   wizard_progress_bar: true
   wizard_progress_pages: false
   wizard_progress_percentage: false
   wizard_start_label: ''
   wizard_confirmation: true
   wizard_confirmation_label: ''
+  wizard_track: ''
   preview: 0
   preview_label: ''
   preview_title: ''
@@ -223,13 +230,17 @@ settings:
   confirmation_back_label: ''
   confirmation_back_attributes: {  }
   limit_total: null
+  limit_total_interval: null
   limit_total_message: ''
   limit_user: null
+  limit_user_interval: null
   limit_user_message: ''
+  entity_limit_total: null
+  entity_limit_total_interval: null
+  entity_limit_user: null
+  entity_limit_user_interval: null
   purge: none
   purge_days: null
-  entity_limit_total: null
-  entity_limit_user: null
   results_disabled: false
   results_disabled_ignore: false
   token_update: false

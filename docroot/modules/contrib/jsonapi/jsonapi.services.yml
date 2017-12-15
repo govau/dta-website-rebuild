@@ -1,5 +1,26 @@
 services:
-  serializer.normalizer.htt_exception.jsonapi:
+  serializer.normalizer.sort.jsonapi:
+    class: Drupal\jsonapi\Normalizer\SortNormalizer
+    tags:
+      - { name: normalizer }
+  serializer.normalizer.offset_page.jsonapi:
+    class: Drupal\jsonapi\Normalizer\OffsetPageNormalizer
+    tags:
+      - { name: normalizer }
+  serializer.normalizer.entity_condition.jsonapi:
+    class: Drupal\jsonapi\Normalizer\EntityConditionNormalizer
+    tags:
+      - { name: normalizer }
+  serializer.normalizer.entity_condition_group.jsonapi:
+    class: Drupal\jsonapi\Normalizer\EntityConditionGroupNormalizer
+    tags:
+      - { name: normalizer }
+  serializer.normalizer.filter.jsonapi:
+    class: Drupal\jsonapi\Normalizer\FilterNormalizer
+    arguments: ['@jsonapi.field_resolver', '@serializer.normalizer.entity_condition.jsonapi', '@serializer.normalizer.entity_condition_group.jsonapi']
+    tags:
+      - { name: normalizer }
+  serializer.normalizer.http_exception.jsonapi:
     class: Drupal\jsonapi\Normalizer\HttpExceptionNormalizer
     arguments: ['@current_user']
     tags:
@@ -69,12 +90,9 @@ services:
       - { name: route_enhancer }
   jsonapi.params.enhancer:
     class: Drupal\jsonapi\Routing\JsonApiParamEnhancer
-    arguments: ['@entity_field.manager']
+    arguments: ['@serializer.normalizer.filter.jsonapi', '@serializer.normalizer.sort.jsonapi', '@serializer.normalizer.offset_page.jsonapi']
     tags:
       - { name: route_enhancer }
-  jsonapi.query_builder:
-    class: Drupal\jsonapi\Query\QueryBuilder
-    arguments: ['@entity_type.manager', '@jsonapi.current_context', '@jsonapi.field_resolver']
   jsonapi.link_manager:
     class: Drupal\jsonapi\LinkManager\LinkManager
     arguments: ['@router.no_access_checks', '@url_generator']
@@ -120,3 +138,8 @@ services:
     tags:
       - { name: event_subscriber }
     arguments: ['@serializer', '@renderer', '@logger.channel.jsonapi']
+
+  # Deprecated services.
+  serializer.normalizer.htt_exception.jsonapi:
+    alias: serializer.normalizer.http_exception.jsonapi
+    deprecated: The "%service_id%" service is deprecated. You should use the 'serializer.normalizer.http_exception.jsonapi' service instead.

@@ -44,7 +44,10 @@
     "govcms/govcms8": "dev-develop",
     "drupal/backup_migrate": "^4.0@beta",
     "drupal/editor_advanced_link": "^1.4",
-    "drupal/toc_filter": "^2.0@beta"
+    "drupal/toc_filter": "^2.0@beta",
+    "monolog/monolog": "^1.23",
+    "drupal/search_api_autocomplete": "^1.0@beta",
+    "drupal/search_api_page": "dev-1.x"
   },
   "require-dev": {
     "mikey179/vfsStream": "^1.6",
@@ -87,7 +90,6 @@
         "type:drupal-drush"
       ]
     },
-    "patches": [],
     "merge-plugin": {
       "require": [
         "vendor/govcms/govcms8-config/composer.config.json"

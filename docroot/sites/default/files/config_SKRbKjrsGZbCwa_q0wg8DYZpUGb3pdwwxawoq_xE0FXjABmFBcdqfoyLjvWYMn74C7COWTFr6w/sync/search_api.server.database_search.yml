@@ -12,8 +12,9 @@ description: 'Default database search server'
 backend: search_api_db
 backend_config:
   database: 'default:default'
+  database_text: ''
   min_chars: 1
-  partial_matches: false
+  partial_matches: true
   autocomplete:
     suggest_suffix: true
     suggest_words: true

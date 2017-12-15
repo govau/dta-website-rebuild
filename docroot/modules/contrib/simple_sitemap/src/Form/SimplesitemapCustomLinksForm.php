@@ -13,7 +13,7 @@ class SimplesitemapCustomLinksForm extends SimplesitemapFormBase {
   /**
    * {@inheritdoc}
    */
-  public function getFormID() {
+  public function getFormId() {
     return 'simple_sitemap_custom_links_form';
   }
 
@@ -33,7 +33,15 @@ class SimplesitemapCustomLinksForm extends SimplesitemapFormBase {
       '#type' => 'textarea',
       '#title' => $this->t('Relative Drupal paths'),
       '#default_value' => $this->customLinksToString($this->generator->getCustomLinks(FALSE)),
-      '#description' => $this->t("Please specify drupal internal (relative) paths, one per line. Do not forget to prepend the paths with a '/'.<br/>Optionally link priority <em>(0.0 - 1.0)</em> can be added by appending it after a space.<br/> Optionally link change frequency <em>(always / hourly / daily / weekly / monthly / yearly / never)</em> can be added by appending it after a space.<br/><br/><strong>Examples:</strong><br/><em>/ 1.0 daily</em> -> home page with the highest priority and daily change frequency<br/><em>/contact</em> -> contact page with the default priority and no change frequency information."),
+      '#description' => $this->t("Please specify drupal internal (relative) paths, one per line. Do not forget to prepend the paths with a '/'.<br/>Optionally link priority <em>(0.0 - 1.0)</em> can be added by appending it after a space.<br/> Optionally link change frequency <em>(always / hourly / daily / weekly / monthly / yearly / never)</em> can be added by appending it after a space.<br/><br/><strong>Examples:</strong><br/><em>/ 1.0 daily</em> -> home page with the highest priority and daily change frequency<br/><em>/contact</em> -> contact page with the default priority and no change frequency information"),
+    ];
+
+    $form['simple_sitemap_custom']['include_images'] = [
+      '#type' => 'select',
+      '#title' => $this->t('Include images'),
+      '#description' => $this->t('If a custom link points to an entity, include its referenced images in the sitemap.'),
+      '#default_value' => $this->generator->getSetting('custom_links_include_images', 0),
+      '#options' => [0 => $this->t('No'), 1 => $this->t('Yes')],
     ];
 
     $this->formHelper->displayRegenerateNow($form['simple_sitemap_custom']);
@@ -59,7 +67,7 @@ class SimplesitemapCustomLinksForm extends SimplesitemapFormBase {
 //      if (!$this->pathValidator->getUrlIfValidWithoutAccessCheck($link_config['path']) //todo
       // Path validator does not see a double slash as an error. Catching this to prevent breaking path generation.
        || strpos($link_config['path'], '//') !== FALSE) {
-        $form_state->setErrorByName('', $this->t("<strong>Line @line</strong>: The path <em>@path</em> does not exist.", $placeholders));
+        $form_state->setErrorByName('', $this->t('<strong>Line @line</strong>: The path <em>@path</em> does not exist.', $placeholders));
       }
 
       // Making sure the paths start with a slash.
@@ -69,12 +77,12 @@ class SimplesitemapCustomLinksForm extends SimplesitemapFormBase {
 
       // Making sure the priority is formatted correctly.
       if (isset($link_config['priority']) && !FormHelper::isValidPriority($link_config['priority'])) {
-        $form_state->setErrorByName('', $this->t("<strong>Line @line</strong>: The priority setting <em>@priority</em> for path <em>@path</em> is incorrect. Set the priority from 0.0 to 1.0.", $placeholders));
+        $form_state->setErrorByName('', $this->t('<strong>Line @line</strong>: The priority setting <em>@priority</em> for path <em>@path</em> is incorrect. Set the priority from 0.0 to 1.0.', $placeholders));
       }
 
       // Making sure changefreq is formatted correctly.
       if (isset($link_config['changefreq']) && !FormHelper::isValidChangefreq($link_config['changefreq'])) {
-        $form_state->setErrorByName('', $this->t("<strong>Line @line</strong>: The changefreq setting <em>@changefreq</em> for path <em>@path</em> is incorrect. The following are the correct values: <em>@changefreq_options</em>.", $placeholders));
+        $form_state->setErrorByName('', $this->t('<strong>Line @line</strong>: The changefreq setting <em>@changefreq</em> for path <em>@path</em> is incorrect. The following are the correct values: <em>@changefreq_options</em>.', $placeholders));
       }
     }
   }
@@ -88,6 +96,7 @@ class SimplesitemapCustomLinksForm extends SimplesitemapFormBase {
     foreach ($custom_links as $link_config) {
       $this->generator->addCustomLink($link_config['path'], $link_config);
     }
+    $this->generator->saveSetting('custom_links_include_images', $form_state->getValue('include_images'));
     parent::submitForm($form, $form_state);
 
     // Regenerate sitemaps according to user setting.

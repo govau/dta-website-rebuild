@@ -1,0 +1,9 @@
+uuid: cfa10269-a69f-42ef-9c81-dc436a256200
+langcode: en
+status: true
+dependencies: {  }
+name: Phase
+vid: phase
+description: 'This vocabulary is used to mark content as in a particular phase.'
+hierarchy: 0
+weight: 0

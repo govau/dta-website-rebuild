@@ -2,14 +2,14 @@
 
 namespace Drupal\jsonapi\Routing;
 
-use Drupal\Core\Entity\EntityFieldManagerInterface;
 use Drupal\Core\Routing\Enhancer\RouteEnhancerInterface;
-use Drupal\jsonapi\Routing\Param\OffsetPage;
-use Drupal\jsonapi\Routing\Param\Filter;
-use Drupal\jsonapi\Routing\Param\Sort;
+use Drupal\jsonapi\Query\OffsetPage;
+use Drupal\jsonapi\Query\Filter;
+use Drupal\jsonapi\Query\Sort;
 use Symfony\Cmf\Component\Routing\RouteObjectInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Route;
+use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
 
 /**
  * @internal
@@ -17,20 +17,33 @@ use Symfony\Component\Routing\Route;
 class JsonApiParamEnhancer implements RouteEnhancerInterface {
 
   /**
-   * The field manager.
+   * The filter normalizer.
    *
-   * @var \Drupal\Core\Entity\EntityFieldManagerInterface
+   * @var \Symfony\Component\Serializer\Normalizer\DenormalizerInterface
    */
-  protected $fieldManager;
+  protected $filterNormalizer;
 
   /**
-   * Instantiates a JsonApiParamEnhancer object.
+   * The sort normalizer.
    *
-   * @param \Drupal\Core\Entity\EntityFieldManagerInterface $field_manager
-   *   The field manager.
+   * @var \Symfony\Component\Serializer\Normalizer\DenormalizerInterface
    */
-  public function __construct(EntityFieldManagerInterface $field_manager) {
-    $this->fieldManager = $field_manager;
+  protected $sortNormalizer;
+
+  /**
+   * The page normalizer.
+   *
+   * @var Symfony\Component\Serializer\Normalizer\DenormalizerInterface
+   */
+  protected $pageNormalizer;
+
+  /**
+   * {@inheritdoc}
+   */
+  public function __construct(DenormalizerInterface $filter_normalizer, DenormalizerInterface $sort_normalizer, DenormalizerInterface $page_normalizer) {
+    $this->filterNormalizer = $filter_normalizer;
+    $this->sortNormalizer = $sort_normalizer;
+    $this->pageNormalizer = $page_normalizer;
   }
 
   /**
@@ -46,20 +59,28 @@ class JsonApiParamEnhancer implements RouteEnhancerInterface {
    */
   public function enhance(array $defaults, Request $request) {
     $options = [];
+
+    $route = $defaults[RouteObjectInterface::ROUTE_OBJECT];
+    $context = [
+      'entity_type_id' => $route->getRequirement('_entity_type'),
+      'bundle' => $route->getRequirement('_bundle'),
+    ];
+
     if ($request->query->has('filter')) {
-      $entity_type_id = $defaults[RouteObjectInterface::ROUTE_OBJECT]->getRequirement('_entity_type');
-      $options['filter'] = new Filter($request->query->get('filter'), $entity_type_id, $this->fieldManager);
+      $filter = $request->query->get('filter');
+      $options['filter'] = $this->filterNormalizer->denormalize($filter, Filter::class, NULL, $context);
     }
+
     if ($request->query->has('sort')) {
-      $options['sort'] = new Sort($request->query->get('sort'));
+      $sort = $request->query->get('sort');
+      $options['sort'] = $this->sortNormalizer->denormalize($sort, Sort::class);
     }
-    if ($request->query->has('page')) {
-      $options['page'] = new OffsetPage($request->query->get('page'), OffsetPage::$maxSize);
-    }
-    else {
-      $options['page'] = new OffsetPage(['start' => 0, 'limit' => OffsetPage::$maxSize], OffsetPage::$maxSize);
-    }
+
+    $page = ($request->query->has('page')) ? $request->query->get('page') : [];
+    $options['page'] = $this->pageNormalizer->denormalize($page, OffsetPage::class);
+
     $defaults['_json_api_params'] = $options;
+
     return $defaults;
   }
 

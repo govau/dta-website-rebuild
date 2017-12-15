@@ -15,9 +15,7 @@ use Drupal\serialization\EntityResolver\UuidReferenceInterface;
  *
  * @todo Remove the dependency on \Drupal\jsonapi\Normalizer\JsonApiDocumentTopLevelNormalizer
  */
-class RelationshipItemNormalizer extends FieldItemNormalizer implements UuidReferenceInterface, RefinableCacheableDependencyInterface {
-
-  use RefinableCacheableDependencyTrait;
+class RelationshipItemNormalizer extends FieldItemNormalizer implements UuidReferenceInterface {
 
   /**
    * The interface or class that this Normalizer supports.

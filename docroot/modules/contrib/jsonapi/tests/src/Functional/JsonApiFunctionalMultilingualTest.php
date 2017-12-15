@@ -7,6 +7,7 @@ use Drupal\language\Entity\ConfigurableLanguage;
 
 /**
  * @group jsonapi
+ * @group legacy
  */
 class JsonApiFunctionalMultilingualTest extends JsonApiFunctionalTestBase {
 

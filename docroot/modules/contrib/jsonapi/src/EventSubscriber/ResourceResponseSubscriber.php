@@ -90,7 +90,7 @@ class ResourceResponseSubscriber implements EventSubscriberInterface {
     $this->renderResponseBody($request, $response, $this->serializer, $format);
     $event->setResponse($this->flattenResponse($response));
 
-    assert('$this->validateResponse($event->getResponse())', 'A JSON API response failed validation (see the logs for details). Please report this in the issue queue on drupal.org');
+    assert($this->validateResponse($event->getResponse()), 'A JSON API response failed validation (see the logs for details). Please report this in the issue queue on drupal.org');
   }
 
   /**

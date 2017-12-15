@@ -3,9 +3,9 @@
 namespace Drupal\simple_sitemap;
 
 use Drupal\Core\Entity\ContentEntityTypeInterface;
+use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Database\Connection;
-use Drupal\Core\Entity\Entity;
 use Drupal\Core\Url;
 
 /**
@@ -37,10 +37,10 @@ class EntityHelper {
   /**
    * Gets an entity's bundle name.
    *
-   * @param \Drupal\Core\Entity\Entity $entity
+   * @param \Drupal\Core\Entity\EntityInterface $entity
    * @return string
    */
-  public function getEntityInstanceBundleName(Entity $entity) {
+  public function getEntityInstanceBundleName(EntityInterface $entity) {
     return $entity->getEntityTypeId() == 'menu_link_content'
       // Menu fix.
       ? $entity->getMenuName() : $entity->bundle();
@@ -49,10 +49,10 @@ class EntityHelper {
   /**
    * Gets the entity type id for a bundle.
    *
-   * @param \Drupal\Core\Entity\Entity $entity
+   * @param \Drupal\Core\Entity\EntityInterface $entity
    * @return null|string
    */
-  public function getBundleEntityTypeId(Entity $entity) {
+  public function getBundleEntityTypeId(EntityInterface $entity) {
     return $entity->getEntityTypeId() == 'menu'
       // Menu fix.
       ? 'menu_link_content' : $entity->getEntityType()->getBundleOf();

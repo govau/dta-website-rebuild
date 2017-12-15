@@ -1,0 +1,11 @@
+id: summary
+label: Summary
+ui_limit: ''
+properties:
+  content:
+    value: "<p>[node:summary]</p>\r\n"
+    format: rich_text
+type: token
+type_label: 'Token field'
+entities:
+  node: node

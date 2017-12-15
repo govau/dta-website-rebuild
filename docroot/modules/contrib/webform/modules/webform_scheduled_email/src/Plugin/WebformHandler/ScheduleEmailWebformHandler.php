@@ -134,7 +134,7 @@ class ScheduleEmailWebformHandler extends EmailWebformHandler {
       $form['scheduled']['warning'] = [
         '#type' => 'webform_message',
         '#message_type' => 'error',
-        '#message_message' => $this->t('It is strongly recommended that <a href=":href">submission logging</a> is enable to track scheduled emails.', [':href' => $webform->toUrl('settings-form')->toString()]),
+        '#message_message' => $this->t('It is strongly recommended that <a href=":href">submission logging</a> is enable to track scheduled emails.', [':href' => $webform->toUrl('settings-submissions')->toString()]),
         '#message_close' => TRUE,
         '#message_id' => 'webform_scheduled_email-' . $webform->id(),
         '#message_storage' => WebformMessage::STORAGE_LOCAL,
@@ -177,7 +177,7 @@ class ScheduleEmailWebformHandler extends EmailWebformHandler {
     }
     $days = array_reverse($days);
     foreach ($days as $day) {
-      $days_options["+$day"] = $this->t('+ @day days', ['@day' => $day]);
+      $days_options[$day] = $this->t('+ @day days', ['@day' => $day]);
     }
     $form['scheduled']['days'] = [
       '#type' => 'webform_select_other',

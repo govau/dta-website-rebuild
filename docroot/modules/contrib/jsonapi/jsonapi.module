@@ -46,7 +46,7 @@ function jsonapi_entity_base_field_info(EntityTypeInterface $entity_type) {
       ->setLabel(t('Download URL'))
       ->setDescription(t('The download URL of the file.'))
       ->setComputed(TRUE)
-      ->setQueryable(FALSE)
+      ->setCustomStorage(TRUE)
       ->setClass('\Drupal\jsonapi\Field\FileDownloadUrl')
       ->setDisplayOptions('view', [
         'label' => 'above',

@@ -18,7 +18,7 @@ function simple_sitemap_requirements($phase) {
     $requirements['simple_sitemap_php_extensions'] = [
       'title' => t('Simple XML sitemap PHP extensions'),
       'value' => t('Missing PHP xmlwriter extension'),
-      'description' => t("In order to be able to generate sitemaps, the Simple XML sitemap module requires the <em>xmlwriter</em> PHP extension to be enabled."),
+      'description' => t('In order to be able to generate sitemaps, the Simple XML sitemap module requires the <em>xmlwriter</em> PHP extension to be enabled.'),
       'severity' => REQUIREMENT_ERROR,
     ];
   }
@@ -34,8 +34,8 @@ function simple_sitemap_requirements($phase) {
       if (!$generated_ago) {
         $value = t('Not available');
         $description = t($cron_generation
-          ? "Run cron, or <a href='@generate'>generate</a> the sitemap manually."
-          : "Generation on cron run is disabled. <a href='@generate'>Generate</a> the sitemap manually.", [
+          ? 'Run cron, or <a href="@generate">generate</a> the sitemap manually.'
+          : 'Generation on cron run is disabled. <a href="@generate">Generate</a> the sitemap manually.', [
             '@generate' => $GLOBALS['base_url'] . '/admin/config/search/simplesitemap'
           ]
         );
@@ -43,10 +43,10 @@ function simple_sitemap_requirements($phase) {
       }
       else {
         $value = t('XML sitemap is available');
-        $description = t("The <a href='@sitemap'>XML sitemap</a> was generated @ago ago."
+        $description = t('The <a href="@sitemap">XML sitemap</a> was generated @ago ago.'
           . ' ' . ($cron_generation
-            ? "Run cron, or <a href='@generate'>regenerate</a> the sitemap manually."
-            : "Generation on cron run is disabled. <a href='@generate'>Regenerate</a> the sitemap manually."), [
+            ? 'Run cron, or <a href="@generate">regenerate</a> the sitemap manually.'
+            : 'Generation on cron run is disabled. <a href="@generate">Regenerate</a> the sitemap manually.'), [
               '@sitemap' => $GLOBALS['base_url'] . '/sitemap.xml',
               '@ago' => $generated_ago,
               '@generate' => $GLOBALS['base_url'] . '/admin/config/search/simplesitemap'
@@ -203,9 +203,9 @@ function simple_sitemap_update_8202() {
 
   foreach ($entity_types as $entity_type_name => &$entity_type) {
     if (is_array($entity_type)) {
-      foreach($entity_type as $bundle_name => &$bundle) {
+      foreach ($entity_type as $bundle_name => &$bundle) {
         if (isset($bundle['entities'])) {
-          foreach($bundle['entities'] as $entity_id => $entity_settings) {
+          foreach ($bundle['entities'] as $entity_id => $entity_settings) {
             $database->insert('simple_sitemap_entity_overrides')
               ->fields([
                 'entity_type' => $entity_type_name,
@@ -251,7 +251,7 @@ function simple_sitemap_update_8204() {
   $sitemap_entity_types = \Drupal::service('entity_type.manager')->getDefinitions();
   $entity_types = \Drupal::config('simple_sitemap.entity_types')->get();
   unset($entity_types['_core']);
-  foreach($entity_types as $entity_type_id => $entity_type) {
+  foreach ($entity_types as $entity_type_id => $entity_type) {
     if (!isset($sitemap_entity_types[$entity_type_id])
       || !$sitemap_entity_types[$entity_type_id]->hasLinkTemplate('canonical')) {
 
@@ -276,9 +276,9 @@ function simple_sitemap_update_8205() {
   $entity_types = \Drupal::config('simple_sitemap.entity_types')->get();
   unset($entity_types['_core']);
   $enabled_entity_types = [];
-  foreach($entity_types as $entity_type_id => $bundles) {
+  foreach ($entity_types as $entity_type_id => $bundles) {
     $enabled_entity_types[] = $entity_type_id;
-    foreach($bundles as $bundle_name => $bundle_settings) {
+    foreach ($bundles as $bundle_name => $bundle_settings) {
       \Drupal::service('config.factory')
         ->getEditable("simple_sitemap.bundle_settings.$entity_type_id.$bundle_name")
         ->setData($bundle_settings)->save();
@@ -302,12 +302,12 @@ function simple_sitemap_update_8205() {
  */
 function simple_sitemap_update_8206() {
   $custom_links = \Drupal::config('simple_sitemap.custom')->get();
-  foreach($custom_links as $i => $custom_link) {
+  foreach ($custom_links as $i => $custom_link) {
     if (!isset($custom_link['path'])) {
       unset($custom_links[$i]);
     }
   }
-  \Drupal::service('config.factory')->getEditable("simple_sitemap.custom")
+  \Drupal::service('config.factory')->getEditable('simple_sitemap.custom')
     ->setData(['links' => $custom_links])->save();
 }
 

@@ -6,6 +6,7 @@ dependencies:
     - field.field.node.page.body
     - field.field.node.page.field_contact_module
     - field.field.node.page.field_links
+    - field.field.node.page.field_phase
     - node.type.page
   module:
     - content_moderation
@@ -40,12 +41,9 @@ content:
     third_party_settings: {  }
   field_contact_module:
     weight: 26
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
-    type: entity_reference_autocomplete
+    type: options_buttons
     region: content
   field_links:
     weight: 27
@@ -54,6 +52,12 @@ content:
       placeholder_title: ''
     third_party_settings: {  }
     type: link_default
+    region: content
+  field_phase:
+    weight: 28
+    settings: {  }
+    third_party_settings: {  }
+    type: options_buttons
     region: content
   moderation_state:
     type: moderation_state_default

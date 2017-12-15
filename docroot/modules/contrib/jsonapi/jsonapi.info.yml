@@ -7,8 +7,8 @@ dependencies:
   - drupal:system (>=8.2)
   - serialization
 
-# Information added by Drupal.org packaging script on 2017-09-17
-version: '8.x-1.3'
+# Information added by Drupal.org packaging script on 2017-12-09
+version: '8.x-1.4'
 core: '8.x'
 project: 'jsonapi'
-datestamp: 1505680147
+datestamp: 1512815598

@@ -13,7 +13,8 @@ CONTENTS OF THIS FILE
 INTRODUCTION
 ------------
 
-Author and maintainer: Pawel Ginalski (gbyte.co) https://www.drupal.org/u/gbyte.co
+Author and maintainer: Pawel Ginalski (gbyte.co)
+https://www.drupal.org/u/gbyte.co
 
 The module generates a multilingual XML sitemap which adheres to Google's new
 hreflang standard. Out of the box the sitemap is able to index most of Drupal's
@@ -109,6 +110,16 @@ and parameters like priority/lastmod/changefreq have to be added manually.
 Altering sitemap attributes and sitemap index attributes is possible through the
 use of hook_simple_sitemap_attributes_alter(&$attributes){} and
 hook_simple_sitemap_index_attributes_alter(&$index_attributes){}.
+
+Altering URL generator plugins is possible through
+the use of hook_simple_sitemap_url_generators_alter(&$generators){}.
+
+In case this module's URL generators do not cover your use case, it is possible
+to implement new generator plugins in a custom module. To do it, simply extend
+the Drupal\simple_sitemap\Plugin\simple_sitemap\UrlGenerator\UrlGeneratorBase
+class. See the generator plugins included in this module and check the API docs
+(https://www.drupal.org/docs/8/api/plugin-api/plugin-api-overview) to learn how
+to implement plugins.
 
 There are API methods for altering stored inclusion settings, status queries and
 programmatic sitemap generation. These include:
