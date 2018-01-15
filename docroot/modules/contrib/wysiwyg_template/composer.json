@@ -1,0 +1,43 @@
+{
+    "name": "drupal/wysiwyg_template",
+    "description": "Manage templates for use in a WYSIWYG.",
+    "type": "drupal-module",
+    "license": "GPL-2.0+",
+    "support": {
+        "issues": "https://drupal.org/project/issues/wysiwyg_template",
+        "source": "https://drupal.org/project/wysiwyg_template"
+    },
+    "keywords": [
+        "Drupal",
+        "WYSIWYG",
+        "Templates"
+    ],
+    "repositories": [
+        {
+            "type": "package",
+            "package": {
+                "name": "ckeditor/templates",
+                "version": "4.5.7",
+                "type": "drupal-library",
+                "dist": {
+                    "url": "http://download.ckeditor.com/templates/releases/templates_4.5.7.zip",
+                    "type": "zip"
+                },
+                "require": {
+                    "composer/installers": "~1.0"
+                }
+            }
+        }
+    ],
+    "require": {
+        "ckeditor/templates": "4.5.7"
+    },
+    "config": {
+        "secure-http": false
+    },
+    "autoload": {
+        "psr-4": {
+            "Drupal\\wysiwyg_template\\": "src/"
+        }
+    }
+}

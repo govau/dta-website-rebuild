@@ -1,0 +1,51 @@
+wysiwyg_template.list_js:
+  path: '/wysiwyg-templates/js'
+  defaults:
+    _controller: '\Drupal\wysiwyg_template\Controller\TemplateController::listJson'
+  requirements:
+    _permission: 'access content'
+# @todo Implement per-content-type listings.
+# @see https://www.drupal.org/node/2693221
+wysiwyg_template.list_js.type:
+  path: '/wysiwyg-templates/js/{node_type}'
+  defaults:
+    _controller: '\Drupal\wysiwyg_template\Controller\TemplateController::listJson'
+  requirements:
+    _permission: 'access content'
+  options:
+    parameters:
+      node_type:
+        with_config_overrides: TRUE
+
+# Template routing definition
+entity.wysiwyg_template.collection:
+  path: '/admin/config/content/wysiwyg-templates'
+  defaults:
+    _entity_list: 'wysiwyg_template'
+    _title: 'WYSIWYG templates'
+  requirements:
+    _permission: 'administer wysiwyg templates'
+
+entity.wysiwyg_template.add_form:
+  path: '/admin/config/content/wysiwyg-templates/add'
+  defaults:
+    _entity_form: 'wysiwyg_template.add'
+    _title: 'Add template'
+  requirements:
+    _permission: 'administer wysiwyg templates'
+
+entity.wysiwyg_template.edit_form:
+  path: '/admin/config/content/wysiwyg-templates/{wysiwyg_template}'
+  defaults:
+    _entity_form: 'wysiwyg_template.edit'
+    _title: 'Edit template'
+  requirements:
+    _permission: 'administer wysiwyg templates'
+
+entity.wysiwyg_template.delete_form:
+  path: '/admin/config/content/wysiwyg-templates/{wysiwyg_template}/delete'
+  defaults:
+    _entity_form: 'wysiwyg_template.delete'
+    _title: 'Delete template'
+  requirements:
+    _permission: 'administer wysiwyg templates'

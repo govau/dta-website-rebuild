@@ -1,0 +1,5 @@
+wysiwyg_template.add_form:
+  route_name: 'entity.wysiwyg_template.add_form'
+  title: 'Add template'
+  appears_on:
+    - entity.wysiwyg_template.collection

@@ -60,6 +60,10 @@ settings:
             - video_embed
             - node
             - block
+        -
+          name: Templates
+          items:
+            - TemplateSelector
   plugins:
     drupallink:
       linkit_enabled: true

@@ -1,0 +1,11 @@
+name: 'WYSIWYG Template Core'
+description: 'Core functionality for the WYSIWYG Template module'
+# core: 8.x
+package: 'User interface'
+type: module
+
+# Information added by Drupal.org packaging script on 2017-07-07
+version: '8.x-2.0-beta1'
+core: '8.x'
+project: 'wysiwyg_template'
+datestamp: 1499440445

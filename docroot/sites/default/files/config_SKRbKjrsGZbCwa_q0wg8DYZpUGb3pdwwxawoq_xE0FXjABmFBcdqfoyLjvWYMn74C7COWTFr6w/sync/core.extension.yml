@@ -110,6 +110,8 @@ module:
   video_embed_wysiwyg: 0
   views_ui: 0
   workflows: 0
+  wysiwyg_template: 0
+  wysiwyg_template_core: 0
   ds: 1
   menu_link_content: 1
   pathauto: 1

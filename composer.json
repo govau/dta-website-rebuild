@@ -47,7 +47,8 @@
     "drupal/toc_filter": "^2.0@beta",
     "monolog/monolog": "^1.23",
     "drupal/search_api_autocomplete": "^1.0@beta",
-    "drupal/search_api_page": "dev-1.x"
+    "drupal/search_api_page": "dev-1.x",
+    "drupal/wysiwyg_template": "^2.0@beta"
   },
   "require-dev": {
     "mikey179/vfsStream": "^1.6",
@@ -111,6 +112,19 @@
         "source": {
           "type": "git",
           "url": "https://github.com/govau/dta-uikit-base-theme",
+          "reference": "master"
+        }
+      }
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "ckeditor/templates",
+        "type": "drupal-library",
+        "version": "4.5.7",
+        "dist": {
+          "type": "zip",
+          "url": "http://download.ckeditor.com/templates/releases/templates_4.5.7.zip",
           "reference": "master"
         }
       }
