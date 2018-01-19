@@ -1,10 +1,10 @@
 ---
 applications:
-- name: dta-website-rebuild-develop
+- name: dta-website-rebuild-test
   memory: 512M
   disk_quote: 2G
   instances: 1
   path: .
   services:
-  - dta-website-db-dev
+  - dta-website-db-test
   buildpack: php_buildpack

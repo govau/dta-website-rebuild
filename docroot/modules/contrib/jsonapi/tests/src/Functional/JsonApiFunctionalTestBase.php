@@ -129,6 +129,30 @@ abstract class JsonApiFunctionalTestBase extends BrowserTestBase {
     ]);
     $field_config->save();
 
+    // Field for testing sorting.
+    FieldStorageConfig::create([
+      'field_name' => 'field_sort1',
+      'entity_type' => 'node',
+      'type' => 'integer',
+    ])->save();
+    FieldConfig::create([
+      'field_name' => 'field_sort1',
+      'entity_type' => 'node',
+      'bundle' => 'article',
+    ])->save();
+
+    // Another field for testing sorting.
+    FieldStorageConfig::create([
+      'field_name' => 'field_sort2',
+      'entity_type' => 'node',
+      'type' => 'integer',
+    ])->save();
+    FieldConfig::create([
+      'field_name' => 'field_sort2',
+      'entity_type' => 'node',
+      'bundle' => 'article',
+    ])->save();
+
     $this->user = $this->drupalCreateUser([
       'create article content',
       'edit any article content',
@@ -243,6 +267,14 @@ abstract class JsonApiFunctionalTestBase extends BrowserTestBase {
           ),
         ];
       }
+
+      // Create values for the sort fields, to allow for testing complex
+      // sorting:
+      // - field_sort1 increments every 5 articles, starting at zero
+      // - field_sort2 decreases every article, ending at zero
+      $values['field_sort1'] = ['value' => floor($created_nodes / 5)];
+      $values['field_sort2'] = ['value' => $num_articles - $created_nodes];
+
       $node = $this->createNode($values);
 
       if ($is_multilingual === static::IS_MULTILINGUAL) {

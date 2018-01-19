@@ -4,7 +4,6 @@ namespace Drupal\webform;
 
 use Drupal\Core\Extension\ModuleHandlerInterface;
 use Drupal\Core\Config\ConfigFactoryInterface;
-use Drupal\Core\Render\Markup;
 use Drupal\Core\Serialization\Yaml;
 use Drupal\Core\Session\AccountInterface;
 use Drupal\Core\State\StateInterface;
@@ -249,8 +248,6 @@ class WebformHelpManager implements WebformHelpManagerInterface {
    * {@inheritdoc}
    */
   public function buildIndex() {
-    // return $this->buildAddons();
-    // return $this->buildLibraries();
     return $this->buildVideos();
   }
 
@@ -343,7 +340,7 @@ class WebformHelpManager implements WebformHelpManagerInterface {
         'border' => 0,
         'cellpadding' => 2,
         'cellspacing' => 0,
-      ]
+      ],
     ];
 
     if (!$docs) {
@@ -391,7 +388,7 @@ class WebformHelpManager implements WebformHelpManagerInterface {
             '#title' => $project['title'],
             '#url' => $project['url'],
             '#prefix' => '<dt>',
-            '#suffix' => ((isset($project['recommended'])) ? ' ★': '') . '</dt>',
+            '#suffix' => ((isset($project['recommended'])) ? ' ★' : '') . '</dt>',
           ],
           'description' => [
             '#markup' => $project['description'],
@@ -443,7 +440,7 @@ class WebformHelpManager implements WebformHelpManagerInterface {
         'description' => [
           'content' => [
             '#markup' => $library['description'],
-            '#suffix' => '<br />'
+            '#suffix' => '<br />',
           ],
           'notes' => [
             '#markup' => $library['notes'] .
@@ -1058,7 +1055,7 @@ class WebformHelpManager implements WebformHelpManagerInterface {
     $help['config_handlers'] = [
       'group' => 'configuration',
       'title' => $this->t('Configuration: Handlers'),
-      'content' => $this->t('The <strong>Handlers configuration</strong> page allows administrators to enable/disable handlers and configure default email settings and messages.')  . ' ' .
+      'content' => $this->t('The <strong>Handlers configuration</strong> page allows administrators to enable/disable handlers and configure default email settings and messages.') . ' ' .
         $this->t('<strong>Handlers</strong> are used to route submitted data to external applications and send notifications & confirmations.'),
       'video_id' => 'admin',
       'routes' => [
@@ -1240,7 +1237,7 @@ class WebformHelpManager implements WebformHelpManagerInterface {
     // Elements.
     /**************************************************************************/
 
-    // Elements
+    // Elements.
     $help['elements'] = [
       'group' => 'elements',
       'title' => $this->t('Elements'),
@@ -1336,7 +1333,7 @@ class WebformHelpManager implements WebformHelpManagerInterface {
     $help['settings_access'] = [
       'group' => 'settings',
       'title' => $this->t('Settings: Access'),
-      'content' => $this->t('The <strong>Access</strong> settings page allows an administrator to determine who can create, update, delete and purge webform submissions.'),
+      'content' => $this->t('The <strong>Access</strong> settings page allows an administrator to determine who can administer a webform and/or create, update, delete and purge webform submissions.'),
       'video_id' => 'access',
       'routes' => [
         // @see /admin/structure/webform/manage/{webform}/access

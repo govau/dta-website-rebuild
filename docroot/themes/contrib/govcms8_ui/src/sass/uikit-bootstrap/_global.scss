@@ -1,0 +1,361 @@
+// Header, Footer and other global styles
+
+// Page header
+body > header {
+	.nav {
+		a {
+			&:hover,
+			&:active,
+			&:focus {
+				color: $primary;
+				.caret {
+					border-top-color: $primary;
+				}
+				.label {
+					opacity: 1;
+				}
+			}
+			&:active,
+			&:focus {
+				.caret {
+					border-top-color: $primary-highlight;
+				}
+			}
+		}
+		.dropdown-menu li.dropdown-header {
+			color: $grey;
+		}
+	}
+	.caret {
+		border-top-color: #fff;
+	}
+	// UI-Kit's '3 shades of $primary' thick underline
+	// on hover/focus/active this line visually expands to underline the whole title
+	.style-line {
+		&:before {
+			background-color: $gradient-light;
+			background-size: 2.4em 7px;
+			bottom: -1.4em;
+			content: "";
+			float: right;
+			height: 7px;
+			position: relative;
+			right: 5.68em;
+			transition: 0.35s all; // Transitions don't work for gradient bgs, so using position
+			width: 2.4em;
+		}
+		&:after {
+			background: linear-gradient(to left, $primary-highlight 0, $primary-highlight 25%, $primary-light 25%, $primary-light 75%, $gradient-light 75%) no-repeat;
+			background-size: 2.4em 7px;
+			bottom: -1.4em;
+			content: "";
+			float: right;
+			height: 7px;
+			position: relative;
+			right: 2.78em;
+			transition: 0.35s all; // Transitions don't work for gradient bgs, so using position
+			width: 2.9em;
+		}
+		&.brand-heading {
+			padding-bottom: 20px;
+			.label {
+				opacity: 1;
+			}
+		}
+	}
+	.brand {
+		&:hover,
+		&:active,
+		&:focus {
+			.style-line {
+				opacity: 1;
+				text-decoration: none;
+				&:before {
+					right: 7.62em;
+				}
+			}
+		}
+	}
+
+	// Header search
+	.input-group {
+		.form-control {
+			border-color: #fff;
+		}
+		.input-group-btn {
+			.btn {
+				border-color: #fff;
+				color: #fff;
+			}
+		}
+	}
+
+} // header
+
+
+
+// Applies to both headers and hero sections
+body > header,
+.hero {
+	background: linear-gradient($gradient-angle, $gradient-light, $gradient-dark 80%);
+	background-color: $gradient-dark;
+	color: #fff;
+	padding: 1.6em 0;
+	&.navbar {
+		border: none;
+		border-radius: 0;
+		margin-bottom: 0;
+	}
+	a {
+		color: #fff;
+		&.has-img {
+			.brand-heading .label {
+				top: -0.4em;
+			}
+		}
+	}
+	.navbar-collapse,
+	.tagline {
+		width: 100%;
+	}
+	a.brand {
+		&:hover,
+		&:active,
+		&:focus {
+			color: #fff;
+		}
+		img {
+			display: inline-block;
+			margin-right: 20px;
+			&.divider {
+				border-right: 1px solid rgba(#fff, 0.3);
+				margin-right: 30px;
+				padding-right: 30px;
+			}
+		}
+	}
+	.brand {
+		.brand-heading {
+			display: inline-block;	// fallback for non-flex browsers (also, can't use @supports bue do IE11 😒)
+			// font-size: 30px;
+			font-weight: $font-weight-normal;
+			margin: 0;
+		}
+		.label {
+			background-color: $primary-alt;
+			border: none;
+			font-size: 47%;
+			line-height: 1.5;
+			margin-left: 0.3em;
+			margin-right: -3.65em;
+			padding: 0 10px;
+			padding-bottom: 0.1em;
+			position: relative;
+			top: -4px;
+			transition: all 0.2s;
+		}
+	}
+	// CTA links
+	.cta-link {
+		border-bottom: 1px solid $primary-highlight;
+		margin-bottom: 0;
+		&:hover,
+		&:active,
+		&:focus {
+			background-color: #fff;
+			border-bottom-color: transparent; // 0 will cause jumping
+		}
+	} // .cta-link
+
+	// Colour schemes
+	// as per http://uikit.apps.staging.digital.gov.au/packages/header/tests/site/
+	// ...minus the "hero" class versions
+
+	// Light
+	&.light {
+		background: $grey-light;	// can't just use background-color, due to gradient
+		color: $grey-dark;
+		a {
+			color: $grey-dark;
+		}
+		.caret {
+			border-top-color: $grey-dark;
+		}
+		a.brand {
+			&:hover,
+			&:active,
+			&:focus {
+				color: $grey-dark;
+			}
+			img.divider {
+				border-color: $grey-border;
+			}
+		}
+		.label {
+			background-color: $grey;
+		}
+		.style-line {
+			&:before {
+				background-color: $grey;
+			}
+			&:after {
+				background: linear-gradient(to left, $grey-dark 0, $grey-dark 25%, $grey-border 25%, $grey-border 75%, $grey 75%) no-repeat;
+				background-size: 2.4em 7px;
+			}
+		}
+		.cta-link {
+			&:hover,
+			&:active,
+			&:focus {
+				background-color: $primary-highlight;
+				border-bottom: 1px solid $primary-highlight;
+				color: $grey-dark;
+				&:after {
+					color: $grey-dark;
+				}
+			}
+		}
+	} // .light
+
+	// Dark
+	&.dark {
+		background: $grey-dark;	 // can't just use background-color, due to gradient
+		.label {
+			background-color: $grey-light;
+			color: $grey-dark;
+		}
+		img.divider {
+			border-color: $grey-border;
+		}
+		.style-line {
+			&:before {
+				background-color: $grey-border;
+			}
+			&:after {
+				background: linear-gradient(to left, $grey 0, $grey 25%, $grey-light 25%, $grey-light 75%, $grey-border 75%) no-repeat;
+				background-size: 2.4em 7px;
+			}
+		}
+	} // .dark
+}
+
+// Hero class.
+.hero {
+	.container .row {
+		padding: 3.5em 0;
+	}
+	.navbar-header {
+		display: block;
+		float: none;
+		width: 100%;
+	}
+	.brand-heading {
+		font-size: 44px;
+		width: 100%;
+		font-weight: $font-weight-normal;
+		.label {
+			top: -5px;
+		}
+	}
+	.tagline {
+		font-size: 20px;
+		margin-top: 3.1em;
+	}
+}
+p + p .cta-link {
+	margin-top: 0.75em; // makgive the cta-link some space if there's a p tag (tagline) above it
+} // .hero
+
+
+
+// Nav bar under header
+.main-nav {
+	background-color: $grey-light;
+	border-bottom: 4px solid $grey-border;
+	.navbar-collapse {
+		padding: 0;
+	}
+	.dropdown-menu {
+		min-width: 100%;
+	}
+	.nav {
+		margin-bottom: -4px;
+		& > .active > a {
+			border: none;
+			border-bottom: 4px solid $primary-highlight;
+			&:hover,
+			&:active,
+			&:focus {
+				border: none;
+				border-bottom: 4px solid $primary-highlight;
+				border-bottom-width: 4px;
+			}
+		}
+		a {
+			border-bottom: 4px solid transparent;
+			border-radius: 0;
+			color: $primary-dark;
+		}
+	}
+	.input-group {
+		margin-bottom: -5px;
+		.form-control {
+			border: none;
+			border-bottom: 4px solid $grey-border;
+			padding: 1.46em 0.7em;
+			&:hover {
+				border-bottom-color: $primary;
+			}
+			&:active,
+			&:focus {
+				border-bottom-color: $primary-highlight;
+			}
+		}
+		.btn {
+			border: none;
+			border-bottom: 4px solid $grey-border;
+			border-right: 1px solid $grey-border;
+			padding: 13px 15px;
+			&:hover {
+				background-color: $primary-highlight;
+				border-bottom-color: $primary;
+				color: $grey-dark;
+			}
+			&:active,
+			&:focus {
+				background-color: $primary-dark;
+				border-bottom-color: $primary-highlight;
+				color: #fff;
+			}
+		}
+	}
+} // main-nav
+
+
+// Page header
+.page-header {
+	margin-top: 100px;
+}
+
+
+// Footer
+body > footer {
+	background-color: $grey-light;
+	border-top: 6px solid $primary-darker;
+	margin-top: 3.2em;
+	padding: 1.6em 0;
+	.row {
+		border-bottom: 1px solid $grey-border;
+		margin-bottom: 3em;
+		padding-bottom: 3em;
+		&:last-of-type {
+			border-bottom: 0;
+			margin-bottom: 0;
+			padding-bottom: 0;
+		}
+	}
+	small {
+		display: inline-block;
+		margin-top: 4.4em;
+	}
+}

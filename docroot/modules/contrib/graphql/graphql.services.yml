@@ -74,7 +74,6 @@ services:
     class: Drupal\graphql\GraphQL\Execution\QueryProcessor
     arguments:
       - '@service_container'
-      - '@graphql.reducer_manager'
       - '@graphql.schema_loader'
       - '@current_user'
       - '%graphql.config%'
@@ -90,25 +89,20 @@ services:
       - '%graphql.config%'
 
   # Query map provider using the composite pattern.
-  graphql.query_map_provider:
-    class: Drupal\graphql\QueryMapProvider\QueryMapProvider
+  graphql.query_provider:
+    class: Drupal\graphql\QueryProvider\QueryProvider
     tags:
-        - { name: service_collector, tag: graphql_query_map_provider, call: addQueryMapProvider }
-  graphql.query_map_provider.entity:
-    class: Drupal\graphql\QueryMapProvider\EntityQueryMapProvider
+        - { name: service_collector, tag: graphql_query_provider, call: addQueryProvider }
+  graphql.query_provider.query_map.entity:
+    class: Drupal\graphql\QueryProvider\EntityQueryMapQueryProvider
     arguments: ['@entity_type.manager']
     tags:
-        - { name: graphql_query_map_provider }
-  graphql.query_map_provider.json:
-    class: Drupal\graphql\QueryMapProvider\JsonQueryMapProvider
+        - { name: graphql_query_provider }
+  graphql.query_provider.query_map.json:
+    class: Drupal\graphql\QueryProvider\JsonQueryMapQueryProvider
     arguments: ['@cache.default', '@config.factory']
     tags:
-        - { name: graphql_query_map_provider }
-
-  # Manager for schema reducers. Uses a compiler pass to gather reducers.
-  graphql.reducer_manager:
-    class: Drupal\graphql\GraphQL\Reducers\ReducerManager
-    arguments: ['@service_container', '%graphql.reducers%']
+        - { name: graphql_query_provider }
 
   # Service for graphql request caching.
   graphql.cache_subscriber:
@@ -160,7 +154,7 @@ services:
   # Upcasting for graphql query request parameters.
   graphql.route_enhancer.query:
     class: Drupal\graphql\Routing\QueryRouteEnhancer
-    arguments: ['@graphql.query_map_provider']
+    arguments: ['@graphql.query_provider']
     tags:
       - { name: route_enhancer }
 
@@ -202,7 +196,7 @@ services:
       - { name: service_collector, tag: graphql_plugin_manager, call: addPluginManager }
 
   # Plugin manager implementations for schema types.
-  plugin.manager.graphql.union_type:
+  plugin.manager.graphql.union:
     class: Drupal\graphql\Plugin\GraphQL\TypeSystemPluginManager
     tags:
       - { name: graphql_plugin_manager }
@@ -238,7 +232,7 @@ services:
       - '\Drupal\graphql\Annotation\GraphQLType'
       - 'graphql_types'
       - '@logger.channel.graphql'
-  plugin.manager.graphql.input_type:
+  plugin.manager.graphql.input:
     class: Drupal\graphql\Plugin\GraphQL\TypeSystemPluginManager
     tags:
       - { name: graphql_plugin_manager }
@@ -282,7 +276,7 @@ services:
       - 'Plugin/GraphQL/Scalars'
       - '@container.namespaces'
       - '@module_handler'
-      - '\Youshido\GraphQL\Type\TypeInterface'
+      - '\Drupal\graphql\Plugin\GraphQL\Scalars\ScalarPluginBase'
       - '\Drupal\graphql\Annotation\GraphQLScalar'
       - 'graphql_scalars'
       - '@logger.channel.graphql'

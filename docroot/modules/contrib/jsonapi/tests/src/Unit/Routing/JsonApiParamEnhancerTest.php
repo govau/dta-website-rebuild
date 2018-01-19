@@ -122,7 +122,12 @@ class JsonApiParamEnhancerTest extends UnitTestCase {
     )->willReturn($this->prophesize(Filter::class)->reveal());
 
     $sort_normalizer = $this->prophesize(DenormalizerInterface::class);
-    $sort_normalizer->denormalize(Argument::any(), Sort::class)->willReturn($this->prophesize(Sort::class)->reveal());
+    $sort_normalizer->denormalize(
+      Argument::any(),
+      Sort::class,
+      Argument::any(),
+      Argument::any()
+    )->willReturn($this->prophesize(Sort::class)->reveal());
 
     $page_normalizer = $this->prophesize(DenormalizerInterface::class);
     $page_normalizer->denormalize(Argument::any(), OffsetPage::class)->willReturn($this->prophesize(OffsetPage::class)->reveal());

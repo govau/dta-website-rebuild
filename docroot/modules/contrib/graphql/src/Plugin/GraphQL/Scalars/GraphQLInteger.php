@@ -2,10 +2,7 @@
 
 namespace Drupal\graphql\Plugin\GraphQL\Scalars;
 
-use Drupal\graphql\Plugin\GraphQL\SchemaBuilderInterface;
-use Drupal\graphql\Plugin\GraphQL\Traits\CacheablePluginTrait;
-use Drupal\graphql\Plugin\GraphQL\Traits\PluginTrait;
-use Drupal\graphql\Plugin\GraphQL\TypeSystemPluginInterface;
+use Drupal\graphql\Plugin\GraphQL\PluggableSchemaBuilderInterface;
 use Youshido\GraphQL\Type\Scalar\IntType;
 
 /**
@@ -17,14 +14,17 @@ use Youshido\GraphQL\Type\Scalar\IntType;
  *   data_type = "integer"
  * )
  */
-class GraphQLInteger extends IntType implements TypeSystemPluginInterface {
-  use PluginTrait;
-  use CacheablePluginTrait;
+class GraphQLInteger extends ScalarPluginBase {
 
   /**
    * {@inheritdoc}
    */
-  public function buildConfig(SchemaBuilderInterface $schemaManager) {
-    // Nothing to do here.
+  public function getDefinition(PluggableSchemaBuilderInterface $schemaBuilder) {
+    if (!isset($this->definition)) {
+      $this->definition = new IntType();
+    }
+
+    return $this->definition;
   }
 }
+

@@ -12,6 +12,18 @@ namespace Drupal\jsonapi;
 class JsonApiSpec {
 
   /**
+   * The minimum supported specification version.
+   *
+   * @see http://jsonapi.org/format/#document-jsonapi-object
+   */
+  const SUPPORTED_SPECIFICATION_VERSION = '1.0';
+
+  /**
+   * The URI of the supported specification document.
+   */
+  const SUPPORTED_SPECIFICATION_PERMALINK = 'http://jsonapi.org/format/1.0/';
+
+  /**
    * Member name: globally allowed characters.
    *
    * U+0080 and above (non-ASCII Unicode characters) are allowed, but are not

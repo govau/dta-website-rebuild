@@ -15,7 +15,7 @@ use Drupal\serialization\EntityResolver\UuidReferenceInterface;
  *
  * @todo Remove the dependency on \Drupal\jsonapi\Normalizer\JsonApiDocumentTopLevelNormalizer
  */
-class RelationshipItemNormalizer extends FieldItemNormalizer implements UuidReferenceInterface {
+class RelationshipItemNormalizer extends FieldItemNormalizer {
 
   /**
    * The interface or class that this Normalizer supports.
@@ -117,21 +117,6 @@ class RelationshipItemNormalizer extends FieldItemNormalizer implements UuidRefe
       return str_replace($host_field_name . '.', '', $include);
     }, $include_candidates);
     return $context;
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function getUuid($data) {
-    if (isset($data['uuid'])) {
-      return NULL;
-    }
-    $uuid = $data['uuid'];
-    // The value may be a nested array like $uuid[0]['value'].
-    if (is_array($uuid) && isset($uuid[0]['value'])) {
-      $uuid = $uuid[0]['value'];
-    }
-    return $uuid;
   }
 
 }

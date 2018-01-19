@@ -706,7 +706,7 @@ class Webform extends ConfigEntityBundleBase implements WebformInterface {
 
     // Now apply new settings.
     foreach ($settings as $name => $value) {
-      if (key_exists($name, $this->settings)) {
+      if (array_key_exists($name, $this->settings)) {
         $this->settings[$name] = $value;
       }
     }
@@ -919,6 +919,11 @@ class Webform extends ConfigEntityBundleBase implements WebformInterface {
         'users' => [],
         'permissions' => [],
       ],
+      'administer' => [
+        'roles' => [],
+        'users' => [],
+        'permissions' => [],
+      ],
     ];
   }
 
@@ -926,7 +931,7 @@ class Webform extends ConfigEntityBundleBase implements WebformInterface {
    * {@inheritdoc}
    */
   public function checkAccessRules($operation, AccountInterface $account, WebformSubmissionInterface $webform_submission = NULL) {
-    // Always grant access to user that can administer webforms and submissions
+    // Always grant access to user that can administer webforms and submissions.
     if ($account->hasPermission('administer webform') || $account->hasPermission('administer webform submission')) {
       return TRUE;
     }
@@ -945,11 +950,16 @@ class Webform extends ConfigEntityBundleBase implements WebformInterface {
 
     $access_rules = $this->getAccessRules() + static::getDefaultAccessRules();
 
-    if (in_array($operation, ['create', 'view_any', 'update_any', 'delete_any', 'purge_any'])
-      && $this->checkAccessRule($access_rules[$operation], $account)) {
+    // Check administer access rule and grant full access to user.
+    if ($this->checkAccessRule($access_rules['administer'], $account)) {
       return TRUE;
     }
 
+    // Check operation specific access rules.
+    if (in_array($operation, ['create', 'view_any', 'update_any', 'delete_any', 'purge_any', 'administer'])
+      && $this->checkAccessRule($access_rules[$operation], $account)) {
+      return TRUE;
+    }
     if (isset($access_rules[$operation . '_any'])
       && $this->checkAccessRule($access_rules[$operation . '_any'], $account)) {
       return TRUE;
@@ -1034,7 +1044,6 @@ class Webform extends ConfigEntityBundleBase implements WebformInterface {
     return \Drupal::service('entity.form_builder')
       ->getForm($webform_submission, $operation);
   }
-
 
   /**
    * {@inheritdoc}
@@ -1196,7 +1205,7 @@ class Webform extends ConfigEntityBundleBase implements WebformInterface {
       // the translation to the elements.
       if ($config_translation && $this->langcode != $language_manager->getCurrentLanguage()->getId()) {
         $elements = $translation_manager->getElements($this);
-        $this->elementsTranslations = Yaml::decode($this->elements);
+        $this->elementsTranslations = $translation_manager->getElements($this, $language_manager->getCurrentLanguage()->getId());
       }
       else {
         $elements = Yaml::decode($this->elements);
@@ -1568,7 +1577,7 @@ class Webform extends ConfigEntityBundleBase implements WebformInterface {
 
     $pages = [];
 
-    // Add webform wizard pages
+    // Add webform wizard pages.
     $elements = $this->getElementsInitialized();
     if (is_array($elements) && !in_array($operation, ['edit_all', 'api'])) {
       foreach ($elements as $key => $element) {
@@ -1636,11 +1645,12 @@ class Webform extends ConfigEntityBundleBase implements WebformInterface {
 
     // Update owner to current user.
     $duplicate->setOwnerId(\Drupal::currentUser()->id());
-    
-    // If template, clear the description and remove the template flag.
+
+    // If template, clear description, remove template flag, and publish.
     if ($duplicate->isTemplate()) {
       $duplicate->set('description', '');
       $duplicate->set('template', FALSE);
+      $duplicate->setStatus(TRUE);
     }
 
     // Remove enforce module dependency when a sub-module's webform is
@@ -2239,7 +2249,9 @@ class Webform extends ConfigEntityBundleBase implements WebformInterface {
   /**
    * Define empty to string method.
    *
-   * See: Issue #2926903: Devel Tokens tab Broken when Webform Embedded in Node
+   * See: Issue #2926903: Devel Tokens tab Broken when Webform Embedded in Node.
+   *
+   * @see https://www.drupal.org/project/webform/issues/2926903
    */
   public function __toString() {
     return '';

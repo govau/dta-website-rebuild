@@ -213,7 +213,7 @@ class WebformEntitySettingsSubmissionsForm extends WebformEntitySettingsBaseForm
       'token_update' => [
         'title' => $this->t('Allow users to update a submission using a secure token.'),
         'form_description' => $this->t("If checked users will be able to update a submission using the webform's URL appended with the submission's (secure) token.") . ' ' .
-          $this->t("The 'tokenized' URL to update a submission will be available when viewing a submission's information and can be inserted into an email using the [webform_submission:update-url] token.") . ' '  .
+          $this->t("The 'tokenized' URL to update a submission will be available when viewing a submission's information and can be inserted into an email using the [webform_submission:update-url] token.") . ' ' .
           $this->t('Only webforms that are open to new submissions can be updated using the secure token.'),
       ],
       // Global behaviors.
@@ -259,8 +259,8 @@ class WebformEntitySettingsSubmissionsForm extends WebformEntitySettingsBaseForm
       '#title' => $this->t('Total submissions limit interval'),
       '#default_value' => $settings['limit_total_interval'],
       '#states' => [
-        'visible' => [':input[name="limit_total"]' => ['filled' => TRUE]],
-      ]
+        'visible' => [':input[name="limit_total"]' => ['!value' => '']],
+      ],
     ];
     $form['submission_limits']['total']['entity_limit_total'] = [
       '#type' => 'number',
@@ -274,8 +274,8 @@ class WebformEntitySettingsSubmissionsForm extends WebformEntitySettingsBaseForm
       '#title' => $this->t('Total submissions limit interval per source entity'),
       '#default_value' => $settings['entity_limit_total_interval'],
       '#states' => [
-        'visible' => [':input[name="entity_limit_total"]' => ['filled' => TRUE]],
-      ]
+        'visible' => [':input[name="entity_limit_total"]' => ['!value' => '']],
+      ],
     ];
     $form['submission_limits']['total']['limit_total_message'] = [
       '#type' => 'webform_html_editor',
@@ -284,9 +284,9 @@ class WebformEntitySettingsSubmissionsForm extends WebformEntitySettingsBaseForm
       '#default_value' => $settings['limit_total_message'],
       '#states' => [
         'visible' => [
-          [':input[name="limit_total"]' => ['filled' => TRUE]],
+          [':input[name="limit_total"]' => ['!value' => '']],
           'or',
-          [':input[name="entity_limit_total"]' => ['filled' => TRUE]],
+          [':input[name="entity_limit_total"]' => ['!value' => '']],
         ],
       ],
     ];
@@ -307,8 +307,8 @@ class WebformEntitySettingsSubmissionsForm extends WebformEntitySettingsBaseForm
       '#title' => $this->t('Per user submission limit interval'),
       '#default_value' => $settings['limit_user_interval'],
       '#states' => [
-        'visible' => [':input[name="limit_user"]' => ['filled' => TRUE]],
-      ]
+        'visible' => [':input[name="limit_user"]' => ['!value' => '']],
+      ],
     ];
     $form['submission_limits']['user']['entity_limit_user'] = [
       '#type' => 'number',
@@ -322,8 +322,8 @@ class WebformEntitySettingsSubmissionsForm extends WebformEntitySettingsBaseForm
       '#title' => $this->t('Per user submission limit interval per source entity'),
       '#default_value' => $settings['entity_limit_user_interval'],
       '#states' => [
-        'visible' => [':input[name="entity_limit_user"]' => ['filled' => TRUE]],
-      ]
+        'visible' => [':input[name="entity_limit_user"]' => ['!value' => '']],
+      ],
     ];
     $form['submission_limits']['user']['limit_user_message'] = [
       '#type' => 'webform_html_editor',
@@ -331,9 +331,9 @@ class WebformEntitySettingsSubmissionsForm extends WebformEntitySettingsBaseForm
       '#default_value' => $settings['limit_user_message'],
       '#states' => [
         'visible' => [
-          [':input[name="limit_user"]' => ['filled' => TRUE]],
+          [':input[name="limit_user"]' => ['!value' => '']],
           'or',
-          [':input[name="entity_limit_user"]' => ['filled' => TRUE]],
+          [':input[name="entity_limit_user"]' => ['!value' => '']],
         ],
       ],
     ];

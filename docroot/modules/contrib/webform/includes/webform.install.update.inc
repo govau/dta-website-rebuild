@@ -14,6 +14,7 @@ use Drupal\webform\Entity\WebformOptions;
 use Drupal\webform\Plugin\WebformHandler\EmailWebformHandler;
 use Drupal\webform\WebformInterface;
 use Drupal\webform\Plugin\WebformHandler\RemotePostWebformHandler;
+use Drupal\webform\Utility\WebformArrayHelper;
 use Drupal\webform\Utility\WebformOptionsHelper;
 use Drupal\webform\Utility\WebformReflectionHelper;
 
@@ -1620,8 +1621,8 @@ function webform_update_8082() {
   // Copied from: system_update_8007().
   $schema = \Drupal::keyValue('entity.storage_schema.sql')->getAll();
   $item = &$schema['webform_submission.field_schema_data.langcode'];
-  foreach ($item as $table_name => &$table_schema) {
-    foreach ($table_schema['fields'] as $field_name => &$field) {
+  foreach ($item as &$table_schema) {
+    foreach ($table_schema['fields'] as &$field) {
       $field['not null'] = TRUE;
     }
   }
@@ -1775,3 +1776,44 @@ function webform_update_8094() {
   _webform_update_webform_settings();
 }
 
+/**
+ * Issue #2918721: Access controlling Webform administration.
+ */
+function webform_update_8095() {
+  $config_factory = \Drupal::configFactory();
+  foreach ($config_factory->listAll('webform.webform.') as $webform_config_name) {
+    $webform_config = $config_factory->getEditable($webform_config_name);
+    $data = $webform_config->getRawData();
+    if (!isset($data['access']['administer'])) {
+      $data['access']['administer'] = [
+        'roles' => [],
+        'users' => [],
+        'permissions' => [],
+      ];
+      $webform_config->setData($data)->save();
+    }
+  }
+}
+
+/**
+ * Issue #2931888: Add a boolean flag 'use as likert' for options list and remove the machine name pattern matching in likert element.
+ */
+function webform_update_8096() {
+  $config_factory = \Drupal::configFactory();
+  foreach ($config_factory->listAll('webform.webform_options.') as $config_name) {
+    $config = $config_factory->getEditable($config_name);
+    $data = $config->getRawData();
+
+    $likert = (strpos($data['id'], 'likert_') === 0) ? TRUE : FALSE;
+    WebformArrayHelper::insertAfter($data, 'category', 'likert', $likert);
+    $config->setData($data);
+    $config->save(TRUE);
+  }
+}
+
+/**
+ * Issue #2932607: Add Twig support to email body.
+ */
+function webform_update_8097() {
+  _webform_update_webform_handler_configuration(EmailWebformHandler::class);
+}

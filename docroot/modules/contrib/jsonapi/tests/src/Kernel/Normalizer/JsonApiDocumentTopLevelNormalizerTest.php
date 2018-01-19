@@ -222,6 +222,11 @@ class JsonApiDocumentTopLevelNormalizerTest extends JsonapiKernelTestBase {
           'cacheable_metadata' => $response->getCacheableMetadata(),
         ]
       );
+
+    // @see http://jsonapi.org/format/#document-jsonapi-object
+    $this->assertEquals($normalized['jsonapi']['version'], '1.0');
+    $this->assertEquals($normalized['jsonapi']['meta']['links']['self'], 'http://jsonapi.org/format/1.0/');
+
     $this->assertSame($normalized['data']['attributes']['title'], 'dummy_title');
     $this->assertEquals($normalized['data']['id'], $this->node->uuid());
     $this->assertSame([
@@ -263,7 +268,7 @@ class JsonApiDocumentTopLevelNormalizerTest extends JsonapiKernelTestBase {
     $this->assertTrue(!isset($normalized['included'][0]['attributes']['created']));
     // Make sure that the cache tags for the includes and the requested entities
     // are bubbling as expected.
-    $this->assertSame(
+    $this->assertArraySubset(
       ['file:1', 'node:1', 'taxonomy_term:1', 'taxonomy_term:2'],
       $response->getCacheableMetadata()->getCacheTags()
     );
@@ -361,7 +366,7 @@ class JsonApiDocumentTopLevelNormalizerTest extends JsonapiKernelTestBase {
     $this->assertEquals($this->term1->uuid(), $normalized['included'][0]['id']);
     // Make sure that the cache tags for the includes and the requested entities
     // are bubbling as expected.
-    $this->assertSame(
+    $this->assertArraySubset(
       ['node:1', 'taxonomy_term:1', 'taxonomy_term:2'],
       $response->getCacheableMetadata()->getCacheTags()
     );
@@ -444,7 +449,7 @@ class JsonApiDocumentTopLevelNormalizerTest extends JsonapiKernelTestBase {
    * @covers ::denormalize
    */
   public function testDenormalize() {
-    $payload = '{"type":"article", "data":{"attributes":{"title":"Testing article"}}}';
+    $payload = '{"data":{"type":"article","attributes":{"title":"Testing article"}}}';
 
     list($request, $resource_type) = $this->generateProphecies('node', 'article', 'id');
     $node = $this
@@ -554,8 +559,8 @@ class JsonApiDocumentTopLevelNormalizerTest extends JsonapiKernelTestBase {
    */
   public function testDenormalizeInvalidTypeAndNoType() {
     $payload_data = [
-      'type' => 'node--article',
       'data' => [
+        'type' => 'node--article',
         'attributes' => [
           'title' => 'Testing article',
           'id' => '33095485-70D2-4E51-A309-535CC5BC0115',
@@ -631,8 +636,8 @@ class JsonApiDocumentTopLevelNormalizerTest extends JsonapiKernelTestBase {
 
     $node = [
       [
-        'type' => 'node--article',
         'data' => [
+          'type' => 'node--article',
           'attributes' => [
             'title' => 'Testing article',
             'id' => '33095485-70D2-4E51-A309-535CC5BC0115',

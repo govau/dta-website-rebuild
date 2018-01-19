@@ -142,17 +142,23 @@ class WebformLibrariesManager implements WebformLibrariesManagerInterface {
         $description = $this->t('The <a href=":homepage_href">@title</a> library is <a href=":external_href">externally hosted libraries</a> and loaded via a Content Delivery Network (CDN).', $t_args);
       }
 
-      $info[$library_name] = [
-        'title' => [
-          '#markup' => $title,
-          '#prefix' => '<dt>',
-          '#suffix' => '</dt>',
-        ],
-        'description' => [
+      $info[$library_name] = [];
+      $info[$library_name]['title'] = [
+        '#markup' => $title,
+        '#prefix' => '<dt>',
+        '#suffix' => '</dt>',
+      ];
+      $info[$library_name]['description'] = [
+        'content' => [
           '#markup' => $description,
-          '#prefix' => '<dd>',
-          '#suffix' => '</dd>',
         ],
+        'status' => (!empty($library['deprecated'])) ? [
+          '#markup' => $library['deprecated'],
+          '#prefix' => '<div class="color-warning"><strong>',
+          '#suffix' => '</strong></div>',
+        ] : [],
+        '#prefix' => '<dd>',
+        '#suffix' => '</dd>',
       ];
     }
 
@@ -255,6 +261,8 @@ class WebformLibrariesManager implements WebformLibrariesManagerInterface {
       'notes' => $this->t('Allows CKEditor to automatically expand and shrink vertically.'),
       'homepage_url' => Url::fromUri('https://ckeditor.com/addon/autogrow'),
       'download_url' => Url::fromUri("https://download.ckeditor.com/autogrow/releases/autogrow_$ckeditor_version.zip"),
+      'plugin_path' => 'libraries/ckeditor.autogrow/',
+      'plugin_url' => "https://cdn.rawgit.com/ckeditor/ckeditor-dev/$ckeditor_version/plugins/autogrow/",
       'version' => $ckeditor_version,
       'optional' => TRUE,
     ];
@@ -264,6 +272,8 @@ class WebformLibrariesManager implements WebformLibrariesManagerInterface {
       'notes' => $this->t('Allows CKEditor to use basic image and link dialog.'),
       'homepage_url' => Url::fromUri('https://ckeditor.com/addon/fakeobjects'),
       'download_url' => Url::fromUri("https://download.ckeditor.com/fakeobjects/releases/fakeobjects_$ckeditor_version.zip"),
+      'plugin_path' => 'libraries/ckeditor.fakeobjects/',
+      'plugin_url' => "https://cdn.rawgit.com/ckeditor/ckeditor-dev/$ckeditor_version/plugins/fakeobjects/",
       'version' => $ckeditor_version,
       'optional' => TRUE,
     ];
@@ -273,6 +283,8 @@ class WebformLibrariesManager implements WebformLibrariesManagerInterface {
       'notes' => $this->t('Allows CKEditor to use basic image dialog, which is not included in Drupal core.'),
       'homepage_url' => Url::fromUri('https://ckeditor.com/addon/image'),
       'download_url' => Url::fromUri("https://download.ckeditor.com/image/releases/image_$ckeditor_version.zip"),
+      'plugin_path' => 'libraries/ckeditor.image/',
+      'plugin_url' => "https://cdn.rawgit.com/ckeditor/ckeditor-dev/$ckeditor_version/plugins/image/",
       'version' => $ckeditor_version,
       'optional' => TRUE,
     ];
@@ -282,7 +294,20 @@ class WebformLibrariesManager implements WebformLibrariesManagerInterface {
       'notes' => $this->t('Allows CKEditor to use basic link dialog, which is not included in Drupal core.'),
       'homepage_url' => Url::fromUri('https://ckeditor.com/addon/link'),
       'download_url' => Url::fromUri('https://download.ckeditor.com/link/releases/link_4.6.2.zip'),
+      'plugin_path' => 'libraries/ckeditor.link/',
+      'plugin_url' => "https://cdn.rawgit.com/ckeditor/ckeditor-dev/$ckeditor_version/plugins/link/",
       'version' => '4.6.2',
+      'optional' => TRUE,
+    ];
+    $libraries['ckeditor.codemirror'] = [
+      'title' => $this->t('CKEditor: CodeMirror'),
+      'description' => $this->t('Provides syntax highlighting for the CKEditor with the CodeMirror Plugin.'),
+      'notes' => $this->t('Makes it easier to edit the HTML source.'),
+      'homepage_url' => Url::fromUri('https://github.com/w8tcha/CKEditor-CodeMirror-Plugin'),
+      'download_url' => Url::fromUri('https://github.com/w8tcha/CKEditor-CodeMirror-Plugin/releases/download/v1.17.3/CKEditor-CodeMirror-Plugin.zip'),
+      'plugin_path' => 'libraries/ckeditor.codemirror/codemirror/',
+      'plugin_url' => "https://cdn.rawgit.com/w8tcha/CKEditor-CodeMirror-Plugin/v1.17.3/codemirror/",
+      'version' => 'v1.17.3',
       'optional' => TRUE,
     ];
     $libraries['codemirror'] = [
@@ -311,6 +336,7 @@ class WebformLibrariesManager implements WebformLibrariesManagerInterface {
       'download_url' => Url::fromUri('https://github.com/fronteed/icheck/archive/1.0.2.zip'),
       'version' => '1.0.2 ',
       'optional' => TRUE,
+      'deprecated' => $this->t('The iCheck library is not being maintained and has been <a href=":href">deprecated</a>. It wil be removed before Webform 8.x-5.0.', [':href' => 'https://www.drupal.org/project/webform/issues/2931154']),
     ];
     $libraries['jquery.image-picker'] = [
       'title' => $this->t('jQuery: Image Picker'),

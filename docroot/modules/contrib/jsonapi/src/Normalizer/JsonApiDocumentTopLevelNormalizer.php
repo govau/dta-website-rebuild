@@ -79,13 +79,18 @@ class JsonApiDocumentTopLevelNormalizer extends NormalizerBase implements Denorm
    * {@inheritdoc}
    */
   public function denormalize($data, $class, $format = NULL, array $context = []) {
+    // Validate a few common errors in document formatting.
+    $this->validateRequestBody($data);
+
     $context += [
       'on_relationship' => $this->currentContext->isOnRelationship(),
     ];
     $normalized = [];
+
     if (!empty($data['data']['attributes'])) {
       $normalized = $data['data']['attributes'];
     }
+
     if (!empty($data['data']['relationships'])) {
       // Turn all single object relationship data fields into an array of objects.
       $relationships = array_map(function ($relationship) {
@@ -271,6 +276,20 @@ class JsonApiDocumentTopLevelNormalizer extends NormalizerBase implements Denorm
     }
 
     return $context;
+  }
+
+  /**
+   * Performs mimimal validation of the document.
+   */
+  protected static function validateRequestBody(array $document) {
+    // Ensure that the relationships key was not placed in the top level.
+    if (isset($document['relationships']) && !empty($document['relationships'])) {
+      throw new BadRequestHttpException("Found \"relationships\" within the document's top level. The \"relationships\" key must be within resource object.");
+    }
+    // Ensure that the resource object contains the "type" key.
+    if (!isset($document['data']['type'])) {
+      throw new BadRequestHttpException("Resource object must include a \"type\".");
+    }
   }
 
 }

@@ -72,6 +72,11 @@ class RelationshipNormalizer extends NormalizerBase {
     /* @var \Drupal\jsonapi\Normalizer\Relationship $relationship */
     $normalizer_items = [];
     foreach ($relationship->getItems() as $relationship_item) {
+      // If the relationship points to a disabled resource type, do not add the
+      // normalized relationship item.
+      if (!$relationship_item->getTargetResourceType()) {
+        continue;
+      }
       $normalizer_items[] = $this->serializer->normalize($relationship_item, $format, $context);
     }
     $cardinality = $relationship->getCardinality();

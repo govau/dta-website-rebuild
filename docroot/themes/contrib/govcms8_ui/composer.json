@@ -1,0 +1,10 @@
+{
+    "name": "govcms/govcms8-ui",
+    "description": "A Drupal 8 theme for govCMS incorporating the DTA UI Kit",
+    "keywords": ["govCMS", "govCMS8"],
+    "type": "drupal-theme",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "license": "GPL-2.0+",
+    "require": {}
+}

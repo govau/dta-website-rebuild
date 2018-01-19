@@ -137,6 +137,21 @@ class Consumer extends ContentEntityBase {
       ->setDisplayConfigurable('form', TRUE)
       ->setDisplayConfigurable('view', TRUE);
 
+    $fields['third_party'] = BaseFieldDefinition::create('boolean')
+      ->setLabel(new TranslatableMarkup('Is this consumer 3rd party?'))
+      ->setDescription(new TranslatableMarkup('Mark this if the organization behind this consumer is not the same as the one behind the Drupal API.'))
+      ->setDisplayOptions('view', [
+        'label' => 'inline',
+        'type' => 'boolean',
+        'weight' => 4,
+      ])
+      ->setDisplayOptions('form', [
+         'weight' => 4,
+      ])
+      ->setRevisionable(TRUE)
+      ->setTranslatable(TRUE)
+      ->setDefaultValue(FALSE);
+
     return $fields;
   }
 

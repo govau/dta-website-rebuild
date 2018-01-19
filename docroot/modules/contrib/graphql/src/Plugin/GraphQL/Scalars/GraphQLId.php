@@ -2,10 +2,7 @@
 
 namespace Drupal\graphql\Plugin\GraphQL\Scalars;
 
-use Drupal\graphql\Plugin\GraphQL\SchemaBuilderInterface;
-use Drupal\graphql\Plugin\GraphQL\Traits\CacheablePluginTrait;
-use Drupal\graphql\Plugin\GraphQL\Traits\PluginTrait;
-use Drupal\graphql\Plugin\GraphQL\TypeSystemPluginInterface;
+use Drupal\graphql\Plugin\GraphQL\PluggableSchemaBuilderInterface;
 use Youshido\GraphQL\Type\Scalar\IdType;
 
 /**
@@ -17,15 +14,16 @@ use Youshido\GraphQL\Type\Scalar\IdType;
  *   data_type = "id"
  * )
  */
-class GraphQLId extends IdType implements TypeSystemPluginInterface {
-  use PluginTrait;
-  use CacheablePluginTrait;
+class GraphQLId extends ScalarPluginBase {
 
   /**
    * {@inheritdoc}
    */
-  public function buildConfig(SchemaBuilderInterface $schemaManager) {
-    // Nothing to do here.
+  public function getDefinition(PluggableSchemaBuilderInterface $schemaBuilder) {
+    if (!isset($this->definition)) {
+      $this->definition = new IdType();
+    }
+
+    return $this->definition;
   }
 }
-

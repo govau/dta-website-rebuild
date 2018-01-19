@@ -16,9 +16,11 @@ use Drupal\Core\Path\PathValidatorInterface;
 use Drupal\Core\Render\Element;
 use Drupal\Core\Render\RendererInterface;
 use Drupal\Core\Routing\TrustedRedirectResponse;
+use Drupal\Core\Template\Attribute;
 use Drupal\Core\Url;
 use Drupal\webform\Entity\WebformSubmission;
 use Drupal\webform\Form\WebformDialogFormTrait;
+use Drupal\webform\Plugin\WebformElement\Hidden;
 use Drupal\webform\Plugin\WebformElementManagerInterface;
 use Drupal\webform\Plugin\WebformHandlerInterface;
 use Drupal\webform\Utility\WebformArrayHelper;
@@ -361,7 +363,10 @@ class WebformSubmissionForm extends ContentEntityForm {
     // Track current page name or index by setting the
     // "data-webform-wizard-page"
     // attribute which is used Drupal.behaviors.webformWizardTrackPage.
-    // The data parameter is append to the URL after the form has been submitted
+    //
+    // The data parameter is append to the URL after the form has
+    // been submitted.
+    //
     // @see js/webform.form.wizard.js
     $track = $this->getWebform()->getSetting('wizard_track');
     if ($track && $this->getRequest()->isMethod('POST')) {
@@ -1181,6 +1186,9 @@ class WebformSubmissionForm extends ContentEntityForm {
     // Build webform submission with validated and processed data.
     $this->entity = $this->buildEntity($form, $form_state);
 
+    // Server side #states API validation.
+    $this->conditionsValidator->validateForm($form, $form_state);
+
     // Validate webform via webform handler.
     $this->getWebform()->invokeHandlers('validateForm', $form, $form_state, $this->entity);
 
@@ -1202,9 +1210,6 @@ class WebformSubmissionForm extends ContentEntityForm {
         call_user_func_array($form_state->prepareCallback($callback), [&$form, &$form_state]);
       }
     }
-
-    // Server side #states API validation.
-    $this->conditionsValidator->validateForm($form, $form_state);
   }
 
   /**
@@ -1521,12 +1526,17 @@ class WebformSubmissionForm extends ContentEntityForm {
       $this->getMessageManager()->display(WebformMessageManagerInterface::FORM_PREVIEW_MESSAGE, 'warning');
 
       // Build preview.
+      $preview_attributes = new Attribute($this->getWebform()->getSetting('preview_attributes'));
+      $preview_attributes->addClass('webform-preview');
       $form['#title'] = PlainTextOutput::renderFromHtml($this->getWebformSetting('preview_title'));
       $form['preview'] = [
-        '#theme' => 'webform_preview',
-        '#webform_submission' => $this->entity,
+        '#type' => 'container',
+        '#attributes' => $preview_attributes,
         // Progress bar is -20.
         '#weight' => -10,
+        'submission' => $this->entityManager
+          ->getViewBuilder('webform_submission')
+          ->view($this->entity, 'preview'),
       ];
     }
     else {
@@ -1783,8 +1793,13 @@ class WebformSubmissionForm extends ContentEntityForm {
         continue;
       }
 
+      // Determine if this is a hidden element.
+      // Hidden elements use #value but need to use #default_value to
+      // be populated.
+      $is_hidden = ($element_plugin instanceof Hidden);
+
       // Populate default value or value.
-      if ($element_plugin->hasProperty('default_value')) {
+      if ($element_plugin->hasProperty('default_value') || $is_hidden) {
         $element['#default_value'] = $values[$key];
       }
       elseif ($element_plugin->hasProperty('value')) {

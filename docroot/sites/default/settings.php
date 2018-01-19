@@ -132,7 +132,6 @@
  } else {
    $databases = array();
  }
-
 /**
  * Customizing database settings.
  *

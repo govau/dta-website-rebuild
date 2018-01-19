@@ -2,14 +2,12 @@
 
 namespace Drupal\webform\Tests\Element;
 
-use Drupal\webform\Tests\WebformTestBase;
-
 /**
  * Tests for webform element readonly attribute.
  *
  * @group Webform
  */
-class WebformElementReadonlyTest extends WebformTestBase {
+class WebformElementReadonlyTest extends WebformElementTestBase {
 
   /**
    * Webforms to load.

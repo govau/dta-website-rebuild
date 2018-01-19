@@ -6,16 +6,25 @@ use Youshido\GraphQL\Execution\ResolveInfo;
 
 /**
  * Interface for fields that can be evaluated in optimized batches.
+ *
+ * @deprecated To be removed with 1.0. Replace with a buffered fields.
  */
 interface BatchedFieldInterface {
 
   /**
    * Retrieve the instance of a batched field resolver.
    *
+   * @param mixed $parent
+   *   The parent value in the result tree.
+   * @param array $arguments
+   *   The list of arguments.
+   * @param \Youshido\GraphQL\Execution\ResolveInfo $info
+   *   The graphql resolve info object.
+   *
    * @return \Drupal\graphql\GraphQL\Batching\BatchedFieldResolver
    *   The field resolver instance.
    */
-  public function getBatchedFieldResolver();
+  public function getBatchedFieldResolver($parent, array $arguments, ResolveInfo $info);
 
   /**
    * Returns string identifying the batch.
@@ -26,7 +35,7 @@ interface BatchedFieldInterface {
    *   The parent value in the result tree.
    * @param array $arguments
    *   The list of arguments.
-   * @param ResolveInfo $info
+   * @param \Youshido\GraphQL\Execution\ResolveInfo $info
    *   The graphql resolve info object.
    *
    * @return string

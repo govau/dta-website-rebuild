@@ -1,0 +1,44 @@
+{% include directory ~ '/templates/partials/_header.html.twig' %}
+<main class="container">
+    <a id="main-content" tabindex="-1"></a>
+    <div id="main" class="main-container row">
+        <div id="content">
+            <div class="title-block">
+                {% if page.breadcrumb is defined and page.breadcrumb|render|striptags|trim %}
+                    {{ page.breadcrumb }}
+                {% endif %}
+                {% if page.help is defined and page.help|render|striptags|trim %}
+                    {{ page.help }}
+                {% endif %}
+            </div>
+            {% set left_exists = sidebar_first_exists is defined %}
+            {% set right_exists = sidebar_second_exists is defined %}
+            {% if page.sidebar_first %}
+                <aside class="col-sm-3" role="complementary">
+                    {{ page.sidebar_first }}
+                </aside>
+            {% endif %}
+
+            {%
+            set content_classes = [
+            (left_exists and right_exists) ? 'col-sm-6',
+            (not left_exists and not right_exists) ? 'col-sm-12',
+            ((left_exists and not right_exists) or (not left_exists and right_exists)) ? 'col-sm-9',
+            ]
+            %}
+            <section id="main-content-section" {{ content_attributes.addClass(content_classes) }} role="main">
+                <div id="page-content">
+                    {{ page.content }}
+                </div>
+            </section>
+
+            {% if (page.sidebar_second) %}
+                <aside class="col-sm-3 right-bar" role="complementary">
+                    {{ page.sidebar_second }}
+                </aside>
+            {% endif %}
+        </div>
+    </div>
+</main>
+
+{% include directory ~ '/templates/partials/_footer.html.twig' %}

@@ -119,6 +119,11 @@ class WebformAdminConfigLibrariesForm extends WebformAdminConfigBaseForm {
           'data' => [
             'content' => ['#markup' => $library['description'], '#suffix' => '<br />'],
             'notes' => ['#markup' => '(' . $library['notes'] . ')', '#prefix' => '<em>', '#suffix' => '</em><br />'],
+            'status' => (!empty($library['deprecated'])) ? [
+              '#markup' => $library['deprecated'],
+              '#prefix' => '<div class="color-warning"><strong>',
+              '#suffix' => '</strong></div>',
+            ] : [],
           ],
         ],
       ];

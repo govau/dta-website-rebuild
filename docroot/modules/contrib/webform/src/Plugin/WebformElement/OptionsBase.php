@@ -5,6 +5,7 @@ namespace Drupal\webform\Plugin\WebformElement;
 use Drupal\Component\Utility\Unicode;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Form\OptGroup;
+use Drupal\Core\Render\Markup;
 use Drupal\webform\Utility\WebformArrayHelper;
 use Drupal\webform\Utility\WebformElementHelper;
 use Drupal\webform\Utility\WebformOptionsHelper;
@@ -248,18 +249,74 @@ abstract class OptionsBase extends WebformElementBase {
   /**
    * {@inheritdoc}
    */
-  public function getValue(array $element, WebformSubmissionInterface $webform_submission, array $options = []) {
-    $value = parent::getValue($element, $webform_submission, $options);
-
+  protected function formatHtmlItem(array $element, WebformSubmissionInterface $webform_submission, array $options = []) {
     $format = $this->getItemFormat($element);
-    if ($format == 'value' && isset($element['#options'])) {
+    $value = $this->formatTextItem($element, $webform_submission, ['prefixing' => FALSE] + $options);
+
+    if ($format === 'raw') {
+      return Markup::create($value);
+    }
+
+    if (isset($element['#options'])) {
       $flattened_options = OptGroup::flattenOptions($element['#options']);
       $options_description = $this->hasProperty('options_description_display');
-      return WebformOptionsHelper::getOptionText($value, $flattened_options, $options_description);
+      $value = WebformOptionsHelper::getOptionText($value, $flattened_options, $options_description);
+    }
+
+    // Build a render that used #plain_text so that HTML characters are escaped.
+    // @see \Drupal\Core\Render\Renderer::ensureMarkupIsSafe
+    if ($value === '0') {
+      // Issue #2765609: #plain_text doesn't render empty-like values
+      // (e.g. 0 and "0").
+      // Workaround: Use #markup until this issue is fixed.
+      $build = ['#markup' => $value];
     }
     else {
+      $build = ['#plain_text' => $value];
+    }
+
+    $options += ['prefixing' => TRUE];
+    if ($options['prefixing']) {
+      if (isset($element['#field_prefix'])) {
+        $build['#prefix'] = $element['#field_prefix'];
+      }
+      if (isset($element['#field_suffix'])) {
+        $build['#suffix'] = $element['#field_suffix'];
+      }
+    }
+
+    return $build;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  protected function formatTextItem(array $element, WebformSubmissionInterface $webform_submission, array $options = []) {
+    $value = $this->getValue($element, $webform_submission, $options);
+    $format = $this->getItemFormat($element);
+
+    if ($format === 'raw') {
       return $value;
     }
+
+    if (isset($element['#options'])) {
+      $flattened_options = OptGroup::flattenOptions($element['#options']);
+      $options_description = $this->hasProperty('options_description_display');
+      $value = WebformOptionsHelper::getOptionText($value, $flattened_options, $options_description);
+    }
+
+    $options += ['prefixing' => TRUE];
+    $options += ['prefixing' => TRUE];
+    if ($options['prefixing']) {
+      if (isset($element['#field_prefix'])) {
+        $value = strip_tags($element['#field_prefix']) . $value;
+      }
+      if (isset($element['#field_suffix'])) {
+        $value .= strip_tags($element['#field_suffix']);
+      }
+    }
+
+    return $value;
   }
 
   /**

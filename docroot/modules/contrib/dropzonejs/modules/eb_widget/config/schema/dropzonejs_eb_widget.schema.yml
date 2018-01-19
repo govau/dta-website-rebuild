@@ -43,7 +43,7 @@ entity_browser.browser.widget.dropzonejs_media_entity:
   type: entity_browser.browser.widget.dropzonejs
   label: 'Media Entity DropzoneJS widget configuration'
   mapping:
-    media_entity_bundle:
+    media_type:
       type: string
       label: 'Media type'
 

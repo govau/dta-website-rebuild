@@ -44,18 +44,14 @@ class ConfigEntityNormalizer extends EntityNormalizer {
    * {@inheritdoc}
    */
   protected function serializeField($field, array $context, $format) {
-    $output = $this->serializer->normalize($field, $format, $context);
-    if (is_array($output)) {
-      $output = new FieldNormalizerValue(
-        [new FieldItemNormalizerValue($output)],
-        1
-      );
-      $output->setPropertyType('attributes');
-      return $output;
+    if (!is_array($field)) {
+      $field = [$field];
     }
-    $field instanceof Relationship ?
-      $output->setPropertyType('relationships') :
-      $output->setPropertyType('attributes');
+    $output = new FieldNormalizerValue(
+      [new FieldItemNormalizerValue($field)],
+      1
+    );
+    $output->setPropertyType('attributes');
     return $output;
   }
 

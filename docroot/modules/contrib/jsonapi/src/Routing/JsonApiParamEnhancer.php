@@ -73,7 +73,7 @@ class JsonApiParamEnhancer implements RouteEnhancerInterface {
 
     if ($request->query->has('sort')) {
       $sort = $request->query->get('sort');
-      $options['sort'] = $this->sortNormalizer->denormalize($sort, Sort::class);
+      $options['sort'] = $this->sortNormalizer->denormalize($sort, Sort::class, NULL, $context);
     }
 
     $page = ($request->query->has('page')) ? $request->query->get('page') : [];

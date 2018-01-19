@@ -5,9 +5,7 @@ namespace Drupal\webform\Element;
 use Drupal\Component\Utility\NestedArray;
 use Drupal\Core\Render\Element;
 use Drupal\Core\Render\Element\FormElement;
-use Drupal\Core\Render\Markup;
 use Drupal\Core\Form\FormStateInterface;
-use Drupal\webform\Utility\WebformArrayHelper;
 use Drupal\webform\Utility\WebformElementHelper;
 
 /**
@@ -69,7 +67,7 @@ class WebformMultiple extends FormElement {
       }
     }
     elseif (is_array($input) && isset($input['items'])) {
-      return $input['items'];
+      return static::convertValuesToItems($element, $input['items']);
     }
     else {
       return NULL;
@@ -178,12 +176,11 @@ class WebformMultiple extends FormElement {
 
     // Build table.
     $element['items'] = [
-        '#prefix' => '<div id="' . $table_id . '" class="webform-multiple-table">',
-        '#suffix' => '</div>',
-        '#type' => 'table',
-        '#header' => $header,
-
-      ] + $rows;
+      '#prefix' => '<div id="' . $table_id . '" class="webform-multiple-table">',
+      '#suffix' => '</div>',
+      '#type' => 'table',
+      '#header' => $header,
+    ] + $rows;
 
     // Add sorting to table.
     if ($element['#sorting']) {
@@ -216,6 +213,7 @@ class WebformMultiple extends FormElement {
         '#max' => 100,
         '#default_value' => $element['#add_more'],
         '#field_suffix' => t('more @labels', ['@labels' => $element['#labels']]),
+        '#error_no_message' => TRUE,
       ];
     }
 
@@ -248,16 +246,16 @@ class WebformMultiple extends FormElement {
         $composite_element['#access'] = FALSE;
       }
 
-      // If #header then hide the element's #title.
-      if ($element['#header'] && !isset($composite_element['#title_display'])) {
-        $composite_element['#title_display'] = 'invisible';
-      }
-
       // Initialize, prepare, and populate composite sub-element.
       $element_plugin = $element_manager->getElementInstance($composite_element);
       $element_plugin->initialize($composite_element);
       $element_plugin->prepare($composite_element);
       $element_plugin->finalize($composite_element);
+
+      // If #header then hide the element's #title.
+      if ($element['#header'] && !isset($composite_element['#title_display'])) {
+        $composite_element['#title_display'] = 'invisible';
+      }
 
       $element['#element'][$composite_key] = $composite_element;
     }
@@ -304,6 +302,8 @@ class WebformMultiple extends FormElement {
       if ($element['#operations']) {
         $header[] = ['class' => ["$table_id--handle", "webform-multiple-table--operations"]];
       }
+
+      return $header;
     }
     elseif (is_string($element['#header'])) {
       return [
@@ -397,7 +397,7 @@ class WebformMultiple extends FormElement {
       $row['_handle_'] = [
         '#wrapper_attributes' => [
           'class' => ['webform-multiple-table--handle'],
-        ]
+        ],
       ];
     }
 
@@ -461,7 +461,7 @@ class WebformMultiple extends FormElement {
       $row['_operations_'] = [
         '#wrapper_attributes' => [
           'class' => ['webform-multiple-table--operations'],
-        ]
+        ],
       ];
       $row['_operations_']['add'] = [
         '#type' => 'image_button',
@@ -575,6 +575,8 @@ class WebformMultiple extends FormElement {
    *
    * @param array $element
    *   The child element.
+   * @param string $element_key
+   *   The child element's key.
    * @param array $parents
    *   The main element's parents.
    */
@@ -703,14 +705,15 @@ class WebformMultiple extends FormElement {
     // @see \Drupal\webform\Element\WebformEmailConfirm::validateWebformEmailConfirm
     // @see \Drupal\webform\Element\WebformOtherBase::validateWebformOther
     $values = NestedArray::getValue($form_state->getValues(), $element['#parents']);
-    // Convert values to items and validate duplicate keys.
-    try {
-      $items = static::convertValuesToItems($element, $values['items']);
-    }
-    catch (\Exception $exception) {
-      $form_state->setError($element, Markup::create($exception->getMessage()));
+
+    // Validate unique keys.
+    if ($error_message = static::validateUniqueKeys($element, $values['items'])) {
+      $form_state->setError($element, $error_message);
       return;
     }
+
+    // Convert values to items and validate duplicate keys.
+    $items = static::convertValuesToItems($element, $values['items']);
 
     // Validate required items.
     if (!empty($element['#required']) && empty($items)) {
@@ -795,13 +798,6 @@ class WebformMultiple extends FormElement {
         $key_name = $element['#key'];
         $key_value = $item[$key_name];
         unset($item[$key_name]);
-
-        // Validate unique #key.
-        if (isset($items[$key_value])) {
-          $key_title = isset($element['#element'][$key_name]['#title']) ? $element['#element'][$key_name]['#title'] : $key_name;
-          throw new \Exception(t("The %title '@key' is already in use. It must be unique.", ['@key' => $key_value, '%title' => $key_title]));
-        }
-
         $items[$key_value] = $item;
       }
       else {
@@ -810,6 +806,44 @@ class WebformMultiple extends FormElement {
     }
 
     return $items;
+  }
+
+  /**
+   * Validate composite element has unique keys.
+   *
+   * @param array $element
+   *   The multiple element.
+   * @param array $values
+   *   An array containing of item and weight.
+   *
+   * @return null|string
+   *   NULL if element has unique keys, else an error message with
+   *   the duplicate key.
+   */
+  protected static function validateUniqueKeys(array $element, array $values) {
+    // Only validate if the element's #key is defined.
+    if (!isset($element['#key'])) {
+      return NULL;
+    }
+
+    $unique_keys = [];
+    foreach ($values as $value) {
+      $item = (isset($value['_item_'])) ? $value['_item_'] : $value;
+      $key_name = $element['#key'];
+      $key_value = $item[$key_name];
+      if (empty($key_value)) {
+        continue;
+      }
+
+      if (isset($unique_keys[$key_value])) {
+        $key_title = isset($element['#element'][$key_name]['#title']) ? $element['#element'][$key_name]['#title'] : $key_name;
+        $t_args = ['@key' => $key_value, '%title' => $key_title];
+        return t("The %title '@key' is already in use. It must be unique.", $t_args);
+      }
+
+      $unique_keys[$key_value] = $key_value;
+    }
+    return NULL;
   }
 
   /**

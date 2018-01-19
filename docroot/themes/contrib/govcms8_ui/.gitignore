@@ -1,0 +1,41 @@
+# Logs and databases
+*.log
+wget-log*
+*.sql
+*.sqlite
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Composer vendor
+vendor/
+vendor/.git
+
+# Sass
+.sass-cache
+
+# Node
+node_modules/
+
+# Drupal console
+console/
+console/cache/
+
+# Icon must end with two \r
+Icon
+
+# DrupalVM
+.vagrant/
+
+# IDEs
+.idea
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+*~

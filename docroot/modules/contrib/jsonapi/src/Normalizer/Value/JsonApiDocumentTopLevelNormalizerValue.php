@@ -102,7 +102,15 @@ class JsonApiDocumentTopLevelNormalizerValue implements ValueExtractorInterface,
    */
   public function rasterizeValue() {
     // Create the array of normalized fields, starting with the URI.
-    $rasterized = ['data' => []];
+    $rasterized = [
+      'data' => [],
+      'jsonapi' => [
+        'version' => JsonApiSpec::SUPPORTED_SPECIFICATION_VERSION,
+        'meta' => [
+          'links' => ['self' => JsonApiSpec::SUPPORTED_SPECIFICATION_PERMALINK],
+        ],
+      ],
+    ];
 
     foreach ($this->values as $normalizer_value) {
       if ($normalizer_value instanceof HttpExceptionNormalizerValue) {

@@ -20,6 +20,9 @@ class JsonApiFunctionalTest extends JsonApiFunctionalTestBase {
     // Unpublish the last entity, so we can check access.
     $this->nodes[60]->setUnpublished()->save();
 
+    // 0. HEAD request allows a client to verify that JSON API is installed.
+    $this->httpClient->request('HEAD', $this->buildUrl('/jsonapi/node/article'));
+    $this->assertSession()->statusCodeEquals(200);
     // 1. Load all articles (1st page).
     $collection_output = Json::decode($this->drupalGet('/jsonapi/node/article'));
     $this->assertSession()->statusCodeEquals(200);
@@ -282,6 +285,56 @@ class JsonApiFunctionalTest extends JsonApiFunctionalTestBase {
     $collection_output = Json::decode($this->drupalGet('/jsonapi/file/file'));
     $uri = $collection_output['data'][0]['attributes']['uri'];
     $this->assertEquals($collection_output['data'][0]['attributes']['url'], $uri);
+    // 22. Test sort criteria on multiple fields: both ASC.
+    $output = Json::decode($this->drupalGet('/jsonapi/node/article', [
+      'query' => [
+        'page[limit]' => 6,
+        'sort' => 'field_sort1,field_sort2',
+      ],
+    ]));
+    $output_nids = array_map(function ($result) {
+      return $result['attributes']['nid'];
+    }, $output['data']);
+    $this->assertCount(6, $output_nids);
+    $this->assertEquals([5, 4, 3, 2, 1, 10], $output_nids);
+    // 23. Test sort criteria on multiple fields: first ASC, second DESC.
+    $output = Json::decode($this->drupalGet('/jsonapi/node/article', [
+      'query' => [
+        'page[limit]' => 6,
+        'sort' => 'field_sort1,-field_sort2',
+      ],
+    ]));
+    $output_nids = array_map(function ($result) {
+      return $result['attributes']['nid'];
+    }, $output['data']);
+    $this->assertCount(6, $output_nids);
+    $this->assertEquals([1, 2, 3, 4, 5, 6], $output_nids);
+    // 24. Test sort criteria on multiple fields: first DESC, second ASC.
+    $output = Json::decode($this->drupalGet('/jsonapi/node/article', [
+      'query' => [
+        'page[limit]' => 6,
+        'sort' => '-field_sort1,field_sort2',
+      ],
+    ]));
+    $output_nids = array_map(function ($result) {
+      return $result['attributes']['nid'];
+    }, $output['data']);
+    $this->assertCount(5, $output_nids);
+    $this->assertCount(1, $output['meta']['errors']);
+    $this->assertEquals([60, 59, 58, 57, 56], $output_nids);
+    // 25. Test sort criteria on multiple fields: both DESC.
+    $output = Json::decode($this->drupalGet('/jsonapi/node/article', [
+      'query' => [
+        'page[limit]' => 6,
+        'sort' => '-field_sort1,-field_sort2',
+      ],
+    ]));
+    $output_nids = array_map(function ($result) {
+      return $result['attributes']['nid'];
+    }, $output['data']);
+    $this->assertCount(5, $output_nids);
+    $this->assertCount(1, $output['meta']['errors']);
+    $this->assertEquals([56, 57, 58, 59, 60], $output_nids);
 
     // Test documentation filtering examples.
     // 1. Only get published nodes.
@@ -531,6 +584,39 @@ class JsonApiFunctionalTest extends JsonApiFunctionalTestBase {
     $this->assertEquals(422, $response->getStatusCode());
     $this->assertNotEmpty($created_response['errors']);
     $this->assertEquals('Unprocessable Entity', $created_response['errors'][0]['title']);
+    // 6.1 Relationships are not included in "data".
+    $malformed_body = $body;
+    unset($malformed_body['data']['relationships']);
+    $malformed_body['relationships'] = $body['data']['relationships'];
+    $response = $this->request('POST', $collection_url, [
+      'body' => Json::encode($malformed_body),
+      'auth' => [$this->user->getUsername(), $this->user->pass_raw],
+      'headers' => [
+        'Accept' => 'application/vnd.api+json',
+        'Content-Type' => 'application/vnd.api+json',
+      ],
+    ]);
+    $created_response = Json::decode((string) $response->getBody());
+    $this->assertSame(400, $response->getStatusCode());
+    $this->assertNotEmpty($created_response['errors']);
+    $this->assertSame("Bad Request", $created_response['errors'][0]['title']);
+    $this->assertSame("Found \"relationships\" within the document's top level. The \"relationships\" key must be within resource object.", $created_response['errors'][0]['detail']);
+    // 6.2 "type" not included in "data"
+    $missing_type = $body;
+    unset($missing_type['data']['type']);
+    $response = $this->request('POST', $collection_url, [
+      'body' => Json::encode($missing_type),
+      'auth' => [$this->user->getUsername(), $this->user->pass_raw],
+      'headers' => [
+        'Accept' => 'application/vnd.api+json',
+        'Content-Type' => 'application/vnd.api+json',
+      ],
+    ]);
+    $created_response = Json::decode((string) $response->getBody());
+    $this->assertSame(400, $response->getStatusCode());
+    $this->assertNotEmpty($created_response['errors']);
+    $this->assertSame("Bad Request", $created_response['errors'][0]['title']);
+    $this->assertSame("Resource object must include a \"type\".", $created_response['errors'][0]['detail']);
     // 7. Successful PATCH.
     $body = [
       'data' => [

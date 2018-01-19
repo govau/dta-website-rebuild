@@ -78,6 +78,7 @@ class EntityConditionNormalizerTest extends KernelTestBase {
       [['path' => 'some_field', 'value' => 'some_value', 'operator' => '='], NULL],
       [['path' => 'some_field', 'operator' => 'IS NULL'], NULL],
       [['path' => 'some_field', 'operator' => 'IS NOT NULL'], NULL],
+      [['path' => 'some_field', 'operator' => 'IS', 'value' => 'some_value'], new BadRequestHttpException("The 'IS' operator is not allowed in a filter parameter.")],
       [['path' => 'some_field', 'operator' => 'NOT_ALLOWED', 'value' => 'some_value'], new BadRequestHttpException("The 'NOT_ALLOWED' operator is not allowed in a filter parameter.")],
       [['path' => 'some_field', 'operator' => 'IS NULL', 'value' => 'should_not_be_here'], new BadRequestHttpException("Filters using the 'IS NULL' operator should not provide a value.")],
       [['path' => 'some_field', 'operator' => 'IS NOT NULL', 'value' => 'should_not_be_here'], new BadRequestHttpException("Filters using the 'IS NOT NULL' operator should not provide a value.")],
