@@ -3,5 +3,7 @@ admin_theme: false
 roles_profiles:
   authenticated:
     public: admin
+  content_editor:
+    public: member
 _core:
   default_config_hash: 4FhrEwOM9yJ8neEoN77sxroTRBUXqRwap0KSJtFnYJs
