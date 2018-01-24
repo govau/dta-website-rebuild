@@ -1,0 +1,62 @@
+<?php
+
+/**
+ * @file
+ * Allows user to add help text to node title per content type.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+use Symfony\Component\HttpFoundation\Request;
+use Drupal\node\NodeTypeInterface;
+
+/**
+ * Implements hook_form_BASE_FORM_ID_alter() for \Drupal\node\NodeForm.
+ *
+ * Adds description to title field to the node form.
+ *
+ * @see menu_ui_form_node_form_submit()
+ */
+function node_title_help_text_form_node_form_alter(&$form, FormStateInterface $form_state) {
+  // Retrieve and add description to node title field on node add/edit page.
+  $node = $form_state->getFormObject()->getEntity();
+  $node_type = $node->type->entity;
+  $description = $node_type->getThirdPartySetting('node_title_help_text', 'title_help');
+  if ($description) {
+    $widget =& $form['title']['widget'];
+    if (empty($widget[0]['value']['#description'])) {
+      $widget[0]['value']['#description'] = $description;
+    }
+  }
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter() for \Drupal\node\NodeTypeForm.
+ *
+ * Adds textarea for title field help text to the node type form.
+ *
+ * @see NodeTypeForm::form()
+ * @see node_title_help_text_node_type_form_submit()
+ */
+function node_title_help_text_form_node_type_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  // Set default value of the help text form element on node type form.
+  $node_type = $form_state->getFormObject()->getEntity();
+  $value = $node_type->getThirdPartySetting('node_title_help_text', 'title_help');
+
+  $form['submission']['title_help'] = [
+    '#title' => t('Title field helptext'),
+    '#type' => 'textarea',
+    '#default_value' => $value,
+    '#description' => 'This text will be displayed at the bottom of title field when creating or editing content of this type.',
+  ];
+
+  $form['#entity_builders'][] = 'node_title_help_text_form_node_type_form_builder';
+}
+
+/**
+ * Entity builder for the node type form.
+ *
+ * @see node_title_help_text_form_node_type_form_alter()
+ */
+function node_title_help_text_form_node_type_form_builder($entity_type, NodeTypeInterface $type, &$form, FormStateInterface $form_state) {
+  $type->setThirdPartySetting('node_title_help_text', 'title_help', $form_state->getValue('title_help'));
+}

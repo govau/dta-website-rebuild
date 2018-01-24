@@ -1,0 +1,14 @@
+<?php
+
+/**
+ * @file
+ * Node title validation install.
+ */
+
+/*
+ * Implements hook_uninstall().
+ */
+function node_title_validation_uninstall() {
+  // Deleting the validation settings while uninstalling the module.
+  \Drupal::configFactory()->getEditable('node_title_validation_config.node_title_validation_settings')->delete();
+}

@@ -1,0 +1,11 @@
+name: 'Node Title Validation'
+description: 'This module helps to validate node titles with min/max characters, Blacklist characters/words and unique node titles.'
+package: Other
+# core: 8.x
+type: module
+
+# Information added by Drupal.org packaging script on 2016-03-19
+version: '8.x-1.1'
+core: '8.x'
+project: 'node_title_validation'
+datestamp: 1458373141

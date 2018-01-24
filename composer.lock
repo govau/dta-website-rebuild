@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "f80845fca1a53ed3a87809ee2e31a71c",
+    "content-hash": "581f0666c5b7f97972ec4ce6190ba66f",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -63,7 +63,7 @@
             "version": "v5.1.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/enyo/dropzone.git",
+                "url": "git@github.com:enyo/dropzone.git",
                 "reference": "7d0792d1346d83a8b0c0d2919121bdd2b8e7fee4"
             },
             "dist": {
@@ -3600,6 +3600,139 @@
             }
         },
         {
+            "name": "drupal/node_title_help_text",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/node_title_help_text",
+                "reference": "8.x-1.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/node_title_help_text-8.x-1.0.zip",
+                "reference": "8.x-1.0",
+                "shasum": "11fa9621da92d805596f4b6d07c8914347cbd7f0"
+            },
+            "require": {
+                "drupal/core": "~8.0"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.0",
+                    "datestamp": "1503047644",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Devendra Jadhav",
+                    "homepage": "https://www.drupal.org/u/jadhavdevendra",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "makbul_khan8",
+                    "homepage": "https://www.drupal.org/user/991152"
+                },
+                {
+                    "name": "vinmassaro",
+                    "homepage": "https://www.drupal.org/user/525104"
+                }
+            ],
+            "description": "Allows you to add help text to node title.",
+            "homepage": "https://www.drupal.org/project/node_title_help_text",
+            "support": {
+                "source": "https://cgit.drupalcode.org/node_title_help_text",
+                "issues": "https://drupal.org/project/issues/node_title_help_text",
+                "irc": "irc://irc.freenode.org/drupal-contribute"
+            }
+        },
+        {
+            "name": "drupal/node_title_validation",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/node_title_validation",
+                "reference": "8.x-1.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/node_title_validation-8.x-1.1.zip",
+                "reference": "8.x-1.1",
+                "shasum": "738f5bc0376064f09c6b2dddf474e32642f3cb01"
+            },
+            "require": {
+                "drupal/core": "~8.0"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.1",
+                    "datestamp": "1458373140",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "N.kishorekumar",
+                    "homepage": "https://www.drupal.org/user/2887361"
+                },
+                {
+                    "name": "harika gujjula",
+                    "homepage": "https://www.drupal.org/user/2978505"
+                },
+                {
+                    "name": "heykarthikwithu",
+                    "homepage": "https://www.drupal.org/user/2833651"
+                },
+                {
+                    "name": "krknth",
+                    "homepage": "https://www.drupal.org/user/2659743"
+                },
+                {
+                    "name": "mahaveer003",
+                    "homepage": "https://www.drupal.org/user/3063119"
+                },
+                {
+                    "name": "neerajskydiver",
+                    "homepage": "https://www.drupal.org/user/227792"
+                },
+                {
+                    "name": "rakesh.gectcr",
+                    "homepage": "https://www.drupal.org/user/1177822"
+                },
+                {
+                    "name": "xaiwant",
+                    "homepage": "https://www.drupal.org/user/2598494"
+                }
+            ],
+            "description": "This module helps to validate node titles with min/max characters, Blacklist characters/words and unique node titles.",
+            "homepage": "https://www.drupal.org/project/node_title_validation",
+            "support": {
+                "source": "http://cgit.drupalcode.org/node_title_validation"
+            }
+        },
+        {
             "name": "drupal/panelizer",
             "version": "4.0.0",
             "source": {
@@ -5308,7 +5441,7 @@
                 "reference": "master"
             },
             "type": "drupal-custom-theme",
-            "time": "2017-12-11 05:03:31"
+            "time": "2018-01-19 03:27:34"
         },
         {
             "name": "govau/dta-uikit-base-theme",

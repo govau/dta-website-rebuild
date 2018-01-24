@@ -1,0 +1,7 @@
+node_title_validation.admin_form:
+  path: /admin/config/content/node-title-validation
+  defaults:
+    _title: 'Node title validation'
+    _form: \Drupal\node_title_validation\Form\NodeTitleValidationAdminForm
+  requirements:
+    _permission: 'node title validation admin control'
