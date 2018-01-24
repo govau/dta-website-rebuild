@@ -24,7 +24,7 @@ class NodeTitleValidationAdminForm extends FormBase {
   public function buildForm(array $form, FormStateInterface $form_state) {
 
     // Get configuration value.
-    $node_title_validation_config = \Drupal::config('node_title_validation_config.node_title_validation_settings')
+    $node_title_validation_config = \Drupal::config('node_title_validation.node_title_validation_settings')
       ->get('node_title_validation_config');
 
     // Get available content types.
@@ -203,7 +203,7 @@ class NodeTitleValidationAdminForm extends FormBase {
 
     // Set node_title_validation_config variable.
     \Drupal::configFactory()
-      ->getEditable('node_title_validation_config.node_title_validation_settings')
+      ->getEditable('node_title_validation.node_title_validation_settings')
       ->set('node_title_validation_config', $values)
       ->save();
 

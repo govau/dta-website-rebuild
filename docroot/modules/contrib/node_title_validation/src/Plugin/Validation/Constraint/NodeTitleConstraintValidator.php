@@ -32,7 +32,7 @@ class NodeTitleConstraintValidator extends ConstraintValidator {
       $node_url_array = explode("node/add/", $url->toString());
       $node_type = $node_url_array[1];
     }
-    $node_title_validation_config = \Drupal::config('node_title_validation_config.node_title_validation_settings')
+    $node_title_validation_config = \Drupal::config('node_title_validation.node_title_validation_settings')
       ->get('node_title_validation_config');
     foreach ($node_title_validation_config as $config_key => $config_value) {
       if ($config_value && $config_key == 'comma-' . $node_type) {
