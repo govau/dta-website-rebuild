@@ -4,11 +4,17 @@ status: true
 dependencies:
   module:
     - menu_ui
+    - node_title_help_text
+    - wysiwyg_template
 third_party_settings:
   menu_ui:
     available_menus:
       - main
     parent: 'main:'
+  node_title_help_text:
+    title_help: 'Titles have a limit of 65 characters and must be unique. We use this text for the <title> tag, for search engine optimisation (SEO) and to build the page address (URL).'
+  wysiwyg_template:
+    default_template: ''
 name: 'Blog Post'
 type: blog_post
 description: 'Use <em>Blog posts</em> for articles by guest authors. The home page displays the eight most recent blog and news items .'

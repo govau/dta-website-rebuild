@@ -73,6 +73,8 @@ module:
   metatag_twitter_cards: 0
   module_filter: 0
   node: 0
+  node_title_help_text: 0
+  node_title_validation: 0
   options: 0
   panelizer: 0
   panels: 0
