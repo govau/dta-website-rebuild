@@ -12,7 +12,7 @@ field_name: field_summary
 entity_type: node
 bundle: news_item
 label: Summary
-description: ''
+description: 'The summary is displayed on search listings and page listings.'
 required: true
 translatable: true
 default_value: {  }
