@@ -4,16 +4,24 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
-    - field.field.node.govcms_event.body
     - field.field.node.govcms_event.field_attachments
+    - field.field.node.govcms_event.field_body
     - field.field.node.govcms_event.field_event_categories
     - field.field.node.govcms_event.field_event_date
     - field.field.node.govcms_event.field_event_location
     - field.field.node.govcms_event.field_featured_image
+    - field.field.node.govcms_event.field_summary
     - node.type.govcms_event
   module:
+    - panelizer
     - text
     - user
+third_party_settings:
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
 _core:
   default_config_hash: IEp09h4-maPrqeSkafVfyNWaCt8zDY1eT9FGW8fRg_0
 id: node.govcms_event.teaser
@@ -21,21 +29,19 @@ targetEntityType: node
 bundle: govcms_event
 mode: teaser
 content:
-  body:
+  field_summary:
+    type: text_default
+    weight: 0
+    region: content
     label: hidden
-    type: text_summary_or_trimmed
-    weight: 101
-    settings:
-      trim_length: 600
+    settings: {  }
     third_party_settings: {  }
-    region: content
-  links:
-    weight: 100
-    region: content
 hidden:
   field_attachments: true
+  field_body: true
   field_event_: true
   field_event_categories: true
   field_event_date: true
   field_event_location: true
   field_featured_image: true
+  links: true

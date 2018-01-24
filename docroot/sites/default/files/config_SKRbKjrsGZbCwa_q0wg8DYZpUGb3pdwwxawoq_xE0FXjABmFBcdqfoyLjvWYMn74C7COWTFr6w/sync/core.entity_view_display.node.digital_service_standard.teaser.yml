@@ -4,31 +4,47 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
-    - field.field.node.digital_service_standard.body
+    - field.field.node.digital_service_standard.field_body
+    - field.field.node.digital_service_standard.field_criterion
+    - field.field.node.digital_service_standard.field_further_reading
+    - field.field.node.digital_service_standard.field_guidance_links
+    - field.field.node.digital_service_standard.field_lede
+    - field.field.node.digital_service_standard.field_summary
     - node.type.digital_service_standard
   module:
+    - panelizer
     - text
     - user
+third_party_settings:
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
 id: node.digital_service_standard.teaser
 targetEntityType: node
 bundle: digital_service_standard
 mode: teaser
 content:
-  body:
-    label: hidden
-    type: text_summary_or_trimmed
-    weight: 101
-    settings:
-      trim_length: 600
-    third_party_settings: {  }
-    region: content
   content_moderation_control:
-    weight: -20
+    weight: 0
     region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_summary:
+    type: text_default
+    weight: 2
+    region: content
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
   links:
-    weight: 100
+    weight: 1
     region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden:
+  field_body: true
   field_criterion: true
   field_further_reading: true
   field_guidance_links: true

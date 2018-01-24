@@ -3,11 +3,12 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.digital_service_standard.body
+    - field.field.node.digital_service_standard.field_body
     - field.field.node.digital_service_standard.field_criterion
     - field.field.node.digital_service_standard.field_further_reading
     - field.field.node.digital_service_standard.field_guidance_links
     - field.field.node.digital_service_standard.field_lede
+    - field.field.node.digital_service_standard.field_summary
     - node.type.digital_service_standard
   module:
     - ds
@@ -108,13 +109,16 @@ targetEntityType: node
 bundle: digital_service_standard
 mode: default
 content:
-  body:
-    label: hidden
-    type: text_default
-    weight: 4
+  content_moderation_control:
+    weight: -20
+    region: content
+  field_body:
+    weight: 7
+    label: above
     settings: {  }
     third_party_settings: {  }
-    region: ds_content
+    type: text_default
+    region: content
   field_criterion:
     weight: 2
     label: hidden
@@ -241,6 +245,13 @@ content:
     third_party_settings: {  }
     type: text_default
     region: ds_content
+  field_summary:
+    weight: 8
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
   links:
     weight: 0
     region: ds_content

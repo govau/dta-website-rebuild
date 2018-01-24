@@ -4,11 +4,12 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.full
-    - field.field.node.digital_service_standard.body
+    - field.field.node.digital_service_standard.field_body
     - field.field.node.digital_service_standard.field_criterion
     - field.field.node.digital_service_standard.field_further_reading
     - field.field.node.digital_service_standard.field_guidance_links
     - field.field.node.digital_service_standard.field_lede
+    - field.field.node.digital_service_standard.field_summary
     - node.type.digital_service_standard
   module:
     - ds
@@ -40,13 +41,14 @@ third_party_settings:
           layout_class: {  }
     regions:
       ds_content:
+        - content_moderation_control
         - links
         - group_title_and_lede
         - group_div
         - field_criterion
         - node_title
         - field_lede
-        - body
+        - field_body
         - field_guidance_links
         - field_further_reading
     fields:
@@ -105,12 +107,13 @@ third_party_settings:
         id: ''
         classes: ''
       label: Title
+      region: hidden
     group_title_and_lede:
       children:
         - group_div
         - field_lede
       parent_name: ''
-      weight: 1
+      weight: 2
       format_type: html_element
       format_settings:
         id: ''
@@ -122,18 +125,24 @@ third_party_settings:
         effect: none
         speed: fast
       label: 'Title and lede'
+      region: hidden
 id: node.digital_service_standard.full
 targetEntityType: node
 bundle: digital_service_standard
 mode: full
 content:
-  body:
-    label: hidden
-    type: text_default
-    weight: 4
+  content_moderation_control:
+    weight: 0
+    region: ds_content
     settings: {  }
     third_party_settings: {  }
+  field_body:
+    type: text_default
+    weight: 3
     region: ds_content
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
   field_criterion:
     weight: 2
     label: hidden
@@ -172,7 +181,7 @@ content:
     type: number_integer
     region: ds_content
   field_further_reading:
-    weight: 6
+    weight: 5
     label: above
     settings:
       trim_length: 80
@@ -213,7 +222,7 @@ content:
     type: link
     region: ds_content
   field_guidance_links:
-    weight: 5
+    weight: 4
     label: above
     settings:
       trim_length: 80
@@ -261,8 +270,9 @@ content:
     type: text_default
     region: ds_content
   links:
-    weight: 0
+    weight: 1
     region: ds_content
     settings: {  }
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  field_summary: true

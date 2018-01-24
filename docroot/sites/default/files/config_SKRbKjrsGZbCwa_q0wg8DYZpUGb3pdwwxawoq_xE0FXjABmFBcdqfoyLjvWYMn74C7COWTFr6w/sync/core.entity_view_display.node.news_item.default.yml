@@ -3,10 +3,11 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.news_item.body
+    - field.field.node.news_item.field_body
     - field.field.node.news_item.field_date
     - field.field.node.news_item.field_image
     - field.field.node.news_item.field_lede
+    - field.field.node.news_item.field_summary
     - field.field.node.news_item.field_tags
     - node.type.news_item
   module:
@@ -26,18 +27,18 @@ targetEntityType: node
 bundle: news_item
 mode: default
 content:
-  body:
-    label: hidden
-    type: text_default
-    weight: 101
-    settings: {  }
-    third_party_settings: {  }
-    region: content
   content_moderation_control:
     weight: -20
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_body:
+    weight: 106
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
   field_date:
     weight: 102
     label: above
@@ -58,6 +59,13 @@ content:
     region: content
   field_lede:
     weight: 103
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_summary:
+    weight: 107
     label: above
     settings: {  }
     third_party_settings: {  }

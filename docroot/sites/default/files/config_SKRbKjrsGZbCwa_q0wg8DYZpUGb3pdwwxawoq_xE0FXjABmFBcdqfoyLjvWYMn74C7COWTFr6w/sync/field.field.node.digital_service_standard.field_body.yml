@@ -1,22 +1,21 @@
-uuid: 3f46ede7-6f70-4a12-989b-98b61653b349
+uuid: 9d6e93c7-b4b8-41c8-bdd5-9a673f157964
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.body
+    - field.storage.node.field_body
     - node.type.digital_service_standard
   module:
     - text
-id: node.digital_service_standard.body
-field_name: body
+id: node.digital_service_standard.field_body
+field_name: field_body
 entity_type: node
 bundle: digital_service_standard
-label: Body
+label: 'Body content'
 description: ''
-required: false
+required: true
 translatable: true
 default_value: {  }
 default_value_callback: ''
-settings:
-  display_summary: true
-field_type: text_with_summary
+settings: {  }
+field_type: text_long

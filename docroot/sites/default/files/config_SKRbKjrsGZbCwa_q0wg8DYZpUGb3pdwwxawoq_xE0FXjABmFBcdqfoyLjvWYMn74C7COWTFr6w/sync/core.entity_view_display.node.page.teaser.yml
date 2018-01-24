@@ -4,29 +4,43 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
-    - field.field.node.page.body
+    - field.field.node.page.field_body
+    - field.field.node.page.field_contact_module
+    - field.field.node.page.field_links
+    - field.field.node.page.field_phase
+    - field.field.node.page.field_summary
     - node.type.page
   module:
+    - panelizer
     - text
     - user
+third_party_settings:
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
 id: node.page.teaser
 targetEntityType: node
 bundle: page
 mode: teaser
 content:
-  body:
-    label: hidden
-    type: text_summary_or_trimmed
-    weight: 101
-    settings:
-      trim_length: 600
-    third_party_settings: {  }
-    region: content
   content_moderation_control:
-    weight: -20
+    weight: 0
     region: content
-  links:
-    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+  field_summary:
+    type: text_default
+    weight: 1
     region: content
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
 hidden:
+  field_body: true
+  field_contact_module: true
   field_lede: true
+  field_links: true
+  field_phase: true
+  links: true

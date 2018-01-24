@@ -4,9 +4,11 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.full
-    - field.field.node.page.body
+    - field.field.node.page.field_body
     - field.field.node.page.field_contact_module
     - field.field.node.page.field_links
+    - field.field.node.page.field_phase
+    - field.field.node.page.field_summary
     - node.type.page
   module:
     - ds
@@ -25,42 +27,8 @@ third_party_settings:
     regions:
       content:
         - content_moderation_control
-        - 'dynamic_token_field:node-summary'
-        - body
+        - field_body
         - field_links
-    fields:
-      'dynamic_token_field:node-summary':
-        plugin_id: 'dynamic_token_field:node-summary'
-        weight: 1
-        label: hidden
-        formatter: default
-        ft:
-          id: expert
-          settings:
-            lb: ''
-            prefix: ''
-            lbw-el: ''
-            lbw-cl: ''
-            lbw-at: ''
-            ow-el: ''
-            ow-cl: ''
-            ow-at: ''
-            fis-el: ''
-            fis-cl: ''
-            fis-at: ''
-            fi: true
-            fi-el: strong
-            fi-cl: ''
-            fi-at: ''
-            suffix: ''
-            lbw: false
-            lb-col: false
-            ow: false
-            ow-def-at: false
-            ow-def-cl: false
-            fis: false
-            fis-def-at: false
-            fi-def-at: false
   panelizer:
     enable: false
     custom: false
@@ -71,21 +39,21 @@ targetEntityType: node
 bundle: page
 mode: full
 content:
-  body:
-    label: hidden
-    type: text_default
-    weight: 2
-    settings: {  }
-    third_party_settings: {  }
-    region: content
   content_moderation_control:
     weight: 0
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_body:
+    type: text_default
+    weight: 1
+    region: content
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
   field_links:
     type: link
-    weight: 3
+    weight: 2
     region: content
     label: above
     settings:
@@ -127,4 +95,5 @@ content:
 hidden:
   field_contact_module: true
   field_phase: true
+  field_summary: true
   links: true
