@@ -86,6 +86,7 @@ projects[node_title_help_text][type] = module
 projects[node_title_help_text][version] = 1.0
 projects[node_title_validation][type] = module
 projects[node_title_validation][patch][] = https://www.drupal.org/files/issues/2855289-7.patch
+projects[node_title_validation][patch][] = https://www.drupal.org/files/issues/unique_node_title-2828307-5.patch
 projects[node_title_validation][version] = 1.1
 projects[panelizer][type] = module
 projects[panelizer][version] = 4.0

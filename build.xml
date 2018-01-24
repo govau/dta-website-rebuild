@@ -80,7 +80,7 @@
     <!-- Create the destination if it doesn't exist. -->
     <mkdir dir="${profile}"/>
     <!-- rsync the profile, excluding developer flotsam. -->
-    <filesync destinationDir="${profile}" rsyncPath="${rsync}" sourceDir="." verbose="false" exclude=".idea,bin,build.xml,.git,.gitignore,${docroot},karma.conf.js,*.make,node_modules,.travis.yml,vendor"/>
+    <filesync destinationDir="${profile}" rsyncPath="${rsync}" sourceDir="." verbose="false" exclude=".idea,bin,build.xml,.git,.gitignore,${docroot},karma.conf.js,*.make,node_modules,.travis.yml,vendor,.cfignore,.bp-config,.circleci,.htaccess*,manifest.yml,composer.*" />
   </target>
 
   <!-- Pull the updated profile into govCMS distribtuion. -->

@@ -203,7 +203,8 @@
         },
         "patches": {
           "drupal/node_title_validation": {
-            "Unable to import configuration": "https://www.drupal.org/files/issues/2855289-7.patch"
+            "Unable to import configuration": "https://www.drupal.org/files/issues/2855289-7.patch",
+            "Unique node title validation restricts node edit": "https://www.drupal.org/files/issues/unique_node_title-2828307-5.patch"
           }
         }
     },

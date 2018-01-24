@@ -79,6 +79,9 @@ class NodeTitleConstraintValidator extends ConstraintValidator {
           $nodes = \Drupal::entityTypeManager()
             ->getStorage('node')
             ->loadByProperties(array('title' => $value_title));
+          if (isset($node)) {
+            unset($nodes[$node->id()]);
+          }
           if (!empty($nodes)) {
             $this->context->addViolation("There is already a node exist with title -  $value_title");
           }

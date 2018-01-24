@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "f22877bd45c9a74ca03a730a50538cb4",
+    "content-hash": "f773e268f041718839daeaadc1d05c31",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -3688,7 +3688,8 @@
                     }
                 },
                 "patches_applied": {
-                    "Unable to import configuration": "https://www.drupal.org/files/issues/2855289-7.patch"
+                    "Unable to import configuration": "https://www.drupal.org/files/issues/2855289-7.patch",
+                    "Unique node title validation restricts node edit": "https://www.drupal.org/files/issues/unique_node_title-2828307-5.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
