@@ -5,6 +5,7 @@ dependencies:
   config:
     - node.type.blog_post
     - node.type.digital_service_standard
+    - node.type.govcms_event
     - node.type.news_item
     - node.type.page
   module:
@@ -42,36 +43,46 @@ type_settings:
       from:
         - published
       to: archived
-      weight: 2
+      weight: -7
     archived_draft:
       label: 'Restore to Draft'
       from:
         - archived
       to: draft
-      weight: 3
+      weight: -6
     archived_published:
       label: Restore
       from:
         - archived
       to: published
-      weight: 4
+      weight: -5
     create_new_draft:
       label: 'Create New Draft'
       to: draft
-      weight: 0
+      weight: -10
       from:
         - draft
+        - needs_review
         - published
+    needs_review:
+      label: 'Needs review'
+      from:
+        - archived
+        - draft
+        - published
+      to: needs_review
+      weight: -9
     publish:
       label: Publish
       to: published
-      weight: 1
+      weight: -8
       from:
-        - draft
+        - needs_review
         - published
   entity_types:
     node:
       - blog_post
       - digital_service_standard
+      - govcms_event
       - news_item
       - page
