@@ -8,7 +8,7 @@ dependencies:
     - field.field.node.govcms_event.field_event_categories
     - field.field.node.govcms_event.field_event_date
     - field.field.node.govcms_event.field_event_location
-    - field.field.node.govcms_event.field_featured_image
+    - field.field.node.govcms_event.field_index_image
     - field.field.node.govcms_event.field_introduction
     - field.field.node.govcms_event.field_summary
     - image.style.thumbnail
@@ -19,6 +19,7 @@ dependencies:
     - field_layout
     - file
     - image
+    - imce
     - layout_discovery
     - path
     - text
@@ -40,7 +41,7 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_attachments:
-    weight: 11
+    weight: 12
     settings:
       progress_indicator: throbber
     third_party_settings: {  }
@@ -86,12 +87,14 @@ content:
     third_party_settings: {  }
     type: string_textfield
     region: content
-  field_featured_image:
-    weight: 12
+  field_index_image:
+    weight: 11
     settings:
-      progress_indicator: throbber
       preview_image_style: thumbnail
-    third_party_settings: {  }
+      progress_indicator: throbber
+    third_party_settings:
+      imce:
+        enabled: true
     type: image_image
     region: content
   field_introduction:

@@ -10,6 +10,7 @@ dependencies:
     - field.field.node.blog_post.field_facebook_image
     - field.field.node.blog_post.field_image
     - field.field.node.blog_post.field_image_caption
+    - field.field.node.blog_post.field_index_image
     - field.field.node.blog_post.field_introduction
     - field.field.node.blog_post.field_summary
     - field.field.node.blog_post.field_tags
@@ -41,7 +42,7 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_author:
-    weight: 11
+    weight: 12
     settings:
       match_operator: CONTAINS
       size: 60
@@ -58,19 +59,19 @@ content:
     type: text_textarea
     region: content
   field_comments:
-    weight: 18
+    weight: 19
     settings: {  }
     third_party_settings: {  }
     type: comment_default
     region: content
   field_date:
-    weight: 12
+    weight: 13
     settings: {  }
     third_party_settings: {  }
     type: datetime_default
     region: content
   field_facebook_image:
-    weight: 17
+    weight: 18
     settings:
       progress_indicator: throbber
       preview_image_style: thumbnail
@@ -78,7 +79,7 @@ content:
     type: image_image
     region: content
   field_image:
-    weight: 14
+    weight: 15
     settings:
       preview_image_style: thumbnail
       progress_indicator: throbber
@@ -88,12 +89,22 @@ content:
     type: image_image
     region: content
   field_image_caption:
-    weight: 15
+    weight: 16
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
+    region: content
+  field_index_image:
+    weight: 11
+    settings:
+      preview_image_style: thumbnail
+      progress_indicator: throbber
+    third_party_settings:
+      imce:
+        enabled: true
+    type: image_image
     region: content
   field_introduction:
     weight: 8
@@ -112,7 +123,7 @@ content:
     type: text_textarea
     region: content
   field_tags:
-    weight: 13
+    weight: 14
     settings:
       match_operator: CONTAINS
       size: 60
@@ -121,7 +132,7 @@ content:
     type: entity_reference_autocomplete
     region: content
   field_twitter_image:
-    weight: 16
+    weight: 17
     settings:
       progress_indicator: throbber
       preview_image_style: thumbnail

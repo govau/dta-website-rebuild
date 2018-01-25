@@ -11,14 +11,17 @@ dependencies:
     - field.field.node.blog_post.field_facebook_image
     - field.field.node.blog_post.field_image
     - field.field.node.blog_post.field_image_caption
+    - field.field.node.blog_post.field_index_image
     - field.field.node.blog_post.field_introduction
     - field.field.node.blog_post.field_summary
     - field.field.node.blog_post.field_tags
     - field.field.node.blog_post.field_twitter_image
     - node.type.blog_post
+    - responsive_image.styles.index_image
   module:
     - ds
     - panelizer
+    - responsive_image
     - text
     - user
 third_party_settings:
@@ -37,6 +40,7 @@ third_party_settings:
     regions:
       content:
         - content_moderation_control
+        - field_index_image
         - field_summary
 id: node.blog_post.teaser
 targetEntityType: node
@@ -48,9 +52,46 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_index_image:
+    type: responsive_image
+    weight: 1
+    region: content
+    label: hidden
+    settings:
+      responsive_image_style: index_image
+      image_link: content
+    third_party_settings:
+      ds:
+        ft:
+          id: expert
+          settings:
+            lb: ''
+            prefix: ''
+            lbw-el: ''
+            lbw-cl: ''
+            lbw-at: ''
+            ow-el: ''
+            ow-cl: ''
+            ow-at: ''
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fi-el: ''
+            fi-cl: ''
+            fi-at: ''
+            suffix: ''
+            lbw: false
+            lb-col: false
+            ow: false
+            ow-def-at: false
+            ow-def-cl: false
+            fis: false
+            fis-def-at: false
+            fi: false
+            fi-def-at: false
   field_summary:
     type: text_default
-    weight: 1
+    weight: 2
     region: content
     label: hidden
     settings: {  }

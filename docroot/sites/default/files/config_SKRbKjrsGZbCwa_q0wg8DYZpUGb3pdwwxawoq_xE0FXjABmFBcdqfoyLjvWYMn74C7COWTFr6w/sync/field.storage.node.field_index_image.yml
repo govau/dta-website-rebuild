@@ -1,4 +1,4 @@
-uuid: 843989cd-4597-4996-8445-22fd5603295a
+uuid: dc282aea-c353-451e-9781-0e41b594869e
 langcode: en
 status: true
 dependencies:
@@ -6,10 +6,8 @@ dependencies:
     - file
     - image
     - node
-_core:
-  default_config_hash: AM58L2rD5ttS_tRCYvroFqXKSr3G_stCQA51Ji5CFrY
-id: node.field_featured_image
-field_name: field_featured_image
+id: node.field_index_image
+field_name: field_index_image
 entity_type: node
 type: image
 settings:

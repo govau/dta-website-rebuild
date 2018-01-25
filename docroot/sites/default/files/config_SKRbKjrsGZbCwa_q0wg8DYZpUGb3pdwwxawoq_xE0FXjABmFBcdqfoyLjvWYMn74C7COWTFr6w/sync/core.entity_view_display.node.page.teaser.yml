@@ -6,12 +6,17 @@ dependencies:
     - core.entity_view_mode.node.teaser
     - field.field.node.page.field_body
     - field.field.node.page.field_contact_module
+    - field.field.node.page.field_index_image
+    - field.field.node.page.field_introduction
     - field.field.node.page.field_links
     - field.field.node.page.field_phase
     - field.field.node.page.field_summary
     - node.type.page
+    - responsive_image.styles.index_image
   module:
+    - ds
     - panelizer
+    - responsive_image
     - text
     - user
 third_party_settings:
@@ -20,6 +25,18 @@ third_party_settings:
     custom: false
     allow: false
     default: default
+  ds:
+    layout:
+      id: layout_onecol
+      library: layout_discovery/onecol
+      disable_css: false
+      entity_classes: all_classes
+      settings: {  }
+    regions:
+      content:
+        - content_moderation_control
+        - field_index_image
+        - field_summary
 id: node.page.teaser
 targetEntityType: node
 bundle: page
@@ -30,9 +47,46 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_index_image:
+    type: responsive_image
+    weight: 1
+    region: content
+    label: hidden
+    settings:
+      responsive_image_style: index_image
+      image_link: content
+    third_party_settings:
+      ds:
+        ft:
+          id: expert
+          settings:
+            lb: ''
+            prefix: ''
+            lbw-el: ''
+            lbw-cl: ''
+            lbw-at: ''
+            ow-el: ''
+            ow-cl: ''
+            ow-at: ''
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fi-el: ''
+            fi-cl: ''
+            fi-at: ''
+            suffix: ''
+            lbw: false
+            lb-col: false
+            ow: false
+            ow-def-at: false
+            ow-def-cl: false
+            fis: false
+            fis-def-at: false
+            fi: false
+            fi-def-at: false
   field_summary:
     type: text_default
-    weight: 1
+    weight: 2
     region: content
     label: hidden
     settings: {  }
@@ -40,6 +94,7 @@ content:
 hidden:
   field_body: true
   field_contact_module: true
+  field_introduction: true
   field_lede: true
   field_links: true
   field_phase: true

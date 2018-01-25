@@ -8,7 +8,7 @@ dependencies:
     - field.field.node.govcms_event.field_event_categories
     - field.field.node.govcms_event.field_event_date
     - field.field.node.govcms_event.field_event_location
-    - field.field.node.govcms_event.field_featured_image
+    - field.field.node.govcms_event.field_index_image
     - field.field.node.govcms_event.field_introduction
     - field.field.node.govcms_event.field_summary
     - node.type.govcms_event
@@ -72,8 +72,8 @@ content:
     third_party_settings: {  }
     type: string
     region: content
-  field_featured_image:
-    weight: 2
+  field_index_image:
+    weight: 108
     label: above
     settings:
       image_style: ''

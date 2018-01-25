@@ -5,7 +5,7 @@ dependencies:
   config:
     - field.field.node.news_item.field_body
     - field.field.node.news_item.field_date
-    - field.field.node.news_item.field_image
+    - field.field.node.news_item.field_index_image
     - field.field.node.news_item.field_introduction
     - field.field.node.news_item.field_summary
     - field.field.node.news_item.field_tags
@@ -16,6 +16,7 @@ dependencies:
     - datetime
     - field_layout
     - image
+    - imce
     - layout_discovery
     - path
     - text
@@ -48,12 +49,14 @@ content:
     third_party_settings: {  }
     type: datetime_default
     region: content
-  field_image:
+  field_index_image:
     weight: 13
     settings:
-      progress_indicator: throbber
       preview_image_style: thumbnail
-    third_party_settings: {  }
+      progress_indicator: throbber
+    third_party_settings:
+      imce:
+        enabled: true
     type: image_image
     region: content
   field_introduction:

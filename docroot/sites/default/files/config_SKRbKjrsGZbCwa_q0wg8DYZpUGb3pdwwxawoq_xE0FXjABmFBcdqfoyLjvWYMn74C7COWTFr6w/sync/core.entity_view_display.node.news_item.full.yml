@@ -6,7 +6,6 @@ dependencies:
     - core.entity_view_mode.node.full
     - field.field.node.news_item.field_body
     - field.field.node.news_item.field_date
-    - field.field.node.news_item.field_image
     - field.field.node.news_item.field_introduction
     - field.field.node.news_item.field_summary
     - field.field.node.news_item.field_tags
@@ -156,6 +155,5 @@ content:
     type: entity_reference_label
     region: content
 hidden:
-  field_image: true
   field_summary: true
   links: true
