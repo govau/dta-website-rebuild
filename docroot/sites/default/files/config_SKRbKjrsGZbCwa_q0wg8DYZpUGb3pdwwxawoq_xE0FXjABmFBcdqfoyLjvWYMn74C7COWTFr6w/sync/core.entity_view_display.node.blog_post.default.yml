@@ -11,7 +11,7 @@ dependencies:
     - field.field.node.blog_post.field_facebook_image
     - field.field.node.blog_post.field_image
     - field.field.node.blog_post.field_image_caption
-    - field.field.node.blog_post.field_lede
+    - field.field.node.blog_post.field_introduction
     - field.field.node.blog_post.field_summary
     - field.field.node.blog_post.field_tags
     - field.field.node.blog_post.field_twitter_image
@@ -125,8 +125,8 @@ content:
     third_party_settings: {  }
     type: string
     region: content
-  field_lede:
-    weight: 108
+  field_introduction:
+    weight: 115
     label: above
     settings: {  }
     third_party_settings: {  }

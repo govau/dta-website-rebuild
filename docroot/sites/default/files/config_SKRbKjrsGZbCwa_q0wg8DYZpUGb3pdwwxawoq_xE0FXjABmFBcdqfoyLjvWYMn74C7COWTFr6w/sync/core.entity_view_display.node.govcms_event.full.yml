@@ -1,8 +1,9 @@
-uuid: 343780b8-49cf-4f43-9255-68b2f0aa2ff6
+uuid: e2f98fe0-6957-413d-84f3-92046e3978b9
 langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_mode.node.full
     - field.field.node.govcms_event.field_attachments
     - field.field.node.govcms_event.field_body
     - field.field.node.govcms_event.field_event_categories
@@ -14,9 +15,11 @@ dependencies:
     - node.type.govcms_event
   module:
     - datetime_range
+    - ds
     - file
     - image
     - panelizer
+    - taxonomy
     - text
     - user
 third_party_settings:
@@ -25,22 +28,39 @@ third_party_settings:
     custom: false
     allow: false
     default: default
+  ds:
+    layout:
+      id: layout_onecol
+      library: layout_discovery/onecol
+      disable_css: false
+      entity_classes: all_classes
+      settings: {  }
+    regions:
+      content:
+        - field_introduction
+        - field_featured_image
+        - field_event_location
+        - field_event_date
+        - field_body
+        - field_event_categories
+        - links
+        - field_attachments
 _core:
   default_config_hash: PtYCggW-l5rc7XiJVczf9gEHuRfS_N1OGN-z2BbOehw
-id: node.govcms_event.default
+id: node.govcms_event.full
 targetEntityType: node
 bundle: govcms_event
-mode: default
+mode: full
 content:
   field_attachments:
-    weight: 1
+    weight: 7
     label: above
     settings: {  }
     third_party_settings: {  }
     type: file_default
     region: content
   field_body:
-    weight: 5
+    weight: 4
     label: hidden
     settings: {  }
     third_party_settings: {  }
@@ -54,8 +74,15 @@ content:
     third_party_settings: {  }
     type: entity_reference_label
     region: content
+  field_event_categories:
+    type: entity_reference_rss_category
+    weight: 5
+    region: content
+    label: above
+    settings: {  }
+    third_party_settings: {  }
   field_event_date:
-    weight: 4
+    weight: 3
     label: above
     settings:
       separator: '-'
@@ -65,7 +92,7 @@ content:
     type: daterange_default
     region: content
   field_event_location:
-    weight: 3
+    weight: 2
     label: above
     settings:
       link_to_entity: false
@@ -73,8 +100,8 @@ content:
     type: string
     region: content
   field_featured_image:
-    weight: 2
-    label: above
+    weight: 1
+    label: hidden
     settings:
       image_style: ''
       image_link: ''
@@ -82,17 +109,16 @@ content:
     type: image
     region: content
   field_introduction:
-    weight: 107
-    label: above
+    weight: 0
+    label: hidden
     settings: {  }
     third_party_settings: {  }
     type: text_default
     region: content
   links:
-    weight: 0
+    weight: 6
     region: content
     settings: {  }
     third_party_settings: {  }
 hidden:
-  field_event_categories: true
   field_summary: true

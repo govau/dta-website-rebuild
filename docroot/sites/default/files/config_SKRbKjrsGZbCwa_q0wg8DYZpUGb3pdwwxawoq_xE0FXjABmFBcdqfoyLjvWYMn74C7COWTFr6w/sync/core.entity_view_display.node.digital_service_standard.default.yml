@@ -7,7 +7,7 @@ dependencies:
     - field.field.node.digital_service_standard.field_criterion
     - field.field.node.digital_service_standard.field_further_reading
     - field.field.node.digital_service_standard.field_guidance_links
-    - field.field.node.digital_service_standard.field_lede
+    - field.field.node.digital_service_standard.field_introduction
     - field.field.node.digital_service_standard.field_summary
     - node.type.digital_service_standard
   module:
@@ -238,13 +238,13 @@ content:
             fi-def-at: false
     type: link
     region: ds_content
-  field_lede:
-    weight: 3
-    label: hidden
+  field_introduction:
+    weight: 9
+    label: above
     settings: {  }
     third_party_settings: {  }
     type: text_default
-    region: ds_content
+    region: content
   field_summary:
     weight: 8
     label: above

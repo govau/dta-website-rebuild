@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.node.page.field_body
     - field.field.node.page.field_contact_module
+    - field.field.node.page.field_introduction
     - field.field.node.page.field_links
     - field.field.node.page.field_phase
     - field.field.node.page.field_summary
@@ -44,6 +45,14 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: options_buttons
+    region: content
+  field_introduction:
+    weight: 8
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
     region: content
   field_links:
     weight: 12

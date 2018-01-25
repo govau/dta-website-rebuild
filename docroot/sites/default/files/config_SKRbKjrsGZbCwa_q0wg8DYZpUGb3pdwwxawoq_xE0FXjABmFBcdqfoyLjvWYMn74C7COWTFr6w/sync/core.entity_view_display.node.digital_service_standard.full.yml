@@ -8,7 +8,7 @@ dependencies:
     - field.field.node.digital_service_standard.field_criterion
     - field.field.node.digital_service_standard.field_further_reading
     - field.field.node.digital_service_standard.field_guidance_links
-    - field.field.node.digital_service_standard.field_lede
+    - field.field.node.digital_service_standard.field_introduction
     - field.field.node.digital_service_standard.field_summary
     - node.type.digital_service_standard
   module:
@@ -43,13 +43,13 @@ third_party_settings:
       ds_content:
         - content_moderation_control
         - links
-        - group_title_and_lede
-        - group_div
         - field_criterion
-        - node_title
-        - field_lede
+        - group_div
+        - group_title_and_lede
         - field_body
+        - node_title
         - field_guidance_links
+        - field_introduction
         - field_further_reading
     fields:
       node_title:
@@ -93,6 +93,7 @@ third_party_settings:
       children:
         - field_criterion
         - node_title
+        - field_introduction
       parent_name: group_title_and_lede
       weight: 2
       format_type: html_element
@@ -111,20 +112,20 @@ third_party_settings:
     group_title_and_lede:
       children:
         - group_div
-        - field_lede
       parent_name: ''
       weight: 2
       format_type: html_element
       format_settings:
-        id: ''
-        classes: title-lede-wrapper
+        label: 'Title and introduction'
         element: div
         show_label: false
         label_element: h3
         attributes: ''
         effect: none
         speed: fast
-      label: 'Title and lede'
+        id: ''
+        classes: title-introduction-wrapper
+      label: 'Title and introduction'
       region: hidden
 id: node.digital_service_standard.full
 targetEntityType: node
@@ -262,13 +263,13 @@ content:
             fi-def-at: false
     type: link
     region: ds_content
-  field_lede:
-    weight: 3
+  field_introduction:
+    type: text_default
+    weight: 4
+    region: ds_content
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    type: text_default
-    region: ds_content
   links:
     weight: 1
     region: ds_content

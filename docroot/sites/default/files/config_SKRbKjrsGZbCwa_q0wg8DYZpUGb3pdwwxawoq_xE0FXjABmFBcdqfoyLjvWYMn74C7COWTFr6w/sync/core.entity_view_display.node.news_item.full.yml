@@ -7,7 +7,7 @@ dependencies:
     - field.field.node.news_item.field_body
     - field.field.node.news_item.field_date
     - field.field.node.news_item.field_image
-    - field.field.node.news_item.field_lede
+    - field.field.node.news_item.field_introduction
     - field.field.node.news_item.field_summary
     - field.field.node.news_item.field_tags
     - node.type.news_item
@@ -21,28 +21,19 @@ dependencies:
 third_party_settings:
   ds:
     layout:
-      id: ds_1col
-      library: null
+      id: layout_onecol
+      library: layout_discovery/onecol
       disable_css: false
       entity_classes: all_classes
-      settings:
-        wrappers:
-          ds_content: div
-        outer_wrapper: div
-        attributes: ''
-        link_attribute: ''
-        link_custom: ''
-        classes:
-          layout_class: {  }
+      settings: {  }
     regions:
-      ds_content:
+      content:
         - content_moderation_control
-        - links
-        - field_date
+        - field_introduction
         - group_p
-        - field_tags
-        - field_lede
+        - field_date
         - field_body
+        - field_tags
   panelizer:
     enable: false
     custom: false
@@ -65,7 +56,7 @@ third_party_settings:
         effect: none
         speed: fast
       label: 'Author and date'
-      region: hidden
+      region: content
 id: node.news_item.full
 targetEntityType: node
 bundle: news_item
@@ -73,13 +64,13 @@ mode: full
 content:
   content_moderation_control:
     weight: 0
-    region: ds_content
+    region: content
     settings: {  }
     third_party_settings: {  }
   field_body:
     type: text_default
-    weight: 5
-    region: ds_content
+    weight: 3
+    region: content
     label: hidden
     settings: {  }
     third_party_settings: {  }
@@ -119,44 +110,16 @@ content:
             fis-def-at: false
             fi-def-at: false
     type: datetime_custom
-    region: ds_content
-  field_lede:
-    weight: 4
+    region: content
+  field_introduction:
+    type: text_default
+    weight: 1
+    region: content
     label: hidden
     settings: {  }
-    third_party_settings:
-      ds:
-        ft:
-          id: expert
-          settings:
-            lb: ''
-            prefix: ''
-            lbw-el: ''
-            lbw-cl: ''
-            lbw-at: ''
-            ow: true
-            ow-el: div
-            ow-cl: lede
-            ow-at: ''
-            fis-el: ''
-            fis-cl: ''
-            fis-at: ''
-            fi-el: ''
-            fi-cl: ''
-            fi-at: ''
-            suffix: ''
-            lbw: false
-            lb-col: false
-            ow-def-at: false
-            ow-def-cl: false
-            fis: false
-            fis-def-at: false
-            fi: false
-            fi-def-at: false
-    type: text_default
-    region: ds_content
+    third_party_settings: {  }
   field_tags:
-    weight: 3
+    weight: 4
     label: inline
     settings:
       link: true
@@ -191,12 +154,8 @@ content:
             fis-def-at: false
             fi-def-at: false
     type: entity_reference_label
-    region: ds_content
-  links:
-    weight: 1
-    region: ds_content
-    settings: {  }
-    third_party_settings: {  }
+    region: content
 hidden:
   field_image: true
   field_summary: true
+  links: true

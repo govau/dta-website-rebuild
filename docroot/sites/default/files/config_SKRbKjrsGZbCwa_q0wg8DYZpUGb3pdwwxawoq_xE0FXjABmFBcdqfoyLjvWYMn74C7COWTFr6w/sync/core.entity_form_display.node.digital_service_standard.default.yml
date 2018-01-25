@@ -7,7 +7,7 @@ dependencies:
     - field.field.node.digital_service_standard.field_criterion
     - field.field.node.digital_service_standard.field_further_reading
     - field.field.node.digital_service_standard.field_guidance_links
-    - field.field.node.digital_service_standard.field_lede
+    - field.field.node.digital_service_standard.field_introduction
     - field.field.node.digital_service_standard.field_summary
     - node.type.digital_service_standard
   module:
@@ -48,14 +48,6 @@ content:
     type: number
     region: content
   field_further_reading:
-    weight: 14
-    settings:
-      placeholder_url: ''
-      placeholder_title: ''
-    third_party_settings: {  }
-    type: link_default
-    region: content
-  field_guidance_links:
     weight: 13
     settings:
       placeholder_url: ''
@@ -63,8 +55,16 @@ content:
     third_party_settings: {  }
     type: link_default
     region: content
-  field_lede:
+  field_guidance_links:
     weight: 12
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  field_introduction:
+    weight: 8
     settings:
       rows: 5
       placeholder: ''

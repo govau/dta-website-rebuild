@@ -8,10 +8,11 @@ dependencies:
     - field.field.node.digital_service_standard.field_criterion
     - field.field.node.digital_service_standard.field_further_reading
     - field.field.node.digital_service_standard.field_guidance_links
-    - field.field.node.digital_service_standard.field_lede
+    - field.field.node.digital_service_standard.field_introduction
     - field.field.node.digital_service_standard.field_summary
     - node.type.digital_service_standard
   module:
+    - ds
     - panelizer
     - text
     - user
@@ -21,6 +22,29 @@ third_party_settings:
     custom: false
     allow: false
     default: default
+  ds:
+    layout:
+      id: layout_onecol
+      library: layout_discovery/onecol
+      disable_css: false
+      entity_classes: all_classes
+      settings:
+        classes: {  }
+        wrappers:
+          content: div
+        outer_wrapper: div
+        attributes: ''
+        link_attribute: ''
+        link_custom: ''
+    regions:
+      content:
+        - content_moderation_control
+        - field_summary
+        - field_body
+        - field_criterion
+        - field_further_reading
+        - field_guidance_links
+        - field_introduction
 id: node.digital_service_standard.teaser
 targetEntityType: node
 bundle: digital_service_standard
@@ -33,14 +57,9 @@ content:
     third_party_settings: {  }
   field_summary:
     type: text_default
-    weight: 2
-    region: content
-    label: hidden
-    settings: {  }
-    third_party_settings: {  }
-  links:
     weight: 1
     region: content
+    label: hidden
     settings: {  }
     third_party_settings: {  }
 hidden:
@@ -48,4 +67,5 @@ hidden:
   field_criterion: true
   field_further_reading: true
   field_guidance_links: true
-  field_lede: true
+  field_introduction: true
+  links: true

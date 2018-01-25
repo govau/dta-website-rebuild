@@ -9,6 +9,7 @@ dependencies:
     - field.field.node.govcms_event.field_event_date
     - field.field.node.govcms_event.field_event_location
     - field.field.node.govcms_event.field_featured_image
+    - field.field.node.govcms_event.field_introduction
     - field.field.node.govcms_event.field_summary
     - image.style.thumbnail
     - node.type.govcms_event
@@ -62,6 +63,15 @@ content:
     third_party_settings: {  }
     type: entity_reference_autocomplete
     region: content
+  field_event_categories:
+    type: entity_reference_autocomplete
+    weight: 15
+    region: content
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   field_event_date:
     weight: 14
     settings: {  }
@@ -83,6 +93,14 @@ content:
       preview_image_style: thumbnail
     third_party_settings: {  }
     type: image_image
+    region: content
+  field_introduction:
+    weight: 8
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
     region: content
   field_summary:
     weight: 10
@@ -142,5 +160,4 @@ content:
       placeholder: ''
     region: content
     third_party_settings: {  }
-hidden:
-  field_event_categories: true
+hidden: {  }

@@ -6,6 +6,7 @@ dependencies:
     - core.entity_view_mode.node.full
     - field.field.node.page.field_body
     - field.field.node.page.field_contact_module
+    - field.field.node.page.field_introduction
     - field.field.node.page.field_links
     - field.field.node.page.field_phase
     - field.field.node.page.field_summary
@@ -27,6 +28,7 @@ third_party_settings:
     regions:
       content:
         - content_moderation_control
+        - field_introduction
         - field_body
         - field_links
   panelizer:
@@ -46,6 +48,13 @@ content:
     third_party_settings: {  }
   field_body:
     type: text_default
+    weight: 2
+    region: content
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+  field_introduction:
+    type: text_default
     weight: 1
     region: content
     label: hidden
@@ -53,7 +62,7 @@ content:
     third_party_settings: {  }
   field_links:
     type: link
-    weight: 2
+    weight: 3
     region: content
     label: above
     settings:

@@ -6,7 +6,7 @@ dependencies:
     - field.field.node.news_item.field_body
     - field.field.node.news_item.field_date
     - field.field.node.news_item.field_image
-    - field.field.node.news_item.field_lede
+    - field.field.node.news_item.field_introduction
     - field.field.node.news_item.field_summary
     - field.field.node.news_item.field_tags
     - node.type.news_item
@@ -57,8 +57,8 @@ content:
     third_party_settings: {  }
     type: image
     region: content
-  field_lede:
-    weight: 103
+  field_introduction:
+    weight: 108
     label: above
     settings: {  }
     third_party_settings: {  }

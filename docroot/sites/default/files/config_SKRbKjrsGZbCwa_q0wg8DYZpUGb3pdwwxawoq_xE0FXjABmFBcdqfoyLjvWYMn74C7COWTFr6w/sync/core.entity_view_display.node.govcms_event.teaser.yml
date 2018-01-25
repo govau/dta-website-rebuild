@@ -10,9 +10,12 @@ dependencies:
     - field.field.node.govcms_event.field_event_date
     - field.field.node.govcms_event.field_event_location
     - field.field.node.govcms_event.field_featured_image
+    - field.field.node.govcms_event.field_introduction
     - field.field.node.govcms_event.field_summary
     - node.type.govcms_event
   module:
+    - datetime_range
+    - ds
     - panelizer
     - text
     - user
@@ -22,6 +25,18 @@ third_party_settings:
     custom: false
     allow: false
     default: default
+  ds:
+    layout:
+      id: layout_onecol
+      library: layout_discovery/onecol
+      disable_css: false
+      entity_classes: all_classes
+      settings: {  }
+    regions:
+      content:
+        - field_event_date
+        - field_event_location
+        - field_summary
 _core:
   default_config_hash: IEp09h4-maPrqeSkafVfyNWaCt8zDY1eT9FGW8fRg_0
 id: node.govcms_event.teaser
@@ -29,9 +44,27 @@ targetEntityType: node
 bundle: govcms_event
 mode: teaser
 content:
+  field_event_date:
+    type: daterange_default
+    weight: 0
+    region: content
+    label: above
+    settings:
+      separator: '-'
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
+  field_event_location:
+    type: string
+    weight: 1
+    region: content
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
   field_summary:
     type: text_default
-    weight: 0
+    weight: 2
     region: content
     label: hidden
     settings: {  }
@@ -41,7 +74,6 @@ hidden:
   field_body: true
   field_event_: true
   field_event_categories: true
-  field_event_date: true
-  field_event_location: true
   field_featured_image: true
+  field_introduction: true
   links: true

@@ -12,7 +12,7 @@ dependencies:
     - field.field.node.blog_post.field_facebook_image
     - field.field.node.blog_post.field_image
     - field.field.node.blog_post.field_image_caption
-    - field.field.node.blog_post.field_lede
+    - field.field.node.blog_post.field_introduction
     - field.field.node.blog_post.field_summary
     - field.field.node.blog_post.field_tags
     - field.field.node.blog_post.field_twitter_image
@@ -30,27 +30,19 @@ dependencies:
 third_party_settings:
   ds:
     layout:
-      id: ds_1col
-      library: null
+      id: layout_onecol
+      library: layout_discovery/onecol
       disable_css: false
       entity_classes: no_classes
-      settings:
-        wrappers:
-          ds_content: div
-        outer_wrapper: div
-        attributes: ''
-        link_attribute: ''
-        link_custom: ''
-        classes:
-          layout_class: {  }
+      settings: {  }
     regions:
-      ds_content:
+      content:
         - content_moderation_control
+        - field_introduction
         - group_author_and_date
         - field_author
-        - field_tags
         - field_date
-        - field_lede
+        - field_tags
         - group_image_and_caption
         - field_image
         - field_body
@@ -136,7 +128,7 @@ third_party_settings:
         - field_author
         - field_date
       parent_name: ''
-      weight: 1
+      weight: 2
       format_type: html_element
       format_settings:
         label: 'Author and date'
@@ -149,7 +141,7 @@ third_party_settings:
         id: ''
         classes: ''
       label: 'Author and date'
-      region: hidden
+      region: content
     group_image_and_caption:
       children:
         - field_image
@@ -167,7 +159,7 @@ third_party_settings:
         effect: none
         speed: fast
       label: 'Image and caption'
-      region: hidden
+      region: content
     group_comments:
       children:
         - 'dynamic_token_field:node-comment_heading'
@@ -185,7 +177,7 @@ third_party_settings:
         effect: none
         speed: fast
       label: Comments
-      region: hidden
+      region: content
 id: node.blog_post.full
 targetEntityType: node
 bundle: blog_post
@@ -193,7 +185,7 @@ mode: full
 content:
   content_moderation_control:
     weight: 0
-    region: ds_content
+    region: content
     settings: {  }
     third_party_settings: {  }
   field_author:
@@ -231,11 +223,11 @@ content:
             fis-def-at: false
             fi-def-at: false
     type: entity_reference_label
-    region: ds_content
+    region: content
   field_body:
     type: text_default
     weight: 5
-    region: ds_content
+    region: content
     label: hidden
     settings: {  }
     third_party_settings: {  }
@@ -275,7 +267,7 @@ content:
             fi: false
             fi-def-at: false
     type: comment_default
-    region: ds_content
+    region: content
   field_date:
     weight: 3
     label: hidden
@@ -312,7 +304,7 @@ content:
             fis-def-at: false
             fi-def-at: false
     type: datetime_custom
-    region: ds_content
+    region: content
   field_image:
     weight: 5
     label: hidden
@@ -326,11 +318,11 @@ content:
           settings:
             lb: ''
     type: responsive_image
-    region: ds_content
+    region: content
   field_image_caption:
     type: string
     weight: 6
-    region: ds_content
+    region: content
     label: inline
     settings:
       link_to_entity: false
@@ -363,15 +355,15 @@ content:
             fis: false
             fis-def-at: false
             fi-def-at: false
-  field_lede:
-    weight: 3
+  field_introduction:
+    type: text_default
+    weight: 1
+    region: content
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    type: text_default
-    region: ds_content
   field_tags:
-    weight: 2
+    weight: 3
     label: inline
     settings:
       link: true
@@ -406,10 +398,10 @@ content:
             fis-def-at: false
             fi-def-at: false
     type: entity_reference_label
-    region: ds_content
+    region: content
   links:
     weight: 8
-    region: ds_content
+    region: content
     settings: {  }
     third_party_settings: {  }
 hidden:
