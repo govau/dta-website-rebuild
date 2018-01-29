@@ -12,7 +12,7 @@ entity_type: node
 bundle: news_item
 label: Tags
 description: 'Tags collect content across the site. Select up to three tags for this news item.'
-required: false
+required: true
 translatable: true
 default_value: {  }
 default_value_callback: ''
