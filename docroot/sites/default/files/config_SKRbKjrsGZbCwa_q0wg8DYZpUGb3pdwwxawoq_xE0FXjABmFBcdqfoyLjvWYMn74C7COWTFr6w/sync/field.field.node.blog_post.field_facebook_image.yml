@@ -14,7 +14,7 @@ third_party_settings:
     file_path:
       value: images/social/facebook
       options:
-        slashes: false
+        slashes: true
         pathauto: true
         transliterate: false
     redirect: false

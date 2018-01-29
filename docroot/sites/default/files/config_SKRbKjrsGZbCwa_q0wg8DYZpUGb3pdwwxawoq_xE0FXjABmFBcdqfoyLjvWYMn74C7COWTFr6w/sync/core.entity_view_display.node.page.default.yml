@@ -5,11 +5,16 @@ dependencies:
   config:
     - field.field.node.page.field_body
     - field.field.node.page.field_contact_module
+    - field.field.node.page.field_facebook_image
+    - field.field.node.page.field_image
+    - field.field.node.page.field_image_caption
     - field.field.node.page.field_index_image
     - field.field.node.page.field_introduction
+    - field.field.node.page.field_linkedin_image
     - field.field.node.page.field_links
     - field.field.node.page.field_phase
     - field.field.node.page.field_summary
+    - field.field.node.page.field_twitter_image
     - node.type.page
   module:
     - ds
@@ -65,6 +70,32 @@ content:
     third_party_settings: {  }
     type: entity_reference_label
     region: content
+  field_facebook_image:
+    weight: 109
+    label: above
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  field_image:
+    weight: 110
+    label: above
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  field_image_caption:
+    weight: 111
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
   field_index_image:
     weight: 108
     label: above
@@ -80,6 +111,15 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: text_default
+    region: content
+  field_linkedin_image:
+    weight: 112
+    label: above
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
     region: content
   field_links:
     weight: 103
@@ -107,6 +147,15 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: text_default
+    region: content
+  field_twitter_image:
+    weight: 113
+    label: above
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
     region: content
   links:
     weight: 100

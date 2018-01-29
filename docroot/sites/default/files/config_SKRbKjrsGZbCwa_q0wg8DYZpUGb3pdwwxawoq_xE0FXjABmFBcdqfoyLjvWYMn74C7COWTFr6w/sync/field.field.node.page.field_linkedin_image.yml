@@ -1,10 +1,10 @@
-uuid: b4ab4b62-759a-4a69-b207-f332c1f09b03
+uuid: 48de194a-7f02-49c1-b64b-5593fa76ec4a
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.node.field_linkedin_image
-    - node.type.blog_post
+    - node.type.page
   module:
     - filefield_paths
     - image
@@ -12,9 +12,9 @@ third_party_settings:
   filefield_paths:
     enabled: true
     file_path:
-      value: images/social/linkedin
+      value: 'This image is used for LinkedIn sharing and posting.'
       options:
-        slashes: false
+        slashes: true
         pathauto: true
         transliterate: false
     redirect: false
@@ -26,14 +26,14 @@ third_party_settings:
         slashes: true
         pathauto: true
         transliterate: false
-id: node.blog_post.field_linkedin_image
+id: node.page.field_linkedin_image
 field_name: field_linkedin_image
 entity_type: node
-bundle: blog_post
+bundle: page
 label: 'LinkedIn image'
 description: 'This image is used for LinkedIn sharing and posting.'
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:
