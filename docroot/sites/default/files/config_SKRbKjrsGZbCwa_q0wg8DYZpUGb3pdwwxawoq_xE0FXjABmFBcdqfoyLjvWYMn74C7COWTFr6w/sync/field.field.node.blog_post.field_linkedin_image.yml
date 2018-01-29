@@ -1,9 +1,9 @@
-uuid: 6a28d4ab-fd89-428b-8079-0e4da11a5b52
+uuid: b4ab4b62-759a-4a69-b207-f332c1f09b03
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_twitter_image
+    - field.storage.node.field_linkedin_image
     - node.type.blog_post
   module:
     - filefield_paths
@@ -12,9 +12,9 @@ third_party_settings:
   filefield_paths:
     enabled: true
     file_path:
-      value: images/social/twitter
+      value: images/social/linkedin
       options:
-        slashes: true
+        slashes: false
         pathauto: true
         transliterate: false
     redirect: false
@@ -26,12 +26,12 @@ third_party_settings:
         slashes: true
         pathauto: true
         transliterate: false
-id: node.blog_post.field_twitter_image
-field_name: field_twitter_image
+id: node.blog_post.field_linkedin_image
+field_name: field_linkedin_image
 entity_type: node
 bundle: blog_post
-label: 'Twitter image'
-description: 'This image is for Twitter sharing and posting.'
+label: 'LinkedIn image'
+description: 'This image is used for Linked In sharing and posting.'
 required: false
 translatable: false
 default_value: {  }
@@ -40,8 +40,8 @@ settings:
   file_directory: '[date:custom:Y]-[date:custom:m]'
   file_extensions: 'png gif jpg jpeg'
   max_filesize: '5 MB'
-  max_resolution: 1024x512
-  min_resolution: 1024x512
+  max_resolution: 1200x628
+  min_resolution: 1200x628
   alt_field: true
   alt_field_required: true
   title_field: false

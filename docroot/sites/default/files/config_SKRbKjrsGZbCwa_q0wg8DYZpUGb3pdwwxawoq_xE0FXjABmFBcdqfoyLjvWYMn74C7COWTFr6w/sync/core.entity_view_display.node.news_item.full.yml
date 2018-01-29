@@ -6,15 +6,22 @@ dependencies:
     - core.entity_view_mode.node.full
     - field.field.node.news_item.field_body
     - field.field.node.news_item.field_date
+    - field.field.node.news_item.field_facebook_image
+    - field.field.node.news_item.field_image
+    - field.field.node.news_item.field_image_caption
+    - field.field.node.news_item.field_index_image
     - field.field.node.news_item.field_introduction
+    - field.field.node.news_item.field_linkedin_image
     - field.field.node.news_item.field_summary
     - field.field.node.news_item.field_tags
+    - field.field.node.news_item.field_twitter_image
     - node.type.news_item
   module:
     - datetime
     - ds
     - field_group
     - panelizer
+    - responsive_image
     - text
     - user
 third_party_settings:
@@ -31,8 +38,11 @@ third_party_settings:
         - field_introduction
         - group_p
         - field_date
-        - field_body
         - field_tags
+        - group_figure
+        - field_body
+        - field_image
+        - field_image_caption
   panelizer:
     enable: false
     custom: false
@@ -56,6 +66,24 @@ third_party_settings:
         speed: fast
       label: 'Author and date'
       region: content
+    group_figure:
+      children:
+        - field_image
+        - field_image_caption
+      parent_name: ''
+      weight: 4
+      format_type: html_element
+      format_settings:
+        id: ''
+        classes: ''
+        element: figure
+        show_label: false
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
+      label: 'Image and caption'
+      region: content
 id: node.news_item.full
 targetEntityType: node
 bundle: news_item
@@ -68,7 +96,7 @@ content:
     third_party_settings: {  }
   field_body:
     type: text_default
-    weight: 3
+    weight: 5
     region: content
     label: hidden
     settings: {  }
@@ -110,6 +138,51 @@ content:
             fi-def-at: false
     type: datetime_custom
     region: content
+  field_image:
+    type: responsive_image
+    weight: 16
+    region: content
+    label: hidden
+    settings:
+      responsive_image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+  field_image_caption:
+    type: string
+    weight: 17
+    region: content
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings:
+      ds:
+        ft:
+          id: expert
+          settings:
+            lb: Caption
+            prefix: ''
+            lbw: true
+            lbw-el: span
+            lbw-cl: image-caption-label
+            lbw-at: ''
+            ow: true
+            ow-el: figcaption
+            ow-cl: ''
+            ow-at: ''
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fi: true
+            fi-el: span
+            fi-cl: image-caption
+            fi-at: ''
+            suffix: ''
+            lb-col: false
+            ow-def-at: false
+            ow-def-cl: false
+            fis: false
+            fis-def-at: false
+            fi-def-at: false
   field_introduction:
     type: text_default
     weight: 1
@@ -118,7 +191,7 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_tags:
-    weight: 4
+    weight: 3
     label: inline
     settings:
       link: true
@@ -155,5 +228,9 @@ content:
     type: entity_reference_label
     region: content
 hidden:
+  field_facebook_image: true
+  field_index_image: true
+  field_linkedin_image: true
   field_summary: true
+  field_twitter_image: true
   links: true

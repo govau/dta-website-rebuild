@@ -12,26 +12,26 @@ third_party_settings:
   filefield_paths:
     enabled: true
     file_path:
-      value: 'images/[date:custom:Y]-[date:custom:m]'
+      value: images/hero
       options:
-        slashes: false
-        pathauto: false
+        slashes: true
+        pathauto: true
         transliterate: false
     redirect: false
-    retroactive_update: true
+    retroactive_update: false
     active_updating: true
     file_name:
       value: '[file:ffp-name-only-original].[file:ffp-extension-original]'
       options:
-        slashes: false
-        pathauto: false
+        slashes: true
+        pathauto: true
         transliterate: false
 id: node.blog_post.field_image
 field_name: field_image
 entity_type: node
 bundle: blog_post
 label: Image
-description: 'Add an image to the blog post. Don''t upload an image already on the site.'
+description: 'This image is the ''hero'' image for the post. Make sure you don''t upload an image already existing on the site.'
 required: false
 translatable: false
 default_value: {  }
@@ -39,7 +39,7 @@ default_value_callback: ''
 settings:
   file_directory: '[date:custom:Y]-[date:custom:m]'
   file_extensions: 'png gif jpg jpeg'
-  max_filesize: ''
+  max_filesize: '5 MB'
   max_resolution: 800x800
   min_resolution: ''
   alt_field: true

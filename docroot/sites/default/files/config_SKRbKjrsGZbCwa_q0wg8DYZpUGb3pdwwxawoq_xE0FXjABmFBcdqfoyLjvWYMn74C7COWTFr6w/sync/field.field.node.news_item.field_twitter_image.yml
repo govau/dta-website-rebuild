@@ -1,10 +1,10 @@
-uuid: 6a28d4ab-fd89-428b-8079-0e4da11a5b52
+uuid: 048e3abc-e59a-4ccd-95b3-cef5b3f7fc29
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.node.field_twitter_image
-    - node.type.blog_post
+    - node.type.news_item
   module:
     - filefield_paths
     - image
@@ -26,14 +26,14 @@ third_party_settings:
         slashes: true
         pathauto: true
         transliterate: false
-id: node.blog_post.field_twitter_image
+id: node.news_item.field_twitter_image
 field_name: field_twitter_image
 entity_type: node
-bundle: blog_post
+bundle: news_item
 label: 'Twitter image'
 description: 'This image is for Twitter sharing and posting.'
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:

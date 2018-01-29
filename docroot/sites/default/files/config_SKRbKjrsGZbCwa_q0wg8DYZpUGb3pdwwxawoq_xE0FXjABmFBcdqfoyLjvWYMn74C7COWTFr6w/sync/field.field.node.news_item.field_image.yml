@@ -1,10 +1,10 @@
-uuid: 6a28d4ab-fd89-428b-8079-0e4da11a5b52
+uuid: 5477e825-2435-4df3-8906-7d8c056a0e45
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_twitter_image
-    - node.type.blog_post
+    - field.storage.node.field_image
+    - node.type.news_item
   module:
     - filefield_paths
     - image
@@ -12,7 +12,7 @@ third_party_settings:
   filefield_paths:
     enabled: true
     file_path:
-      value: images/social/twitter
+      value: images/hero
       options:
         slashes: true
         pathauto: true
@@ -26,22 +26,22 @@ third_party_settings:
         slashes: true
         pathauto: true
         transliterate: false
-id: node.blog_post.field_twitter_image
-field_name: field_twitter_image
+id: node.news_item.field_image
+field_name: field_image
 entity_type: node
-bundle: blog_post
-label: 'Twitter image'
-description: 'This image is for Twitter sharing and posting.'
+bundle: news_item
+label: Image
+description: 'This image is the ''hero'' image for the new item (if required). Make sure you don''t upload an image already existing on the site.'
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:
   file_directory: '[date:custom:Y]-[date:custom:m]'
   file_extensions: 'png gif jpg jpeg'
   max_filesize: '5 MB'
-  max_resolution: 1024x512
-  min_resolution: 1024x512
+  max_resolution: 800x800
+  min_resolution: ''
   alt_field: true
   alt_field_required: true
   title_field: false

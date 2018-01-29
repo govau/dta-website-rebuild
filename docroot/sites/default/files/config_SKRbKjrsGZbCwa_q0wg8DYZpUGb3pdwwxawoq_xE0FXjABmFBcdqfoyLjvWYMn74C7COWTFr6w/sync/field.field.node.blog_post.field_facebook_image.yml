@@ -12,10 +12,10 @@ third_party_settings:
   filefield_paths:
     enabled: true
     file_path:
-      value: 'images/facebook/[date:custom:Y]-[date:custom:m]'
+      value: images/social/facebook
       options:
         slashes: false
-        pathauto: false
+        pathauto: true
         transliterate: false
     redirect: false
     retroactive_update: false
@@ -23,15 +23,15 @@ third_party_settings:
     file_name:
       value: '[file:ffp-name-only-original].[file:ffp-extension-original]'
       options:
-        slashes: false
-        pathauto: false
+        slashes: true
+        pathauto: true
         transliterate: false
 id: node.blog_post.field_facebook_image
 field_name: field_facebook_image
 entity_type: node
 bundle: blog_post
 label: 'Facebook image'
-description: 'Add an image for Facebook sharing here.'
+description: 'This image is for Facebook sharing and posting.'
 required: false
 translatable: false
 default_value: {  }
@@ -39,9 +39,9 @@ default_value_callback: ''
 settings:
   file_directory: '[date:custom:Y]-[date:custom:m]'
   file_extensions: 'png gif jpg jpeg'
-  max_filesize: 8MB
-  max_resolution: ''
-  min_resolution: 1200x630
+  max_filesize: '5 MB'
+  max_resolution: 940x788
+  min_resolution: 940x788
   alt_field: true
   alt_field_required: true
   title_field: false
