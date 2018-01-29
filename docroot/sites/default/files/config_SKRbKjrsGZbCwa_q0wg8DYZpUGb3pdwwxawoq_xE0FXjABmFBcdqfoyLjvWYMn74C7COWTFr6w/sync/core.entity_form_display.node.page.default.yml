@@ -19,7 +19,6 @@ dependencies:
     - node.type.page
   module:
     - content_moderation
-    - field_group
     - field_layout
     - image
     - imce
@@ -31,22 +30,6 @@ third_party_settings:
   field_layout:
     id: layout_onecol
     settings: {  }
-  field_group:
-    group_social:
-      children:
-        - field_facebook_image
-        - field_linkedin_image
-        - field_twitter_image
-      parent_name: ''
-      weight: 14
-      format_type: fieldset
-      format_settings:
-        id: ''
-        classes: ''
-        description: 'Social settings for pages.'
-        required_fields: true
-      label: Social
-      region: content
 id: node.page.default
 targetEntityType: node
 bundle: page

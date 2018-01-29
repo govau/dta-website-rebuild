@@ -22,7 +22,6 @@ dependencies:
     - comment
     - content_moderation
     - datetime
-    - field_group
     - field_layout
     - image
     - layout_discovery
@@ -32,22 +31,6 @@ third_party_settings:
   field_layout:
     id: layout_onecol
     settings: {  }
-  field_group:
-    group_social:
-      children:
-        - field_twitter_image
-        - field_facebook_image
-        - field_linkedin_image
-      parent_name: ''
-      weight: 15
-      format_type: fieldset
-      format_settings:
-        id: ''
-        classes: ''
-        description: 'Settings for social sharing.'
-        required_fields: true
-      label: Social
-      region: content
 id: node.blog_post.default
 targetEntityType: node
 bundle: blog_post
@@ -60,7 +43,7 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_author:
-    weight: 16
+    weight: 19
     settings:
       match_operator: CONTAINS
       size: 60
@@ -77,7 +60,7 @@ content:
     type: text_textarea
     region: content
   field_comments:
-    weight: 18
+    weight: 21
     settings: {  }
     third_party_settings: {  }
     type: comment_default
@@ -149,7 +132,7 @@ content:
     type: text_textarea
     region: content
   field_tags:
-    weight: 17
+    weight: 20
     settings:
       match_operator: CONTAINS
       size: 60

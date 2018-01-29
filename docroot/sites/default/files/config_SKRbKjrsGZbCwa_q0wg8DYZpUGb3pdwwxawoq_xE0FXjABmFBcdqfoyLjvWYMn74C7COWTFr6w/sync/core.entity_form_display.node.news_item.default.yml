@@ -19,7 +19,6 @@ dependencies:
   module:
     - content_moderation
     - datetime
-    - field_group
     - field_layout
     - image
     - imce
@@ -30,22 +29,6 @@ third_party_settings:
   field_layout:
     id: layout_onecol
     settings: {  }
-  field_group:
-    group_social:
-      children:
-        - field_facebook_image
-        - field_linkedin_image
-        - field_twitter_image
-      parent_name: ''
-      weight: 15
-      format_type: fieldset
-      format_settings:
-        id: ''
-        classes: ''
-        description: 'Settings for social sharing.'
-        required_fields: true
-      label: Social
-      region: content
 id: node.news_item.default
 targetEntityType: node
 bundle: news_item
@@ -72,7 +55,7 @@ content:
     type: datetime_default
     region: content
   field_facebook_image:
-    weight: 26
+    weight: 15
     settings:
       preview_image_style: thumbnail
       progress_indicator: throbber
@@ -118,7 +101,7 @@ content:
     type: text_textarea
     region: content
   field_linkedin_image:
-    weight: 27
+    weight: 16
     settings:
       preview_image_style: thumbnail
       progress_indicator: throbber
@@ -136,7 +119,7 @@ content:
     type: text_textarea
     region: content
   field_tags:
-    weight: 16
+    weight: 19
     settings:
       match_operator: CONTAINS
       size: 60
@@ -145,7 +128,7 @@ content:
     type: entity_reference_autocomplete
     region: content
   field_twitter_image:
-    weight: 28
+    weight: 17
     settings:
       preview_image_style: thumbnail
       progress_indicator: throbber

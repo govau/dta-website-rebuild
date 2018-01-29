@@ -50,7 +50,6 @@ module:
   google_analytics: 0
   govcms_fields_attachment: 0
   govcms_fields_featured_image: 0
-  govcms_optional_govcms_event: 0
   govcms_search: 0
   help: 0
   history: 0
