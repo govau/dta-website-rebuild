@@ -1,13 +1,13 @@
-uuid: 73f05876-a9b1-4d93-b699-dcb0be5a34f6
+uuid: 9f113ee0-f8a0-401c-a3fa-0e261f2f53a7
 langcode: en
 status: true
 dependencies:
   config:
-    - node.type.page
-id: node.page.status
+    - node.type.platforms_and_services
+id: node.platforms_and_services.status
 field_name: status
 entity_type: node
-bundle: page
+bundle: platforms_and_services
 label: Published
 description: ''
 required: false

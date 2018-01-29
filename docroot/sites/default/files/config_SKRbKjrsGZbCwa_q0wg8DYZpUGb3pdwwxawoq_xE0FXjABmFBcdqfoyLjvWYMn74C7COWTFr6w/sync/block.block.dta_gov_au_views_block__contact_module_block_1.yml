@@ -5,6 +5,7 @@ dependencies:
   config:
     - views.view.contact_module
   module:
+    - ctools
     - views
   theme:
     - dta_gov_au
@@ -22,4 +23,12 @@ settings:
   views_label: ''
   items_per_page: none
   context_mapping: {  }
-visibility: {  }
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    bundles:
+      page: page
+      platforms_and_services: platforms_and_services
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'

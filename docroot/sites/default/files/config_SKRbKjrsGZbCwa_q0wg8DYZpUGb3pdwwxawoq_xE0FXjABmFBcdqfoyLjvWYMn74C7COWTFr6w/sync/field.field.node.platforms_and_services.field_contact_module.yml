@@ -1,0 +1,29 @@
+uuid: 08c597bf-ea1e-4bff-9a1d-371eeebd9d93
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_contact_module
+    - node.type.platforms_and_services
+    - taxonomy.vocabulary.contacts
+id: node.platforms_and_services.field_contact_module
+field_name: field_contact_module
+entity_type: node
+bundle: platforms_and_services
+label: 'Contact module'
+description: 'If you wish to include the contact module, please select the appropriate contact from the list. You can create new contacts from this page, however make sure you add the required information to your new contact as soon as possible.'
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      contacts: contacts
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
