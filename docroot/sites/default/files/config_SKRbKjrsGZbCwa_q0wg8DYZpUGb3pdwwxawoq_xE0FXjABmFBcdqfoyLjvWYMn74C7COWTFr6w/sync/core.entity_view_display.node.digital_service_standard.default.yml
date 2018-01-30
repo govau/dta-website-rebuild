@@ -8,9 +8,11 @@ dependencies:
     - field.field.node.digital_service_standard.field_further_reading
     - field.field.node.digital_service_standard.field_guidance_links
     - field.field.node.digital_service_standard.field_introduction
+    - field.field.node.digital_service_standard.field_review_date
     - field.field.node.digital_service_standard.field_summary
     - node.type.digital_service_standard
   module:
+    - datetime
     - ds
     - field_group
     - link
@@ -244,6 +246,15 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: text_default
+    region: content
+  field_review_date:
+    weight: 10
+    label: above
+    settings:
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
+    type: datetime_default
     region: content
   field_summary:
     weight: 8

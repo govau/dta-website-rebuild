@@ -8,10 +8,12 @@ dependencies:
     - field.field.node.digital_service_standard.field_further_reading
     - field.field.node.digital_service_standard.field_guidance_links
     - field.field.node.digital_service_standard.field_introduction
+    - field.field.node.digital_service_standard.field_review_date
     - field.field.node.digital_service_standard.field_summary
     - node.type.digital_service_standard
   module:
     - content_moderation
+    - datetime
     - field_layout
     - layout_discovery
     - link
@@ -70,6 +72,12 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: text_textarea
+    region: content
+  field_review_date:
+    weight: 26
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
     region: content
   field_summary:
     weight: 10

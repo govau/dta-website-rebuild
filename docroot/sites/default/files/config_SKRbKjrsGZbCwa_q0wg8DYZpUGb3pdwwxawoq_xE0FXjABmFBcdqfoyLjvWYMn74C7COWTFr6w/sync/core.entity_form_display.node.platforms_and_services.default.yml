@@ -6,10 +6,12 @@ dependencies:
     - field.field.node.platforms_and_services.field_body
     - field.field.node.platforms_and_services.field_contact_module
     - field.field.node.platforms_and_services.field_introduction
+    - field.field.node.platforms_and_services.field_review_date
     - field.field.node.platforms_and_services.field_summary
     - node.type.platforms_and_services
   module:
     - content_moderation
+    - datetime
     - field_layout
     - layout_discovery
     - path
@@ -53,6 +55,12 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: text_textarea
+    region: content
+  field_review_date:
+    weight: 26
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
     region: content
   field_summary:
     weight: 10

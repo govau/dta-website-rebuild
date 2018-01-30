@@ -1,0 +1,24 @@
+uuid: d026a140-e826-4712-aad5-ff2d6359e865
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_review_date
+    - node.type.digital_service_standard
+  module:
+    - datetime
+id: node.digital_service_standard.field_review_date
+field_name: field_review_date
+entity_type: node
+bundle: digital_service_standard
+label: 'Review date'
+description: 'Set a review date for this content. The default date will be <strong>12 months</strong> from today.'
+required: true
+translatable: true
+default_value:
+  -
+    default_date_type: relative
+    default_date: '+12 months'
+default_value_callback: ''
+settings: {  }
+field_type: datetime

@@ -13,12 +13,14 @@ dependencies:
     - field.field.node.page.field_linkedin_image
     - field.field.node.page.field_links
     - field.field.node.page.field_phase
+    - field.field.node.page.field_review_date
     - field.field.node.page.field_summary
     - field.field.node.page.field_twitter_image
     - image.style.thumbnail
     - node.type.page
   module:
     - content_moderation
+    - datetime
     - field_layout
     - image
     - imce
@@ -124,6 +126,12 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: options_buttons
+    region: content
+  field_review_date:
+    weight: 26
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
     region: content
   field_summary:
     weight: 10

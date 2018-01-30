@@ -13,6 +13,7 @@ dependencies:
     - field.field.node.blog_post.field_index_image
     - field.field.node.blog_post.field_introduction
     - field.field.node.blog_post.field_linkedin_image
+    - field.field.node.blog_post.field_review_date
     - field.field.node.blog_post.field_summary
     - field.field.node.blog_post.field_tags
     - field.field.node.blog_post.field_twitter_image
@@ -43,7 +44,7 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_author:
-    weight: 19
+    weight: 18
     settings:
       match_operator: CONTAINS
       size: 60
@@ -123,6 +124,12 @@ content:
     third_party_settings: {  }
     type: image_image
     region: content
+  field_review_date:
+    weight: 20
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
   field_summary:
     weight: 11
     settings:
@@ -132,7 +139,7 @@ content:
     type: text_textarea
     region: content
   field_tags:
-    weight: 20
+    weight: 19
     settings:
       match_operator: CONTAINS
       size: 60

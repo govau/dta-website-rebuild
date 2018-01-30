@@ -1,0 +1,24 @@
+uuid: d0a0b39a-b4f3-4563-bdc4-8932eaac9a64
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_review_date
+    - node.type.blog_post
+  module:
+    - datetime
+id: node.blog_post.field_review_date
+field_name: field_review_date
+entity_type: node
+bundle: blog_post
+label: 'Review date'
+description: 'Set a review date for this content. The default date will be <strong>12 months</strong> from today.'
+required: true
+translatable: false
+default_value:
+  -
+    default_date_type: relative
+    default_date: '+12 months'
+default_value_callback: ''
+settings: {  }
+field_type: datetime
