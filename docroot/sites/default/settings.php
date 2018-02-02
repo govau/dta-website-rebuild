@@ -832,8 +832,9 @@ $settings['php_storage']['twig']['directory'] = '../storage/php';
 *
 * Read AWS service properties from the UPS.
 */
-if(isset($_ENV['user-provided'])) {
-  $service_blob = json_decode($_ENV['user-provided'], true);
+
+if(isset($_ENV['VCAP_SERVICES'])) {
+  $service_blob = json_decode($_ENV['VCAP_SERVICES'], true);
   $aws_service = array();
   foreach($service_blob as $service_provider => $service_list) {
     foreach ($service_list as $some_service) {
@@ -843,6 +844,7 @@ if(isset($_ENV['user-provided'])) {
       }
     }
   }
+
   // Set the relevant settings.
 
   $config['s3fs.settings']['access_key'] = $aws_service[0]['credentials']['access_key'];
