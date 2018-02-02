@@ -211,6 +211,7 @@ hidden:
   field_index_image: true
   field_linkedin_image: true
   field_phase: true
+  field_review_date: true
   field_summary: true
   field_twitter_image: true
   links: true

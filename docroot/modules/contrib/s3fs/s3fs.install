@@ -1,0 +1,172 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the S3 File System module.
+ */
+
+use Drupal\Core\Database\Database;
+use Drupal\Core\Url;
+
+/**
+ * Implements hook_requirements().
+ */
+function s3fs_requirements($phase) {
+  $requirements = [];
+  if ($phase == 'install') {
+    if (!class_exists('\Aws\S3\S3Client')) {
+      $requirements['aws_library'] = [
+        'description' => t('S3fs require AWS library.'),
+        'severity' => REQUIREMENT_ERROR,
+      ];
+    }
+  }
+  if ($phase == 'runtime') {
+    $s3fs_config = \Drupal::config('s3fs.settings');
+    $access_key = $s3fs_config->get('access_key');
+    $secret_key = $s3fs_config->get('secret_key');
+    if (!($access_key && $secret_key)) {
+      $requirements['s3fs'] = [
+        'title' => t('S3 File System'),
+        'severity' => REQUIREMENT_ERROR,
+        'description' => t('S3 File System access key or secret key is not set and it is required for some functionalities to work. Please set it up at the <a href=":settings">S3 File System module settings page</a>.', [
+          ':settings' => Url::fromRoute('s3fs.admin_settings')->toString(),
+        ]),
+      ];
+    }
+
+    if (ini_get('allow_url_fopen')) {
+      $requirements['s3fs_allow_url_fopen'] = [
+        'severity' => REQUIREMENT_OK,
+        'title' => t('allow_url_fopen'),
+        'value' => t('Enabled'),
+      ];
+    }
+    else {
+      $requirements['s3fs_allow_url_fopen'] = [
+        'severity' => REQUIREMENT_ERROR,
+        'title' => t('allow_url_fopen'),
+        'value' => t('Disabled'),
+        'description' => t('The S3 File System module requires that the allow_url_fopen setting be turned on in php.ini.'),
+      ];
+    }
+
+    if (PHP_INT_SIZE === 8) {
+      $requirements['s3fs_int64'] = [
+        'title' => t('PHP architecture'),
+        'value' => t('64-bit'),
+        'severity' => REQUIREMENT_OK,
+      ];
+    }
+    else {
+      $requirements['s3fs_int64'] = [
+        'title' => t('PHP architecture'),
+        'value' => t('32-bit'),
+        'description' => t('A 64-bit PHP installation is required in order to support files larger than 2GB.'),
+        'severity' => REQUIREMENT_WARNING,
+      ];
+    }
+
+  }
+
+  return $requirements;
+}
+
+/**
+ * Implements hook_schema().
+ */
+function s3fs_schema() {
+  $schema = [];
+  $schema['s3fs_file'] = [
+    'description' => 'Stores metadata about files in S3.',
+    'fields' => [
+      'uri' => [
+        'description' => 'The S3 URI of the file.',
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+      ],
+      'filesize' => [
+        'description' => 'The size of the file in bytes.',
+        'type' => 'int',
+        'size' => 'big',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'default' => 0,
+      ],
+      'timestamp' => [
+        'description' => 'UNIX timestamp for when the file was added.',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'default' => 0,
+      ],
+      'dir' => [
+        'description' => 'Boolean indicating whether or not this object is a directory.',
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+      ],
+      'version' => [
+        'description' => 'The S3 VersionId of the object.',
+        'type' => 'varchar',
+        'length' => 32,
+        'not null' => FALSE,
+        'default' => '',
+      ],
+    ],
+    'indexes' => [
+      'timestamp' => ['timestamp'],
+    ],
+    //'primary key' => ['uri'],
+    // As mentioned on http://drupal.org/node/2193059, a bug in Drupal core's
+    // MySQL driver prevents this setting from actually being applied. So we
+    // manually fix that in hook_install().
+    'collation' => 'utf8_bin',
+  ];
+
+  return $schema;
+}
+
+/**
+ * Implements hook_install().
+ *
+ * Because hook_schema() doesn't respect the 'collation' setting, we have to
+ * set the collation manually. This hook is run after the table is created.
+ *
+ * Also adds s3:// to the the core file module's list of public schema.
+ * See https://www.drupal.org/node/2305017 for more info.
+ */
+function s3fs_install() {
+  $options = Database::getConnectionInfo('default');
+
+  switch ($options['default']['driver']) {
+    case 'pgsql':
+      // Postgres uses binary collation by default.
+      break;
+
+    case 'sqlite':
+      // SQLite uses binary collation by default.
+      break;
+
+    case 'mysql':
+      // As stated here:
+      // http://forums.mysql.com/read.php?103,19380,200971#msg-200971
+      // MySQL doesn't directly support case sensitive UTF8 collation.
+      // Fortunately, 'utf8_bin' collation works for our purposes.
+      \Drupal::database()->query("ALTER TABLE {s3fs_file} CONVERT TO CHARACTER SET utf8 COLLATE utf8_bin");
+      \Drupal::database()->query("ALTER TABLE {s3fs_file} ADD PRIMARY KEY (uri)");
+      break;
+  }
+}
+
+/**
+ * Set new config property "redirect_styles_ttl" to default value.
+ */
+function s3fs_update_8301() {
+  \Drupal::configFactory()
+    ->getEditable('s3fs.settings')
+    ->set('redirect_styles_ttl', 0)
+    ->save();
+}

@@ -814,6 +814,45 @@ $settings['file_scan_ignore_directories'] = [
 $settings['entity_update_batch_size'] = 50;
 
 /**
+ * S3 Settings
+ */
+
+// Make the site use S3 for public and private files.
+$settings['s3fs.use_s3_for_public'] = TRUE;
+$settings['s3fs.use_s3_for_private'] = TRUE;
+
+// Move twig files out of the S3 bucket - otherwise it causes latency and security
+// issues.
+$settings['php_storage']['twig']['directory'] = '../storage/php';
+
+/*
+* The following code block gets the relevant credentials from the environment.
+* If a local.settings.php file exists, it will read that instead so make sure
+* that that file is not pushed to anything.
+*
+* Read AWS service properties from the UPS.
+*/
+if(isset($_ENV['user-provided'])) {
+  $service_blob = json_decode($_ENV['user-provided'], true);
+  $aws_service = array();
+  foreach($service_blob as $service_provider => $service_list) {
+    foreach ($service_list as $some_service) {
+      // look for a service where the name is 'ups-aws'
+      if ($some_service['name'] === 'ups-aws') {
+        $aws_service[] = $some_service;
+      }
+    }
+  }
+  // Set the relevant settings.
+
+  $config['s3fs.settings']['access_key'] = $aws_service[0]['credentials']['access_key'];
+  $config['s3fs.settings']['secret_key'] = $aws_service[0]['credentials']['secret_key'];
+} else {
+  $config['s3fs.settings']['access_key'] = '';
+  $config['s3fs.settings']['secret_key'] = '';
+}
+
+/**
  * Load local development override configuration, if available.
  *
  * Use settings.local.php to override variables on secondary (staging,
