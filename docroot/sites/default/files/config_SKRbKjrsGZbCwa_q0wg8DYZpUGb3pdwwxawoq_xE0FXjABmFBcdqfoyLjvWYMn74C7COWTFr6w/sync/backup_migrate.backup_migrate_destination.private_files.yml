@@ -8,5 +8,4 @@ id: private_files
 label: 'Private Files Directory'
 type: Directory
 config:
-  name: 'Private Files Directory'
   directory: 'private://backup_migrate/'
