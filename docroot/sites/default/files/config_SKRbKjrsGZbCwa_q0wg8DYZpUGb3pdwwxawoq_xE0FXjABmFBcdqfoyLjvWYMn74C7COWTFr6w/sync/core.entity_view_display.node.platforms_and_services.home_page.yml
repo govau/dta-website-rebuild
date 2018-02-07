@@ -1,8 +1,9 @@
-uuid: 6b267bb3-8566-438a-8043-2fe35672d818
+uuid: 0a0ae84d-5dcb-44a5-8253-0cab3b439cbf
 langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_mode.node.home_page
     - field.field.node.platforms_and_services.field_body
     - field.field.node.platforms_and_services.field_contact_module
     - field.field.node.platforms_and_services.field_index_image
@@ -12,6 +13,7 @@ dependencies:
     - node.type.platforms_and_services
   module:
     - datetime
+    - ds
     - image
     - panelizer
     - text
@@ -22,10 +24,33 @@ third_party_settings:
     custom: false
     allow: false
     default: default
-id: node.platforms_and_services.default
+  ds:
+    layout:
+      id: layout_onecol
+      library: layout_discovery/onecol
+      disable_css: false
+      entity_classes: all_classes
+      settings:
+        classes: {  }
+        wrappers:
+          content: div
+        outer_wrapper: div
+        attributes: ''
+        link_attribute: ''
+        link_custom: ''
+    regions:
+      content:
+        - links
+        - field_body
+        - field_introduction
+        - field_summary
+        - field_contact_module
+        - field_review_date
+        - field_index_image
+id: node.platforms_and_services.home_page
 targetEntityType: node
 bundle: platforms_and_services
-mode: default
+mode: home_page
 content:
   field_body:
     weight: 101

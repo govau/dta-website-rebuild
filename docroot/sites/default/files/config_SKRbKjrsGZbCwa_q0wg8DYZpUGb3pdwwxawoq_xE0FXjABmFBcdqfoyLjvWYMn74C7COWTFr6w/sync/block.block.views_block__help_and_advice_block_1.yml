@@ -1,0 +1,30 @@
+uuid: b4b40be7-738d-415d-9215-914ba21e1a6b
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.help_and_advice
+  module:
+    - system
+    - views
+  theme:
+    - dta_gov_au
+id: views_block__help_and_advice_block_1
+theme: dta_gov_au
+region: content
+weight: -1
+provider: null
+plugin: 'views_block:help_and_advice-block_1'
+settings:
+  id: 'views_block:help_and_advice-block_1'
+  label: ''
+  provider: views
+  label_display: visible
+  views_label: ''
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: false
+    context_mapping: {  }

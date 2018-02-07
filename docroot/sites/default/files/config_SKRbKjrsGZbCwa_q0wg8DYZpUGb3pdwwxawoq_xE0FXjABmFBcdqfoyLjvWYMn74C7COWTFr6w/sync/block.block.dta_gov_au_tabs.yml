@@ -9,7 +9,7 @@ _core:
 id: dta_gov_au_tabs
 theme: dta_gov_au
 region: content
-weight: -1
+weight: -5
 provider: null
 plugin: local_tasks_block
 settings:

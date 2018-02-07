@@ -15,6 +15,7 @@ dependencies:
     - field.field.node.blog_post.field_index_image
     - field.field.node.blog_post.field_introduction
     - field.field.node.blog_post.field_linkedin_image
+    - field.field.node.blog_post.field_review_date
     - field.field.node.blog_post.field_summary
     - field.field.node.blog_post.field_tags
     - field.field.node.blog_post.field_twitter_image
@@ -40,16 +41,16 @@ third_party_settings:
     regions:
       content:
         - content_moderation_control
-        - field_introduction
-        - field_author
         - group_author_and_date
+        - field_author
         - field_tags
         - field_date
+        - field_introduction
         - group_image_and_caption
-        - field_body
         - field_image
-        - 'dynamic_token_field:node-author_and_position'
+        - field_body
         - field_image_caption
+        - 'dynamic_token_field:node-author_and_position'
         - group_comments
         - links
         - 'dynamic_token_field:node-comment_heading'
@@ -130,7 +131,7 @@ third_party_settings:
         - field_author
         - field_date
       parent_name: ''
-      weight: 2
+      weight: 1
       format_type: html_element
       format_settings:
         label: 'Author and date'
@@ -383,13 +384,13 @@ content:
             fi-def-at: false
   field_introduction:
     type: text_default
-    weight: 1
+    weight: 3
     region: content
     label: hidden
     settings: {  }
     third_party_settings: {  }
   field_tags:
-    weight: 3
+    weight: 2
     label: inline
     settings:
       link: true
@@ -434,5 +435,6 @@ hidden:
   field_facebook_image: true
   field_index_image: true
   field_linkedin_image: true
+  field_review_date: true
   field_summary: true
   field_twitter_image: true

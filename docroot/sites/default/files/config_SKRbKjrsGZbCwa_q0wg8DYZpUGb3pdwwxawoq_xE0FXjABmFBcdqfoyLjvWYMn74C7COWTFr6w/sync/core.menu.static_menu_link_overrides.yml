@@ -1,9 +1,9 @@
 definitions:
   govcms__front_page:
-    weight: -50
     menu_name: main
     parent: ''
-    enabled: true
+    weight: -50
     expanded: false
+    enabled: false
 _core:
   default_config_hash: jdY7AU0tU-QsjmiOw3W8vwpYMb-By--_MSFgbqKUTYM

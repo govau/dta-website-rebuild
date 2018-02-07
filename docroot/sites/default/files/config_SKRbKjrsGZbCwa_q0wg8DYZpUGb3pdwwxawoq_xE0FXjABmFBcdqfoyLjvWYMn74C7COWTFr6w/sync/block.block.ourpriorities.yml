@@ -1,0 +1,31 @@
+uuid: 4758c528-2e09-44e4-b758-81063b138671
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:script:12a27004-2967-4f1d-9e31-02877369c172'
+  module:
+    - block_content
+    - system
+  theme:
+    - dta_gov_au
+id: ourpriorities
+theme: dta_gov_au
+region: content
+weight: -3
+provider: null
+plugin: 'block_content:12a27004-2967-4f1d-9e31-02877369c172'
+settings:
+  id: 'block_content:12a27004-2967-4f1d-9e31-02877369c172'
+  label: 'Our priorities'
+  provider: block_content
+  label_display: visible
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: false
+    context_mapping: {  }

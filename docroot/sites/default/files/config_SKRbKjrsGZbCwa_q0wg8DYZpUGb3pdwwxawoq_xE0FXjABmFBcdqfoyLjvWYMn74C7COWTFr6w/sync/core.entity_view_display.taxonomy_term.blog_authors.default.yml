@@ -3,9 +3,11 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.taxonomy_term.blog_authors.field_author_image
     - field.field.taxonomy_term.blog_authors.field_position
     - taxonomy.vocabulary.blog_authors
   module:
+    - image
     - text
 id: taxonomy_term.blog_authors.default
 targetEntityType: taxonomy_term
@@ -19,6 +21,15 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_author_image:
+    weight: 2
+    label: above
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
   field_position:
     weight: 1
     label: above
