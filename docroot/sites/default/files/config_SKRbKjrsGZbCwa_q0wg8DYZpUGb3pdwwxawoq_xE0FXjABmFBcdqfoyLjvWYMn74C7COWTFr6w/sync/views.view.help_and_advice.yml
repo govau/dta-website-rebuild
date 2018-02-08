@@ -63,7 +63,7 @@ display:
           row_class: 'col-xs-12 col-sm-4'
           default_row_class: false
           type: ul
-          wrapper_class: 'au-body au-body--alt au-body--dark'
+          wrapper_class: au-body
           class: 'au-card-list au-card-list--matchheight'
       row:
         type: fields
@@ -170,7 +170,7 @@ display:
             more_link: false
             more_link_text: ''
             more_link_path: ''
-            strip_tags: false
+            strip_tags: true
             trim: false
             preserve_tags: ''
             html: false
@@ -328,7 +328,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "<a href=\"{{ field_link_to_content }}\" class=\"au-card au-card--shadow au-card--item-{{ counter }}\">\n    <h3 class=\"au-card__title\">{{ title }}</h3>\n    <p class=\"au-card__text\">{{ field_summary }}</p>\n</a>"
+            text: "<a href=\"{{ field_link_to_content }}\" class=\"au-card au-card--shadow au-card--item-{{ counter }} au-cta-link\">\n    <h3 class=\"au-card__title\">{{ title }}</h3>\n    <p class=\"au-card__text\">{{ field_summary }}</p>\n</a>"
             make_link: false
             path: ''
             absolute: false
