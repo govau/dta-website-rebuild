@@ -60,7 +60,7 @@ display:
         type: html_list
         options:
           grouping: {  }
-          row_class: 'col-xs-6 col-sm-3'
+          row_class: 'col-xs-12 col-sm-4'
           default_row_class: false
           type: ul
           wrapper_class: 'au-body au-body--alt au-body--dark'
