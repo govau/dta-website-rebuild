@@ -56,6 +56,10 @@ settings:
             - Paste
             - PasteText
             - PasteFromWord
+        -
+          name: Structure
+          items:
+            - HorizontalRule
   plugins:
     drupallink:
       linkit_enabled: false
