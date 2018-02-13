@@ -1,0 +1,21 @@
+uuid: 80619a3f-ff67-4064-b778-dff2c969ab8f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_introduction
+    - node.type.landing_page
+  module:
+    - text
+id: node.landing_page.field_introduction
+field_name: field_introduction
+entity_type: node
+bundle: landing_page
+label: Introduction
+description: 'The introduction text is placed after the title and before the hero image. It has a different style from body content.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

@@ -1,10 +1,10 @@
-uuid: 849592c0-4382-4afc-8a0a-35efc8650111
+uuid: 947b9f85-57f3-4eed-8018-4ab2a2ad5005
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_facebook_image
-    - node.type.page
+    - field.storage.node.field_twitter_image
+    - node.type.landing_page
   module:
     - filefield_paths
     - image
@@ -12,7 +12,7 @@ third_party_settings:
   filefield_paths:
     enabled: true
     file_path:
-      value: images/social/facebook
+      value: images/social/twitter
       options:
         slashes: true
         pathauto: true
@@ -23,15 +23,15 @@ third_party_settings:
     file_name:
       value: '[file:ffp-name-only-original].[file:ffp-extension-original]'
       options:
-        slashes: true
-        pathauto: true
+        slashes: false
+        pathauto: false
         transliterate: false
-id: node.page.field_facebook_image
-field_name: field_facebook_image
+id: node.landing_page.field_twitter_image
+field_name: field_twitter_image
 entity_type: node
-bundle: page
-label: 'Facebook image'
-description: 'This image is for Facebook sharing and posting.'
+bundle: landing_page
+label: 'Twitter image'
+description: 'This image is for Twitter sharing and posting.'
 required: false
 translatable: true
 default_value: {  }
@@ -40,8 +40,8 @@ settings:
   file_directory: '[date:custom:Y]-[date:custom:m]'
   file_extensions: 'png gif jpg jpeg'
   max_filesize: '5 MB'
-  max_resolution: 940x788
-  min_resolution: 940x788
+  max_resolution: 1024x512
+  min_resolution: 1024x512
   alt_field: true
   alt_field_required: true
   title_field: false

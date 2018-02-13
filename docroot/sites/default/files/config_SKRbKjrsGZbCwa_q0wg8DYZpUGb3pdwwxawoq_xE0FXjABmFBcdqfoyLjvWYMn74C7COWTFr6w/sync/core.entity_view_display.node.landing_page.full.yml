@@ -1,0 +1,95 @@
+uuid: abc5bd22-8500-47b7-aa91-a0b592682b73
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.full
+    - field.field.node.landing_page.field_body
+    - field.field.node.landing_page.field_facebook_image
+    - field.field.node.landing_page.field_index_image
+    - field.field.node.landing_page.field_introduction
+    - field.field.node.landing_page.field_linkedin_image
+    - field.field.node.landing_page.field_summary
+    - field.field.node.landing_page.field_twitter_image
+    - node.type.landing_page
+  module:
+    - ds
+    - panelizer
+    - text
+    - user
+third_party_settings:
+  ds:
+    layout:
+      id: layout_onecol
+      library: layout_discovery/onecol
+      disable_css: false
+      entity_classes: all_classes
+      settings: {  }
+    regions:
+      content:
+        - links
+        - field_introduction
+        - field_body
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
+id: node.landing_page.full
+targetEntityType: node
+bundle: landing_page
+mode: full
+content:
+  field_body:
+    weight: 104
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_introduction:
+    weight: 101
+    label: hidden
+    settings: {  }
+    third_party_settings:
+      ds:
+        ft:
+          id: expert
+          settings:
+            lb: ''
+            prefix: ''
+            lbw-el: ''
+            lbw-cl: ''
+            lbw-at: ''
+            ow: true
+            ow-el: div
+            ow-cl: introduction
+            ow-at: ''
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fi-el: ''
+            fi-cl: ''
+            fi-at: ''
+            suffix: ''
+            lbw: false
+            lb-col: false
+            ow-def-at: false
+            ow-def-cl: false
+            fis: false
+            fis-def-at: false
+            fi: false
+            fi-def-at: false
+    type: text_default
+    region: content
+  links:
+    weight: 100
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_facebook_image: true
+  field_index_image: true
+  field_linkedin_image: true
+  field_summary: true
+  field_twitter_image: true

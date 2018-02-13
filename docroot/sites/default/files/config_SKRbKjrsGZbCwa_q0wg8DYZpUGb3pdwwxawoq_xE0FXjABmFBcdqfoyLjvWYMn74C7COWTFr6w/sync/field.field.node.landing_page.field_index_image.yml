@@ -1,10 +1,10 @@
-uuid: 849592c0-4382-4afc-8a0a-35efc8650111
+uuid: 765e01d8-0f98-46de-846c-919176db0adf
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_facebook_image
-    - node.type.page
+    - field.storage.node.field_index_image
+    - node.type.landing_page
   module:
     - filefield_paths
     - image
@@ -12,7 +12,7 @@ third_party_settings:
   filefield_paths:
     enabled: true
     file_path:
-      value: images/social/facebook
+      value: images/index
       options:
         slashes: true
         pathauto: true
@@ -26,12 +26,12 @@ third_party_settings:
         slashes: true
         pathauto: true
         transliterate: false
-id: node.page.field_facebook_image
-field_name: field_facebook_image
+id: node.landing_page.field_index_image
+field_name: field_index_image
 entity_type: node
-bundle: page
-label: 'Facebook image'
-description: 'This image is for Facebook sharing and posting.'
+bundle: landing_page
+label: 'Index image'
+description: 'The index image is used on content listings.'
 required: false
 translatable: true
 default_value: {  }
@@ -39,9 +39,9 @@ default_value_callback: ''
 settings:
   file_directory: '[date:custom:Y]-[date:custom:m]'
   file_extensions: 'png gif jpg jpeg'
-  max_filesize: '5 MB'
-  max_resolution: 940x788
-  min_resolution: 940x788
+  max_filesize: '20 KB'
+  max_resolution: 450x300
+  min_resolution: 450x300
   alt_field: true
   alt_field_required: true
   title_field: false

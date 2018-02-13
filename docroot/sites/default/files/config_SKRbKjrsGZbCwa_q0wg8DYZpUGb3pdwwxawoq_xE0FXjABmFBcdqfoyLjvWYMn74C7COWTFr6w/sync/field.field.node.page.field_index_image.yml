@@ -14,17 +14,17 @@ third_party_settings:
     file_path:
       value: images/index
       options:
-        slashes: false
-        pathauto: false
+        slashes: true
+        pathauto: true
         transliterate: false
     redirect: false
     retroactive_update: false
-    active_updating: false
+    active_updating: true
     file_name:
       value: '[file:ffp-name-only-original].[file:ffp-extension-original]'
       options:
-        slashes: false
-        pathauto: false
+        slashes: true
+        pathauto: true
         transliterate: false
 id: node.page.field_index_image
 field_name: field_index_image

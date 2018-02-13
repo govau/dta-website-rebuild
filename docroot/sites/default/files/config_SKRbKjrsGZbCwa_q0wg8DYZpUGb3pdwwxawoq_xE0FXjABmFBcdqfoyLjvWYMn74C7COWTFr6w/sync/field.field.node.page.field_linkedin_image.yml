@@ -12,7 +12,7 @@ third_party_settings:
   filefield_paths:
     enabled: true
     file_path:
-      value: 'This image is used for LinkedIn sharing and posting.'
+      value: images/social/linkedin
       options:
         slashes: true
         pathauto: true

@@ -1,10 +1,10 @@
-uuid: 849592c0-4382-4afc-8a0a-35efc8650111
+uuid: 728b06ff-acc0-4487-81a8-6497961fa419
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.node.field_facebook_image
-    - node.type.page
+    - node.type.landing_page
   module:
     - filefield_paths
     - image
@@ -26,10 +26,10 @@ third_party_settings:
         slashes: true
         pathauto: true
         transliterate: false
-id: node.page.field_facebook_image
+id: node.landing_page.field_facebook_image
 field_name: field_facebook_image
 entity_type: node
-bundle: page
+bundle: landing_page
 label: 'Facebook image'
 description: 'This image is for Facebook sharing and posting.'
 required: false
@@ -40,8 +40,8 @@ settings:
   file_directory: '[date:custom:Y]-[date:custom:m]'
   file_extensions: 'png gif jpg jpeg'
   max_filesize: '5 MB'
-  max_resolution: 940x788
-  min_resolution: 940x788
+  max_resolution: 940x768
+  min_resolution: 940x768
   alt_field: true
   alt_field_required: true
   title_field: false

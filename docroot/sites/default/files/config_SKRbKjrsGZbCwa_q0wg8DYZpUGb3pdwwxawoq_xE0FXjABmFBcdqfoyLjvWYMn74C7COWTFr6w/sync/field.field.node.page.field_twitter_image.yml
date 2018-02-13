@@ -12,14 +12,14 @@ third_party_settings:
   filefield_paths:
     enabled: true
     file_path:
-      value: 'This image is for Twitter sharing and posting.'
+      value: images/social/twitter
       options:
         slashes: true
         pathauto: true
         transliterate: false
     redirect: false
     retroactive_update: false
-    active_updating: false
+    active_updating: true
     file_name:
       value: '[file:ffp-name-only-original].[file:ffp-extension-original]'
       options:
