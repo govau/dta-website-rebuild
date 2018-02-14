@@ -1,0 +1,14 @@
+name: Social Auth
+type: module
+description: Allows login using different social networking services
+# core: 8.x
+package: Social
+# version: 8.x-2.x
+dependencies:
+  - social_api (>= 8.x-2.x)
+
+# Information added by Drupal.org packaging script on 2018-01-08
+version: '8.x-2.0-beta3'
+core: '8.x'
+project: 'social_auth'
+datestamp: 1515447487

@@ -1,0 +1,9 @@
+services:
+  social_auth_google.manager:
+    class: Drupal\social_auth_google\GoogleAuthManager
+    arguments:
+      - '@logger.factory'
+      - '@event_dispatcher'
+      - '@entity_field.manager'
+      - '@url_generator.non_bubbling'
+      - '@config.factory'
