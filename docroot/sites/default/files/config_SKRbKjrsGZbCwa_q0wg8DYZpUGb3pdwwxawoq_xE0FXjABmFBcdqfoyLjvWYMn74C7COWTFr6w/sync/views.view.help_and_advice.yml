@@ -447,6 +447,11 @@ display:
       relationships: {  }
       arguments: {  }
       display_extenders: {  }
+      use_more: true
+      use_more_always: true
+      use_more_text: 'See more advice'
+      link_url: help-advice
+      link_display: custom_url
     cache_metadata:
       max-age: -1
       contexts:

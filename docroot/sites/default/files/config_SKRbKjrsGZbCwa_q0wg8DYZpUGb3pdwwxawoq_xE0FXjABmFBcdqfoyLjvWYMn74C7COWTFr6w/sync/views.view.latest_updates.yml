@@ -6,6 +6,7 @@ dependencies:
     - field.storage.node.field_date
     - field.storage.node.field_index_image
     - field.storage.taxonomy_term.field_author_image
+    - image.style.news_and_blogs_home_page
     - image.style.thumbnail
     - node.type.blog_post
     - node.type.news_item
@@ -322,7 +323,7 @@ display:
           click_sort_column: target_id
           type: image
           settings:
-            image_style: ''
+            image_style: news_and_blogs_home_page
             image_link: ''
           group_column: ''
           group_columns: {  }
@@ -599,6 +600,11 @@ display:
           plugin_id: standard
       arguments: {  }
       display_extenders: {  }
+      use_more: true
+      use_more_always: true
+      use_more_text: 'See more news and blogs'
+      link_url: news-blogs
+      link_display: custom_url
     cache_metadata:
       max-age: -1
       contexts:
