@@ -90,6 +90,9 @@ module:
   search_api_views_taxonomy: 0
   seckit: 0
   shortcut: 0
+  social_api: 0
+  social_auth: 0
+  social_auth_google: 0
   statistics: 0
   swiftmailer: 0
   syslog: 0
