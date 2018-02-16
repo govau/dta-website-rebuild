@@ -9,8 +9,8 @@ id: taxonomy_term.blog_authors.field_position
 field_name: field_position
 entity_type: taxonomy_term
 bundle: blog_authors
-label: Position
-description: 'Enter the author''s position here. Note that this will be formatted as ''[author name] is the [position]''. For example, ''Gavin Slater is the CEO of the DTA''.'
+label: Byline
+description: 'Enter the author''s name and position here to create a byline. For example, <em>Gavin Slater is the CEO of the DTA</em>.'
 required: false
 translatable: false
 default_value: {  }
