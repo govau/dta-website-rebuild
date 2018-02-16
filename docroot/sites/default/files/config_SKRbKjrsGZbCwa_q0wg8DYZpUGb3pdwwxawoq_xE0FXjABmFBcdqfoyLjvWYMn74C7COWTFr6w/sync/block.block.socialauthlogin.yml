@@ -1,6 +1,6 @@
 uuid: cbd264d7-3979-4095-8dc0-020793cd1115
 langcode: en
-status: true
+status: false
 dependencies:
   module:
     - social_auth
