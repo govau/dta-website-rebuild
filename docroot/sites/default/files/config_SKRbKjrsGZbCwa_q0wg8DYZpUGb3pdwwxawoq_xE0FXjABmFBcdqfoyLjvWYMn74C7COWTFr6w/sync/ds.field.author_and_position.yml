@@ -1,9 +1,9 @@
 id: author_and_position
-label: 'Author and position'
+label: Byline
 ui_limit: 'blog_post|*'
 properties:
   content:
-    value: "<p>[node:field_author:entity] is the [node:field_author:entity:field_position]</p>\r\n"
+    value: "<p>[node:field_author:entity:field_position]</p>\r\n"
     format: rich_text
 type: token
 type_label: 'Token field'
