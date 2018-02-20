@@ -1,0 +1,12 @@
+---
+applications:
+- name: dta-website-rebuild-staging
+  memory: 512M
+  disk_quote: 2G
+  instances: 2
+  path: .
+  services:
+  - dta-website-rebuild-staging-db
+  - ups-aws
+  - ups-website-redev
+  buildpack: php_buildpack
