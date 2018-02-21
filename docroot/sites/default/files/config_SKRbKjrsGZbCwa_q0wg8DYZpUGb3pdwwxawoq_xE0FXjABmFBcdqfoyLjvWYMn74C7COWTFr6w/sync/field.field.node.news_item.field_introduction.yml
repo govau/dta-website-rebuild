@@ -6,7 +6,14 @@ dependencies:
     - field.storage.node.field_introduction
     - node.type.news_item
   module:
+    - allowed_formats
     - text
+third_party_settings:
+  allowed_formats:
+    introduction: introduction
+    rich_text: '0'
+    administration: '0'
+    plain_text: '0'
 id: node.news_item.field_introduction
 field_name: field_introduction
 entity_type: node
