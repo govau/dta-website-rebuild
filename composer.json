@@ -93,7 +93,7 @@
         }
     ],
     "require": {
-        "php": "^7.1",
+        "php": "~7.1.0",
         "bower-asset/dropzone": "^5.1",
         "cweagans/composer-patches": "^1.6",
         "drupal-composer/drupal-scaffold": "^2.4",
