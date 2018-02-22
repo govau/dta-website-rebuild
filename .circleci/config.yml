@@ -4,47 +4,67 @@
 #
 version: 2
 jobs:
-  build:
+  deploy:
     docker:
-      # specify the version you desire here
-      - image: circleci/php:7.1-browsers
-
-      # Specify service dependencies here if necessary
-      # CircleCI maintains a library of pre-built images
-      # documented at https://circleci.com/docs/2.0/circleci-images/
-      # - image: circleci/mysql:9.4
-
-    working_directory: ~/repo
-
+      - image: govau/cf-cli
     steps:
       - checkout
-
-      # Download and cache dependencies
-      - restore_cache:
-          keys:
-          - v3-dependencies-{{ checksum "composer.json" }}
-          # fallback to using the latest cache if no exact match is found
-          - v3-dependencies-
-      - run:
-          name: Installing the Cloud Foundry app.
-          command: curl -v -L -o cf-cli_amd64.deb 'https://cli.run.pivotal.io/stable?release=debian64&source=github' && sudo dpkg -i cf-cli_amd64.deb && cf -v
-      - run:
-          name: Installing dependencies
-          #command: rm -rf vendor
-          command: composer install -n --prefer-dist
-
-      - save_cache:
-          paths:
-            - ./vendor
-          key: v3-dependencies-{{ checksum "composer.json" }}
-
-      # run tests! Skipping the DependencyInjection and PageManager groups as they are core issues.
-      # Removing tests for now to work on other things.
-      #- run: cd docroot/core && ../../vendor/bin/phpunit --testsuite=unit --exclude-group DependencyInjection,PageManager
-
-      # Deploy here.
       - run:
           name: Deploying to cloud.gov.au
-          command: |
-            ./bin/ciprepare.sh
-            ./bin/cideploy.sh
+          command: ./scripts/deploy.sh
+workflows:
+  version: 2
+  deploy:
+    jobs:
+      - deploy:
+          filters:
+            branches:
+              only:
+                - master
+                - develop
+                - circle
+
+  # build:
+  #   docker:
+  #     # specify the version you desire here
+  #     # - image: circleci/php:7.1-browsers
+  #     - image: govau/cf-cli
+  #
+  #     # Specify service dependencies here if necessary
+  #     # CircleCI maintains a library of pre-built images
+  #     # documented at https://circleci.com/docs/2.0/circleci-images/
+  #     # - image: circleci/mysql:9.4
+  #
+  #   working_directory: ~/repo
+  #
+  #   steps:
+  #     - checkout
+  #
+  #     # Download and cache dependencies
+  #     # - restore_cache:
+  #     #     keys:
+  #     #     - v3-dependencies-{{ checksum "composer.json" }}
+  #     #     # fallback to using the latest cache if no exact match is found
+  #     #     - v3-dependencies-
+  #     # - run:
+  #     #     name: Installing the Cloud Foundry app.
+  #     #     command: curl -v -L -o cf-cli_amd64.deb 'https://cli.run.pivotal.io/stable?release=debian64&source=github' && sudo dpkg -i cf-cli_amd64.deb && cf -v
+  #     # - run:
+  #     #     name: Installing dependencies
+  #     #     #command: rm -rf vendor
+  #     #     command: composer install -n --prefer-dist
+  #
+  #     # - save_cache:
+  #     #     paths:
+  #     #       - ./vendor
+  #     #     key: v3-dependencies-{{ checksum "composer.json" }}
+  #
+  #     # run tests! Skipping the DependencyInjection and PageManager groups as they are core issues.
+  #     # Removing tests for now to work on other things.
+  #     #- run: cd docroot/core && ../../vendor/bin/phpunit --testsuite=unit --exclude-group DependencyInjection,PageManager
+  #
+  #     # Deploy here.
+  #     - run:
+  #         name: Deploying to cloud.gov.au
+  #         command: |
+  #           ./scripts/deploy.sh

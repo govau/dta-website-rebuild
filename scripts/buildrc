@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+# enable pattern lists like +(...|...)
+shopt -s extglob
+
+# The master and develop branches are continuously deployed to production and staging.
+# You can also add additional branches here which will be deployed to a temporary staging site.
+# Separate branches with a | character. e.g. "+(branch1|branch2)"
+readonly DEPLOY_BRANCHES="+(circle)"
+
+# The git branch we are on
+if [[ -z "$CIRCLECI" ]]; then
+  readonly GITBRANCH="$(git symbolic-ref --short -q HEAD)"
+else
+  readonly GITBRANCH="${CIRCLE_BRANCH}"
+fi
+
+# use /tmp if TMPDIR is not defined
+if [[ -z "$TMPDIR" ]]; then
+    export TMPDIR="/tmp"
+fi

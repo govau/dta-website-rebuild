@@ -1,0 +1,59 @@
+#!/usr/bin/env bash
+
+# Exit immediately if there is an error
+set -e
+
+# cause a pipeline (for example, curl -s http://sipb.mit.edu/ | grep foo) to produce a failure return code if any command errors not just the last command of the pipeline.
+set -o pipefail
+
+# Include build env vars
+source "$(dirname "$0")/buildrc"
+
+# login to cloud foundry if env vars are present
+login() {
+
+  if [[ -z "$CF_USER" ]]; then
+    echo "CF env vars not found, assuming you are already logged in to cf"
+    return
+  fi
+
+  if [[ "${GITBRANCH}" = "master" ]]; then
+    cf api $CF_PROD_API
+  else
+    cf api $CF_STAGING_API
+  fi
+
+  cf auth $CF_USER $CF_PASSWORD
+  cf target -o $CF_ORG
+  cf target -s $CF_SPACE
+}
+
+# main script function
+#
+main() {
+
+  login
+
+
+  case "${GITBRANCH}" in
+    master)
+      cf zero-downtime-push dta-website-rebuild -f manifest-master.yml
+      ;;
+    develop)
+      MANIFEST=
+      cf zero-downtime-push dta-website-rebuild -f manifest-develop.yml
+      ;;
+    ${DEPLOY_BRANCHES})
+      cf push dta-website-rebuild-${GITBRANCH} -f manifest.yml
+      ;;
+    *)
+      echo "I will not deploy this branch"
+      exit 0
+      ;;
+  esac
+
+
+
+}
+
+main $@
