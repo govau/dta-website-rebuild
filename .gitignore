@@ -1,11 +1,10 @@
 # Ignore configuration files containing sensitive information.
 docroot/sites/*/settings.local.php
 
-# Ignore paths that contain generated content.
+# Ignore paths that contain generated content, although we need /tmp/ to be uploaded.
 docroot/sites/*/files/*
 !docroot/sites/*/files/config*
 docroot/sites/*/private
-docroot/tmp
 
 # Ignore default text files
 #robots.txt
