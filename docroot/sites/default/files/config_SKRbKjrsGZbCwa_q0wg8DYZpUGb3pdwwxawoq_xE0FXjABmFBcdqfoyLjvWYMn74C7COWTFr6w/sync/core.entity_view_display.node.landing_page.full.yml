@@ -9,6 +9,7 @@ dependencies:
     - field.field.node.landing_page.field_index_image
     - field.field.node.landing_page.field_introduction
     - field.field.node.landing_page.field_linkedin_image
+    - field.field.node.landing_page.field_related_content
     - field.field.node.landing_page.field_summary
     - field.field.node.landing_page.field_twitter_image
     - node.type.landing_page
@@ -30,6 +31,7 @@ third_party_settings:
         - links
         - field_introduction
         - field_body
+        - field_related_content
   panelizer:
     enable: false
     custom: false
@@ -41,14 +43,14 @@ bundle: landing_page
 mode: full
 content:
   field_body:
-    weight: 104
+    weight: 2
     label: hidden
     settings: {  }
     third_party_settings: {  }
     type: text_default
     region: content
   field_introduction:
-    weight: 101
+    weight: 1
     label: hidden
     settings: {  }
     third_party_settings:
@@ -82,8 +84,46 @@ content:
             fi-def-at: false
     type: text_default
     region: content
+  field_related_content:
+    type: entity_reference_entity_view
+    weight: 3
+    region: content
+    label: above
+    settings:
+      view_mode: card
+      link: false
+    third_party_settings:
+      ds:
+        ds_limit: ''
+        ft:
+          id: expert
+          settings:
+            lb: ''
+            prefix: ''
+            lbw: true
+            lbw-el: h2
+            lbw-cl: ''
+            lbw-at: ''
+            ow: true
+            ow-el: div
+            ow-cl: au-body
+            ow-at: ''
+            fis: true
+            fis-el: ul
+            fis-cl: 'au-card-list au-card-list--matchheight'
+            fis-at: ''
+            fi: true
+            fi-el: li
+            fi-cl: 'col-xs-12 col-sm-4'
+            fi-at: ''
+            suffix: ''
+            lb-col: false
+            ow-def-at: false
+            ow-def-cl: false
+            fis-def-at: false
+            fi-def-at: false
   links:
-    weight: 100
+    weight: 0
     region: content
     settings: {  }
     third_party_settings: {  }

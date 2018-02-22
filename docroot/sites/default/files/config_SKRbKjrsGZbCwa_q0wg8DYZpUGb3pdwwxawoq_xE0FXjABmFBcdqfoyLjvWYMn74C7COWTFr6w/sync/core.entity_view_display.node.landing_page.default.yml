@@ -8,10 +8,12 @@ dependencies:
     - field.field.node.landing_page.field_index_image
     - field.field.node.landing_page.field_introduction
     - field.field.node.landing_page.field_linkedin_image
+    - field.field.node.landing_page.field_related_content
     - field.field.node.landing_page.field_summary
     - field.field.node.landing_page.field_twitter_image
     - node.type.landing_page
   module:
+    - ds
     - image
     - panelizer
     - text
@@ -67,6 +69,44 @@ content:
       image_link: ''
     third_party_settings: {  }
     type: image
+    region: content
+  field_related_content:
+    weight: 108
+    label: above
+    settings:
+      view_mode: card
+      link: false
+    third_party_settings:
+      ds:
+        ds_limit: ''
+        ft:
+          id: expert
+          settings:
+            lb: ''
+            prefix: ''
+            lbw-el: ''
+            lbw-cl: ''
+            lbw-at: ''
+            ow-el: ''
+            ow-cl: ''
+            ow-at: ''
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fi-el: ''
+            fi-cl: ''
+            fi-at: ''
+            suffix: ''
+            lbw: false
+            lb-col: false
+            ow: false
+            ow-def-at: false
+            ow-def-cl: false
+            fis: false
+            fis-def-at: false
+            fi: false
+            fi-def-at: false
+    type: entity_reference_entity_view
     region: content
   field_summary:
     weight: 106
