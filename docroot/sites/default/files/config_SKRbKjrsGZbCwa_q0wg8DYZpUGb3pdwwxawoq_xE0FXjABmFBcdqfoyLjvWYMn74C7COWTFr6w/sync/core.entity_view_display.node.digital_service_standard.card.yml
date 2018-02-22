@@ -1,0 +1,76 @@
+uuid: 7b5ac5b3-d8a3-4bfa-ba82-e68a8ce6c43d
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.card
+    - field.field.node.digital_service_standard.field_body
+    - field.field.node.digital_service_standard.field_criterion
+    - field.field.node.digital_service_standard.field_further_reading
+    - field.field.node.digital_service_standard.field_guidance_links
+    - field.field.node.digital_service_standard.field_introduction
+    - field.field.node.digital_service_standard.field_review_date
+    - field.field.node.digital_service_standard.field_summary
+    - node.type.digital_service_standard
+  module:
+    - ds
+    - field_group
+    - panelizer
+    - user
+third_party_settings:
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
+  ds:
+    layout:
+      id: layout_onecol
+      library: layout_discovery/onecol
+      disable_css: false
+      entity_classes: all_classes
+      settings: {  }
+    regions:
+      content:
+        - 'dynamic_token_field:node-related_content_card'
+    fields:
+      'dynamic_token_field:node-related_content_card':
+        plugin_id: 'dynamic_token_field:node-related_content_card'
+        weight: 0
+        label: hidden
+        formatter: default
+  field_group:
+    group_div:
+      children:
+        - field_criterion
+        - node_title
+      parent_name: ''
+      weight: 1
+      format_type: html_element
+      format_settings:
+        label: Title
+        element: h1
+        show_label: false
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
+        id: ''
+        classes: dss-title-wrapper
+      label: Title
+      region: hidden
+id: node.digital_service_standard.card
+targetEntityType: node
+bundle: digital_service_standard
+mode: card
+content: {  }
+hidden:
+  content_moderation_control: true
+  field_body: true
+  field_criterion: true
+  field_further_reading: true
+  field_guidance_links: true
+  field_introduction: true
+  field_review_date: true
+  field_summary: true
+  links: true

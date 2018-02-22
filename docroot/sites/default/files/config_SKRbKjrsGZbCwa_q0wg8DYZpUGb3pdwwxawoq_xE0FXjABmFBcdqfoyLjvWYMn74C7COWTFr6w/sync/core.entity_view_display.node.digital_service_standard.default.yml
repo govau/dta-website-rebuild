@@ -42,14 +42,17 @@ third_party_settings:
           layout_class: {  }
     regions:
       ds_content:
+        - content_moderation_control
         - links
         - group_div
         - field_criterion
         - node_title
-        - field_lede
-        - body
         - field_guidance_links
         - field_further_reading
+        - field_body
+        - field_summary
+        - field_introduction
+        - field_review_date
     fields:
       node_title:
         plugin_id: node_title
@@ -106,6 +109,7 @@ third_party_settings:
         id: ''
         classes: dss-title-wrapper
       label: Title
+      region: hidden
 id: node.digital_service_standard.default
 targetEntityType: node
 bundle: digital_service_standard
@@ -113,14 +117,16 @@ mode: default
 content:
   content_moderation_control:
     weight: -20
-    region: content
+    region: ds_content
+    settings: {  }
+    third_party_settings: {  }
   field_body:
     weight: 7
     label: above
     settings: {  }
     third_party_settings: {  }
     type: text_default
-    region: content
+    region: ds_content
   field_criterion:
     weight: 2
     label: hidden
@@ -246,7 +252,7 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: text_default
-    region: content
+    region: ds_content
   field_review_date:
     weight: 10
     label: above
@@ -255,14 +261,14 @@ content:
       timezone_override: ''
     third_party_settings: {  }
     type: datetime_default
-    region: content
+    region: ds_content
   field_summary:
     weight: 8
     label: above
     settings: {  }
     third_party_settings: {  }
     type: text_default
-    region: content
+    region: ds_content
   links:
     weight: 0
     region: ds_content
