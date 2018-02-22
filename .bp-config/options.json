@@ -2,5 +2,6 @@
 	"COMPOSER_VENDOR_DIR": "{BUILD_DIR}/vendor",
 	"COMPOSER_BIN_DIR": "{BUILD_DIR}/bin",
   "ZEND_EXTENSIONS": ["opcache"],
-	"WEBDIR": "docroot"
+	"WEBDIR": "docroot",
+	"ADDITIONAL_PREPROCESS_CMDS": ["scripts/preprocess.sh"]
 }
