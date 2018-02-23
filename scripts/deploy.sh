@@ -9,6 +9,8 @@ set -o pipefail
 # Include build env vars
 source "$(dirname "$0")/buildrc"
 
+env
+
 # login to cloud foundry if env vars are present
 login() {
 
