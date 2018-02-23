@@ -20,8 +20,9 @@ workflows:
           filters:
             branches:
               only:
-                - master
-                - develop
+                # during testing we limit the branches we push
+                # - master
+                # - develop
                 - circle
 
   # build:
