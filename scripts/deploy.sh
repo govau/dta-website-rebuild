@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Exit immediately if there is an error
-set -e
+set -ex
 
 # cause a pipeline (for example, curl -s http://sipb.mit.edu/ | grep foo) to produce a failure return code if any command errors not just the last command of the pipeline.
 set -o pipefail
@@ -17,7 +17,7 @@ login() {
     return
   fi
 
-  if [[ "${GITBRANCH}" = "master" ]]; then
+  if [[ "${GIT_BRANCH}" = "master" ]]; then
     cf api $CF_PROD_API
   else
     cf api $CF_STAGING_API
@@ -34,25 +34,17 @@ main() {
 
   login
 
-
-  case "${GITBRANCH}" in
+  case "${GIT_BRANCH}" in
     master)
       cf zero-downtime-push dta-website-rebuild -f manifest-master.yml
       ;;
     develop)
-      MANIFEST=
       cf zero-downtime-push dta-website-rebuild -f manifest-develop.yml
       ;;
-    ${DEPLOY_BRANCHES})
-      cf push dta-website-rebuild-${GITBRANCH} -f manifest.yml
-      ;;
     *)
-      echo "I will not deploy this branch"
-      exit 0
+      cf zero-downtime-push ${GIT_REPO}-`basename "${GIT_BRANCH}"` -f manifest.yml
       ;;
   esac
-
-
 
 }
 
