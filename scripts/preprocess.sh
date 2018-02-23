@@ -13,7 +13,7 @@ set -x
 # See https://docs.cloudfoundry.org/buildpacks/php/gsg-php-config.html#options
 
 # Only execute on the first application instance
-if [[ "${CF_INSTANCE_INDEX}" == 0]]; then
+if [[ "${CF_INSTANCE_INDEX}" = "0" ]]; then
   echo "I am the first instance"
 else
   echo "I am not the first instance"
