@@ -1,0 +1,18 @@
+id: landing_page_cards
+label: 'Landing page cards'
+ui_limit: landing_page|full
+properties:
+  block: 'views_block:landing_page_cards-block_1'
+  use_block_title: false
+  config:
+    id: 'views_block:landing_page_cards-block_1'
+    label: ''
+    provider: views
+    label_display: visible
+    views_label: ''
+    items_per_page: none
+    context_mapping: {  }
+type: block
+type_label: 'Block field'
+entities:
+  node: node
