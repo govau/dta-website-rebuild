@@ -10,7 +10,7 @@ dependencies:
 id: socialauthlogin
 theme: dta_gov_au
 region: content
-weight: 0
+weight: 4
 provider: null
 plugin: social_auth_login
 settings:

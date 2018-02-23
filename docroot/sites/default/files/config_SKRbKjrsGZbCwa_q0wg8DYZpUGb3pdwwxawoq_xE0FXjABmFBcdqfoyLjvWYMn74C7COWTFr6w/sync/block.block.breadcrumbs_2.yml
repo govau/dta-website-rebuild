@@ -9,7 +9,7 @@ dependencies:
 id: breadcrumbs_2
 theme: dta_gov_au
 region: content
-weight: -7
+weight: -8
 provider: null
 plugin: system_breadcrumb_block
 settings:
