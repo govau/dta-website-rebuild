@@ -10,4 +10,4 @@ docroot/tmp/*
 docroot/themes/*/*/pancake
 vendor
 bin
-scripts
+scripts/secrets*
