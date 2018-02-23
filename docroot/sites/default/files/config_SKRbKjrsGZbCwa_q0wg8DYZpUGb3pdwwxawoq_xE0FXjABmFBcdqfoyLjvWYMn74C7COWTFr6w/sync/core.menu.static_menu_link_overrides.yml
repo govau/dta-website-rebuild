@@ -1,6 +1,6 @@
 definitions:
   govcms__front_page:
-    weight: -57
+    weight: -50
     menu_name: main
     parent: ''
     enabled: false
