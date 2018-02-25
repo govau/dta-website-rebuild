@@ -162,7 +162,7 @@
         "drupal/views_menu_children_filter": "^1.0",
         "drupal/webform": "5.0-rc1",
         "drupal/wysiwyg_template": "^2.0",
-        "drush/drush": "~9.0",
+        "drush/drush": "~8.0",
         "govau/dta-gov-au": "dev-master",
         "govau/dta-uikit-base": "dev-master",
         "govau/dta-uikit-base-theme": "dev-master",
