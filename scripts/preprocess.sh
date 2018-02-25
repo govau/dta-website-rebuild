@@ -19,28 +19,27 @@ PATH="${HOME}/scripts/mysql:${PATH}"
 # Add vendored bin dir to PATH
 PATH="${HOME}/bin:${PATH}"
 
+cd docroot
+
 # Only execute on the first application instance
 if [[ "${CF_INSTANCE_INDEX}" = "0" ]]; then
   echo "I am the first instance"
 
-  pushd docroot
-
-    # If DRUPAL_UUID is defined, change our UUID to it if necessary
-    if [[ -n ${DRUPAL_UUID+x} ]]; then
-      CURRENT_UUID=$(drush cget "system.site" --format=json | jq -r .uuid )
-      if [[ ${DRUPAL_UUID} != ${CURRENT_UUID} ]]; then
-        drush config-set -y "system.site" uuid "${DRUPAL_UUID}"
-      fi
+  # If DRUPAL_UUID is defined, change our UUID to it if necessary
+  if [[ -n ${DRUPAL_UUID+x} ]]; then
+    CURRENT_UUID=$(drush cget "system.site" --format=json | jq -r .uuid )
+    if [[ ${DRUPAL_UUID} != ${CURRENT_UUID} ]]; then
+      drush config-set -y "system.site" uuid "${DRUPAL_UUID}"
     fi
+  fi
 
-    # Fix for https://www.drupal.org/node/2583113
-    # TODO think this isnt needed anymore
-    # drush ev '\Drupal::entityManager()->getStorage("shortcut_set")->load("default")->delete();'
+  # Fix for https://www.drupal.org/node/2583113
+  # TODO think this isnt needed anymore
+  # drush ev '\Drupal::entityManager()->getStorage("shortcut_set")->load("default")->delete();'
 
-    # Import the config from sync dir
-    drush config-import -y
+  # Import the config from sync dir
+  drush config-import -y
 
-  popd
 else
   echo "I am not the first instance"
 fi
