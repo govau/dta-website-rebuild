@@ -5,6 +5,7 @@ applications:
   disk_quote: 2G
   instances: 1
   path: .
+  timeout: 120
   services:
   - dta-website-db-test
   - ups-aws
