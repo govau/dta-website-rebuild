@@ -24,6 +24,5 @@ workflows:
           filters:
             branches:
               only:
-                # during testing we limit the branches we push
                 # - master
                 - develop
