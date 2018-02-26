@@ -2,11 +2,14 @@
 applications:
 - name: dta-website-rebuild-staging
   memory: 512M
-  disk_quote: 2G
+  disk_quota: 2G
   instances: 2
   path: .
+  timeout: 120
   services:
   - dta-website-rebuild-staging-db
   - ups-aws
   - ups-website-redev
   buildpack: php_buildpack
+  env:
+    DRUPAL_UUID: "59f85df3-5f18-45dd-bf6a-40977b57a842"

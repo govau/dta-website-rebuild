@@ -2,7 +2,7 @@
 applications:
 - name: dta-website-rebuild-test
   memory: 512M
-  disk_quote: 2G
+  disk_quota: 2G
   instances: 2
   path: .
   timeout: 120

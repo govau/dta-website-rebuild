@@ -22,11 +22,12 @@ login() {
 
   if [[ "${GIT_BRANCH}" = "master" ]]; then
     cf api $CF_PROD_API
+    cf auth $CF_USER $CF_PASSWORD_PROD
   else
     cf api $CF_STAGING_API
+    cf auth $CF_USER $CF_PASSWORD_STAGING
   fi
 
-  cf auth $CF_USER $CF_PASSWORD
   cf target -o $CF_ORG
   cf target -s $CF_SPACE
 }
@@ -42,7 +43,7 @@ main() {
       cf zero-downtime-push dta-website-rebuild -f manifest-master.yml
       ;;
     develop)
-      cf zero-downtime-push dta-website-rebuild -f manifest-develop.yml
+      cf zero-downtime-push dta-website-rebuild-staging -f manifest-staging.yml
       ;;
     *)
       cf zero-downtime-push ${GIT_REPO}-`basename "${GIT_BRANCH}"` -f manifest.yml

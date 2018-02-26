@@ -26,5 +26,4 @@ workflows:
               only:
                 # during testing we limit the branches we push
                 # - master
-                # - develop
-                - circle
+                - develop
