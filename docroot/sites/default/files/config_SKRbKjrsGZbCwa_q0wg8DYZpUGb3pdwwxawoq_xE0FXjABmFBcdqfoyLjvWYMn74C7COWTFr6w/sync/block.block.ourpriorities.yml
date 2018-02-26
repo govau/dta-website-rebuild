@@ -12,7 +12,7 @@ dependencies:
 id: ourpriorities
 theme: dta_gov_au
 region: content
-weight: -3
+weight: -5
 provider: null
 plugin: 'block_content:12a27004-2967-4f1d-9e31-02877369c172'
 settings:

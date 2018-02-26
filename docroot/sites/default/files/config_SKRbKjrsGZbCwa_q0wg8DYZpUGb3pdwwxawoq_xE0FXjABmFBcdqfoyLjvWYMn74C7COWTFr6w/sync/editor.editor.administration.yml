@@ -60,6 +60,7 @@ settings:
           name: Structure
           items:
             - HorizontalRule
+            - TemplateSelector
   plugins:
     drupallink:
       linkit_enabled: false
