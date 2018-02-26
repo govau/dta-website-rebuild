@@ -12,7 +12,7 @@ dependencies:
 id: visionforgovernment
 theme: dta_gov_au
 region: content
-weight: -2
+weight: -4
 provider: null
 plugin: 'block_content:da8437c5-8bb2-4eea-ade1-796cb18167c6'
 settings:

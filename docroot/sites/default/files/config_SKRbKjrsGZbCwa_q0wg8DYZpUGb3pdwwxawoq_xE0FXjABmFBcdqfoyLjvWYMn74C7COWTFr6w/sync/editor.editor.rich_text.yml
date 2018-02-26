@@ -75,7 +75,7 @@ settings:
     language:
       language_list: un
     stylescombo:
-      styles: ''
+      styles: "div.au-callout|Callout: container\r\np.au-callout|Callout: paragraph"
     video_embed:
       defaults:
         children:

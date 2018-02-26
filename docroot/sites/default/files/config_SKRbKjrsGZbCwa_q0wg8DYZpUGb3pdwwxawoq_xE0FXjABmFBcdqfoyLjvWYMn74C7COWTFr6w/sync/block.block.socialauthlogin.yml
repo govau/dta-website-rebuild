@@ -1,6 +1,6 @@
 uuid: cbd264d7-3979-4095-8dc0-020793cd1115
 langcode: en
-status: false
+status: true
 dependencies:
   module:
     - social_auth
@@ -9,8 +9,8 @@ dependencies:
     - dta_gov_au
 id: socialauthlogin
 theme: dta_gov_au
-region: content
-weight: 4
+region: disabled
+weight: -8
 provider: null
 plugin: social_auth_login
 settings:

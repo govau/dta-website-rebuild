@@ -11,7 +11,7 @@ _core:
 id: dta_gov_au_mainpagecontent
 theme: dta_gov_au
 region: content
-weight: -5
+weight: -6
 provider: null
 plugin: system_main_block
 settings:

@@ -1,0 +1,17 @@
+uuid: 2b4b4a5e-96f7-4bb2-afb4-d41828be3d1f
+langcode: en
+status: true
+dependencies: {  }
+id: cards_unlinked
+label: 'Cards: unlinked'
+description: 'Add a series of cards. Don''t add links: cards will link to content. Use at least three cards. Links are OK.'
+body:
+  value: "<ul class=\"au-card-list au-card-list--matchheight\">\r\n    <li class=\"col-xs-6 col-xs-offset-3 col-sm-offset-0 col-sm-6 col-md-4\">\r\n        <div class=\"au-card au-card--shadow\">\r\n            <h3 class=\"au-card__title\">Card 1</h3>\r\n            <p class=\"au-card--content\">Text for card 1.</p>\r\n        </div>\r\n    </li>\r\n    <li class=\"col-xs-6 col-xs-offset-3 col-sm-offset-0 col-sm-6 col-md-4\">\r\n        <div class=\"au-card au-card--shadow\">\r\n            <h3 class=\"au-card__title\">Card 2</h3>\r\n            <p class=\"au-card--content\">Text for card 2.</p>\r\n        </div>\r\n    </li>\r\n    <li class=\"col-xs-6 col-xs-offset-3 col-sm-offset-0 col-sm-6 col-md-4\">\r\n        <div class=\"au-card au-card--shadow\">\r\n            <h3 class=\"au-card__title\">Card 3</h3>\r\n            <p class=\"au-card--content\">Text for card 3.</p>\r\n        </div>\r\n    </li>\r\n</ul>"
+  format: html
+weight: null
+node_types:
+  - blog_post
+  - digital_service_standard
+  - landing_page
+  - page
+  - platforms_and_services
