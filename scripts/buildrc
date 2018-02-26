@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+# enable pattern lists like +(...|...)
+shopt -s extglob
+
+# Note its nice to be able to run the same script locally as well as in CI,
+# so we dont rely on circle env vars being available.
+
+readonly GIT_BRANCH="$(git symbolic-ref --short -q HEAD)"
+if [[ -z "$CIRCLECI" ]]; then
+  readonly GIT_REPO="$(basename `git rev-parse --show-toplevel`)"
+else
+  readonly GIT_REPO="${CIRCLE_PROJECT_REPONAME}"
+fi

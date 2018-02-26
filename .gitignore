@@ -42,3 +42,5 @@ vendor
 #docroot/libraries
 bin
 social_auth_google.settings.yml
+
+secrets-*

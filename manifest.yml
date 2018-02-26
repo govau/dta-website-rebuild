@@ -5,8 +5,11 @@ applications:
   disk_quote: 2G
   instances: 2
   path: .
+  timeout: 120
   services:
   - dta-website-db-test
   - ups-aws
   - ups-website-redev
   buildpack: php_buildpack
+  env:
+    DRUPAL_UUID: "59f85df3-5f18-45dd-bf6a-40977b57a842"
