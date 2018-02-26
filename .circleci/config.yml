@@ -15,7 +15,7 @@ jobs:
 
       - run:
           name: Deploying to cloud.gov.au
-          command: ./scripts/deploy.sh
+          command: ./.circleci/do-exclusively --branch ${CIRCLE_BRANCH} ./scripts/deploy.sh
 workflows:
   version: 2
   deploy:
