@@ -36,7 +36,7 @@ For composer to be able to find the library, you have to add this section into y
                 "version": "4.5.7",
                 "dist": {
                     "type": "zip",
-                    "url": "http://download.ckeditor.com/templates/releases/templates_4.5.7.zip",
+                    "url": "https://download.ckeditor.com/templates/releases/templates_4.5.7.zip",
                     "reference": "master"
                 }
             }

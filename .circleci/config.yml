@@ -1,50 +1,28 @@
-# PHP CircleCI 2.0 configuration file
-#
-# Check https://circleci.com/docs/2.0/language-php/ for more details
-#
+
 version: 2
 jobs:
-  build:
+  deploy:
     docker:
-      # specify the version you desire here
-      - image: circleci/php:7.1-browsers
-
-      # Specify service dependencies here if necessary
-      # CircleCI maintains a library of pre-built images
-      # documented at https://circleci.com/docs/2.0/circleci-images/
-      # - image: circleci/mysql:9.4
-
-    working_directory: ~/repo
-
+      - image: govau/cf-cli
     steps:
       - checkout
 
-      # Download and cache dependencies
-      - restore_cache:
-          keys:
-          - v3-dependencies-{{ checksum "composer.json" }}
-          # fallback to using the latest cache if no exact match is found
-          - v3-dependencies-
-      - run:
-          name: Installing the Cloud Foundry app.
-          command: curl -v -L -o cf-cli_amd64.deb 'https://cli.run.pivotal.io/stable?release=debian64&source=github' && sudo dpkg -i cf-cli_amd64.deb && cf -v
-      - run:
-          name: Installing dependencies
-          #command: rm -rf vendor
-          command: composer install -n --prefer-dist
+      # Change the ckeditor http url to https
+      # FIXME can we just fix this  so 'composer update' doesnt clobber it once and
+      # for all??
+      # Or just set secure-http to false? https://getcomposer.org/doc/06-config.md#secure-http
+      - run: sed -i 's/http:\/\/download.ckeditor.com/https:\/\/download.ckeditor.com/g' composer.lock
 
-      - save_cache:
-          paths:
-            - ./vendor
-          key: v3-dependencies-{{ checksum "composer.json" }}
-
-      # run tests! Skipping the DependencyInjection and PageManager groups as they are core issues.
-      # Removing tests for now to work on other things.
-      #- run: cd docroot/core && ../../vendor/bin/phpunit --testsuite=unit --exclude-group DependencyInjection,PageManager
-
-      # Deploy here.
       - run:
           name: Deploying to cloud.gov.au
-          command: |
-            ./bin/ciprepare.sh
-            ./bin/cideploy.sh
+          command: ./.circleci/do-exclusively --branch ${CIRCLE_BRANCH} ./scripts/deploy.sh
+workflows:
+  version: 2
+  deploy:
+    jobs:
+      - deploy:
+          filters:
+            branches:
+              only:
+                # - master
+                - develop
