@@ -4,9 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-
-    "content-hash": "4e5a666548c5963911ed54fb2b5fbeef",
-
+    "content-hash": "6e9a56e18169bb9038eb8a3be4dc843d",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -884,7 +882,7 @@
                 "Apache-2.0"
             ],
             "description": "The official PHP client library for disqus, with added composer.json.",
-            "time": "2013-11-07T10:47:07+00:00"
+            "time": "2013-11-07 10:47:07"
         },
         {
             "name": "drupal-composer/drupal-scaffold",
@@ -3304,7 +3302,7 @@
             "support": {
                 "source": "http://cgit.drupalcode.org/link_css"
             },
-            "time": "2016-11-08T03:19:30+00:00"
+            "time": "2016-11-08 03:19:30"
         },
         {
             "name": "drupal/linkit",
@@ -3598,6 +3596,69 @@
             "support": {
                 "source": "http://cgit.drupalcode.org/memcache",
                 "issues": "https://www.drupal.org/project/issues/memcache"
+            }
+        },
+        {
+            "name": "drupal/menu_block",
+            "version": "1.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/menu_block",
+                "reference": "8.x-1.4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/menu_block-8.x-1.4.zip",
+                "reference": "8.x-1.4",
+                "shasum": "fd8d559452a9e1e07de6fefd9955df6feadc943a"
+            },
+            "require": {
+                "drupal/core": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.4",
+                    "datestamp": "1473063239",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Dave Reid",
+                    "homepage": "https://www.drupal.org/user/53892"
+                },
+                {
+                    "name": "JohnAlbin",
+                    "homepage": "https://www.drupal.org/user/32095"
+                },
+                {
+                    "name": "joelpittet",
+                    "homepage": "https://www.drupal.org/user/160302"
+                },
+                {
+                    "name": "kim.pepper",
+                    "homepage": "https://www.drupal.org/user/370574"
+                },
+                {
+                    "name": "rrrob",
+                    "homepage": "https://www.drupal.org/user/273533"
+                }
+            ],
+            "description": "Provides configurable blocks of menu links.",
+            "homepage": "https://www.drupal.org/project/menu_block",
+            "support": {
+                "source": "http://cgit.drupalcode.org/menu_block"
             }
         },
         {
@@ -4736,7 +4797,7 @@
             "support": {
                 "source": "http://cgit.drupalcode.org/search_api_page"
             },
-            "time": "2017-09-25T13:04:15+00:00"
+            "time": "2017-09-25 13:04:15"
         },
         {
             "name": "drupal/seckit",
@@ -5966,7 +6027,7 @@
                 "reference": "master"
             },
             "type": "drupal-custom-theme",
-            "time": "2018-02-15T23:05:22+00:00"
+            "time": "2018-02-26 04:10:10"
         },
         {
             "name": "govau/dta-uikit-base",
@@ -5977,7 +6038,7 @@
                 "reference": "master"
             },
             "type": "drupal-custom-theme",
-            "time": "2018-02-07T22:28:08+00:00"
+            "time": "2018-02-07 22:28:08"
         },
         {
             "name": "govau/dta-uikit-base-theme",
@@ -5988,7 +6049,7 @@
                 "reference": "master"
             },
             "type": "drupal-custom-theme",
-            "time": "2018-02-07T22:28:08+00:00"
+            "time": "2018-02-04 22:51:23"
         },
         {
             "name": "guzzlehttp/guzzle",
