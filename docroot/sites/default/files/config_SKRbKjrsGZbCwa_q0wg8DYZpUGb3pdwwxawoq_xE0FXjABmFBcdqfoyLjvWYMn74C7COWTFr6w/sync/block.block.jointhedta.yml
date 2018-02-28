@@ -12,7 +12,7 @@ dependencies:
 id: jointhedta
 theme: dta_gov_au
 region: content
-weight: -1
+weight: 0
 provider: null
 plugin: 'block_content:2ac273aa-99ae-42e7-93f5-78bac4488bfd'
 settings:

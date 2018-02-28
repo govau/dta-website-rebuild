@@ -1,0 +1,23 @@
+uuid: 138c3c1c-827a-4af3-b321-c75ee24eee65
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+    - node_title_help_text
+    - wysiwyg_template
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+  node_title_help_text:
+    title_help: ''
+  wysiwyg_template:
+    default_template: ''
+name: 'Home page'
+type: home_page
+description: 'Use this content type to specify content for the home page.'
+help: ''
+new_revision: false
+preview_mode: 1
+display_submitted: false

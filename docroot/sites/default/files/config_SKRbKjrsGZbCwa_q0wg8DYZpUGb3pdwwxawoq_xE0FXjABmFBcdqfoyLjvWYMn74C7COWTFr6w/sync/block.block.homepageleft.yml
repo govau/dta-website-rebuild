@@ -1,23 +1,23 @@
-uuid: 2b8232dc-6a65-40fa-becd-9e9a06512c50
+uuid: afa8be95-2b35-4e82-9c66-6560133aa828
 langcode: en
 status: true
 dependencies:
   content:
-    - 'block_content:script:da8437c5-8bb2-4eea-ade1-796cb18167c6'
+    - 'block_content:node_teaser_block:a1cc8430-996b-4bc9-81f9-532605a0b317'
   module:
     - block_content
     - system
   theme:
     - dta_gov_au
-id: visionforgovernment
+id: homepageleft
 theme: dta_gov_au
 region: content
-weight: -3
+weight: -4
 provider: null
-plugin: 'block_content:da8437c5-8bb2-4eea-ade1-796cb18167c6'
+plugin: 'block_content:a1cc8430-996b-4bc9-81f9-532605a0b317'
 settings:
-  id: 'block_content:da8437c5-8bb2-4eea-ade1-796cb18167c6'
-  label: 'Vision for government'
+  id: 'block_content:a1cc8430-996b-4bc9-81f9-532605a0b317'
+  label: 'Home page left'
   provider: block_content
   label_display: visible
   status: true
