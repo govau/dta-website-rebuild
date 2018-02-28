@@ -15,7 +15,15 @@ SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 # Add vendored bin dir to PATH
 PATH="${SCRIPT_DIR}/../bin:${PATH}"
 
-cd docroot/core
+pushd docroot
 
-phpunit --testsuite=unit --exclude-group \
-  Composer,DependencyInjection,PageManager,jsonapi
+  find . -name \*.php ! -name global_namespace_php5.php -type f -print0 | xargs -0 -n1 php -l
+
+  pushd core
+
+    phpunit --testsuite=unit --exclude-group \
+      Composer,DependencyInjection,PageManager,jsonapi
+
+  popd
+
+popd
