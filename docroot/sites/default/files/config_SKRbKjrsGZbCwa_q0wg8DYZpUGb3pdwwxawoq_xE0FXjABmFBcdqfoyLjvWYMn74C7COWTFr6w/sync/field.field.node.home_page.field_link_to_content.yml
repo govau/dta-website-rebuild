@@ -1,0 +1,23 @@
+uuid: 0facf019-78fd-4db6-a504-82f80c676e56
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_link_to_content
+    - node.type.home_page
+  module:
+    - link
+id: node.home_page.field_link_to_content
+field_name: field_link_to_content
+entity_type: node
+bundle: home_page
+label: 'Link to content'
+description: 'Add a link to existing content. Depending on the location of the node on the home page, this will be formatted differently.'
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 1
+  title: 1
+field_type: link

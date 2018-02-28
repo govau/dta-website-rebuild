@@ -1,0 +1,28 @@
+uuid: 6ff04dff-e3c3-4d5c-8177-1d8a9ce44aea
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.node_teaser_block
+    - field.storage.block_content.field_content
+    - node.type.home_page
+id: block_content.node_teaser_block.field_content
+field_name: field_content
+entity_type: block_content
+bundle: node_teaser_block
+label: Content
+description: 'Select which content item you wish to display in this block.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      home_page: home_page
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

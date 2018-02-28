@@ -1,0 +1,8 @@
+uuid: ebc5a8ad-0790-430b-93f1-be6d2397315a
+langcode: en
+status: true
+dependencies: {  }
+id: node_teaser_block
+label: 'Node teaser block'
+revision: 1
+description: 'A block to display node teasers.'

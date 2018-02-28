@@ -1,0 +1,21 @@
+uuid: bef7106c-de4f-4356-9e8d-6075c8b7c090
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.node_teaser_block
+    - field.field.block_content.node_teaser_block.field_content
+id: block_content.node_teaser_block.default
+targetEntityType: block_content
+bundle: node_teaser_block
+mode: default
+content:
+  field_content:
+    weight: 1
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+hidden: {  }
