@@ -43,12 +43,12 @@ jobs:
     working_directory: ~/repo
     steps:
       - restore_cache:
-          key: v1-repo-{{ .Environment.CIRCLE_SHA1 }}
-      # - run: curl -v -L -o cf-cli_amd64.deb 'https://cli.run.pivotal.io/stable?release=debian64&version=6.33.0&source=github-rel'
-      # - run: dpkg -i cf-cli_amd64.deb
-      # - run: cf install-plugin https://github.com/contraband/autopilot/releases/download/0.0.6/autopilot-linux -f
+          keys:
+            - v1-repo-{{ .Environment.CIRCLE_SHA1 }}
 
-
+      - run: curl -v -L -o cf-cli_amd64.deb 'https://cli.run.pivotal.io/stable?release=debian64&version=6.33.0&source=github-rel'
+      - run: dpkg -i cf-cli_amd64.deb
+      - run: cf install-plugin https://github.com/contraband/autopilot/releases/download/0.0.6/autopilot-linux -f
 
       - run:
           name: Deploying to cloud.gov.au
