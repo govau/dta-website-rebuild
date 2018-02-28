@@ -33,13 +33,10 @@ if [[ "${CF_INSTANCE_INDEX}" = "0" ]]; then
     fi
   fi
 
-  # Fix for https://www.drupal.org/node/2583113
-  # TODO think this isnt needed anymore
-  # drush ev '\Drupal::entityManager()->getStorage("shortcut_set")->load("default")->delete();'
-
   # Import the config from sync dir
   drush config-import -y
 
+  # Run updatedb if necessary
   UPDATEDB_STATUS=$(drush updatedb-status 2>/dev/null)
   if [[ $UPDATEDB_STATUS != "" ]]; then
     drush updatedb --no-cache-clear
