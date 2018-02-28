@@ -40,6 +40,11 @@ if [[ "${CF_INSTANCE_INDEX}" = "0" ]]; then
   # Import the config from sync dir
   drush config-import -y
 
+  UPDATEDB_STATUS=$(drush updatedb-status 2>/dev/null)
+  if [[ $UPDATEDB_STATUS != "" ]]; then
+    drush updatedb --no-cache-clear
+  fi
+
 else
   echo "I am not the first instance"
 fi
