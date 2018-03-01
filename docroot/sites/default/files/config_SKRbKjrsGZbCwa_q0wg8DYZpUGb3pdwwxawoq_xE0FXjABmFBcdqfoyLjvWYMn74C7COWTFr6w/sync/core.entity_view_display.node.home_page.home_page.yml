@@ -8,9 +8,35 @@ dependencies:
     - field.field.node.home_page.field_link_to_content
     - node.type.home_page
   module:
+    - ds
     - link
+    - panelizer
     - text
     - user
+third_party_settings:
+  ds:
+    layout:
+      id: layout_onecol
+      library: layout_discovery/onecol
+      disable_css: false
+      entity_classes: all_classes
+      settings: {  }
+    regions:
+      content:
+        - node_title
+        - body
+        - field_link_to_content
+    fields:
+      node_title:
+        plugin_id: node_title
+        weight: 0
+        label: hidden
+        formatter: default
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
 id: node.home_page.home_page
 targetEntityType: node
 bundle: home_page
@@ -25,7 +51,7 @@ content:
     region: content
   field_link_to_content:
     weight: 102
-    label: above
+    label: hidden
     settings:
       trim_length: 80
       url_only: false
@@ -35,9 +61,5 @@ content:
     third_party_settings: {  }
     type: link
     region: content
-  links:
-    weight: 100
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-hidden: {  }
+hidden:
+  links: true
