@@ -1,23 +1,23 @@
-uuid: 4758c528-2e09-44e4-b758-81063b138671
+uuid: 4067411a-483e-47de-9945-80a07d68c299
 langcode: en
 status: true
 dependencies:
   content:
-    - 'block_content:script:12a27004-2967-4f1d-9e31-02877369c172'
+    - 'block_content:node_teaser_block:36455cbf-9d46-4bd5-a0e1-91512be9ab0c'
   module:
     - block_content
     - system
   theme:
     - dta_gov_au
-id: ourpriorities
+id: homepageright
 theme: dta_gov_au
 region: content
-weight: -5
+weight: 0
 provider: null
-plugin: 'block_content:12a27004-2967-4f1d-9e31-02877369c172'
+plugin: 'block_content:36455cbf-9d46-4bd5-a0e1-91512be9ab0c'
 settings:
-  id: 'block_content:12a27004-2967-4f1d-9e31-02877369c172'
-  label: 'Our priorities'
+  id: 'block_content:36455cbf-9d46-4bd5-a0e1-91512be9ab0c'
+  label: 'Home page right'
   provider: block_content
   label_display: visible
   status: true
