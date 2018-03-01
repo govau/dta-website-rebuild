@@ -4,9 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-
-    "content-hash": "6e9a56e18169bb9038eb8a3be4dc843d",
-
+    "content-hash": "7fa9a11e104d4ab4172d97250f7ef48a",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -200,7 +198,7 @@
             "version": "4.5.7",
             "dist": {
                 "type": "zip",
-                "url": "https://download.ckeditor.com/templates/releases/templates_4.5.7.zip",
+                "url": "http://download.ckeditor.com/templates/releases/templates_4.5.7.zip",
                 "reference": "master",
                 "shasum": null
             },
@@ -6565,7 +6563,7 @@
                 "reference": "master"
             },
             "type": "drupal-custom-theme",
-            "time": "2018-02-26 04:10:10"
+            "time": "2018-03-01 01:28:58"
         },
         {
             "name": "govau/dta-uikit-base",
