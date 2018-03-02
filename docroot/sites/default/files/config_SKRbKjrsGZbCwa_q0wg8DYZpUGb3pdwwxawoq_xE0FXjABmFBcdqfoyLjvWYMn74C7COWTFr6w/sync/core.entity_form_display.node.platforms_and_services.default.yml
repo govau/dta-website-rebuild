@@ -16,6 +16,7 @@ dependencies:
     - datetime
     - field_layout
     - image
+    - imce
     - layout_discovery
     - path
     - text
@@ -54,9 +55,11 @@ content:
   field_index_image:
     weight: 27
     settings:
-      progress_indicator: throbber
       preview_image_style: thumbnail
-    third_party_settings: {  }
+      progress_indicator: throbber
+    third_party_settings:
+      imce:
+        enabled: true
     type: image_image
     region: content
   field_introduction:

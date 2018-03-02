@@ -10,7 +10,6 @@ dependencies:
     - field.field.node.landing_page.field_introduction
     - field.field.node.landing_page.field_linkedin_image
     - field.field.node.landing_page.field_related_content
-    - field.field.node.landing_page.field_related_content_heading
     - field.field.node.landing_page.field_summary
     - field.field.node.landing_page.field_twitter_image
     - node.type.landing_page
@@ -33,7 +32,6 @@ third_party_settings:
         - field_introduction
         - field_body
         - 'dynamic_block_field:node-landing_page_cards'
-        - field_related_content_heading
         - field_related_content
     fields:
       'dynamic_block_field:node-landing_page_cards':
@@ -122,9 +120,9 @@ content:
     region: content
   field_related_content:
     type: entity_reference_entity_view
-    weight: 5
+    weight: 4
     region: content
-    label: hidden
+    label: above
     settings:
       view_mode: card
       link: false
@@ -142,7 +140,7 @@ content:
             lbw-at: ''
             ow: true
             ow-el: div
-            ow-cl: 'au-body col-xs-12 col-sm-10 col-sm-offset-1'
+            ow-cl: au-body
             ow-at: ''
             fis: true
             fis-el: ul
@@ -152,46 +150,10 @@ content:
             fi-el: li
             fi-cl: 'col-xs-12 col-sm-4'
             fi-at: ''
-            fi-def-at: true
             suffix: ''
             lb-col: false
             ow-def-at: false
             ow-def-cl: false
-            fis-def-at: false
-  field_related_content_heading:
-    type: string
-    weight: 4
-    region: content
-    label: hidden
-    settings:
-      link_to_entity: false
-    third_party_settings:
-      ds:
-        ft:
-          id: expert
-          settings:
-            lb: ''
-            prefix: ''
-            lbw-el: ''
-            lbw-cl: ''
-            lbw-at: ''
-            ow-el: ''
-            ow-cl: ''
-            ow-at: ''
-            fis-el: ''
-            fis-cl: ''
-            fis-at: ''
-            fi: true
-            fi-el: h2
-            fi-cl: ''
-            fi-at: ''
-            suffix: ''
-            lbw: false
-            lb-col: false
-            ow: false
-            ow-def-at: false
-            ow-def-cl: false
-            fis: false
             fis-def-at: false
             fi-def-at: false
   links:

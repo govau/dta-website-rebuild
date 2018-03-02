@@ -9,7 +9,6 @@ dependencies:
     - field.field.node.landing_page.field_introduction
     - field.field.node.landing_page.field_linkedin_image
     - field.field.node.landing_page.field_related_content
-    - field.field.node.landing_page.field_related_content_heading
     - field.field.node.landing_page.field_summary
     - field.field.node.landing_page.field_twitter_image
     - image.style.thumbnail
@@ -84,21 +83,13 @@ content:
     type: image_image
     region: content
   field_related_content:
-    weight: 16
+    weight: 26
     settings:
       match_operator: CONTAINS
       size: 60
       placeholder: ''
     third_party_settings: {  }
     type: entity_reference_autocomplete
-    region: content
-  field_related_content_heading:
-    weight: 15
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: string_textfield
     region: content
   field_summary:
     weight: 10

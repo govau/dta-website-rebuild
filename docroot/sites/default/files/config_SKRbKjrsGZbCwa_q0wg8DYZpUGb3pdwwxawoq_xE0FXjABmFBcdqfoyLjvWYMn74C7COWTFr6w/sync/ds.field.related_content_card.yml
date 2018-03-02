@@ -3,7 +3,7 @@ label: 'Related Content Card'
 ui_limit: '*|card'
 properties:
   content:
-    value: "<a href=\"[node:url:path]\" class=\"au-card au-card--shadow au-cta-link\">\r\n    <h3 class=\"au-card__title\">[node:title]</h3>\r\n    <p class=\"au-card__text\">[node:field_summary:value]</p>\r\n</a>"
+    value: "<a href=\"[node:url:path]\" class=\"au-card au-card--shadow au-card--centered au-cta-link\">\r\n    <h3 class=\"au-card__title\">[node:title]</h3>\r\n    <p class=\"au-card__text\">[node:field_summary:value]</p>\r\n</a>"
     format: html
 type: token
 type_label: 'Token field'
