@@ -15,7 +15,25 @@ SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 # Add vendored bin dir to PATH
 PATH="${SCRIPT_DIR}/../bin:${PATH}"
 
-cd docroot/core
+if [ -n "$CIRCLE_BRANCH" ]; then
+  # For efficiency we only want to run certain tests against deviations from
+  # the base branch, which for now we assume is develop.
+  BASE_BRANCH=develop
+  if [[ $CIRCLE_BRANCH != $BASE_BRANCH ]] ; then
 
-phpunit --testsuite=unit --exclude-group \
-  Composer,DependencyInjection,PageManager,jsonapi
+    #Run php lint, but only against modified php files
+    git diff --name-only origin/${BASE_BRANCH}... -- '*.php' | xargs -n1 php -l
+
+    # If anything in core has changed, run its phpunit
+    for file in $(git diff --name-only origin/${BASE_BRANCH}...); do
+      if [[ $file == docroot/core* ]]; then
+        pushd docroot/core
+          phpunit --testsuite=unit --exclude-group \
+            Composer,DependencyInjection,PageManager,jsonapi
+        popd
+        break
+      fi
+    done
+
+  fi
+fi
