@@ -34,7 +34,7 @@ display:
         options:
           perm: 'access content'
       cache:
-        type: tag
+        type: none
         options: {  }
       query:
         type: views_query
@@ -167,7 +167,20 @@ display:
           entity_type: node
           entity_field: type
           plugin_id: bundle
-      sorts: {  }
+      sorts:
+        menu_children_sort:
+          id: menu_children_sort
+          table: node
+          field: menu_children_sort
+          relationship: none
+          group_type: group
+          admin_label: ''
+          order: ASC
+          exposed: false
+          expose:
+            label: ''
+          entity_type: node
+          plugin_id: menu_children
       title: 'Landing page cards'
       header: {  }
       footer: {  }
