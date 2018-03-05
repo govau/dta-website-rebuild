@@ -12,6 +12,7 @@ dependencies:
     - node.type.news_item
     - taxonomy.vocabulary.tags
   module:
+    - better_exposed_filters
     - datetime
     - image
     - node
@@ -664,6 +665,9 @@ display:
         pager: false
         filters: false
         filter_groups: false
+        css_class: false
+        exposed_form: false
+        use_ajax: false
       filters:
         status:
           value: '1'
@@ -724,7 +728,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          operator: or
+          operator: and
           value: {  }
           group: 1
           exposed: true
@@ -758,7 +762,7 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           reduce_duplicates: true
-          type: textfield
+          type: select
           limit: true
           vid: tags
           hierarchy: false
@@ -768,6 +772,35 @@ display:
         operator: AND
         groups:
           1: AND
+      css_class: au-cards--blogs-news
+      exposed_form:
+        type: bef
+        options:
+          submit_button: Apply
+          reset_button: true
+          reset_button_label: Reset
+          exposed_sorts_label: 'Sort by'
+          expose_sort_order: false
+          sort_asc_label: Asc
+          sort_desc_label: Desc
+          input_required: false
+          text_input_required: 'Select any filter and click on Apply to see results'
+          bef:
+            general:
+              allow_secondary: false
+              secondary_label: 'Advanced options'
+              autosubmit: true
+              autosubmit_hide: true
+            field_tags_target_id:
+              bef_format: default
+              more_options:
+                bef_select_all_none: false
+                bef_collapsible: false
+                is_secondary: false
+                rewrite:
+                  filter_rewrite_values: ''
+          text_input_required_format: rich_text
+      use_ajax: true
     cache_metadata:
       max-age: -1
       contexts:
