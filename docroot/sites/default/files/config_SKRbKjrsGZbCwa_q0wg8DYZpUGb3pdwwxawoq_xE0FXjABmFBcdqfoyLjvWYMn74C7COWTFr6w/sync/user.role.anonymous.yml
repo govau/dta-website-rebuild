@@ -11,3 +11,5 @@ is_admin: false
 permissions:
   - 'access content'
   - 'search content'
+  - 'use search_api_autocomplete for search'
+  - 'view search api pages'

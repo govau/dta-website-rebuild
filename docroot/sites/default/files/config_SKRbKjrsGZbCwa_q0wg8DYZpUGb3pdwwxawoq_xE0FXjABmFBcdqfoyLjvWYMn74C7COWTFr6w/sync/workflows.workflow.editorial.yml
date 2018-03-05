@@ -6,8 +6,10 @@ dependencies:
     - node.type.blog_post
     - node.type.digital_service_standard
     - node.type.govcms_event
+    - node.type.landing_page
     - node.type.news_item
     - node.type.page
+    - node.type.platforms_and_services
   module:
     - content_moderation
 _core:
@@ -84,5 +86,7 @@ type_settings:
       - blog_post
       - digital_service_standard
       - govcms_event
+      - landing_page
       - news_item
       - page
+      - platforms_and_services

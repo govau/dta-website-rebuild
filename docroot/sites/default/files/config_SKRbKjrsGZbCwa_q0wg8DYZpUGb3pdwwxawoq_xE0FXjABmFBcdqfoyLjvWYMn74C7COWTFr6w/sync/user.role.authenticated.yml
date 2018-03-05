@@ -12,3 +12,5 @@ permissions:
   - 'access content'
   - 'access shortcuts'
   - 'search content'
+  - 'use search_api_autocomplete for search'
+  - 'view search api pages'
