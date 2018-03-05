@@ -4,7 +4,6 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.card
-    - node.type.blog_post
     - node.type.digital_service_standard
     - node.type.govcms_event
     - node.type.landing_page
@@ -132,7 +131,6 @@ display:
           admin_label: ''
           operator: in
           value:
-            blog_post: blog_post
             digital_service_standard: digital_service_standard
             govcms_event: govcms_event
             landing_page: landing_page
