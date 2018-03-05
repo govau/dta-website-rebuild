@@ -4,7 +4,9 @@ RUN apt-get update && apt-get install -y \
 	curl \
 	git \
 	vim \
-	wget
+	wget \
+	libbz2-dev; \
+	docker-php-ext-install bz2;
 
 # Install composer
 RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" && \
