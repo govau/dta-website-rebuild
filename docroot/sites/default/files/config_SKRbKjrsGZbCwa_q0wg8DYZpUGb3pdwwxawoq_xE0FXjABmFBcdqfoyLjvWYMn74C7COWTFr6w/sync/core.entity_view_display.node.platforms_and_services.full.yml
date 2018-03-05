@@ -6,7 +6,9 @@ dependencies:
     - core.entity_view_mode.node.full
     - field.field.node.platforms_and_services.field_body
     - field.field.node.platforms_and_services.field_contact_module
+    - field.field.node.platforms_and_services.field_index_image
     - field.field.node.platforms_and_services.field_introduction
+    - field.field.node.platforms_and_services.field_review_date
     - field.field.node.platforms_and_services.field_summary
     - node.type.platforms_and_services
   module:
@@ -24,8 +26,8 @@ third_party_settings:
       settings: {  }
     regions:
       content:
-        - field_body
         - field_introduction
+        - field_body
   panelizer:
     enable: false
     custom: false
@@ -37,20 +39,50 @@ bundle: platforms_and_services
 mode: full
 content:
   field_body:
-    weight: 0
-    label: above
+    weight: 1
+    label: hidden
     settings: {  }
     third_party_settings: {  }
     type: text_default
     region: content
   field_introduction:
-    weight: 1
-    label: above
+    weight: 0
+    label: hidden
     settings: {  }
-    third_party_settings: {  }
+    third_party_settings:
+      ds:
+        ft:
+          id: expert
+          settings:
+            lb: ''
+            prefix: ''
+            lbw-el: ''
+            lbw-cl: ''
+            lbw-at: ''
+            ow-el: ''
+            ow-cl: ''
+            ow-at: ''
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fi: true
+            fi-el: ''
+            fi-cl: introduction
+            fi-at: ''
+            suffix: ''
+            lbw: false
+            lb-col: false
+            ow: false
+            ow-def-at: false
+            ow-def-cl: false
+            fis: false
+            fis-def-at: false
+            fi-def-at: false
     type: text_default
     region: content
 hidden:
   field_contact_module: true
+  field_index_image: true
+  field_review_date: true
   field_summary: true
   links: true

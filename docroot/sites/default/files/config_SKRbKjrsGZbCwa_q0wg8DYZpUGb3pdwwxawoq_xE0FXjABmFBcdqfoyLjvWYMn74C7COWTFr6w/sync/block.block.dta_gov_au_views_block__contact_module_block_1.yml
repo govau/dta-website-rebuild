@@ -28,7 +28,6 @@ visibility:
     id: 'entity_bundle:node'
     bundles:
       page: page
-      platforms_and_services: platforms_and_services
     negate: false
     context_mapping:
       node: '@node.node_route_context:node'
