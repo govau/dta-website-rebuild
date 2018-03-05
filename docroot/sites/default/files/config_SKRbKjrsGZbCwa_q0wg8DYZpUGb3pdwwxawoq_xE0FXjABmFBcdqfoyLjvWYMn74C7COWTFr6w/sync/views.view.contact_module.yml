@@ -3,11 +3,10 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.taxonomy_term.field_email_address
-    - field.storage.taxonomy_term.field_referred_to_as_
     - taxonomy.vocabulary.contacts
   module:
     - taxonomy
+    - text
     - user
 id: contact_module
 label: 'Contact module'
@@ -56,18 +55,27 @@ display:
           offset: 0
       style:
         type: default
+        options:
+          grouping: {  }
+          row_class: ''
+          default_row_class: false
       row:
         type: fields
+        options:
+          default_field_elements: false
+          inline: {  }
+          separator: ''
+          hide_empty: false
       fields:
-        field_email_address:
-          id: field_email_address
-          table: taxonomy_term__field_email_address
-          field: field_email_address
+        description__value:
+          id: description__value
+          table: taxonomy_term_field_data
+          field: description__value
           relationship: none
           group_type: group
           admin_label: ''
           label: ''
-          exclude: true
+          exclude: false
           alter:
             alter_text: false
             text: ''
@@ -108,7 +116,7 @@ display:
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: value
-          type: email_mailto
+          type: text_default
           settings: {  }
           group_column: value
           group_columns: {  }
@@ -120,119 +128,9 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
+          entity_type: taxonomy_term
+          entity_field: description
           plugin_id: field
-        field_referred_to_as_:
-          id: field_referred_to_as_
-          table: taxonomy_term__field_referred_to_as_
-          field: field_referred_to_as_
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: ''
-          exclude: true
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: false
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: string
-          settings:
-            link_to_entity: false
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          plugin_id: field
-        nothing:
-          id: nothing
-          table: views
-          field: nothing
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: ''
-          exclude: false
-          alter:
-            alter_text: true
-            text: 'Get in touch with {{ field_referred_to_as_ }} at {{ field_email_address }}.'
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: false
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: false
-          plugin_id: custom
       filters:
         vid:
           id: vid
@@ -244,7 +142,7 @@ display:
           entity_field: vid
           plugin_id: bundle
       sorts: {  }
-      title: 'Any questions?'
+      title: 'Get in touch'
       header: {  }
       footer: {  }
       empty: {  }
@@ -298,6 +196,7 @@ display:
           entity_field: tid
           plugin_id: taxonomy
       display_extenders: {  }
+      css_class: contact-module
     cache_metadata:
       max-age: -1
       contexts:
@@ -305,9 +204,7 @@ display:
         - 'languages:language_interface'
         - url
         - user.permissions
-      tags:
-        - 'config:field.storage.taxonomy_term.field_email_address'
-        - 'config:field.storage.taxonomy_term.field_referred_to_as_'
+      tags: {  }
   block_1:
     display_plugin: block
     id: block_1
@@ -323,6 +220,4 @@ display:
         - 'languages:language_interface'
         - url
         - user.permissions
-      tags:
-        - 'config:field.storage.taxonomy_term.field_email_address'
-        - 'config:field.storage.taxonomy_term.field_referred_to_as_'
+      tags: {  }

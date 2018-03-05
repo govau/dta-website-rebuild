@@ -3,8 +3,6 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.taxonomy_term.contacts.field_email_address
-    - field.field.taxonomy_term.contacts.field_referred_to_as_
     - taxonomy.vocabulary.contacts
   module:
     - field_layout
@@ -28,22 +26,6 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-  field_email_address:
-    weight: 31
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: email_default
-    region: content
-  field_referred_to_as_:
-    weight: 32
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: string_textfield
-    region: content
   name:
     type: string_textfield
     weight: -5
