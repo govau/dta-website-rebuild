@@ -3,11 +3,9 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_link_to_content
     - field.storage.node.field_summary
     - node.type.landing_page
   module:
-    - link
     - node
     - text
     - user
@@ -200,10 +198,10 @@ display:
           separator: ', '
           field_api_classes: false
           plugin_id: field
-        field_link_to_content:
-          id: field_link_to_content
-          table: node__field_link_to_content
-          field: field_link_to_content
+        path:
+          id: path
+          table: node
+          field: path
           relationship: none
           group_type: group
           admin_label: ''
@@ -248,25 +246,9 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          click_sort_column: uri
-          type: link
-          settings:
-            trim_length: 80
-            url_only: true
-            url_plain: true
-            rel: '0'
-            target: '0'
-          group_column: ''
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          plugin_id: field
+          absolute: false
+          entity_type: node
+          plugin_id: node_path
         counter:
           id: counter
           table: views
@@ -328,7 +310,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "<a href=\"{{ field_link_to_content }}\" class=\"au-card au-card--shadow au-card--item-{{ counter }} au-cta-link\">\n    <h3 class=\"au-card__title\">{{ title }}</h3>\n    <p class=\"au-card__text\">{{ field_summary }}</p>\n</a>"
+            text: "<a href=\"{{ path }}\" class=\"au-card au-card--shadow au-card--item-{{ counter }} au-cta-link\">\n    <h3 class=\"au-card__title\">{{ title }}</h3>\n    <p class=\"au-card__text\">{{ field_summary }}</p>\n</a>"
             make_link: false
             path: ''
             absolute: false
@@ -491,7 +473,6 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags:
-        - 'config:field.storage.node.field_link_to_content'
         - 'config:field.storage.node.field_summary'
   block_1:
     display_plugin: block
@@ -509,5 +490,4 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags:
-        - 'config:field.storage.node.field_link_to_content'
         - 'config:field.storage.node.field_summary'
