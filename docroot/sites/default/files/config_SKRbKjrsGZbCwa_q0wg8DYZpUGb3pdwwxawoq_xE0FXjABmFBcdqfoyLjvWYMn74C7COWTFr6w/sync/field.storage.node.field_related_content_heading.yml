@@ -1,0 +1,21 @@
+uuid: df1f7db6-e88c-45c1-8a6c-4f7529c3262f
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_related_content_heading
+field_name: field_related_content_heading
+entity_type: node
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
