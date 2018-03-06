@@ -4,7 +4,6 @@ status: true
 dependencies:
   config:
     - node.type.blog_post
-    - node.type.digital_service_standard
     - node.type.govcms_event
     - node.type.landing_page
     - node.type.news_item
@@ -84,7 +83,6 @@ type_settings:
   entity_types:
     node:
       - blog_post
-      - digital_service_standard
       - govcms_event
       - landing_page
       - news_item

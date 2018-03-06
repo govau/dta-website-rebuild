@@ -4,7 +4,6 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.card
-    - node.type.digital_service_standard
     - node.type.govcms_event
     - node.type.landing_page
     - node.type.news_item
@@ -131,7 +130,6 @@ display:
           admin_label: ''
           operator: in
           value:
-            digital_service_standard: digital_service_standard
             govcms_event: govcms_event
             landing_page: landing_page
             news_item: news_item

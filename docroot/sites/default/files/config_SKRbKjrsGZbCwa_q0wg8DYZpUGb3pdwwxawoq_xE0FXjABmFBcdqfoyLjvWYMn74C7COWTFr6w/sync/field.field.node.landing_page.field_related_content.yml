@@ -5,7 +5,6 @@ dependencies:
   config:
     - field.storage.node.field_related_content
     - node.type.blog_post
-    - node.type.digital_service_standard
     - node.type.govcms_event
     - node.type.landing_page
     - node.type.news_item
@@ -26,7 +25,6 @@ settings:
   handler_settings:
     target_bundles:
       blog_post: blog_post
-      digital_service_standard: digital_service_standard
       govcms_event: govcms_event
       landing_page: landing_page
       news_item: news_item
