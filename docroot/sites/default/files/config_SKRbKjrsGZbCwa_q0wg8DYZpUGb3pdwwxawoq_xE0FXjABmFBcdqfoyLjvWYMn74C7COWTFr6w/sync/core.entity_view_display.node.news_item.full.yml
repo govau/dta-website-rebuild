@@ -41,8 +41,42 @@ third_party_settings:
         - field_introduction
         - group_figure
         - field_body
+        - 'dynamic_token_field:node-media_contact'
         - field_image
         - field_image_caption
+    fields:
+      'dynamic_token_field:node-media_contact':
+        plugin_id: 'dynamic_token_field:node-media_contact'
+        weight: 6
+        label: hidden
+        formatter: default
+        ft:
+          id: expert
+          settings:
+            lb: ''
+            prefix: ''
+            lbw-el: ''
+            lbw-cl: ''
+            lbw-at: ''
+            ow: true
+            ow-el: div
+            ow-cl: au-media-contact
+            ow-at: ''
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fi-el: ''
+            fi-cl: ''
+            fi-at: ''
+            suffix: ''
+            lbw: false
+            lb-col: false
+            ow-def-at: false
+            ow-def-cl: false
+            fis: false
+            fis-def-at: false
+            fi: false
+            fi-def-at: false
   panelizer:
     enable: false
     custom: false

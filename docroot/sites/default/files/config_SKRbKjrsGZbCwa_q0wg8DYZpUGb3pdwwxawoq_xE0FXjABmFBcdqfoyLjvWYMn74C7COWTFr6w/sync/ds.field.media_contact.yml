@@ -1,0 +1,11 @@
+id: media_contact
+label: 'Media contact'
+ui_limit: news_item|full
+properties:
+  content:
+    value: "<p>For media enquiries, email us at <a href=\"mailto:media@digital.gov.au\">media@digital.gov.au</a></p>\r\n"
+    format: rich_text
+type: token
+type_label: 'Token field'
+entities:
+  node: node
