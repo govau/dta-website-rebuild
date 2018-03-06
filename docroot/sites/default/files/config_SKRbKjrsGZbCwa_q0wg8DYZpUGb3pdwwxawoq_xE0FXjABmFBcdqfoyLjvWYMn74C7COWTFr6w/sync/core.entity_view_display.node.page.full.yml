@@ -14,6 +14,7 @@ dependencies:
     - field.field.node.page.field_linkedin_image
     - field.field.node.page.field_links
     - field.field.node.page.field_phase
+    - field.field.node.page.field_review_date
     - field.field.node.page.field_summary
     - field.field.node.page.field_twitter_image
     - node.type.page
@@ -57,14 +58,15 @@ third_party_settings:
       weight: 2
       format_type: html_element
       format_settings:
-        id: ''
-        classes: ''
+        label: 'Image and caption'
         element: figure
         show_label: false
         label_element: h3
         attributes: ''
         effect: none
         speed: fast
+        id: ''
+        classes: au-hero
       label: 'Image and caption'
       region: content
 id: node.page.full
@@ -83,7 +85,35 @@ content:
     region: content
     label: hidden
     settings: {  }
-    third_party_settings: {  }
+    third_party_settings:
+      ds:
+        ft:
+          id: expert
+          settings:
+            lb: ''
+            prefix: ''
+            lbw-el: ''
+            lbw-cl: ''
+            lbw-at: ''
+            ow-el: ''
+            ow-cl: ''
+            ow-at: ''
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fi-el: ''
+            fi-cl: ''
+            fi-at: ''
+            suffix: ''
+            lbw: false
+            lb-col: false
+            ow: false
+            ow-def-at: false
+            ow-def-cl: false
+            fis: false
+            fis-def-at: false
+            fi: false
+            fi-def-at: false
   field_image:
     type: responsive_image
     weight: 3
@@ -163,7 +193,35 @@ content:
     region: content
     label: hidden
     settings: {  }
-    third_party_settings: {  }
+    third_party_settings:
+      ds:
+        ft:
+          id: expert
+          settings:
+            lb: ''
+            prefix: ''
+            lbw-el: ''
+            lbw-cl: ''
+            lbw-at: ''
+            ow: true
+            ow-el: div
+            ow-cl: au-introduction
+            ow-at: ''
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fi: true
+            fi-el: p
+            fi-cl: ''
+            fi-at: ''
+            suffix: ''
+            lbw: false
+            lb-col: false
+            ow-def-at: false
+            ow-def-cl: false
+            fis: false
+            fis-def-at: false
+            fi-def-at: false
   field_links:
     type: link
     weight: 6
@@ -187,8 +245,9 @@ content:
             lbw-el: h2
             lbw-cl: ''
             lbw-at: ''
-            ow-el: ''
-            ow-cl: ''
+            ow: true
+            ow-el: div
+            ow-cl: au-related-links
             ow-at: ''
             fis: true
             fis-el: ul
@@ -200,7 +259,6 @@ content:
             fi-at: ''
             suffix: ''
             lb-col: false
-            ow: false
             ow-def-at: false
             ow-def-cl: false
             fis-def-at: false
