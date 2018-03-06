@@ -1,0 +1,23 @@
+<?php
+
+/**
+ * Implements hook_page_top().
+ */ 
+function respondjs_page_top(&$page_top) {
+  $page_top['#attached'] = array(
+    'library' => array(
+      'respondjs/respondjs'
+    )
+  );
+
+  // Show a nasty warning if CSS aggregation is disabled, 
+  // but only show it on admin pages.
+  // @todo: This may not actually be true anymore.
+  $preprocessed = \Drupal::config('system.performance')->get('css.preprocess');
+  $route = \Drupal::routeMatch()->getRouteObject();
+  $is_admin = \Drupal::service('router.admin_context')->isAdminRoute($route);
+  if ($preprocessed === FALSE && $is_admin === TRUE) {
+    drupal_set_message(t('The Respond.js module is enabled, but CSS aggregation is disabled. The script cannot function until <a href="/admin/config/development/performance">CSS aggregation is enabled</a>.'),'error');
+  }
+}
+

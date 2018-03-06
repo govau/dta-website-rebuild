@@ -144,6 +144,7 @@
         "drupal/password_policy": "^3.0",
         "drupal/pathauto": "^1.0",
         "drupal/redirect": "1.0.0",
+        "drupal/respondjs": "^1.1",
         "drupal/restui": "^1.15",
         "drupal/robotstxt": "^1.1",
         "drupal/s3fs": "^3.0@alpha",
