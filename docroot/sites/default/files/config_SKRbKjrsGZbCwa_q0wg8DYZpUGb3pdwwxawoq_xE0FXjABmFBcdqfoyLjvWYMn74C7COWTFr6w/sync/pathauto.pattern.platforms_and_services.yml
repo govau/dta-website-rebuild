@@ -1,0 +1,22 @@
+uuid: 9cf072ae-a634-4893-a5df-b20b68ee4b3c
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: platforms_and_services
+label: 'Platforms and services'
+type: 'canonical_entities:node'
+pattern: 'platforms-services/[node:title]'
+selection_criteria:
+  fe5f0901-f423-4be2-8ca0-ce443e84fed5:
+    id: node_type
+    bundles:
+      platforms_and_services: platforms_and_services
+    negate: false
+    context_mapping:
+      node: node
+    uuid: fe5f0901-f423-4be2-8ca0-ce443e84fed5
+selection_logic: and
+weight: -7
+relationships: {  }
