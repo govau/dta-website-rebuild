@@ -35,10 +35,10 @@ third_party_settings:
     regions:
       content:
         - content_moderation_control
-        - field_introduction
         - group_p
-        - field_date
         - field_tags
+        - field_date
+        - field_introduction
         - group_figure
         - field_body
         - field_image
@@ -53,7 +53,7 @@ third_party_settings:
       children:
         - field_date
       parent_name: ''
-      weight: 2
+      weight: 1
       format_type: html_element
       format_settings:
         id: ''
@@ -74,14 +74,15 @@ third_party_settings:
       weight: 4
       format_type: html_element
       format_settings:
-        id: ''
-        classes: ''
+        label: 'Image and caption'
         element: figure
         show_label: false
         label_element: h3
         attributes: ''
         effect: none
         speed: fast
+        id: ''
+        classes: au-hero
       label: 'Image and caption'
       region: content
 id: node.news_item.full
@@ -124,8 +125,8 @@ content:
             fis-cl: ''
             fis-at: ''
             fi: true
-            fi-el: span
-            fi-cl: date
+            fi-el: p
+            fi-cl: au-date
             fi-at: ''
             suffix: ''
             lbw: false
@@ -185,13 +186,41 @@ content:
             fi-def-at: false
   field_introduction:
     type: text_default
-    weight: 1
+    weight: 3
     region: content
     label: hidden
     settings: {  }
-    third_party_settings: {  }
+    third_party_settings:
+      ds:
+        ft:
+          id: expert
+          settings:
+            lb: ''
+            prefix: ''
+            lbw-el: ''
+            lbw-cl: ''
+            lbw-at: ''
+            ow: true
+            ow-el: div
+            ow-cl: au-introduction
+            ow-at: ''
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fi: true
+            fi-el: p
+            fi-cl: ''
+            fi-at: ''
+            suffix: ''
+            lbw: false
+            lb-col: false
+            ow-def-at: false
+            ow-def-cl: false
+            fis: false
+            fis-def-at: false
+            fi-def-at: false
   field_tags:
-    weight: 3
+    weight: 2
     label: inline
     settings:
       link: true
@@ -210,14 +239,14 @@ content:
             lb-col: true
             ow: true
             ow-el: dl
-            ow-cl: uikit-tags
+            ow-cl: au-tags
             ow-at: ''
             fis-el: ''
             fis-cl: ''
             fis-at: ''
             fi: true
             fi-el: dd
-            fi-cl: uikit-tags__item
+            fi-cl: ''
             fi-at: ''
             suffix: ''
             ow-def-at: false

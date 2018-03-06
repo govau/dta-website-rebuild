@@ -42,15 +42,15 @@ third_party_settings:
       content:
         - content_moderation_control
         - group_author_and_date
-        - field_author
         - field_tags
-        - field_date
+        - field_author
         - field_introduction
+        - field_date
         - group_image_and_caption
-        - field_image
         - field_body
-        - field_image_caption
+        - field_image
         - 'dynamic_token_field:node-author_and_position'
+        - field_image_caption
         - group_comments
         - links
         - 'dynamic_token_field:node-comment_heading'
@@ -142,7 +142,7 @@ third_party_settings:
         effect: none
         speed: fast
         id: ''
-        classes: ''
+        classes: au-author-date
       label: 'Author and date'
       region: content
     group_image_and_caption:
@@ -161,7 +161,7 @@ third_party_settings:
         effect: none
         speed: fast
         id: ''
-        classes: ''
+        classes: au-hero
       label: 'Image and caption'
       region: content
     group_comments:
@@ -388,7 +388,35 @@ content:
     region: content
     label: hidden
     settings: {  }
-    third_party_settings: {  }
+    third_party_settings:
+      ds:
+        ft:
+          id: expert
+          settings:
+            lb: ''
+            prefix: ''
+            lbw-el: ''
+            lbw-cl: ''
+            lbw-at: ''
+            ow: true
+            ow-el: div
+            ow-cl: au-introduction
+            ow-at: ''
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fi: true
+            fi-el: p
+            fi-cl: ''
+            fi-at: ''
+            suffix: ''
+            lbw: false
+            lb-col: false
+            ow-def-at: false
+            ow-def-cl: false
+            fis: false
+            fis-def-at: false
+            fi-def-at: false
   field_tags:
     weight: 2
     label: inline
@@ -409,14 +437,14 @@ content:
             lb-col: true
             ow: true
             ow-el: dl
-            ow-cl: uikit-tags
+            ow-cl: au-tags
             ow-at: ''
             fis-el: ''
             fis-cl: ''
             fis-at: ''
             fi: true
             fi-el: dd
-            fi-cl: uikit-tags__item
+            fi-cl: ''
             fi-at: ''
             suffix: ''
             ow-def-at: false
