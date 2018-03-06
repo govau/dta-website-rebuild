@@ -59,20 +59,20 @@ content:
             lbw-el: ''
             lbw-cl: ''
             lbw-at: ''
-            ow-el: ''
-            ow-cl: ''
+            ow: true
+            ow-el: div
+            ow-cl: au-introduction
             ow-at: ''
             fis-el: ''
             fis-cl: ''
             fis-at: ''
             fi: true
-            fi-el: ''
-            fi-cl: introduction
+            fi-el: p
+            fi-cl: ''
             fi-at: ''
             suffix: ''
             lbw: false
             lb-col: false
-            ow: false
             ow-def-at: false
             ow-def-cl: false
             fis: false
@@ -81,6 +81,7 @@ content:
     type: text_default
     region: content
 hidden:
+  content_moderation_control: true
   field_contact_module: true
   field_index_image: true
   field_review_date: true

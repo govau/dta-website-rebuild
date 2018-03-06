@@ -101,12 +101,13 @@ content:
             lbw-at: ''
             ow: true
             ow-el: div
-            ow-cl: introduction
+            ow-cl: au-introduction
             ow-at: ''
             fis-el: ''
             fis-cl: ''
             fis-at: ''
-            fi-el: ''
+            fi: true
+            fi-el: p
             fi-cl: ''
             fi-at: ''
             suffix: ''
@@ -116,7 +117,6 @@ content:
             ow-def-cl: false
             fis: false
             fis-def-at: false
-            fi: false
             fi-def-at: false
     type: text_default
     region: content
@@ -200,6 +200,7 @@ content:
     settings: {  }
     third_party_settings: {  }
 hidden:
+  content_moderation_control: true
   field_facebook_image: true
   field_index_image: true
   field_linkedin_image: true

@@ -37,7 +37,6 @@ third_party_settings:
     regions:
       content:
         - field_introduction
-        - field_featured_image
         - field_event_location
         - field_event_date
         - field_body
@@ -102,7 +101,35 @@ content:
     weight: 0
     label: hidden
     settings: {  }
-    third_party_settings: {  }
+    third_party_settings:
+      ds:
+        ft:
+          id: expert
+          settings:
+            lb: ''
+            prefix: ''
+            lbw-el: ''
+            lbw-cl: ''
+            lbw-at: ''
+            ow: true
+            ow-el: div
+            ow-cl: au-introduction
+            ow-at: ''
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fi: true
+            fi-el: p
+            fi-cl: ''
+            fi-at: ''
+            suffix: ''
+            lbw: false
+            lb-col: false
+            ow-def-at: false
+            ow-def-cl: false
+            fis: false
+            fis-def-at: false
+            fi-def-at: false
     type: text_default
     region: content
   links:
@@ -111,5 +138,6 @@ content:
     settings: {  }
     third_party_settings: {  }
 hidden:
+  content_moderation_control: true
   field_index_image: true
   field_summary: true
