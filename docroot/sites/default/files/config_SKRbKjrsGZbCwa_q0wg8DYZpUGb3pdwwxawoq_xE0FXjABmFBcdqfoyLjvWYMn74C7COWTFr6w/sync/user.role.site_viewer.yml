@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies: {  }
 id: site_viewer
-label: 'Site viewer'
+label: Reviewer
 weight: -8
 is_admin: null
 permissions:
