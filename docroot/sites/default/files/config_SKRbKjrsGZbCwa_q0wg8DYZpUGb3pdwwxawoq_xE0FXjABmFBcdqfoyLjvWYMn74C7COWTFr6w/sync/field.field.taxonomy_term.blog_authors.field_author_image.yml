@@ -47,11 +47,11 @@ settings:
   title_field: false
   title_field_required: false
   default_image:
-    uuid: 258a59e7-0957-44d1-9fab-3b51d5256239
+    uuid: 7f399789-d3e9-455e-a501-abc4194831f7
     alt: 'Digital Transformation Agency'
     title: ''
-    width: 400
-    height: 400
+    width: 100
+    height: 100
   handler: 'default:file'
   handler_settings: {  }
 field_type: image
