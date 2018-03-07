@@ -86,6 +86,7 @@ module:
   path: 0
   quickedit: 0
   rdf: 0
+  respondjs: 0
   responsive_image: 0
   s3fs: 0
   search_api: 0
