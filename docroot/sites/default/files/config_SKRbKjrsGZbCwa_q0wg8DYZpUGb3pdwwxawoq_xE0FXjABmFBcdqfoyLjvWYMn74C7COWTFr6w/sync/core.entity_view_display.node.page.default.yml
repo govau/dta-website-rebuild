@@ -13,6 +13,8 @@ dependencies:
     - field.field.node.page.field_linkedin_image
     - field.field.node.page.field_links
     - field.field.node.page.field_phase
+    - field.field.node.page.field_promote_to_get_help_advice
+    - field.field.node.page.field_promote_to_our_projects
     - field.field.node.page.field_review_date
     - field.field.node.page.field_summary
     - field.field.node.page.field_twitter_image
@@ -159,6 +161,26 @@ content:
     third_party_settings: {  }
     type: entity_reference_label
     region: ds_content
+  field_promote_to_get_help_advice:
+    weight: 115
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_promote_to_our_projects:
+    weight: 116
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
   field_review_date:
     weight: 114
     label: above

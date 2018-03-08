@@ -8,6 +8,8 @@ dependencies:
     - field.field.node.landing_page.field_index_image
     - field.field.node.landing_page.field_introduction
     - field.field.node.landing_page.field_linkedin_image
+    - field.field.node.landing_page.field_promote_to_get_help_advice
+    - field.field.node.landing_page.field_promote_to_our_projects
     - field.field.node.landing_page.field_related_content
     - field.field.node.landing_page.field_related_content_heading
     - field.field.node.landing_page.field_summary
@@ -30,6 +32,9 @@ targetEntityType: node
 bundle: landing_page
 mode: default
 content:
+  content_moderation_control:
+    weight: -20
+    region: content
   field_body:
     weight: 101
     label: above
@@ -70,6 +75,26 @@ content:
       image_link: ''
     third_party_settings: {  }
     type: image
+    region: content
+  field_promote_to_get_help_advice:
+    weight: 110
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_promote_to_our_projects:
+    weight: 111
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
     region: content
   field_related_content:
     weight: 108

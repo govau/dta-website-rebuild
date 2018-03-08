@@ -8,6 +8,8 @@ dependencies:
     - field.field.node.landing_page.field_index_image
     - field.field.node.landing_page.field_introduction
     - field.field.node.landing_page.field_linkedin_image
+    - field.field.node.landing_page.field_promote_to_get_help_advice
+    - field.field.node.landing_page.field_promote_to_our_projects
     - field.field.node.landing_page.field_related_content
     - field.field.node.landing_page.field_related_content_heading
     - field.field.node.landing_page.field_summary
@@ -82,6 +84,20 @@ content:
       imce:
         enabled: true
     type: image_image
+    region: content
+  field_promote_to_get_help_advice:
+    weight: 17
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_promote_to_our_projects:
+    weight: 18
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
     region: content
   field_related_content:
     weight: 16
