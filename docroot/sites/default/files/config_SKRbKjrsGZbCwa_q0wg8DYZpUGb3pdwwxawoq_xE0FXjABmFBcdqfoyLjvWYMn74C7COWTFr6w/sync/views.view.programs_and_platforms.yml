@@ -5,12 +5,14 @@ dependencies:
   config:
     - field.storage.node.field_index_image
     - field.storage.node.field_summary
+    - node.type.page
     - node.type.platforms_and_services
   module:
     - image
     - node
     - text
     - user
+    - views_menu_children_filter
 id: programs_and_platforms
 label: 'Programs and platforms'
 module: views
@@ -378,15 +380,47 @@ display:
           id: type
           table: node_field_data
           field: type
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: in
           value:
+            page: page
             platforms_and_services: platforms_and_services
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
           entity_type: node
           entity_field: type
           plugin_id: bundle
-        promote:
-          id: promote
-          table: node_field_data
-          field: promote
+        field_promote_to_our_projects_value:
+          id: field_promote_to_our_projects_value
+          table: node__field_promote_to_our_projects
+          field: field_promote_to_our_projects_value
           relationship: none
           group_type: group
           admin_label: ''
@@ -418,14 +452,12 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-          entity_type: node
-          entity_field: promote
           plugin_id: boolean
       sorts:
-        created:
-          id: created
-          table: node_field_data
-          field: created
+        menu_children_sort:
+          id: menu_children_sort
+          table: node
+          field: menu_children_sort
           relationship: none
           group_type: group
           admin_label: ''
@@ -433,10 +465,8 @@ display:
           exposed: false
           expose:
             label: ''
-          granularity: second
           entity_type: node
-          entity_field: created
-          plugin_id: date
+          plugin_id: menu_children
       title: 'Our projects'
       header: {  }
       footer: {  }
@@ -447,7 +477,7 @@ display:
       use_more: true
       use_more_always: true
       use_more_text: 'See more projects'
-      link_url: platforms-programs-projects
+      link_url: our-projects
       link_display: custom_url
     cache_metadata:
       max-age: -1
