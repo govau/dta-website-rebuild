@@ -139,6 +139,7 @@
         "drupal/module_filter": "^3.1",
         "drupal/node_title_help_text": "^1.0",
         "drupal/node_title_validation": "^1.1",
+        "drupal/override_node_options": "^2.3",
         "drupal/panelizer": "^4.0",
         "drupal/paragraphs": "^1.2",
         "drupal/password_policy": "^3.0",
