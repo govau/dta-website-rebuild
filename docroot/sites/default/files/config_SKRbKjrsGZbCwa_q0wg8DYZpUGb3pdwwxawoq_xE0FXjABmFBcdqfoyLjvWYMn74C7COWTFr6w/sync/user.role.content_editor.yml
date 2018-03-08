@@ -84,6 +84,7 @@ permissions:
   - 'edit terms in blog_authors'
   - 'edit terms in contacts'
   - 'edit terms in tags'
+  - 'override all promote to front page option'
   - 'post comments'
   - 'revert all revisions'
   - 'revert blog_post revisions'

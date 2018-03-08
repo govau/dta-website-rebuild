@@ -80,6 +80,7 @@ module:
   node_title_help_text: 0
   node_title_validation: 0
   options: 0
+  override_node_options: 0
   panelizer: 0
   panels: 0
   panels_ipe: 0
