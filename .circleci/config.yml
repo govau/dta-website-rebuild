@@ -7,6 +7,7 @@ jobs:
     steps:
       - run: sudo apt-get install -y libbz2-dev
       - run: sudo docker-php-ext-install bz2
+      - run: sudo docker-php-ext-install gd
       - run: sudo composer self-update
       - checkout
       # Change the ckeditor http url to https
