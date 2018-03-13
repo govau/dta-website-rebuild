@@ -17,7 +17,7 @@ use Drupal\Core\Site\Settings;
 /**
  * Defines a Network Plugin for Social Auth Google.
  *
- * @package Drupal\simple_google_connect\Plugin\Network
+ * @package Drupal\social_auth_google\Plugin\Network
  *
  * @Network(
  *   id = "social_auth_google",
@@ -66,7 +66,7 @@ class GoogleAuth extends NetworkBase implements GoogleAuthInterface {
    */
   public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition) {
     return new static(
-      $container->get('social_auth.social_auth_data_handler'),
+      $container->get('social_auth.data_handler'),
       $configuration,
       $plugin_id,
       $plugin_definition,
@@ -149,7 +149,7 @@ class GoogleAuth extends NetworkBase implements GoogleAuthInterface {
       ];
 
       // Proxy configuration data for outward proxy.
-      $proxyUrl = $this->siteSettings->get("http_client_config")["proxy"]["http"];
+      $proxyUrl = $this->siteSettings->get('http_client_config')['proxy']['http'];
       if ($proxyUrl) {
         $league_settings = [
           'proxy' => $proxyUrl,

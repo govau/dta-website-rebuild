@@ -10,10 +10,9 @@ use Drupal\social_auth_google\GoogleAuthManager;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Drupal\Core\Routing\TrustedRedirectResponse;
 use Symfony\Component\HttpFoundation\RequestStack;
-use Drupal\Core\Logger\LoggerChannelFactoryInterface;
 
 /**
- * Returns responses for Simple Google Connect module routes.
+ * Returns responses for Social Auth Google module routes.
  */
 class GoogleAuthController extends ControllerBase {
 
@@ -52,14 +51,6 @@ class GoogleAuthController extends ControllerBase {
    */
   private $dataHandler;
 
-
-  /**
-   * The logger channel.
-   *
-   * @var \Drupal\Core\Logger\LoggerChannelFactoryInterface
-   */
-  protected $loggerFactory;
-
   /**
    * GoogleAuthController constructor.
    *
@@ -71,26 +62,26 @@ class GoogleAuthController extends ControllerBase {
    *   Used to manage authentication methods.
    * @param \Symfony\Component\HttpFoundation\RequestStack $request
    *   Used to access GET parameters.
-   * @param \Drupal\social_auth\SocialAuthDataHandler $social_auth_data_handler
+   * @param \Drupal\social_auth\SocialAuthDataHandler $data_handler
    *   SocialAuthDataHandler object.
-   * @param \Drupal\Core\Logger\LoggerChannelFactoryInterface $logger_factory
-   *   Used for logging errors.
    */
-  public function __construct(NetworkManager $network_manager, SocialAuthUserManager $user_manager, GoogleAuthManager $google_manager, RequestStack $request, SocialAuthDataHandler $social_auth_data_handler, LoggerChannelFactoryInterface $logger_factory) {
+  public function __construct(NetworkManager $network_manager,
+                              SocialAuthUserManager $user_manager,
+                              GoogleAuthManager $google_manager,
+                              RequestStack $request,
+                              SocialAuthDataHandler $data_handler) {
 
     $this->networkManager = $network_manager;
     $this->userManager = $user_manager;
     $this->googleManager = $google_manager;
     $this->request = $request;
-    $this->dataHandler = $social_auth_data_handler;
-    $this->loggerFactory = $logger_factory;
+    $this->dataHandler = $data_handler;
 
     // Sets the plugin id.
     $this->userManager->setPluginId('social_auth_google');
 
     // Sets the session keys to nullify if user could not logged in.
     $this->userManager->setSessionKeysToNullify(['access_token', 'oauth2state']);
-    $this->setting = $this->config('social_auth_google.settings');
   }
 
   /**
@@ -102,8 +93,7 @@ class GoogleAuthController extends ControllerBase {
       $container->get('social_auth.user_manager'),
       $container->get('social_auth_google.manager'),
       $container->get('request_stack'),
-      $container->get('social_auth.social_auth_data_handler'),
-      $container->get('logger.factory')
+      $container->get('social_auth.data_handler')
     );
   }
 
@@ -135,7 +125,7 @@ class GoogleAuthController extends ControllerBase {
     // Generates the URL where the user will be redirected for Google login.
     // If the user did not have email permission granted on previous attempt,
     // we use the re-request URL requesting only the email address.
-    $google_login_url = $this->googleManager->getGoogleLoginUrl();
+    $google_login_url = $this->googleManager->getAuthorizationUrl();
 
     $state = $this->googleManager->getState();
 
@@ -157,7 +147,7 @@ class GoogleAuthController extends ControllerBase {
       return $this->redirect('user.login');
     }
 
-    /* @var \League\OAuth2\Client\Provider\Google false $google */
+    /* @var \League\OAuth2\Client\Provider\Google|false $google */
     $google = $this->networkManager->createInstance('social_auth_google')->getSdk();
 
     // If Google client could not be obtained.
@@ -187,22 +177,11 @@ class GoogleAuthController extends ControllerBase {
       return $this->redirect('user.login');
     }
 
-    // Store the data mapped with data points define is
-    // social_auth_google settings.
-    $data = [];
+    // Gets (or not) extra initial data.
+    $data = $this->userManager->checkIfUserExists($google_profile->getId()) ? NULL : $this->googleManager->getExtraDetails();
 
-    if (!$this->userManager->checkIfUserExists($google_profile->getId())) {
-      $api_calls = explode(PHP_EOL, $this->googleManager->getApiCalls());
-
-      // Iterate through api calls define in settings and try to retrieve them.
-      foreach ($api_calls as $api_call) {
-
-        $call = $this->googleManager->getExtraDetails($api_call);
-        array_push($data, $call);
-      }
-    }
     // If user information could be retrieved.
-    return $this->userManager->authenticateUser($google_profile->getName(), $google_profile->getEmail(), $google_profile->getId(), $this->googleManager->getAccessToken(), $google_profile->getAvatar(), json_encode($data));
+    return $this->userManager->authenticateUser($google_profile->getName(), $google_profile->getEmail(), $google_profile->getId(), $this->googleManager->getAccessToken(), $google_profile->getAvatar(), $data);
   }
 
 }
