@@ -16,6 +16,7 @@ module:
   chosen: 0
   chosen_lib: 0
   ckeditor: 0
+  ckeditor_tabletoolstoolbar: 0
   color: 0
   comment: 0
   config: 0
@@ -56,6 +57,7 @@ module:
   help: 0
   history: 0
   honeypot: 0
+  htmlawed: 0
   image: 0
   imce: 0
   inline_form_errors: 0

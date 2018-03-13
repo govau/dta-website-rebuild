@@ -1,0 +1,13 @@
+name: CKEditor Table Tools Toolbar
+description: Integrates the CKEditor "Table Tools Toolbar" plugin.
+package: CKEditor
+type: module
+# core: 8.x
+dependencies:
+- ckeditor
+
+# Information added by Drupal.org packaging script on 2017-08-28
+version: '8.x-1.0'
+core: '8.x'
+project: 'ckeditor_tabletoolstoolbar'
+datestamp: 1503931146

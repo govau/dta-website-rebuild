@@ -5,6 +5,7 @@ dependencies:
   module:
     - editor
     - entity_embed
+    - htmlawed
     - linkit
     - toc_filter
     - video_embed_wysiwyg
@@ -36,10 +37,10 @@ filters:
   filter_html:
     id: filter_html
     provider: filter
-    status: true
+    status: false
     weight: -50
     settings:
-      allowed_html: '<a href hreflang id rel title class target> <em> <strong> <cite> <blockquote cite> <code> <ul type class> <ol start type> <li class> <dl> <dt> <dd> <h2 id class> <h3 id class> <h4 id class> <h5 id class> <h6 id class> <img src alt data-entity-type data-entity-uuid> <u> <s> <sup> <sub> <table> <caption> <tbody> <thead> <tfoot> <th> <td> <tr> <p class> <div class id> <iframe> <drupal-entity data-*> <hr>'
+      allowed_html: '<a href hreflang id rel title class target> <em> <strong> <cite> <blockquote cite> <code> <ul type class> <ol start type> <li class> <dl> <dt> <dd> <h2 id class> <h3 id class> <h4 id class> <h5 id class> <h6 id class> <img src alt data-entity-type data-entity-uuid> <u> <s> <sup> <sub> <table id summary class> <caption> <tbody> <thead> <tfoot> <th class style> <td class style> <tr class> <p class> <div class id> <iframe> <drupal-entity data-*> <hr>'
       filter_html_help: true
       filter_html_nofollow: false
   filter_caption:
@@ -100,3 +101,13 @@ filters:
     status: true
     weight: -47
     settings: {  }
+  filter_htmlawed:
+    id: filter_htmlawed
+    provider: htmlawed
+    status: true
+    weight: 50
+    settings:
+      config: '''safe'' => 1, ''elements'' => ''a, em, strong, cite, blockquote, code, ul , li, dl, dt, dd, h2, h3, h4, h5, h6, img, sup, sub, table, caption, tbody, thead, tfoot, th, td, tr,p, div, iframe, drupal-entity, hr'','
+      spec: 'a=href, hreflang, id, rel, title, class, target; td, tr=class, id, style; blockquote=cite; ul=type, class; ol=type, class, start; li=class; h2=id, class; h3=id, class; h4=id, class; h5=id, class; h6=id, class; img=src, alt, data-entity-type, data-entity-uuid; table=id, summary, class; th=class, style; td=class, style; tr=class; p=class; div=id,class; drupal-entity=data-*;'
+      help: 'Allowed HTML tags: <a> <em> <strong> <cite> <blockquote> <code> <ul> <ol> <li> <dl> <dt> <dd> <h2> <h3> <h4> <h5> <h6> <img > <sup> <sub> <table> <caption> <tbody> <thead> <tfoot> <th> <td> <tr> <p> <div> <iframe> <drupal-entity> <hr>'
+      helplong: 'These HTML tags are allowed: <a> <em> <strong> <cite> <blockquote> <code> <ul> <ol> <li> <dl> <dt> <dd> <h2> <h3> <h4> <h5> <h6> <img > <sup> <sub> <table> <caption> <tbody> <thead> <tfoot> <th> <td> <tr> <p> <div> <iframe> <drupal-entity> <hr>. Javascript is not permitted.'

@@ -49,7 +49,6 @@ settings:
         -
           name: Lists
           items:
-            - Table
             - BulletedList
             - NumberedList
         -
@@ -68,6 +67,34 @@ settings:
           name: Structure
           items:
             - HorizontalRule
+      -
+        -
+          name: Tables
+          items:
+            - tableinsert
+            - tabledelete
+            - tableproperties
+            - '-'
+            - tablerowinsertbefore
+            - tablerowinsertafter
+            - tablerowdelete
+            - '-'
+            - tablecolumninsertbefore
+            - tablecolumninsertafter
+            - tablecolumndelete
+            - '-'
+            - tablecellinsertbefore
+            - tablecellinsertafter
+            - tablecelldelete
+            - '-'
+            - '-'
+            - tablecellproperties
+            - tablecellsmerge
+            - tablecellmergedown
+            - tablecellmergeright
+            - '-'
+            - tablecellsplithorizontal
+            - tablecellsplitvertical
   plugins:
     drupallink:
       linkit_enabled: true

@@ -1,0 +1,10 @@
+name: htmLawed HTML filter/purifier
+description: Use htmLawed to restrict and correct HTML for compliance with admin. policy and standards and for security
+type: module
+package: filter
+# core: 8.x
+# Information added by Drupal.org packaging script on 2017-12-07
+version: '8.x-3.3'
+core: '8.x'
+project: 'htmlawed'
+datestamp: 1512623891
