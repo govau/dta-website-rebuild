@@ -25,7 +25,7 @@ if [ -n "$CIRCLE_BRANCH" ]; then
     git diff --name-only --diff-filter=M origin/${BASE_BRANCH}... -- '*.php' | xargs -n1 php -l
 
     # If anything in core has changed, run its phpunit
-    for file in $(git diff --name-only origin/${BASE_BRANCH}...); do
+    for file in $(git diff --name-only --diff-filter=M origin/${BASE_BRANCH}...); do
       if [[ $file == docroot/core* ]]; then
         pushd docroot/core
           phpunit --testsuite=unit --exclude-group \
