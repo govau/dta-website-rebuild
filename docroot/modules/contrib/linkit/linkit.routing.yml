@@ -65,6 +65,7 @@ linkit.autocomplete:
   defaults:
     _controller: '\Drupal\linkit\Controller\AutocompleteController::autocomplete'
   requirements:
+    # Access is handled by the matchers.
     _access: 'TRUE'
   options:
     _theme: ajax_base_page

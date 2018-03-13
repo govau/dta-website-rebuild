@@ -114,11 +114,16 @@ class SearchCrudTest extends KernelTestBase {
         'search_api.server.server',
       ],
       'module' => [
+        'search_api_autocomplete',
         'search_api_autocomplete_test',
         'user',
       ],
     ];
-    $this->assertEquals($expected, $search->getDependencies());
+    $dependencies = $search->getDependencies();
+    ksort($dependencies);
+    sort($dependencies['config']);
+    sort($dependencies['module']);
+    $this->assertEquals($expected, $dependencies);
   }
 
   /**

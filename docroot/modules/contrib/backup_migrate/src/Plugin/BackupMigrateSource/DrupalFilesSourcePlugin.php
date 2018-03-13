@@ -51,6 +51,7 @@ class DrupalFilesSourcePlugin extends SourcePluginBase {
           '.htaccess',
         ];
         break;
+
       case 'private://':
         $config['exclude_filepaths'] = [
           'backup_migrate',

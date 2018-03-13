@@ -69,14 +69,14 @@ class Media extends PluginBase implements SubstitutionInterface, ContainerFactor
   public function getUrl(EntityInterface $entity) {
     $url = new GeneratedUrl();
 
-    /** @var \Drupal\media_entity\MediaBundleInterface $media_bundle */
-    $media_bundle = $this->entityTypeManager->getStorage('media_bundle')->load($entity->bundle());
+    /** @var \Drupal\media\MediaTypeInterface $media_type */
+    $media_type = $entity->get('bundle')->entity;
     // Default to the canonical URL if the bundle doesn't have a source field.
-    if (empty($media_bundle->getTypeConfiguration()['source_field'])) {
+    if (empty($media_type->getSource()->getConfiguration()['source_field'])) {
       return $entity->toUrl('canonical')->toString(TRUE);
     }
 
-    $source_field = $media_bundle->getTypeConfiguration()['source_field'];
+    $source_field = $media_type->getSource()->getConfiguration()['source_field'];
     /** @var \Drupal\file\FileInterface $file */
     $file = $entity->{$source_field}->entity;
     $url->setGeneratedUrl(file_create_url($file->getFileUri()));
@@ -94,7 +94,7 @@ class Media extends PluginBase implements SubstitutionInterface, ContainerFactor
    *   If the plugin is applicable.
    */
   public static function isApplicable(EntityTypeInterface $entity_type) {
-    return $entity_type->entityClassImplements('Drupal\media_entity\MediaInterface');
+    return $entity_type->entityClassImplements('Drupal\media\MediaInterface');
   }
 
 }

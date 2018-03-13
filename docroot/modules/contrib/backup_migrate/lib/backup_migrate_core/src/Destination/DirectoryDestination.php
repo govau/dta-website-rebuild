@@ -1,7 +1,7 @@
 <?php
 /**
  * @file
- * Contains BackupMigrate\Core\Destination\ServerDirectoryDestination
+ * Contains BackupMigrate\Core\Destination\ServerDirectoryDestination.
  */
 
 
@@ -17,7 +17,8 @@ use BackupMigrate\Core\File\BackupFileReadableInterface;
 use BackupMigrate\Core\File\ReadableStreamBackupFile;
 
 /**
- * Class ServerDirectoryDestination
+ * Class ServerDirectoryDestination.
+ *
  * @package BackupMigrate\Core\Destination
  */
 class DirectoryDestination extends DestinationBase implements ListableDestinationInterface, ReadableDestinationInterface, ConfigurableInterface, FileProcessorInterface {
@@ -42,10 +43,11 @@ class DirectoryDestination extends DestinationBase implements ListableDestinatio
    * Get a definition for user-configurable settings.
    *
    * @param array $params
+   *
    * @return array
    */
-  public function configSchema($params = array()) {
-    $schema = array();
+  public function configSchema($params = []) {
+    $schema = [];
 
     // Init settings.
     if ($params['operation'] == 'initialize') {
@@ -62,7 +64,9 @@ class DirectoryDestination extends DestinationBase implements ListableDestinatio
   /**
    * Do the actual file save. This function is called to save the data file AND
    * the metadata sidecar file.
+   *
    * @param \BackupMigrate\Core\File\BackupFileReadableInterface $file
+   *
    * @throws \BackupMigrate\Core\Exception\BackupMigrateException
    */
   function _saveFile(BackupFileReadableInterface $file) {
@@ -89,7 +93,7 @@ class DirectoryDestination extends DestinationBase implements ListableDestinatio
       );
     }
 
-    // Check if the directory is writable
+    // Check if the directory is writable.
     if (!is_writable($this->confGet('directory'))) {
       throw new DestinationNotWritableException(
         "The backup file could not be saved to '%dir' because Backup and Migrate does not have write access to that directory.",
@@ -132,9 +136,9 @@ class DirectoryDestination extends DestinationBase implements ListableDestinatio
    */
   public function listFiles() {
     $dir = $this->confGet('directory');
-    $out = array();
+    $out = [];
 
-    // Get the entire list of filenames
+    // Get the entire list of filenames.
     $files = $this->_getAllFileNames();
 
     foreach ($files as $file) {
@@ -167,10 +171,10 @@ class DirectoryDestination extends DestinationBase implements ListableDestinatio
       $out = array_filter($out, function($file) use ($filters) {
         foreach ($filters as $key => $value) {
           if ($file->getMeta($key) !== $value) {
-            return false;
+            return FALSE;
           }
         }
-        return true;
+        return TRUE;
       });
     }
 
@@ -220,12 +224,14 @@ class DirectoryDestination extends DestinationBase implements ListableDestinatio
         return unlink($file->realpath());
       }
     }
-    return false;
+    return FALSE;
   }
 
   /**
    * Return a file path for the given file id.
+   *
    * @param $id
+   *
    * @return string
    */
   protected function _idToPath($id) {
@@ -238,14 +244,14 @@ class DirectoryDestination extends DestinationBase implements ListableDestinatio
    * @return array
    */
   protected function _getAllFileNames() {
-    $files = array();
+    $files = [];
 
     // Read the list of files from the directory.
     $dir = $this->confGet('directory');
     if ($handle = opendir($dir)) {
       while (FALSE !== ($file = readdir($handle))) {
         $filepath = $dir . '/' . $file;
-        // Don't show hidden, unreadable or metadata files
+        // Don't show hidden, unreadable or metadata files.
         if (substr($file, 0, 1) !== '.' && is_readable($filepath) && substr($file, strlen($file) - 5) !== '.info') {
           $files[] = $file;
         }

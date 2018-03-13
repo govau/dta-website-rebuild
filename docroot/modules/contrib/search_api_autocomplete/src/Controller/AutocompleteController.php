@@ -5,12 +5,14 @@ namespace Drupal\search_api_autocomplete\Controller;
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\DependencyInjection\ContainerInjectionInterface;
 use Drupal\Core\Render\RendererInterface;
+use Drupal\search_api\SearchApiException;
 use Drupal\search_api_autocomplete\SearchApiAutocompleteException;
 use Drupal\search_api_autocomplete\SearchInterface;
 use Drupal\search_api_autocomplete\Utility\AutocompleteHelperInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
+use Drupal\Component\Transliteration\TransliterationInterface;
 
 /**
  * Provides a controller for autocompletion.
@@ -32,16 +34,26 @@ class AutocompleteController extends ControllerBase implements ContainerInjectio
   protected $renderer;
 
   /**
+   * The transliterator.
+   *
+   * @var \Drupal\Component\Transliteration\TransliterationInterface
+   */
+  protected $transliterator;
+
+  /**
    * Creates a new AutocompleteController instance.
    *
    * @param \Drupal\search_api_autocomplete\Utility\AutocompleteHelperInterface $autocomplete_helper
    *   The autocomplete helper service.
    * @param \Drupal\Core\Render\RendererInterface $renderer
    *   The renderer.
+   * @param \Drupal\Component\Transliteration\TransliterationInterface $transliterator
+   *   The transliterator.
    */
-  public function __construct(AutocompleteHelperInterface $autocomplete_helper, RendererInterface $renderer) {
+  public function __construct(AutocompleteHelperInterface $autocomplete_helper, RendererInterface $renderer, TransliterationInterface $transliterator) {
     $this->autocompleteHelper = $autocomplete_helper;
     $this->renderer = $renderer;
+    $this->transliterator = $transliterator;
   }
 
   /**
@@ -50,7 +62,8 @@ class AutocompleteController extends ControllerBase implements ContainerInjectio
   public static function create(ContainerInterface $container) {
     return new static(
       $container->get('search_api_autocomplete.helper'),
-      $container->get('renderer')
+      $container->get('renderer'),
+      $container->get('transliteration')
     );
   }
 
@@ -75,6 +88,12 @@ class AutocompleteController extends ControllerBase implements ContainerInjectio
 
     try {
       $keys = $request->query->get('q');
+      // If the "Transliteration" processor is enabled for the search index, we
+      // also need to transliterate the user input for autocompletion.
+      if ($search->getIndex()->isValidProcessor('transliteration')) {
+        $langcode = $this->languageManager()->getCurrentLanguage()->getId();
+        $keys = $this->transliterator->transliterate($keys, $langcode);
+      }
       $split_keys = $this->autocompleteHelper->splitKeys($keys);
       list($complete, $incomplete) = $split_keys;
       $data = $request->query->all();
@@ -161,14 +180,23 @@ class AutocompleteController extends ControllerBase implements ContainerInjectio
             $value = trim($suggestion->getSuggestedKeys());
           }
 
-          $matches[] = [
-            'value' => $value,
-            'label' => $this->renderer->render($build),
-          ];
+          try {
+            $matches[] = [
+              'value' => $value,
+              'label' => $this->renderer->render($build),
+            ];
+          }
+          catch (\Exception $e) {
+            watchdog_exception('search_api_autocomplete', $e, '%type while rendering an autocomplete suggestion: !message in %function (line %line of %file).');
+          }
         }
       }
     }
+    // @todo Use a multi-catch once we can depend on PHP 7.1+.
     catch (SearchApiAutocompleteException $e) {
+      watchdog_exception('search_api_autocomplete', $e, '%type while retrieving autocomplete suggestions: !message in %function (line %line of %file).');
+    }
+    catch (SearchApiException $e) {
       watchdog_exception('search_api_autocomplete', $e, '%type while retrieving autocomplete suggestions: !message in %function (line %line of %file).');
     }
 

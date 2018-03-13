@@ -178,17 +178,17 @@ class LinkitDialogTest extends JavascriptTestBase {
     $href_field->keyDown('f');
 
     // Wait for the results to load.
-    $this->getSession()->wait(5000, "jQuery('.linkit-result.ui-menu-item').length > 0");
+    $this->getSession()->wait(5000, "jQuery('.linkit-result-line.ui-menu-item').length > 0");
 
     // Make sure the autocomplete result container is visible.
     $this->assertTrue($autocomplete_container->isVisible());
 
     // Find all the autocomplete results.
-    $results = $page->findAll('css', '.linkit-result.ui-menu-item');
+    $results = $page->findAll('css', '.linkit-result-line.ui-menu-item');
     $this->assertEquals(1, count($results), 'Found autocomplete result');
 
     // Find the first result and click it.
-    $page->find('xpath', '(//li[contains(@class, "linkit-result") and contains(@class, "ui-menu-item")])[1]')->click();
+    $page->find('xpath', '//li[contains(@class, "linkit-result-line") and contains(@class, "ui-menu-item")][1]')->click();
 
     // Make sure the linkit field field is populated with the node url.
     $this->assertEquals($entity->toUrl()->toString(), $href_field->getValue(), 'The href field is populated with the node url.');
@@ -200,7 +200,7 @@ class LinkitDialogTest extends JavascriptTestBase {
     $this->assertEqualsWithJs('href_dirty_check', $entity->toUrl()->toString());
 
     // Save the dialog input.
-    $page->find('css', '.editor-link-dialog')->find('css', '.button.form-submit span')->click();
+    $this->click('.editor-link-dialog button:contains("Save")');
 
     // Wait for the dialog to close.
     $web_assert->assertWaitOnAjaxRequest();
@@ -247,7 +247,7 @@ JS;
     $href_field->setValue('http://example.com');
 
     // Save the dialog input.
-    $page->find('css', '.editor-link-dialog')->find('css', '.button.form-submit span')->click();
+    $this->click('.editor-link-dialog button:contains("Save")');
 
     // Wait for the dialog to close.
     $web_assert->assertWaitOnAjaxRequest();

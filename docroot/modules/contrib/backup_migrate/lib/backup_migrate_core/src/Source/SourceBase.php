@@ -12,11 +12,11 @@ use BackupMigrate\Core\Plugin\FileProcessorTrait;
 use BackupMigrate\Core\Plugin\PluginBase;
 
 /**
- * Class SourceBase
+ * Class SourceBase.
+ *
  * @package BackupMigrate\Core\Source
  */
-abstract class SourceBase extends PluginBase implements SourceInterface, FileProcessorInterface
-{
+abstract class SourceBase extends PluginBase implements SourceInterface, FileProcessorInterface {
   use FileProcessorTrait;
 
   /**

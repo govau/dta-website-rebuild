@@ -48,11 +48,11 @@ class DestinationListBuilder extends ConfigEntityListBuilder {
   public function getDefaultOperations(EntityInterface $entity) {
     $operations = parent::getDefaultOperations($entity);
     if ($entity->access('backups') && $entity->hasLinkTemplate('backups')) {
-      $operations['backups'] = array(
+      $operations['backups'] = [
         'title' => $this->t('List Backups'),
         'weight' => 100,
         'url' => $entity->toUrl('backups'),
-      );
+      ];
     }
 
     return $operations;

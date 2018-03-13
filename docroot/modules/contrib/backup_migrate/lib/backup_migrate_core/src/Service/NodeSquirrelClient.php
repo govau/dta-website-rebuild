@@ -1,12 +1,17 @@
 <?php
 
+/**
+ * @file
+ */
+
 namespace BackupMigrate\Core\Service;
 
 use BackupMigrate\Core\Exception\BackupMigrateException;
 use BackupMigrate\Core\File\BackupFileReadableInterface;
 
 /**
- * Class NodeSquirrelClient
+ * Class NodeSquirrelClient.
+ *
  * @package BackupMigrate\Core\Service
  */
 class NodeSquirrelClient {
@@ -18,7 +23,7 @@ class NodeSquirrelClient {
   /**
    * @var HttpClientInterface
    */
-  protected $http_client = null;
+  protected $http_client = NULL;
 
   /**
    * @var string[]
@@ -37,7 +42,7 @@ class NodeSquirrelClient {
    * @param array $api_endpoints
    */
   public function __construct(
-    $secret_key = null,
+    $secret_key = NULL,
     $api_endpoints = ['api.nodesquirrel.com']
   ) {
     $this->secret_key = $secret_key;
@@ -45,19 +50,21 @@ class NodeSquirrelClient {
   }
 
   /**
-   * Get the list of backups from the API
+   * Get the list of backups from the API.
    *
    * @return \array[] An array of assocative arrays of the file info
    */
   public function listFiles() {
-    return $this->call('backups.listFiles', array($this->getSiteID()));
+    return $this->call('backups.listFiles', [$this->getSiteID()]);
   }
 
   /**
    * Send a readable backup file to NodeSquirrel if the site limits allow it.
    *
    * @param \BackupMigrate\Core\File\BackupFileReadableInterface $file
+   *
    * @return \BackupMigrate\Core\File\BackupFileReadableInterface
+   *
    * @throws \BackupMigrate\Core\Exception\BackupMigrateException
    */
   public function uploadFile(BackupFileReadableInterface $file) {
@@ -65,53 +72,59 @@ class NodeSquirrelClient {
     $filename = $file->getFullName();
     $filesize = $file->getMeta('filesize');
 
-    // Get an upload ticket
+    // Get an upload ticket.
     try {
-      $ticket = $this->call('backups.getUploadTicket', array($site_id, $filename, $filesize, $file->getMetaAll()));
-    } catch (BackupMigrateException $e) {
+      $ticket = $this->call('backups.getUploadTicket', [$site_id, $filename, $filesize, $file->getMetaAll()]);
+    }
+    catch (BackupMigrateException $e) {
       throw new BackupMigrateException(
         'Could not initiate an upload to NodeSquirrel. Error: %err (code: %code)',
-        array('%err' => $e->getMessage(), '%code' => $e->getCode())
+        ['%err' => $e->getMessage(), '%code' => $e->getCode()]
       );
     }
 
-    // Post the file
+    // Post the file.
     try {
       $this->getHttpClient()->postFile($ticket['url'], $file, $ticket['params']);
-    } catch (BackupMigrateException $e) {
+    }
+    catch (BackupMigrateException $e) {
       throw new BackupMigrateException(
         'Could not upload to NodeSquirrel: %err (code: %code)',
-        array('%err' => $e->getMessage(), '%code' => $e->getCode())
+        ['%err' => $e->getMessage(), '%code' => $e->getCode()]
       );
     }
 
     // Confirm the upload.
     try {
       $this->call('backups.confirmUpload', [$site_id, $filename, $filesize]);
-    } catch (BackupMigrateException $e) {
+    }
+    catch (BackupMigrateException $e) {
       throw new BackupMigrateException(
         'Could not confirm the upload to NodeSquirrel: %err (code: %code)',
-        array('%err' => $e->getMessage(), '%code' => $e->getCode())
+        ['%err' => $e->getMessage(), '%code' => $e->getCode()]
       );
     }
   }
 
   /**
-   * Send a delete call to the API
+   * Send a delete call to the API.
    *
    * @param $id
+   *
    * @return mixed
    */
   public function deleteFile($id) {
-    return $this->call('backups.deleteFile', array($this->getSiteID(), $id));
+    return $this->call('backups.deleteFile', [$this->getSiteID(), $id]);
   }
 
   /**
-   * Call a method on the API
+   * Call a method on the API.
    *
    * @param string $method
    * @param array $args
+   *
    * @return mixed
+   *
    * @throws \BackupMigrate\Core\Exception\BackupMigrateException
    */
   public function call($method, $args) {
@@ -131,7 +144,9 @@ class NodeSquirrelClient {
    * @param $args
    * @param $endpoints
    * @param int $retry
+   *
    * @return mixed
+   *
    * @throws \BackupMigrate\Core\Exception\BackupMigrateException
    */
   protected function xmlrpcCall($method, $args, $endpoints, $retry = 3) {
@@ -140,12 +155,12 @@ class NodeSquirrelClient {
 
       // Try each available server in order.
       while ($endpoint) {
-        // Add the protocol to the url
+        // Add the protocol to the url.
         if (strpos($endpoint, 'http') !== 0) {
           $endpoint = 'https://' . $endpoint;
         }
 
-        // Do the actual call
+        // Do the actual call.
         try {
           // Encode the request.
           $post = xmlrpc_encode_request($method, $args);
@@ -170,28 +185,31 @@ class NodeSquirrelClient {
               // Some sort of server error. Try the next one.
               $endpoint = next($endpoints);
 
-              // If we're at the end of the line then try refetching the urls
+              // If we're at the end of the line then try refetching the urls.
               if (!$endpoint) {
                 $endpoints = $this->fetchEndpoints(TRUE, $retry);
                 return $this->xmlrpcCall($method, $args, $endpoints, $retry);
               }
               break;
+
             case '300':
               // 'Multiple Choices' means that the existing server list needs to be refreshed.
               $servers = $this->fetchEndpoints(TRUE, $retry);
               return $this->xmlrpcCall($method, $args, $servers, $retry);
-              break;
+
+            break;
             case '401':
             case '403':
               // Authentication failed.
               throw new BackupMigrateException('Couldn\'t log in to NodeSquirrel. The server error was: %err',
-                array('%err' => $e->getMessage()));
-              break;
+                ['%err' => $e->getMessage()]);
+
+            break;
             default:
               // Some sort of client error. Don't try the next server because it'll probably say the same thing.
               throw new BackupMigrateException('The NodeSquirrel server returned the following error: %err',
-                array('%err' => $e->getMessage()));
-              break;
+                ['%err' => $e->getMessage()]);
+            break;
           }
         }
       }
@@ -206,12 +224,14 @@ class NodeSquirrelClient {
   }
 
   /**
-   * Do the actual XMLRPC call
+   * Do the actual XMLRPC call.
    *
    * @param $endpoint
    * @param $method
    * @param $args
+   *
    * @return array
+   *
    * @throws \BackupMigrate\Core\Exception\BackupMigrateException
    */
   protected function doXmlrpcCall($endpoint, $method, $args) {
@@ -232,6 +252,7 @@ class NodeSquirrelClient {
    * Sign a set of method arguments with our secret key.
    *
    * @param $args
+   *
    * @return bool
    */
   protected function signRequest($args) {
@@ -253,7 +274,9 @@ class NodeSquirrelClient {
    *
    * @param $time
    * @param $nonce
+   *
    * @return string
+   *
    * @throws \BackupMigrate\Core\Exception\BackupMigrateException
    */
   protected function getHash($time, $nonce) {
@@ -272,11 +295,12 @@ class NodeSquirrelClient {
       return $hash;
     }
     throw new BackupMigrateException('You must enter a valid secret key to use NodeSquirrel.',
-      array());
+      []);
   }
 
   /**
    * Get the variable inputs to the hash function. This let's us stub this with known values during testing.
+   *
    * @return array
    */
   protected function getCryptoValues() {
@@ -292,7 +316,8 @@ class NodeSquirrelClient {
   /**
    * Can be used to fix the random/timebased signing values.
    *
-   * Should only be used for testing purposes
+   * Should only be used for testing purposes.
+   *
    * @param $values
    */
   public function setCryptoValues($values) {
@@ -327,7 +352,7 @@ class NodeSquirrelClient {
 
 
   /**
-   * Get a list of API endpoint urls (without the protocol)
+   * Get a list of API endpoint urls (without the protocol).
    *
    * @return mixed
    */
@@ -345,7 +370,7 @@ class NodeSquirrelClient {
   }
 
   /**
-   * Get the site id from the secret key
+   * Get the site id from the secret key.
    *
    * @return mixed
    */
@@ -355,12 +380,13 @@ class NodeSquirrelClient {
   }
 
   /**
-   * Get the site id from the secret key
+   * Get the site id from the secret key.
    *
    * @return mixed
    */
   protected function getPrivateKey() {
-    list(,$key) = explode(':', $this->getSecretKey());
+    list(, $key) = explode(':', $this->getSecretKey());
     return $key;
   }
+
 }

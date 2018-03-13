@@ -1,7 +1,7 @@
 <?php
 /**
  * @file
- * Contains ${NAMESPACE}\BackupMirgateException
+ * Contains ${NAMESPACE}\BackupMirgateException.
  */
 
 namespace BackupMigrate\Core\Exception;
@@ -9,11 +9,12 @@ namespace BackupMigrate\Core\Exception;
 use Exception;
 
 /**
- * Class BackupMigrateException
+ * Class BackupMigrateException.
+ *
  * @package BackupMigrate\Core\Exception
  */
 class BackupMigrateException extends Exception {
-  protected $replacement = array();
+  protected $replacement = [];
   protected $message_raw = 'Unknown exception';
 
   /**
@@ -24,8 +25,7 @@ class BackupMigrateException extends Exception {
    * @param array $replacement [optional] Untranslatable values to replace into the string.
    * @param int $code [optional] The Exception code.
    */
-  public function __construct($message = null, $replacement = array(), $code = 0)
-  {
+  public function __construct($message = NULL, $replacement = [], $code = 0) {
     $this->replacement = $replacement;
     $this->message_raw = $message;
 

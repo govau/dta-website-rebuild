@@ -113,7 +113,6 @@ class IndexOverviewForm extends FormBase {
     foreach ($this->loadAutocompleteSearchByIndex($index_id) as $search) {
       $searches_by_plugin[$search->getSearchPluginId()] = $search;
     }
-    $any_suggester = FALSE;
     $used_ids = [];
 
     $plugins = $this->pluginHelper->createSearchPluginsForIndex($index_id);
@@ -136,20 +135,13 @@ class IndexOverviewForm extends FormBase {
         $form[$group_label]['searches']['#js_select'] = TRUE;
       }
 
-      $suggesters_available = TRUE;
       if (isset($searches_by_plugin[$plugin_id])) {
         $search = $searches_by_plugin[$plugin_id];
       }
       else {
         $search = $this->createSearchForPlugin($plugin, $used_ids);
         $used_ids[$search->id()] = TRUE;
-        // Determine whether there were any suggesters available for that
-        // search.
-        $suggesters_available = (bool) $search->getSuggesterIds();
       }
-      // Update whether we encountered any search at all which had a suggester
-      // available.
-      $any_suggester |= $suggesters_available;
 
       $id = $search->id();
       $form_state->set(['searches', $id], $search);
@@ -158,12 +150,6 @@ class IndexOverviewForm extends FormBase {
         '#default_value' => $search->status(),
         '#parents' => ['searches', $id],
       ];
-      if (!$search->status() && !$suggesters_available) {
-        $form[$group_label]['searches'][$id]['#disabled'] = TRUE;
-        $form[$group_label]['searches'][$id]['#attributes'] = [
-          'title' => $this->t('Cannot be enabled because no suggester plugins are available that support this search.'),
-        ];
-      }
 
       $options = &$form[$group_label]['searches']['#options'][$id];
       $options['label'] = $search->label();
@@ -199,14 +185,6 @@ class IndexOverviewForm extends FormBase {
       $form['message']['#markup'] = '<p>' . $this->t('There are currently no searches known for this index.') . '</p>';
     }
     else {
-      if (!$any_suggester) {
-        $args = [
-          '@feature' => 'search_api_autocomplete',
-          ':backends_url' => 'https://www.drupal.org/docs/8/modules/search-api/getting-started/server-backends-and-features#backends',
-        ];
-        drupal_set_message($this->t('There are currently no suggester plugins installed that support this index. To solve this problem, you can either:<ul><li>move the index to a server which supports the "@feature" feature (see the <a href=":backends_url">available backends</a>);</li><li>or install a module providing a new suggester plugin that supports this index.</li></ul>', $args), 'error');
-      }
-
       $form['submit'] = [
         '#type' => 'submit',
         '#value' => $this->t('Save'),

@@ -2,7 +2,11 @@
 
 namespace Drupal\environment_indicator;
 
+use Drupal\Core\StringTranslation\StringTranslationTrait;
+
 class EnvironmentIndicatorPermissions {
+
+  use StringTranslationTrait;
 
   /**
    * Returns the dynamic permissions array.
@@ -17,8 +21,8 @@ class EnvironmentIndicatorPermissions {
     $environments = [];
     foreach ($environments as $machine => $environment) {
       $permissions['access environment indicator ' . $environment->machine] = [
-        'title' => t('See environment indicator for %name', ['%name' => $environment->name]),
-        'description' => t('See the environment indicator if the user is in the %name environment.', ['%name' => $environment->name]),
+        'title' => $this->t('See environment indicator for %name', ['%name' => $environment->name]),
+        'description' => $this->t('See the environment indicator if the user is in the %name environment.', ['%name' => $environment->name]),
       ];
     }
     return $permissions;

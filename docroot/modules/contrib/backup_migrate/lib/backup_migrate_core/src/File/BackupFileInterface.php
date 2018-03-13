@@ -10,20 +10,21 @@ namespace BackupMigrate\Core\File;
 /**
  * Provides a metadata-only file object. If the file needs to be readable or
  * writable use \BackupMigrate\Core\File\BackupFileReadableInterface or
- * \BackupMigrate\Core\File\BackupFileWritableInterface
+ * \BackupMigrate\Core\File\BackupFileWritableInterface.
  */
 interface BackupFileInterface {
 
   /**
-   * Get a metadata value
+   * Get a metadata value.
    *
    * @param string $key The key for the metadata item.
+   *
    * @return mixed The value of the metadata for this file.
    */
   public function getMeta($key);
 
   /**
-   * Set a metadata value
+   * Set a metadata value.
    *
    * @param string $key The key for the metadata item.
    * @param mixed $value The value for the metadata item.
@@ -31,7 +32,7 @@ interface BackupFileInterface {
   public function setMeta($key, $value);
 
   /**
-   * Set a metadata value
+   * Set a metadata value.
    *
    * @param array $values An array of key-value pairs for the file metadata.
    */
@@ -39,7 +40,7 @@ interface BackupFileInterface {
 
 
   /**
-   * Get all meta data as an array
+   * Get all meta data as an array.
    *
    * @return array $values An array of key-value pairs for the file metadata.
    */
@@ -86,7 +87,7 @@ interface BackupFileInterface {
   public function getExtList();
 
   /**
-   * Get the last file extension
+   * Get the last file extension.
    *
    * For example: testfile.txt.gz would return: 'gz'
    *
@@ -95,9 +96,10 @@ interface BackupFileInterface {
   public function getExtLast();
 
   /**
-   * Get the full file extension
+   * Get the full file extension.
    *
    * For example: testfile.txt.gz would return: 'txt.gz'
+   *
    * @return mixed
    */
   public function getExt();

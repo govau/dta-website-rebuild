@@ -38,7 +38,7 @@ class FileMatcherTest extends LinkitKernelTestBase {
 
     $this->manager = $this->container->get('plugin.manager.linkit.matcher');
 
-    // Linkit doesn't case about the actual resource, only the entity.
+    // Linkit doesn't care about the actual resource, only the entity.
     foreach (['gif', 'jpg', 'png'] as $ext) {
       $file = File::create([
         'uid' => 1,
@@ -49,6 +49,9 @@ class FileMatcherTest extends LinkitKernelTestBase {
       ]);
       $file->save();
     }
+
+    // Create user 1 who has special permissions.
+    \Drupal::currentUser()->setAccount($this->createUser(['uid' => 1]));
   }
 
   /**

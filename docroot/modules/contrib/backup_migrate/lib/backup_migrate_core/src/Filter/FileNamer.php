@@ -1,7 +1,7 @@
 <?php
 /**
  * @file
- * Contains BackupMigrate\Core\Filter\FileNamer
+ * Contains BackupMigrate\Core\Filter\FileNamer.
  */
 
 
@@ -17,7 +17,8 @@ use BackupMigrate\Core\File\BackupFileReadableInterface;
 use BackupMigrate\Core\Translation\TranslatableTrait;
 
 /**
- * Class FileNamer
+ * Class FileNamer.
+ *
  * @package BackupMigrate\Core\Filter
  */
 class FileNamer extends PluginBase implements FileProcessorInterface {
@@ -26,8 +27,8 @@ class FileNamer extends PluginBase implements FileProcessorInterface {
   /**
    * {@inheritdoc}
    */
-  public function configSchema($params = array()) {
-    $schema = array();
+  public function configSchema($params = []) {
+    $schema = [];
     if (\Drupal::moduleHandler()->moduleExists('token')) {
       $must_match = '/^[\w\-_:\[\]]+$/';
       $must_match_err = $this->t('%title must contain only letters, numbers, dashes (-) and underscores (_). And Site Tokens.');
@@ -36,7 +37,7 @@ class FileNamer extends PluginBase implements FileProcessorInterface {
       $must_match = '/^[\w\-_:]+$/';
       $must_match_err = $this->t('%title must contain only letters, numbers, dashes (-) and underscores (_).');
     }
-    // Backup configuration
+    // Backup configuration.
     if ($params['operation'] == 'backup') {
       $schema['groups']['file'] = [
         'title' => 'Backup File',
@@ -95,9 +96,10 @@ class FileNamer extends PluginBase implements FileProcessorInterface {
   }
 
   /**
-   * Run on a backup. Name the backup file according to the configuration
+   * Run on a backup. Name the backup file according to the configuration.
    *
    * @param \BackupMigrate\Core\File\BackupFileReadableInterface $file
+   *
    * @return \BackupMigrate\Core\File\BackupFileReadableInterface
    */
   public function afterBackup(BackupFileReadableInterface $file) {

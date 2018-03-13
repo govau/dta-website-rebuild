@@ -1,7 +1,7 @@
 <?php
 /**
  * @file
- * Contains BackupMigrate\Core\Filter\FileExcludeFilter
+ * Contains BackupMigrate\Core\Filter\FileExcludeFilter.
  */
 
 
@@ -12,7 +12,8 @@ use BackupMigrate\Core\Config\Config;
 use BackupMigrate\Core\Plugin\PluginBase;
 
 /**
- * Class FileExcludeFilter
+ * Class FileExcludeFilter.
+ *
  * @package BackupMigrate\Core\Filter
  */
 class FileExcludeFilter extends PluginBase {
@@ -28,6 +29,7 @@ class FileExcludeFilter extends PluginBase {
    *
    * @param array $table
    * @param array $params
+   *
    * @return array $table
    */
   public function beforeFileBackup($path, $params = []) {
@@ -37,7 +39,7 @@ class FileExcludeFilter extends PluginBase {
       $exclude = $this->compileExcludePatterns($exclude);
 
       if ($this->matchPath($path, $exclude, $params['base_path'])) {
-        return null;
+        return NULL;
       }
     }
     return $path;
@@ -60,17 +62,17 @@ class FileExcludeFilter extends PluginBase {
    *
    * @param array $exclude
    *    A list of patterns with glob wildcards
+   *
    * @return array
    *    A list of patterns as regular expressions
-   *
    */
   private function compileExcludePatterns($exclude) {
-    if ($this->patterns !== null) {
+    if ($this->patterns !== NULL) {
       return $this->patterns;
     }
     foreach ($exclude as $pattern) {
       // Convert Glob wildcards to a regex per http://php.net/manual/en/function.fnmatch.php#71725
-      $this->patterns[] = "#^". strtr(preg_quote($pattern, '#'), array('\*' => '.*', '\?' => '.', '\[' => '[', '\]' => ']'))."$#i";
+      $this->patterns[] = "#^" . strtr(preg_quote($pattern, '#'), ['\*' => '.*', '\?' => '.', '\[' => '[', '\]' => ']']) . "$#i";
     }
     return $this->patterns;
   }
@@ -83,6 +85,7 @@ class FileExcludeFilter extends PluginBase {
    * @param array $exclude
    *    An array of regular expressions to match against.
    * @param string $base_path
+   *
    * @return bool
    */
   private function matchPath($path, $exclude, $base_path = '') {
@@ -91,21 +94,22 @@ class FileExcludeFilter extends PluginBase {
     if ($exclude) {
       foreach ($exclude as $pattern) {
         if (preg_match($pattern, $path)) {
-          return true;
+          return TRUE;
         }
       }
     }
-    return false;
+    return FALSE;
   }
 
   /**
    * Get a definition for user-configurable settings.
    *
    * @param array $params
+   *
    * @return array
    */
-  public function configSchema($params = array()) {
-    $schema = array();
+  public function configSchema($params = []) {
+    $schema = [];
 
     $source = $this->confGet('source');
 
@@ -119,7 +123,7 @@ class FileExcludeFilter extends PluginBase {
         $schema['fields']['exclude_filepaths'] = [
           'type' => 'text',
           'title' => $this->t('Exclude these files'),
-          'multiple' => true,
+          'multiple' => TRUE,
           'group' => 'default'
         ];
       }

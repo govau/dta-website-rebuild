@@ -15,8 +15,7 @@ use BackupMigrate\Core\Plugin\PluginCallerInterface;
 /**
  * The core Backup and Migrate service.
  */
-interface BackupMigrateInterface extends PluginCallerInterface
-{
+interface BackupMigrateInterface extends PluginCallerInterface {
 
   /**
    * Backup and Migrate constructor.
@@ -28,6 +27,7 @@ interface BackupMigrateInterface extends PluginCallerInterface
    *
    * @param string $source_id The id of the source to backup
    * @param string $destination_id The id of the destination to save the backup to.
+   *
    * @return
    */
   public function backup($source_id, $destination_id);
@@ -83,4 +83,5 @@ interface BackupMigrateInterface extends PluginCallerInterface
    * @param ServiceManager $services
    */
   public function setServiceManager($services);
+
 }

@@ -1,7 +1,7 @@
 <?php
 /**
  * @file
- * Contains BackupMigrate\Core\Exception\DestinationNotWritableException
+ * Contains BackupMigrate\Core\Exception\DestinationNotWritableException.
  */
 
 
@@ -9,7 +9,8 @@ namespace BackupMigrate\Core\Exception;
 
 
 /**
- * Class DestinationNotWritableException
+ * Class DestinationNotWritableException.
+ *
  * @package BackupMigrate\Core\Exception
  *
  * Thrown if a destination cannot be written to for any reason. May be recoverable

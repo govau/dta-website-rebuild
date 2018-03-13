@@ -1,20 +1,18 @@
 <?php
-/**
- * @file
- */
 
 namespace BackupMigrate\Core\Config;
 
 use BackupMigrate\Core\Config\ConfigInterface;
 
-
 /**
- * Class ConfigurableTrait
+ * Class ConfigurableTrait.
+ *
  * @package BackupMigrate\Core\Config
  *
  * A configurable object. Manages injection and access to a config object.
  */
 interface ConfigurableInterface {
+
   /**
    * Set the configuration for all plugins.
    *
@@ -25,6 +23,7 @@ interface ConfigurableInterface {
 
   /**
    * Get the configuration object for this item.
+   *
    * @return ConfigInterface
    */
   public function config();
@@ -33,6 +32,7 @@ interface ConfigurableInterface {
    * Get a specific value from the configuration.
    *
    * @param string $key The configuration object key to retrieve.
+   *
    * @return mixed The configuration value.
    */
   public function confGet($key);
@@ -41,6 +41,7 @@ interface ConfigurableInterface {
    * Get the configuration defaults for this item.
    *
    * @return mixed
+   *
    * @internal param $key
    */
   public function configDefaults();
@@ -54,16 +55,18 @@ interface ConfigurableInterface {
    *      - 'backup': Configuration needed during a backup operation
    *      - 'restore': Configuration needed during a restore
    *      - 'initialize': Core configuration always needed by this item
+   *
    * @return array
    */
-  public function configSchema($params = array());
+  public function configSchema($params = []);
 
   /**
    * Get any validation errors in the config.
    *
    * @param array $params
+   *
    * @return array
    */
-  public function configErrors($params = array());
+  public function configErrors($params = []);
 
 }

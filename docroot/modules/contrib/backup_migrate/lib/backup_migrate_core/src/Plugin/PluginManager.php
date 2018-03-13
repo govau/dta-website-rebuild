@@ -1,7 +1,7 @@
 <?php
 /**
  * @file
- * Contains BackupMigrate\Core\Plugin\PluginManager
+ * Contains BackupMigrate\Core\Plugin\PluginManager.
  */
 
 
@@ -15,7 +15,8 @@ use BackupMigrate\Core\Service\ServiceManager;
 use BackupMigrate\Core\Service\ServiceManagerInterface;
 
 /**
- * Class PluginManager
+ * Class PluginManager.
+ *
  * @package BackupMigrate\Core\Plugin
  */
 class PluginManager implements PluginManagerInterface, ConfigurableInterface {
@@ -48,7 +49,7 @@ class PluginManager implements PluginManagerInterface, ConfigurableInterface {
     $this->setConfig($config ? $config : new Config());
 
     // Create an array to store the plugins themselves.
-    $this->items = array();
+    $this->items = [];
   }
 
 
@@ -86,18 +87,19 @@ class PluginManager implements PluginManagerInterface, ConfigurableInterface {
    * {@inheritdoc}
    */
   public function getAll() {
-    return empty($this->items) ? array() : $this->items;
+    return empty($this->items) ? [] : $this->items;
   }
 
   /**
    * Get all plugins that implement the given operation.
    *
    * @param string $op The name of the operation.
+   *
    * @return \BackupMigrate\Core\Plugin\PluginInterface[]
    */
   public function getAllByOp($op) {
-    $out = array();
-    $weights = array();
+    $out = [];
+    $weights = [];
 
     foreach ($this->getAll() as $key => $plugin) {
       if ($plugin->supportsOp($op)) {
@@ -112,7 +114,7 @@ class PluginManager implements PluginManagerInterface, ConfigurableInterface {
   /**
    * {@inheritdoc}
    */
-  public function call($op, $operand = NULL, $params = array()) {
+  public function call($op, $operand = NULL, $params = []) {
 
     // Run each of the installed plugins which implements the given operation.
     foreach ($this->getAllByOp($op) as $plugin) {
@@ -125,8 +127,8 @@ class PluginManager implements PluginManagerInterface, ConfigurableInterface {
   /**
    * {@inheritdoc}
    */
-  public function map($op, $params = array()) {
-    $out = array();
+  public function map($op, $params = []) {
+    $out = [];
 
     // Run each of the installed plugins which implements the given operation.
     foreach ($this->getAllByOp($op) as $key => $plugin) {
@@ -167,7 +169,7 @@ class PluginManager implements PluginManagerInterface, ConfigurableInterface {
       // Configure the plugin with the appropriate subset of the configuration.
       $config = $this->confGet($id);
 
-      // Set the config for the plugin
+      // Set the config for the plugin.
       $plugin->setConfig(new Config($config));
 
       // Get the configuration back from the plugin to populate defaults within the manager.
@@ -193,4 +195,5 @@ class PluginManager implements PluginManagerInterface, ConfigurableInterface {
       $this->services()->addClient($plugin);
     }
   }
+
 }

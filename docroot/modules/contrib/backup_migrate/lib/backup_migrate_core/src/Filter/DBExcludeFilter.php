@@ -1,7 +1,7 @@
 <?php
 /**
  * @file
- * Contains BackupMigrate\Core\Filter\DBExcludeFilter
+ * Contains BackupMigrate\Core\Filter\DBExcludeFilter.
  */
 
 
@@ -16,7 +16,8 @@ use BackupMigrate\Core\Source\DatabaseSourceInterface;
 /**
  * Allows the exclusion of certain data from a database.
  *
- * Class DBExcludeFilter
+ * Class DBExcludeFilter.
+ *
  * @package BackupMigrate\Core\Filter
  */
 class DBExcludeFilter extends PluginBase {
@@ -31,16 +32,17 @@ class DBExcludeFilter extends PluginBase {
    *
    * @param array $table
    * @param array $params
+   *
    * @return array $table
    */
   public function beforeDBTableBackup($table, $params = []) {
     $exclude = $this->confGet('exclude_tables');
     $nodata = $this->confGet('nodata_tables');
     if (in_array($table['name'], $exclude)) {
-      $table['exclude'] = true;
+      $table['exclude'] = TRUE;
     }
     if (in_array($table['name'], $nodata)) {
-      $table['nodata'] = true;
+      $table['nodata'] = TRUE;
     }
     return $table;
   }
@@ -62,10 +64,11 @@ class DBExcludeFilter extends PluginBase {
    * Get a definition for user-configurable settings.
    *
    * @param array $params
+   *
    * @return array
    */
-  public function configSchema($params = array()) {
-    $schema = array();
+  public function configSchema($params = []) {
+    $schema = [];
 
     if ($params['operation'] == 'backup') {
       $tables = [];
@@ -83,7 +86,7 @@ class DBExcludeFilter extends PluginBase {
 
           $table_select = [
             'type' => 'enum',
-            'multiple' => true,
+            'multiple' => TRUE,
             'options' => $tables,
             'actions' => ['backup'],
             'group' => 'default'
@@ -115,6 +118,5 @@ class DBExcludeFilter extends PluginBase {
   public function setSourceManager($source_manager) {
     $this->source_manager = $source_manager;
   }
-
 
 }

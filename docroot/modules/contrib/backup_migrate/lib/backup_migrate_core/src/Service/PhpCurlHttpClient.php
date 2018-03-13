@@ -1,12 +1,17 @@
 <?php
 
+/**
+ * @file
+ */
+
 namespace BackupMigrate\Core\Service;
 
 use BackupMigrate\Core\Exception\HttpClientException;
 use BackupMigrate\Core\File\ReadableStreamBackupFile;
 
 /**
- * Class PhpCurlHttpClient
+ * Class PhpCurlHttpClient.
+ *
  * @package BackupMigrate\Core\Service
  */
 class PhpCurlHttpClient implements HttpClientInterface {
@@ -15,6 +20,7 @@ class PhpCurlHttpClient implements HttpClientInterface {
    * Get the body of the given resource.
    *
    * @param $url
+   *
    * @return mixed
    */
   public function get($url) {
@@ -22,10 +28,11 @@ class PhpCurlHttpClient implements HttpClientInterface {
   }
 
   /**
-   * Post the given data (as a string or an array) to the given URL
+   * Post the given data (as a string or an array) to the given URL.
    *
    * @param $url
    * @param $data
+   *
    * @return mixed
    */
   public function post($url, $data) {
@@ -37,11 +44,12 @@ class PhpCurlHttpClient implements HttpClientInterface {
   }
 
   /**
-   * Post a file along with other data (as an array)
+   * Post a file along with other data (as an array).
    *
    * @param $url
    * @param \BackupMigrate\Core\File\ReadableStreamBackupFile $file
    * @param $data
+   *
    * @return mixed
    */
   public function postFile($url, ReadableStreamBackupFile $file, $data) {
@@ -51,9 +59,10 @@ class PhpCurlHttpClient implements HttpClientInterface {
   }
 
   /**
-   * Get the CURL Resource with default options
+   * Get the CURL Resource with default options.
    *
    * @param $url
+   *
    * @return resource
    */
   protected function getCurlResource($url) {
@@ -61,7 +70,7 @@ class PhpCurlHttpClient implements HttpClientInterface {
     curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
     curl_setopt($ch, CURLOPT_HEADER, 0);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-    curl_setopt($ch, CURLOPT_FAILONERROR, true);
+    curl_setopt($ch, CURLOPT_FAILONERROR, TRUE);
     return $ch;
   }
 
@@ -69,18 +78,21 @@ class PhpCurlHttpClient implements HttpClientInterface {
    * Perform the http action and return the body or throw an exception.
    *
    * @param $ch
+   *
    * @return mixed
+   *
    * @throws \BackupMigrate\Core\Exception\HttpClientException
    */
   protected function curlExec($ch) {
     $body = curl_exec($ch);
     if ($msg = curl_error($ch)) {
       $code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-      if (!$code ) {
+      if (!$code) {
         $info['code'] = curl_errno($ch);
       }
       throw new HttpClientException($msg, [], $code);
     }
     return $body;
   }
+
 }

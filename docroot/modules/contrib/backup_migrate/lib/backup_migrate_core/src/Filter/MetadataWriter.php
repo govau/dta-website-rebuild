@@ -1,7 +1,7 @@
 <?php
 /**
  * @file
- * Contains BackupMigrate\Core\Filter\MetadataWriter
+ * Contains BackupMigrate\Core\Filter\MetadataWriter.
  */
 
 
@@ -17,7 +17,8 @@ use BackupMigrate\Core\Plugin\PluginCallerInterface;
 use BackupMigrate\Core\Plugin\PluginCallerTrait;
 
 /**
- * Class MetadataWriter
+ * Class MetadataWriter.
+ *
  * @package BackupMigrate\Core\Filter
  *
  * Add metadata such as a description to the backup file.
@@ -29,10 +30,10 @@ class MetadataWriter extends PluginBase implements FileProcessorInterface, Plugi
   /**
    * {@inheritdoc}
    */
-  public function configSchema($params = array()) {
-    $schema = array();
+  public function configSchema($params = []) {
+    $schema = [];
 
-    // Backup configuration
+    // Backup configuration.
     if ($params['operation'] == 'backup') {
       $schema['groups']['advanced'] = [
         'title' => 'Advanced Settings',
@@ -41,7 +42,7 @@ class MetadataWriter extends PluginBase implements FileProcessorInterface, Plugi
         'group' => 'advanced',
         'type' => 'text',
         'title' => 'Description',
-        'multiline' => true,
+        'multiline' => TRUE,
       ];
     }
     return $schema;
@@ -96,6 +97,7 @@ class MetadataWriter extends PluginBase implements FileProcessorInterface, Plugi
    * Run after a backup. Add metadata to the file.
    *
    * @param \BackupMigrate\Core\File\BackupFileWritableInterface $file
+   *
    * @return \BackupMigrate\Core\File\BackupFileWritableInterface
    */
   public function afterBackup(BackupFileWritableInterface $file) {

@@ -42,7 +42,7 @@ function swiftmailer_get_encryption_options() {
  */
 function swiftmailer_get_character_set_options() {
 
-  $character_set_options = array(
+  $character_set_options = [
     'UCS-4' => 'UCS-4',
     'UCS-4BE' => 'UCS-4BE',
     'UCS-4LE' => 'UCS-4LE',
@@ -99,7 +99,7 @@ function swiftmailer_get_character_set_options() {
     'Windows-1252 (CP1252)' => 'Windows-1252 (CP1252)',
     'CP866 (IBM866)' => 'CP866 (IBM866)',
     'KOI8-R' => 'KOI8-R',
-  );
+  ];
 
   return $character_set_options;
 }
@@ -116,9 +116,9 @@ function swiftmailer_get_character_set_options() {
  */
 function swiftmailer_get_supressable_headers() {
 
-  return array(
+  return [
     'Content-Transfer-Encoding',
-  );
+  ];
 
 }
 
@@ -128,7 +128,7 @@ function swiftmailer_get_supressable_headers() {
  * @param array $message
  *   The message which is to be validatet.
  *
- * @return boolean
+ * @return bool
  *   A boolean indicating whether the message is multipart or not.
  */
 function swiftmailer_is_multipart(&$message) {

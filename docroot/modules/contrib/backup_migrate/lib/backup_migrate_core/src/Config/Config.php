@@ -1,15 +1,11 @@
 <?php
-/**
- * @file
- * Contains \BackupMigrate\Core\Profile\ConfigInterface.
- */
 
 namespace BackupMigrate\Core\Config;
 
 use \BackupMigrate\Core\Config\ConfigInterface;
 
 /**
- * Class ConfigBase
+ * Class ConfigBase.
  *
  * A basic configuration manager with very little logic in it.
  *
@@ -26,21 +22,22 @@ class Config implements ConfigInterface {
   /**
    * @param array $init
    */
-  public function __construct($init = array()) {
+  public function __construct($init = []) {
     if ($init instanceof ConfigInterface) {
       $this->fromArray($init->toArray());
     }
-    else if (is_array($init)) {
+    elseif (is_array($init)) {
       $this->fromArray($init);
     }
   }
 
   /**
-   * Get a setting value
+   * Get a setting value.
    *
    * @param string $key The key for the setting.
    * @param mixed $default
    *  The default to return if the value does not exist.
+   *
    * @return mixed The value of the setting.
    */
   public function get($key, $default = NULL) {
@@ -48,7 +45,7 @@ class Config implements ConfigInterface {
   }
 
   /**
-   * Set a setting value
+   * Set a setting value.
    *
    * @param string $key The key for the setting.
    * @param mixed $value The value for the setting.
@@ -62,6 +59,7 @@ class Config implements ConfigInterface {
    * Determine if the given key has had a value set for it.
    *
    * @param $key
+   *
    * @return bool
    */
   public function keyIsSet($key) {
@@ -69,7 +67,7 @@ class Config implements ConfigInterface {
   }
 
   /**
-   * Get all settings as an associative array
+   * Get all settings as an associative array.
    *
    * @return array All of the settings in this profile
    */
@@ -78,13 +76,12 @@ class Config implements ConfigInterface {
   }
 
   /**
-   * Set all from an array
+   * Set all from an array.
    *
    * @param array $values An associative array of settings.
    */
   public function fromArray($values) {
     $this->config = $values;
   }
-
 
 }

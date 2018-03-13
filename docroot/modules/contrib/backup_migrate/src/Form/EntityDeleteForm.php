@@ -16,7 +16,7 @@ class EntityDeleteForm extends EntityConfirmFormBase {
   public function getQuestion() {
     return $this->t(
       'Are you sure you want to delete %name?',
-      array('%name' => $this->entity->label())
+      ['%name' => $this->entity->label()]
     );
   }
 

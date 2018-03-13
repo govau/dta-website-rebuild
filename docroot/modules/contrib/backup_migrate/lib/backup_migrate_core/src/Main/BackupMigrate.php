@@ -17,8 +17,7 @@ use BackupMigrate\Core\Service\ServiceManager;
 /**
  * The core Backup and Migrate service.
  */
-class BackupMigrate implements BackupMigrateInterface
-{
+class BackupMigrate implements BackupMigrateInterface {
   use PluginCallerTrait;
 
   /**
@@ -38,6 +37,7 @@ class BackupMigrate implements BackupMigrateInterface
 
   /**
    * {@inheritdoc}
+   *
    * @param \BackupMigrate\Core\Config\ConfigInterface $config
    * @param \BackupMigrate\Core\Service\ServiceManagerInterface $services
    */
@@ -60,19 +60,19 @@ class BackupMigrate implements BackupMigrateInterface
     try {
 
       // Allow the plugins to set up.
-      $this->plugins()->call('setUp', null, ['operation' => 'backup', 'source_id' => $source_id, 'destination_id' => $destination_id]);
+      $this->plugins()->call('setUp', NULL, ['operation' => 'backup', 'source_id' => $source_id, 'destination_id' => $destination_id]);
 
       // Get the source and the destination to use.
       $source = $this->sources()->get($source_id);
-      $destinations = array();
+      $destinations = [];
 
       // Allow a single destination or multiple destinations.
-      foreach ((array)$destination_id as $id) {
+      foreach ((array) $destination_id as $id) {
         $destinations[$id] = $this->destinations()->get($id);
 
         // Check that the destination is valid.
         if (!$destinations[$id]) {
-          throw new BackupMigrateException('The destination !id does not exist.', array('!id' => $destination_id));
+          throw new BackupMigrateException('The destination !id does not exist.', ['!id' => $destination_id]);
         }
 
         // Check that the destination can be written to.
@@ -82,7 +82,7 @@ class BackupMigrate implements BackupMigrateInterface
 
       // Check that the source is valid.
       if (!$source) {
-        throw new BackupMigrateException('The source !id does not exist.', array('!id' => $source_id));
+        throw new BackupMigrateException('The source !id does not exist.', ['!id' => $source_id]);
       }
 
       // Run each of the installed plugins which implements the 'beforeBackup' operation.
@@ -111,7 +111,7 @@ class BackupMigrate implements BackupMigrateInterface
     }
 
     // Allow the plugins to tear down.
-    $this->plugins()->call('tearDown', null, ['operation' => 'backup', 'source_id' => $source_id, 'destination_id' => $destination_id]);
+    $this->plugins()->call('tearDown', NULL, ['operation' => 'backup', 'source_id' => $source_id, 'destination_id' => $destination_id]);
 
   }
 
@@ -125,29 +125,32 @@ class BackupMigrate implements BackupMigrateInterface
       $destination = $this->destinations()->get($destination_id);
 
       if (!$source) {
-        throw new BackupMigrateException('The source !id does not exist.', array('!id' => $source_id));
+        throw new BackupMigrateException('The source !id does not exist.', ['!id' => $source_id]);
       }
       if (!$destination) {
-        throw new BackupMigrateException('The destination !id does not exist.', array('!id' => $destination_id));
+        throw new BackupMigrateException('The destination !id does not exist.', ['!id' => $destination_id]);
       }
 
       // Load the file from the destination.
       $file = $destination->getFile($file_id);
       if (!$file) {
-        throw new BackupMigrateException('The file !id does not exist.', array('!id' => $file_id));
+        throw new BackupMigrateException('The file !id does not exist.', ['!id' => $file_id]);
       }
 
       // Prepare the file for reading.
       $file = $destination->loadFileForReading($file);
       if (!$file) {
-        throw new BackupMigrateException('The file !id could not be opened for reading.', array('!id' => $file_id));
+        throw new BackupMigrateException('The file !id could not be opened for reading.', ['!id' => $file_id]);
       }
 
       // Run each of the installed plugins which implements the 'backup' operation.
       $file = $this->plugins()->call('beforeRestore', $file);
 
       // Do the actual source restore.
-      $source->importFromFile($file);
+      $import_result = $source->importFromFile($file);
+      if(!$import_result) {
+        throw new BackupMigrateException('The file could not be imported.');
+      }
 
       // Run each of the installed plugins which implements the 'beforeBackup' operation.
       $this->plugins()->call('afterRestore');
@@ -230,4 +233,5 @@ class BackupMigrate implements BackupMigrateInterface
   public function setServiceManager($services) {
     $this->services = $services;
   }
+
 }

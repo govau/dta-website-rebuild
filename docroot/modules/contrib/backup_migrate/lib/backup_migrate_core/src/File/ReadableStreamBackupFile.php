@@ -1,13 +1,14 @@
 <?php
 /**
  * @file
- * Contains BackupMigrate\Core\File\ReadableStream
+ * Contains BackupMigrate\Core\File\ReadableStream.
  */
 
 namespace BackupMigrate\Core\File;
 
 /**
- * Class ReadableStreamBackupFile
+ * Class ReadableStreamBackupFile.
+ *
  * @package BackupMigrate\Core\File
  *
  * An implementation of the BackupFileReadableInterface which uses a readable
@@ -27,10 +28,11 @@ class ReadableStreamBackupFile extends BackupFile implements BackupFileReadableI
    * Constructor.
    *
    * @param string $filepath string The path to a file (which must already exist). Can be a stream URI.
+   *
    * @throws \Exception
    */
   function __construct($filepath) {
-    // Check that the file exists and is readable
+    // Check that the file exists and is readable.
     if (!file_exists($filepath)) {
       throw new \Exception("The file '$filepath' does not exists");
     }
@@ -40,7 +42,7 @@ class ReadableStreamBackupFile extends BackupFile implements BackupFileReadableI
 
     $this->path = $filepath;
 
-    // Get the basename and extensions
+    // Get the basename and extensions.
     $this->setFullName(basename($filepath));
 
     // Get the basic file stats since this is probably a read-only file option and these won't change.
@@ -56,7 +58,7 @@ class ReadableStreamBackupFile extends BackupFile implements BackupFileReadableI
   }
 
   /**
-   * Get the realpath of the file
+   * Get the realpath of the file.
    *
    * @return string The path or stream URI to the file or NULL if the file does not exist.
    */
@@ -71,7 +73,9 @@ class ReadableStreamBackupFile extends BackupFile implements BackupFileReadableI
    * Open a file for reading or writing.
    *
    * @param bool $binary If true open as a binary file
+   *
    * @return resource
+   *
    * @throws \Exception
    */
   function openForRead($binary = FALSE) {
@@ -108,7 +112,7 @@ class ReadableStreamBackupFile extends BackupFile implements BackupFileReadableI
   /**
    * Is this file open for reading/writing.
    *
-   * return bool True if the file is open, false if not.
+   * Return bool True if the file is open, false if not.
    */
   function isOpen() {
     return !empty($this->handle) && get_resource_type($this->handle) == 'stream';
@@ -118,6 +122,7 @@ class ReadableStreamBackupFile extends BackupFile implements BackupFileReadableI
    * Read a line from the file.
    *
    * @param int $size The number of bites to read or 0 to read the whole file
+   *
    * @return string The data read from the file or NULL if the file can't be read or is at the end of the file.
    */
   function readBytes($size = 1024, $binary = FALSE) {
@@ -160,6 +165,7 @@ class ReadableStreamBackupFile extends BackupFile implements BackupFileReadableI
    * Move the file pointer forward a given number of bytes.
    *
    * @param int $bytes
+   *
    * @return int
    *  The number of bytes moved or -1 if the operation failed.
    */

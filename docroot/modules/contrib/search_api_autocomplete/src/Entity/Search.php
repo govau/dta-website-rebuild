@@ -2,8 +2,10 @@
 
 namespace Drupal\search_api_autocomplete\Entity;
 
+use Drupal\Core\Cache\Cache;
 use Drupal\Core\Config\Entity\ConfigEntityBase;
 use Drupal\Core\Entity\EntityStorageInterface;
+use Drupal\Core\Entity\EntityTypeInterface;
 use Drupal\search_api\Entity\Index;
 use Drupal\search_api_autocomplete\SearchApiAutocompleteException;
 use Drupal\search_api_autocomplete\SearchInterface;
@@ -169,7 +171,7 @@ class Search extends ConfigEntityBase implements SearchInterface {
   public static function getDefaultOptions() {
     return [
       'autosubmit' => TRUE,
-      'delay' => 0,
+      'delay' => NULL,
       'limit' => 10,
       'min_length' => 1,
       'submit_button_selector' => ':submit',
@@ -432,6 +434,34 @@ class Search extends ConfigEntityBase implements SearchInterface {
   }
 
   /**
+   * {@inheritdoc}
+   */
+  protected function invalidateTagsOnSave($update) {
+    parent::invalidateTagsOnSave($update);
+
+    $plugin_id = $this->getSearchPluginId();
+    Cache::invalidateTags(["search_api_autocomplete_search_list:$plugin_id"]);
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  protected static function invalidateTagsOnDelete(EntityTypeInterface $entity_type, array $entities) {
+    parent::invalidateTagsOnDelete($entity_type, $entities);
+
+    $tags = [];
+    foreach ($entities as $entity) {
+      if ($entity instanceof Search) {
+        $plugin_id = $entity->getSearchPluginId();
+        $tags[] = "search_api_autocomplete_search_list:$plugin_id";
+      }
+    }
+    if ($tags) {
+      Cache::invalidateTags(array_unique($tags));
+    }
+  }
+
+  /**
    * Prepares for changes to this search to be persisted.
    *
    * To this end, the settings for all loaded plugin objects are written back to
@@ -467,20 +497,214 @@ class Search extends ConfigEntityBase implements SearchInterface {
    * {@inheritdoc}
    */
   public function calculateDependencies() {
-    parent::calculateDependencies();
+    $dependencies = $this->getDependencyData();
+    // Keep only "enforced" dependencies, then add those computed by
+    // getDependencyData().
+    $this->dependencies = array_intersect_key($this->dependencies, ['enforced' => TRUE]);
+    $this->dependencies += array_map('array_keys', $dependencies);
+    return $this;
+  }
 
-    $name = $this->getIndex()->getConfigDependencyName();
-    $this->addDependency('config', $name);
+  /**
+   * {@inheritdoc}
+   */
+  public function onDependencyRemoval(array $dependencies) {
+    $changed = parent::onDependencyRemoval($dependencies);
+
+    $plugins = $this->getAllPlugins();
+    $dependency_data = $this->getDependencyData();
+    // Make sure our dependency data has the exact same keys as $dependencies,
+    // to simplify the subsequent code.
+    $dependencies = array_filter($dependencies);
+    $dependency_data = array_intersect_key($dependency_data, $dependencies);
+    $dependency_data += array_fill_keys(array_keys($dependencies), []);
+    $call_on_removal = [];
+
+    foreach ($dependencies as $dependency_type => $dependency_objects) {
+      // Annoyingly, modules and theme dependencies come not keyed by dependency
+      // name here, while entities do. Flip the array for modules and themes to
+      // make the code simpler.
+      if (in_array($dependency_type, ['module', 'theme'])) {
+        $dependency_objects = array_flip($dependency_objects);
+      }
+      $dependency_data[$dependency_type] = array_intersect_key($dependency_data[$dependency_type], $dependency_objects);
+      foreach ($dependency_data[$dependency_type] as $name => $dependency_sources) {
+        // We first remove all the "hard" dependencies.
+        if (!empty($dependency_sources['always'])) {
+          foreach ($dependency_sources['always'] as $plugin_type => $type_plugins) {
+            // We can hardly remove the search entity itself.
+            if ($plugin_type == 'entity') {
+              continue;
+            }
+
+            // Otherwise, we need to remove the plugin in question.
+            $changed = TRUE;
+            $plugins[$plugin_type] = array_diff_key($plugins[$plugin_type], $type_plugins);
+          }
+        }
+
+        // Then, collect all the optional ones.
+        if (!empty($dependency_sources['optional'])) {
+          // However this plays out, it will lead to a change.
+          $changed = TRUE;
+
+          foreach ($dependency_sources['optional'] as $plugin_type => $type_plugins) {
+            // Only include those plugins that have not already been removed.
+            $type_plugins = array_intersect_key($type_plugins, $plugins[$plugin_type]);
+
+            foreach ($type_plugins as $plugin_id => $plugin) {
+              $call_on_removal[$plugin_type][$plugin_id][$dependency_type][$name] = $dependency_objects[$name];
+            }
+          }
+        }
+      }
+    }
+
+    // Now for all plugins with optional dependencies (stored in
+    // $call_on_removal, mapped to their removed dependencies) call their
+    // onDependencyRemoval() methods.
+    foreach ($call_on_removal as $plugin_type => $type_plugins) {
+      foreach ($type_plugins as $plugin_id => $plugin_dependencies) {
+        $plugin = $plugins[$plugin_type][$plugin_id];
+        $removal_successful = $plugin->onDependencyRemoval($plugin_dependencies);
+        if (!$removal_successful) {
+          unset($plugins[$plugin_type][$plugin_id]);
+        }
+      }
+    }
+
+    // If we had to remove the search plugin, the search entity cannot be
+    // "rescued". Return FALSE in this case, which will cause the entity to be
+    // deleted.
+    if (empty($plugins['search_plugin'])) {
+      return FALSE;
+    }
+
+    // If there are no suggesters left, we just disable the search.
+    if (empty($plugins['suggesters'])) {
+      $this->disable();
+    }
+
+    // In case we removed any suggesters, set our suggesters to the remaining
+    // ones. (If we didn't remove any, this is a no-op.) Since the plugins
+    // already changed their configuration, if necessary, those changes should
+    // be propagated automatically when saving via preSave().
+    $this->setSuggesters($plugins['suggesters']);
+
+    return $changed;
+  }
+
+  /**
+   * Retrieves data about this search entity's dependencies.
+   *
+   * The return value is structured as follows:
+   *
+   * @code
+   * [
+   *   'config' => [
+   *     'CONFIG_DEPENDENCY_KEY' => [
+   *       'always' => [
+   *         'search_plugin' => [
+   *           'SEARCH_ID' => $search_plugin,
+   *         ],
+   *         'suggesters' => [
+   *           'SUGGESTER_ID_1' => $suggester_1,
+   *           'SUGGESTER_ID_2' => $suggester_2,
+   *         ],
+   *       ],
+   *       'optional' => [
+   *         'entity' => [
+   *           'SEARCH_ID' => $search,
+   *         ],
+   *       ],
+   *     ],
+   *   ],
+   * ]
+   * @endcode
+   *
+   * Enforced dependencies are not included in this method's return value.
+   *
+   * @return object[][][][][]
+   *   An associative array containing the search's dependencies. The array is
+   *   first keyed by the config dependency type ("module", "config", etc.) and
+   *   then by the names of the config dependencies of that type which the index
+   *   has. The values are associative arrays with up to two keys, "always" and
+   *   "optional", specifying whether the dependency is a hard one by the plugin
+   *   (or entity) in question or potentially depending on the configuration.
+   *   The values on this level are arrays with keys "entity", "search_plugin"
+   *   and/or "suggesters" and values arrays of IDs mapped to their entities or
+   *   plugins.
+   */
+  protected function getDependencyData() {
+    $dependency_data = [];
+
+    // Since calculateDependencies() will work directly on the $dependencies
+    // property, we first save its original state and then restore it
+    // afterwards.
+    $original_dependencies = $this->dependencies;
+    parent::calculateDependencies();
+    unset($this->dependencies['enforced']);
+    foreach ($this->dependencies as $dependency_type => $list) {
+      foreach ($list as $name) {
+        $dependency_data[$dependency_type][$name]['always']['entity'][$this->id] = $this;
+      }
+    }
+    $this->dependencies = $original_dependencies;
+
+    // Include the dependency to the search index.
+    if ($this->hasValidIndex()) {
+      $name = $this->getIndex()->getConfigDependencyName();
+      $dependency_data['config'][$name]['always']['entity'][$this->id] = $this;
+    }
+
+    // All other plugins can be treated uniformly.
+    foreach ($this->getAllPlugins() as $plugin_type => $type_plugins) {
+      foreach ($type_plugins as $plugin_id => $plugin) {
+        // Largely copied from
+        // \Drupal\Core\Plugin\PluginDependencyTrait::calculatePluginDependencies().
+        $definition = $plugin->getPluginDefinition();
+
+        // First, always depend on the module providing the plugin.
+        $dependency_data['module'][$definition['provider']]['always'][$plugin_type][$plugin_id] = $plugin;
+
+        // Plugins can declare additional dependencies in their definition.
+        if (isset($definition['config_dependencies'])) {
+          foreach ($definition['config_dependencies'] as $dependency_type => $list) {
+            foreach ($list as $name) {
+              $dependency_data[$dependency_type][$name]['always'][$plugin_type][$plugin_id] = $plugin;
+            }
+          }
+        }
+
+        // Finally, add the dynamically-calculated dependencies of the plugin.
+        foreach ($plugin->calculateDependencies() as $dependency_type => $list) {
+          foreach ($list as $name) {
+            $dependency_data[$dependency_type][$name]['optional'][$plugin_type][$plugin_id] = $plugin;
+          }
+        }
+      }
+    }
+
+    return $dependency_data;
+  }
+
+  /**
+   * Retrieves all the plugins contained in this search entity.
+   *
+   * @return \Drupal\search_api_autocomplete\Plugin\PluginInterface[][]
+   *   All plugins contained in this search, keyed by the plugin type
+   *   ("search_plugin" or "suggesters") and their plugin IDs.
+   */
+  protected function getAllPlugins() {
+    $plugins = [];
 
     if ($this->hasValidSearchPlugin()) {
-      $this->calculatePluginDependencies($this->getSearchPlugin());
+      $plugin_id = $this->getSearchPluginId();
+      $plugins['search_plugin'][$plugin_id] = $this->getSearchPlugin();
     }
+    $plugins['suggesters'] = $this->getSuggesters();
 
-    foreach ($this->getSuggesters() as $suggester) {
-      $this->calculatePluginDependencies($suggester);
-    }
-
-    return $this;
+    return $plugins;
   }
 
 }

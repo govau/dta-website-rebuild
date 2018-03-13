@@ -18,7 +18,7 @@ This is the most basic representation of a backup file. An object extending just
 ### BackupFileReadableInterface
 This subclass of the `BackupFileInterface` can also be read from. This allows the file contents to be used to restore a source. To turn a `BackupFileInterface` object into a readable file you must call `loadFileForReading()` on the destination that was used get the original file object:
 
-	$destination = new DirectoryDestination(array('directory' => '~/mybackups'));
+	$destination = new DirectoryDestination(['directory' => '~/mybackups']);
 	$file = $destination->getFile('databse.mysql');
 
 	// This object has metadata but the contents cannot neccessarily be read.

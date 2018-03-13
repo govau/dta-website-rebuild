@@ -305,6 +305,7 @@ class EntityMatcher extends ConfigurableMatcherBase {
       // Check the access against the defined entity access handler.
       /** @var \Drupal\Core\Access\AccessResultInterface $access */
       $access = $entity->access('view', $this->currentUser, TRUE);
+
       if (!$access->isAllowed()) {
         continue;
       }
@@ -415,7 +416,7 @@ class EntityMatcher extends ConfigurableMatcherBase {
    *   The matched entity.
    *
    * @return string
-   *    The metadata for this entity.
+   *   The metadata for this entity.
    */
   protected function buildDescription(EntityInterface $entity) {
     $description = \Drupal::token()->replace($this->configuration['metadata'], [$this->targetType => $entity], ['clear' => TRUE]);

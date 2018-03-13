@@ -14,3 +14,17 @@ function shield_update_8001() {
   $config->set('allow_cli', $allow_cli);
   $config->save(TRUE);
 }
+
+/**
+ * Convert user and pass config to credential provider config.
+ */
+function shield_update_8002() {
+  $config = \Drupal::configFactory()->getEditable('shield.settings');
+  $config
+    ->set('credential_provider', 'shield')
+    ->set('credentials.shield.user', $config->get('user'))
+    ->set('credentials.shield.pass', $config->get('pass'))
+    ->clear('user')
+    ->clear('pass')
+    ->save(TRUE);
+}

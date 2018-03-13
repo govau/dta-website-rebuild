@@ -11,7 +11,8 @@ namespace BackupMigrate\Core\Translation;
  * model where a fully formed english string with replacement tokens is passed in
  * and then localized.
  *
- * Interface TranslatorInterface
+ * Interface TranslatorInterface.
+ *
  * @package BackupMigrate\Core\Service
  */
 interface TranslatorInterface {
@@ -25,5 +26,6 @@ interface TranslatorInterface {
    *  Extra context to help translators distinguish ambiguous strings.
    * @return mixed
    */
-  public function translate($string, $replacements = array(), $context = array());
+  public function translate($string, $replacements = [], $context = []);
+
 }

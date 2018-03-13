@@ -7,7 +7,7 @@ use Drupal\Component\Annotation\Plugin;
 /**
  * Defines an source plugin annotation object.
  *
- * Plugin Namespace: Plugin\BackupMigrateSourcePlugin
+ * Plugin Namespace: Plugin\BackupMigrateSourcePlugin.
  *
  * @Annotation
  */

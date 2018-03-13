@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * @file
+ */
+
 namespace BackupMigrate\Core\Filter;
 
 use BackupMigrate\Core\Config\Config;
@@ -10,7 +14,7 @@ use BackupMigrate\Core\File\BackupFileReadableInterface;
 use BackupMigrate\Core\File\BackupFileWritableInterface;
 
 /**
- * Class CompressionFilter
+ * Class CompressionFilter.
  */
 class CompressionFilter extends PluginBase implements FileProcessorInterface {
   use FileProcessorTrait;
@@ -20,10 +24,10 @@ class CompressionFilter extends PluginBase implements FileProcessorInterface {
    *
    * An array of operations should take the form:
    *
-   * array(
-   *  'backup' => array('weight' => 100),
-   *  'restore' => array('weight' => -100),
-   * );
+   * [
+   *  'backup' => ['weight' => 100],
+   *  'restore' => ['weight' => -100],
+   * ];
    *
    * @return array
    */
@@ -40,42 +44,42 @@ class CompressionFilter extends PluginBase implements FileProcessorInterface {
    * Return the filetypes supported by this filter.
    */
   public function getFileTypes() {
-    return array(
-      array(
-        "gzip" => array(
+    return [
+      [
+        "gzip" => [
           "extension" => "gz",
           "filemime" => "application/x-gzip",
-          'ops' => array(
+          'ops' => [
             'backup',
             'restore'
-          )
-        ),
-        "bzip" => array(
+          ]
+        ],
+        "bzip" => [
           "extension" => "bz",
           "filemime" => "application/x-bzip",
-          'ops' => array(
+          'ops' => [
             'backup',
             'restore'
-          )
-        ),
-        "bzip2" => array(
+          ]
+        ],
+        "bzip2" => [
           "extension" => "bz2",
           "filemime" => "application/x-bzip",
-          'ops' => array(
+          'ops' => [
             'backup',
             'restore'
-          )
-        ),
-        "zip" => array(
+          ]
+        ],
+        "zip" => [
           "extension" => "zip",
           "filemime" => "application/zip",
-          'ops' => array(
+          'ops' => [
             'backup',
             'restore'
-          )
-        ),
-      ),
-    );
+          ]
+        ],
+      ],
+    ];
   }
 
 
@@ -84,8 +88,8 @@ class CompressionFilter extends PluginBase implements FileProcessorInterface {
    *
    * @return array
    */
-  public function configSchema($params = array()) {
-    $schema = array();
+  public function configSchema($params = []) {
+    $schema = [];
 
     if ($params['operation'] == 'backup') {
       $schema['groups']['file'] = [
@@ -118,9 +122,10 @@ class CompressionFilter extends PluginBase implements FileProcessorInterface {
 
 
   /**
-   * Run on a backup
+   * Run on a backup.
    *
    * @param \BackupMigrate\Core\File\BackupFileReadableInterface $file
+   *
    * @return \BackupMigrate\Core\File\BackupFileReadableInterface
    */
   public function afterBackup(BackupFileReadableInterface $file) {
@@ -150,9 +155,10 @@ class CompressionFilter extends PluginBase implements FileProcessorInterface {
   }
 
   /**
-   * Run on a restore
+   * Run on a restore.
    *
    * @param \BackupMigrate\Core\File\BackupFileReadableInterface $file
+   *
    * @return \BackupMigrate\Core\File\BackupFileReadableInterface
    */
   public function beforeRestore(BackupFileReadableInterface $file) {
@@ -166,7 +172,7 @@ class CompressionFilter extends PluginBase implements FileProcessorInterface {
       case "gzip":
         $out = $this->getTempFileManager()->popExt($file);
         $this->_gzipDecode($file, $out);
-      break;
+        break;
 
       case "bz":
       case "bz2":
@@ -191,6 +197,7 @@ class CompressionFilter extends PluginBase implements FileProcessorInterface {
    *
    * @param \BackupMigrate\Core\File\BackupFileReadableInterface $from
    * @param \BackupMigrate\Core\File\BackupFileWritableInterface $to
+   *
    * @return bool
    */
   protected function _gzipEncode(BackupFileReadableInterface $from, BackupFileWritableInterface $to) {
@@ -219,6 +226,7 @@ class CompressionFilter extends PluginBase implements FileProcessorInterface {
    *
    * @param \BackupMigrate\Core\File\BackupFileReadableInterface $from
    * @param \BackupMigrate\Core\File\BackupFileWritableInterface $to
+   *
    * @return bool
    */
   protected function _gzipDecode(BackupFileReadableInterface $from, BackupFileWritableInterface $to) {
@@ -243,6 +251,7 @@ class CompressionFilter extends PluginBase implements FileProcessorInterface {
    *
    * @param \BackupMigrate\Core\File\BackupFileReadableInterface $from
    * @param \BackupMigrate\Core\File\BackupFileWritableInterface $to
+   *
    * @return bool
    */
   protected function _bzipEncode(BackupFileReadableInterface $from, BackupFileWritableInterface $to) {
@@ -270,6 +279,7 @@ class CompressionFilter extends PluginBase implements FileProcessorInterface {
    *
    * @param \BackupMigrate\Core\File\BackupFileReadableInterface $from
    * @param \BackupMigrate\Core\File\BackupFileWritableInterface $to
+   *
    * @return bool
    */
   protected function _bzipDecode(BackupFileReadableInterface $from, BackupFileWritableInterface $to) {
@@ -321,6 +331,7 @@ class CompressionFilter extends PluginBase implements FileProcessorInterface {
    *
    * @param \BackupMigrate\Core\File\BackupFileReadableInterface $from
    * @param \BackupMigrate\Core\File\BackupFileWritableInterface $to
+   *
    * @return bool
    */
   protected function _ZipDecode(BackupFileReadableInterface $from, BackupFileWritableInterface $to) {
@@ -347,7 +358,7 @@ class CompressionFilter extends PluginBase implements FileProcessorInterface {
    * @return array
    */
   protected function _availableCompressionAlgorithms() {
-    $compression_options = array("none" => ("No Compression"));
+    $compression_options = ["none" => ("No Compression")];
     if (function_exists("gzencode")) {
       $compression_options['gzip'] = ("GZip");
     }
@@ -361,7 +372,7 @@ class CompressionFilter extends PluginBase implements FileProcessorInterface {
   }
 
   /**
-   * Get the default compression algorithm based on those available
+   * Get the default compression algorithm based on those available.
    *
    * @return string
    *  The machine name of the algorithm.

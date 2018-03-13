@@ -22,30 +22,30 @@ class BackupMigrateRestoreForm extends FormBase {
    * {@inheritdoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
-    $form = array();
+    $form = [];
 
     $bam = backup_migrate_get_service_object();
 
-    $form['backup_migrate_restore_upload'] = array(
+    $form['backup_migrate_restore_upload'] = [
       '#title' => $this->t('Upload a Backup File'),
       '#type' => 'file',
       '#description' => $this->t("Upload a backup file created by Backup
       and Migrate. For other database or file backups please use another
       tool for import. Max file size: %size",
-       array("%size" => format_size(file_upload_max_size()))
+       ["%size" => format_size(file_upload_max_size())]
       ),
-    );
+    ];
 
     $form['source_id'] = DrupalConfigHelper::getPluginSelector(
       $bam->sources(), $this->t('Restore To'));
-    
+
     $form += DrupalConfigHelper::buildAllPluginsForm($bam->plugins(), 'restore');
 
-    $form['quickbackup']['submit'] = array(
+    $form['quickbackup']['submit'] = [
       '#type' => 'submit',
       '#value' => $this->t('Restore now'),
       '#weight' => 1,
-    );
+    ];
 
     return $form;
   }

@@ -20,8 +20,9 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  *   id = "views",
  *   group_label = @Translation("Search views"),
  *   group_description = @Translation("Searches provided by Views"),
- *   provider = "search_api",
- *   deriver = "Drupal\search_api_autocomplete\Plugin\search_api_autocomplete\search\ViewsDeriver"
+ *   provider = "views",
+ *   deriver =
+ *   "Drupal\search_api_autocomplete\Plugin\search_api_autocomplete\search\ViewsDeriver"
  * )
  */
 class Views extends SearchPluginBase implements PluginFormInterface {
@@ -169,6 +170,19 @@ class Views extends SearchPluginBase implements PluginFormInterface {
     }
 
     $view->preExecute();
+
+    // Since we only have a single value in the exposed input, any exposed
+    // filters set to "Required" might cause problems – especially "Search:
+    // Fulltext search", which aborts the query when validation fails (instead
+    // of relying on the Form API "#required" validation). The normal filters
+    // which use the Form API actually don't seem to cause problems, but it's
+    // still better to be on the safe side here and just disabled "Required" for
+    // all filters. (It also makes the code simpler.)
+    /** @var \Drupal\views\Plugin\views\filter\FilterPluginBase $filter */
+    foreach ($view->display_handler->getHandlers('filter') as $filter) {
+      $filter->options['expose']['required'] = FALSE;
+    }
+
     $view->build();
 
     $query_plugin = $view->getQuery();

@@ -5,12 +5,12 @@ type: module
 # version: VERSION
 # core: 8.x
 dependencies:
-  - linkit
-  - field
-  - text
+  - linkit:linkit
+  - drupal:field
+  - drupal:text
 
-# Information added by Drupal.org packaging script on 2017-09-13
-version: '8.x-5.0-beta6'
+# Information added by Drupal.org packaging script on 2018-03-08
+version: '8.x-5.0-beta7'
 core: '8.x'
 project: 'linkit'
-datestamp: 1505341914
+datestamp: 1520552594

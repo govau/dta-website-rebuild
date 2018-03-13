@@ -15,6 +15,7 @@ use Drupal\Core\Session\AccountInterface;
  * or destination by using Drupal's plugin system.
  *
  * Class WrapperEntityBase
+ *
  * @package Drupal\backup_migrate\Entity
  */
 abstract class WrapperEntityBase extends ConfigEntityBase implements EntityWithPluginCollectionInterface {
@@ -52,7 +53,7 @@ abstract class WrapperEntityBase extends ConfigEntityBase implements EntityWithP
   }
 
   /**
-   * Get the type plugin for this source
+   * Get the type plugin for this source.
    *
    * @return mixed
    *
@@ -62,11 +63,11 @@ abstract class WrapperEntityBase extends ConfigEntityBase implements EntityWithP
     if ($this->get('type')) {
       return $this->getPluginCollection()->get($this->get('type'));
     }
-    return null;
+    return NULL;
   }
 
   /**
-   * Get the type plugin for this source
+   * Get the type plugin for this source.
    *
    * @return mixed
    *
@@ -99,7 +100,7 @@ abstract class WrapperEntityBase extends ConfigEntityBase implements EntityWithP
   public function getPluginCollection() {
     if ($this->get('type')) {
       if (!$this->pluginCollection) {
-        $config = ['name' => $this->get('label')] + (array)$this->get('config');
+        $config = ['name' => $this->get('label')] + (array) $this->get('config');
         $this->pluginCollection = new DefaultSingleLazyPluginCollection(
           $this->getPluginManager(), $this->get('type'), $config);
       }
@@ -115,7 +116,7 @@ abstract class WrapperEntityBase extends ConfigEntityBase implements EntityWithP
     if ($operation == "update" || $operation == "delete") {
       $info = $this->getPluginDefinition();
       if (!empty($info['locked'])) {
-        return false;
+        return FALSE;
       }
     }
 

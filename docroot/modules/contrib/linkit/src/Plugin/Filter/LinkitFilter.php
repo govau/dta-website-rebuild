@@ -51,6 +51,8 @@ class LinkitFilter extends FilterBase implements ContainerFactoryPluginInterface
    *   The plugin implementation definition.
    * @param \Drupal\Core\Entity\EntityRepositoryInterface $entity_repository
    *   The entity repository service.
+   * @param \Drupal\linkit\SubstitutionManagerInterface $substitution_manager
+   *   The substitution manager.
    */
   public function __construct(array $configuration, $plugin_id, $plugin_definition, EntityRepositoryInterface $entity_repository, SubstitutionManagerInterface $substitution_manager) {
     parent::__construct($configuration, $plugin_id, $plugin_definition);

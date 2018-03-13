@@ -43,21 +43,24 @@ class SuggestionFactory {
   public function createFromSuggestedKeys($suggested_keys, $results_count = NULL) {
     $suggestion = new Suggestion($suggested_keys);
 
-    $pos = Unicode::strpos($suggested_keys, $this->userInput);
-    if ($pos === FALSE) {
+    $lowercase_input = Unicode::strtolower($this->userInput);
+    $lowercase_keys = Unicode::strtolower($suggested_keys);
+    $start_position = Unicode::strpos($lowercase_keys, $lowercase_input);
+    if ($start_position === FALSE) {
       $suggestion->setLabel($suggested_keys);
     }
     else {
-      $suggestion->setUserInput($this->userInput);
-      if ($pos) {
-        $prefix = Unicode::substr($suggested_keys, 0, $pos);
+      if ($start_position) {
+        $prefix = Unicode::substr($suggested_keys, 0, $start_position);
         $suggestion->setSuggestionPrefix($prefix);
       }
-      $pos += Unicode::strlen($this->userInput);
-      if ($pos < Unicode::strlen($suggested_keys)) {
-        $suffix = Unicode::substr($suggested_keys, $pos);
+      $input_length = Unicode::strlen($this->userInput);
+      $end_position = $start_position + $input_length;
+      if ($end_position < Unicode::strlen($suggested_keys)) {
+        $suffix = Unicode::substr($suggested_keys, $end_position);
         $suggestion->setSuggestionSuffix($suffix);
       }
+      $suggestion->setUserInput(Unicode::substr($suggested_keys, $start_position, $input_length));
     }
 
     if ($results_count !== NULL) {

@@ -142,11 +142,16 @@ class PagesIntegrationTest extends IntegrationTestBase {
         "search_api_page.search_api_page.{$this->searchId}",
       ],
       'module' => [
+        'search_api_autocomplete',
         'search_api_autocomplete_test',
         'search_api_page',
       ],
     ];
-    $this->assertEquals($expected, $search->getDependencies());
+    $dependencies = $search->getDependencies();
+    ksort($dependencies);
+    sort($dependencies['config']);
+    sort($dependencies['module']);
+    $this->assertEquals($expected, $dependencies);
   }
 
   /**
@@ -202,7 +207,6 @@ class PagesIntegrationTest extends IntegrationTestBase {
     /** @var \Drupal\search_api\Query\QueryInterface $query */
     list($query) = $this->getMethodArguments('backend', 'getAutocompleteSuggestions');
     $this->assertEquals(['name'], $query->getFulltextFields());
-
 
     $edit = [
       'suggesters[settings][server][fields][body]' => TRUE,

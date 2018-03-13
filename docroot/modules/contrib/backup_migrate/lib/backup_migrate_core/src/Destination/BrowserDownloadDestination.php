@@ -1,7 +1,7 @@
 <?php
 /**
  * @file
- * Contains BackupMigrate\Core\Destination\BrowserDownloadDestination
+ * Contains BackupMigrate\Core\Destination\BrowserDownloadDestination.
  */
 
 
@@ -14,7 +14,8 @@ use BackupMigrate\Core\Plugin\PluginCallerInterface;
 use BackupMigrate\Core\Plugin\PluginCallerTrait;
 
 /**
- * Class BrowserDownloadDestination
+ * Class BrowserDownloadDestination.
+ *
  * @package BackupMigrate\Core\Destination
  */
 class BrowserDownloadDestination extends StreamDestination implements WritableDestinationInterface, PluginCallerInterface {
@@ -25,21 +26,21 @@ class BrowserDownloadDestination extends StreamDestination implements WritableDe
    */
   function saveFile(BackupFileReadableInterface $file) {
     // Set some default download headers.
-    $headers = array(
-      array('key' => 'Content-Disposition', 'value' => 'attachment; filename="'. $file->getFullName() .'"'),
-      array('key' => 'Cache-Control', 'value' => 'no-cache'),
-    );
+    $headers = [
+      ['key' => 'Content-Disposition', 'value' => 'attachment; filename="' . $file->getFullName() . '"'],
+      ['key' => 'Cache-Control', 'value' => 'no-cache'],
+    ];
 
     // Set a mime-type header.
     if ($mime = $file->getMeta('mimetype')) {
-      $headers[] = array('key' => 'Content-Type', 'value' => $mime);
+      $headers[] = ['key' => 'Content-Type', 'value' => $mime];
     }
     else {
-      // Get the mime type for this file if possible
+      // Get the mime type for this file if possible.
       $mime = 'application/octet-stream';
-      $mime = $this->plugins()->call('alterMime', $mime, array('ext' => $file->getExtLast()));
+      $mime = $this->plugins()->call('alterMime', $mime, ['ext' => $file->getExtLast()]);
 
-      $headers[] = array('key' => 'Content-Type', 'value' => $mime);
+      $headers[] = ['key' => 'Content-Type', 'value' => $mime];
     }
 
     // In some circumstances, web-servers will double compress gzipped files.
@@ -48,10 +49,10 @@ class BrowserDownloadDestination extends StreamDestination implements WritableDe
       if (function_exists('apache_setenv')) {
         apache_setenv('no-gzip', '1');
       }
-      $headers[] = array('key' => 'Content-Encoding', 'value' => 'gzip');
+      $headers[] = ['key' => 'Content-Encoding', 'value' => 'gzip'];
     }
     if ($size = $file->getMeta('filesize')) {
-      $headers[] = array('key' => 'Content-Length', 'value' => $size);
+      $headers[] = ['key' => 'Content-Length', 'value' => $size];
     }
 
     // Suppress the warning you get when the buffer is empty.
@@ -86,6 +87,5 @@ class BrowserDownloadDestination extends StreamDestination implements WritableDe
       );
     }
   }
-
 
 }

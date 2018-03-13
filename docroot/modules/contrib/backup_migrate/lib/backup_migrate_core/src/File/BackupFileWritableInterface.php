@@ -13,7 +13,7 @@ namespace BackupMigrate\Core\File;
 interface BackupFileWritableInterface extends BackupFileReadableInterface {
 
   /**
-   * Get the realpath of the file
+   * Get the realpath of the file.
    *
    * @return string The path or stream URI to the file or NULL if the file does not exist.
    */
@@ -21,10 +21,10 @@ interface BackupFileWritableInterface extends BackupFileReadableInterface {
 
   /**
    * Write a line to the file.
-   * 
+   *
    * @param string $data A string to write to the file.
    */
-   public function write($data);
+  public function write($data);
 
   /**
    * A shorthand function to open the file, write the given contents and close
@@ -32,33 +32,34 @@ interface BackupFileWritableInterface extends BackupFileReadableInterface {
    *
    * @param string $data The contents to write.
    */
-   public function writeAll($data);
+  public function writeAll($data);
 
   /**
-   * Get a metadata value
+   * Get a metadata value.
    *
    * @param string $key The key for the metadata item.
+   *
    * @return mixed The value of the metadata for this file.
    */
   // public function getMeta($key);
   /**
-   * Set a metadata value
+   * Set a metadata value.
    *
    * @param string $key The key for the metadata item.
    * @param mixed $value The value for the metadata item.
    */
-   public function setMeta($key, $value);
+  public function setMeta($key, $value);
 
   /**
-   * Set a metadata value
+   * Set a metadata value.
    *
    * @param array $values An array of key-value pairs for the file metadata.
    */
-   public function setMetaMultiple($values);
+  public function setMetaMultiple($values);
 
   /**
    * Open a file for reading or writing.
-   * 
+   *
    * @param bool $binary If true open as a binary file
    */
   public function openForWrite($binary = FALSE);
@@ -67,6 +68,5 @@ interface BackupFileWritableInterface extends BackupFileReadableInterface {
    * Close a file when we're done reading/writing.
    */
   public function close();
-
 
 }

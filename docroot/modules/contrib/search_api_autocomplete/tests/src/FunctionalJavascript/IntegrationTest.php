@@ -3,9 +3,10 @@
 namespace Drupal\Tests\search_api_autocomplete\FunctionalJavascript;
 
 use Behat\Mink\Driver\GoutteDriver;
-use Behat\Mink\Element\NodeElement;
+use Drupal\search_api\Query\QueryInterface;
 use Drupal\search_api_autocomplete\Entity\Search;
 use Drupal\search_api_autocomplete\Tests\TestsHelper;
+use Drupal\Tests\search_api\Functional\ExampleContentTrait;
 use Drupal\user\Entity\Role;
 use Drupal\views\Entity\View;
 
@@ -16,11 +17,12 @@ use Drupal\views\Entity\View;
  */
 class IntegrationTest extends IntegrationTestBase {
 
+  use ExampleContentTrait;
+
   /**
    * {@inheritdoc}
    */
   public static $modules = [
-    'search_api_test',
     'search_api_autocomplete_test',
   ];
 
@@ -62,10 +64,14 @@ class IntegrationTest extends IntegrationTestBase {
       'administer search_api',
       'administer search_api_autocomplete',
       'administer permissions',
+      'view test entity',
     ];
     $this->adminUser = $this->drupalCreateUser($permissions);
 
     $this->normalUser = $this->drupalCreateUser();
+
+    $this->setUpExampleStructure();
+    $this->insertExampleContent();
   }
 
   /**
@@ -79,6 +85,7 @@ class IntegrationTest extends IntegrationTestBase {
     $this->checkEntityDependencies();
     $this->checkSearchAutocomplete();
     $this->checkSearchAutocomplete(TRUE);
+    $this->checkLiveResultsAutocomplete();
     $this->checkCustomAutocompleteScript();
     $this->checkHooks();
     $this->checkPluginCacheClear();
@@ -92,20 +99,7 @@ class IntegrationTest extends IntegrationTestBase {
   protected function enableSearch() {
     $assert_session = $this->assertSession();
 
-    // Make test suggester incompatible with all searches to test the "No
-    // suggesters available" message.
-    $callback = [TestsHelper::class, 'returnFalse'];
-    $this->setMethodOverride('suggester', 'supportsSearch', $callback);
-
     $this->drupalGet($this->getAdminPath());
-    $assert_session->statusCodeEquals(200);
-    $assert_session->pageTextContains('There are currently no suggester plugins installed that support this index.');
-
-    // Make it compatible with all searches again and refresh page.
-    $this->setMethodOverride('suggester', 'supportsSearch', NULL);
-
-    $this->getSession()->reload();
-    $this->logPageChange();
     $assert_session->statusCodeEquals(200);
 
     // Check whether all expected groups and searches are present.
@@ -150,11 +144,10 @@ class IntegrationTest extends IntegrationTestBase {
     $this->setMethodOverride('backend', 'getAutocompleteSuggestions', $callback);
 
     // After refreshing, the "Server" suggester should now be available. But by
-    // default, only our test suggester should be enabled (since it was the only
-    // option before).
+    // default, it should not be checked (one of the others should be the only
+    // one). The "Custom scripts" suggester should not be available.
     $this->getSession()->reload();
     $this->logPageChange();
-    $assert_session->checkboxChecked('suggesters[enabled][search_api_autocomplete_test]');
     $assert_session->checkboxNotChecked('suggesters[enabled][server]');
     $assert_session->elementNotExists('css', 'input[name="suggesters[enabled][custom_script]"]');
 
@@ -166,6 +159,8 @@ class IntegrationTest extends IntegrationTestBase {
 
     // Submit the form with some values for all fields.
     $edit = [
+      'suggesters[enabled][live_results]' => FALSE,
+      'suggesters[enabled][search_api_autocomplete_test]' => TRUE,
       'suggesters[weights][search_api_autocomplete_test][limit]' => '3',
       'suggesters[weights][server][limit]' => '3',
       'suggesters[weights][search_api_autocomplete_test][weight]' => '0',
@@ -193,11 +188,16 @@ class IntegrationTest extends IntegrationTestBase {
         "views.view.{$this->searchId}",
       ],
       'module' => [
-        'search_api',
+        'search_api_autocomplete',
         'search_api_autocomplete_test',
+        'views',
       ],
     ];
-    $this->assertEquals($expected, $search->getDependencies());
+    $dependencies = $search->getDependencies();
+    ksort($dependencies);
+    sort($dependencies['config']);
+    sort($dependencies['module']);
+    $this->assertEquals($expected, $dependencies);
   }
 
   /**
@@ -254,9 +254,12 @@ class IntegrationTest extends IntegrationTestBase {
     ];
     $this->assertEquals($expected, $suggestions);
 
+    // Make sure the query looks as it should.
     /** @var \Drupal\search_api\Query\QueryInterface $query */
     list($query) = $this->getMethodArguments('backend', 'getAutocompleteSuggestions');
+    $this->assertFalse($query->wasAborted());
     $this->assertEquals(['body'], $query->getFulltextFields());
+    $this->assertEquals(['en'], array_values($query->getLanguages()));
 
     if ($click_url_suggestion) {
       // Click the URL suggestion and verify it correctly redirects the browser
@@ -281,6 +284,61 @@ class IntegrationTest extends IntegrationTestBase {
   }
 
   /**
+   * Tests autocomplete with the "Live results" suggester.
+   */
+  protected function checkLiveResultsAutocomplete() {
+    $assert_session = $this->assertSession();
+
+    // First, enable "Live results" as the only suggester.
+    $edit = [
+      'suggesters[enabled][live_results]' => TRUE,
+      'suggesters[enabled][search_api_autocomplete_test]' => FALSE,
+      'suggesters[enabled][server]' => FALSE,
+      'suggesters[settings][live_results][fields][name]' => FALSE,
+      'suggesters[settings][live_results][fields][body]' => TRUE,
+    ];
+    $this->drupalPostForm($this->getAdminPath('edit'), $edit, 'Save');
+    $assert_session->pageTextContains('The autocompletion settings for the search have been saved.');
+
+    // Then, set an appropriate search method for the test backend.
+    $callback = [TestsHelper::class, 'search'];
+    $this->setMethodOverride('backend', 'search', $callback);
+
+    // Get the autocompletion results.
+    $this->drupalGet('search-api-autocomplete-test');
+    $assert_session->statusCodeEquals(200);
+    $suggestions = [];
+    foreach ($this->getAutocompleteSuggestions() as $element) {
+      $label = $this->getElementText($element, '.autocomplete-suggestion-label');
+      $suggestions[$label] = $element;
+    }
+
+    // Make sure the suggestions are as expected.
+    $expected = [
+      $this->entities[3]->label(),
+      $this->entities[4]->label(),
+      $this->entities[2]->label(),
+    ];
+    $this->assertEquals($expected, array_keys($suggestions));
+
+    // Make sure all the search query settings were as expected.
+    /** @var \Drupal\search_api\Query\QueryInterface $query */
+    $query = $this->getMethodArguments('backend', 'search')[0];
+    $this->assertInstanceOf(QueryInterface::class, $query);
+    $this->assertEquals(0, $query->getOption('offset'));
+    $this->assertEquals(5, $query->getOption('limit'));
+    $this->assertEquals(['body'], $query->getFulltextFields());
+    $this->assertEquals('test', $query->getOriginalKeys());
+
+    // Click on one of the suggestions and verify it takes us to the expected
+    // page.
+    $suggestions[$this->entities[3]->label()]->click();
+    $this->logPageChange();
+    $path = $this->entities[3]->toUrl()->getInternalPath();
+    $assert_session->addressEquals('/' . $path);
+  }
+
+  /**
    * Retrieves autocomplete suggestions from a field on the current page.
    *
    * @param string $field_html_id
@@ -292,7 +350,6 @@ class IntegrationTest extends IntegrationTestBase {
    *   The suggestion elements from the page.
    */
   protected function getAutocompleteSuggestions($field_html_id = 'edit-keys', $input = 'test') {
-    $page = $this->getSession()->getPage();
     $assert_session = $this->assertSession();
     $field = $assert_session->elementExists('css', "input[data-drupal-selector=\"$field_html_id\"]");
     $field->setValue(substr($input, 0, -1));
@@ -304,23 +361,8 @@ class IntegrationTest extends IntegrationTestBase {
 
     // Contrary to documentation, this can also return NULL. Therefore, we need
     // to make sure to return an array even in this case.
+    $page = $this->getSession()->getPage();
     return $page->findAll('css', '.ui-autocomplete .ui-menu-item') ?: [];
-  }
-
-  /**
-   * Retrieves the text contents of a descendant of the given element.
-   *
-   * @param \Behat\Mink\Element\NodeElement $element
-   *   The element.
-   * @param string $css_selector
-   *   The CSS selector defining the descendant to look for.
-   *
-   * @return string|null
-   *   The text contents of the descendant, or NULL if it couldn't be found.
-   */
-  protected function getElementText(NodeElement $element, $css_selector) {
-    $element = $element->find('css', $css_selector);
-    return $element ? $element->getText() : NULL;
   }
 
   /**
