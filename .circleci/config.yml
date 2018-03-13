@@ -5,10 +5,10 @@ jobs:
       - image: circleci/php:7.1-node-browsers
     working_directory: ~/repo
     steps:
-      - run: sudo apt-get install -y libbz2-dev libpng-dev
-      - run: sudo docker-php-ext-install bz2
-      - run: sudo docker-php-ext-install gd
-      - run: sudo composer self-update
+      - run: apt-get install -y libbz2-dev libpng-dev
+      - run: docker-php-ext-install bz2
+      - run: docker-php-ext-install gd
+      - run: composer self-update
       - checkout
       # Change the ckeditor http url to https
       # FIXME can we just fix this  so 'composer update' doesnt clobber it once and
