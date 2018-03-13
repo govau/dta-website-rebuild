@@ -10,10 +10,8 @@ set -o pipefail
 # DO NOT USE THIS IF YOU USE SECRETS IN THIS SCRIPT
 set -x
 
-SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-
-# Add vendored bin dir to PATH
-PATH="${SCRIPT_DIR}/../bin:${PATH}"
+# Include build env vars
+source "$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )/buildrc"
 
 if [ -n "$CIRCLE_BRANCH" ]; then
   # For efficiency we only want to run certain tests against deviations from

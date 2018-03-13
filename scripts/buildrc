@@ -3,6 +3,11 @@
 # enable pattern lists like +(...|...)
 shopt -s extglob
 
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+# Add vendored bin dir to PATH
+PATH="${SCRIPT_DIR}/../bin:${PATH}"
+
 # Note its nice to be able to run the same script locally as well as in CI,
 # so we dont rely on circle env vars being available.
 
