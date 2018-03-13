@@ -2,39 +2,67 @@ version: 2
 jobs:
   test:
     docker:
-      - image: circleci/php:7.1-node-browsers
-    working_directory: ~/repo
+      - image: govau/dta-website-rebuild:latest
+        # Gotcha - if you DONT specify command, then the entrypoint in the image
+        # is not run either
+        command: apache2ctl -D FOREGROUND
+        environment:
+          VCAP_SERVICES: "{\"mysql\":[{\"binding_name\":null,\"credentials\":{\"host\":\"db\",\"name\":\"drupal\",\"password\":\"password\",\"port\":3306,\"username\":\"drupal\"},\"label\":\"mysql\",\"name\": \"dta-website-rebuild-db\",\"tags\":[\"mysql\"]}],\"user-provided\":[{\"credentials\":{\"SMTP_PASSWORD\":\"password\"},\"instance_name\":\"ups-website-redev\",\"label\":\"user-provided\",\"name\":\"ups-website-redev\",\"syslog_drain_url\":\"\",\"tags\":[],\"volume_mounts\":[]},{\"binding_name\":null,\"credentials\":{\"access_key\":\"AKIAIFOO\",\"secret_key\":\"BAR\"},\"instance_name\":\"ups-aws\",\"label\":\"user-provided\",\"name\":\"ups-aws\",\"syslog_drain_url\":\"\",\"tags\":[],\"volume_mounts\":[]}]}"
+      - image: mariadb:10.2
+        environment:
+          MYSQL_DATABASE: drupal
+          MYSQL_USER: drupal
+          MYSQL_PASSWORD: password
+          MYSQL_RANDOM_ROOT_PASSWORD: "yes"
+    working_directory: /app
     steps:
       - run: apt-get install -y libbz2-dev libpng-dev
       - run: docker-php-ext-install bz2
       - run: docker-php-ext-install gd
       - run: composer self-update
       - checkout
+      - run: git submodule sync
+      - run: git submodule update --init
+      - run:
+          name: "Setup hosts"
+          command: |
+            # Since we cant use extra_hosts in circle, DIY the expected host entries
+            echo "127.0.0.1      db" >> /etc/hosts
+            echo "127.0.0.1      govcms8.local" >> /etc/hosts
       # Change the ckeditor http url to https
       # FIXME can we just fix this  so 'composer update' doesnt clobber it once and
       # for all??
       # Or just set secure-http to false? https://getcomposer.org/doc/06-config.md#secure-http
       - run: sed -i 's/http:\/\/download.ckeditor.com/https:\/\/download.ckeditor.com/g' composer.lock
       - persist_to_workspace:
-          root: ~/repo
+          root: /app
           paths:
             - .
       - restore_cache:
           keys:
             - composer-v1-{{ checksum "composer.lock" }}
-      - run: composer install -n --prefer-dist
+      - run: composer install -n --prefer-dist --no-progress
       - save_cache:
           key: composer-v1-{{ checksum "composer.lock" }}
           paths:
             - vendor
+      - run:
+          name: Install dockerize
+          command: wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz && tar -C /usr/local/bin -xzvf dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz && rm dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
+          environment:
+            DOCKERIZE_VERSION: v0.3.0
+      - run:
+          name: Wait for db to start
+          command: dockerize -wait tcp://db:3306 -timeout 1m
       - run: ./scripts/test.sh
+      - run: ./scripts/int-test.sh
   deploy:
     docker:
       - image: govau/cf-cli
-    working_directory: ~/repo
+    working_directory: /app
     steps:
       - attach_workspace:
-          at: ~/repo
+          at: /app
       - run:
           name: Deploying to cloud.gov.au
           command: ./scripts/deploy.sh
