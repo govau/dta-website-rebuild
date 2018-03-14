@@ -25,7 +25,7 @@ if [ -n "$CIRCLE_BRANCH" ]; then
     # If anything in core has changed, run its phpunit
     for file in $(git diff --name-only --diff-filter=M origin/${BASE_BRANCH}...); do
       if [[ $file == docroot/core* ]]; then
-        mkdir docroot/core/sites/simpletest/browser_output
+        mkdir docroot/sites/default/simpletest/browser_output
         pushd docroot/core
           phpunit --testsuite=unit --exclude-group \
             Composer,DependencyInjection,PageManager,jsonapi,legacy
