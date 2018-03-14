@@ -81,7 +81,8 @@ class SearchApiAutocomplete extends Textfield {
     if ($options['submit_button_selector'] != ':submit') {
       $js_settings['selector'] = $options['submit_button_selector'];
     }
-    if ($delay = $search->getOption('delay') !== NULL) {
+    $delay = $search->getOption('delay');
+    if ($delay !== NULL) {
       $js_settings['delay'] = $delay;
     }
     if ($options['autosubmit']) {

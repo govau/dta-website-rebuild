@@ -1,28 +1,24 @@
 <?php
-/**
- * @file
- * Contains \BackupMigrate\Core\Profile\ConfigInterface.
- */
 
 namespace BackupMigrate\Core\Config;
 
 /**
  * Provides an interface defining a backup source.
  */
-interface ConfigInterface
-{
+interface ConfigInterface {
 
   /**
-   * Get a setting value
+   * Get a setting value.
    *
    * @param string $key The key for the setting.
    * @param null $default The default to return if there is no value set for this key.
+   *
    * @return mixed The value of the setting.
    */
   public function get($key, $default = NULL);
 
   /**
-   * Set a setting value
+   * Set a setting value.
    *
    * @param string $key The key for the setting.
    * @param mixed $value The value for the setting.
@@ -34,12 +30,13 @@ interface ConfigInterface
    * Determine if the given key has had a value set for it.
    *
    * @param $key
+   *
    * @return bool
    */
   public function keyIsSet($key);
 
   /**
-   * Get all settings as an associative array
+   * Get all settings as an associative array.
    *
    * @return array All of the settings in this profile
    */
@@ -47,7 +44,7 @@ interface ConfigInterface
 
 
   /**
-   * Set all from an array
+   * Set all from an array.
    *
    * @param array $values An associative array of settings.
    */

@@ -6,8 +6,8 @@ package: Social
 # version: 8.x-2.x
 configure: social_api.admin_config
 
-# Information added by Drupal.org packaging script on 2018-01-08
-version: '8.x-2.0-beta3'
+# Information added by Drupal.org packaging script on 2018-02-22
+version: '8.x-2.0-beta4'
 core: '8.x'
 project: 'social_api'
-datestamp: 1515447189
+datestamp: 1519320186

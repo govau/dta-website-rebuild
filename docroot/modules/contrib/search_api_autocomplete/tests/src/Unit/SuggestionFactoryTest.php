@@ -2,6 +2,7 @@
 
 namespace Drupal\Tests\search_api_autocomplete\Unit;
 
+use Drupal\Component\Utility\Unicode;
 use Drupal\Core\Url;
 use Drupal\search_api_autocomplete\Suggestion\SuggestionFactory;
 use Drupal\Tests\UnitTestCase;
@@ -40,6 +41,24 @@ class SuggestionFactoryTest extends UnitTestCase {
     $this->assertEquals('foo', $suggestion->getUserInput());
     $this->assertNull($suggestion->getLabel());
     $this->assertEquals('oo', $suggestion->getSuggestionSuffix());
+    $this->assertEquals(5, $suggestion->getResultsCount());
+
+    // Test case-insensitivity.
+    $suggestion = $factory->createFromSuggestedKeys('Foooo', 5);
+    $this->assertEquals('Foooo', $suggestion->getSuggestedKeys());
+    $this->assertEquals('Foo', $suggestion->getUserInput());
+    $this->assertNull($suggestion->getLabel());
+    $this->assertEquals('oo', $suggestion->getSuggestionSuffix());
+    $this->assertEquals(5, $suggestion->getResultsCount());
+
+    // Test case-insensitivity with non-ASCII characters.
+    Unicode::check();
+    $factory = new SuggestionFactory('öd');
+    $suggestion = $factory->createFromSuggestedKeys('Ödön', 5);
+    $this->assertEquals('Ödön', $suggestion->getSuggestedKeys());
+    $this->assertEquals('Öd', $suggestion->getUserInput());
+    $this->assertNull($suggestion->getLabel());
+    $this->assertEquals('ön', $suggestion->getSuggestionSuffix());
     $this->assertEquals(5, $suggestion->getResultsCount());
   }
 

@@ -7,7 +7,8 @@ namespace BackupMigrate\Core\Config;
 
 
 /**
- * Interface ValidationErrorInterface
+ * Interface ValidationErrorInterface.
+ *
  * @package BackupMigrate\Core\Config
  */
 interface ValidationErrorInterface {
@@ -26,4 +27,5 @@ interface ValidationErrorInterface {
    * @return string
    */
   public function getFieldKey();
+
 }

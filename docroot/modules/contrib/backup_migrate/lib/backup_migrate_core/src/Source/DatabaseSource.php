@@ -13,21 +13,22 @@ use BackupMigrate\Core\Plugin\FileProcessorTrait;
 use BackupMigrate\Core\Plugin\PluginBase;
 
 /**
- * Class DatabaseSource
+ * Class DatabaseSource.
+ *
  * @package BackupMigrate\Core\Source
  */
-abstract class DatabaseSource  extends PluginBase implements DatabaseSourceInterface, FileProcessorInterface
-{
+abstract class DatabaseSource extends PluginBase implements DatabaseSourceInterface, FileProcessorInterface {
   use FileProcessorTrait;
 
   /**
    * Get a definition for user-configurable settings.
    *
    * @param array $params
+   *
    * @return array
    */
-  public function configSchema($params = array()) {
-    $schema = array();
+  public function configSchema($params = []) {
+    $schema = [];
 
     // Init settings.
     if ($params['operation'] == 'initialize') {
@@ -55,7 +56,6 @@ abstract class DatabaseSource  extends PluginBase implements DatabaseSourceInter
       ];
     }
 
-
     return $schema;
   }
 
@@ -71,14 +71,14 @@ abstract class DatabaseSource  extends PluginBase implements DatabaseSourceInter
   }
 
   /**
-   * Get a list of tables in this source
+   * Get a list of tables in this source.
    */
   public function getTableNames() {
     try {
       return $this->_getTableNames();
     }
     catch (\Exception $e) {
-      // Todo: Log this exception
+      // Todo: Log this exception.
       return [];
     }
   }
@@ -94,7 +94,7 @@ abstract class DatabaseSource  extends PluginBase implements DatabaseSourceInter
       return $this->_getTables();
     }
     catch (\Exception $e) {
-      // Todo: Log this exception
+      // Todo: Log this exception.
       return [];
     }
   }
@@ -106,7 +106,7 @@ abstract class DatabaseSource  extends PluginBase implements DatabaseSourceInter
    * @return array
    */
   protected function _getTableNames() {
-    $out = array();
+    $out = [];
     foreach ($this->_getTables() as $table) {
       $out[$table['name']] = $table['name'];
     }
@@ -119,4 +119,5 @@ abstract class DatabaseSource  extends PluginBase implements DatabaseSourceInter
    * @return array
    */
   abstract protected function _getTables();
+
 }

@@ -3,7 +3,7 @@
 namespace Drupal\backup_migrate\Plugin\BackupMigrateSource;
 
 use BackupMigrate\Core\Config\Config;
-use BackupMigrate\Core\Source\MySQLiSource;
+use BackupMigrate\Drupal\Source\DrupalMySQLiSource;
 use BackupMigrate\Core\Main\BackupMigrateInterface;
 use BackupMigrate\Drupal\EntityPlugins\SourcePluginBase;
 use BackupMigrate\Drupal\Source\DrupalSiteArchiveSource;
@@ -34,11 +34,11 @@ class EntireSiteSourcePlugin extends SourcePluginBase {
     if ($info['driver'] == 'mysql') {
       $conf = $this->getConfig();
       $conf->set('directory', DRUPAL_ROOT);
-      $this->db_source = new MySQLiSource(new Config($info));
+      $this->db_source = new DrupalMySQLiSource(new Config($info));
       return new DrupalSiteArchiveSource($conf, $this->db_source);
     }
 
-    return null;
+    return NULL;
   }
 
   /**

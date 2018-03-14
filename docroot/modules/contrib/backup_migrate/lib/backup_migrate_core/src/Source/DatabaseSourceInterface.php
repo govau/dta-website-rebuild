@@ -7,12 +7,13 @@ namespace BackupMigrate\Core\Source;
 
 
 /**
- * Interface DatabaseSourceInterface
+ * Interface DatabaseSourceInterface.
+ *
  * @package BackupMigrate\Core\Source
  */
 interface DatabaseSourceInterface extends SourceInterface {
   /**
-   * Get a list of tables in this source
+   * Get a list of tables in this source.
    */
   public function getTableNames();
 

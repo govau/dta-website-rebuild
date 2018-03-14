@@ -1,19 +1,18 @@
 <?php
-/**
- * @file
- */
 
 namespace BackupMigrate\Core\Config;
+
 use BackupMigrate\Core\Translation\TranslatableTrait;
 
-
 /**
- * Class ConfigurableTrait
+ * Class ConfigurableTrait.
+ *
  * @package BackupMigrate\Core\Config
  *
  * A configurable object. Manages injection and access to a config object.
  */
 trait ConfigurableTrait {
+
   use TranslatableTrait;
 
   /**
@@ -38,14 +37,14 @@ trait ConfigurableTrait {
    * @param ConfigInterface|array $init
    *  The initial values for the configurable item
    */
-  public function __construct($init = array()) {
+  public function __construct($init = []) {
     if (is_array($init)) {
       $init = new Config($init);
     }
     $this->init = $init;
 
     // Set the config to a blank object to populate all values with the initial
-    // and default values
+    // and default values.
     $this->setConfig(new Config());
   }
 
@@ -77,6 +76,7 @@ trait ConfigurableTrait {
 
   /**
    * Get the configuration object for this item.
+   *
    * @return \BackupMigrate\Core\Config\ConfigInterface
    */
   public function config() {
@@ -101,20 +101,22 @@ trait ConfigurableTrait {
    *      - 'backup': Configuration needed during a backup operation
    *      - 'restore': Configuration needed during a restore
    *      - 'initialize': Core configuration always needed by this item
+   *
    * @return array
    */
-  public function configSchema($params = array()) {
-    return array();
+  public function configSchema($params = []) {
+    return [];
   }
 
   /**
    * Get any validation errors in the config.
    *
    * @param array $params
+   *
    * @return array
    */
-  public function configErrors($params = array()) {
-    $out = array();
+  public function configErrors($params = []) {
+    $out = [];
 
     // Do some basic validation based on length and regex matching.
     $schema = $this->configSchema($params);
@@ -153,6 +155,7 @@ trait ConfigurableTrait {
    * Get a specific value from the configuration.
    *
    * @param string $key The configuration object key to retrieve.
+   *
    * @return mixed The configuration value.
    */
   public function confGet($key) {

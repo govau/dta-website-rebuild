@@ -5,7 +5,8 @@ namespace BackupMigrate\Drupal\EntityPlugins;
 use BackupMigrate\Core\Main\BackupMigrateInterface;
 
 /**
- * Class SourcePluginBase
+ * Class SourcePluginBase.
+ *
  * @package BackupMigrate\Drupal\EntityPlugins
  */
 abstract class SourcePluginBase extends WrapperPluginBase implements SourcePluginInterface {

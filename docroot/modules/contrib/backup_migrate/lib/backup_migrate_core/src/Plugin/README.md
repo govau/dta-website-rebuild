@@ -40,9 +40,9 @@ The consuming application accesses the plugin manager only to add plugins. It ma
 	
 To configure this plugin the consuming application would have a section called 'demoplugin' in the plugin manager configuration object:
 
-	$conf = new Config(array(
-		'demoplugin' => array('foo => 'bar')
-	);
+	$conf = new Config([
+		'demoplugin' => ['foo => 'bar']
+	]);
 	
 	$plugins = new PluginManager(NULL, $conf);
 	$backup_migrate = new BackupMigrate($plugins);

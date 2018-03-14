@@ -16,6 +16,9 @@ jobs:
           MYSQL_RANDOM_ROOT_PASSWORD: "yes"
     working_directory: /app
     steps:
+      - run: apt-get install -y libbz2-dev libpng-dev
+      - run: docker-php-ext-install bz2
+      - run: docker-php-ext-install gd
       - run: composer self-update
       - checkout
       - run: git submodule sync

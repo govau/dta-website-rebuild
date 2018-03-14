@@ -14,6 +14,7 @@ namespace BackupMigrate\Core\Translation;
  * to translate a string (if a translator is available).
  *
  * Class TranslatableTrait
+ *
  * @package BackupMigrate\Core\Translation
  */
 trait TranslatableTrait {
@@ -35,9 +36,10 @@ trait TranslatableTrait {
    * @param $string
    * @param $replacements
    * @param $context
+   *
    * @return mixed
    */
-  public function t($string, $replacements = array(), $context = array()) {
+  public function t($string, $replacements = [], $context = []) {
     // If there is no translation service available use a passthrough to send
     // back the original (en-us) string.
     if (empty($this->translator)) {
@@ -45,4 +47,5 @@ trait TranslatableTrait {
     }
     return $this->translator->translate($string, $replacements, $context);
   }
+
 }

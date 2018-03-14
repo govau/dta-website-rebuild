@@ -85,6 +85,24 @@ plugin.plugin_configuration.search_api_autocomplete_suggester.server:
       sequence:
         type: string
 
+plugin.plugin_configuration.search_api_autocomplete_suggester.live_results:
+  type: mapping
+  mapping:
+    fields:
+      type: sequence
+      label: 'The fields to use for searching'
+      sequence:
+        type: string
+    view_modes:
+      type: sequence
+      label: 'The view modes to use for displaying results'
+      sequence:
+        type: sequence
+        label: 'The view modes to use for displaying results of a certain type'
+        sequence:
+          type: string
+          label: 'The view mode to use for displaying results of a certain bundle'
+
 plugin.plugin_configuration.search_api_autocomplete_search.*:
   type: mapping
 

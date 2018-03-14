@@ -10,7 +10,8 @@ use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\Url;
 
 /**
- * Class BackupController
+ * Class BackupController.
+ *
  * @package Drupal\backup_migrate\Controller
  */
 class BackupController extends ControllerBase {
@@ -20,7 +21,9 @@ class BackupController extends ControllerBase {
    */
   var $destination;
 
-
+  /**
+   *
+   */
   public function listAll() {
     $storage = \Drupal::entityTypeManager()
       ->getStorage('backup_migrate_destination');
@@ -55,9 +58,7 @@ class BackupController extends ControllerBase {
    *
    * @return \Drupal\Core\StringTranslation\TranslatableMarkup
    */
-  public function listDestinationEntityBackupsTitle(
-    Destination $backup_migrate_destination
-  ) {
+  public function listDestinationEntityBackupsTitle(Destination $backup_migrate_destination) {
     return $this->t('Backups in @destination_name',
       ['@destination_name' => $backup_migrate_destination->label()]);
   }
@@ -69,10 +70,7 @@ class BackupController extends ControllerBase {
    *
    * @return mixed
    */
-  public
-  function listDestinationEntityBackups(
-    Destination $backup_migrate_destination
-  ) {
+  public function listDestinationEntityBackups(Destination $backup_migrate_destination) {
     $destination = $backup_migrate_destination->getObject();
     return $this->listDestinationBackups($destination,
       $backup_migrate_destination->id());
@@ -85,36 +83,37 @@ class BackupController extends ControllerBase {
    *
    * @return mixed
    */
-  public
-  function listDestinationBackups(
+  public function listDestinationBackups(
     ListableDestinationInterface $destination,
     $backup_migrate_destination_id,
     $count = NULL
   ) {
 
-    // Get a sorted list of files
+    // Get a sorted list of files.
     $rows = [];
-    $header = array(
-      array(
+    $header = [
+      [
         'data' => $this->t('Name'),
-        'class' => array(RESPONSIVE_PRIORITY_MEDIUM),
+        'class' => [RESPONSIVE_PRIORITY_MEDIUM],
         'field' => 'name'
-      ),
-      array(
+      ],
+      [
         'data' => $this->t('Date'),
-        'class' => array(RESPONSIVE_PRIORITY_MEDIUM),
-        'field' => 'datestamp', 'sort' => 'desc'
-      ),
-      array(
+        'class' => [RESPONSIVE_PRIORITY_MEDIUM],
+        'field' => 'datestamp',
+      'sort' => 'desc'
+      ],
+      [
         'data' => $this->t('Size'),
-        'class' => array(RESPONSIVE_PRIORITY_MEDIUM),
-        'field' => 'filesize', 'sort' => 'desc'
-      ),
-      array(
+        'class' => [RESPONSIVE_PRIORITY_MEDIUM],
+        'field' => 'filesize',
+      'sort' => 'desc'
+      ],
+      [
         'data' => $this->t('Operations'),
-        'class' => array(RESPONSIVE_PRIORITY_LOW)
-      ),
-    );
+        'class' => [RESPONSIVE_PRIORITY_LOW]
+      ],
+    ];
 
     $order = tablesort_get_order($header);
     $sort = tablesort_get_sort($header);
@@ -188,8 +187,7 @@ class BackupController extends ControllerBase {
    *
    * @param $backup_id
    */
-  public
-  function download(
+  public function download(
     Destination $backup_migrate_destination,
     $backup_id
   ) {

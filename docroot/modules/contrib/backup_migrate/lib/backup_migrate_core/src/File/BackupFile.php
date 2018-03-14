@@ -10,7 +10,8 @@ namespace BackupMigrate\Core\File;
 use BackupMigrate\Core\File\BackupFileInterface;
 
 /**
- * Class BackupFile
+ * Class BackupFile.
+ *
  * @package BackupMigrate\Core\File
  */
 class BackupFile implements BackupFileInterface {
@@ -36,24 +37,25 @@ class BackupFile implements BackupFileInterface {
   protected $name;
 
   /**
-   * The file extension(s)
+   * The file extension(s).
    *
    * @var array
    */
   protected $ext;
 
   /**
-   * The file's metadata
-   * 
+   * The file's metadata.
+   *
    * @var array A key/value associative array of metadata.
    */
   protected $metadata;
 
 
   /**
-   * Get a metadata value
+   * Get a metadata value.
    *
    * @param string $key The key for the metadata item.
+   *
    * @return mixed The value of the metadata for this file.
    */
   public function getMeta($key) {
@@ -61,7 +63,7 @@ class BackupFile implements BackupFileInterface {
   }
 
   /**
-   * Set a metadata value
+   * Set a metadata value.
    *
    * @param string $key The key for the metadata item.
    * @param mixed $value The value for the metadata item.
@@ -71,20 +73,21 @@ class BackupFile implements BackupFileInterface {
   }
 
   /**
-   * Set a metadata value
+   * Set a metadata value.
    *
    * @param array $values An array of key-value pairs for the file metadata.
    */
   public function setMetaMultiple($values) {
-    foreach ((array)$values as $key => $value) {
+    foreach ((array) $values as $key => $value) {
       $this->setMeta($key, $value);
     }
   }
 
   /**
-   * Get all metadata
+   * Get all metadata.
    *
    * @param array $values An array of key-value pairs for the file metadata.
+   *
    * @return array
    */
   public function getMetaAll() {
@@ -151,4 +154,5 @@ class BackupFile implements BackupFileInterface {
   public function setExtList($ext) {
     $this->ext = array_filter($ext);
   }
+
 }

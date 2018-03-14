@@ -1,5 +1,12 @@
-user: ''
-pass: ''
-# For real security, remove [user] and [pass].
-print: 'Hello, user: [user], pass: [pass]!'
+credential_provider: 'shield'
+credentials:
+  shield:
+    user: ''
+    pass: ''
+  key:
+    user: ''
+    pass_key: ''
+  multikey:
+    user_pass_key: ''
+print: 'Hello!'
 allow_cli: true

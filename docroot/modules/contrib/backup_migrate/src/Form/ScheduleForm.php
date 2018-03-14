@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Drupal\backup_migrate\Form;
 
 use BackupMigrate\Drupal\Config\DrupalConfigHelper;
@@ -23,28 +22,28 @@ class ScheduleForm extends EntityForm {
     $form = parent::form($form, $form_state);
 
     $backup_migrate_schedule = $this->entity;
-    $form['label'] = array(
+    $form['label'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Schedule Name'),
       '#maxlength' => 255,
       '#default_value' => $backup_migrate_schedule->label(),
       '#required' => TRUE,
-    );
+    ];
 
-    $form['id'] = array(
+    $form['id'] = [
       '#type' => 'machine_name',
       '#default_value' => $backup_migrate_schedule->id(),
-      '#machine_name' => array(
+      '#machine_name' => [
         'exists' => '\Drupal\backup_migrate\Entity\Schedule::load',
-      ),
+      ],
       '#disabled' => !$backup_migrate_schedule->isNew(),
-    );
+    ];
 
-    $form['enabled'] = array(
+    $form['enabled'] = [
       '#type' => 'checkbox',
       '#title' => $this->t('Schedule enabled'),
       '#default_value' => $backup_migrate_schedule->get('enabled'),
-    );
+    ];
 
     $bam = backup_migrate_get_service_object([], ['nobrowser' => TRUE]);
     $form['source_id'] = DrupalConfigHelper::getSourceSelector(
@@ -58,32 +57,34 @@ class ScheduleForm extends EntityForm {
       $backup_migrate_schedule->get('destination_id')
     );
 
-    $form['settings_profile_id'] =
-      DrupalConfigHelper::getSettingsProfileSelector(t('Settings Profile'));
+    $form['settings_profile_id'] = DrupalConfigHelper::getSettingsProfileSelector(
+      t('Settings Profile'),
+      $backup_migrate_schedule->get('settings_profile_id')
+    );
 
     $period = Schedule::secondsToPeriod($backup_migrate_schedule->get('period'));
-    $form['period_container'] = array(
+    $form['period_container'] = [
       // Reset #parents so the additional container does not appear.
-      '#parents' => array(),
+      '#parents' => [],
       '#type' => 'fieldset',
       '#title' => $this->t('Frequency'),
       '#field_prefix' => $this->t('Run every'),
-      '#attributes' => array(
-        'class' => array(
+      '#attributes' => [
+        'class' => [
           'container-inline',
           'fieldgroup',
           'form-composite'
-        )
-      ),
-    );
-    $form['period_container']['period_number'] = array(
+        ]
+      ],
+    ];
+    $form['period_container']['period_number'] = [
       '#type' => 'number',
       '#default_value' => $period['number'],
       '#min' => 1,
       '#title' => $this->t('Period number'),
       '#title_display' => 'invisible',
       '#size' => 2,
-    );
+    ];
     $form['period_container']['period_type'] = [
       '#type' => 'select',
       '#title' => $this->t('Period type'),
@@ -95,13 +96,13 @@ class ScheduleForm extends EntityForm {
       $form['period_container']['period_type']['#options'][$key] = $type['title'];
     }
 
-    $form['keep'] = array(
+    $form['keep'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Number to keep'),
       '#default_value' => $backup_migrate_schedule->get('keep'),
       '#description' => $this->t('The number of backups to retain. Once this number is reached, the oldest backup will be deleted to make room for the most recent backup. Leave blank to keep all backups.'),
       '#size' => 10,
-    );
+    ];
 
     return $form;
   }

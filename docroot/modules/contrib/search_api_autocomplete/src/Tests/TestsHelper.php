@@ -4,6 +4,7 @@ namespace Drupal\search_api_autocomplete\Tests;
 
 use Drupal\search_api\Backend\BackendInterface;
 use Drupal\search_api\Query\QueryInterface;
+use Drupal\search_api\Utility\Utility;
 use Drupal\search_api_autocomplete\SearchInterface;
 use Drupal\search_api_autocomplete\Suggestion\SuggestionFactory;
 
@@ -14,16 +15,6 @@ use Drupal\search_api_autocomplete\Suggestion\SuggestionFactory;
  * accessed during page requests in Functional tests.
  */
 class TestsHelper {
-
-  /**
-   * Returns FALSE.
-   *
-   * @return false
-   *   FALSE.
-   */
-  public static function returnFalse() {
-    return FALSE;
-  }
 
   /**
    * Returns all features that the test backend should support.
@@ -73,6 +64,41 @@ class TestsHelper {
       $suggestions[] = $factory->createFromSuggestionSuffix("-backend-$i", $i);
     }
     return $suggestions;
+  }
+
+  /**
+   * Executes a search on this server.
+   *
+   * @param \Drupal\search_api\Backend\BackendInterface $backend
+   *   The test backend on which the query is executed.
+   * @param \Drupal\search_api\Query\QueryInterface $query
+   *   The query to execute.
+   *
+   * @throws \Drupal\search_api\SearchApiException
+   *   If the index doesn't have the "entity:entity_test_mulrev_changed"
+   *   datasource.
+   *
+   * @see \Drupal\search_api_test\Plugin\search_api\backend\TestBackend::search()
+   */
+  public static function search(BackendInterface $backend, QueryInterface $query) {
+    $args = array_slice(func_get_args(), 1);
+    static::logMethodCall('backend', __FUNCTION__, $args);
+
+    $results = $query->getResults();
+    $index = $query->getIndex();
+    $datasource_id = 'entity:entity_test_mulrev_changed';
+    $datasource = $index->getDatasource($datasource_id);
+    $fields_helper = \Drupal::getContainer()->get('search_api.fields_helper');
+
+    $result_items = [];
+    foreach ([3, 4, 2] as $i) {
+      $item_id = Utility::createCombinedId($datasource_id, "$i:en");
+      $item = $fields_helper->createItem($index, $item_id, $datasource);
+      $result_items[$item_id] = $item;
+    }
+
+    $results->setResultItems($result_items);
+    $results->setResultCount(count($result_items));
   }
 
   /**

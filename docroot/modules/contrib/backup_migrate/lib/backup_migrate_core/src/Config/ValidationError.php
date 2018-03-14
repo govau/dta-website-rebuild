@@ -1,7 +1,7 @@
 <?php
 /**
  * @file
- * Contains BackupMigrate\Core\Config\ValidationError
+ * Contains BackupMigrate\Core\Config\ValidationError.
  */
 
 
@@ -9,7 +9,8 @@ namespace BackupMigrate\Core\Config;
 
 
 /**
- * Class ValidationError
+ * Class ValidationError.
+ *
  * @package BackupMigrate\Core\Config
  */
 class ValidationError implements ValidationErrorInterface {
@@ -27,14 +28,14 @@ class ValidationError implements ValidationErrorInterface {
   /**
    * @var array
    */
-  protected $replacement = array();
+  protected $replacement = [];
 
   /**
    * @param $field_key
    * @param $message
    * @param array $replacement
    */
-  public function __construct($field_key, $message, $replacement = array()) {
+  public function __construct($field_key, $message, $replacement = []) {
     $this->field_key = $field_key;
     $this->message = $message;
     $this->replacement = $replacement;
@@ -62,12 +63,12 @@ class ValidationError implements ValidationErrorInterface {
   }
 
   /**
-   * String representation of the exception
+   * String representation of the exception.
    *
    * @return string the string representation of the exception.
    */
-  public function __toString()
-  {
+  public function __toString() {
     return strtr($this->getMessage(), $this->getReplacement());
   }
+
 }

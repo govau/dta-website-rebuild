@@ -23,6 +23,7 @@ define('SWIFTMAILER_TRANSPORT_SMTP', 'smtp');
 define('SWIFTMAILER_TRANSPORT_SENDMAIL', 'sendmail');
 define('SWIFTMAILER_TRANSPORT_NATIVE', 'native');
 define('SWIFTMAILER_TRANSPORT_SPOOL', 'spool');
+define('SWIFTMAILER_TRANSPORT_NULL', 'null');
 
 // Define header types.
 define('SWIFTMAILER_HEADER_TEXT', 'text');
@@ -46,8 +47,8 @@ function swiftmailer_mail($key, &$message) {
   $user = \Drupal::currentUser();
   $message['headers']['Content-Type'] = SWIFTMAILER_FORMAT_HTML;
 
-  $text[] = '<h3>' . t('Dear @user,', array('@user' => $user->getDisplayName())) . '</h3>';
-  $text[] = '<p>' . t('This e-mail has been sent from @site by the Swift Mailer module. The module has been successfully configured.', array('@site' => \Drupal::config('system.site')->get('name'))) . '</p>';
+  $text[] = '<h3>' . t('Dear @user,', ['@user' => $user->getDisplayName()]) . '</h3>';
+  $text[] = '<p>' . t('This e-mail has been sent from @site by the Swift Mailer module. The module has been successfully configured.', ['@site' => \Drupal::config('system.site')->get('name')]) . '</p>';
   $text[] = t('Kind regards') . '<br /><br />';
   $text[] = t('The Swift Mailer module');
 
@@ -61,14 +62,14 @@ function swiftmailer_mail($key, &$message) {
  * Implements hook_theme().
  */
 function swiftmailer_theme($existing, $type, $theme, $path) {
-  return array(
-    'swiftmailer' => array(
-      'variables' => array(
-        'message' => array(),
-      ),
+  return [
+    'swiftmailer' => [
+      'variables' => [
+        'message' => [],
+      ],
       'mail theme' => TRUE,
-    ),
-  );
+    ],
+  ];
 }
 
 /**
@@ -91,8 +92,11 @@ function swiftmailer_theme_suggestions_swiftmailer(array $variables) {
  *   An associative array containing:
  *   - message: An associative array containing the message array.
  *   - body: The processed body.
+ *   - subject: The processed subject.
+ *   - base_url: The base url for this site including scheme, without trailing slash.
  */
 function template_preprocess_swiftmailer(&$variables) {
+  $variables['base_url'] = $GLOBALS['base_url'];
   $variables['subject'] = $variables['message']['subject'];
   $variables['body'] = $variables['message']['body'];
 }

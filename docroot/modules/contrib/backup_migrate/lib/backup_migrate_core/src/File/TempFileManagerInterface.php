@@ -10,7 +10,8 @@ use BackupMigrate\Core\File\BackupFileInterface;
 use BackupMigrate\Core\File\BackupFileWritableInterface;
 
 /**
- * Interface TempFileManagerInterface
+ * Interface TempFileManagerInterface.
+ *
  * @package BackupMigrate\Core\Services
  *
  * A TempFileManager is in charge of creating new temp files for writing
@@ -25,6 +26,7 @@ interface TempFileManagerInterface {
    * new file should be writable.
    *
    * @param string $ext The file extension for this file (optional)
+   *
    * @return BackupFileWritableInterface
    */
   public function create($ext = '');
@@ -33,13 +35,13 @@ interface TempFileManagerInterface {
    * Return a new file based on the passed in file with the given file extension.
    * This should maintain the metadata of the file passed in with the new file
    * extension added after the old one.
-   * For example: xxx.mysql would become xxx.mysql.gz
-   *
+   * For example: xxx.mysql would become xxx.mysql.gz.
    *
    * @param \BackupMigrate\Core\File\BackupFileInterface $file
    *        The file to add the extension to.
    * @param $ext
    *        The new file extension.
+   *
    * @return \BackupMigrate\Core\File\BackupFileWritableInterface
    *        A new writable backup file with the new extension and all of the metadata
    *        from the previous file.
@@ -49,10 +51,10 @@ interface TempFileManagerInterface {
   /**
    * Return a new file based on the one passed in but with the last part of the
    * file extension removed.
-   * For example: xxx.mysql.gz would become xxx.mysql
-   *
+   * For example: xxx.mysql.gz would become xxx.mysql.
    *
    * @param \BackupMigrate\Core\File\BackupFileInterface $file
+   *
    * @return \BackupMigrate\Core\File\BackupFileWritableInterface
    *        A new writable backup file with the last extension removed and
    *        all of the metadata from the previous file.

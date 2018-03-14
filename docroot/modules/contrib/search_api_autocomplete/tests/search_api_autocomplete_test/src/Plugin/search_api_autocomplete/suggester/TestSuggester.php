@@ -106,7 +106,21 @@ class TestSuggester extends SuggesterPluginBase implements PluginFormInterface {
     if ($override = $this->getMethodOverride(__FUNCTION__)) {
       return call_user_func($override, $this);
     }
+    if (!empty($this->configuration['dependencies'])) {
+      return $this->configuration['dependencies'];
+    }
     return [];
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function onDependencyRemoval(array $dependencies) {
+    $remove = $this->getReturnValue(__FUNCTION__, FALSE);
+    if ($remove) {
+      unset($this->configuration['dependencies']);
+    }
+    return $remove;
   }
 
 }

@@ -1,7 +1,7 @@
 <?php
 /**
  * @file
- * Contains BackupMigrate\Core\Source\FileDirectorySource
+ * Contains BackupMigrate\Core\Source\FileDirectorySource.
  */
 
 
@@ -19,12 +19,11 @@ use BackupMigrate\Core\File\BackupFileReadableInterface;
 use BackupMigrate\Core\Service\ArchiveWriterInterface;
 
 /**
- * Class FileDirectorySource
+ * Class FileDirectorySource.
+ *
  * @package BackupMigrate\Core\Source
  */
-class FileDirectorySource extends PluginBase
-  implements SourceInterface, FileProcessorInterface, PluginCallerInterface
-{
+class FileDirectorySource extends PluginBase implements SourceInterface, FileProcessorInterface, PluginCallerInterface {
   use FileProcessorTrait;
   use PluginCallerTrait;
 
@@ -74,7 +73,7 @@ class FileDirectorySource extends PluginBase
         return $file;
       }
       throw new BackupMigrateException('The directory %dir does not not have any files to be backed up.',
-        array('%dir' => $directory));
+        ['%dir' => $directory]);
     }
     return FALSE;
   }
@@ -91,11 +90,11 @@ class FileDirectorySource extends PluginBase
 
       if (!file_exists($directory)) {
         throw new BackupMigrateException('The directory %dir does not exist to restore to.',
-          array('%dir' => $directory));
+          ['%dir' => $directory]);
       }
       if (!is_writable($directory)) {
         throw new BackupMigrateException('The directory %dir cannot be written to because of the operating system file permissions.',
-          array('%dir' => $directory));
+          ['%dir' => $directory]);
       }
 
       if (!$reader = $this->getArchiveReader()) {
@@ -103,7 +102,7 @@ class FileDirectorySource extends PluginBase
       }
       // Check that the file endings match.
       if ($reader->getFileExt() !== $file->getExtLast()) {
-        throw new BackupMigrateException('This source expects a .%ext file.', array('%ext' => $reader->getFileExt()));
+        throw new BackupMigrateException('This source expects a .%ext file.', ['%ext' => $reader->getFileExt()]);
       }
 
       $reader->setArchive($file);
@@ -119,9 +118,12 @@ class FileDirectorySource extends PluginBase
    * Get a list if files to be backed up from the given directory.
    *
    * @param string $dir The name of the directory to list.
+   *
    * @return array
+   *
    * @throws \BackupMigrate\Core\Exception\BackupMigrateException
    * @throws \BackupMigrate\Core\Exception\IgnorableException
+   *
    * @internal param $directory
    */
   protected function getFilesToBackup($dir) {
@@ -132,15 +134,15 @@ class FileDirectorySource extends PluginBase
 
     if (!file_exists($dir)) {
       throw new BackupMigrateException('Directory %dir does not exist.',
-        array('%dir' => $dir));
+        ['%dir' => $dir]);
     }
     if (!is_dir($dir)) {
       throw new BackupMigrateException('The file %dir is not a directory.',
-        array('%dir' => $dir));
+        ['%dir' => $dir]);
     }
     if (!is_readable($dir)) {
       throw new BackupMigrateException('Directory %dir could not be read from.',
-        array('%dir' => $dir));
+        ['%dir' => $dir]);
     }
 
     // Get a filtered list if files from the directory.
@@ -156,10 +158,10 @@ class FileDirectorySource extends PluginBase
 
       if (!$this->confGet('ignore_errors')) {
         throw new IgnorableException('The backup could not be completed because !count files could not be read: (!files).',
-          array('!count' => $count, '!files' => $file_list));
+          ['!count' => $count, '!files' => $file_list]);
       }
       else {
-        // throw new IgnorableException('!count files could not be read: (!files).', array('!files' => $filesmsg));
+        // throw new IgnorableException('!count files could not be read: (!files).', ['!files' => $filesmsg]);
         // @TODO: Log the ignored files.
       }
     }
@@ -175,7 +177,7 @@ class FileDirectorySource extends PluginBase
    * @internal param string $dir
    */
   protected function _getFilesFromDirectory($base_path, $subdir = '') {
-    $out = $errors = array();
+    $out = $errors = [];
 
     // Open the directory.
     if (!$handle = opendir($base_path . $subdir)) {
@@ -194,14 +196,14 @@ class FileDirectorySource extends PluginBase
           if ($path) {
             if (is_dir($path)) {
               list($sub_files, $sub_errors) =
-                $this->_getFilesFromDirectory($base_path, $subdir . $file  . '/');
+                $this->_getFilesFromDirectory($base_path, $subdir . $file . '/');
 
               // Add the directory if it is empty.
               if (empty($sub_files)) {
                 $out[$subdir . $file] = $path;
               }
 
-              // Add the sub-files to the output
+              // Add the sub-files to the output.
               $out = array_merge($out, $sub_files);
               $errors = array_merge($errors, $sub_errors);
             }
@@ -219,7 +221,7 @@ class FileDirectorySource extends PluginBase
       closedir($handle);
     }
 
-    return array($out, $errors);
+    return [$out, $errors];
   }
 
   /**
@@ -254,10 +256,11 @@ class FileDirectorySource extends PluginBase
    * Get a definition for user-configurable settings.
    *
    * @param array $params
+   *
    * @return array
    */
-  public function configSchema($params = array()) {
-    $schema = array();
+  public function configSchema($params = []) {
+    $schema = [];
 
     // Init settings.
     if ($params['operation'] == 'initialize') {
@@ -266,7 +269,6 @@ class FileDirectorySource extends PluginBase
         'title' => $this->t('Directory Path'),
       ];
     }
-
 
     return $schema;
   }
@@ -281,6 +283,5 @@ class FileDirectorySource extends PluginBase
       'directory' => '',
     ]);
   }
-
 
 }

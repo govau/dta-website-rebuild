@@ -22,20 +22,20 @@ class BackupMigrateAdvancedBackupForm extends FormBase {
    * {@inheritdoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
-    $form = array();
+    $form = [];
 
     // Theme the form if we want it inline.
     // @FIXME
     // $form['#theme'] = 'backup_migrate_ui_manual_quick_backup_form_inline';
     $bam = backup_migrate_get_service_object();
 
-    $form['source'] = array(
+    $form['source'] = [
       '#type' => 'fieldset',
       "#title" => $this->t("Source"),
       "#collapsible" => TRUE,
       "#collapsed" => FALSE,
       "#tree" => FALSE,
-    );
+    ];
     $form['source']['source_id'] = DrupalConfigHelper::getSourceSelector($bam, t('Backup Source'));
     $form['source']['source_id']['#default_value'] = \Drupal::config('backup_migrate.settings')->get('backup_migrate_source_id');
 
@@ -56,24 +56,24 @@ class BackupMigrateAdvancedBackupForm extends FormBase {
         '#markup' => 'In order to use tokens for File Name, please install & enable <a href="https://www.drupal.org/project/token" arget="_blank">Token module</a>. <p></p>'
         ];
     }
-    array_splice( $form['file'], 4, 0, array('filename_token' => $filename_token));
+    array_splice($form['file'], 4, 0, ['filename_token' => $filename_token]);
 
-    $form['destination'] = array(
+    $form['destination'] = [
       '#type' => 'fieldset',
       "#title" => $this->t("Destination"),
       "#collapsible" => TRUE,
       "#collapsed" => FALSE,
       "#tree" => FALSE,
-    );
+    ];
 
     $form['destination']['destination_id'] = DrupalConfigHelper::getDestinationSelector($bam, t('Backup Destination'));
     $form['destination']['destination_id']['#default_value'] = \Drupal::config('backup_migrate.settings')->get('backup_migrate_destination_id');
 
-    $form['quickbackup']['submit'] = array(
+    $form['quickbackup']['submit'] = [
       '#type' => 'submit',
       '#value' => $this->t('Backup now'),
       '#weight' => 1,
-    );
+    ];
 
     return $form;
   }
@@ -87,7 +87,7 @@ class BackupMigrateAdvancedBackupForm extends FormBase {
     $bam = backup_migrate_get_service_object($form_state->getValues());
 
     // Let the plugins validate their own config data.
-    if ($plugin_errors = $bam->plugins()->map('configErrors', array('operation' => 'backup'))) {
+    if ($plugin_errors = $bam->plugins()->map('configErrors', ['operation' => 'backup'])) {
       foreach ($plugin_errors as $plugin_key => $errors) {
         foreach ($errors as $error) {
           $form_state->setErrorByName($plugin_key . '][' . $error->getFieldKey(), $this->t($error->getMessage(), $error->getReplacement()));

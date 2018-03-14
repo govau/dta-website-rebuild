@@ -20,14 +20,14 @@ if [ -n "$CIRCLE_BRANCH" ]; then
   if [[ $CIRCLE_BRANCH != $BASE_BRANCH ]] ; then
 
     #Run php lint, but only against modified php files
-    git diff --name-only origin/${BASE_BRANCH}... -- '*.php' | xargs -n1 php -l
+    git diff --name-only --diff-filter=M origin/${BASE_BRANCH}... -- '*.php' | xargs -n1 php -l
 
     # If anything in core has changed, run its phpunit
-    for file in $(git diff --name-only origin/${BASE_BRANCH}...); do
+    for file in $(git diff --name-only --diff-filter=M origin/${BASE_BRANCH}...); do
       if [[ $file == docroot/core* ]]; then
         pushd docroot/core
           phpunit --testsuite=unit --exclude-group \
-            Composer,DependencyInjection,PageManager,jsonapi
+            Composer,DependencyInjection,PageManager,jsonapi,legacy
         popd
         break
       fi

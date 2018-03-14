@@ -13,6 +13,7 @@ use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Drupal\Core\Render\Markup;
 use Drupal\Core\Render\RendererInterface;
 use Drupal\Core\Site\Settings;
+use Drupal\key\KeyInterface;
 use Drupal\swiftmailer\Utility\Conversion;
 use Exception;
 use Html2Text\Html2Text;
@@ -24,6 +25,7 @@ use Swift_Image;
 use Swift_Mailer;
 use Swift_MailTransport;
 use Swift_Message;
+use Swift_NullTransport;
 use Swift_SendmailTransport;
 use Swift_SmtpTransport;
 use Swift_SpoolTransport;
@@ -51,7 +53,7 @@ class SwiftMailer implements MailInterface, ContainerFactoryPluginInterface {
   protected $logger;
 
   /**
-   * @var \Drupal\Core\Render\RendererInterface;
+   * @var \Drupal\Core\Render\RendererInterface
    */
   protected $renderer;
 
@@ -69,7 +71,7 @@ class SwiftMailer implements MailInterface, ContainerFactoryPluginInterface {
    * @param \Drupal\Core\Render\RendererInterface $renderer
    * @param \Drupal\Core\Extension\ModuleHandlerInterface $module_handler
    */
-  function __construct(ImmutableConfig $transport, ImmutableConfig $message, LoggerInterface $logger, RendererInterface $renderer, ModuleHandlerInterface $module_handler) {
+  public function __construct(ImmutableConfig $transport, ImmutableConfig $message, LoggerInterface $logger, RendererInterface $renderer, ModuleHandlerInterface $module_handler) {
     $this->config['transport'] = $transport->get();
     $this->config['message'] = $message->get();
     $this->logger = $logger;
@@ -98,7 +100,7 @@ class SwiftMailer implements MailInterface, ContainerFactoryPluginInterface {
    * @param array $message
    *   A message array holding all relevant details for the message.
    *
-   * @return string
+   * @return array
    *   The message as it should be sent.
    */
   public function format(array $message) {
@@ -109,12 +111,12 @@ class SwiftMailer implements MailInterface, ContainerFactoryPluginInterface {
 
     // Theme message if format is set to be HTML.
     if ($applicable_format == SWIFTMAILER_FORMAT_HTML) {
-      $render = array(
+      $render = [
         '#theme' => isset($message['params']['theme']) ? $message['params']['theme'] : 'swiftmailer',
         '#message' => $message,
-      );
+      ];
 
-      $message['body'] = $this->renderer->renderRoot($render);
+      $message['body'] = $this->renderer->renderPlain($render);
 
       if ($this->config['message']['convert_mode'] || !empty($message['params']['convert'])) {
         $converter = new Html2Text($message['body']);
@@ -126,8 +128,8 @@ class SwiftMailer implements MailInterface, ContainerFactoryPluginInterface {
     // in the process. All we do here is to alter the message so that image
     // paths are replaced with cid's. Each image gets added to the array
     // which keeps track of which images to embed in the e-mail.
-    $embeddable_images = array();
-    $processed_images = array();
+    $embeddable_images = [];
+    $processed_images = [];
     preg_match_all('/"image:([^"]+)"/', $message['body'], $embeddable_images);
     for ($i = 0; $i < count($embeddable_images[0]); $i++) {
       $image_id = $embeddable_images[0][$i];
@@ -162,7 +164,7 @@ class SwiftMailer implements MailInterface, ContainerFactoryPluginInterface {
    * @param array $message
    *   A message array holding all relevant details for the message.
    *
-   * @return boolean
+   * @return bool
    *   TRUE if the message was successfully sent, and otherwise FALSE.
    */
   public function mail(array $message) {
@@ -234,15 +236,18 @@ class SwiftMailer implements MailInterface, ContainerFactoryPluginInterface {
 
       // Set basic message details.
       Conversion::swiftmailer_remove_header($m, 'From');
+      Conversion::swiftmailer_remove_header($m, 'Reply-To');
       Conversion::swiftmailer_remove_header($m, 'To');
       Conversion::swiftmailer_remove_header($m, 'Subject');
 
-      // Parse 'from' and 'to' mailboxes.
+      // Parse 'from', 'to' and 'reply-to' mailboxes.
       $from = Conversion::swiftmailer_parse_mailboxes($message['from']);
       $to = Conversion::swiftmailer_parse_mailboxes($message['to']);
+      $reply_to = !empty($message['reply-to']) ? Conversion::swiftmailer_parse_mailboxes($message['reply-to']) : $from;
 
-      // Set 'from', 'to' and 'subject' headers.
+      // Set 'from', 'reply-to', 'to' and 'subject' headers.
       $m->setFrom($from);
+      $m->setReplyTo($reply_to);
       $m->setTo($to);
       $m->setSubject($message['subject']);
 
@@ -263,11 +268,11 @@ class SwiftMailer implements MailInterface, ContainerFactoryPluginInterface {
 
       // Validate that $message['params']['files'] is an array.
       if (empty($message['params']['files']) || !is_array($message['params']['files'])) {
-        $message['params']['files'] = array();
+        $message['params']['files'] = [];
       }
 
       // Let other modules get the chance to add attachable files.
-      $files = $this->moduleHandler->invokeAll('swiftmailer_attach', array('key' => $message['key'], 'message' => $message));
+      $files = $this->moduleHandler->invokeAll('swiftmailer_attach', ['key' => $message['key'], 'message' => $message]);
       if (!empty($files) && is_array($files)) {
         $message['params']['files'] = array_merge(array_values($message['params']['files']), array_values($files));
       }
@@ -287,93 +292,126 @@ class SwiftMailer implements MailInterface, ContainerFactoryPluginInterface {
         $this->embed($m, $message['params']['images']);
       }
 
-      static $mailer;
+      // Get the configured transport type.
+      $transport_type = $this->config['transport']['transport'];
 
-      // If required, create a mailer which will be used to send the message.
-      if (empty($mailer)) {
-
-        // Get the configured transport type.
-        $transport_type = $this->config['transport']['transport'];
-
-        // Configure the mailer based on the configured transport type.
-        switch ($transport_type) {
-          case SWIFTMAILER_TRANSPORT_SMTP:
-            // Get transport configuration.
-            $host = $this->config['transport']['smtp_host'];
-            $port = $this->config['transport']['smtp_port'];
-            $encryption = $this->config['transport']['smtp_encryption'];
-            $username = $this->config['transport']['smtp_username'];
-            $password = $this->config['transport']['smtp_password'];
-
-            // Instantiate transport.
-            $transport = Swift_SmtpTransport::newInstance($host, $port);
-            $transport->setLocalDomain('[127.0.0.1]');
-
-            // Set encryption (if any).
-            if (!empty($encryption)) {
-              $transport->setEncryption($encryption);
+      // Configure the mailer based on the configured transport type.
+      switch ($transport_type) {
+        case SWIFTMAILER_TRANSPORT_SMTP:
+          // Get transport configuration.
+          $host = $this->config['transport']['smtp_host'];
+          $port = $this->config['transport']['smtp_port'];
+          $encryption = $this->config['transport']['smtp_encryption'];
+          $provider =  $this->config['transport']['smtp_credential_provider'];
+          $username = NULL;
+          $password = NULL;
+          if ($provider === 'swiftmailer') {
+            $username = $this->config['transport']['smtp_credentials']['swiftmailer']['username'];
+            $password = $this->config['transport']['smtp_credentials']['swiftmailer']['password'];
+          }
+          elseif ($provider === 'key') {
+            /** @var \Drupal\Core\Entity\EntityStorageInterface $storage */
+            $storage = \Drupal::entityTypeManager()->getStorage('key');
+            /** @var \Drupal\key\KeyInterface $username_key */
+            $username_key = $storage->load($this->config['transport']['smtp_credentials']['key']['username']);
+            if ($username_key) {
+              $username = $username_key->getKeyValue();
             }
-
-            // Set username (if any).
-            if (!empty($username)) {
-              $transport->setUsername($username);
+            /** @var \Drupal\key\KeyInterface $password_key */
+            $password_key = $storage->load($this->config['transport']['smtp_credentials']['key']['password']);
+            if ($password_key) {
+              $password = $password_key->getKeyValue();
             }
-
-            // Set password (if any).
-            if (!empty($password)) {
-              $transport->setPassword($password);
+          }
+          elseif ($provider == 'multikey') {
+            /** @var \Drupal\Core\Entity\EntityStorageInterface $storage */
+            $storage = \Drupal::entityTypeManager()->getStorage('key');
+            /** @var \Drupal\key\KeyInterface $username_key */
+            $user_password_key = $storage->load($this->config['transport']['smtp_credentials']['multikey']['user_password']);
+            if ($user_password_key) {
+              $values = $user_password_key->getKeyValues();
+              $username = $values['username'];
+              $password = $values['password'];
             }
+          }
 
-            $mailer = Swift_Mailer::newInstance($transport);
-            break;
+          // Instantiate transport.
+          $transport = Swift_SmtpTransport::newInstance($host, $port);
+          $transport->setLocalDomain('[127.0.0.1]');
 
-          case SWIFTMAILER_TRANSPORT_SENDMAIL:
-            // Get transport configuration.
-            $path = $this->config['transport']['sendmail_path'];
-            $mode = $this->config['transport']['sendmail_mode'];
+          // Set encryption (if any).
+          if (!empty($encryption)) {
+            $transport->setEncryption($encryption);
+          }
 
-            // Instantiate transport.
-            $transport = Swift_SendmailTransport::newInstance($path . ' -' . $mode);
-            $mailer = Swift_Mailer::newInstance($transport);
-            break;
+          // Set username (if any).
+          if (!empty($username)) {
+            $transport->setUsername($username);
+          }
 
-          case SWIFTMAILER_TRANSPORT_NATIVE:
-            // Instantiate transport.
-            $transport = Swift_MailTransport::newInstance();
-            $mailer = Swift_Mailer::newInstance($transport);
-            break;
+          // Set password (if any).
+          if (!empty($password)) {
+            $transport->setPassword($password);
+          }
+          break;
 
-          case SWIFTMAILER_TRANSPORT_SPOOL:
-            // Instantiate transport.
-            $spooldir = $this->config['transport']['spool_directory'];
-            $spool = new Swift_FileSpool($spooldir);
-            $transport = Swift_SpoolTransport::newInstance($spool);
-            $mailer = Swift_Mailer::newInstance($transport);
-            break;
-        }
+        case SWIFTMAILER_TRANSPORT_SENDMAIL:
+          // Get transport configuration.
+          $path = $this->config['transport']['sendmail_path'];
+          $mode = $this->config['transport']['sendmail_mode'];
+
+          // Instantiate transport.
+          $transport = Swift_SendmailTransport::newInstance($path . ' -' . $mode);
+          break;
+
+        case SWIFTMAILER_TRANSPORT_NATIVE:
+          // Instantiate transport.
+          $transport = Swift_MailTransport::newInstance();
+          break;
+
+        case SWIFTMAILER_TRANSPORT_SPOOL:
+          // Instantiate transport.
+          $spooldir = $this->config['transport']['spool_directory'];
+          $spool = new Swift_FileSpool($spooldir);
+          $transport = Swift_SpoolTransport::newInstance($spool);
+          break;
+
+        case SWIFTMAILER_TRANSPORT_NULL:
+          $transport = Swift_NullTransport::newInstance();
+          break;
       }
+
+      if (!isset($transport)) {
+        throw new \LogicException('The transport method is undefined.');
+      }
+
+      $mailer = Swift_Mailer::newInstance($transport);
+
+      // Allows other modules to customize the message.
+      $this->moduleHandler->alter('swiftmailer', $mailer, $m, $message);
 
       // Send the message.
       Conversion::swiftmailer_filter_message($m);
-      return $mailer->send($m);
+      /** @var Swift_Mailer $mailer */
+      return (bool) $mailer->send($m);
     }
     catch (Exception $e) {
-
       $headers = !empty($m) ? $m->getHeaders() : '';
       $headers = !empty($headers) ? nl2br($headers->toString()) : 'No headers were found.';
       $this->logger->error(
         'An attempt to send an e-mail message failed, and the following error
         message was returned : @exception_message<br /><br />The e-mail carried
         the following headers:<br /><br />@headers',
-        array('@exception_message' => $e->getMessage(), '@headers' => $headers));
+        ['@exception_message' => $e->getMessage(), '@headers' => $headers]);
       drupal_set_message(t('An attempt to send an e-mail message failed.'), 'error');
     }
+    return FALSE;
   }
 
   /**
    * Process attachments.
    *
-   * @param Swift_Message $m
+   * @param \Swift_Message $m
    *   The message which attachments are to be added to.
    * @param array $files
    *   The files which are to be added as attachments to the provided message.
@@ -411,9 +449,9 @@ class SwiftMailer implements MailInterface, ContainerFactoryPluginInterface {
   /**
    * Process MimeMail attachments.
    *
-   * @param Swift_Message $m
+   * @param \Swift_Message $m
    *   The message which attachments are to be added to.
-   * @param array $attachments.
+   * @param array $attachments
    *   The attachments which are to be added message.
    */
   private function attachAsMimeMail(Swift_Message $m, array $attachments) {
@@ -436,7 +474,7 @@ class SwiftMailer implements MailInterface, ContainerFactoryPluginInterface {
           $file->uri = $a['filepath'];
           $file->filename = $a['filename'];
           $file->filemime = $a['filemime'];
-          $this->attach($m, array($file));
+          $this->attach($m, [$file]);
         }
         else {
           $m->attach(Swift_Attachment::newInstance($a['filecontent'], $a['filename'], $a['filemime']));
@@ -448,7 +486,7 @@ class SwiftMailer implements MailInterface, ContainerFactoryPluginInterface {
   /**
    * Process inline images..
    *
-   * @param Swift_Message $m
+   * @param \Swift_Message $m
    *   The message which inline images are to be added to.
    * @param array $images
    *   The images which are to be added as inline images to the provided
@@ -588,7 +626,21 @@ class SwiftMailer implements MailInterface, ContainerFactoryPluginInterface {
     // separated by the mail line endings. Keep Markup objects and escape others
     // and then treat the result as safe markup.
     $line_endings = Settings::get('mail_line_endings', PHP_EOL);
-    $message['body'] = Markup::create(implode($line_endings, array_map(function ($body) {
+    $applicable_format = $this->getApplicableFormat($message);
+    $filter_format = $this->config['message']['filter_format'];
+    $message['body'] = Markup::create(implode($line_endings, array_map(function ($body) use ($applicable_format, $filter_format) {
+      // If the body contains no html tags but the applicable format is HTML,
+      // we can assume newlines will need be converted to <br>.
+      if ($applicable_format == SWIFTMAILER_FORMAT_HTML && Unicode::strlen(strip_tags($body)) === Unicode::strlen($body)) {
+        // The default fallback format is 'plain_text', which escapes markup,
+        // converts new lines to <br> and converts URLs to links.
+        $build = [
+          '#type' => 'processed_text',
+          '#text' => $body,
+          '#format' => $filter_format,
+        ];
+        $body = $this->renderer->renderPlain($build);
+      }
       // If $item is not marked safe then it will be escaped.
       return $body instanceof MarkupInterface ? $body : Html::escape($body);
     }, $message['body'])));

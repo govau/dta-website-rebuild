@@ -83,12 +83,6 @@ class GoogleAuthSettingsForm extends SocialAuthSettingsForm {
       '#description' => $this->t('You need to first create a Google App at <a href="@google-dev">@google-dev</a>', ['@google-dev' => 'https://console.developers.google.com']),
     ];
 
-    $form['domain_settings'] = [
-      '#type' => 'details',
-      '#title' => $this->t('Domain settings'),
-      '#open' => FALSE,
-    ];
-
     $form['google_settings']['client_id'] = [
       '#type' => 'textfield',
       '#required' => TRUE,
@@ -121,26 +115,37 @@ class GoogleAuthSettingsForm extends SocialAuthSettingsForm {
       '#default_value' => $GLOBALS['base_url'],
     ];
 
-    $form['google_settings']['scopes'] = [
+    $form['google_settings']['advanced'] = [
+      '#type' => 'details',
+      '#title' => $this->t('Advanced settings'),
+      '#open' => FALSE,
+    ];
+
+    $form['google_settings']['advanced']['scopes'] = [
       '#type' => 'textarea',
       '#title' => $this->t('Scopes for API call'),
       '#default_value' => $config->get('scopes'),
-      '#description' => $this->t('Define the requested scopes to make API calls.'),
+      '#description' => $this->t('Define any additional scopes to be requested, separated by a comma (e.g.: https://www.googleapis.com/auth/youtube.upload,https://www.googleapis.com/auth/youtube.readonly).<br>
+                                  The scopes \'email\' and \'profile\' (from Google Plus) are added by default and always requested.<br>
+                                  You can see the full list of valid scopes and their description <a href="@scopes">here</a>.', ['@scopes' => 'https://developers.google.com/apis-explorer/#p/']),
     ];
 
-    $form['google_settings']['api_calls'] = [
+    $form['google_settings']['advanced']['endpoints'] = [
       '#type' => 'textarea',
       '#title' => $this->t('API calls to be made to collect data'),
-      '#default_value' => $config->get('api_calls'),
-      '#description' => $this->t('Define the API calls which will retrieve data from provider.'),
+      '#default_value' => $config->get('endpoints'),
+      '#description' => $this->t('Define the Endpoints to be requested when user authenticates with Google for the first time<br>
+                                  Enter each endpoint in different lines in the format <em>endpoint</em>|<em>name_of_endpoint</em>.<br>
+                                  <b>For instance:</b><br>
+                                  /youtube/v3/playlists?maxResults=2&mine=true&part=snippet|playlists_list<br>'),
     ];
 
-    $form['domain_settings']['restricted_domain'] = [
+    $form['google_settings']['advanced']['restricted_domain'] = [
       '#type' => 'textfield',
       '#required' => FALSE,
       '#title' => $this->t('Restricted Domain'),
       '#default_value' => $config->get('restricted_domain'),
-      '#description' => $this->t('If you want to restrict the users to a specific domain, insert your domain here. For example mycollege.edu. Note that this works only for Google Apps hosted accounts. Leave this blank if you are not sure what this is.'),
+      '#description' => $this->t('If you want to restrict the users to a specific domain, insert your domain here. For example mycollege.edu. Note that this works only for Google Apps hosted accounts.'),
     ];
 
     return parent::buildForm($form, $form_state);
@@ -155,7 +160,7 @@ class GoogleAuthSettingsForm extends SocialAuthSettingsForm {
       ->set('client_id', trim($values['client_id']))
       ->set('client_secret', trim($values['client_secret']))
       ->set('scopes', $values['scopes'])
-      ->set('api_calls', $values['api_calls'])
+      ->set('endpoints', $values['endpoints'])
       ->set('restricted_domain', $values['restricted_domain'])
       ->save();
 

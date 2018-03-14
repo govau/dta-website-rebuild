@@ -49,17 +49,20 @@ class SwiftMailerSettingsTest extends WebTestBase {
     $this->drupalPostAjaxForm(NULL, ['transport[type]' => 'smtp'], ['transport[type]' => 'smtp']);
     $this->drupalPostForm(NULL, [
       'transport[type]' => 'smtp',
-      'transport[configuration][smtp][username]' => 'example',
-      'transport[configuration][smtp][password]' => 'pass',
+      'transport[configuration][smtp][credential_provider]' => 'swiftmailer',
+      'transport[configuration][smtp][credentials][swiftmailer][username]' => 'example',
+      'transport[configuration][smtp][credentials][swiftmailer][password]' => 'pass',
     ], t('Save configuration'));
     $this->assertText('using the SMTP transport type.');
 
     // Loading configuration to check if is set up correctly.
     $config = $this->config('swiftmailer.transport');
     $transport = $config->get('transport');
-    $user = $config->get('smtp_username');
-    $password = $config->get('smtp_password');
+    $provider = $config->get('smtp_credential_provider');
+    $user = $config->get('smtp_credentials.swiftmailer.username');
+    $password = $config->get('smtp_credentials.swiftmailer.password');
     $this->assertEqual($transport, 'smtp');
+    $this->assertEqual($provider, 'swiftmailer');
     $this->assertEqual($user, 'example');
     $this->assertEqual($password, 'pass');
 

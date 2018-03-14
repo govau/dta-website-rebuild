@@ -11,7 +11,8 @@ use BackupMigrate\Core\File\ReadableStreamBackupFile;
 
 
 /**
- * Class DrupalDirectoryDestination
+ * Class DrupalDirectoryDestination.
+ *
  * @package BackupMigrate\Drupal\Destination
  */
 class DrupalDirectoryDestination extends DirectoryDestination {
@@ -19,7 +20,9 @@ class DrupalDirectoryDestination extends DirectoryDestination {
   /**
    * Do the actual file save. This function is called to save the data file AND
    * the metadata sidecar file.
+   *
    * @param \BackupMigrate\Core\File\BackupFileReadableInterface $file
+   *
    * @throws \BackupMigrate\Core\Exception\BackupMigrateException
    */
   function _saveFile(BackupFileReadableInterface $file) {
@@ -43,7 +46,7 @@ class DrupalDirectoryDestination extends DirectoryDestination {
 
     $is_private = strpos($dir, 'private://') === 0;
 
-    // Attempt to create/prepare the directory if it is in the private directory
+    // Attempt to create/prepare the directory if it is in the private directory.
     if ($is_private) {
       if (!PrivateStream::basePath()) {
         throw new BackupMigrateException(
@@ -58,7 +61,7 @@ class DrupalDirectoryDestination extends DirectoryDestination {
         );
       }
     }
-    // Not a private directory. Make sure it is outside the web root
+    // Not a private directory. Make sure it is outside the web root.
     else {
       // If the file is local to the server.
       $real = \Drupal::service('file_system')->realpath($dir);
@@ -75,9 +78,8 @@ class DrupalDirectoryDestination extends DirectoryDestination {
       }
     }
 
-    // Do the regular exists/writable checks
+    // Do the regular exists/writable checks.
     parent::checkDirectory();
-
 
     // @TODO: Warn if the realpath cannot be resolved (because we cannot determine if the file is publicly accessible)
   }
@@ -105,10 +107,10 @@ class DrupalDirectoryDestination extends DirectoryDestination {
       $out = array_filter($out, function($file) use ($filters) {
         foreach ($filters as $key => $value) {
           if ($file->getMeta($key) !== $value) {
-            return false;
+            return FALSE;
           }
         }
-        return true;
+        return TRUE;
       });
     }
 
@@ -116,17 +118,17 @@ class DrupalDirectoryDestination extends DirectoryDestination {
     if ($sort && $sort_direction) {
       uasort($out, function ($a, $b) use ($sort, $sort_direction) {
         if ($sort_direction == SORT_DESC) {
-          if($sort == 'name') {
+          if ($sort == 'name') {
             return $a->getFullName() < $b->getFullName();
           }
-          //@TODO: fix this in core
+          // @TODO: fix this in core
           return $a->getMeta($sort) < $b->getMeta($sort);
         }
         else {
-          if($sort == 'name') {
+          if ($sort == 'name') {
             return $a->getFullName() > $b->getFullName();
           }
-          //@TODO: fix this in core
+          // @TODO: fix this in core
           return $a->getMeta($sort) > $b->getMeta($sort);
         }
       });
@@ -139,4 +141,5 @@ class DrupalDirectoryDestination extends DirectoryDestination {
 
     return $out;
   }
+
 }

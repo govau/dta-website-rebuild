@@ -1,7 +1,7 @@
 <?php
 /**
  * @file
- * Contains BackupMigrate\Core\Service\TarArchiveReader
+ * Contains BackupMigrate\Core\Service\TarArchiveReader.
  */
 
 
@@ -12,7 +12,8 @@ use BackupMigrate\Core\Exception\BackupMigrateException;
 use BackupMigrate\Core\File\BackupFileReadableInterface;
 
 /**
- * Class TarArchiveReader
+ * Class TarArchiveReader.
+ *
  * @package BackupMigrate\Core\Service
  */
 class TarArchiveReader implements ArchiveReaderInterface {
@@ -44,10 +45,11 @@ class TarArchiveReader implements ArchiveReaderInterface {
    * Extract all files to the given directory.
    *
    * @param $directory
+   *
    * @return mixed
    */
   public function extractTo($directory) {
-    $this->archive->openForRead(true);
+    $this->archive->openForRead(TRUE);
 
     $result = $this->extractAllToDirectory($directory);
 
@@ -65,11 +67,11 @@ class TarArchiveReader implements ArchiveReaderInterface {
   private function extractAllToDirectory($directory) {
     clearstatcache();
 
-    // Read a header block
+    // Read a header block.
     while (strlen($block = $this->archive->readBytes(512)) != 0) {
       $header = $this->readHeader($block);
       if (!$header) {
-        return false;
+        return FALSE;
       }
 
       if ($header['filename'] == '') {
@@ -84,7 +86,7 @@ class TarArchiveReader implements ArchiveReaderInterface {
         );
       }
 
-      // ignore extended / pax headers
+      // ignore extended / pax headers.
       if ($header['typeflag'] == 'x' || $header['typeflag'] == 'g') {
         $this->archive->seekBytes(ceil(($header['size'] / 512)));
         continue;
@@ -93,7 +95,8 @@ class TarArchiveReader implements ArchiveReaderInterface {
       // Add the destination directory to the path.
       if (substr($header['filename'], 0, 1) == '/') {
         $header['filename'] = $directory . $header['filename'];
-      } else {
+      }
+      else {
         $header['filename'] = $directory . '/' . $header['filename'];
       }
 
@@ -126,7 +129,7 @@ class TarArchiveReader implements ArchiveReaderInterface {
         }
       }
 
-      // Extract a directory
+      // Extract a directory.
       if ($header['typeflag'] == "5") {
         if (!$this->createDir($header['filename'])) {
           throw new BackupMigrateException(
@@ -144,7 +147,7 @@ class TarArchiveReader implements ArchiveReaderInterface {
           );
         }
 
-        // Symlink
+        // Symlink.
         if ($header['typeflag'] == "2") {
           if (@file_exists($header['filename'])) {
             @unlink($header['filename']);
@@ -156,7 +159,7 @@ class TarArchiveReader implements ArchiveReaderInterface {
             );
           }
         }
-        // Regular file
+        // Regular file.
         else {
           // Open the file for writing.
           if (($dest_file = @fopen($header['filename'], "wb")) == 0) {
@@ -170,7 +173,7 @@ class TarArchiveReader implements ArchiveReaderInterface {
           $n = floor($header['size'] / 512);
           for ($i = 0; $i < $n; $i++) {
             $content = $this->archive->readBytes(512);
-            fwrite($dest_file , $content, 512);
+            fwrite($dest_file, $content, 512);
           }
           if (($header['size'] % 512) != 0) {
             $content = $this->archive->readBytes(512);
@@ -179,10 +182,10 @@ class TarArchiveReader implements ArchiveReaderInterface {
 
           @fclose($dest_file);
 
-          // Change the file mode, mtime
+          // Change the file mode, mtime.
           @touch($header['filename'], $header['mtime']);
           if ($header['mode'] & 0111) {
-            // make file executable, obey umask
+            // make file executable, obey umask.
             $mode = fileperms($header['filename']) | (~umask() & 0111);
             @chmod($header['filename'], $mode);
           }
@@ -197,44 +200,45 @@ class TarArchiveReader implements ArchiveReaderInterface {
             );
           }
 
-          // Check the file size
+          // Check the file size.
           $file_size = filesize($header['filename']);
           if ($file_size != $header['size']) {
             throw new BackupMigrateException(
               'Extracted file %filename does not have the correct file size. File is %actual bytes (%expected bytes expected). Archive may be corrupted',
-              ['%filename' => $header['filename'], '%expected' => (int)$header['size'], (int)'%actual' => $file_size]
+              ['%filename' => $header['filename'], '%expected' => (int) $header['size'], (int) '%actual' => $file_size]
             );
           }
         }
       }
     }
 
-    return true;
+    return TRUE;
   }
 
   /**
    * Create a directory or return true if it already exists.
    *
    * @param $directory
+   *
    * @return boolean
    */
   private function createDir($directory) {
     if ((@is_dir($directory)) || ($directory == '')) {
-      return true;
+      return TRUE;
     }
-    $parent= dirname($directory);
+    $parent = dirname($directory);
 
     if (
       ($parent != $directory) &&
       ($parent != '') &&
       (!$this->createDir($parent))
     ) {
-      return false;
+      return FALSE;
     }
     if (@!mkdir($directory, 0777)) {
-      return false;
+      return FALSE;
     }
-    return true;
+    return TRUE;
   }
 
   /**
@@ -242,14 +246,15 @@ class TarArchiveReader implements ArchiveReaderInterface {
    *
    * @param $block
    * @param array $header
+   *
    * @return array
+   *
    * @throws \BackupMigrate\Core\Exception\BackupMigrateException
    */
-  private function readHeader($block, $header = [])
-  {
+  private function readHeader($block, $header = []) {
     if (strlen($block) == 0) {
       $header['filename'] = '';
-      return true;
+      return TRUE;
     }
 
     if (strlen($block) != 512) {
@@ -261,20 +266,20 @@ class TarArchiveReader implements ArchiveReaderInterface {
     }
 
     if (!is_array($header)) {
-      $header = array();
+      $header = [];
     }
 
-    // Calculate the checksum
+    // Calculate the checksum.
     $checksum = 0;
-    // First part of the header
+    // First part of the header.
     for ($i = 0; $i < 148; $i++) {
       $checksum += ord(substr($block, $i, 1));
     }
-    // Ignore the checksum value and replace it by ' ' (space)
+    // Ignore the checksum value and replace it by ' ' (space).
     for ($i = 148; $i < 156; $i++) {
       $checksum += ord(' ');
     }
-    // Last part of the header
+    // Last part of the header.
     for ($i = 156; $i < 512; $i++) {
       $checksum += ord(substr($block, $i, 1));
     }
@@ -283,7 +288,8 @@ class TarArchiveReader implements ArchiveReaderInterface {
       $fmt = "a100filename/a8mode/a8uid/a8gid/a12size/a12mtime/" .
         "a8checksum/a1typeflag/a100link/a6magic/a2version/" .
         "a32uname/a32gname/a8devmajor/a8devminor/a131prefix";
-    } else {
+    }
+    else {
       $fmt = "Z100filename/Z8mode/Z8uid/Z8gid/Z12size/Z12mtime/" .
         "Z8checksum/Z1typeflag/Z100link/Z6magic/Z2version/" .
         "Z32uname/Z32gname/Z8devmajor/Z8devminor/Z131prefix";
@@ -294,12 +300,12 @@ class TarArchiveReader implements ArchiveReaderInterface {
       $data["filename"] = "$data[prefix]/$data[filename]";
     }
 
-    // Extract the checksum
-    $header['checksum'] = OctDec(trim($data['checksum']));
+    // Extract the checksum.
+    $header['checksum'] = octdec(trim($data['checksum']));
     if ($header['checksum'] != $checksum) {
       $header['filename'] = '';
 
-      // Look for last block (empty block)
+      // Look for last block (empty block).
       if (($checksum == 256) && ($header['checksum'] == 0)) {
         return $header;
       }
@@ -310,19 +316,19 @@ class TarArchiveReader implements ArchiveReaderInterface {
       );
     }
 
-    // Extract the properties
+    // Extract the properties.
     $header['filename'] = rtrim($data['filename'], "\0");
-    $header['mode'] = OctDec(trim($data['mode']));
-    $header['uid'] = OctDec(trim($data['uid']));
-    $header['gid'] = OctDec(trim($data['gid']));
-    $header['size'] = OctDec(trim($data['size']));
-    $header['mtime'] = OctDec(trim($data['mtime']));
+    $header['mode'] = octdec(trim($data['mode']));
+    $header['uid'] = octdec(trim($data['uid']));
+    $header['gid'] = octdec(trim($data['gid']));
+    $header['size'] = octdec(trim($data['size']));
+    $header['mtime'] = octdec(trim($data['mtime']));
     if (($header['typeflag'] = $data['typeflag']) == "5") {
       $header['size'] = 0;
     }
     $header['link'] = trim($data['link']);
 
-    // Look for long filename
+    // Look for long filename.
     if ($header['typeflag'] == 'L') {
       $header = $this->readLongHeader($header);
     }
@@ -334,7 +340,9 @@ class TarArchiveReader implements ArchiveReaderInterface {
    * Read a tar file header block for files with long names.
    *
    * @param $header
+   *
    * @return array
+   *
    * @throws \BackupMigrate\Core\Exception\BackupMigrateException
    */
   private function readLongHeader($header) {
@@ -352,7 +360,7 @@ class TarArchiveReader implements ArchiveReaderInterface {
 
     $filename = rtrim(substr($filename, 0, $filesize), "\0");
 
-    // Read the next header
+    // Read the next header.
     $data = $this->archive->readBytes(512);
     $header = $this->readHeader($data, $header);
     $header['filename'] = $filename;
@@ -361,20 +369,20 @@ class TarArchiveReader implements ArchiveReaderInterface {
   }
 
   /**
-   * Detect and report a malicious file name
+   * Detect and report a malicious file name.
    *
    * @param string $file
+   *
    * @return bool
    */
-  private function maliciousFilename($file)
-  {
-    if (strpos($file, '/../') !== false) {
-      return true;
+  private function maliciousFilename($file) {
+    if (strpos($file, '/../') !== FALSE) {
+      return TRUE;
     }
     if (strpos($file, '../') === 0) {
-      return true;
+      return TRUE;
     }
-    return false;
+    return FALSE;
   }
 
   /**
@@ -388,4 +396,5 @@ class TarArchiveReader implements ArchiveReaderInterface {
       $this->archive->close();
     }
   }
+
 }

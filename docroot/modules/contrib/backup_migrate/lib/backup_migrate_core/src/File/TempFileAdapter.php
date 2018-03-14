@@ -12,8 +12,7 @@ use BackupMigrate\Core\Exception\BackupMigrateException;
  * Provides a very basic temp file manager which assumes read/write access to a
  * local temp directory.
  */
-class TempFileAdapter implements TempFileAdapterInterface
-{
+class TempFileAdapter implements TempFileAdapterInterface {
   /**
    * The path to the temp directory.
    *
@@ -29,15 +28,15 @@ class TempFileAdapter implements TempFileAdapterInterface
   protected $prefix;
 
   /**
-   * The list of files created by this manager
-   * 
+   * The list of files created by this manager.
+   *
    * @var array
    */
   protected $tempfiles;
 
   /**
-   * Construct a manager
-   * 
+   * Construct a manager.
+   *
    * @param string $dir A file path or stream URL for the temp directory
    * @param string $prefix A string prefix to add to each created file.
    */
@@ -48,7 +47,7 @@ class TempFileAdapter implements TempFileAdapterInterface
     }
     $this->dir = $dir;
     $this->prefix = $prefix;
-    $this->tempfiles = array();
+    $this->tempfiles = [];
     // @TODO: check that temp direcory is writeable or throw an exception.
   }
 
@@ -63,17 +62,15 @@ class TempFileAdapter implements TempFileAdapterInterface
    * {@inheritdoc}
    */
   public function createTempFile($ext = '') {
-    // Add a dot to the file extension
+    // Add a dot to the file extension.
     $ext = $ext ? '.' . $ext : '';
 
     // Find an unused random file name.
     $try = 5;
-    do
-    {
+    do {
       $out = $this->dir . $this->prefix . mt_rand() . $ext;
       $fp = @fopen($out, 'x');
-    }
-    while(!$fp && $try-- > 0);
+    } while (!$fp && $try-- > 0);
     if ($fp) {
       fclose($fp);
     }

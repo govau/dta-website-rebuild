@@ -15,12 +15,13 @@ use Drupal\environment_indicator\Entity\EnvironmentIndicator;
  * Implements hook_help().
  */
 function environment_indicator_help($route_name, RouteMatchInterface $route_match) {
+  $permissions_url = Url::fromRoute('user.admin_permissions', [], ['fragment' => 'module-environment_indicator'])->toString();
+  $settings_url = Url::fromRoute('environment_indicator.settings')->toString();
   switch ($route_name) {
     case 'environment_indicator.settings':
       $output = '<p>' . t('The Environment Indicator adds a coloured strip to the site informing you which environment you are currently in (Development, Staging, Production, etc.)') . '</p>';
-      $output .= '<p>' . t('The Environment Indicator\'s visibility depends upon the permissions of the viewer. The <a href="@permissions">access environment indicator</a> permission must be enabled for a user role in order for users of that role to see the indicator.', [
-          '@permissions' => Url::fromRoute('user.admin_permissions', [], ['fragment' => 'module-environment_indicator'])
-            ->toString(),
+      $output .= '<p>' . t('The Environment Indicator\'s visibility depends upon the permissions of the viewer. The <a href=":permissions">access environment indicator</a> permission must be enabled for a user role in order for users of that role to see the indicator.', [
+          ':permissions' => $permissions_url,
         ]) . '</p>';
       $output .= '<p>'. t('The recommended way to add information about your release is to set the \'environment_indicator.current_release\' state. Use your git hooks to set the state using drush: <code>drush sset environment_indicator.current_release v1.2.44</code>') .'</p>';
       return $output;
@@ -32,8 +33,8 @@ function environment_indicator_help($route_name, RouteMatchInterface $route_matc
 
     case 'help.page.environment_indicator':
       $output = '<p>' . t('The Environment Indicator adds a coloured strip to the site informing you which environment you are currently in (Development, Staging, Production, etc.') . '</p>';
-      $output .= '<p>' . t('The Environment Indicator <a href="@settings">settings page</a> allows you to modify some elements of the indicator\'s behavior and appearance. Since the appearance of the indicator is dependent on your site theme, substantial customisations require modifications to your site\'s theme and CSS files.', ['@settings' => Url::fromRoute('environment_indicator.settings')]) . '</p>';
-      $output .= '<p>' . t('The Environment Indicator\'s visibility depends upon the permissions of the viewer. The <a href="@permissions">access environment indicator</a> permission must be enabled for a user role in order for users of that role to see the indicator.', ['@permissions' => Url::fromRoute('user.admin_permissions', [], ['fragment' => 'module-environment_indicator'])]) . '</p>';
+      $output .= '<p>' . t('The Environment Indicator <a href=":settings">settings page</a> allows you to modify some elements of the indicator\'s behavior and appearance. Since the appearance of the indicator is dependent on your site theme, substantial customisations require modifications to your site\'s theme and CSS files.', [':settings' => $settings_url]) . '</p>';
+      $output .= '<p>' . t('The Environment Indicator\'s visibility depends upon the permissions of the viewer. The <a href=":permissions">access environment indicator</a> permission must be enabled for a user role in order for users of that role to see the indicator.', [':permissions' => $permissions_url]) . '</p>';
       $output .= '<p>' . t('Modify the "environment_indicator.indicator" configuration object to control how the environment indicator is presented:') . '</p>';
       $output .= '<dl>';
       $output .= '<dt><em>$config[\'environment_indicator.indicator\'][\'bg_color\']</em></dt><dd>' . t('A valid CSS color for the background of the indicator.') . '<br/>$config[\'environment_indicator.indicator\'][\'bg_color\'];<br /></dd></dt>';

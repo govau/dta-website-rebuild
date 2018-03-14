@@ -18,16 +18,6 @@ class MatcherCollection extends DefaultLazyPluginCollection {
 
   /**
    * {@inheritdoc}
-   *
-   * @return \Drupal\linkit\MatcherInterface
-   *   A matcher plugin.
-   */
-  public function &get($instance_id) {
-    return parent::get($instance_id);
-  }
-
-  /**
-   * {@inheritdoc}
    */
   public function sortHelper($aID, $bID) {
     $a_weight = $this->get($aID)->getWeight();

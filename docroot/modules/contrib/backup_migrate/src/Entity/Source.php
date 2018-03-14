@@ -2,8 +2,6 @@
 
 namespace Drupal\backup_migrate\Entity;
 
-
-
 /**
  * Defines the Backup Source entity.
  *

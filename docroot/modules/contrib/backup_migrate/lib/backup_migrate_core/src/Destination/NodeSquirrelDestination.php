@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * @file
+ */
+
 namespace BackupMigrate\Core\Destination;
 
 use BackupMigrate\Core\Config\ConfigurableInterface;
@@ -10,12 +14,13 @@ use BackupMigrate\Core\File\BackupFileReadableInterface;
 use BackupMigrate\Core\Service\NodeSquirrelClient;
 
 /**
- * Class NodeSquirrelDestination
+ * Class NodeSquirrelDestination.
+ *
  * @package BackupMigrate\Core\Destination
  */
 class NodeSquirrelDestination extends DestinationBase implements RemoteDestinationInterface, ListableDestinationInterface, ReadableDestinationInterface, ConfigurableInterface {
 
-  protected $client = null;
+  protected $client = NULL;
 
   /**
    * @var string[]
@@ -26,17 +31,18 @@ class NodeSquirrelDestination extends DestinationBase implements RemoteDestinati
   /**
    * @var HttpClientInterface
    */
-  protected $http_client = null;
+  protected $http_client = NULL;
 
 
   /**
    * Get a definition for user-configurable settings.
    *
    * @param array $params
+   *
    * @return array
    */
-  public function configSchema($params = array()) {
-    $schema = array();
+  public function configSchema($params = []) {
+    $schema = [];
 
     // Init settings.
     if ($params['operation'] == 'initialize') {
@@ -53,7 +59,7 @@ class NodeSquirrelDestination extends DestinationBase implements RemoteDestinati
    * {@inheritdoc}
    */
   public function checkWritable() {
-    return true;
+    return TRUE;
   }
 
   /**
@@ -68,7 +74,9 @@ class NodeSquirrelDestination extends DestinationBase implements RemoteDestinati
   /**
    * Do the actual file save. Should take care of the actual creation of a file
    * in the destination without regard for metadata.
+   *
    * @param \BackupMigrate\Core\File\BackupFileReadableInterface $file
+   *
    * @return null
    */
   protected function _saveFile(BackupFileReadableInterface $file) {
@@ -85,7 +93,7 @@ class NodeSquirrelDestination extends DestinationBase implements RemoteDestinati
   }
 
   /**
-   * Load the actual metadata for the file
+   * Load the actual metadata for the file.
    *
    * @param \BackupMigrate\Core\File\BackupFileInterface $file
    */
@@ -111,13 +119,14 @@ class NodeSquirrelDestination extends DestinationBase implements RemoteDestinati
     if (isset($files[$id])) {
       return $files[$id];
     }
-    return null;
+    return NULL;
   }
 
   /**
    * Load the file with the given ID from the destination.
    *
    * @param \BackupMigrate\Core\File\BackupFileInterface $file
+   *
    * @return \BackupMigrate\Core\File\BackupFileReadableInterface The file if it exists or NULL if it doesn't
    */
   public function loadFileForReading(BackupFileInterface $file) {
@@ -132,15 +141,15 @@ class NodeSquirrelDestination extends DestinationBase implements RemoteDestinati
    * @return bool True if the file exists, false if it does not.
    */
   public function fileExists($id) {
-    return (boolean)$this->getFile($id);
+    return (boolean) $this->getFile($id);
   }
 
   /**
    * Return a list of files from the destination. This list should be
    * date ordered from newest to oldest.
    *
-   * @param integer $count The number of files to return.
-   * @param integer $start The number to start at for pagination.
+   * @param int $count
+   * @param int $start
    *
    * @return BackupFileInterface[]
    *         An array of BackupFileInterface objects representing the files with
@@ -152,12 +161,12 @@ class NodeSquirrelDestination extends DestinationBase implements RemoteDestinati
     $file_list = $this->getClient()->listFiles();
 
     $files = [];
-    foreach ((array)$file_list as $file) {
-        $out = new BackupFile();
-        $out->setMeta('id', $file['filename']);
-        $out->setMetaMultiple($file);
-        $out->setFullName($file['filename']);
-        $files[$file['filename']] = $out;
+    foreach ((array) $file_list as $file) {
+      $out = new BackupFile();
+      $out->setMeta('id', $file['filename']);
+      $out->setMetaMultiple($file);
+      $out->setFullName($file['filename']);
+      $files[$file['filename']] = $out;
     }
     return $files;
   }
@@ -172,11 +181,13 @@ class NodeSquirrelDestination extends DestinationBase implements RemoteDestinati
 
   /**
    * Get the client class.
+   *
    * @return \BackupMigrate\Core\Service\NodeSquirrelClient|null
+   *
    * @throws \BackupMigrate\Core\Exception\BackupMigrateException
    */
   protected function getClient() {
-    if ($this->client == null) {
+    if ($this->client == NULL) {
       $secret = $this->confGet('secret_key');
       if (!$secret) {
         throw new BackupMigrateException('You must enter a secret key in order to use NodeSquirrel.');
@@ -197,4 +208,5 @@ class NodeSquirrelDestination extends DestinationBase implements RemoteDestinati
   public function setNodeSquirrelClient(NodeSquirrelClient $client) {
     $this->client = $client;
   }
+
 }

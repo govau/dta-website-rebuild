@@ -1,5 +1,5 @@
 services:
-  social_api.social_api_data_handler:
+  social_api.data_handler:
     class: Drupal\social_api\SocialApiDataHandler
     arguments:
       - '@session'

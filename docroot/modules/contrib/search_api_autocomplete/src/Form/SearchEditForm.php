@@ -183,13 +183,6 @@ class SearchEditForm extends EntityForm {
     $search = $this->entity;
 
     $available_suggesters = $this->getAvailableSuggesters();
-    if (!$available_suggesters) {
-      $args = [
-        '@feature' => 'search_api_autocomplete',
-        ':backends_url' => 'https://www.drupal.org/docs/8/modules/search-api/getting-started/server-backends-and-features#backends',
-      ];
-      drupal_set_message($this->t('There are currently no suggester plugins installed that support this index. To solve this problem, you can either:<ul><li>move the index to a server which supports the "@feature" feature (see the <a href=":backends_url">available backends</a>)</li><li>or install a module providing a new suggester plugin that supports this index</li></ul>', $args), 'error');
-    }
     $suggester_ids = array_keys($available_suggesters);
     $suggester_weights = $search->getSuggesterWeights();
     $suggester_weights += array_fill_keys($suggester_ids, 0);
@@ -381,7 +374,7 @@ class SearchEditForm extends EntityForm {
       if (class_exists($definition['class'])) {
         $method = [$definition['class'], 'supportsSearch'];
         if (call_user_func($method, $this->entity)) {
-          /** @var $suggester \Drupal\search_api_autocomplete\Suggester\SuggesterInterface */
+          /** @var \Drupal\search_api_autocomplete\Suggester\SuggesterInterface $suggester */
           $suggester = $this->suggesterManager
             ->createInstance($plugin_id, $settings);
           $suggesters[$plugin_id] = $suggester;

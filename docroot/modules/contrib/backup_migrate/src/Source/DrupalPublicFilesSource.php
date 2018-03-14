@@ -6,7 +6,8 @@ use BackupMigrate\Core\Config\Config;
 use BackupMigrate\Core\Source\FileDirectorySource;
 
 /**
- * Class DrupalPublicFilesSource
+ * Class DrupalPublicFilesSource.
+ *
  * @package BackupMigrate\Drupal\Source
  */
 class DrupalPublicFilesSource extends FileDirectorySource {

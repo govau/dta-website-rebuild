@@ -8,7 +8,8 @@ use BackupMigrate\Core\File\BackupFileReadableInterface;
 
 
 /**
- * Interface WritableDestinationInterface
+ * Interface WritableDestinationInterface.
+ *
  * @package BackupMigrate\Core\Destination
  */
 interface WritableDestinationInterface extends DestinationInterface {
@@ -19,4 +20,5 @@ interface WritableDestinationInterface extends DestinationInterface {
    *        The file to save.
    */
   function saveFile(BackupFileReadableInterface $file);
+
 }

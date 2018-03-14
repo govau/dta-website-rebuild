@@ -13,29 +13,29 @@ The following is a simplified version of how to call the library to perform a ba
 	<?php
 	// Create the configuration object from a hardcoded PHP array.
 	$config = new Config(
-		array(
+		[
 			// Add configuration for the 'db' source.
-			'database1' => array(
+			'database1' => [
 				'host' => '127.0.0.1',
 				'database' => 'mydb',
 				'user' => 'myuser',
 				'password' => 'mypass',
 				'port' => '8889',
-	      	),
+	      	],
 	      	// Configure the destination.
-	      	'mybackups' => array(
+	      	'mybackups' => [
 	      		'directory' => '~/mybackups',
-	      	),
+	      	],
 	      	// Configure the compression filter.
-	      	'compressor' => array(
+	      	'compressor' => [
 	      		'compression' => 'gzip',
-	      	),
+	      	],
 	      	// Configure the file namer.
-	      	'name' => array(
+	      	'name' => [
 		      'filename' => 'backup',
 		      'timestamp' => true,
-		    ),
-	  	)
+		    ],
+	  	]
 	);
 	
 	// Create a new Backup and Migrate object with this configuration.

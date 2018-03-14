@@ -7,7 +7,8 @@ namespace BackupMigrate\Core\Service;
 
 
 /**
- * Interface MailSenderInterface
+ * Interface MailSenderInterface.
+ *
  * @package BackupMigrate\Core\Environment
  */
 interface MailerInterface {
@@ -25,5 +26,6 @@ interface MailerInterface {
    *      Additional headers to be added to the email if any.
    * @return mixed
    */
-  public function send($to, $subject, $body, $replacements = array(), $additional_headers = array());
+  public function send($to, $subject, $body, $replacements = [], $additional_headers = []);
+
 }

@@ -12,21 +12,21 @@ The built in `\BackupMigrate\Core\Config\Config` is a simple implementation of t
 	use \BackupMigrate\Core\Config\Config;
 	
 	$config = new Config(
-		array(
+		[
 			// Add configuration for the 'db' source.
-			'database1' => array(
+			'database1' => [
 				'host' => '127.0.0.1',
 				'database' => 'mydb',
 				'user' => 'myuser',
 				'password' => 'mypass',
 				'port' => '8889',
-	      	),
+	      	],
 	      	// Configure the compression filter.
-	      	'compressor' => array(
+	      	'compressor' => [
 	      		'compression' => 'gzip',
-	      	),
+	      	],
 	      	// Add more filter, source and destination configuration.
-	  	)
+	  	]
 	);
 	
 	$plugins = new PluginManager();

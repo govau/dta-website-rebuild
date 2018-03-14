@@ -83,11 +83,18 @@ function search_api_autocomplete_form_views_exposed_form_alter(array &$form, For
     return;
   }
 
+  $plugin_id = 'views:' . $view->id();
+  $cache_tag = "search_api_autocomplete_search_list:$plugin_id";
+  if (!isset($form['#cache']['tags'])
+      || !in_array($cache_tag, $form['#cache']['tags'])) {
+    $form['#cache']['tags'][] = $cache_tag;
+  }
+
   /** @var \Drupal\search_api_autocomplete\Entity\SearchStorage $search_storage */
   $search_storage = \Drupal::entityTypeManager()
     ->getStorage('search_api_autocomplete_search');
-  $search = $search_storage->loadBySearchPlugin('views:' . $view->id());
-  if (!$search) {
+  $search = $search_storage->loadBySearchPlugin($plugin_id);
+  if (!$search || !$search->status()) {
     return;
   }
 
@@ -160,7 +167,14 @@ function search_api_autocomplete_form_search_api_page_block_form_alter(array &$f
   /** @var \Drupal\search_api_autocomplete\Entity\SearchStorage $search_storage */
   $search_storage = \Drupal::entityTypeManager()
     ->getStorage('search_api_autocomplete_search');
-  $search = $search_storage->loadBySearchPlugin('page:' . $page_id);
+  $plugin_id = 'page:' . $page_id;
+  $search = $search_storage->loadBySearchPlugin($plugin_id);
+
+  $cache_tag = "search_api_autocomplete_search_list:$plugin_id";
+  if (!isset($form['#cache']['tags'])
+      || !in_array($cache_tag, $form['#cache']['tags'])) {
+    $form['#cache']['tags'][] = $cache_tag;
+  }
 
   if ($search && $search->status()) {
     \Drupal::getContainer()

@@ -3,12 +3,16 @@
   position: relative;
 }
 
-.search-api-autocomplete-search .ui-menu-item-wrapper,
-.search-api-autocomplete-search .ui-menu-item-wrapper .ui-state-active {
+.search-api-autocomplete-search .ui-menu-item-wrapper {
   border: 0;
   color: #333;
   margin: 0;
   padding: 0;
+}
+
+.search-api-autocomplete-search .ui-menu-item-wrapper.ui-state-active .search-api-autocomplete-suggestion {
+  background: #0072B9;
+  color: #FFF;
 }
 
 .search-api-autocomplete-search .ui-menu-item {

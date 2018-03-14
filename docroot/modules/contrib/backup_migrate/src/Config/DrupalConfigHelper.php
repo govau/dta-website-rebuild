@@ -9,7 +9,8 @@ use Drupal\backup_migrate\Entity\SettingsProfile;
 use Drupal\Core\Form\FormStateInterface;
 
 /**
- * Class DrupalConfigHelper
+ * Class DrupalConfigHelper.
+ *
  * @package BackupMigrate\Drupal\Config
  */
 class DrupalConfigHelper {
@@ -122,10 +123,12 @@ class DrupalConfigHelper {
               $form_item['#type'] = 'textarea';
             }
             break;
+
           case 'password':
             $form_item['#type'] = 'password';
             $form_item['#value_callback'] = 'BackupMigrate\Drupal\Config\DrupalConfigHelper::valueCallbackSecret';
             break;
+
           case 'number':
             $form_item['#type'] = 'textfield';
             $form_item['#size'] = 5;
@@ -133,9 +136,11 @@ class DrupalConfigHelper {
               $form_item['#size'] = strlen((string) $item['max']) + 3;
             }
             break;
+
           case 'boolean':
             $form_item['#type'] = 'checkbox';
             break;
+
           case 'enum':
             $form_item['#type'] = 'select';
             $form_item['#multiple'] = !empty($item['multiple']);
@@ -200,11 +205,12 @@ class DrupalConfigHelper {
   }
 
   /**
-   * Get a pulldown for the given list of plugins
+   * Get a pulldown for the given list of plugins.
    *
    * @param \BackupMigrate\Core\Config\ConfigurableInterface[]|\BackupMigrate\Core\Plugin\PluginManagerInterface $plugins
    * @param $title
    * @param null $default_value
+   *
    * @return array
    */
   public static function getPluginSelector(PluginManagerInterface $plugins, $title, $default_value = NULL) {
@@ -221,11 +227,12 @@ class DrupalConfigHelper {
   }
 
   /**
-   * Get a select form item for the given list of sources
+   * Get a select form item for the given list of sources.
    *
    * @param \BackupMigrate\Core\Main\BackupMigrateInterface $bam
    * @param $title
    * @param null $default_value
+   *
    * @return array
    */
   public static function getSourceSelector(BackupMigrateInterface $bam, $title, $default_value = NULL) {
@@ -233,11 +240,12 @@ class DrupalConfigHelper {
   }
 
   /**
-   * Get a select form item for the given list of sources
+   * Get a select form item for the given list of sources.
    *
    * @param \BackupMigrate\Core\Main\BackupMigrateInterface $bam
    * @param $title
    * @param null $default_value
+   *
    * @return array
    */
   public static function getDestinationSelector(BackupMigrateInterface $bam, $title, $default_value = NULL) {
@@ -249,9 +257,10 @@ class DrupalConfigHelper {
    * GEt a pulldown for the list of all settings profiles.
    *
    * @param $title
+   *
    * @return array
    */
-  public static function getSettingsProfileSelector($title) {
+  public static function getSettingsProfileSelector($title, $default_value = NULL) {
     $options = [];
     foreach (SettingsProfile::loadMultiple() as $key => $profile) {
       $options[$key] = $profile->get('label');
@@ -261,7 +270,9 @@ class DrupalConfigHelper {
         '#type' => 'select',
         '#title' => $title,
         '#options' => $options,
+        '#default_value' => $default_value
       ];
     }
   }
+
 }

@@ -11,7 +11,7 @@ docroot/sites/*/private
 CHANGELOG.txt
 COPYRIGHT.txt
 INSTALL*.txt
-LICENSE.txt
+#LICENSE.txt
 MAINTAINERS.txt
 UPGRADE.txt
 README.txt

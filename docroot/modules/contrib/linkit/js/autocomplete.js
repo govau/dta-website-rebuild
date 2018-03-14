@@ -44,9 +44,9 @@
     }
     else {
       var options = $.extend({
-                               success: sourceCallbackHandler,
-                               data: {q: term}
-                             }, autocomplete.ajax);
+        success: sourceCallbackHandler,
+        data: {q: term}
+      }, autocomplete.ajax);
       $.ajax(this.element.attr('data-autocomplete-path'), options);
     }
   }
@@ -64,7 +64,6 @@
    */
   function selectHandler(event, ui) {
     var $form = $(event.target).closest('form');
-
     if (!ui.item.path) {
       throw 'Missing path param.' + JSON.stringify(ui.item);
     }
@@ -98,14 +97,14 @@
    *   jQuery collection of the ul element.
    */
   function renderItem(ul, item) {
-    var $line = $('<li>').addClass('linkit-result');
-    $line.append($('<span>').html(item.label).addClass('linkit-result--title'));
+    var $line = $('<li>').addClass('linkit-result-line');
+    var $wrapper = $('<div>').addClass('linkit-result-line-wrapper');
+    $wrapper.append($('<span>').html(item.label).addClass('linkit-result-line--title'));
 
     if (item.hasOwnProperty('description')) {
-      $line.append($('<span>').html(item.description).addClass('linkit-result--description'));
+      $wrapper.append($('<span>').html(item.description).addClass('linkit-result-line--description'));
     }
-
-    return $line.appendTo(ul);
+    return $line.append($wrapper).appendTo(ul);
   }
 
   /**
@@ -125,13 +124,23 @@
 
     $.each(grouped_items, function (group, items) {
       if (group.length) {
-        ul.append('<li class="linkit-result--group">' + group + '</li>');
+        ul.append('<li class="linkit-result-line--group ui-menu-divider">' + group + '</li>');
       }
 
       $.each(items, function (index, item) {
         self._renderItemData(ul, item);
       });
     });
+  }
+
+  function focusHandler() {
+    return false;
+  }
+
+  function searchHandler(event) {
+    var options = autocomplete.options;
+
+    return !options.isComposing;
   }
 
   /**
@@ -152,7 +161,7 @@
         $.widget('custom.autocomplete', $.ui.autocomplete, {
           _create: function () {
             this._super();
-            this.widget().menu('option', 'items', '> :not(.linkit-result--group)');
+            this.widget().menu('option', 'items', '> :not(.linkit-result-line--group)');
           },
           _renderMenu: autocomplete.options.renderMenu,
           _renderItem: autocomplete.options.renderItem
@@ -164,6 +173,13 @@
 
         $autocomplete.click(function () {
           $autocomplete.autocomplete('search', $autocomplete.val());
+        });
+
+        $autocomplete.on('compositionstart.autocomplete', function () {
+          autocomplete.options.isComposing = true;
+        });
+        $autocomplete.on('compositionend.autocomplete', function () {
+          autocomplete.options.isComposing = false;
         });
       }
     },
@@ -183,10 +199,13 @@
     cache: {},
     options: {
       source: sourceData,
+      focus: focusHandler,
+      search: searchHandler,
+      select: selectHandler,
       renderItem: renderItem,
       renderMenu: renderMenu,
-      select: selectHandler,
-      minLength: 1
+      minLength: 1,
+      isComposing: false
     },
     ajax: {
       dataType: 'json'
