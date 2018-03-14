@@ -1,0 +1,11 @@
+id: related_content_card_external_
+label: 'Related Content Card (External)'
+ui_limit: external_link|card
+properties:
+  content:
+    value: "<a href=\"[node:field_external_link:uri]\" class=\"au-card au-card--shadow au-cta-link\">\r\n    <h3 class=\"au-card__title\">[node:title]</h3>\r\n    <p class=\"au-card__text\">[node:field_summary:value]</p>\r\n</a>"
+    format: html
+type: token
+type_label: 'Token field'
+entities:
+  node: node
