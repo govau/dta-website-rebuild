@@ -12,8 +12,7 @@ label: Search
 index_id: database_search_index
 suggester_settings:
   server:
-    fields:
-      - title
+    fields: {  }
 suggester_weights:
   server: 0
 suggester_limits:
