@@ -1,0 +1,49 @@
+uuid: f551ab9c-601a-4b31-b87e-2a9d2c70f978
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.external_link.field_external_link
+    - field.field.node.external_link.field_summary
+    - node.type.external_link
+  module:
+    - link
+    - panelizer
+    - text
+    - user
+third_party_settings:
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
+id: node.external_link.default
+targetEntityType: node
+bundle: external_link
+mode: default
+content:
+  field_external_link:
+    weight: 102
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_summary:
+    weight: 101
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  links:
+    weight: 100
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }

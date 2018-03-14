@@ -79,3 +79,9 @@ workflows:
               only:
                 # - master
                 - develop
+experimental:
+  notify:
+    branches:
+      only:
+        # - master
+        - develop
