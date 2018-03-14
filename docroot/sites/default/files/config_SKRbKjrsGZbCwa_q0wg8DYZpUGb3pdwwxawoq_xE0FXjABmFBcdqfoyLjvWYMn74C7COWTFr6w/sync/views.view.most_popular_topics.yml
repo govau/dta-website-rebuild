@@ -10,6 +10,7 @@ dependencies:
     - node.type.platforms_and_services
   module:
     - node
+    - statistics
     - user
 id: most_popular_topics
 label: 'Most popular topics'

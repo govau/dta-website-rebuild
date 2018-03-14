@@ -4,6 +4,7 @@ status: true
 dependencies:
   module:
     - comment
+    - node
     - user
 _core:
   default_config_hash: HacS-nsDH7uyoKhQHNyV_MNRClmPVuhU_fWZgNuEyIs
