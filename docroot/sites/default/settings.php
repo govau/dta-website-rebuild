@@ -630,7 +630,7 @@ if ($settings['hash_salt']) {
  *
  * Note: This setting does not apply to installation and update pages.
  */
-$settings['maintenance_theme'] = 'dta_gov_au';
+$settings['maintenance_theme'] = 'bartik';
 
 /**
  * PHP settings:
