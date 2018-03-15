@@ -77,7 +77,7 @@ workflows:
           filters:
             branches:
               only:
-                # - master
+                - master
                 - develop
 experimental:
   notify:
