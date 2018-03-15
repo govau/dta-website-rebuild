@@ -13,4 +13,5 @@ permissions:
   - 'access shortcuts'
   - 'search content'
   - 'use search_api_autocomplete for search'
+  - 'view disqus comments'
   - 'view search api pages'
