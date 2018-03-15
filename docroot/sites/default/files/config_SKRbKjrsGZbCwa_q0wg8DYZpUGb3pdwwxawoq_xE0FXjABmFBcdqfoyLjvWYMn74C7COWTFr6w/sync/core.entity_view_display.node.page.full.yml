@@ -12,8 +12,11 @@ dependencies:
     - field.field.node.page.field_index_image
     - field.field.node.page.field_introduction
     - field.field.node.page.field_linkedin_image
-    - field.field.node.page.field_links
     - field.field.node.page.field_phase
+    - field.field.node.page.field_promote_to_get_help_advice
+    - field.field.node.page.field_promote_to_our_projects
+    - field.field.node.page.field_related_content
+    - field.field.node.page.field_related_content_heading
     - field.field.node.page.field_review_date
     - field.field.node.page.field_summary
     - field.field.node.page.field_twitter_image
@@ -22,7 +25,6 @@ dependencies:
   module:
     - ds
     - field_group
-    - link
     - panelizer
     - responsive_image
     - text
@@ -40,10 +42,11 @@ third_party_settings:
         - content_moderation_control
         - field_introduction
         - group_image_and_
-        - field_image
-        - field_image_caption
         - field_body
-        - field_links
+        - field_image
+        - field_related_content_heading
+        - field_image_caption
+        - field_related_content
   panelizer:
     enable: false
     custom: false
@@ -81,7 +84,7 @@ content:
     third_party_settings: {  }
   field_body:
     type: text_default
-    weight: 5
+    weight: 3
     region: content
     label: hidden
     settings: {  }
@@ -222,17 +225,14 @@ content:
             fis: false
             fis-def-at: false
             fi-def-at: false
-  field_links:
-    type: link
-    weight: 6
+  field_related_content:
+    type: entity_reference_entity_view
+    weight: 5
     region: content
-    label: above
+    label: hidden
     settings:
-      trim_length: 80
-      url_only: false
-      url_plain: false
-      rel: '0'
-      target: '0'
+      view_mode: card
+      link: false
     third_party_settings:
       ds:
         ds_limit: ''
@@ -241,26 +241,62 @@ content:
           settings:
             lb: ''
             prefix: ''
-            lbw: true
-            lbw-el: h2
+            lbw-el: ''
             lbw-cl: ''
             lbw-at: ''
             ow: true
             ow-el: div
-            ow-cl: au-related-links
+            ow-cl: au-body
             ow-at: ''
             fis: true
             fis-el: ul
-            fis-cl: ''
+            fis-cl: 'au-card-list au-card-list--matchheight'
             fis-at: ''
             fi: true
             fi-el: li
-            fi-cl: ''
+            fi-cl: 'col-xs-12 col-sm-6'
             fi-at: ''
             suffix: ''
+            lbw: false
             lb-col: false
             ow-def-at: false
             ow-def-cl: false
+            fis-def-at: false
+            fi-def-at: false
+  field_related_content_heading:
+    type: string
+    weight: 4
+    region: content
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings:
+      ds:
+        ft:
+          id: expert
+          settings:
+            lb: ''
+            prefix: ''
+            lbw-el: ''
+            lbw-cl: ''
+            lbw-at: ''
+            ow-el: ''
+            ow-cl: ''
+            ow-at: ''
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fi: true
+            fi-el: h2
+            fi-cl: ''
+            fi-at: ''
+            suffix: ''
+            lbw: false
+            lb-col: false
+            ow: false
+            ow-def-at: false
+            ow-def-cl: false
+            fis: false
             fis-def-at: false
             fi-def-at: false
 hidden:
@@ -269,6 +305,8 @@ hidden:
   field_index_image: true
   field_linkedin_image: true
   field_phase: true
+  field_promote_to_get_help_advice: true
+  field_promote_to_our_projects: true
   field_review_date: true
   field_summary: true
   field_twitter_image: true
