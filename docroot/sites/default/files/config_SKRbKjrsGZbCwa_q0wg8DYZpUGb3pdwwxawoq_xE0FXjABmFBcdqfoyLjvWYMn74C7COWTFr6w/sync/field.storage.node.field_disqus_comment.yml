@@ -1,17 +1,16 @@
-uuid: 0ce032b1-55a1-4df9-aea0-172eeab908ae
+uuid: ffc3013a-cef4-46b1-9f0c-2c6ce10846e3
 langcode: en
 status: true
 dependencies:
   module:
-    - comment
+    - disqus
     - node
-id: node.field_comments
-field_name: field_comments
+id: node.field_disqus_comment
+field_name: field_disqus_comment
 entity_type: node
-type: comment
-settings:
-  comment_type: blog_post_comments
-module: comment
+type: disqus_comment
+settings: {  }
+module: disqus
 locked: false
 cardinality: 1
 translatable: true

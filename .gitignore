@@ -44,3 +44,4 @@ bin
 social_auth_google.settings.yml
 
 secrets-*
+disqus.settings.yml
