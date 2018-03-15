@@ -11,10 +11,11 @@ dependencies:
     - field.field.node.page.field_index_image
     - field.field.node.page.field_introduction
     - field.field.node.page.field_linkedin_image
-    - field.field.node.page.field_links
     - field.field.node.page.field_phase
     - field.field.node.page.field_promote_to_get_help_advice
     - field.field.node.page.field_promote_to_our_projects
+    - field.field.node.page.field_related_content
+    - field.field.node.page.field_related_content_heading
     - field.field.node.page.field_review_date
     - field.field.node.page.field_summary
     - field.field.node.page.field_twitter_image
@@ -27,7 +28,6 @@ dependencies:
     - image
     - imce
     - layout_discovery
-    - link
     - path
     - text
 third_party_settings:
@@ -54,7 +54,7 @@ content:
     type: text_textarea
     region: content
   field_contact_module:
-    weight: 15
+    weight: 14
     settings: {  }
     third_party_settings: {  }
     type: options_buttons
@@ -115,14 +115,6 @@ content:
         enabled: true
     type: image_image
     region: content
-  field_links:
-    weight: 16
-    settings:
-      placeholder_url: ''
-      placeholder_title: ''
-    third_party_settings: {  }
-    type: link_default
-    region: content
   field_phase:
     weight: 17
     settings: {  }
@@ -130,21 +122,38 @@ content:
     type: options_buttons
     region: content
   field_promote_to_get_help_advice:
-    weight: 27
+    weight: 22
     settings:
       display_label: true
     third_party_settings: {  }
     type: boolean_checkbox
     region: content
   field_promote_to_our_projects:
-    weight: 28
+    weight: 23
     settings:
       display_label: true
     third_party_settings: {  }
     type: boolean_checkbox
     region: content
+  field_related_content:
+    weight: 16
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_related_content_heading:
+    weight: 15
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
   field_review_date:
-    weight: 26
+    weight: 21
     settings: {  }
     third_party_settings: {  }
     type: datetime_default

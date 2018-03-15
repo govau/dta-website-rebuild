@@ -11,10 +11,11 @@ dependencies:
     - field.field.node.page.field_index_image
     - field.field.node.page.field_introduction
     - field.field.node.page.field_linkedin_image
-    - field.field.node.page.field_links
     - field.field.node.page.field_phase
     - field.field.node.page.field_promote_to_get_help_advice
     - field.field.node.page.field_promote_to_our_projects
+    - field.field.node.page.field_related_content
+    - field.field.node.page.field_related_content_heading
     - field.field.node.page.field_review_date
     - field.field.node.page.field_summary
     - field.field.node.page.field_twitter_image
@@ -23,7 +24,6 @@ dependencies:
     - datetime
     - ds
     - image
-    - link
     - panelizer
     - text
     - user
@@ -141,18 +141,6 @@ content:
     third_party_settings: {  }
     type: image
     region: ds_content
-  field_links:
-    weight: 103
-    label: above
-    settings:
-      trim_length: 80
-      url_only: false
-      url_plain: false
-      rel: ''
-      target: ''
-    third_party_settings: {  }
-    type: link
-    region: ds_content
   field_phase:
     weight: 104
     label: above
@@ -180,6 +168,22 @@ content:
       format_custom_true: ''
     third_party_settings: {  }
     type: boolean
+    region: content
+  field_related_content:
+    weight: 117
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_related_content_heading:
+    weight: 118
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
     region: content
   field_review_date:
     weight: 114
