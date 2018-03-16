@@ -1,0 +1,28 @@
+uuid: 43b93452-b398-4a7b-a5f3-1c47a86ca9e7
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.contacts
+  module:
+    - panelizer
+    - text
+third_party_settings:
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
+id: taxonomy_term.contacts.default
+targetEntityType: taxonomy_term
+bundle: contacts
+mode: default
+content:
+  description:
+    label: hidden
+    type: text_default
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }

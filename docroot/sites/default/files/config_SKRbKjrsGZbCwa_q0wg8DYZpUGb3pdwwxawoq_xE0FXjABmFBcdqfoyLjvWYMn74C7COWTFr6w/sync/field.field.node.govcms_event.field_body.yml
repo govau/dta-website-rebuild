@@ -1,0 +1,21 @@
+uuid: c324817c-1bd8-499d-9eb1-166ee38c4707
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_body
+    - node.type.govcms_event
+  module:
+    - text
+id: node.govcms_event.field_body
+field_name: field_body
+entity_type: node
+bundle: govcms_event
+label: 'Body content'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

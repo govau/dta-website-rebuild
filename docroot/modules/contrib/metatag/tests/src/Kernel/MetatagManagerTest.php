@@ -33,38 +33,40 @@ class MetatagManagerTest extends KernelTestBase {
     ]);
 
     $expected = [
-      '#attached' => ['html_head' => [
-        [
+      '#attached' => [
+        'html_head' => [
           [
-            '#tag'=> 'meta',
-            '#attributes' => [
-              'property' => 'og:image:url',
-              'content' => 'http://www.example.com/example/foo.png',
+            [
+              '#tag' => 'meta',
+              '#attributes' => [
+                'property' => 'og:image:url',
+                'content' => 'http://www.example.com/example/foo.png',
+              ],
             ],
+            'og_image_url',
           ],
-          'og_image_url',
-        ],
-        [
           [
-            '#tag'=> 'meta',
-            '#attributes' => [
-              'property' => 'og:image:width',
-              'content' => 100,
+            [
+              '#tag' => 'meta',
+              '#attributes' => [
+                'property' => 'og:image:width',
+                'content' => 100,
+              ],
             ],
+            'og_image_width',
           ],
-          'og_image_width',
-        ],
-        [
           [
-            '#tag'=> 'meta',
-            '#attributes' => [
-              'property' => 'og:image:height',
-              'content' => 100,
+            [
+              '#tag' => 'meta',
+              '#attributes' => [
+                'property' => 'og:image:height',
+                'content' => 100,
+              ],
             ],
+            'og_image_height',
           ],
-          'og_image_height',
         ],
-      ]],
+      ],
     ];
     $this->assertEquals($expected, $tags);
   }

@@ -4,7 +4,7 @@ namespace Drupal\jsonapi\LinkManager;
 
 use Drupal\Core\Routing\UrlGeneratorInterface;
 use Drupal\jsonapi\ResourceType\ResourceType;
-use Drupal\jsonapi\Routing\Param\OffsetPage;
+use Drupal\jsonapi\Query\OffsetPage;
 use Symfony\Cmf\Component\Routing\RouteObjectInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
@@ -116,14 +116,14 @@ class LinkManager {
     }
     $params = $request->get('_json_api_params');
     if ($page_param = $params[OffsetPage::KEY_NAME]) {
-      /* @var \Drupal\jsonapi\Routing\Param\OffsetPage $page_param */
+      /* @var \Drupal\jsonapi\Query\OffsetPage $page_param */
       $offset = $page_param->getOffset();
       $size = $page_param->getSize();
     }
     else {
       // Apply the defaults.
-      $offset = 0;
-      $size = OffsetPage::$maxSize;
+      $offset = OffsetPage::DEFAULT_OFFSET;
+      $size = OffsetPage::SIZE_MAX;
     }
     if ($size <= 0) {
       throw new BadRequestHttpException(sprintf('The page size needs to be a positive integer.'));

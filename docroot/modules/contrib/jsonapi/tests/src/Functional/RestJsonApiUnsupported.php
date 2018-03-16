@@ -10,6 +10,7 @@ use Drupal\Tests\rest\Functional\ResourceTestBase;
 
 /**
  * @group jsonapi
+ * @group legacy
  */
 class RestJsonApiUnsupported extends ResourceTestBase {
 
@@ -99,6 +100,11 @@ class RestJsonApiUnsupported extends ResourceTestBase {
    * {@inheritdoc}
    */
   protected function getExpectedUnauthorizedAccessMessage($method) {}
+
+  /**
+   * {@inheritdoc}
+   */
+  protected function getExpectedUnauthorizedAccessCacheability() {}
 
   /**
    * {@inheritdoc}

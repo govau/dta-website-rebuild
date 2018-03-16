@@ -4,15 +4,47 @@ shield.settings:
   type: config_object
   label: 'Shield settings'
   mapping:
-    user:
-      type: string
-      label: 'The username'
-    pass:
-      type: string
-      label: 'The password'
+    credential_provider:
+      type: 'string'
+      label: 'Credential provider'
+    credentials:
+      type: sequence
+      label: 'Credentials'
+      sequence:
+        type: shield.credentials.[%key]
     allow_cli:
       type: boolean
       label: 'CLI bypass'
     print:
       type: string
       label: 'The greeting text, [user] and [pass] tokens are usable.'
+
+shield.credentials.shield:
+  type: mapping
+  label: 'Shield credentials'
+  mapping:
+    user:
+      type: string
+      label: 'Username'
+    pass:
+      type: string
+      label: 'Password'
+
+shield.credentials.key:
+  type: mapping
+  label: 'Shield credentials with Key Module'
+  mapping:
+    user:
+      type: string
+      label: 'Username'
+    pass_key:
+      type: string
+      label: 'Password key'
+
+shield.credentials.multikey:
+  type: mapping
+  label: 'Shield credentials with Key Module (user/password keys)'
+  mapping:
+    user_pass_key:
+      type: string
+      label: 'User/Password key'

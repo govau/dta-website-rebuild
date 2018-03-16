@@ -3,7 +3,6 @@
 namespace Drupal\webform\Theme;
 
 use Drupal\Core\Config\ConfigFactoryInterface;
-use Drupal\Core\Entity\EntityManagerInterface;
 use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\Core\Session\AccountInterface;
 use Drupal\Core\Theme\ThemeNegotiatorInterface;
@@ -44,7 +43,7 @@ class WebformThemeNegotiator implements ThemeNegotiatorInterface {
    * {@inheritdoc}
    */
   public function applies(RouteMatchInterface $route_match) {
-    if ($route_match->getRouteName() !== 'entity.webform.canonical' && $route_match->getRouteName() !== 'entity.webform.test_form') {
+    if (!in_array($route_match->getRouteName(), ['entity.webform.canonical', 'entity.webform.test_form', 'entity.webform.confirmation'])) {
       return FALSE;
     }
 

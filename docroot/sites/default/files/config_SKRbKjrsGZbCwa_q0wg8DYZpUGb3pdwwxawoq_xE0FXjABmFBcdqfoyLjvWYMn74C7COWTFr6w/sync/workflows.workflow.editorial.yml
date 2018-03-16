@@ -1,0 +1,90 @@
+uuid: ffd08d37-2676-46d3-83a8-70e529043f4c
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.blog_post
+    - node.type.govcms_event
+    - node.type.landing_page
+    - node.type.news_item
+    - node.type.page
+    - node.type.platforms_and_services
+  module:
+    - content_moderation
+_core:
+  default_config_hash: LQqDNc2L7SAN3u8053_kM1YmcAJ4R2RCnWTTz4GiuZw
+id: editorial
+label: Editorial
+type: content_moderation
+type_settings:
+  states:
+    archived:
+      label: Archived
+      weight: -7
+      published: false
+      default_revision: true
+    draft:
+      label: Draft
+      published: false
+      default_revision: false
+      weight: -10
+    needs_review:
+      published: false
+      default_revision: false
+      label: 'Needs Review'
+      weight: -9
+    published:
+      label: Published
+      published: true
+      default_revision: true
+      weight: -8
+  transitions:
+    archive:
+      label: Archive
+      from:
+        - published
+      to: archived
+      weight: -7
+    archived_draft:
+      label: 'Restore to Draft'
+      from:
+        - archived
+      to: draft
+      weight: -6
+    archived_published:
+      label: Restore
+      from:
+        - archived
+      to: published
+      weight: -5
+    create_new_draft:
+      label: 'Create New Draft'
+      to: draft
+      weight: -10
+      from:
+        - draft
+        - needs_review
+        - published
+    needs_review:
+      label: 'Needs review'
+      from:
+        - archived
+        - draft
+        - published
+      to: needs_review
+      weight: -9
+    publish:
+      label: Publish
+      to: published
+      weight: -8
+      from:
+        - needs_review
+        - published
+  entity_types:
+    node:
+      - blog_post
+      - govcms_event
+      - landing_page
+      - news_item
+      - page
+      - platforms_and_services

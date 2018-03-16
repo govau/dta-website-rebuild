@@ -1,0 +1,17 @@
+uuid: 56a12d2e-5f98-4ecb-bb2c-60ffcdbaebee
+langcode: en
+status: true
+dependencies: {  }
+id: cards_linked
+label: 'Cards: linked'
+description: 'Add a series of cards. Don''t add links: cards will link to content. Use at least three cards.'
+body:
+  value: "<ul class=\"au-card-list au-card-list--matchheight\">\r\n    <li class=\"col-xs-12 col-sm-4\">\r\n        <a href=\"#\" class=\"au-card au-card--shadow au-cta-link\">\r\n            <h3 class=\"au-card__title\">Card 1</h3>\r\n            <p class=\"au-card__text\">Text for card 1.</p>\r\n        </a>\r\n    </li>\r\n    <li class=\"col-xs-12 col-sm-4\">\r\n        <a href=\"#\" class=\"au-card au-card--shadow au-cta-link\">\r\n            <h3 class=\"au-card__title\">Card 12</h3>\r\n            <p class=\"au-card__text\">Text for card 2.</p>\r\n        </a>\r\n    </li>\r\n    <li class=\"col-xs-12 col-sm-4\">\r\n        <a href=\"#\" class=\"au-card au-card--shadow au-cta-link\">\r\n            <h3 class=\"au-card__title\">Card 3</h3>\r\n            <p class=\"au-card__text\">Text for card 3.</p>\r\n        </a>\r\n    </li>\r\n</ul>"
+  format: html
+weight: null
+node_types:
+  - blog_post
+  - digital_service_standard
+  - landing_page
+  - page
+  - platforms_and_services

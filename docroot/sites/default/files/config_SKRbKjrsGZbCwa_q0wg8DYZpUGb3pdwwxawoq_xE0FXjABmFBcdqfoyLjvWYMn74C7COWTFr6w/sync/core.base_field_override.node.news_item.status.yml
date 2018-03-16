@@ -1,0 +1,22 @@
+uuid: d937bf69-4516-4f8b-a7ea-b55f10d90c16
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.news_item
+id: node.news_item.status
+field_name: status
+entity_type: node
+bundle: news_item
+label: Published
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

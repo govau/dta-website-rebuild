@@ -415,6 +415,7 @@ function install_begin_request($class_loader, &$install_state) {
   else {
     $environment = 'prod';
   }
+  $GLOBALS['conf']['container_service_providers']['InstallerConfigOverride'] = 'Drupal\Core\Installer\ConfigOverride';
 
   // Only allow dumping the container once the hash salt has been created.
   $kernel = InstallerKernel::createFromRequest($request, $class_loader, $environment, (bool) Settings::get('hash_salt', FALSE));
@@ -1379,7 +1380,7 @@ function install_download_translation(&$install_state) {
  */
 function install_retrieve_file($uri, $destination) {
   $parsed_url = parse_url($uri);
-  if (is_dir(drupal_realpath($destination))) {
+  if (is_dir(\Drupal::service('file_system')->realpath($destination))) {
     // Prevent URIs with triple slashes when gluing parts together.
     $path = str_replace('///', '//', "$destination/") . drupal_basename($parsed_url['path']);
   }

@@ -4,6 +4,7 @@ namespace Drupal\environment_indicator;
 
 use Drupal\Core\Config\Entity\ConfigEntityListBuilder;
 use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Url;
 
 /**
  * Provides a listing of environments.
@@ -51,7 +52,7 @@ class EnvironmentIndicatorListBuilder extends ConfigEntityListBuilder {
    * {@inheritdoc}
    */
   public function render() {
-    $build['action_header']['#markup'] = '<h3>' . t('Available actions:') . '</h3>';
+    $build['action_header']['#markup'] = '<h3>' . $this->t('Available actions:') . '</h3>';
     $entities = $this->load();
     // If there are not multiple vocabularies, disable dragging by unsetting the
     // weight key.
@@ -59,7 +60,7 @@ class EnvironmentIndicatorListBuilder extends ConfigEntityListBuilder {
       unset($this->weightKey);
     }
     $build = parent::render();
-    $build['table']['#empty'] = $this->t('No environment switchers available. <a href=":link">Add environment</a>.', [':link' => \Drupal::url('entity.environment_indicator.add')]);
+    $build['table']['#empty'] = $this->t('No environment switchers available. <a href=":link">Add environment</a>.', [':link' => Url::fromRoute('entity.environment_indicator.add')->toString()]);
     return $build;
   }
 

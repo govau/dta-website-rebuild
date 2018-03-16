@@ -1,0 +1,89 @@
+uuid: e529e2a7-52bb-4a69-ab9c-d12f9c03d031
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.full
+    - field.field.node.platforms_and_services.field_body
+    - field.field.node.platforms_and_services.field_contact_module
+    - field.field.node.platforms_and_services.field_index_image
+    - field.field.node.platforms_and_services.field_introduction
+    - field.field.node.platforms_and_services.field_review_date
+    - field.field.node.platforms_and_services.field_summary
+    - node.type.platforms_and_services
+  module:
+    - ds
+    - panelizer
+    - text
+    - user
+third_party_settings:
+  ds:
+    layout:
+      id: layout_onecol
+      library: layout_discovery/onecol
+      disable_css: false
+      entity_classes: all_classes
+      settings: {  }
+    regions:
+      content:
+        - field_introduction
+        - field_body
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
+id: node.platforms_and_services.full
+targetEntityType: node
+bundle: platforms_and_services
+mode: full
+content:
+  field_body:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_introduction:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings:
+      ds:
+        ft:
+          id: expert
+          settings:
+            lb: ''
+            prefix: ''
+            lbw-el: ''
+            lbw-cl: ''
+            lbw-at: ''
+            ow: true
+            ow-el: div
+            ow-cl: au-introduction
+            ow-at: ''
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fi: true
+            fi-el: p
+            fi-cl: ''
+            fi-at: ''
+            suffix: ''
+            lbw: false
+            lb-col: false
+            ow-def-at: false
+            ow-def-cl: false
+            fis: false
+            fis-def-at: false
+            fi-def-at: false
+    type: text_default
+    region: content
+hidden:
+  content_moderation_control: true
+  field_contact_module: true
+  field_index_image: true
+  field_review_date: true
+  field_summary: true
+  links: true

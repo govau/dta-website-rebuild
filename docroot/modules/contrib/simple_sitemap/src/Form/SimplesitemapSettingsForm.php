@@ -12,22 +12,9 @@ use Drupal\Component\Utility\UrlHelper;
 class SimplesitemapSettingsForm extends SimplesitemapFormBase {
 
   /**
-   * @var array
-   */
-  protected $formSettings = [
-    'max_links',
-    'cron_generate',
-    'cron_generate_interval',
-    'remove_duplicates',
-    'skip_untranslated',
-    'batch_process_limit',
-    'base_url',
-  ];
-
-  /**
    * {@inheritdoc}
    */
-  public function getFormID() {
+  public function getFormId() {
     return 'simple_sitemap_settings_form';
   }
 
@@ -41,14 +28,14 @@ class SimplesitemapSettingsForm extends SimplesitemapFormBase {
     $form['simple_sitemap_settings']['regenerate'] = [
       '#type' => 'fieldset',
       '#title' => $this->t('Regenerate sitemap'),
-      '#markup' => '<p>' . $this->t('This will regenerate the XML sitemap for all languages.') . '</p>',
+      '#markup' => '<p>' . $this->t('This will regenerate the XML sitemap immediately.') . '</p>',
     ];
 
     $form['simple_sitemap_settings']['regenerate']['regenerate_submit'] = [
       '#type' => 'submit',
       '#value' => $this->t('Regenerate sitemap'),
       '#submit' => ['::generateSitemap'],
-    // Skip form-level validator.
+      // Skip form-level validator.
       '#validate' => [],
     ];
 
@@ -111,18 +98,11 @@ class SimplesitemapSettingsForm extends SimplesitemapFormBase {
       '#default_value' => $this->generator->getSetting('remove_duplicates', TRUE),
     ];
 
-    $form['simple_sitemap_settings']['advanced']['skip_untranslated'] = [
-      '#type' => 'checkbox',
-      '#title' => $this->t('Skip non-existent translations'),
-      '#description' => $this->t('If unchecked, entity links are generated for every language installed on the site, regardless whether the entity has been translated to a language or not.<br/>If checked, entity links are generated exclusively for languages the entity has been translated to. This setting has no effect on non-entity paths like homepage.'),
-      '#default_value' => $this->generator->getSetting('skip_untranslated', FALSE),
-    ];
-
     $form['simple_sitemap_settings']['advanced']['max_links'] = [
       '#type' => 'number',
       '#title' => $this->t('Maximum links in a sitemap'),
       '#min' => 1,
-      '#description' => $this->t("The maximum number of links one sitemap can hold. If more links are generated than set here, a sitemap index will be created and the links split into several sub-sitemaps.<br/>50 000 links is the maximum Google will parse per sitemap, however it is advisable to set this to a lower number. If left blank, all links will be shown on a single sitemap."),
+      '#description' => $this->t('The maximum number of links one sitemap can hold. If more links are generated than set here, a sitemap index will be created and the links split into several sub-sitemaps.<br/>50 000 links is the maximum Google will parse per sitemap, however it is advisable to set this to a lower number. If left blank, all links will be shown on a single sitemap.'),
       '#default_value' => $this->generator->getSetting('max_links', 2000),
     ];
 
@@ -130,9 +110,37 @@ class SimplesitemapSettingsForm extends SimplesitemapFormBase {
       '#type' => 'number',
       '#title' => $this->t('Refresh batch every n links'),
       '#min' => 1,
-      '#description' => $this->t("During sitemap generation, the batch process will issue a page refresh after n links processed to prevent PHP timeouts and memory exhaustion.<br/>Increasing this number will reduce the number of times Drupal has to bootstrap (thus speeding up the generation process), but will require more memory and less strict PHP timeout settings."),
+      '#description' => $this->t('During sitemap generation, the batch process will issue a page refresh after n links processed to prevent PHP timeouts and memory exhaustion.<br/>Increasing this number will reduce the number of times Drupal has to bootstrap (thus speeding up the generation process), but will require more memory and less strict PHP timeout settings.'),
       '#default_value' => $this->generator->getSetting('batch_process_limit', 1500),
       '#required' => TRUE,
+    ];
+
+    $form['simple_sitemap_settings']['advanced']['languages'] = [
+      '#type' => 'details',
+      '#title' => $this->t('Language settings'),
+      '#open' => FALSE,
+    ];
+
+    $language_options = [];
+    foreach ($this->languageManager->getLanguages() as $language) {
+      if (!$language->isDefault()) {
+        $language_options[$language->getId()] = $language->getName();
+      }
+    }
+
+    $form['simple_sitemap_settings']['advanced']['languages']['skip_untranslated'] = [
+      '#type' => 'checkbox',
+      '#title' => $this->t('Skip non-existent translations'),
+      '#description' => $this->t('If checked, entity links are generated exclusively for languages the entity has been translated to as long as the language is not excluded below.<br/>Otherwise entity links are generated for every language installed on the site apart from languages excluded below.<br/>This setting has no effect on non-entity paths like homepage.'),
+      '#default_value' => $this->generator->getSetting('skip_untranslated', FALSE),
+    ];
+
+    $form['simple_sitemap_settings']['advanced']['languages']['excluded_languages'] = [
+      '#title' => $this->t('Exclude languages'),
+      '#type' => 'checkboxes',
+      '#options' => $language_options,
+      '#description' => $this->t('There will be no links generated for languages checked here.'),
+      '#default_value' => $this->generator->getSetting('excluded_languages', []),
     ];
 
     $this->formHelper->displayRegenerateNow($form['simple_sitemap_settings']);
@@ -155,9 +163,17 @@ class SimplesitemapSettingsForm extends SimplesitemapFormBase {
    * {@inheritdoc}
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
-    foreach ($this->formSettings as $setting_name) {
+    foreach (['max_links',
+               'cron_generate',
+               'cron_generate_interval',
+               'remove_duplicates',
+               'skip_untranslated',
+               'batch_process_limit',
+               'base_url',] as $setting_name) {
       $this->generator->saveSetting($setting_name, $form_state->getValue($setting_name));
     }
+    $this->generator->saveSetting('excluded_languages', array_filter($form_state->getValue('excluded_languages')));
+
     parent::submitForm($form, $form_state);
 
     // Regenerate sitemaps according to user setting.

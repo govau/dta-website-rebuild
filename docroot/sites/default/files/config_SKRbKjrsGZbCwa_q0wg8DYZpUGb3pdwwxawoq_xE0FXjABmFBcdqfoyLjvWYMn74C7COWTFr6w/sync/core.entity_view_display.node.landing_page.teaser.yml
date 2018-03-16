@@ -1,0 +1,94 @@
+uuid: b4999e35-09e8-467c-853e-963cd07e6ce2
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.landing_page.field_body
+    - field.field.node.landing_page.field_facebook_image
+    - field.field.node.landing_page.field_index_image
+    - field.field.node.landing_page.field_introduction
+    - field.field.node.landing_page.field_linkedin_image
+    - field.field.node.landing_page.field_summary
+    - field.field.node.landing_page.field_twitter_image
+    - node.type.landing_page
+    - responsive_image.styles.index_image
+  module:
+    - ds
+    - panelizer
+    - responsive_image
+    - text
+    - user
+third_party_settings:
+  ds:
+    layout:
+      id: layout_onecol
+      library: layout_discovery/onecol
+      disable_css: false
+      entity_classes: all_classes
+      settings: {  }
+    regions:
+      content:
+        - field_index_image
+        - field_summary
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
+id: node.landing_page.teaser
+targetEntityType: node
+bundle: landing_page
+mode: teaser
+content:
+  field_index_image:
+    type: responsive_image
+    weight: 0
+    region: content
+    label: hidden
+    settings:
+      responsive_image_style: index_image
+      image_link: ''
+    third_party_settings:
+      ds:
+        ft:
+          id: expert
+          settings:
+            lb: ''
+            prefix: ''
+            lbw-el: ''
+            lbw-cl: ''
+            lbw-at: ''
+            ow-el: ''
+            ow-cl: ''
+            ow-at: ''
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fi-el: ''
+            fi-cl: ''
+            fi-at: ''
+            suffix: ''
+            lbw: false
+            lb-col: false
+            ow: false
+            ow-def-at: false
+            ow-def-cl: false
+            fis: false
+            fis-def-at: false
+            fi: false
+            fi-def-at: false
+  field_summary:
+    type: text_default
+    weight: 1
+    region: content
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_body: true
+  field_facebook_image: true
+  field_introduction: true
+  field_linkedin_image: true
+  field_twitter_image: true
+  links: true

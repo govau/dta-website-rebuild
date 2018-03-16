@@ -2,6 +2,8 @@
 
 namespace Drupal\Tests\facets\Functional;
 
+use Drupal\facets\Entity\Facet;
+use Drupal\facets\Processor\SortProcessorInterface;
 use Drupal\field\Entity\FieldConfig;
 use Drupal\field\Entity\FieldStorageConfig;
 use Drupal\search_api\Item\Field;
@@ -39,9 +41,9 @@ class ProcessorIntegrationTest extends FacetsTestBase {
     // Set up example content types and insert 10 new content items.
     $this->setUpExampleStructure();
     $this->insertExampleContent();
-    $this->assertEqual($this->indexItems($this->indexId), 5, '5 items were indexed.');
+    $this->assertEquals($this->indexItems($this->indexId), 5, '5 items were indexed.');
     $this->insertExampleContent();
-    $this->assertEqual($this->indexItems($this->indexId), 5, '5 items were indexed.');
+    $this->assertEquals($this->indexItems($this->indexId), 5, '5 items were indexed.');
   }
 
   /**
@@ -56,12 +58,12 @@ class ProcessorIntegrationTest extends FacetsTestBase {
     // Go to the processors form and check that the count limit processor is not
     // checked.
     $this->drupalGet('admin/config/search/facets/' . $facet_id . '/edit');
-    $this->assertNoFieldChecked('edit-facet-settings-count-limit-status');
+    $this->assertSession()->checkboxNotChecked('edit-facet-settings-count-limit-status');
 
     $form = ['facet_settings[count_limit][status]' => TRUE];
     $this->drupalPostForm(NULL, $form, 'Save');
-    $this->assertResponse(200);
-    $this->assertFieldChecked('edit-facet-settings-count-limit-status');
+    $this->assertSession()->statusCodeEquals(200);
+    $this->assertSession()->checkboxChecked('edit-facet-settings-count-limit-status');
 
     // Enable the sort processor and change sort direction, check that the
     // change is persisted.
@@ -70,9 +72,9 @@ class ProcessorIntegrationTest extends FacetsTestBase {
       'facet_sorting[active_widget_order][settings][sort]' => 'DESC',
     ];
     $this->drupalPostForm(NULL, $form, 'Save');
-    $this->assertResponse(200);
-    $this->assertFieldChecked('edit-facet-sorting-active-widget-order-status');
-    $this->assertFieldChecked('edit-facet-sorting-active-widget-order-settings-sort-desc');
+    $this->assertSession()->statusCodeEquals(200);
+    $this->assertSession()->checkboxChecked('edit-facet-sorting-active-widget-order-status');
+    $this->assertSession()->checkboxChecked('edit-facet-sorting-active-widget-order-settings-sort-desc');
 
     // Add an extra processor so we can test the weights as well.
     $form = [
@@ -80,9 +82,9 @@ class ProcessorIntegrationTest extends FacetsTestBase {
       'facet_settings[count_limit][status]' => TRUE,
     ];
     $this->drupalPostForm(NULL, $form, 'Save');
-    $this->assertResponse(200);
-    $this->assertFieldChecked('edit-facet-settings-count-limit-status');
-    $this->assertFieldChecked('edit-facet-settings-hide-non-narrowing-result-processor-status');
+    $this->assertSession()->statusCodeEquals(200);
+    $this->assertSession()->checkboxChecked('edit-facet-settings-count-limit-status');
+    $this->assertSession()->checkboxChecked('edit-facet-settings-hide-non-narrowing-result-processor-status');
     $this->assertOptionSelected('edit-processors-count-limit-weights-build', -10);
     $this->assertOptionSelected('edit-processors-hide-non-narrowing-result-processor-weights-build', -10);
 
@@ -94,8 +96,8 @@ class ProcessorIntegrationTest extends FacetsTestBase {
       'processors[hide_non_narrowing_result_processor][weights][build]' => 5,
     ];
     $this->drupalPostForm(NULL, $form, 'Save');
-    $this->assertFieldChecked('edit-facet-settings-count-limit-status');
-    $this->assertFieldChecked('edit-facet-settings-hide-non-narrowing-result-processor-status');
+    $this->assertSession()->checkboxChecked('edit-facet-settings-count-limit-status');
+    $this->assertSession()->checkboxChecked('edit-facet-settings-hide-non-narrowing-result-processor-status');
     $this->assertOptionSelected('edit-processors-count-limit-weights-build', -10);
     $this->assertOptionSelected('edit-processors-hide-non-narrowing-result-processor-weights-build', 5);
   }
@@ -112,12 +114,12 @@ class ProcessorIntegrationTest extends FacetsTestBase {
     $this->drupalPostForm($this->editForm, ['facet_settings[query_operator]' => 'and'], 'Save');
 
     $this->drupalGet('search-api-test-fulltext');
-    $this->assertText('Displaying 10 search results');
-    $this->assertText('grape');
-    $this->assertText('orange');
-    $this->assertText('apple');
-    $this->assertText('strawberry');
-    $this->assertText('banana');
+    $this->assertSession()->pageTextContains('Displaying 10 search results');
+    $this->assertSession()->pageTextContains('grape');
+    $this->assertSession()->pageTextContains('orange');
+    $this->assertSession()->pageTextContains('apple');
+    $this->assertSession()->pageTextContains('strawberry');
+    $this->assertSession()->pageTextContains('banana');
 
     $this->checkCountLimitProcessor();
     $this->checkExcludeItems();
@@ -144,7 +146,7 @@ class ProcessorIntegrationTest extends FacetsTestBase {
 
     $index = $this->getIndex();
 
-    // Index the taxonomy and entity reference fields.
+    // Index a boolean field.
     $boolean_field = new Field($index, $field_name);
     $boolean_field->setType('integer');
     $boolean_field->setPropertyPath($field_name);
@@ -185,8 +187,8 @@ class ProcessorIntegrationTest extends FacetsTestBase {
       'facet_settings[boolean_item][settings][off_value]' => 'No',
     ];
     $this->drupalPostForm($this->editForm, $form, 'Save');
-    $this->assertResponse(200);
-    $this->assertFieldChecked('edit-facet-settings-boolean-item-status');
+    $this->assertSession()->statusCodeEquals(200);
+    $this->assertSession()->checkboxChecked('edit-facet-settings-boolean-item-status');
 
     $this->drupalGet('search-api-test-fulltext');
     $this->assertFacetLabel('Yes');
@@ -199,6 +201,96 @@ class ProcessorIntegrationTest extends FacetsTestBase {
 
     $this->drupalGet('search-api-test-fulltext');
     $this->assertFacetLabel('Øn');
+  }
+
+  /**
+   * Tests the for configuration of granularity processor.
+   */
+  public function testNumericGranularity() {
+    $field_name = 'field_integer';
+    $field_storage = FieldStorageConfig::create([
+      'field_name' => $field_name,
+      'entity_type' => 'entity_test_mulrev_changed',
+      'type' => 'integer',
+    ]);
+    $field_storage->save();
+    $field = FieldConfig::create([
+      'field_storage' => $field_storage,
+      'bundle' => 'item',
+    ]);
+    $field->save();
+    $field = FieldConfig::create([
+      'field_storage' => $field_storage,
+      'bundle' => 'article',
+    ]);
+    $field->save();
+
+    $index = $this->getIndex();
+
+    // Index the taxonomy and entity reference fields.
+    $integerField = new Field($index, $field_name);
+    $integerField->setType('integer');
+    $integerField->setPropertyPath($field_name);
+    $integerField->setDatasourceId('entity:entity_test_mulrev_changed');
+    $integerField->setLabel('IntegerField');
+    $index->addField($integerField);
+
+    $index->save();
+    $this->indexItems($this->indexId);
+
+    $entity_test_storage = \Drupal::entityTypeManager()
+      ->getStorage('entity_test_mulrev_changed');
+
+    foreach ([30, 35, 40, 100] as $val) {
+      $entity_test_storage->create([
+        'name' => 'foo bar baz',
+        'body' => 'test test int',
+        'type' => 'item',
+        'keywords' => ['orange'],
+        'category' => 'item_category',
+        $field_name => $val,
+      ])->save();
+    }
+
+    $this->indexItems($this->indexId);
+
+    $facet_id = "integer";
+
+    // Create facet.
+    $this->editForm = 'admin/config/search/facets/' . $facet_id . '/edit';
+    $this->createFacet("Integer", $facet_id, $field_name);
+
+    // Check values.
+    $this->drupalGet('search-api-test-fulltext');
+    $this->assertFacetLabel('100');
+    $this->assertFacetLabel('30');
+    $this->assertFacetLabel('35');
+    $this->assertFacetLabel('40');
+
+    $form = [
+      'facet_settings[granularity_item][status]' => TRUE,
+    ];
+    $this->drupalPostForm($this->editForm, $form, 'Save');
+
+    // Check values.
+    $this->drupalGet('search-api-test-fulltext');
+    $this->assertFacetLabel('30 (1)');
+    $this->assertFacetLabel('35');
+    $this->assertFacetLabel('40');
+    $this->assertFacetLabel('100');
+
+    $form = [
+      'facet_settings[granularity_item][status]' => TRUE,
+      'facet_settings[granularity_item][settings][granularity]' => 10,
+    ];
+    $this->drupalPostForm($this->editForm, $form, 'Save');
+
+    // Check values.
+    $this->drupalGet('search-api-test-fulltext');
+    $this->assertFacetLabel('30 (2)');
+    $this->assertEmpty($this->findFacetLink('35'));
+    $this->assertFacetLabel('40');
+    $this->assertFacetLabel('100');
   }
 
   /**
@@ -281,8 +373,8 @@ class ProcessorIntegrationTest extends FacetsTestBase {
     $values['facet_sorting[count_widget_order][status]'] = TRUE;
     $values['facet_sorting[count_widget_order][settings][sort]'] = 'ASC';
     $this->drupalPostForm($this->editForm, $values, 'Save');
-    $this->assertFieldChecked('edit-facet-sorting-display-value-widget-order-status');
-    $this->assertFieldChecked('edit-facet-sorting-count-widget-order-status');
+    $this->assertSession()->checkboxChecked('edit-facet-sorting-display-value-widget-order-status');
+    $this->assertSession()->checkboxChecked('edit-facet-sorting-count-widget-order-status');
 
     $expected_results = [
       'banana',
@@ -313,8 +405,8 @@ class ProcessorIntegrationTest extends FacetsTestBase {
       'facet_settings[count_limit][status]' => TRUE,
     ];
     $this->drupalPostForm($this->editForm, $form, 'Save');
-    $this->assertResponse(200);
-    $this->assertFieldChecked('edit-facet-settings-count-limit-status');
+    $this->assertSession()->statusCodeEquals(200);
+    $this->assertSession()->checkboxChecked('edit-facet-settings-count-limit-status');
     $form = [
       'widget_config[show_numbers]' => TRUE,
       'facet_settings[count_limit][status]' => TRUE,
@@ -329,9 +421,9 @@ class ProcessorIntegrationTest extends FacetsTestBase {
     $this->drupalPostForm($this->editForm, $form, 'Save');
 
     $this->drupalGet('search-api-test-fulltext');
-    $this->assertText('Displaying 10 search results');
+    $this->assertSession()->pageTextContains('Displaying 10 search results');
     $this->assertFacetLabel('grape (6)');
-    $this->assertNoText('apple');
+    $this->assertSession()->pageTextNotContains('apple');
 
     $form = [
       'widget_config[show_numbers]' => TRUE,
@@ -342,8 +434,8 @@ class ProcessorIntegrationTest extends FacetsTestBase {
     $this->drupalPostForm($this->editForm, $form, 'Save');
 
     $this->drupalGet('search-api-test-fulltext');
-    $this->assertText('Displaying 10 search results');
-    $this->assertNoText('grape');
+    $this->assertSession()->pageTextContains('Displaying 10 search results');
+    $this->assertSession()->pageTextNotContains('grape');
     $this->assertFacetLabel('apple (4)');
 
     $form = [
@@ -369,9 +461,9 @@ class ProcessorIntegrationTest extends FacetsTestBase {
     $this->drupalPostForm($this->editForm, $form, 'Save');
 
     $this->drupalGet('search-api-test-fulltext');
-    $this->assertText('Displaying 10 search results');
-    $this->assertText('grape');
-    $this->assertNoText('banana');
+    $this->assertSession()->pageTextContains('Displaying 10 search results');
+    $this->assertSession()->pageTextContains('grape');
+    $this->assertSession()->pageTextNotContains('banana');
 
     $form = [
       'facet_settings[exclude_specified_items][status]' => TRUE,
@@ -381,9 +473,9 @@ class ProcessorIntegrationTest extends FacetsTestBase {
     $this->drupalPostForm($this->editForm, $form, 'Save');
 
     $this->drupalGet('search-api-test-fulltext');
-    $this->assertText('Displaying 10 search results');
-    $this->assertNoText('strawberry');
-    $this->assertText('grape');
+    $this->assertSession()->pageTextContains('Displaying 10 search results');
+    $this->assertSession()->pageTextNotContains('strawberry');
+    $this->assertSession()->pageTextContains('grape');
 
     $form = [
       'facet_settings[exclude_specified_items][status]' => FALSE,
@@ -396,11 +488,11 @@ class ProcessorIntegrationTest extends FacetsTestBase {
    */
   protected function checkHideNonNarrowingProcessor() {
     $this->drupalGet('search-api-test-fulltext');
-    $this->assertText('Displaying 10 search results');
+    $this->assertSession()->pageTextContains('Displaying 10 search results');
     $this->assertFacetLabel('apple');
 
     $this->clickLink('apple');
-    $this->assertText('Displaying 4 search results');
+    $this->assertSession()->pageTextContains('Displaying 4 search results');
     $this->assertFacetLabel('grape');
 
     $form = [
@@ -409,12 +501,12 @@ class ProcessorIntegrationTest extends FacetsTestBase {
     $this->drupalPostForm($this->editForm, $form, 'Save');
 
     $this->drupalGet('search-api-test-fulltext');
-    $this->assertText('Displaying 10 search results');
+    $this->assertSession()->pageTextContains('Displaying 10 search results');
     $this->assertFacetLabel('apple');
 
     $this->clickLink('apple');
-    $this->assertText('Displaying 4 search results');
-    $this->assertNoLink('grape');
+    $this->assertSession()->pageTextContains('Displaying 4 search results');
+    $this->assertSession()->linkNotExists('grape');
 
     $form = [
       'facet_settings[hide_non_narrowing_result_processor][status]' => FALSE,
@@ -432,13 +524,13 @@ class ProcessorIntegrationTest extends FacetsTestBase {
     $this->drupalPostForm($this->editForm, $form, 'Save');
 
     $this->drupalGet('search-api-test-fulltext');
-    $this->assertText('Displaying 10 search results');
+    $this->assertSession()->pageTextContains('Displaying 10 search results');
     $this->assertFacetLabel('grape');
     $this->assertFacetLabel('banana');
 
     $this->clickLink('grape');
-    $this->assertText('Displaying 6 search results');
-    $this->assertNoLink('grape');
+    $this->assertSession()->pageTextContains('Displaying 6 search results');
+    $this->assertSession()->linkNotExists('grape');
     $this->assertFacetLabel('banana');
 
     $form = [
@@ -570,21 +662,6 @@ class ProcessorIntegrationTest extends FacetsTestBase {
   }
 
   /**
-   * Creates a facet block by id.
-   *
-   * @param string $id
-   *   The id of the block.
-   */
-  protected function createFacetBlock($id) {
-    $plugin_id = 'facet_block:' . $id;
-    $settings = [
-      'region' => 'footer',
-      'id' => str_replace('_', '-', $id),
-    ];
-    $this->blocks[$id] = $this->drupalPlaceBlock($plugin_id, $settings);
-  }
-
-  /**
    * Disables all sorting processors for a clean testing base.
    */
   protected function disableAllFacetSorts($path = FALSE) {
@@ -623,7 +700,7 @@ class ProcessorIntegrationTest extends FacetsTestBase {
 
     // Go to the overview and check that the machine names are used as facets.
     $this->drupalGet('search-api-test-fulltext');
-    $this->assertText('Displaying 11 search results');
+    $this->assertSession()->pageTextContains('Displaying 11 search results');
     $this->assertFacetLabel('basic');
 
     // Edit the facet to use the list_item processor.
@@ -631,13 +708,13 @@ class ProcessorIntegrationTest extends FacetsTestBase {
       'facet_settings[list_item][status]' => TRUE,
     ];
     $this->drupalPostForm($editForm, $edit, 'Save');
-    $this->assertResponse(200);
-    $this->assertFieldChecked('edit-facet-settings-list-item-status');
+    $this->assertSession()->statusCodeEquals(200);
+    $this->assertSession()->checkboxChecked('edit-facet-settings-list-item-status');
 
     // Go back to the overview and check that now the label is being used
     // instead.
     $this->drupalGet('search-api-test-fulltext');
-    $this->assertText('Displaying 11 search results');
+    $this->assertSession()->pageTextContains('Displaying 11 search results');
     $this->assertFacetLabel('Basic page');
   }
 
@@ -659,6 +736,150 @@ class ProcessorIntegrationTest extends FacetsTestBase {
     $this->drupalGet('search-api-test-fulltext');
     $this->assertSession()->statusCodeEquals(200);
     $this->assertSession()->pageTextContains('Llama');
+  }
+
+  /**
+   * Tests the facet support for a widget.
+   */
+  public function testSupportsFacet() {
+    $id = 'masked_owl';
+    $this->createFacet('Australian masked owl', $id);
+
+    // Go the the facet edit page and check to see if the custom processor shows
+    // up.
+    $this->drupalGet('admin/config/search/facets/' . $id . '/edit');
+    $this->assertSession()->pageTextContains('test pre query');
+
+    // Make the ::supportsFacet method on the custom processor return false.
+    \Drupal::state()->set('facets_test_supports_facet', FALSE);
+
+    // Go to the facet edit page and check to see if the custom processor is
+    // now hidden.
+    $this->drupalGet('admin/config/search/facets/' . $id . '/edit');
+    $this->assertSession()->pageTextNotContains('test pre query');
+  }
+
+  /**
+   * Test HideOnlyOneItemProcessor.
+   *
+   * Test if after clicking an item that has only one item, the facet block no
+   * longer shows.
+   */
+  public function testHideOnlyOneItemProcessor() {
+    $entity_test_storage = \Drupal::entityTypeManager()
+      ->getStorage('entity_test_mulrev_changed');
+    $entity_test_storage->create([
+      'name' => 'baz baz',
+      'body' => 'foo test',
+      'type' => 'article',
+      'keywords' => ['kiwi'],
+      'category' => 'article_category',
+    ])->save();
+
+    $this->indexItems($this->indexId);
+
+    $facet_name = 'Drupalcon Vienna';
+    $facet_id = 'drupalcon_vienna';
+    $this->editForm = 'admin/config/search/facets/' . $facet_id . '/edit';
+    $this->createFacet($facet_name, $facet_id, 'keywords');
+
+    $form = [
+      'facet_settings[hide_1_result_facet][status]' => TRUE,
+      'facet_settings[query_operator]' => 'and',
+    ];
+    $this->drupalPostForm($this->editForm, $form, 'Save');
+    $this->drupalGet('search-api-test-fulltext');
+
+    $this->assertFacetBlocksAppear();
+    $this->clickLink('kiwi');
+    $this->assertNoFacetBlocksAppear();
+  }
+
+  /**
+   * Tests that processors are hidden when the correct fields aren't there.
+   */
+  public function testHiddenProcessors() {
+    $facet_id = 'alpaca';
+    $this->editForm = 'admin/config/search/facets/' . $facet_id . '/edit';
+    $this->createFacet('Alpaca', $facet_id);
+    $this->drupalGet($this->editForm);
+    $this->assertSession()->pageTextNotContains('Boolean item label');
+    $this->assertSession()->pageTextNotContains('Transform UID to user name');
+    $this->assertSession()->pageTextNotContains('Transform entity ID to label');
+    $this->assertSession()->pageTextNotContains('Sort by taxonomy term weight');
+  }
+
+  /**
+   * Tests the configuration of the processors.
+   */
+  public function testProcessorConfig() {
+    $this->createFacet('Llama', 'llama');
+
+    $facet_id = 'alpaca';
+    $this->editForm = 'admin/config/search/facets/' . $facet_id . '/edit';
+    $this->createFacet('Alpaca', $facet_id);
+    $this->drupalGet($this->editForm);
+
+    $facet = Facet::load($facet_id);
+
+    /** @var \Drupal\facets\Processor\ProcessorInterface $processor */
+    foreach ($facet->getProcessors(FALSE) as $processor) {
+      // Sort processors have a different form key, so don't bother for now.
+      if ($processor instanceof SortProcessorInterface) {
+        continue;
+      }
+      // These processors are hidden by default, see also
+      // ::testHiddenProcessors.
+      $hiddenProcessors = [
+        'boolean_item',
+        'translate_entity',
+        'uid_to_username_callback',
+      ];
+      if (in_array($processor->getPluginId(), $hiddenProcessors)) {
+        continue;
+      }
+
+      $this->drupalPostForm(NULL, ["facet_settings[{$processor->getPluginId()}][status]" => '1'], 'Save');
+      $this->assertSession()->statusCodeEquals(200);
+    }
+  }
+
+  /**
+   * Tests the list item processor with underscores in the bundle.
+   */
+  public function testEntityTranslateWithUnderScores() {
+    entity_test_create_bundle('test_with_underscore', "Test with underscore", 'entity_test_mulrev_changed');
+    $entity_test_storage = \Drupal::entityTypeManager()
+      ->getStorage('entity_test_mulrev_changed');
+
+    // Add an entity with basic page content type.
+    $entity_test_storage->create([
+      'name' => 'llama',
+      'body' => 'llama.',
+      'type' => 'test_with_underscore',
+    ])->save();
+    $this->indexItems($this->indexId);
+
+    $facet_id = 'owl';
+    $editForm = 'admin/config/search/facets/' . $facet_id . '/edit';
+    $this->createFacet('Owl', $facet_id);
+
+    // Go to the overview and check that the machine names are used as facets.
+    $this->drupalGet('search-api-test-fulltext');
+    $this->assertSession()->pageTextContains('Displaying 11 search results');
+    $this->assertFacetLabel('test_with_underscore');
+
+    // Edit the facet to use the list_item processor.
+    $edit = [
+      'facet_settings[list_item][status]' => TRUE,
+    ];
+    $this->drupalPostForm($editForm, $edit, 'Save');
+
+    // Go back to the overview and check that now the label is being used
+    // instead.
+    $this->drupalGet('search-api-test-fulltext');
+    $this->assertSession()->pageTextContains('Displaying 11 search results');
+    $this->assertFacetLabel('Test with underscore');
   }
 
 }

@@ -1,0 +1,14 @@
+uuid: a699c035-04c4-4d7e-bb95-ce0f01b5e381
+langcode: en
+status: true
+dependencies: {  }
+name: news_and_blogs_home_page
+label: 'News and blogs home page'
+effects:
+  45e7f747-286d-4ad0-bbdc-3900ac187d0a:
+    uuid: 45e7f747-286d-4ad0-bbdc-3900ac187d0a
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 398
+      height: 265

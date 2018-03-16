@@ -1,0 +1,44 @@
+uuid: d118920a-a0f4-4c4d-bea5-5107ee990f4e
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.card
+    - field.field.node.external_link.field_external_link
+    - field.field.node.external_link.field_summary
+    - node.type.external_link
+  module:
+    - ds
+    - panelizer
+    - user
+third_party_settings:
+  ds:
+    layout:
+      id: layout_onecol
+      library: layout_discovery/onecol
+      disable_css: false
+      entity_classes: all_classes
+      settings: {  }
+    regions:
+      content:
+        - 'dynamic_token_field:node-related_content_card_external_'
+    fields:
+      'dynamic_token_field:node-related_content_card_external_':
+        plugin_id: 'dynamic_token_field:node-related_content_card_external_'
+        weight: 0
+        label: hidden
+        formatter: default
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
+id: node.external_link.card
+targetEntityType: node
+bundle: external_link
+mode: card
+content: {  }
+hidden:
+  field_external_link: true
+  field_summary: true
+  links: true

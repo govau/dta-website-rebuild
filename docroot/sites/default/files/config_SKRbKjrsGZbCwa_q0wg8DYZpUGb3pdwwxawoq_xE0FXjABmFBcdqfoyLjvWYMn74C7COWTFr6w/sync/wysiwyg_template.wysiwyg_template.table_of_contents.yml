@@ -1,0 +1,12 @@
+uuid: a210f09e-7311-4ff2-9f4a-df0ca686e251
+langcode: en
+status: true
+dependencies: {  }
+id: table_of_contents
+label: 'Table of contents'
+description: 'Adds the [toc] tag to a page to create a table of contents.'
+body:
+  value: "<p>[toc]</p>\r\n"
+  format: rich_text
+weight: null
+node_types: {  }

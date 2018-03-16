@@ -1,0 +1,25 @@
+uuid: 0784f4f6-2bf7-4402-8a96-b50d278eb636
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.contact_module
+  module:
+    - views
+  theme:
+    - dta_uikit_base
+id: dta_uikit_base_views_block__contact_module_block_1
+theme: dta_uikit_base
+region: content
+weight: 0
+provider: null
+plugin: 'views_block:contact_module-block_1'
+settings:
+  id: 'views_block:contact_module-block_1'
+  label: ''
+  provider: views
+  label_display: visible
+  views_label: ''
+  items_per_page: none
+  context_mapping: {  }
+visibility: {  }

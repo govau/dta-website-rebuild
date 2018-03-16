@@ -1,0 +1,31 @@
+uuid: 4067411a-483e-47de-9945-80a07d68c299
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:node_teaser_block:36455cbf-9d46-4bd5-a0e1-91512be9ab0c'
+  module:
+    - block_content
+    - system
+  theme:
+    - dta_gov_au
+id: homepageright
+theme: dta_gov_au
+region: content
+weight: 0
+provider: null
+plugin: 'block_content:36455cbf-9d46-4bd5-a0e1-91512be9ab0c'
+settings:
+  id: 'block_content:36455cbf-9d46-4bd5-a0e1-91512be9ab0c'
+  label: 'Home page right'
+  provider: block_content
+  label_display: visible
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: false
+    context_mapping: {  }

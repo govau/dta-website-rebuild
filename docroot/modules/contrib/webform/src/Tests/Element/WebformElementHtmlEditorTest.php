@@ -3,14 +3,13 @@
 namespace Drupal\webform\Tests\Element;
 
 use Drupal\webform\Element\WebformHtmlEditor;
-use Drupal\webform\Tests\WebformTestBase;
 
 /**
  * Tests for webform HTML editor element.
  *
  * @group Webform
  */
-class WebformElementHtmlEditorTest extends WebformTestBase {
+class WebformElementHtmlEditorTest extends WebformElementTestBase {
 
   /**
    * Modules to enable.
@@ -76,15 +75,21 @@ class WebformElementHtmlEditorTest extends WebformTestBase {
     $this->drupalPostForm('admin/structure/webform/config/elements', ['html_editor[format]' => ''], t('Save configuration'));
 
     // Check that tidy removed <p> tags.
-    $this->assertEqual(WebformHtmlEditor::checkMarkup('<p>Some text</p>', TRUE), 'Some text');
-    $this->assertEqual(WebformHtmlEditor::checkMarkup('<p class="other">Some text</p>', TRUE), '<p class="other">Some text</p>');
-    $this->assertEqual(WebformHtmlEditor::checkMarkup('<p>Some text</p><p>More text</p>', TRUE), '<p>Some text</p><p>More text</p>');
+    $build = WebformHtmlEditor::checkMarkup('<p>Some text</p>');
+    $this->assertEqual(\Drupal::service('renderer')->renderPlain($build), 'Some text');
+
+    $build = WebformHtmlEditor::checkMarkup('<p class="other">Some text</p>');
+    $this->assertEqual(\Drupal::service('renderer')->renderPlain($build), '<p class="other">Some text</p>');
+
+    $build = WebformHtmlEditor::checkMarkup('<p>Some text</p><p>More text</p>');
+    $this->assertEqual(\Drupal::service('renderer')->renderPlain($build), '<p>Some text</p><p>More text</p>');
 
     // Disable HTML tidy.
     $this->drupalPostForm('admin/structure/webform/config/elements', ['html_editor[tidy]' => FALSE], t('Save configuration'));
 
     // Check that tidy is disabled.
-    $this->assertEqual(WebformHtmlEditor::checkMarkup('<p>Some text</p>', TRUE), '<p>Some text</p>');
+    $build = WebformHtmlEditor::checkMarkup('<p>Some text</p>');
+    $this->assertEqual(\Drupal::service('renderer')->renderPlain($build), '<p>Some text</p>');
   }
 
 }

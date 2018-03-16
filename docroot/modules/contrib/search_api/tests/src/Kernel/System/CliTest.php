@@ -7,6 +7,7 @@ use Drupal\KernelTests\KernelTestBase;
 use Drupal\search_api\Entity\Index;
 use Drupal\search_api\Entity\Server;
 use Drupal\search_api\Utility\Utility;
+use Drupal\Tests\search_api\Kernel\PostRequestIndexingTrait;
 
 /**
  * Tests Search API functionality when executed in the CLI.
@@ -14,6 +15,8 @@ use Drupal\search_api\Utility\Utility;
  * @group search_api
  */
 class CliTest extends KernelTestBase {
+
+  use PostRequestIndexingTrait;
 
   /**
    * The search server used for testing.
@@ -44,6 +47,7 @@ class CliTest extends KernelTestBase {
     $this->installSchema('search_api', ['search_api_item']);
     $this->installEntitySchema('entity_test_mulrev_changed');
     $this->installEntitySchema('search_api_task');
+    $this->installConfig('search_api');
 
     // Create a test server.
     $this->server = Server::create([
@@ -53,13 +57,6 @@ class CliTest extends KernelTestBase {
       'backend' => 'search_api_test',
     ]);
     $this->server->save();
-
-    // Manually set the tracking page size since the module's default
-    // configuration is not installed automatically in kernel tests.
-    \Drupal::configFactory()
-      ->getEditable('search_api.settings')
-      ->set('tracking_page_size', 100)
-      ->save();
 
     // Disable the use of batches for item tracking to simulate a CLI
     // environment.
@@ -129,7 +126,15 @@ class CliTest extends KernelTestBase {
     $indexed_items = $index->getTrackerInstance()->getIndexedItemsCount();
 
     $this->assertEquals(4, $total_items, 'All 4 items are tracked.');
-    $this->assertEquals(2, $indexed_items, '2 items are indexed');
+    $this->assertEquals(0, $indexed_items, 'No items are indexed.');
+
+    $this->triggerPostRequestIndexing();
+
+    $total_items = $index->getTrackerInstance()->getTotalItemsCount();
+    $indexed_items = $index->getTrackerInstance()->getIndexedItemsCount();
+
+    $this->assertEquals(4, $total_items, 'All 4 items are tracked.');
+    $this->assertEquals(2, $indexed_items, '2 items are indexed.');
   }
 
 }

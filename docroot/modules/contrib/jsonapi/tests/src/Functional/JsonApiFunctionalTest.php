@@ -4,10 +4,11 @@ namespace Drupal\Tests\jsonapi\Functional;
 
 use Drupal\Component\Serialization\Json;
 use Drupal\Core\Url;
-use Drupal\jsonapi\Routing\Param\OffsetPage;
+use Drupal\jsonapi\Query\OffsetPage;
 
 /**
  * @group jsonapi
+ * @group legacy
  */
 class JsonApiFunctionalTest extends JsonApiFunctionalTestBase {
 
@@ -19,10 +20,13 @@ class JsonApiFunctionalTest extends JsonApiFunctionalTestBase {
     // Unpublish the last entity, so we can check access.
     $this->nodes[60]->setUnpublished()->save();
 
+    // 0. HEAD request allows a client to verify that JSON API is installed.
+    $this->httpClient->request('HEAD', $this->buildUrl('/jsonapi/node/article'));
+    $this->assertSession()->statusCodeEquals(200);
     // 1. Load all articles (1st page).
     $collection_output = Json::decode($this->drupalGet('/jsonapi/node/article'));
     $this->assertSession()->statusCodeEquals(200);
-    $this->assertEquals(OffsetPage::$maxSize, count($collection_output['data']));
+    $this->assertEquals(OffsetPage::SIZE_MAX, count($collection_output['data']));
     $this->assertSession()
       ->responseHeaderEquals('Content-Type', 'application/vnd.api+json');
     // 2. Load all articles (Offset 3).
@@ -30,7 +34,7 @@ class JsonApiFunctionalTest extends JsonApiFunctionalTestBase {
       'query' => ['page' => ['offset' => 3]],
     ]));
     $this->assertSession()->statusCodeEquals(200);
-    $this->assertEquals(OffsetPage::$maxSize, count($collection_output['data']));
+    $this->assertEquals(OffsetPage::SIZE_MAX, count($collection_output['data']));
     $this->assertContains('page%5Boffset%5D=53', $collection_output['links']['next']);
     // 3. Load all articles (1st page, 2 items)
     $collection_output = Json::decode($this->drupalGet('/jsonapi/node/article', [
@@ -113,6 +117,24 @@ class JsonApiFunctionalTest extends JsonApiFunctionalTestBase {
       'taxonomy_term--tags',
       $last_include['type']
     );
+
+    // 10b. Single article with nested includes.
+    $single_output = Json::decode($this->drupalGet('/jsonapi/node/article/' . $uuid, [
+      'query' => ['include' => 'field_tags,field_tags.vid'],
+    ]));
+    $this->assertSession()->statusCodeEquals(200);
+    $this->assertEquals('node--article', $single_output['data']['type']);
+    $first_include = reset($single_output['included']);
+    $this->assertEquals(
+      'taxonomy_term--tags',
+      $first_include['type']
+    );
+    $last_include = end($single_output['included']);
+    $this->assertEquals(
+      'taxonomy_vocabulary--taxonomy_vocabulary',
+      $last_include['type']
+    );
+
     // 11. Includes with relationships.
     $single_output = Json::decode($this->drupalGet('/jsonapi/node/article/' . $uuid . '/relationships/uid', [
       'query' => ['include' => 'uid'],
@@ -259,6 +281,176 @@ class JsonApiFunctionalTest extends JsonApiFunctionalTestBase {
     // With the 'Accept' header we can know we want the 404 error formatted as
     // JSON API.
     $this->assertSession()->responseHeaderContains('Content-Type', 'application/vnd.api+json');
+    // 21. Test the value of the computed 'url' field.
+    $collection_output = Json::decode($this->drupalGet('/jsonapi/file/file'));
+    $uri = $collection_output['data'][0]['attributes']['uri'];
+    $this->assertEquals($collection_output['data'][0]['attributes']['url'], $uri);
+    // 22. Test sort criteria on multiple fields: both ASC.
+    $output = Json::decode($this->drupalGet('/jsonapi/node/article', [
+      'query' => [
+        'page[limit]' => 6,
+        'sort' => 'field_sort1,field_sort2',
+      ],
+    ]));
+    $output_nids = array_map(function ($result) {
+      return $result['attributes']['nid'];
+    }, $output['data']);
+    $this->assertCount(6, $output_nids);
+    $this->assertEquals([5, 4, 3, 2, 1, 10], $output_nids);
+    // 23. Test sort criteria on multiple fields: first ASC, second DESC.
+    $output = Json::decode($this->drupalGet('/jsonapi/node/article', [
+      'query' => [
+        'page[limit]' => 6,
+        'sort' => 'field_sort1,-field_sort2',
+      ],
+    ]));
+    $output_nids = array_map(function ($result) {
+      return $result['attributes']['nid'];
+    }, $output['data']);
+    $this->assertCount(6, $output_nids);
+    $this->assertEquals([1, 2, 3, 4, 5, 6], $output_nids);
+    // 24. Test sort criteria on multiple fields: first DESC, second ASC.
+    $output = Json::decode($this->drupalGet('/jsonapi/node/article', [
+      'query' => [
+        'page[limit]' => 6,
+        'sort' => '-field_sort1,field_sort2',
+      ],
+    ]));
+    $output_nids = array_map(function ($result) {
+      return $result['attributes']['nid'];
+    }, $output['data']);
+    $this->assertCount(5, $output_nids);
+    $this->assertCount(1, $output['meta']['errors']);
+    $this->assertEquals([60, 59, 58, 57, 56], $output_nids);
+    // 25. Test sort criteria on multiple fields: both DESC.
+    $output = Json::decode($this->drupalGet('/jsonapi/node/article', [
+      'query' => [
+        'page[limit]' => 6,
+        'sort' => '-field_sort1,-field_sort2',
+      ],
+    ]));
+    $output_nids = array_map(function ($result) {
+      return $result['attributes']['nid'];
+    }, $output['data']);
+    $this->assertCount(5, $output_nids);
+    $this->assertCount(1, $output['meta']['errors']);
+    $this->assertEquals([56, 57, 58, 59, 60], $output_nids);
+
+    // Test documentation filtering examples.
+    // 1. Only get published nodes.
+    $filter = [
+      'status-filter' => [
+        'condition' => [
+          'path' => 'status',
+          'value' => 1,
+        ],
+      ],
+    ];
+    $collection_output = Json::decode($this->drupalGet('/jsonapi/node/article', [
+      'query' => ['filter' => $filter],
+    ]));
+    $this->assertSession()->statusCodeEquals(200);
+    $this->assertGreaterThanOrEqual(OffsetPage::SIZE_MAX, count($collection_output['data']));
+    // 2. Nested Filters: Get nodes created by user admin.
+    $filter = [
+      'name-filter' => [
+        'condition' => [
+          'path' => 'uid.name',
+          'value' => $this->user->getAccountName(),
+        ],
+      ],
+    ];
+    $collection_output = Json::decode($this->drupalGet('/jsonapi/node/article', [
+      'query' => ['filter' => $filter],
+    ]));
+    $this->assertSession()->statusCodeEquals(200);
+    $this->assertGreaterThanOrEqual(OffsetPage::SIZE_MAX, count($collection_output['data']));
+    // 3. Filtering with arrays: Get nodes created by users [admin, john].
+    $filter = [
+      'name-filter' => [
+        'condition' => [
+          'path' => 'uid.name',
+          'operator' => 'IN',
+          'value' => [
+            $this->user->getAccountName(),
+            $this->getRandomGenerator()->name(),
+          ],
+        ],
+      ],
+    ];
+    $collection_output = Json::decode($this->drupalGet('/jsonapi/node/article', [
+      'query' => ['filter' => $filter],
+    ]));
+    $this->assertSession()->statusCodeEquals(200);
+    $this->assertGreaterThanOrEqual(OffsetPage::SIZE_MAX, count($collection_output['data']));
+    // 4. Grouping filters: Get nodes that are published and create by admin.
+    $filter = [
+      'and-group' => [
+        'group' => [
+          'conjunction' => 'AND',
+        ],
+      ],
+      'name-filter' => [
+        'condition' => [
+          'path' => 'uid.name',
+          'value' => $this->user->getAccountName(),
+          'memberOf' => 'and-group',
+        ],
+      ],
+      'status-filter' => [
+        'condition' => [
+          'path' => 'status',
+          'value' => 1,
+          'memberOf' => 'and-group',
+        ],
+      ],
+    ];
+    $collection_output = Json::decode($this->drupalGet('/jsonapi/node/article', [
+      'query' => ['filter' => $filter],
+    ]));
+    $this->assertSession()->statusCodeEquals(200);
+    $this->assertGreaterThanOrEqual(OffsetPage::SIZE_MAX, count($collection_output['data']));
+    // 5. Grouping grouped filters: Get nodes that are promoted or sticky and
+    //    created by admin.
+    $filter = [
+      'and-group' => [
+        'group' => [
+          'conjunction' => 'AND',
+        ],
+      ],
+      'or-group' => [
+        'group' => [
+          'conjunction' => 'OR',
+          'memberOf' => 'and-group',
+        ],
+      ],
+      'admin-filter' => [
+        'condition' => [
+          'path' => 'uid.name',
+          'value' => $this->user->getAccountName(),
+          'memberOf' => 'and-group',
+        ],
+      ],
+      'sticky-filter' => [
+        'condition' => [
+          'path' => 'sticky',
+          'value' => 1,
+          'memberOf' => 'or-group',
+        ],
+      ],
+      'promote-filter' => [
+        'condition' => [
+          'path' => 'promote',
+          'value' => 0,
+          'memberOf' => 'or-group',
+        ],
+      ],
+    ];
+    $collection_output = Json::decode($this->drupalGet('/jsonapi/node/article', [
+      'query' => ['filter' => $filter],
+    ]));
+    $this->assertSession()->statusCodeEquals(200);
+    $this->assertEquals(0, count($collection_output['data']));
   }
 
   /**
@@ -392,6 +584,39 @@ class JsonApiFunctionalTest extends JsonApiFunctionalTestBase {
     $this->assertEquals(422, $response->getStatusCode());
     $this->assertNotEmpty($created_response['errors']);
     $this->assertEquals('Unprocessable Entity', $created_response['errors'][0]['title']);
+    // 6.1 Relationships are not included in "data".
+    $malformed_body = $body;
+    unset($malformed_body['data']['relationships']);
+    $malformed_body['relationships'] = $body['data']['relationships'];
+    $response = $this->request('POST', $collection_url, [
+      'body' => Json::encode($malformed_body),
+      'auth' => [$this->user->getUsername(), $this->user->pass_raw],
+      'headers' => [
+        'Accept' => 'application/vnd.api+json',
+        'Content-Type' => 'application/vnd.api+json',
+      ],
+    ]);
+    $created_response = Json::decode((string) $response->getBody());
+    $this->assertSame(400, $response->getStatusCode());
+    $this->assertNotEmpty($created_response['errors']);
+    $this->assertSame("Bad Request", $created_response['errors'][0]['title']);
+    $this->assertSame("Found \"relationships\" within the document's top level. The \"relationships\" key must be within resource object.", $created_response['errors'][0]['detail']);
+    // 6.2 "type" not included in "data"
+    $missing_type = $body;
+    unset($missing_type['data']['type']);
+    $response = $this->request('POST', $collection_url, [
+      'body' => Json::encode($missing_type),
+      'auth' => [$this->user->getUsername(), $this->user->pass_raw],
+      'headers' => [
+        'Accept' => 'application/vnd.api+json',
+        'Content-Type' => 'application/vnd.api+json',
+      ],
+    ]);
+    $created_response = Json::decode((string) $response->getBody());
+    $this->assertSame(400, $response->getStatusCode());
+    $this->assertNotEmpty($created_response['errors']);
+    $this->assertSame("Bad Request", $created_response['errors'][0]['title']);
+    $this->assertSame("Resource object must include a \"type\".", $created_response['errors'][0]['detail']);
     // 7. Successful PATCH.
     $body = [
       'data' => [

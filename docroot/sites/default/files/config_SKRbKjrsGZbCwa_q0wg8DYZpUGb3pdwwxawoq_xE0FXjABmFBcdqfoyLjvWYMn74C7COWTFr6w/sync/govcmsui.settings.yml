@@ -1,0 +1,28 @@
+logo:
+  use_default: 0
+  path: profiles/govcms/logo.svg
+govcmsui_use_bootstrap: 1
+govcmsui_use_jquery: 0
+govcmsui_coa: coas-inline.svg
+govcmsui_coa_footer: 1
+govcmsui_navbar_justified: 0
+govcmsui_use_fontawesome: 1
+govcmsui_footer_copyright: 'Commonwealth of Australia'
+_core:
+  default_config_hash: 2nt9_O-P6HFE89GUFU3agd6eltjEI3YO8Kc_JrZszW8
+features:
+  node_user_picture: true
+  comment_user_picture: true
+  comment_user_verification: 1
+  favicon: 1
+favicon:
+  use_default: 0
+  path: profiles/govcms/favicon.ico
+  mimetype: image/vnd.microsoft.icon
+govcmsui_grid_choice: '1'
+custom_logo: ''
+upload_logo_file: ''
+govcmsui_use_default_logo: 0
+govcmsui_custom_logo: ''
+govcmsui_upload_logo:
+  - '49'

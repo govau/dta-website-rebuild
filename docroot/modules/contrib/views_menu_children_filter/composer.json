@@ -1,0 +1,7 @@
+{
+    "name": "drupal/views_menu_children_filters",
+    "description": "Views Menu Children Filter",
+    "type": "drupal-module",
+    "license": "GPL-2.0+",
+    "require": {}
+}

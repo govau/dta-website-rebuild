@@ -1,0 +1,50 @@
+@font-face {
+	font-family: "govcmsui-icons";
+	src: url('/fonts/govcmsui-icons.eot');
+	src: url('/fonts/govcmsui-icons.eot?#iefix') format('eot'),
+		url('/fonts/govcmsui-icons.woff2') format('woff2'),
+		url('/fonts/govcmsui-icons.woff') format('woff'),
+		url('/fonts/govcmsui-icons.ttf') format('truetype'),
+		url('/fonts/govcmsui-icons.svg#govcmsui-icons') format('svg');
+}
+
+@mixin icon-styles {
+	font-family: "govcmsui-icons";
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	// speak: none; // only necessary if not using the private unicode range (firstGlyph option)
+	text-decoration: none;
+	text-transform: none;
+}
+
+%icon {
+	@include icon-styles;
+}
+
+@function icon-char($filename) {
+	$char: "";
+
+	@if $filename == drupal {
+		$char: "\E001";
+	}
+
+	@return $char;
+}
+
+@mixin icon($filename, $insert: before, $extend: true) {
+	&:#{$insert} {
+		@if $extend {
+			@extend %icon;
+		} @else {
+			@include icon-styles;
+		}
+		content: icon-char($filename);
+	}
+}
+
+.icon-drupal {
+	@include icon(drupal);
+}

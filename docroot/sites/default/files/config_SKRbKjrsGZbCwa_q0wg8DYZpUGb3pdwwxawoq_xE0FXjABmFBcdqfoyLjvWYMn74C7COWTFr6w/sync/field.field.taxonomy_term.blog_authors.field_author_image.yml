@@ -1,0 +1,57 @@
+uuid: 84945de7-7c23-4342-91b4-c2f700f3e098
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_author_image
+    - taxonomy.vocabulary.blog_authors
+  module:
+    - filefield_paths
+    - image
+third_party_settings:
+  filefield_paths:
+    enabled: true
+    file_path:
+      value: images/authors
+      options:
+        slashes: false
+        pathauto: true
+        transliterate: false
+    redirect: false
+    retroactive_update: false
+    active_updating: false
+    file_name:
+      value: '[file:ffp-name-only-original].[file:ffp-extension-original]'
+      options:
+        slashes: false
+        pathauto: true
+        transliterate: false
+id: taxonomy_term.blog_authors.field_author_image
+field_name: field_author_image
+entity_type: taxonomy_term
+bundle: blog_authors
+label: 'Author image'
+description: 'Add an image for the author here. If no image is provided, the DTA wordmark will be used.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'png gif jpg jpeg'
+  max_filesize: '1 MB'
+  max_resolution: 100x100
+  min_resolution: 100x100
+  alt_field: true
+  alt_field_required: true
+  title_field: false
+  title_field_required: false
+  default_image:
+    uuid: 7f399789-d3e9-455e-a501-abc4194831f7
+    alt: 'Digital Transformation Agency'
+    title: ''
+    width: 100
+    height: 100
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: image

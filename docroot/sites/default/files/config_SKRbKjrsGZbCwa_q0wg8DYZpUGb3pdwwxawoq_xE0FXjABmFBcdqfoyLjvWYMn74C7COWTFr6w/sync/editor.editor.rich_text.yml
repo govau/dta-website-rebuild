@@ -1,0 +1,120 @@
+uuid: f4158b65-b580-4e51-a6a2-300961d58477
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.rich_text
+  module:
+    - ckeditor
+_core:
+  default_config_hash: ya1j8O6k72Y0q_Tza-FYpx_sTPevxytrZj8ikfo2AVI
+format: rich_text
+editor: ckeditor
+settings:
+  toolbar:
+    rows:
+      -
+        -
+          name: Edit
+          items:
+            - Cut
+            - Copy
+            - Paste
+            - PasteText
+            - PasteFromWord
+            - Undo
+            - Redo
+        -
+          name: Formatting
+          items:
+            - Source
+            - RemoveFormat
+            - Bold
+            - Italic
+            - JustifyLeft
+            - JustifyCenter
+            - JustifyRight
+            - JustifyBlock
+            - Underline
+            - Strike
+            - Superscript
+            - Subscript
+            - Format
+            - Styles
+        -
+          name: Links
+          items:
+            - DrupalLink
+            - DrupalUnlink
+        -
+          name: Lists
+          items:
+            - BulletedList
+            - NumberedList
+        -
+          name: Media
+          items:
+            - Blockquote
+            - ImceImage
+            - video_embed
+            - node
+            - block
+        -
+          name: Templates
+          items:
+            - TemplateSelector
+        -
+          name: Structure
+          items:
+            - HorizontalRule
+      -
+        -
+          name: Tables
+          items:
+            - tableinsert
+            - tabledelete
+            - tableproperties
+            - '-'
+            - tablerowinsertbefore
+            - tablerowinsertafter
+            - tablerowdelete
+            - '-'
+            - tablecolumninsertbefore
+            - tablecolumninsertafter
+            - tablecolumndelete
+            - '-'
+            - tablecellinsertbefore
+            - tablecellinsertafter
+            - tablecelldelete
+            - '-'
+            - '-'
+            - tablecellproperties
+            - tablecellsmerge
+            - tablecellmergedown
+            - tablecellmergeright
+            - '-'
+            - tablecellsplithorizontal
+            - tablecellsplitvertical
+  plugins:
+    drupallink:
+      linkit_enabled: true
+      linkit_profile: default
+    language:
+      language_list: un
+    stylescombo:
+      styles: "div.au-callout|Callout: container\r\np.au-callout|Callout: paragraph"
+    video_embed:
+      defaults:
+        children:
+          autoplay: false
+          responsive: true
+          width: '854'
+          height: '480'
+image_upload:
+  status: false
+  scheme: public
+  directory: inline-images
+  max_size: ''
+  max_dimensions:
+    width: null
+    height: null

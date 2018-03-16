@@ -17,7 +17,7 @@ class EnvironmentIndicatorForm extends EntityForm {
 
     $form['name'] = [
       '#type' => 'textfield',
-      '#title' => t('Name'),
+      '#title' => $this->t('Name'),
       '#default_value' => $environment_switcher->label(),
     ];
     $form['machine'] = [
@@ -31,20 +31,20 @@ class EnvironmentIndicatorForm extends EntityForm {
     ];
     $form['url'] = [
       '#type' => 'url',
-      '#title' => t('Hostname'),
-      '#description' => t('The hostname you want to switch to.'),
+      '#title' => $this->t('Hostname'),
+      '#description' => $this->t('The hostname you want to switch to.'),
       '#default_value' => $environment_switcher->getUrl(),
     ];
     $form['bg_color'] = [
       '#type' => 'color',
-      '#title' => t('Background Color'),
-      '#description' => t('Background color for the indicator. Ex: #0D0D0D.'),
+      '#title' => $this->t('Background Color'),
+      '#description' => $this->t('Background color for the indicator. Ex: #0D0D0D.'),
       '#default_value' => $environment_switcher->getBgColor() ?: '#0D0D0D',
     ];
     $form['fg_color'] = [
       '#type' => 'color',
-      '#title' => t('Color'),
-      '#description' => t('Color for the indicator. Ex: #D0D0D0.'),
+      '#title' => $this->t('Color'),
+      '#description' => $this->t('Color for the indicator. Ex: #D0D0D0.'),
       '#default_value' => $environment_switcher->getFgColor() ?: '#D0D0D0',
     ];
 
@@ -60,7 +60,7 @@ class EnvironmentIndicatorForm extends EntityForm {
   public function save(array $form, FormStateInterface $form_state) {
     $environment = $this->getEntity();
     $environment->save();
-    drupal_set_message(t('Saved the %label environment.', [
+    drupal_set_message($this->t('Saved the %label environment.', [
       '%label' => $environment->label(),
     ]));
 

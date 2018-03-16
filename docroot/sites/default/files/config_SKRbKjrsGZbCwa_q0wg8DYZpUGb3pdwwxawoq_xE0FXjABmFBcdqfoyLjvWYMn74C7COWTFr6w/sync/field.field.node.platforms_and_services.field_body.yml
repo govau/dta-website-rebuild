@@ -1,0 +1,21 @@
+uuid: 1ccc80c5-905c-4b6f-b34f-1cbf895c00b8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_body
+    - node.type.platforms_and_services
+  module:
+    - text
+id: node.platforms_and_services.field_body
+field_name: field_body
+entity_type: node
+bundle: platforms_and_services
+label: 'Body content'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

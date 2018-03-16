@@ -1,0 +1,22 @@
+langcode:        en
+status:          true
+dependencies:
+  config:
+    - views.view.search
+  module:
+    - views
+  theme:
+    - govcmsui
+id:              exposedformsearchpage
+theme:           govcmsui
+region:          header
+weight:          0
+provider:        null
+plugin:          'views_exposed_filter_block:search-page'
+settings:
+  id:            'views_exposed_filter_block:search-page'
+  label:         ''
+  provider:      views
+  label_display: '0'
+  views_label:   ''
+visibility:      {  }

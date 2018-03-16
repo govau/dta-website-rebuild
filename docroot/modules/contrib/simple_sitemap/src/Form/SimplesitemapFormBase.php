@@ -7,6 +7,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 use Drupal\Core\Form\ConfigFormBase;
 use Drupal\simple_sitemap\Simplesitemap;
 use Drupal\Core\Path\PathValidator;
+use Drupal\Core\Language\LanguageManagerInterface;
 
 /**
  * Class SimplesitemapFormBase
@@ -35,22 +36,30 @@ abstract class SimplesitemapFormBase extends ConfigFormBase {
   protected $pathValidator;
 
   /**
+   * @var \Drupal\Core\Language\LanguageManagerInterface
+   */
+  protected $languageManager;
+
+  /**
    * SimplesitemapFormBase constructor.
    * @param \Drupal\simple_sitemap\Simplesitemap $generator
    * @param \Drupal\simple_sitemap\Form\FormHelper $form_helper
    * @param \Drupal\simple_sitemap\EntityHelper $entity_helper
    * @param \Drupal\Core\Path\PathValidator $path_validator
+   * @param \Drupal\Core\Language\LanguageManagerInterface $language_manager
    */
   public function __construct(
     Simplesitemap $generator,
     FormHelper $form_helper,
     EntityHelper $entity_helper,
-    PathValidator $path_validator
+    PathValidator $path_validator,
+    LanguageManagerInterface $language_manager
   ) {
     $this->generator = $generator;
     $this->formHelper = $form_helper;
     $this->entityHelper = $entity_helper;
     $this->pathValidator = $path_validator;
+    $this->languageManager = $language_manager;
   }
 
   /**
@@ -61,7 +70,8 @@ abstract class SimplesitemapFormBase extends ConfigFormBase {
       $container->get('simple_sitemap.generator'),
       $container->get('simple_sitemap.form_helper'),
       $container->get('simple_sitemap.entity_helper'),
-      $container->get('path.validator')
+      $container->get('path.validator'),
+      $container->get('language_manager')
     );
   }
 
@@ -76,7 +86,7 @@ abstract class SimplesitemapFormBase extends ConfigFormBase {
    *
    */
   protected function getDonationText() {
-    return "<div class='description'>" . $this->t("If you would like to say thanks and support the development of this module, a <a target='_blank' href='@url'>donation</a> is always appreciated.", ['@url' => 'https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=5AFYRSBLGSC3W']) . "</div>";
+    return '<div class="description">' . $this->t('If you would like to say thanks and support the development of this module, a <a target="_blank" href="@url">donation</a> is always appreciated.', ['@url' => 'https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=5AFYRSBLGSC3W']) . '</div>';
   }
 
 }

@@ -1,0 +1,19 @@
+uuid: 596ebc90-88ce-417a-b74b-5ed4ea848dea
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_image_caption
+    - node.type.blog_post
+id: node.blog_post.field_image_caption
+field_name: field_image_caption
+entity_type: node
+bundle: blog_post
+label: 'Image caption'
+description: 'Add a caption for the image. This field will be automatically formatted, do not add HTML tags.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

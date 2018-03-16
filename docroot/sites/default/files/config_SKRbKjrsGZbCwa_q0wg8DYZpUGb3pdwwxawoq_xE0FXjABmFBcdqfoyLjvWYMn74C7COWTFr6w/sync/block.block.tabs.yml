@@ -1,0 +1,22 @@
+uuid: 5e08bc02-2398-44ca-8224-deb0e4797627
+langcode: en
+status: true
+dependencies:
+  theme:
+    - govcmsui
+_core:
+  default_config_hash: E2_aqYijN4g4aeimnkmXyGsVy-3GSNc2G8ZeHwwifEU
+id: tabs
+theme: govcmsui
+region: content
+weight: -3
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: Tabs
+  provider: core
+  label_display: '0'
+  primary: true
+  secondary: true
+visibility: {  }

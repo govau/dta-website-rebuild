@@ -144,6 +144,31 @@ class WebformEntitySettingsFormForm extends WebformEntitySettingsBaseForm {
       '#default_value' => (isset($elements['#attributes'])) ? $elements['#attributes'] : [],
     ];
 
+    // Form access denied.
+    $form['form_access_denied'] = [
+      '#type' => 'details',
+      '#title' => $this->t('Access denied'),
+      '#open' => TRUE,
+    ];
+    $form['form_access_denied']['form_login'] = [
+      '#type' => 'checkbox',
+      '#title' => $this->t('Redirect to login when access denied to webform'),
+      '#return_value' => TRUE,
+      '#default_value' => $settings['form_login'],
+    ];
+    $form['form_access_denied']['form_login_message'] = [
+      '#type' => 'webform_html_editor',
+      '#title' => $this->t('Login message when access denied to webform'),
+      '#description' => $this->t('A message to be displayed on the login page.'),
+      '#default_value' => $settings['form_login_message'],
+      '#states' => [
+        'visible' => [
+          ':input[name="form_login"]' => ['checked' => TRUE],
+        ],
+      ],
+    ];
+    $form['form_access_denied']['token_tree_link'] = $this->tokenManager->buildTreeLink();
+
     // Form behaviors.
     $behavior_elements = [
       // Global behaviors.
@@ -157,6 +182,11 @@ class WebformEntitySettingsFormForm extends WebformEntitySettingsBaseForm {
         'title' => $this->t('Disable back button'),
         'all_description' => $this->t('Back button is disabled for all forms.'),
         'form_description' => $this->t("If checked, users will not be allowed to navigate back to the form using the browser's back button."),
+      ],
+      'form_submit_back' => [
+        'title' => $this->t('Submit previous page when browser back button is clicked'),
+        'all_description' => $this->t('Browser back button submits the previous page for all forms.'),
+        'form_description' => $this->t("If checked, the browser back button will submit the previous page and navigate back emulating the behaviour of user clicking a wizard or preview page's back button."),
       ],
       'form_unsaved' => [
         'title' => $this->t('Warn users about unsaved changes'),
@@ -187,8 +217,8 @@ class WebformEntitySettingsFormForm extends WebformEntitySettingsBaseForm {
         'form_description' => $this->t('If checked, the first visible and enabled form element will be focused when adding a new submission.'),
       ],
       'form_prepopulate' => [
-        'title' => $this->t('Allow elements to be populated using query string parameters'),
-        'form_description' => $this->t("If checked, elements can be populated using query string parameters. For example, appending ?name=John+Smith to a webform's URL would set the 'name' element's default value to 'John Smith'."),
+        'title' => $this->t('Allow all elements to be populated using query string parameters'),
+        'form_description' => $this->t("If checked, all elements can be populated using query string parameters. For example, appending ?name=John+Smith to a webform's URL would set the 'name' element's default value to 'John Smith'. Please note that individual elements can also have prepopulation enabled."),
       ],
       'form_prepopulate_source_entity' => [
         'title' => $this->t('Allow source entity to be populated using query string parameters'),

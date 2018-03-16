@@ -3,6 +3,7 @@
 namespace Drupal\entity_browser\Plugin\EntityBrowser\Widget;
 
 use Drupal\Component\Plugin\Exception\PluginNotFoundException;
+use Drupal\Core\Access\AccessResult;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Render\Element;
 use Drupal\entity_browser\WidgetBase;
@@ -40,10 +41,10 @@ class View extends WidgetBase implements ContainerFactoryPluginInterface {
    * {@inheritdoc}
    */
   public function defaultConfiguration() {
-    return array(
+    return [
       'view' => NULL,
       'view_display' => NULL,
-    ) + parent::defaultConfiguration();
+    ] + parent::defaultConfiguration();
   }
 
   /**
@@ -238,7 +239,7 @@ class View extends WidgetBase implements ContainerFactoryPluginInterface {
     foreach ($displays as $display) {
       list($view_id, $display_id) = $display;
       $view = $this->entityTypeManager->getStorage('view')->load($view_id);
-      $options[$view_id . '.' . $display_id] = $this->t('@view : @display', array('@view' => $view->label(), '@display' => $view->get('display')[$display_id]['display_title']));
+      $options[$view_id . '.' . $display_id] = $this->t('@view : @display', ['@view' => $view->label(), '@display' => $view->get('display')[$display_id]['display_title']]);
     }
 
     $form['view'] = [
@@ -277,6 +278,22 @@ class View extends WidgetBase implements ContainerFactoryPluginInterface {
       $dependencies[$view->getConfigDependencyKey()] = [$view->getConfigDependencyName()];
     }
     return $dependencies;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function access() {
+    // Mark the widget as not visible if the user has no access to the view.
+    /** @var \Drupal\views\ViewExecutable $view */
+    $view = $this->entityTypeManager
+      ->getStorage('view')
+      ->load($this->configuration['view'])
+      ->getExecutable();
+
+
+    // Check if the current user has access to this view.
+    return AccessResult::allowedIf($view->access($this->configuration['view_display']));
   }
 
 }

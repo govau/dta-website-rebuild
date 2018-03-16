@@ -10,16 +10,24 @@ services:
       - '@entity_type.manager'
       - '@path.validator'
       - '@date.formatter'
+      - '@datetime.time'
+      - '@simple_sitemap.batch'
+      - '@plugin.manager.simple_sitemap.url_generator'
 
   simple_sitemap.sitemap_generator:
     class: Drupal\simple_sitemap\SitemapGenerator
     public: true
     arguments:
-      - '@simple_sitemap.batch'
       - '@simple_sitemap.entity_helper'
       - '@database'
       - '@module_handler'
       - '@language_manager'
+      - '@datetime.time'
+      - '@simple_sitemap.sitemap_writer'
+
+  simple_sitemap.sitemap_writer:
+    class: Drupal\simple_sitemap\SitemapWriter
+    public: false
 
   simple_sitemap.entity_helper:
     class: Drupal\simple_sitemap\EntityHelper
@@ -37,44 +45,8 @@ services:
       - '@current_user'
 
   simple_sitemap.batch:
-    class: Drupal\simple_sitemap\Batch\Batch
+    class: Drupal\simple_sitemap\Batch
     public: false
-
-  simple_sitemap.entity_url_generator:
-    class: Drupal\simple_sitemap\Batch\EntityUrlGenerator
-    public: true
-    arguments:
-      - '@simple_sitemap.generator'
-      - '@simple_sitemap.sitemap_generator'
-      - '@language_manager'
-      - '@entity_type.manager'
-      - '@path.validator'
-      - '@simple_sitemap.logger'
-      - '@simple_sitemap.entity_helper'
-
-  simple_sitemap.custom_url_generator:
-    class: Drupal\simple_sitemap\Batch\CustomUrlGenerator
-    public: true
-    arguments:
-      - '@simple_sitemap.generator'
-      - '@simple_sitemap.sitemap_generator'
-      - '@language_manager'
-      - '@entity_type.manager'
-      - '@path.validator'
-      - '@simple_sitemap.logger'
-      - '@simple_sitemap.entity_helper'
-
-  simple_sitemap.arbitrary_url_generator:
-    class: Drupal\simple_sitemap\Batch\ArbitraryUrlGenerator
-    public: true
-    arguments:
-      - '@simple_sitemap.generator'
-      - '@simple_sitemap.sitemap_generator'
-      - '@language_manager'
-      - '@entity_type.manager'
-      - '@path.validator'
-      - '@simple_sitemap.logger'
-      - '@simple_sitemap.entity_helper'
 
   simple_sitemap.logger:
     class: Drupal\simple_sitemap\Logger
@@ -88,3 +60,7 @@ services:
     public: false
     arguments:
       - simple_sitemap
+
+  plugin.manager.simple_sitemap.url_generator:
+    class: Drupal\simple_sitemap\Plugin\simple_sitemap\UrlGenerator\UrlGeneratorManager
+    parent: default_plugin_manager

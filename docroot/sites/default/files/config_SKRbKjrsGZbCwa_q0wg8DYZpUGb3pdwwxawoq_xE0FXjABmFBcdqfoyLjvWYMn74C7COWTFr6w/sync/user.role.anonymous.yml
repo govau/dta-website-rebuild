@@ -1,0 +1,16 @@
+uuid: 50bc43a5-1727-4a25-b064-0978343cb577
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: j5zLMOdJBqC0bMvSdth5UebkprJB8g_2FXHqhfpJzow
+id: anonymous
+label: 'Anonymous user'
+weight: -10
+is_admin: false
+permissions:
+  - 'access content'
+  - 'search content'
+  - 'use search_api_autocomplete for search'
+  - 'view disqus comments'
+  - 'view search api pages'

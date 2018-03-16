@@ -3,14 +3,13 @@
 namespace Drupal\Tests\linkit\Kernel;
 
 use Drupal\entity_test\Entity\EntityTest;
-use Drupal\field\Entity\FieldConfig;
-use Drupal\field\Entity\FieldStorageConfig;
 use Drupal\file\Entity\File;
 use Drupal\linkit\Plugin\Linkit\Substitution\Canonical as CanonicalSubstitutionPlugin;
 use Drupal\linkit\Plugin\Linkit\Substitution\File as FileSubstitutionPlugin;
 use Drupal\linkit\Plugin\Linkit\Substitution\Media as MediaSubstitutionPlugin;
-use Drupal\media_entity\Entity\Media;
-use Drupal\media_entity\Entity\MediaBundle;
+use Drupal\media\Entity\Media;
+use Drupal\media\Entity\MediaType;
+use Drupal\Core\DependencyInjection\ContainerBuilder;
 
 /**
  * Tests the substitution plugins.
@@ -43,10 +42,9 @@ class SubstitutionPluginTest extends LinkitKernelTestBase {
   public static $modules = [
     'file',
     'entity_test',
-    'media_entity',
+    'media',
     'image',
     'field',
-    'linkit_media_test',
   ];
 
   /**
@@ -60,10 +58,42 @@ class SubstitutionPluginTest extends LinkitKernelTestBase {
     $this->installEntitySchema('file');
     $this->installEntitySchema('entity_test');
     $this->installEntitySchema('media');
-    $this->installEntitySchema('media_bundle');
+    $this->installEntitySchema('media_type');
     $this->installEntitySchema('field_storage_config');
     $this->installEntitySchema('field_config');
     $this->installSchema('file', ['file_usage']);
+
+    unset($GLOBALS['config']['system.file']);
+    \Drupal::configFactory()->getEditable('system.file')->set('default_scheme', 'public')->save();
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function register(ContainerBuilder $container) {
+    parent::register($container);
+
+    $container->register('stream_wrapper.public', 'Drupal\Core\StreamWrapper\PublicStream')
+      ->addTag('stream_wrapper', ['scheme' => 'public']);
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  protected function setUpFilesystem() {
+    $public_file_directory = $this->siteDirectory . '/files';
+
+    require_once 'core/includes/file.inc';
+
+    mkdir($this->siteDirectory, 0775);
+    mkdir($this->siteDirectory . '/files', 0775);
+    mkdir($this->siteDirectory . '/files/config/' . CONFIG_SYNC_DIRECTORY, 0775, TRUE);
+
+    $this->setSetting('file_public_path', $public_file_directory);
+
+    $GLOBALS['config_directories'] = [
+      CONFIG_SYNC_DIRECTORY => $this->siteDirectory . '/files/config/sync',
+    ];
   }
 
   /**
@@ -109,27 +139,20 @@ class SubstitutionPluginTest extends LinkitKernelTestBase {
    */
   public function testMediaSubstitution() {
     // Set up media bundle and fields.
-    MediaBundle::create([
+    $media_type = MediaType::create([
       'label' => 'test',
       'id' => 'test',
-      'description' => 'test bundle.',
-      'type' => 'test_type',
+      'description' => 'Test type.',
+      'source' => 'file',
+    ]);
+    $media_type->save();
+    $source_field = $media_type->getSource()->createSourceField($media_type);
+    $source_field->getFieldStorageDefinition()->save();
+    $source_field->save();
+    $media_type->set('source_configuration', [
+      'source_field' => $source_field->getName(),
     ])->save();
-    FieldStorageConfig::create([
-      'field_name' => 'field_media_file',
-      'entity_type' => 'media',
-      'type' => 'file',
-      'settings' => [],
-    ])->save();
-    FieldConfig::create([
-      'entity_type' => 'media',
-      'bundle' => 'test',
-      'field_name' => 'field_media_file',
-      'label' => 'Media field',
-      'settings' => [
-        'file_extensions' => 'txt',
-      ],
-    ])->save();
+
     $file = File::create([
       'uid' => 1,
       'filename' => 'druplicon.txt',
@@ -138,9 +161,10 @@ class SubstitutionPluginTest extends LinkitKernelTestBase {
       'status' => FILE_STATUS_PERMANENT,
     ]);
     $file->save();
+
     $media = Media::create([
       'bundle' => 'test',
-      'field_media_file' => ['target_id' => $file->id()],
+      $source_field->getName() => ['target_id' => $file->id()],
     ]);
     $media->save();
 

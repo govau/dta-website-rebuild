@@ -125,7 +125,7 @@ abstract class ConfigFilterBase extends PluginBase implements ConfigFilterInterf
    * {@inheritdoc}
    */
   public function filterCreateCollection($collection) {
-    return $this;
+    return clone $this;
   }
 
   /**

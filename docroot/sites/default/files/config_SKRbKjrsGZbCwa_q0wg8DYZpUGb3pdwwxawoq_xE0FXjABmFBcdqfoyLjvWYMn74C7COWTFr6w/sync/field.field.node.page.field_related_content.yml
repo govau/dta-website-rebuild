@@ -1,0 +1,39 @@
+uuid: fcbb6db9-2fb3-4189-96ea-4c2efa110d44
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_related_content
+    - node.type.blog_post
+    - node.type.external_link
+    - node.type.govcms_event
+    - node.type.landing_page
+    - node.type.news_item
+    - node.type.page
+    - node.type.platforms_and_services
+id: node.page.field_related_content
+field_name: field_related_content
+entity_type: node
+bundle: page
+label: 'Related content'
+description: 'Add any related content here. It will appear formatted as cards underneath the main body text.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      blog_post: blog_post
+      govcms_event: govcms_event
+      external_link: external_link
+      landing_page: landing_page
+      news_item: news_item
+      page: page
+      platforms_and_services: platforms_and_services
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: blog_post
+field_type: entity_reference

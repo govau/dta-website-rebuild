@@ -103,14 +103,13 @@ class WebformEditorialController extends ControllerBase implements ContainerInje
     );
   }
 
-
   /****************************************************************************/
   // Help.
   /****************************************************************************/
 
   /**
    * Returns webform help editorial.
-   **
+   *
    * @return array
    *   A renderable array containing webform help editorial.
    */
@@ -160,13 +159,16 @@ class WebformEditorialController extends ControllerBase implements ContainerInje
           $path = preg_replace('/\{[^}]+\}/', '*', $path);
           $paths[$index] = $path;
         }
-        $name = '<b>' . $name .'</b><br/><small><small><em>' . implode('<br />', $paths) .'</em></small></small>';
+        $name = '<b>' . $name .'</b><br/><small><small><em>' . implode('<br />', $paths) . '</em></small></small>';
 
-        // Links
+        // Links.
         $links = [];
         if (!empty($info['video_id'])) {
           $video = $this->helpManager->getVideo($info['video_id']);
           $links[] = Link::fromTextAndUrl('Video', Url::fromUri('https://www.youtube.com/watch', ['query' => ['v' => $video['youtube_id']]]))->toString();
+        }
+        if (is_array($info['content'])) {
+          $info['content'] = $this->renderer->renderPlain($info['content']);
         }
         $rows[] = [
           'data' => [
@@ -196,7 +198,6 @@ class WebformEditorialController extends ControllerBase implements ContainerInje
       ];
     }
 
-
     return $this->response($build);
   }
 
@@ -206,7 +207,7 @@ class WebformEditorialController extends ControllerBase implements ContainerInje
 
   /**
    * Returns webform videos editorial.
-   **
+   *
    * @return array
    *   A renderable array containing webform elements videos.
    */
@@ -224,7 +225,7 @@ class WebformEditorialController extends ControllerBase implements ContainerInje
     $videos = $this->helpManager->getVideo();
     foreach ($videos as $name => $info) {
       // @see https://stackoverflow.com/questions/2068344/how-do-i-get-a-youtube-video-thumbnail-from-the-youtube-api
-      $image = Markup::create('<img width="180" src="https://img.youtube.com/vi/' . $info['youtube_id'] .'/0.jpg" />');
+      $image = Markup::create('<img width="180" src="https://img.youtube.com/vi/' . $info['youtube_id'] . '/0.jpg" />');
       $video = Link::fromTextAndUrl($image, Url::fromUri('https://www.youtube.com/watch', ['query' => ['v' => $info['youtube_id']]]))->toString();
       $rows[] = [
         'data' => [
@@ -246,7 +247,7 @@ class WebformEditorialController extends ControllerBase implements ContainerInje
 
   /**
    * Returns webform elements editorial.
-   **
+   *
    * @return array
    *   A renderable array containing webform elements editorial.
    */
@@ -295,7 +296,7 @@ class WebformEditorialController extends ControllerBase implements ContainerInje
 
   /**
    * Returns webform libraries.
-   **
+   *
    * @return array
    *   A renderable array containing webform libraries editorial.
    */
@@ -367,7 +368,7 @@ class WebformEditorialController extends ControllerBase implements ContainerInje
 
   /**
    * Returns webform drush.
-   **
+   *
    * @return array
    *   A renderable array containing webform entity scheme.
    */
@@ -410,7 +411,7 @@ class WebformEditorialController extends ControllerBase implements ContainerInje
       $properties = [
         'arguments', 'options', 'examples'
       ];
-      foreach($properties as $property) {
+      foreach ($properties as $property) {
         if (isset($command[$property])) {
           $rows = [];
           foreach ($command[$property] as $name => $value) {

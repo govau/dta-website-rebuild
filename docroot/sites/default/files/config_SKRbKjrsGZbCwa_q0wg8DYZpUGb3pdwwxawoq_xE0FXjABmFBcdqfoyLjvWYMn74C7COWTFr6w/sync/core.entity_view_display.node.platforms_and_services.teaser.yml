@@ -1,0 +1,87 @@
+uuid: 8c99d399-cb20-40f5-a213-743419139d70
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.platforms_and_services.field_body
+    - field.field.node.platforms_and_services.field_contact_module
+    - field.field.node.platforms_and_services.field_introduction
+    - field.field.node.platforms_and_services.field_summary
+    - node.type.platforms_and_services
+  module:
+    - ds
+    - panelizer
+    - text
+    - user
+third_party_settings:
+  ds:
+    layout:
+      id: layout_onecol
+      library: layout_discovery/onecol
+      disable_css: false
+      entity_classes: all_classes
+      settings: {  }
+    regions:
+      content:
+        - node_title
+        - field_summary
+    fields:
+      node_title:
+        plugin_id: node_title
+        weight: 0
+        label: hidden
+        formatter: default
+        settings:
+          link: true
+          wrapper: h3
+          class: ''
+        ft:
+          id: expert
+          settings:
+            lb: ''
+            prefix: ''
+            lbw-el: ''
+            lbw-cl: ''
+            lbw-at: ''
+            ow-el: ''
+            ow-cl: ''
+            ow-at: ''
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fi-el: ''
+            fi-cl: ''
+            fi-at: ''
+            suffix: ''
+            lbw: false
+            lb-col: false
+            ow: false
+            ow-def-at: false
+            ow-def-cl: false
+            fis: false
+            fis-def-at: false
+            fi: false
+            fi-def-at: false
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
+id: node.platforms_and_services.teaser
+targetEntityType: node
+bundle: platforms_and_services
+mode: teaser
+content:
+  field_summary:
+    type: text_default
+    weight: 1
+    region: content
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_body: true
+  field_contact_module: true
+  field_introduction: true
+  links: true

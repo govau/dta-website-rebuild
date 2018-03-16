@@ -5,8 +5,11 @@ package: Administration
 type: module
 # core: 8.x
 
-# Information added by Drupal.org packaging script on 2017-11-20
-version: '8.x-1.21'
+dependencies:
+  - admin_toolbar:admin_toolbar
+
+# Information added by Drupal.org packaging script on 2018-02-06
+version: '8.x-1.23'
 core: '8.x'
 project: 'admin_toolbar'
-datestamp: 1511190792
+datestamp: 1517936588

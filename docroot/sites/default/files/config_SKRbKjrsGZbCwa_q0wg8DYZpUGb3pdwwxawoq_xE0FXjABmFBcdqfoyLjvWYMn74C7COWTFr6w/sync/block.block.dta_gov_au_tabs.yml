@@ -1,0 +1,22 @@
+uuid: 6e4f4cd8-0bc5-4cc9-bd1d-8b9505ab0f24
+langcode: en
+status: true
+dependencies:
+  theme:
+    - dta_gov_au
+_core:
+  default_config_hash: E2_aqYijN4g4aeimnkmXyGsVy-3GSNc2G8ZeHwwifEU
+id: dta_gov_au_tabs
+theme: dta_gov_au
+region: content
+weight: -7
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: Tabs
+  provider: core
+  label_display: '0'
+  primary: true
+  secondary: true
+visibility: {  }

@@ -25,7 +25,7 @@ abstract class WebformMarkupBase extends WebformElementBase implements WebformEl
    * {@inheritdoc}
    */
   public function isContainer(array $element) {
-    return TRUE;
+    return FALSE;
   }
 
   /**
@@ -36,6 +36,15 @@ abstract class WebformMarkupBase extends WebformElementBase implements WebformEl
       // Markup settings.
       'display_on' => static::DISPLAY_ON_FORM,
     ] + $this->getDefaultBaseProperties();
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  protected function getDefaultBaseProperties() {
+    $properties = parent::getDefaultBaseProperties();
+    unset($properties['prepopulate']);
+    return $properties;
   }
 
   /**

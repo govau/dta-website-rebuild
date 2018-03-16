@@ -1,0 +1,228 @@
+uuid: 56b371d6-fc4d-4682-8818-c81dc879f058
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_body
+    - field.storage.node.field_summary
+    - field.storage.node.field_introduction
+    - search_api.server.database_search
+    - core.entity_view_mode.node.full
+  module:
+    - search_api
+    - node
+_core:
+  default_config_hash: C_H_RI-18mied-RtEfUQGN19oHD22I8Z09wKPHC6OSM
+id: database_search_index
+name: 'Database search index'
+description: 'Default search index using the database search server'
+read_only: false
+field_settings:
+  rendered_item:
+    label: 'Rendered HTML output'
+    property_path: rendered_item
+    type: text
+    configuration:
+      roles:
+        anonymous: anonymous
+      view_mode:
+        'entity:node':
+          blog_post: full
+          govcms_event: full
+          home_page: ''
+          news_item: full
+          page: full
+          platforms_and_services: full
+  node_grants:
+    label: 'Node access information'
+    property_path: search_api_node_grants
+    type: string
+    indexed_locked: true
+    type_locked: true
+    hidden: true
+  title:
+    label: Title
+    datasource_id: 'entity:node'
+    property_path: title
+    type: text
+    boost: !!float 2
+  status:
+    label: status
+    datasource_id: 'entity:node'
+    property_path: status
+    type: boolean
+    indexed_locked: true
+    type_locked: true
+  uid:
+    label: uid
+    datasource_id: 'entity:node'
+    property_path: uid
+    type: integer
+    indexed_locked: true
+    type_locked: true
+  field_body:
+    label: 'Body content'
+    datasource_id: 'entity:node'
+    property_path: field_body
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_body
+  field_summary:
+    label: Summary
+    datasource_id: 'entity:node'
+    property_path: field_summary
+    type: text
+    boost: 0.8
+    dependencies:
+      config:
+        - field.storage.node.field_summary
+  field_introduction:
+    label: Introduction
+    datasource_id: 'entity:node'
+    property_path: field_introduction
+    type: text
+    boost: 0.8
+    dependencies:
+      config:
+        - field.storage.node.field_introduction
+datasource_settings:
+  'entity:node':
+    bundles:
+      default: true
+      selected:
+        - help_and_advice_links
+        - landing_page
+    languages:
+      default: true
+      selected: {  }
+processor_settings:
+  add_url: {  }
+  aggregated_field: {  }
+  content_access:
+    weights:
+      preprocess_query: -30
+  entity_status: {  }
+  highlight:
+    highlight: always
+    highlight_partial: true
+    excerpt: true
+    excerpt_length: 256
+    exclude_fields: {  }
+    prefix: '<strong>'
+    suffix: '</strong>'
+    weights:
+      postprocess_query: 0
+  html_filter:
+    all_fields: true
+    fields:
+      - rendered_item
+      - title
+      - field_body
+      - field_summary
+      - field_introduction
+    title: true
+    alt: true
+    tags:
+      h1: 5
+      h2: 3
+      h3: 2
+      strong: 2
+      b: 2
+    weights:
+      preprocess_index: -15
+      preprocess_query: -15
+  ignorecase:
+    all_fields: true
+    fields:
+      - rendered_item
+      - title
+      - field_body
+      - field_summary
+      - field_introduction
+    weights:
+      preprocess_index: -20
+      preprocess_query: -20
+  rendered_item: {  }
+  stemmer:
+    all_fields: true
+    fields:
+      - rendered_item
+      - title
+      - field_body
+      - field_summary
+      - field_introduction
+    exceptions:
+      texan: texa
+      mexican: mexic
+    weights:
+      preprocess_index: 0
+      preprocess_query: 0
+  stopwords:
+    all_fields: true
+    fields:
+      - rendered_item
+      - title
+      - field_body
+      - field_summary
+      - field_introduction
+    stopwords:
+      - a
+      - an
+      - and
+      - are
+      - as
+      - at
+      - be
+      - but
+      - by
+      - for
+      - if
+      - in
+      - into
+      - is
+      - it
+      - 'no'
+      - not
+      - of
+      - 'on'
+      - or
+      - s
+      - such
+      - t
+      - that
+      - the
+      - their
+      - then
+      - there
+      - these
+      - they
+      - this
+      - to
+      - was
+      - will
+      - with
+    weights:
+      preprocess_index: -5
+      preprocess_query: -2
+  tokenizer:
+    all_fields: true
+    fields:
+      - rendered_item
+      - title
+      - field_body
+      - field_summary
+      - field_introduction
+    spaces: ''
+    overlap_cjk: 1
+    minimum_word_size: '3'
+    weights:
+      preprocess_index: -6
+      preprocess_query: -6
+tracker_settings:
+  default:
+    indexing_order: fifo
+options:
+  index_directly: true
+  cron_limit: 50
+server: database_search

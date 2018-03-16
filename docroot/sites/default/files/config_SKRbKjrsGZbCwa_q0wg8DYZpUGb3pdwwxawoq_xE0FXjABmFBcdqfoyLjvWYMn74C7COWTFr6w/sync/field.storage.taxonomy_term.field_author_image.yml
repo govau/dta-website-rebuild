@@ -1,0 +1,30 @@
+uuid: 96958063-bef9-4236-9c3f-273c01ac10b3
+langcode: en
+status: true
+dependencies:
+  module:
+    - file
+    - image
+    - taxonomy
+id: taxonomy_term.field_author_image
+field_name: field_author_image
+entity_type: taxonomy_term
+type: image
+settings:
+  uri_scheme: public
+  default_image:
+    uuid: 054c5ce0-a918-443c-9720-25c6736c2ded
+    alt: 'Digital Transformation Agency'
+    title: ''
+    width: 400
+    height: 400
+  target_type: file
+  display_field: false
+  display_default: false
+module: image
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

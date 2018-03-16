@@ -1,0 +1,56 @@
+uuid: 96735664-71a1-4f4d-8daf-11a2f3e41976
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.card
+    - field.field.node.landing_page.field_body
+    - field.field.node.landing_page.field_facebook_image
+    - field.field.node.landing_page.field_index_image
+    - field.field.node.landing_page.field_introduction
+    - field.field.node.landing_page.field_linkedin_image
+    - field.field.node.landing_page.field_related_content
+    - field.field.node.landing_page.field_summary
+    - field.field.node.landing_page.field_twitter_image
+    - node.type.landing_page
+  module:
+    - ds
+    - panelizer
+    - user
+third_party_settings:
+  ds:
+    layout:
+      id: layout_onecol
+      library: layout_discovery/onecol
+      disable_css: false
+      entity_classes: all_classes
+      settings: {  }
+    regions:
+      content:
+        - 'dynamic_token_field:node-related_content_card'
+    fields:
+      'dynamic_token_field:node-related_content_card':
+        plugin_id: 'dynamic_token_field:node-related_content_card'
+        weight: 0
+        label: hidden
+        formatter: default
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
+id: node.landing_page.card
+targetEntityType: node
+bundle: landing_page
+mode: card
+content: {  }
+hidden:
+  field_body: true
+  field_facebook_image: true
+  field_index_image: true
+  field_introduction: true
+  field_linkedin_image: true
+  field_related_content: true
+  field_summary: true
+  field_twitter_image: true
+  links: true

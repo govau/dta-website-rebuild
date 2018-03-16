@@ -1,0 +1,22 @@
+uuid: cb0053db-0975-4c1e-b71d-1762203818e7
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.script
+    - field.storage.block_content.body
+  module:
+    - text
+id: block_content.script.body
+field_name: body
+entity_type: block_content
+bundle: script
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: false
+field_type: text_with_summary

@@ -1,0 +1,15 @@
+uuid: 59f85df3-5f18-45dd-bf6a-40977b57a842
+name: au.gov.dta.dev
+mail: website@digital.gov.au
+slogan: 'Simple. Clear. Fast.'
+page:
+  403: ''
+  404: ''
+  front: /node
+admin_compact_mode: false
+weight_select_max: 100
+langcode: en
+default_langcode: en
+_core:
+  default_config_hash: AyT9s8OUcclfALRE_imByOMgtZ19eOlqdF6zI3p7yqo
+mail_notification: website@digital.gov.au

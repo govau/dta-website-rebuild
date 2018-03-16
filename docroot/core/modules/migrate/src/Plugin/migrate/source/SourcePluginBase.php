@@ -216,8 +216,8 @@ abstract class SourcePluginBase extends PluginBase implements MigrateSourceInter
   /**
    * Initializes the iterator with the source data.
    *
-   * @return array
-   *   An array of the data for this source.
+   * @return \Iterator
+   *   Returns an iteratable object of data for this source.
    */
   abstract protected function initializeIterator();
 
@@ -436,7 +436,10 @@ abstract class SourcePluginBase extends PluginBase implements MigrateSourceInter
    * Returns -1 if the source is not countable.
    *
    * @param bool $refresh
-   *   (optional) Whether or not to refresh the count. Defaults to FALSE.
+   *   (optional) Whether or not to refresh the count. Defaults to FALSE. Not
+   *   all implementations support the reset flag. In such instances this
+   *   parameter is ignored and the result of calling the method will always be
+   *   up to date.
    *
    * @return int
    *   The count.

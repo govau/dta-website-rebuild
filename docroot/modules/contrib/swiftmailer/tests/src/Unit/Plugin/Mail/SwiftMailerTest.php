@@ -6,6 +6,8 @@ use Drupal\Component\Render\FormattableMarkup;
 use Drupal\Core\Render\Markup;
 use Drupal\swiftmailer\Plugin\Mail\SwiftMailer;
 
+define('SWIFTMAILER_FORMAT_HTML', 'text/html');
+
 /**
  * @coversDefaultClass \Drupal\swiftmailer\Plugin\Mail\SwiftMailer
  * @group swiftmailer

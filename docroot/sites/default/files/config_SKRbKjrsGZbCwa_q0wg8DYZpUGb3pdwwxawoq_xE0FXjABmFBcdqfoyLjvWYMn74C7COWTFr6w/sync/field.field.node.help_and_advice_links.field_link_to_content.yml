@@ -1,0 +1,23 @@
+uuid: a9fbe9d2-51f5-4e70-8ae9-175f9e63fa05
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_link_to_content
+    - node.type.help_and_advice_links
+  module:
+    - link
+id: node.help_and_advice_links.field_link_to_content
+field_name: field_link_to_content
+entity_type: node
+bundle: help_and_advice_links
+label: 'Link to content'
+description: 'Each item requires a link to deeper content. The link will wrap the card.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

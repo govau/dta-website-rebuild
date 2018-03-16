@@ -18,14 +18,15 @@ use Drupal\Core\Field\Plugin\Field\FieldType\EntityReferenceItem;
 use Drupal\jsonapi\Context\CurrentContext;
 use Drupal\jsonapi\Exception\EntityAccessDeniedHttpException;
 use Drupal\jsonapi\Exception\UnprocessableHttpEntityException;
+use Drupal\jsonapi\Query\Filter;
+use Drupal\jsonapi\Query\Sort;
+use Drupal\jsonapi\Query\OffsetPage;
 use Drupal\jsonapi\LinkManager\LinkManager;
-use Drupal\jsonapi\Query\QueryBuilder;
 use Drupal\jsonapi\Resource\EntityCollection;
 use Drupal\jsonapi\Resource\JsonApiDocumentTopLevel;
 use Drupal\jsonapi\ResourceResponse;
 use Drupal\jsonapi\ResourceType\ResourceType;
-use Drupal\jsonapi\Routing\Param\JsonApiParamBase;
-use Drupal\jsonapi\Routing\Param\OffsetPage;
+use Drupal\jsonapi\ResourceType\ResourceTypeRepositoryInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
@@ -60,13 +61,6 @@ class EntityResource {
   protected $fieldManager;
 
   /**
-   * The query builder service.
-   *
-   * @var \Drupal\jsonapi\Query\QueryBuilder
-   */
-  protected $queryBuilder;
-
-  /**
    * The current context service.
    *
    * @var \Drupal\jsonapi\Context\CurrentContext
@@ -88,14 +82,19 @@ class EntityResource {
   protected $linkManager;
 
   /**
+   * The resource type repository.
+   *
+   * @var \Drupal\jsonapi\ResourceType\ResourceTypeRepositoryInterface
+   */
+  protected $resourceTypeRepository;
+
+  /**
    * Instantiates a EntityResource object.
    *
    * @param \Drupal\jsonapi\ResourceType\ResourceType $resource_type
    *   The JSON API resource type.
    * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entity_type_manager
    *   The entity type manager.
-   * @param \Drupal\jsonapi\Query\QueryBuilder $query_builder
-   *   The query builder.
    * @param \Drupal\Core\Entity\EntityFieldManagerInterface $field_manager
    *   The entity type field manager.
    * @param \Drupal\jsonapi\Context\CurrentContext $current_context
@@ -104,15 +103,17 @@ class EntityResource {
    *   The plugin manager for fields.
    * @param \Drupal\jsonapi\LinkManager\LinkManager $link_manager
    *   The link manager service.
+   * @param \Drupal\jsonapi\ResourceType\ResourceTypeRepositoryInterface $resource_type_repository
+   *   The link manager service.
    */
-  public function __construct(ResourceType $resource_type, EntityTypeManagerInterface $entity_type_manager, QueryBuilder $query_builder, EntityFieldManagerInterface $field_manager, CurrentContext $current_context, FieldTypePluginManagerInterface $plugin_manager, LinkManager $link_manager) {
+  public function __construct(ResourceType $resource_type, EntityTypeManagerInterface $entity_type_manager, EntityFieldManagerInterface $field_manager, CurrentContext $current_context, FieldTypePluginManagerInterface $plugin_manager, LinkManager $link_manager, ResourceTypeRepositoryInterface $resource_type_repository) {
     $this->resourceType = $resource_type;
     $this->entityTypeManager = $entity_type_manager;
-    $this->queryBuilder = $query_builder;
     $this->fieldManager = $field_manager;
     $this->currentContext = $current_context;
     $this->pluginManager = $plugin_manager;
     $this->linkManager = $link_manager;
+    $this->resourceTypeRepository = $resource_type_repository;
   }
 
   /**
@@ -178,6 +179,9 @@ class EntityResource {
    *
    * @return \Drupal\jsonapi\ResourceResponse
    *   The response.
+   *
+   * @throws \Drupal\Core\Entity\EntityStorageException
+   * @throws \Drupal\jsonapi\Exception\EntityAccessDeniedHttpException
    */
   public function createIndividual(EntityInterface $entity, Request $request) {
     $entity_access = $entity->access('create', NULL, TRUE);
@@ -224,6 +228,9 @@ class EntityResource {
    *
    * @return \Drupal\jsonapi\ResourceResponse
    *   The response.
+   *
+   * @throws \Drupal\Core\Entity\EntityStorageException
+   * @throws \Drupal\jsonapi\Exception\EntityAccessDeniedHttpException
    */
   public function patchIndividual(EntityInterface $entity, EntityInterface $parsed_entity, Request $request) {
     $entity_access = $entity->access('update', NULL, TRUE);
@@ -261,6 +268,9 @@ class EntityResource {
    *
    * @return \Drupal\jsonapi\ResourceResponse
    *   The response.
+   *
+   * @throws \Drupal\Core\Entity\EntityStorageException
+   * @throws \Drupal\jsonapi\Exception\EntityAccessDeniedHttpException
    */
   public function deleteIndividual(EntityInterface $entity, Request $request) {
     $entity_access = $entity->access('delete', NULL, TRUE);
@@ -279,6 +289,8 @@ class EntityResource {
    *
    * @return \Drupal\jsonapi\ResourceResponse
    *   The response.
+   *
+   * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
    */
   public function getCollection(Request $request) {
     // Instantiate the query for the filtering.
@@ -308,7 +320,6 @@ class EntityResource {
     if ($this->resourceType->includeCount()) {
       $total_results = $this
         ->getCollectionCountQuery($entity_type_id, $params)
-        ->count()
         ->execute();
 
       $entity_collection->setTotalCount($total_results);
@@ -337,15 +348,16 @@ class EntityResource {
    *
    * @return \Drupal\jsonapi\ResourceResponse
    *   The response.
+   *
+   * @throws \Symfony\Component\HttpKernel\Exception\NotFoundHttpException
    */
   public function getRelated(EntityInterface $entity, $related_field, Request $request) {
     $related_field = $this->resourceType->getInternalName($related_field);
-    if (!($field_list = $entity->get($related_field)) || !$this->isRelationshipField($field_list)) {
-      throw new NotFoundHttpException(sprintf('The relationship %s is not present in this resource.', $related_field));
-    }
+    /* @var \Drupal\Core\Field\EntityReferenceFieldItemListInterface $field_list */
+    $field_list = $entity->get($related_field);
+    $this->validateReferencedResource($field_list, $related_field);
     // Add the cacheable metadata from the host entity.
     $cacheable_metadata = CacheableMetadata::createFromObject($entity);
-    /* @var \Drupal\Core\Field\EntityReferenceFieldItemList $field_list */
     $is_multiple = $field_list
       ->getDataDefinition()
       ->getFieldStorageDefinition()
@@ -357,8 +369,20 @@ class EntityResource {
       return $response;
     }
     $collection_data = [];
-    foreach ($field_list->referencedEntities() as $referenced_entity) {
-      /* @var \Drupal\Core\Entity\EntityInterface $referenced_entity */
+    // Remove the entities pointing to a resource that may be disabled. Even
+    //though the normalizer skips disabled references, we can avoid unnecessary
+    //work by checking here too.
+    /* @var \Drupal\Core\Entity\EntityInterface[] $referenced_entities */
+    $referenced_entities = array_filter(
+      $field_list->referencedEntities(),
+      function (EntityInterface $entity) {
+        return (bool) $this->resourceTypeRepository->get(
+          $entity->getEntityTypeId(),
+          $entity->bundle()
+        );
+      }
+    );
+    foreach ($referenced_entities as $referenced_entity) {
       $collection_data[$referenced_entity->id()] = static::getEntityAndAccess($referenced_entity);
       $cacheable_metadata->addCacheableDependency($referenced_entity);
     }
@@ -393,11 +417,51 @@ class EntityResource {
    */
   public function getRelationship(EntityInterface $entity, $related_field, Request $request, $response_code = 200) {
     $related_field = $this->resourceType->getInternalName($related_field);
-    if (!($field_list = $entity->get($related_field)) || !$this->isRelationshipField($field_list)) {
-      throw new NotFoundHttpException(sprintf('The relationship %s is not present in this resource.', $related_field));
-    }
+    $field_list = $entity->get($related_field);
+    $this->validateReferencedResource($field_list, $related_field);
     $response = $this->buildWrappedResponse($field_list, $response_code);
     return $response;
+  }
+
+  /**
+   * Validates that the referenced field points to an enabled resource.
+   *
+   * @param \Drupal\Core\Field\EntityReferenceFieldItemListInterface $field_list
+   *   The field list with the reference.
+   * @param string $related_field
+   *   The internal name of the related field.
+   *
+   * @throws \Symfony\Component\HttpKernel\Exception\NotFoundHttpException
+   *   If the field is not a reference or the target resource is disabled.
+   */
+  protected function validateReferencedResource(EntityReferenceFieldItemListInterface $field_list, $related_field) {
+    if (!$field_list || !$this->isRelationshipField($field_list)) {
+      throw new NotFoundHttpException(sprintf('The relationship %s is not present in this resource.', $related_field));
+    }
+    // Make sure we return a 404 if the related resource is disabled for
+    // cardinality 1.
+    $is_multiple = $field_list
+      ->getDataDefinition()
+      ->getFieldStorageDefinition()
+      ->isMultiple();
+    // For multiple resource the normalizer will skip the disabled items.
+    if (!$is_multiple) {
+      /** @var \Drupal\Core\Entity\EntityInterface $referenced_entity */
+      $referenced_entity = $field_list->entity;
+      $referenced_resource_type = $this->resourceTypeRepository
+        ->get(
+          $referenced_entity->getEntityTypeId(),
+          $referenced_entity->bundle()
+        );
+      if (!$referenced_resource_type) {
+        throw new NotFoundHttpException(sprintf(
+          'Unable to find the resource for "%s:%s" on the related field "%s".',
+          $referenced_entity->getEntityTypeId(),
+          $referenced_entity->bundle(),
+          $related_field
+        ));
+      }
+    }
   }
 
   /**
@@ -415,6 +479,8 @@ class EntityResource {
    *
    * @return \Drupal\jsonapi\ResourceResponse
    *   The response.
+   *
+   * @throws \Drupal\Core\Entity\EntityStorageException
    */
   public function createRelationship(EntityInterface $entity, $related_field, $parsed_field_list, Request $request) {
     $related_field = $this->resourceType->getInternalName($related_field);
@@ -587,7 +653,7 @@ class EntityResource {
    *
    * @param string $entity_type_id
    *   The entity type for the entity query.
-   * @param \Drupal\jsonapi\Routing\Param\JsonApiParamInterface[] $params
+   * @param array $params
    *   The parameters for the query.
    *
    * @return \Drupal\Core\Entity\Query\QueryInterface
@@ -595,8 +661,38 @@ class EntityResource {
    */
   protected function getCollectionQuery($entity_type_id, $params) {
     $entity_type = $this->entityTypeManager->getDefinition($entity_type_id);
+    $entity_storage = $this->entityTypeManager->getStorage($entity_type_id);
 
-    $query = $this->queryBuilder->newQuery($entity_type, $params);
+    $query = $entity_storage->getQuery();
+
+    // Ensure that access checking is performed on the query.
+    $query->accessCheck(TRUE);
+
+    // Compute and apply an entity query condition from the filter parameter.
+    if (isset($params[Filter::KEY_NAME]) && $filter = $params[Filter::KEY_NAME]) {
+      $query->condition($filter->queryCondition($query));
+    }
+
+    // Apply any sorts to the entity query.
+    if (isset($params[Sort::KEY_NAME]) && $sort = $params[Sort::KEY_NAME]) {
+      foreach ($sort->fields() as $field) {
+        $path = $field[Sort::PATH_KEY];
+        $direction = isset($field[Sort::DIRECTION_KEY]) ? $field[Sort::DIRECTION_KEY] : 'ASC';
+        $langcode = isset($field[Sort::LANGUAGE_KEY]) ? $field[Sort::LANGUAGE_KEY] : NULL;
+        $query->sort($path, $direction, $langcode);
+      }
+    }
+
+    // Apply any pagination options to the query.
+    if (isset($params[OffsetPage::KEY_NAME])) {
+      $pagination = $params[OffsetPage::KEY_NAME];
+    }
+    else {
+      $pagination = new OffsetPage(OffsetPage::DEFAULT_OFFSET, OffsetPage::SIZE_MAX);
+    }
+    // Add one extra element to the page to see if there are more pages needed.
+    $query->range($pagination->getOffset(), $pagination->getSize() + 1);
+    $query->addMetaData('pager_size', (int) $pagination->getSize());
 
     // Limit this query to the bundle type for this resource.
     $bundle = $this->resourceType->getBundle();
@@ -614,16 +710,15 @@ class EntityResource {
    *
    * @param string $entity_type_id
    *   The entity type for the entity query.
-   * @param \Drupal\jsonapi\Routing\Param\JsonApiParamInterface[] $params
+   * @param array $params
    *   The parameters for the query.
    *
    * @return \Drupal\Core\Entity\Query\QueryInterface
    *   A new query.
    */
   protected function getCollectionCountQuery($entity_type_id, $params) {
-    // Override the pagination parameter to get all the available results.
-    $params[OffsetPage::KEY_NAME] = new JsonApiParamBase([]);
-    return $this->getCollectionQuery($entity_type_id, $params);
+    // Reset the range to get all the available results.
+    return $this->getCollectionQuery($entity_type_id, $params)->range()->count();
   }
 
   /**

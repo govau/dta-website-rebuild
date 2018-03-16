@@ -59,15 +59,16 @@ trait MetatagHelperTrait {
    *   The text to use as the body.
    *
    * @return \Drupal\node\NodeInterface
+   *   A fully formatted node object.
    */
-  function createContentTypeNode($title = 'Title test', $body = 'Body test') {
+  private function createContentTypeNode($title = 'Title test', $body = 'Body test') {
     $content_type = 'metatag_test';
     $args = [
       'type' => $content_type,
       'label' => 'Test content type',
     ];
     $this->createContentType($args);
-    
+
     $args = [
       'body' => [
         [
@@ -93,7 +94,7 @@ trait MetatagHelperTrait {
    * @return Drupal\taxonomy\Entity\Vocabulary
    *   A fully formatted vocabulary object.
    */
-  function createVocabulary(array $values = []) {
+  private function createVocabulary(array $values = []) {
     // Find a non-existent random type name.
     if (!isset($values['vid'])) {
       do {
@@ -129,13 +130,15 @@ trait MetatagHelperTrait {
    * @return Drupal\taxonomy\Entity\Term
    *   A fully formatted term object.
    */
-  function createTerm(array $values = []) {
+  private function createTerm(array $values = []) {
     // Populate defaults array.
     $values += [
-      'description' => [[
-        'value' => $this->randomMachineName(32),
-        'format' => filter_default_format(),
-      ]],
+      'description' => [
+        [
+          'value' => $this->randomMachineName(32),
+          'format' => filter_default_format(),
+        ],
+      ],
       'name' => $this->randomMachineName(8),
     ];
     $term = Term::create($values);

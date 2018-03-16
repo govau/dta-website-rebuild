@@ -1,0 +1,22 @@
+uuid: 9f113ee0-f8a0-401c-a3fa-0e261f2f53a7
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.platforms_and_services
+id: node.platforms_and_services.status
+field_name: status
+entity_type: node
+bundle: platforms_and_services
+label: Published
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

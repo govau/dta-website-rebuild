@@ -116,7 +116,7 @@ class ConfigSplitEntity extends ConfigEntityBase implements ConfigSplitEntityInt
   protected $graylist_skip_equal = TRUE;
 
   /**
-   * The weight of the configuration when spliting several folders.
+   * The weight of the configuration when splitting several folders.
    *
    * @var int
    */

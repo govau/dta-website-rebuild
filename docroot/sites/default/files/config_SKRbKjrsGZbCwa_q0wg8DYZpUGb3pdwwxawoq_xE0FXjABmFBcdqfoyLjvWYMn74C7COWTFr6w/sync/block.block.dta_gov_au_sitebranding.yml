@@ -1,0 +1,25 @@
+uuid: f962ad6e-2058-42e0-ac9b-a6592836bb59
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - dta_gov_au
+_core:
+  default_config_hash: aVyppJvEbReVQwb_QSKI-pGev94RbAWphTE8ZH9THEI
+id: dta_gov_au_sitebranding
+theme: dta_gov_au
+region: header
+weight: -1
+provider: null
+plugin: system_branding_block
+settings:
+  id: system_branding_block
+  label: 'Site branding'
+  provider: system
+  label_display: '0'
+  use_site_logo: true
+  use_site_name: true
+  use_site_slogan: true
+visibility: {  }

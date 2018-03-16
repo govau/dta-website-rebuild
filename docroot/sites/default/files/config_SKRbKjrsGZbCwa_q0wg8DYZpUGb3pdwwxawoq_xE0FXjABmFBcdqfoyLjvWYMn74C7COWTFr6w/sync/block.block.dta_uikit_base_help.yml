@@ -1,0 +1,22 @@
+uuid: 28af365f-1e8e-4316-ae8b-26480ab0f4cb
+langcode: en
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - dta_uikit_base
+_core:
+  default_config_hash: 43XxXSGorcyHA660nQmYQ7-vcj_N5QcQ44jV4A9AHd4
+id: dta_uikit_base_help
+theme: dta_uikit_base
+region: top-bar
+weight: 0
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  provider: help
+  label_display: '0'
+visibility: {  }

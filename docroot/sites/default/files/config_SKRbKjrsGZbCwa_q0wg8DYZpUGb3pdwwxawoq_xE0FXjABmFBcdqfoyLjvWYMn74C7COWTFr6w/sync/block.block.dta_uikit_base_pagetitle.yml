@@ -1,0 +1,20 @@
+uuid: 203bfc23-abc3-4386-8c37-012464675a18
+langcode: en
+status: true
+dependencies:
+  theme:
+    - dta_uikit_base
+_core:
+  default_config_hash: CsnnUgDUkyggikn46P0sW2qfGHH4zX-cTcKtaLVXDEk
+id: dta_uikit_base_pagetitle
+theme: dta_uikit_base
+region: content
+weight: -4
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  provider: core
+  label_display: '0'
+visibility: {  }

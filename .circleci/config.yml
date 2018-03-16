@@ -1,38 +1,87 @@
-# PHP CircleCI 2.0 configuration file
-#
-# Check https://circleci.com/docs/2.0/language-php/ for more details
-#
 version: 2
 jobs:
-  build:
+  test:
     docker:
-      # specify the version you desire here
-      - image: circleci/php:7.1-browsers
-
-      # Specify service dependencies here if necessary
-      # CircleCI maintains a library of pre-built images
-      # documented at https://circleci.com/docs/2.0/circleci-images/
-      # - image: circleci/mysql:9.4
-
-    working_directory: ~/repo
-
+      - image: govau/dta-website-rebuild:latest
+        # Gotcha - if you DONT specify command, then the entrypoint in the image
+        # is not run either
+        command: apache2ctl -D FOREGROUND
+        environment:
+          VCAP_SERVICES: "{\"mysql\":[{\"binding_name\":null,\"credentials\":{\"host\":\"db\",\"name\":\"drupal\",\"password\":\"password\",\"port\":3306,\"username\":\"drupal\"},\"label\":\"mysql\",\"name\": \"dta-website-rebuild-db\",\"tags\":[\"mysql\"]}],\"user-provided\":[{\"credentials\":{\"SMTP_PASSWORD\":\"password\"},\"instance_name\":\"ups-website-redev\",\"label\":\"user-provided\",\"name\":\"ups-website-redev\",\"syslog_drain_url\":\"\",\"tags\":[],\"volume_mounts\":[]},{\"binding_name\":null,\"credentials\":{\"access_key\":\"AKIAIFOO\",\"secret_key\":\"BAR\"},\"instance_name\":\"ups-aws\",\"label\":\"user-provided\",\"name\":\"ups-aws\",\"syslog_drain_url\":\"\",\"tags\":[],\"volume_mounts\":[]}]}"
+      - image: mariadb:10.2
+        environment:
+          MYSQL_DATABASE: drupal
+          MYSQL_USER: drupal
+          MYSQL_PASSWORD: password
+          MYSQL_RANDOM_ROOT_PASSWORD: "yes"
+    working_directory: /app
     steps:
+      - run: apt-get install -y libbz2-dev libpng-dev
+      - run: docker-php-ext-install bz2
+      - run: docker-php-ext-install gd
+      - run: composer self-update
       - checkout
-
-      # Download and cache dependencies
+      - run: git submodule sync
+      - run: git submodule update --init
+      - run:
+          name: "Setup hosts"
+          command: |
+            # Since we cant use extra_hosts in circle, DIY the expected host entries
+            echo "127.0.0.1      db" >> /etc/hosts
+            echo "127.0.0.1      govcms8.local" >> /etc/hosts
+      # Change the ckeditor http url to https
+      # FIXME can we just fix this  so 'composer update' doesnt clobber it once and
+      # for all??
+      # Or just set secure-http to false? https://getcomposer.org/doc/06-config.md#secure-http
+      - run: sed -i 's/http:\/\/download.ckeditor.com/https:\/\/download.ckeditor.com/g' composer.lock
+      - persist_to_workspace:
+          root: /app
+          paths:
+            - .
       - restore_cache:
           keys:
-          - v1-dependencies-{{ checksum "composer.json" }}
-          # fallback to using the latest cache if no exact match is found
-          - v1-dependencies-
-      - run: rm -rf vendor && composer install -n --prefer-dist
-
+            - composer-v1-{{ checksum "composer.lock" }}
+      - run: composer install -n --prefer-dist --no-progress
       - save_cache:
+          key: composer-v1-{{ checksum "composer.lock" }}
           paths:
-            - ./vendor
-          key: v1-dependencies-{{ checksum "composer.json" }}
-
-      # run tests! Skipping the DependencyInjection and PageManager groups as they are core issues.
-      - run: cd docroot/core && ../../vendor/bin/phpunit --testsuite=unit --exclude-group DependencyInjection,PageManager
-
-      # Deploy here.
+            - vendor
+      - run:
+          name: Install dockerize
+          command: wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz && tar -C /usr/local/bin -xzvf dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz && rm dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
+          environment:
+            DOCKERIZE_VERSION: v0.3.0
+      - run:
+          name: Wait for db to start
+          command: dockerize -wait tcp://db:3306 -timeout 1m
+      - run: ./scripts/test.sh
+      - run: ./scripts/int-test.sh
+  deploy:
+    docker:
+      - image: govau/cf-cli
+    working_directory: /app
+    steps:
+      - attach_workspace:
+          at: /app
+      - run:
+          name: Deploying to cloud.gov.au
+          command: ./scripts/deploy.sh
+workflows:
+  version: 2
+  test-and-deploy:
+    jobs:
+      - test
+      - deploy:
+          requires:
+            - test
+          filters:
+            branches:
+              only:
+                - master
+                - develop
+experimental:
+  notify:
+    branches:
+      only:
+        # - master
+        - develop

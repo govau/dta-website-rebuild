@@ -1,0 +1,7 @@
+'administer wysiwyg templates':
+  title: 'Administer WYSIWYG Templates'
+  description: 'Create, edit and delete WYSIWYG templates.'
+'import wysiwyg templates':
+  title: 'Import WYSIWYG Templates'
+  description: 'Import WYSIWYG templates from exported code.'
+  'restrict access': true

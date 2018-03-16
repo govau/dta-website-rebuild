@@ -5,6 +5,8 @@ remove_duplicates: true
 skip_untranslated: false
 batch_process_limit: 1500
 base_url: ''
+custom_links_include_images: false
+excluded_languages: []
 enabled_entity_types:
   - 'node'
   - 'taxonomy_term'

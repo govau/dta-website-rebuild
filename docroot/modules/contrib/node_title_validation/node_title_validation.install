@@ -1,0 +1,25 @@
+<?php
+
+/**
+ * @file
+ * Node title validation install.
+ */
+
+/**
+ * Converts node_title_validation_config config entity to node_title_validation.
+ */
+function node_title_validation_update_8001() {
+  $old_config = \Drupal::configFactory()->getEditable('node_title_validation_config.node_title_validation_settings');
+  $new_config = \Drupal::configFactory()->getEditable('node_title_validation.node_title_validation_settings');
+  $new_config->set('node_title_validation_config', $old_config->get('node_title_validation_config'));
+  $new_config->save();
+  $old_config->delete();
+}
+
+/*
+ * Implements hook_uninstall().
+ */
+function node_title_validation_uninstall() {
+  // Deleting the validation settings while uninstalling the module.
+  \Drupal::configFactory()->getEditable('node_title_validation.node_title_validation_settings')->delete();
+}

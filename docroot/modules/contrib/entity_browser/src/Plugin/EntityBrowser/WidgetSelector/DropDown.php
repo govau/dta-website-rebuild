@@ -19,31 +19,41 @@ class DropDown extends WidgetSelectorBase {
   /**
    * {@inheritdoc}
    */
-  public function getForm(array &$form = array(), FormStateInterface &$form_state = NULL) {
+  public function getForm(array &$form = [], FormStateInterface &$form_state = NULL) {
     // Set a wrapper container for us to replace the form on ajax call.
     $form['#prefix'] = '<div id="entity-browser-form">';
     $form['#suffix'] = '</div>';
 
-    $element['widget'] = array(
+    /** @var \Drupal\entity_browser\EntityBrowserInterface $browser */
+    $browser = $form_state->getFormObject()->getEntityBrowser();
+
+    $widget_ids = [];
+    foreach ($this->widget_ids as $widget_id => $widget_name) {
+      if ($browser->getWidget($widget_id)->access()->isAllowed()) {
+        $widget_ids[$widget_id] = $widget_name;
+      }
+    }
+
+    $element['widget'] = [
       '#type' => 'select',
-      '#options' => $this->widget_ids,
+      '#options' => $widget_ids,
       '#default_value' => $this->getDefaultWidget(),
       '#executes_submit_callback' => TRUE,
-      '#limit_validation_errors' => array(array('widget')),
+      '#limit_validation_errors' => [['widget']],
       // #limit_validation_errors only takes effect if #submit is present.
-      '#submit' => array(),
-      '#ajax' => array(
-        'callback' => array($this, 'changeWidgetCallback'),
+      '#submit' => [],
+      '#ajax' => [
+        'callback' => [$this, 'changeWidgetCallback'],
         'wrapper' => 'entity-browser-form',
-      ),
-    );
+      ],
+    ];
 
-    $element['change'] = array(
+    $element['change'] = [
       '#type' => 'submit',
       '#name' => 'change',
       '#value' => $this->t('Change'),
-      '#attributes' => array('class' => array('js-hide')),
-    );
+      '#attributes' => ['class' => ['js-hide']],
+    ];
 
     return $element;
   }

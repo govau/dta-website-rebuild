@@ -32,3 +32,27 @@ function swiftmailer_install() {
     'sender' => 'swiftmailer',
   ])->save();
 }
+
+/**
+ * Set default filter_format for HTML emails with no HTML markup.
+ */
+function swiftmailer_update_8101() {
+ Drupal::configFactory()->getEditable('swiftmailer.message')
+   ->set('filter_format', 'plain_text')
+   ->save();
+}
+
+/**
+ * Update username/password credentials configuration.
+ */
+function swiftmailer_update_8102() {
+  $config = Drupal::configFactory()->getEditable('swiftmailer.transport');
+  if (empty($config->get('smtp_credential_provider'))) {
+    $config->set('smtp_credential_provider', 'swiftmailer');
+    $config->set('smtp_credentials.swiftmailer.username', $config->get('smtp_username'));
+    $config->set('smtp_credentials.swiftmailer.password', $config->get('smtp_password'));
+    $config->clear('smtp_username');
+    $config->clear('smtp_password');
+    $config->save();
+  }
+}

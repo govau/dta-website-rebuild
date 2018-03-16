@@ -1,0 +1,269 @@
+//	Typography styles.
+
+// Baseline:
+html {
+	color: $grey-dark;
+	font-family: $font-family-base;
+	font-weight: $font-weight-normal;
+	line-height: $base-leading;
+}
+body {
+	font-family: $font-family-base;
+	font-size: 17px;
+	line-height: 1.6em;
+}
+
+// Headings:
+h1,
+.h1 {
+	font-weight: $font-weight-bold;
+}
+h2,
+.h2 {
+	font-weight: $font-weight-normal;
+	margin-bottom: 1em;
+	margin-top: 1.6em;
+}
+h3,
+.h3 {
+	font-weight: $font-weight-bold;
+}
+h4,
+h5,
+h6,
+h4,
+h5,
+h6 {
+	font-weight: $font-weight-bold;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+h4,
+h5,
+h6 {
+	small {
+		color: $grey;
+	}
+	a {
+		line-height: 1.6;
+	}
+}
+:not(.page-header) {
+	& > h1,
+	& > h2,
+	& > h3,
+	& > h4,
+	& > h5,
+	& > h6,
+	& > h4,
+	& > h5,
+	& > h6 {
+		// displayed as a subtitle style note:
+		& + small {
+			display: block;
+			margin-bottom: 1.5em;
+			margin-top: -0.5em;
+		}
+	}
+}
+
+// Base for a link:
+a {
+	color: darken( $primary-highlight, 15% );
+	&:active,
+	&:focus,
+	&:hover {
+		text-decoration: none !important;
+	}
+}
+// Your average content link (and page footer)
+body > div,
+body > main,
+body > footer {
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6,
+	h4,
+	h5,
+	h6,
+	p,
+	small,
+	ul,
+	table,
+	span,
+	div,
+	ol {
+		a {
+			border-bottom: solid 1px $primary-highlight;
+			color: $grey-dark;
+			outline: none;
+			padding: 1px;
+			text-decoration: none;
+			transition: 0.1s all ease-in-out;
+			&:hover,
+			&:focus,
+			&:active {
+				background-color: $primary-highlight;
+				color: $grey-dark;
+				text-decoration: none;
+			}
+			&[rel~='external'] {
+				&:after {
+					-webkit-font-smoothing: antialiased;
+					color: $primary-dark;
+					content: "\e164"; // External link icon
+					display: inline-block;
+					font-family: 'Glyphicons Halflings';
+					font-style: normal;
+					font-weight: $font-weight-normal;
+					line-height: 1;
+					padding-left: 5px;
+					padding-right: 2px;
+					position: relative;
+					top: 1px;
+				}
+				&:hover,
+				&:active,
+				&:focus {
+					&:after {
+						color: $grey-dark;
+					}
+				}
+			}
+
+		}
+	}
+}
+// Your average content link that's in a small tag and should be grey not 'black'
+body > div,
+body > footer {
+	small {
+		color: $grey;
+		a {
+			color: $grey;
+		}
+	}
+}
+
+// Other typography elements:
+p {
+	font-weight: $font-weight-normal;
+	max-width: $max-readable-width;	 // for readability
+}
+.alert,
+.well,
+blockquote,
+#main li {
+	max-width: $max-readable-width;	 // for readability
+}
+.jumbotron p,
+.lead {
+	font-weight: $font-weight-normal;
+	line-height: 1.5;
+}
+
+
+// Blockquotes:
+blockquote {
+	background-color: $grey-light;
+	border-left: none;
+	font-family: $font-serif;
+	padding: 20px 30px;
+	quotes: '\201C''\201D''\2018''\2019';
+	&.pullquote {
+		background-color: transparent;
+		padding: 0;
+		p {
+			text-align: center;
+		}
+		// Support: IE7 does not properly support pseudo elements `:before`/`:after`: http://caniuse.com/#feat=css-sel2
+		&::before,
+		&::after {
+			font-size: 5em;
+			margin: 0;
+			text-align: center;
+		}
+		&::after {
+			bottom: -0.5em;
+		}
+	}
+	&::before,
+	&::after {
+		color: $primary;
+		display: block;
+		font-family: $font-serif;
+		font-size: 3em;
+		height: 0;
+	}
+	&::before {
+		content: open-quote;
+		margin-left: -0.3em;
+		padding-bottom: 0.4em;
+		position: relative;
+		top: 0.1em;
+	}
+	&::after {
+		bottom: -1.2em;
+		content: close-quote;
+		margin-right: -0.3em;
+		margin-top: -0.8em;
+		padding-bottom: 1.2em;
+		position: relative;
+		text-align: right;
+	}
+	footer {
+		border-top: 1px solid $grey-light;
+	}
+	cite {
+		display: inline-block;
+		font-family: $font-sans-serif;
+		color: $grey-dark;
+		&::before {
+			color: $grey-dark;
+			content: 'Citation: ';
+			font-family: $font-sans-serif;
+			font-variant: small-caps;
+			letter-spacing: 1px;
+			text-transform: lowercase;
+		}
+	}
+	// So that nested blockquotes do not break the vertical rhythm.
+	blockquote {
+		margin-bottom: 0;
+		margin-top: 0;
+		padding-bottom: 0;
+		padding-top: 0;
+	}
+}
+q {
+	// Investigate: switching to html entities?
+	quotes: '“' '”' '‘' '’' '“' '”' '‘' '’';
+}
+cite {
+	font-family: $font-sans-serif;
+	font-style: normal;
+}
+article {
+	h1:first-of-type {
+		margin-top: 0;
+	}
+}
+
+
+.page-header {
+	border-bottom: 1px solid $grey-light;
+}
+
+.highlight-link {
+	a.highlight-link,
+	& a {
+		color: darken( $primary-highlight, 15% );
+	}
+}

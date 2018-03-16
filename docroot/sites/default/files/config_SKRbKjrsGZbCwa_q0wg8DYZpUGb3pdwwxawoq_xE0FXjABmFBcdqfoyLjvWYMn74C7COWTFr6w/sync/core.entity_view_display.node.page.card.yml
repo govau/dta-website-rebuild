@@ -1,0 +1,81 @@
+uuid: 1dc50869-b43a-45ee-b8b8-da632dcb4403
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.card
+    - field.field.node.page.field_body
+    - field.field.node.page.field_contact_module
+    - field.field.node.page.field_facebook_image
+    - field.field.node.page.field_image
+    - field.field.node.page.field_image_caption
+    - field.field.node.page.field_index_image
+    - field.field.node.page.field_introduction
+    - field.field.node.page.field_linkedin_image
+    - field.field.node.page.field_phase
+    - field.field.node.page.field_promote_to_get_help_advice
+    - field.field.node.page.field_promote_to_our_projects
+    - field.field.node.page.field_related_content
+    - field.field.node.page.field_related_content_heading
+    - field.field.node.page.field_review_date
+    - field.field.node.page.field_summary
+    - field.field.node.page.field_twitter_image
+    - node.type.page
+  module:
+    - ds
+    - panelizer
+    - user
+third_party_settings:
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
+  ds:
+    layout:
+      id: ds_1col
+      library: null
+      disable_css: false
+      entity_classes: all_classes
+      settings:
+        wrappers:
+          ds_content: div
+        outer_wrapper: div
+        attributes: ''
+        link_attribute: ''
+        link_custom: ''
+        classes:
+          layout_class: {  }
+    regions:
+      ds_content:
+        - 'dynamic_token_field:node-related_content_card'
+    fields:
+      'dynamic_token_field:node-related_content_card':
+        plugin_id: 'dynamic_token_field:node-related_content_card'
+        weight: 0
+        label: hidden
+        formatter: default
+id: node.page.card
+targetEntityType: node
+bundle: page
+mode: card
+content: {  }
+hidden:
+  content_moderation_control: true
+  field_body: true
+  field_contact_module: true
+  field_facebook_image: true
+  field_image: true
+  field_image_caption: true
+  field_index_image: true
+  field_introduction: true
+  field_linkedin_image: true
+  field_phase: true
+  field_promote_to_get_help_advice: true
+  field_promote_to_our_projects: true
+  field_related_content: true
+  field_related_content_heading: true
+  field_review_date: true
+  field_summary: true
+  field_twitter_image: true
+  links: true

@@ -1,0 +1,29 @@
+uuid: 7d728ed8-19ab-43f1-ac55-58553644cd39
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_phase
+    - node.type.page
+    - taxonomy.vocabulary.phase
+id: node.page.field_phase
+field_name: field_phase
+entity_type: node
+bundle: page
+label: Phase
+description: 'Select which phase of development this item belongs to. Note that items can be in any phase and still be ''published'' or ''unpublished''.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      phase: phase
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

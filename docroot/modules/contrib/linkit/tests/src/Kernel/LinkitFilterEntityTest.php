@@ -74,7 +74,7 @@ class LinkitFilterEntityTest extends LinkitKernelTestBase {
    */
   public function testFilterEntityTranslations() {
     // Create an entity and add translations to that.
-    /** @var EntityTestMul $entity */
+    /** @var \Drupal\entity_test\Entity\EntityTestMul $entity */
     $entity = EntityTestMul::create(['name' => $this->randomMachineName()]);
     $entity->addTranslation('sv', ['name' => $this->randomMachineName(), 'langcode' => 'sv']);
     $entity->addTranslation('da', ['name' => $this->randomMachineName(), 'langcode' => 'da']);

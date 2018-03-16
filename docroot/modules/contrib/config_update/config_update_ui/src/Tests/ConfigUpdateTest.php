@@ -106,6 +106,11 @@ class ConfigUpdateTest extends WebTestBase {
     $this->assertText('Testing profile');
     $this->assertDrushReports('profile', '', [], [], [], array_keys($inactive));
 
+    // Verify that the user search page cannot be imported (because it already
+    // exists).
+    $this->drupalGet('admin/config/development/configuration/report/import/search_page/user_search');
+    $this->assertResponse(404);
+
     // Delete the user search page from the search UI and verify report for
     // both the search page config type and user module.
     $this->drupalGet('admin/config/search/pages');
@@ -130,10 +135,19 @@ class ConfigUpdateTest extends WebTestBase {
         'views.view.who_s_online',
       ], ['changed']);
 
+    // Verify that the user search page cannot be reverted (because it does
+    // not already exist).
+    $this->drupalGet('admin/config/development/configuration/report/revert/search_page/user_search');
+    $this->assertResponse(404);
+    // Verify that the delete URL doesn't work either.
+    $this->drupalGet('admin/config/development/configuration/report/delete/search_page/user_search');
+    $this->assertResponse(404);
+
     // Use the import link to get it back. Do this from the search page
     // report to make sure we are importing the right config.
     $this->drupalGet('admin/config/development/configuration/report/type/search_page');
     $this->clickLink('Import from source');
+    $this->drupalPostForm(NULL, [], 'Import');
     $this->assertText('The configuration was imported');
     $this->assertNoReport();
     $this->drupalGet('admin/config/development/configuration/report/type/search_page');
@@ -277,6 +291,7 @@ class ConfigUpdateTest extends WebTestBase {
     $this->assertText('cannot be undone');
     $this->drupalPostForm(NULL, [], 'Delete');
     $this->assertText('The configuration was deleted');
+
     // And verify the report again.
     $this->drupalGet('admin/config/development/configuration/report/type/search_page');
     $this->assertReport('Search page', [], [], [], []);

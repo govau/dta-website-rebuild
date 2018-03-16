@@ -1,0 +1,52 @@
+uuid: bef7106c-de4f-4356-9e8d-6075c8b7c090
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.node_teaser_block
+    - field.field.block_content.node_teaser_block.field_content
+  module:
+    - ds
+id: block_content.node_teaser_block.default
+targetEntityType: block_content
+bundle: node_teaser_block
+mode: default
+content:
+  field_content:
+    weight: 1
+    label: hidden
+    settings:
+      view_mode: home_page
+      link: false
+    third_party_settings:
+      ds:
+        ft:
+          id: expert
+          settings:
+            lb: ''
+            prefix: ''
+            lbw-el: ''
+            lbw-cl: ''
+            lbw-at: ''
+            ow-el: ''
+            ow-cl: ''
+            ow-at: ''
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fi-el: ''
+            fi-cl: ''
+            fi-at: ''
+            suffix: ''
+            lbw: false
+            lb-col: false
+            ow: false
+            ow-def-at: false
+            ow-def-cl: false
+            fis: false
+            fis-def-at: false
+            fi: false
+            fi-def-at: false
+    type: entity_reference_entity_view
+    region: content
+hidden: {  }

@@ -124,13 +124,13 @@ class WebformSubmissionGenerate implements WebformSubmissionGenerateInterface {
 
       $limit = 3;
       if (isset($element['#multiple'])) {
-        // #multiple: FALSE is only applicable to webform_composite element.
+        // #multiple: FALSE is only applicable to webform_custom_composite element.
         // @see \Drupal\webform\Plugin\WebformElement\WebformComposite
         if ($element['#multiple'] === FALSE) {
           $limit = 1;
         }
         elseif ($element['#multiple'] > 1 && $element['#multiple'] < 3) {
-          $limit =  $element['#multiple'];
+          $limit = $element['#multiple'];
         }
       }
 

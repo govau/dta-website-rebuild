@@ -1,0 +1,19 @@
+uuid: 3473e9e2-9a53-41df-b14c-15c7c84612c7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_related_content_heading
+    - node.type.page
+id: node.page.field_related_content_heading
+field_name: field_related_content_heading
+entity_type: node
+bundle: page
+label: 'Related content heading'
+description: 'Add a heading for the ''Related content''. If you leave this empty, no heading will be shown.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

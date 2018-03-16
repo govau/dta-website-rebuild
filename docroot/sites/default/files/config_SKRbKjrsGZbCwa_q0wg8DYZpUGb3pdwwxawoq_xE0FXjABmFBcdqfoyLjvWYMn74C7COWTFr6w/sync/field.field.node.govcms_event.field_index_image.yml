@@ -1,0 +1,57 @@
+uuid: 8111a286-acff-44b7-839f-3adc8f55cc22
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_index_image
+    - node.type.govcms_event
+  module:
+    - filefield_paths
+    - image
+third_party_settings:
+  filefield_paths:
+    enabled: true
+    file_path:
+      value: images/index
+      options:
+        slashes: false
+        pathauto: false
+        transliterate: false
+    redirect: false
+    retroactive_update: false
+    active_updating: false
+    file_name:
+      value: '[file:ffp-name-only-original].[file:ffp-extension-original]'
+      options:
+        slashes: false
+        pathauto: false
+        transliterate: false
+id: node.govcms_event.field_index_image
+field_name: field_index_image
+entity_type: node
+bundle: govcms_event
+label: 'Index image'
+description: 'The index image is used on content listings.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'png gif jpg jpeg'
+  max_filesize: '1 MB'
+  max_resolution: 450x300
+  min_resolution: 300x200
+  alt_field: true
+  alt_field_required: true
+  title_field: false
+  title_field_required: false
+  default_image:
+    uuid: ''
+    alt: ''
+    title: ''
+    width: null
+    height: null
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: image

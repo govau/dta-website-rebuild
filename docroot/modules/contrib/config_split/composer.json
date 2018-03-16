@@ -26,5 +26,12 @@
   "license": "GPL-2.0+",
   "require": {
     "drupal/config_filter": "*"
+  },
+  "extra": {
+    "drush": {
+      "services": {
+        "drush.services.yml": "^9"
+      }
+    }
   }
 }

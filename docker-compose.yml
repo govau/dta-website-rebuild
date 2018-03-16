@@ -1,0 +1,25 @@
+version: '3.1'
+services:
+  db:
+    image: mysql
+    volumes:
+    - mysql-data-volume:/var/lib/mysql
+    environment:
+      MYSQL_DATABASE: drupal
+      MYSQL_USER: drupal
+      MYSQL_PASSWORD: password
+      MYSQL_RANDOM_ROOT_PASSWORD: "yes"
+    restart: always
+  drupal:
+    image: govau/dta-website-rebuild
+    ports:
+    - "8080:80"
+    links:
+    - db
+    restart: always
+    volumes:
+    - .:/app
+    environment:
+      VCAP_SERVICES: "{\"mysql\":[{\"binding_name\":null,\"credentials\":{\"host\":\"db\",\"name\":\"drupal\",\"password\":\"password\",\"port\":3306,\"username\":\"drupal\"},\"label\":\"mysql\",\"name\": \"dta-website-rebuild-db\",\"tags\":[\"mysql\"]}],\"user-provided\":[{\"credentials\":{\"SMTP_PASSWORD\":\"password\"},\"instance_name\":\"ups-website-redev\",\"label\":\"user-provided\",\"name\":\"ups-website-redev\",\"syslog_drain_url\":\"\",\"tags\":[],\"volume_mounts\":[]},{\"binding_name\":null,\"credentials\":{\"access_key\":\"AKIAIFOO\",\"secret_key\":\"BAR\"},\"instance_name\":\"ups-aws\",\"label\":\"user-provided\",\"name\":\"ups-aws\",\"syslog_drain_url\":\"\",\"tags\":[],\"volume_mounts\":[]}]}"
+volumes:
+  mysql-data-volume:

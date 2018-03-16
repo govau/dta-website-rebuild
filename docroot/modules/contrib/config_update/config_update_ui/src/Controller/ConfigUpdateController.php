@@ -113,26 +113,6 @@ class ConfigUpdateController extends ControllerBase {
   }
 
   /**
-   * Imports configuration from a module, theme, or profile.
-   *
-   * Configuration is assumed not to currently exist.
-   *
-   * @param string $config_type
-   *   The type of configuration.
-   * @param string $config_name
-   *   The name of the config item, without the prefix.
-   *
-   * @return \Symfony\Component\HttpFoundation\RedirectResponse
-   *   Redirects to the updates report.
-   */
-  public function import($config_type, $config_name) {
-    $this->configRevert->import($config_type, $config_name);
-
-    drupal_set_message($this->t('The configuration was imported.'));
-    return $this->redirect('config_update_ui.report');
-  }
-
-  /**
    * Shows the diff between active and provided configuration.
    *
    * @param string $config_type

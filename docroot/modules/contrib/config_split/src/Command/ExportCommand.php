@@ -39,7 +39,7 @@ class ExportCommand extends SplitCommandBase {
     $this->setupIo($input, $output);
     try {
       // Make the magic happen.
-      $this->cliService->ioExport($input->getOption('split'), $this->getIo(), [$this, 't']);
+      $this->cliService->ioExport($input->getOption('split'), $this->getIo(), [$this, 't'], $input->getOption('yes'));
     }
     catch (\Exception $e) {
       $this->getIo()->error($e->getMessage());

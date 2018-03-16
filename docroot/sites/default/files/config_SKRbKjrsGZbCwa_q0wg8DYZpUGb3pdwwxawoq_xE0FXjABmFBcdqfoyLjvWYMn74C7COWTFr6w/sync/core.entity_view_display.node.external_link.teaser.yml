@@ -1,0 +1,22 @@
+uuid: f028c269-055b-44f8-8d0e-77d2daf8345c
+langcode: en
+status: false
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.external_link.field_external_link
+    - field.field.node.external_link.field_summary
+    - node.type.external_link
+  module:
+    - user
+id: node.external_link.teaser
+targetEntityType: node
+bundle: external_link
+mode: teaser
+content:
+  links:
+    weight: 100
+    region: content
+hidden:
+  field_external_link: true
+  field_summary: true

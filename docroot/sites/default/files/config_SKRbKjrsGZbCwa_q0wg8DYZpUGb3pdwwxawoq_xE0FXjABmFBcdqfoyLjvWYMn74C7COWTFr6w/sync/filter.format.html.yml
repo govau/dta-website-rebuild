@@ -1,0 +1,19 @@
+uuid: 51608405-d5c8-430f-97f7-5c830adb3c90
+langcode: en
+status: true
+dependencies:
+  module:
+    - toc_filter
+name: HTML
+format: html
+weight: 0
+filters:
+  toc_filter:
+    id: toc_filter
+    provider: toc_filter
+    status: false
+    weight: 0
+    settings:
+      type: default
+      auto: ''
+      block: '0'

@@ -5,7 +5,6 @@ namespace Drupal\Tests\jsonapi\Kernel;
 use Drupal\Component\Serialization\Json;
 use Drupal\Core\Field\FieldStorageDefinitionInterface;
 use Drupal\file\Entity\File;
-use Drupal\jsonapi\EntityToJsonApi;
 use Drupal\jsonapi\LinkManager\LinkManager;
 use Drupal\node\Entity\Node;
 use Drupal\node\Entity\NodeType;
@@ -21,6 +20,7 @@ use Prophecy\Argument;
  * @coversDefaultClass \Drupal\jsonapi\EntityToJsonApi
  * @group jsonapi
  * @group jsonapi_serializer
+ * @group legacy
  */
 class EntityToJsonApiTest extends JsonapiKernelTestBase {
 

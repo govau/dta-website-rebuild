@@ -1,0 +1,68 @@
+// Variables.
+
+// Primary colours:
+$primary-lighter:				#F2FBFD;							 // very light blue, used as a more subtle background colour
+$primary-light:					#dff4f8;							 // light blue, used as a background colour
+$primary-bright:				#5bcbe3;							 // like $primary-highlight, but a little more subtle
+$primary-highlight:			#00bfe9;							 // 'Spiro Disco Ball' blue, awesome colour name, used as a highlight
+$primary-alt:						#27798b;							 // as above but for use on bgs like $primary-light
+$primary:								#146577;							 // the favourite
+$primary-dark:					#115361;							 // as above but darker
+$primary-darker:				#043751;							 // as above but super dark, use sparingly
+
+// Four shades of grey:
+$grey-light:						#f0f3f5;							 // faint background colour
+$grey-border:						#bbb;									 // a lighter grey mainly for borders for borders
+$grey-medium:						#8b8b8b;							 // lightest a11y compliant for large text
+$grey:									#6e6e6e;							 // lightest a11y compliant body text
+$grey-dark:							#313131;							 // near black text
+$grey-black:						#212121;							 // near black text
+
+// Status colours
+$success:								#007554;							 // done
+$info:									$primary-highlight;		 // highlight
+$info-dark:							darken($info, 15%);		 // highlight
+$danger:								#cc0000;							 // error
+$warning:								#f9c642;							 // warning
+$warning-dark:					#b75a00;							 // warning-ish colour that actually meets a11y (4.7)
+$beta:									#880e48;							 // used for 'beta' label in their example
+$alpha:									$grey-dark;						 // used for 'alpha' label in their example
+
+// Used only in header background gradient:
+$gradient-angle:				200deg;
+$gradient-light:				mix($primary-dark, $primary-highlight, 55%);
+$gradient-dark:					$primary-darker;
+
+// Border radius options:
+$radius-small:					1px;										// .wells etc
+$radius:								3px;										// default
+$radius-large:					($radius * 4);					// for labels
+
+// Sizing
+$checkbox-size:					1.6em;
+$max-readable-width:		48em;										// for better readability
+
+// Font families:
+$font-serif:						'Book Antiqua', Georgia, 'Bitstream Vera Serif', serif;
+$font-sans-serif:				'Open Sans', Verdana, 'Bitstream Vera Sans', sans-serif;
+$font-monospace:				'Lucida Sans Typewriter', 'Lucida Console', Monaco, 'Bitstream Vera Sans Mono', monospace;
+$font-family-base:			$font-sans-serif;
+
+// Using system fonts:
+// https://www.smashingmagazine.com/2015/11/using-system-ui-fonts-practical-guide/
+$font-sans-serif-system: -apple-system, BlinkMacSystemFont,
+												 'Segoe UI', 'Roboto', 'Oxygen',
+												 'Ubuntu', 'Cantarell', 'Fira Sans',
+												 'Droid Sans', 'Helvetica Neue', 'Open Sans', sans-serif;
+// I like the idea but can't bring myself to add yet another inconsistancy just yet..
+// $font-family-base:		$font-sans-serif-system;
+
+// Font weights:
+$font-weight-normal:		400;
+$font-weight-bold:			700;
+
+// Leading/line-height:
+$base-leading:					1.6;
+$base-heading-leading:	1.4;
+$small-leading:					1.2;
+$double-leading:			 	2;

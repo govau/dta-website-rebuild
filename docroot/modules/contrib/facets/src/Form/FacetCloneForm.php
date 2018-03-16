@@ -71,7 +71,7 @@ class FacetCloneForm extends EntityForm {
 
     if (strpos($facet->getFacetSourceId(), 'search_api:') === FALSE) {
       // We don't know how to clone other kinds of facets.
-      drupal_set_message('We can only clone Search API based facets.');
+      drupal_set_message($this->t('We can only clone Search API based facets.'));
       return [];
     }
 
@@ -153,7 +153,7 @@ class FacetCloneForm extends EntityForm {
     drupal_set_message($this->t('Facet cloned to :label', [':label' => $facet->label()]));
 
     // Redirect the user to the view admin form.
-    $form_state->setRedirectUrl($this->entity->toUrl('edit-form'));
+    $form_state->setRedirectUrl($facet->toUrl('edit-form'));
   }
 
 }

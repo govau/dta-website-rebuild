@@ -2,10 +2,19 @@
 
 namespace Drupal\Tests\facets\Unit\Plugin\query_type;
 
+use Drupal\Core\DependencyInjection\ContainerBuilder;
 use Drupal\facets\Entity\Facet;
+use Drupal\facets\FacetInterface;
+use Drupal\facets\Plugin\facets\processor\GranularItemProcessor;
 use Drupal\facets\Plugin\facets\query_type\SearchApiGranular;
+use Drupal\facets\Processor\ProcessorPluginManager;
+use Drupal\search_api\Backend\BackendInterface;
+use Drupal\search_api\IndexInterface;
+use Drupal\facets\Result\ResultInterface;
 use Drupal\search_api\Plugin\views\query\SearchApiQuery;
+use Drupal\search_api\ServerInterface;
 use Drupal\Tests\UnitTestCase;
+use Prophecy\Argument;
 
 /**
  * Unit test for granular query type.
@@ -15,22 +24,53 @@ use Drupal\Tests\UnitTestCase;
 class SearchApiGranularTest extends UnitTestCase {
 
   /**
+   * {@inheritdoc}
+   */
+  public function setUp() {
+    parent::setUp();
+
+    $processor_id = 'granularity_item';
+    $processor_definitions = [
+      $processor_id => [
+        'id' => $processor_id,
+        'class' => GranularItemProcessor::class,
+      ],
+    ];
+
+    $granularityProcessor = new GranularItemProcessor(['granularity' => 10], 'granularity_item', []);
+
+    $processor_manager = $this->prophesize(ProcessorPluginManager::class);
+    $processor_manager->getDefinitions()->willReturn($processor_definitions);
+    $processor_manager->createInstance('granularity_item', Argument::any())
+      ->willReturn($granularityProcessor);
+
+    $container = new ContainerBuilder();
+    $container->set('plugin.manager.facets.processor', $processor_manager->reveal());
+    \Drupal::setContainer($container);
+  }
+
+  /**
    * Tests string query type without executing the query with an "AND" operator.
    */
   public function testQueryTypeAnd() {
-    $query = new SearchApiQuery([], 'search_api_query', []);
-    $facetReflection = new \ReflectionClass('Drupal\facets\Entity\Facet');
+    $backend = $this->prophesize(BackendInterface::class);
+    $backend->getSupportedFeatures()->willReturn([]);
+    $server = $this->prophesize(ServerInterface::class);
+    $server->getBackend()->willReturn($backend);
+    $index = $this->prophesize(IndexInterface::class);
+    $index->getServerInstance()->willReturn($server);
+    $query = $this->prophesize(SearchApiQuery::class);
+    $query->getIndex()->willReturn($index);
+
     $facet = new Facet(
       ['query_operator' => 'AND', 'widget' => 'links'],
       'facets_facet'
     );
-    $widget = $this->getMockBuilder('Drupal\facets\Widget\WidgetPluginInterface')
-      ->disableOriginalConstructor()
-      ->getMock();
-    $widget->method('getConfiguration')->will($this->returnValue(['granularity' => 10]));
-    $widget_instance = $facetReflection->getProperty('widgetInstance');
-    $widget_instance->setAccessible(TRUE);
-    $widget_instance->setValue($facet, $widget);
+    $facet->addProcessor([
+      'processor_id' => 'granularity_item',
+      'weights' => [],
+      'settings' => ['granularity' => 10],
+    ]);
 
     // Results for the widget.
     $original_results = [
@@ -49,7 +89,7 @@ class SearchApiGranularTest extends UnitTestCase {
     $query_type = new SearchApiGranular(
       [
         'facet' => $facet,
-        'query' => $query,
+        'query' => $query->reveal(),
         'results' => $original_results,
       ],
       'search_api_string',
@@ -57,13 +97,13 @@ class SearchApiGranularTest extends UnitTestCase {
     );
 
     $built_facet = $query_type->build();
-    $this->assertInstanceOf('\Drupal\facets\FacetInterface', $built_facet);
+    $this->assertInstanceOf(FacetInterface::class, $built_facet);
 
     $results = $built_facet->getResults();
     $this->assertInternalType('array', $results);
 
     foreach ($grouped_results as $k => $result) {
-      $this->assertInstanceOf('\Drupal\facets\Result\ResultInterface', $results[$k]);
+      $this->assertInstanceOf(ResultInterface::class, $results[$k]);
       $this->assertEquals($result['count'], $results[$k]->getCount());
       $this->assertEquals($result['filter'], $results[$k]->getDisplayValue());
     }
@@ -86,7 +126,7 @@ class SearchApiGranularTest extends UnitTestCase {
     );
 
     $built_facet = $query_type->build();
-    $this->assertInstanceOf('\Drupal\facets\FacetInterface', $built_facet);
+    $this->assertInstanceOf(FacetInterface::class, $built_facet);
 
     $results = $built_facet->getResults();
     $this->assertInternalType('array', $results);

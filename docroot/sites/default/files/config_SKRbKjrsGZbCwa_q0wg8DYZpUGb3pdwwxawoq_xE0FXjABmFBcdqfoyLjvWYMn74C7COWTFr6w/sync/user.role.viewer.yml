@@ -1,0 +1,15 @@
+uuid: e641e5f1-74db-4f9b-a4a3-baac10478c46
+langcode: en
+status: true
+dependencies: {  }
+id: viewer
+label: Viewer
+weight: -5
+is_admin: null
+permissions:
+  - 'access comments'
+  - 'access content'
+  - 'access site in maintenance mode'
+  - 'use search_api_autocomplete for search'
+  - 'view disqus comments'
+  - 'view search api pages'

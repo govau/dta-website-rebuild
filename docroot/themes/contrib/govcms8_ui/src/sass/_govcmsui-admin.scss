@@ -1,0 +1,18 @@
+// tidy  up on login page
+#user-login {
+  margin-top: 2em;
+  .form-item {
+    margin-bottom: 1.5em;
+  }
+}
+
+// Seperate the alert boxes from the highlighted-top
+#main > .col-md-12 > .alert {
+  margin-top: 1em;
+}
+
+.primary-tabs {
+  & > li {
+    margin: 0px 1em;
+  }
+}

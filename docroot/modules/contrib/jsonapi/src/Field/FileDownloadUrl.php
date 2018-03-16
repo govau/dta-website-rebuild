@@ -4,6 +4,7 @@ namespace Drupal\jsonapi\Field;
 
 use Drupal\Core\Field\FieldItemList;
 use Drupal\Core\Session\AccountInterface;
+use Drupal\Core\StreamWrapper\StreamWrapperInterface;
 
 /**
  * @internal
@@ -24,7 +25,14 @@ class FileDownloadUrl extends FieldItemList {
    *   The transformed relative URL.
    */
   protected function fileCreateRootRelativeUrl($uri) {
-    return file_url_transform_relative(file_create_url($uri));
+    $wrapper = \Drupal::service('stream_wrapper_manager')->getViaUri($uri);
+    if ($wrapper && ($wrapper->getType() & StreamWrapperInterface::VISIBLE)) {
+      return file_url_transform_relative(file_create_url($uri));
+    }
+
+    // For testing purposes, return the $uri when the scheme is not a wrapper or
+    // not visible.
+    return $uri;
   }
 
   /**

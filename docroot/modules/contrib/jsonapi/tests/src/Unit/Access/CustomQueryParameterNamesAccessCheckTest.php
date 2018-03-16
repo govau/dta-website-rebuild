@@ -31,6 +31,9 @@ class CustomQueryParameterNamesAccessCheckTest extends \PHPUnit_Framework_TestCa
     }
   }
 
+  /**
+   * Data provider for testAccess.
+   */
   public function providerTestAccess() {
     $data = [];
 

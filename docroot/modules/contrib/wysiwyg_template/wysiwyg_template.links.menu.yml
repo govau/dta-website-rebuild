@@ -1,0 +1,7 @@
+wysiwyg_template.collection:
+  route_name: entity.wysiwyg_template.collection
+  title: 'WYSIWYG templates'
+  weight: 10
+  description: 'Create and modify WYSIWYG templates'
+  parent: system.admin_config_content
+

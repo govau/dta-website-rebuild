@@ -1,0 +1,299 @@
+uuid: 62c994e2-a367-41e5-bd6e-dd2a24090a6b
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.full
+    - field.field.node.news_item.field_body
+    - field.field.node.news_item.field_date
+    - field.field.node.news_item.field_facebook_image
+    - field.field.node.news_item.field_image
+    - field.field.node.news_item.field_image_caption
+    - field.field.node.news_item.field_index_image
+    - field.field.node.news_item.field_introduction
+    - field.field.node.news_item.field_linkedin_image
+    - field.field.node.news_item.field_summary
+    - field.field.node.news_item.field_tags
+    - field.field.node.news_item.field_twitter_image
+    - node.type.news_item
+  module:
+    - datetime
+    - ds
+    - field_group
+    - panelizer
+    - responsive_image
+    - text
+    - user
+third_party_settings:
+  ds:
+    layout:
+      id: layout_onecol
+      library: layout_discovery/onecol
+      disable_css: false
+      entity_classes: all_classes
+      settings: {  }
+    regions:
+      content:
+        - content_moderation_control
+        - group_p
+        - field_tags
+        - field_date
+        - field_introduction
+        - group_figure
+        - field_body
+        - 'dynamic_token_field:node-media_contact'
+        - field_image
+        - field_image_caption
+    fields:
+      'dynamic_token_field:node-media_contact':
+        plugin_id: 'dynamic_token_field:node-media_contact'
+        weight: 6
+        label: hidden
+        formatter: default
+        ft:
+          id: expert
+          settings:
+            lb: ''
+            prefix: ''
+            lbw-el: ''
+            lbw-cl: ''
+            lbw-at: ''
+            ow: true
+            ow-el: div
+            ow-cl: au-media-contact
+            ow-at: ''
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fi-el: ''
+            fi-cl: ''
+            fi-at: ''
+            suffix: ''
+            lbw: false
+            lb-col: false
+            ow-def-at: false
+            ow-def-cl: false
+            fis: false
+            fis-def-at: false
+            fi: false
+            fi-def-at: false
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
+  field_group:
+    group_p:
+      children:
+        - field_date
+      parent_name: ''
+      weight: 1
+      format_type: html_element
+      format_settings:
+        id: ''
+        classes: ''
+        element: p
+        show_label: false
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
+      label: 'Author and date'
+      region: content
+    group_figure:
+      children:
+        - field_image
+        - field_image_caption
+      parent_name: ''
+      weight: 4
+      format_type: html_element
+      format_settings:
+        label: 'Image and caption'
+        element: figure
+        show_label: false
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
+        id: ''
+        classes: au-hero
+      label: 'Image and caption'
+      region: content
+id: node.news_item.full
+targetEntityType: node
+bundle: news_item
+mode: full
+content:
+  content_moderation_control:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_body:
+    type: text_default
+    weight: 5
+    region: content
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+  field_date:
+    weight: 2
+    label: hidden
+    settings:
+      timezone_override: ''
+      date_format: 'M j, Y'
+    third_party_settings:
+      ds:
+        ft:
+          id: expert
+          settings:
+            lb: ''
+            prefix: ''
+            lbw-el: ''
+            lbw-cl: ''
+            lbw-at: ''
+            ow-el: ''
+            ow-cl: ''
+            ow-at: ''
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fi: true
+            fi-el: p
+            fi-cl: au-date
+            fi-at: ''
+            suffix: ''
+            lbw: false
+            lb-col: false
+            ow: false
+            ow-def-at: false
+            ow-def-cl: false
+            fis: false
+            fis-def-at: false
+            fi-def-at: false
+    type: datetime_custom
+    region: content
+  field_image:
+    type: responsive_image
+    weight: 16
+    region: content
+    label: hidden
+    settings:
+      responsive_image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+  field_image_caption:
+    type: string
+    weight: 17
+    region: content
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings:
+      ds:
+        ft:
+          id: expert
+          settings:
+            lb: Caption
+            prefix: ''
+            lbw: true
+            lbw-el: span
+            lbw-cl: image-caption-label
+            lbw-at: ''
+            ow: true
+            ow-el: figcaption
+            ow-cl: ''
+            ow-at: ''
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fi: true
+            fi-el: span
+            fi-cl: image-caption
+            fi-at: ''
+            suffix: ''
+            lb-col: false
+            ow-def-at: false
+            ow-def-cl: false
+            fis: false
+            fis-def-at: false
+            fi-def-at: false
+  field_introduction:
+    type: text_default
+    weight: 3
+    region: content
+    label: hidden
+    settings: {  }
+    third_party_settings:
+      ds:
+        ft:
+          id: expert
+          settings:
+            lb: ''
+            prefix: ''
+            lbw-el: ''
+            lbw-cl: ''
+            lbw-at: ''
+            ow: true
+            ow-el: div
+            ow-cl: au-introduction
+            ow-at: ''
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fi: true
+            fi-el: p
+            fi-cl: ''
+            fi-at: ''
+            suffix: ''
+            lbw: false
+            lb-col: false
+            ow-def-at: false
+            ow-def-cl: false
+            fis: false
+            fis-def-at: false
+            fi-def-at: false
+  field_tags:
+    weight: 2
+    label: inline
+    settings:
+      link: true
+    third_party_settings:
+      ds:
+        ds_limit: ''
+        ft:
+          id: expert
+          settings:
+            lb: ''
+            prefix: ''
+            lbw: true
+            lbw-el: dt
+            lbw-cl: ''
+            lbw-at: ''
+            lb-col: true
+            ow: true
+            ow-el: dl
+            ow-cl: au-tags
+            ow-at: ''
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fi: true
+            fi-el: dd
+            fi-cl: ''
+            fi-at: ''
+            suffix: ''
+            ow-def-at: false
+            ow-def-cl: false
+            fis: false
+            fis-def-at: false
+            fi-def-at: false
+    type: entity_reference_label
+    region: content
+hidden:
+  field_facebook_image: true
+  field_index_image: true
+  field_linkedin_image: true
+  field_summary: true
+  field_twitter_image: true
+  links: true

@@ -1,0 +1,22 @@
+uuid: 2b602fd0-f5cf-48c5-8045-a588bea97805
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.external_link
+id: node.external_link.status
+field_name: status
+entity_type: node
+bundle: external_link
+label: Published
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

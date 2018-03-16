@@ -23,29 +23,29 @@ class TestForm extends FormBase {
   public function buildForm(array $form, FormStateInterface $form_state) {
     $form['#tree'] = TRUE;
 
-    $form['description'] = array(
-      '#markup' => '<p>' . t('This page allows you to send a test e-mail to a recipient of your choice.') . '</p>',
-    );
+    $form['description'] = [
+      '#markup' => '<p>' . $this->t('This page allows you to send a test e-mail to a recipient of your choice.') . '</p>',
+    ];
 
-    $form['test'] = array(
+    $form['test'] = [
       '#type' => 'fieldset',
-      '#title' => t('Recipient'),
-      '#description' => '<p>' . t('You can send a test e-mail to a recipient of your choice. The e-mail will be sent using the default values as provided by the Swift Mailer module or as configured by you.') . '</p>',
-    );
+      '#title' => $this->t('Recipient'),
+      '#description' => '<p>' . $this->t('You can send a test e-mail to a recipient of your choice. The e-mail will be sent using the default values as provided by the Swift Mailer module or as configured by you.') . '</p>',
+    ];
 
-    $form['test']['recipient'] = array(
-      '#title' => t('E-mail'),
+    $form['test']['recipient'] = [
+      '#title' => $this->t('E-mail'),
       '#type' => 'textfield',
       '#required' => TRUE,
       '#default_value' => \Drupal::currentUser()->getEmail(),
-    );
+    ];
 
     $form['actions']['#type'] = 'actions';
-    $form['actions']['submit'] = array(
+    $form['actions']['submit'] = [
       '#type' => 'submit',
       '#value' => $this->t('Send'),
       '#button_type' => 'primary',
-    );
+    ];
 
     return $form;
   }
@@ -55,7 +55,7 @@ class TestForm extends FormBase {
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
     \Drupal::service('plugin.manager.mail')->mail('swiftmailer', 'test', $form_state->getValue(['test', 'recipient']), \Drupal::languageManager()->getDefaultLanguage()->getId());
-    drupal_set_message(t('An attempt has been made to send an e-mail to @email.', ['@email' => $form_state->getValue(['test', 'recipient'])]));
+    drupal_set_message($this->t('An attempt has been made to send an e-mail to @email.', ['@email' => $form_state->getValue(['test', 'recipient'])]));
   }
 
 }

@@ -7,6 +7,7 @@ use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Link;
 use Drupal\Component\Utility\Html;
+use Drupal\Core\Url;
 use Drupal\facets_summary\Entity\FacetsSummary;
 use Drupal\facets_summary\FacetsSummaryInterface;
 
@@ -103,6 +104,9 @@ class FacetListBuilder extends DraggableListBuilder {
   public function buildRow(EntityInterface $entity) {
     /** @var \Drupal\facets\FacetInterface $entity */
     $facet = $entity;
+    $facet_configs = \Drupal::entityTypeManager()
+      ->getStorage('facets_facet')
+      ->load($facet->getConfigTarget());
     $row = [
       'type' => [
         '#theme_wrappers' => [
@@ -115,7 +119,7 @@ class FacetListBuilder extends DraggableListBuilder {
       ],
       'title' => [
         '#type' => 'link',
-        '#title' => $facet->label(),
+        '#title' => $facet_configs->get('name'),
         '#suffix' => '<div>' . $entity->getFieldAlias() . ' - ' . $facet->getWidget()['type'] . '</div>',
         '#attributes' => [
           'class' => ['search-api-title'],
@@ -255,7 +259,7 @@ class FacetListBuilder extends DraggableListBuilder {
         'subgroup' => $subgroup_class,
       ];
       $form['facets'][$facet_source_group['facet_source']['id']] = $this->buildFacetSourceRow($facet_source_group['facet_source']);
-      foreach ($facet_source_group['facets'] as $i => $facet) {
+      foreach ($facet_source_group['facets'] as $facet) {
         if ($facet instanceof FacetInterface) {
           $form['facets'][$facet->id()] = $this->buildRow($facet);
           $form['facets'][$facet->id()]['weight']['#attributes']['class'][] = $subgroup_class;
@@ -290,7 +294,14 @@ class FacetListBuilder extends DraggableListBuilder {
           'colspan' => 4,
         ],
       ];
-      foreach ($facet_source_group['facets'] as $i => $facet) {
+      /** @var \Drupal\facets\FacetInterface $facet */
+      foreach ($groups['lone_facets'] as $facet) {
+        // Facets core search moved into a separate project. Show a clean
+        // message to notify users how to resolve their broken facets.
+        if (substr($facet->getFacetSourceId(), 0, 16) == 'core_node_search') {
+          $project_link = Link::fromTextAndUrl('https://www.drupal.org/project/facets_core_search', Url::fromUri('https://www.drupal.org/project/facets_core_search'))->toString();
+          drupal_set_message(t('Core search facets has been moved to a separate project. You need to download and enable this module from @project_link to continue using your core search facets.', ['@project_link' => $project_link]), 'error');
+        }
         $form['facets'][$facet->id()] = $this->buildRow($facet);
         $form['facets'][$facet->id()]['weight']['#attributes']['class'][] = $subgroup_class;
       }

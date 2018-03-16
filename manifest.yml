@@ -1,9 +1,17 @@
 ---
 applications:
-- name: govcms8-test
+- name: dta-website-rebuild-test
   memory: 512M
-  instances: 1
+  disk_quota: 2G
+  instances: 2
   path: .
+  timeout: 120
   services:
-  - govcms8-test-db
+  - dta-website-db-test
+  - ups-aws
+  - ups-website-redev
   buildpack: php_buildpack
+  routes:
+  - route: dta-website-rebuild-develop.apps.y.cld.gov.au
+  env:
+    DRUPAL_UUID: "59f85df3-5f18-45dd-bf6a-40977b57a842"

@@ -465,10 +465,11 @@ class SearchApiQuery extends QueryPluginBase {
 
       // Store the results.
       if (!$skip_result_count) {
-        $view->pager->total_items = $view->total_rows = $results->getResultCount();
+        $view->pager->total_items = $results->getResultCount();
         if (!empty($view->pager->options['offset'])) {
           $view->pager->total_items -= $view->pager->options['offset'];
         }
+        $view->total_rows = $view->pager->total_items;
       }
       $view->result = [];
       if ($results->getResultItems()) {
@@ -560,7 +561,6 @@ class SearchApiQuery extends QueryPluginBase {
       foreach ($result->getFields(FALSE) as $field_id => $field) {
         if ($field->getValues()) {
           $path = $field->getCombinedPropertyPath();
-          $values[$path] = $field->getValues();
           try {
             $property = $field->getDataDefinition();
             // For configurable processor-defined properties, our Views field
@@ -570,13 +570,13 @@ class SearchApiQuery extends QueryPluginBase {
             // correctly.
             if ($property instanceof ConfigurablePropertyInterface) {
               $path .= '|' . $field_id;
-              $values[$path] = $field->getValues();
             }
           }
           catch (SearchApiException $e) {
             // If we're not able to retrieve the data definition at this point,
             // it doesn't really matter.
           }
+          $values[$path] = $field->getValues();
         }
       }
 
@@ -680,8 +680,8 @@ class SearchApiQuery extends QueryPluginBase {
   /**
    * Retrieves the parse mode.
    *
-   * @return \Drupal\search_api\ParseMode\ParseModeInterface
-   *   The parse mode.
+   * @return \Drupal\search_api\ParseMode\ParseModeInterface|null
+   *   The parse mode, or NULL if the query was aborted.
    *
    * @see \Drupal\search_api\Query\QueryInterface::getParseMode()
    */

@@ -9,6 +9,7 @@ use Drupal\node\Entity\NodeType;
 /**
  * @coversDefaultClass \Drupal\jsonapi\ResourceType\ResourceTypeRepository
  * @group jsonapi
+ * @group legacy
  */
 class ResourceTypeRepositoryTest extends KernelTestBase {
 

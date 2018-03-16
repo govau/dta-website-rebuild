@@ -1,0 +1,35 @@
+<?php
+
+/**
+ * @file
+ * Removes all variables set by module.
+ */
+
+use Drupal\node\Entity\NodeType;
+
+/**
+ * Implements hook_uninstall().
+ */
+function node_title_help_text_uninstall() {
+  $node_types = NodeType::loadMultiple();
+  foreach ($node_types as $type) {
+    $type->unsetThirdPartySetting('node_title_help_text', 'title_help');
+  }
+}
+
+/**
+ * Update title_help config to preserve previous database values.
+ */
+function node_title_help_text_update_8001() {
+  $node_types = NodeType::loadMultiple();
+  foreach ($node_types as $type) {
+    // Get value from state config
+    $name = 'node_title_help_text_' . $type->get('type') . '_title_help';
+    $title_help = \Drupal::state()->get($name) ?: NULL;
+    // Set title_help as ThirdPartySetting
+    $type->setThirdPartySetting('node_title_help_text', 'title_help', $title_help);
+    $type->save();
+    // Delete deprecated state config value
+    \Drupal::state()->delete($name);
+  }
+}

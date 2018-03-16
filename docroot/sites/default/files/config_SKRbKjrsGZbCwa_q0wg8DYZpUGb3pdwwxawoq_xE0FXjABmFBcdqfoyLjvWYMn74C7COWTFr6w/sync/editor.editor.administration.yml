@@ -1,0 +1,86 @@
+uuid: dab00346-2326-44d7-8e64-20fb6e327433
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.administration
+  module:
+    - ckeditor
+format: administration
+editor: ckeditor
+settings:
+  toolbar:
+    rows:
+      -
+        -
+          name: Formatting
+          items:
+            - JustifyLeft
+            - JustifyCenter
+            - JustifyRight
+            - Bold
+            - JustifyBlock
+            - Italic
+            - RemoveFormat
+            - Format
+            - Styles
+        -
+          name: Links
+          items:
+            - DrupalLink
+            - ImceLink
+            - DrupalUnlink
+        -
+          name: Lists
+          items:
+            - BulletedList
+            - NumberedList
+            - Indent
+            - Outdent
+        -
+          name: Media
+          items:
+            - Blockquote
+            - DrupalImage
+            - ImceImage
+            - video_embed
+        -
+          name: Tools
+          items:
+            - Source
+        -
+          name: Editing
+          items:
+            - Cut
+            - Copy
+            - Paste
+            - PasteText
+            - PasteFromWord
+        -
+          name: Structure
+          items:
+            - HorizontalRule
+            - TemplateSelector
+  plugins:
+    drupallink:
+      linkit_enabled: false
+      linkit_profile: ''
+    language:
+      language_list: un
+    stylescombo:
+      styles: ''
+    video_embed:
+      defaults:
+        children:
+          autoplay: true
+          responsive: true
+          width: '854'
+          height: '480'
+image_upload:
+  status: false
+  scheme: public
+  directory: inline-images
+  max_size: ''
+  max_dimensions:
+    width: null
+    height: null

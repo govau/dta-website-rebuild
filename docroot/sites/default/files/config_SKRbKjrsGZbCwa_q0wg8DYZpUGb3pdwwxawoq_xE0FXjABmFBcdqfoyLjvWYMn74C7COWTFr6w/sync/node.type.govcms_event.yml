@@ -1,0 +1,25 @@
+uuid: e4b322b3-94b5-412d-af46-19cf656174fb
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+    - node_title_help_text
+    - wysiwyg_template
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+  node_title_help_text:
+    title_help: 'Titles have a limit of 65 characters and must be unique. We use this text for the <title> tag, for search engine optimisation (SEO) and to build the page address (URL).'
+  wysiwyg_template:
+    default_template: ''
+_core:
+  default_config_hash: cUBx0uX7mxGIyKPF4hCVoyXEBvUpWphke9KUzC9hvVs
+name: Event
+type: govcms_event
+description: 'Use <em>Event</em> to reach your target audienc'
+help: ''
+new_revision: false
+preview_mode: 1
+display_submitted: false

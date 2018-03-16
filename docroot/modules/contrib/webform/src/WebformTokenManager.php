@@ -68,10 +68,6 @@ class WebformTokenManager implements WebformTokenManagerInterface {
       return $text;
     }
 
-    // Default all webform related tokens to be cleared.
-    // @see \webform_tokens
-    $options += ['webform_clear' => TRUE];
-
     // Replace @deprecated [webform-submission] with [webform_submission].
     $text = str_replace('[webform-submission:', '[webform_submission:', $text);
 
@@ -104,7 +100,7 @@ class WebformTokenManager implements WebformTokenManagerInterface {
           'help' => [
             '#type' => 'webform_help',
             '#help' => $description,
-          ]
+          ],
         ];
       }
       else {
@@ -113,7 +109,7 @@ class WebformTokenManager implements WebformTokenManagerInterface {
           'description' => [
             '#prefix' => ' ',
             '#markup' => $description,
-          ]
+          ],
         ];
       }
     }

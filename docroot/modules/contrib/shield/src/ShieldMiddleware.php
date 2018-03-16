@@ -46,8 +46,35 @@ class ShieldMiddleware implements HttpKernelInterface {
   public function handle(Request $request, $type = self::MASTER_REQUEST, $catch = TRUE) {
     $config = $this->configFactory->get('shield.settings');
     $allow_cli = $config->get('allow_cli');
-    $user = $config->get('user');
-    $pass = $config->get('pass');
+
+    switch ($config->get('credential_provider')) {
+      case 'shield':
+        $user = $config->get('credentials.shield.user');
+        $pass = $config->get('credentials.shield.pass');
+        break;
+      case 'key':
+        $user = $config->get('credentials.key.user');
+
+        /** @var \Drupal\Core\Entity\EntityStorageInterface $storage */
+        $storage = \Drupal::entityTypeManager()->getStorage('key');
+        /** @var \Drupal\key\KeyInterface $pass_key */
+        $pass_key = $storage->load($config->get('credentials.key.pass_key'));
+        if ($pass_key) {
+          $pass = $pass_key->getKeyValue();
+        }
+        break;
+      case 'multikey':
+        /** @var \Drupal\Core\Entity\EntityStorageInterface $storage */
+        $storage = \Drupal::entityTypeManager()->getStorage('key');
+        /** @var \Drupal\key\KeyInterface $user_pass_key */
+        $user_pass_key = $storage->load($config->get('credentials.multikey.user_pass_key'));
+        if ($user_pass_key) {
+          $values = $user_pass_key->getKeyValues();
+          $user = $values['username'];
+          $pass = $values['password'];
+        }
+        break;
+    }
 
     if ($type != self::MASTER_REQUEST || !$user || (PHP_SAPI === 'cli' && $allow_cli)) {
       // Bypass:
