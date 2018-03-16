@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "c76a407618a367f176a4a03e03afbf07",
+    "content-hash": "df79601b2f2753e7c5e9cef8a7288e8e",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -143,7 +143,7 @@
             "version": "v5.1.1",
             "source": {
                 "type": "git",
-                "url": "git@github.com:enyo/dropzone.git",
+                "url": "https://github.com/enyo/dropzone.git",
                 "reference": "7d0792d1346d83a8b0c0d2919121bdd2b8e7fee4"
             },
             "dist": {
@@ -6266,6 +6266,68 @@
             }
         },
         {
+            "name": "drupal/typogrify",
+            "version": "dev-1.x",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/typogrify",
+                "reference": "dba9d0072ee94bd231da1b0cf051893143446cbf"
+            },
+            "require": {
+                "drupal/core": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.0-alpha+1-dev",
+                    "datestamp": "1496854442",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Project has not opted into security advisory coverage!"
+                    }
+                },
+                "patches_applied": {
+                    "Invalid placeholder (version) in string": "https://www.drupal.org/files/issues/2018-03-16/2953490-invalid-placeholder-fix.patch"
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "See contributors",
+                    "homepage": "https://www.drupal.org/node/149970/committers",
+                    "role": "Developer"
+                },
+                {
+                    "name": "migmedia",
+                    "homepage": "https://www.drupal.org/user/1310354"
+                },
+                {
+                    "name": "mikl",
+                    "homepage": "https://www.drupal.org/user/58679"
+                },
+                {
+                    "name": "sreynen",
+                    "homepage": "https://www.drupal.org/user/109890"
+                }
+            ],
+            "description": "A filter for making typographic refinements.",
+            "homepage": "http://drupal.org/project/typogrify",
+            "keywords": [
+                "Drupal"
+            ],
+            "support": {
+                "source": "http://cgit.drupalcode.org/typogrify",
+                "issues": "http://drupal.org/project/typogrify"
+            },
+            "time": "2017-06-07 16:52:40"
+        },
+        {
             "name": "drupal/username_enumeration_prevention",
             "version": "1.0.0-beta1",
             "source": {
@@ -6885,7 +6947,7 @@
                 "reference": "master"
             },
             "type": "drupal-custom-theme",
-            "time": "2018-03-08 06:33:10"
+            "time": "2018-03-14 22:00:33"
         },
         {
             "name": "govau/dta-uikit-base",
@@ -13996,6 +14058,7 @@
         "drupal/s3fs": 15,
         "drupal/search_api_autocomplete": 10,
         "drupal/search_api_page": 20,
+        "drupal/typogrify": 20,
         "govau/dta-gov-au": 20,
         "govau/dta-uikit-base": 20,
         "govau/dta-uikit-base-theme": 20

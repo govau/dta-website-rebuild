@@ -176,6 +176,7 @@
         "drupal/toc_filter": "^2.0",
         "drupal/token": "1.1.0",
         "drupal/twig_tweak": "^1.9",
+        "drupal/typogrify": "1.x-dev",
         "drupal/username_enumeration_prevention": "^1.0",
         "drupal/video_embed_field": "2.0-alpha2",
         "drupal/views_menu_children_filter": "^1.0",
@@ -234,6 +235,9 @@
           },
           "drupal/swiftmailer": {
             "Unit Testing is failing on testMassageMessageBody()": "https://www.drupal.org/files/issues/2018-03-13/swiftmailer-unittest.patch"
+          },
+          "drupal/typogrify": {
+            "Invalid placeholder (version) in string": "https://www.drupal.org/files/issues/2018-03-16/2953490-invalid-placeholder-fix.patch"
           }
         }
     },
