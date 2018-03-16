@@ -144,20 +144,6 @@ processor_settings:
       preprocess_index: -20
       preprocess_query: -20
   rendered_item: {  }
-  stemmer:
-    all_fields: true
-    fields:
-      - rendered_item
-      - title
-      - field_body
-      - field_summary
-      - field_introduction
-    exceptions:
-      texan: texa
-      mexican: mexic
-    weights:
-      preprocess_index: 0
-      preprocess_query: 0
   stopwords:
     all_fields: true
     fields:
@@ -219,6 +205,40 @@ processor_settings:
     weights:
       preprocess_index: -6
       preprocess_query: -6
+  ignore_character:
+    all_fields: false
+    fields:
+      - rendered_item
+      - title
+      - field_body
+      - field_summary
+      - field_introduction
+    ignorable: '[''¿¡!?,.:;]'
+    strip:
+      character_sets:
+        Pc: Pc
+        Pd: Pd
+        Pe: Pe
+        Pf: Pf
+        Pi: Pi
+        Po: Po
+        Ps: Ps
+        Cc: 0
+        Cf: 0
+        Co: 0
+        Mc: 0
+        Me: 0
+        Mn: 0
+        Sc: 0
+        Sk: 0
+        Sm: 0
+        So: 0
+        Zl: 0
+        Zp: 0
+        Zs: 0
+    weights:
+      preprocess_index: -10
+      preprocess_query: -10
 tracker_settings:
   default:
     indexing_order: fifo
