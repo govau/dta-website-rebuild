@@ -115,6 +115,7 @@ module:
   token: 0
   toolbar: 0
   twig_tweak: 0
+  typogrify: 0
   update: 0
   user: 0
   video_embed_field: 0

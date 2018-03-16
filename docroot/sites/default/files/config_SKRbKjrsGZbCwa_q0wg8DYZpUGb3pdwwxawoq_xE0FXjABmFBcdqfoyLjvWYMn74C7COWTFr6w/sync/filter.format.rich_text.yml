@@ -8,6 +8,7 @@ dependencies:
     - htmlawed
     - linkit
     - toc_filter
+    - typogrify
     - video_embed_wysiwyg
     - wysiwyg_template_core
 _core:
@@ -39,7 +40,7 @@ filters:
     id: filter_html
     provider: filter
     status: false
-    weight: -42
+    weight: -41
     settings:
       allowed_html: '<a href hreflang id rel title class target> <em> <strong> <cite> <blockquote cite> <code> <ul type class> <ol start type> <li class> <dl> <dt> <dd> <h2 id class> <h3 id class> <h4 id class> <h5 id class> <h6 id class> <img src alt data-entity-type data-entity-uuid> <u> <s> <sup> <sub> <table id summary class> <caption> <tbody> <thead> <tfoot> <th class style> <td class style> <tr class> <p class> <div class id> <iframe> <drupal-entity data-*> <hr>'
       filter_html_help: true
@@ -54,7 +55,7 @@ filters:
     id: toc_filter
     provider: toc_filter
     status: true
-    weight: -43
+    weight: -42
     settings:
       type: default
       auto: ''
@@ -63,7 +64,7 @@ filters:
     id: editor_file_reference
     provider: editor
     status: false
-    weight: -40
+    weight: -39
     settings: {  }
   entity_embed:
     id: entity_embed
@@ -75,25 +76,25 @@ filters:
     id: filter_html_image_secure
     provider: filter
     status: false
-    weight: -37
+    weight: -36
     settings: {  }
   filter_html_escape:
     id: filter_html_escape
     provider: filter
     status: false
-    weight: -41
+    weight: -40
     settings: {  }
   filter_align:
     id: filter_align
     provider: filter
     status: false
-    weight: -39
+    weight: -38
     settings: {  }
   linkit:
     id: linkit
     provider: linkit
     status: false
-    weight: -38
+    weight: -37
     settings:
       title: true
   video_embed_wysiwyg:
@@ -116,5 +117,26 @@ filters:
     id: filter_wysiwyg_cleanup
     provider: wysiwyg_template_core
     status: false
-    weight: -36
+    weight: -35
     settings: {  }
+  TypogrifyFilter:
+    id: TypogrifyFilter
+    provider: typogrify
+    status: true
+    weight: -43
+    settings:
+      smartypants_enabled: '1'
+      smartypants_hyphens: '3'
+      space_hyphens: '1'
+      widont_enabled: '1'
+      hyphenate_shy: '0'
+      space_to_nbsp: '1'
+      wrap_caps: '1'
+      wrap_ampersand: '1'
+      wrap_abbr: '0'
+      wrap_numbers: '0'
+      wrap_initial_quotes: '1'
+      ligatures: 'a:0:{}'
+      arrows: 'a:0:{}'
+      fractions: 'a:0:{}'
+      quotes: 'a:0:{}'
