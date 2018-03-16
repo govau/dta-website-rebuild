@@ -15,17 +15,17 @@ source "$(dirname "$0")/buildrc"
 # login to cloud foundry if env vars are present
 login() {
 
-  if [[ -z "$CF_USER" ]]; then
+  if [[ -z "$CF_ORG" ]]; then
     echo "CF env vars not found, assuming you are already logged in to cf"
     return
   fi
 
   if [[ "${GIT_BRANCH}" = "master" ]]; then
     cf api $CF_PROD_API
-    cf auth $CF_USER $CF_PASSWORD_PROD
+    cf auth ci-dta-website-rebuild "$CF_PASSWORD_PROD"
   else
     cf api $CF_STAGING_API
-    cf auth $CF_USER $CF_PASSWORD_STAGING
+    cf auth ci-dta-website-redev "$CF_PASSWORD_STAGING"
   fi
 
   cf target -o $CF_ORG
@@ -40,7 +40,7 @@ main() {
 
   case "${GIT_BRANCH}" in
     master)
-      cf zero-downtime-push dta-website-rebuild -f manifest-master.yml
+      cf zero-downtime-push dta-website-rebuild -f manifest-beta.yml
       ;;
     develop)
       cf zero-downtime-push dta-website-rebuild-staging -f manifest-staging.yml

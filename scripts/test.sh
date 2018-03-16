@@ -14,24 +14,32 @@ set -x
 source "$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )/buildrc"
 
 if [ -n "$CIRCLE_BRANCH" ]; then
-  # For efficiency we only want to run certain tests against deviations from
-  # the base branch, which for now we assume is develop.
-  BASE_BRANCH=develop
-  if [[ $CIRCLE_BRANCH != $BASE_BRANCH ]] ; then
+  # Running php lint on every php file is slow, so we only want to run it against
+  # changes from the develop branch.
+  # We dont run php lint on master or develop.
+
+  if [[ $CIRCLE_BRANCH != master && $CIRCLE_BRANCH != develop ]]; then
 
     #Run php lint, but only against modified php files
-    git diff --name-only --diff-filter=M origin/${BASE_BRANCH}... -- '*.php' | xargs -n1 php -l
+    git diff --name-only --diff-filter=M origin/develop... -- '*.php' | xargs -n1 php -l
+  fi
 
-    # If anything in core has changed, run its phpunit
-    for file in $(git diff --name-only --diff-filter=M origin/${BASE_BRANCH}...); do
+  if [[ $CIRCLE_BRANCH = master || $CIRCLE_BRANCH = develop ]]; then
+    RUN_PHPUNIT=1
+  else
+    # Only run phpunit if anything in core is different to the develop branch
+    for file in $(git diff --name-only --diff-filter=d origin/develop...); do
       if [[ $file == docroot/core* ]]; then
-        pushd docroot/core
-          phpunit --testsuite=unit --exclude-group \
-            Composer,DependencyInjection,PageManager,jsonapi,legacy
-        popd
+        RUN_PHPUNIT=1
         break
       fi
     done
+  fi
 
+  if [ -n "$RUN_PHPUNIT" ]; then
+    pushd docroot/core
+      phpunit --testsuite=unit --exclude-group \
+        Composer,DependencyInjection,PageManager,jsonapi,legacy
+    popd
   fi
 fi
