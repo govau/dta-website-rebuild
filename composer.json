@@ -159,7 +159,7 @@
         "drupal/paragraphs": "^1.2",
         "drupal/password_policy": "^3.0",
         "drupal/pathauto": "^1.0",
-        "drupal/redirect": "^1.1",
+        "drupal/redirect": "^1.x-dev",
         "drupal/respondjs": "^1.1",
         "drupal/restui": "^1.15",
         "drupal/robotstxt": "^1.1",
@@ -228,6 +228,9 @@
             "drush/contrib/{$name}": ["type:drupal-drush"]
         },
         "patches": {
+          "drupal/redirect": {
+            "Unable to import configuration": "https://www.drupal.org/files/issues/redirect-catch-route-does-not-exist-2932263-15.patch"
+          },
           "drupal/node_title_validation": {
             "Unable to import configuration": "https://www.drupal.org/files/issues/2855289-7.patch",
             "Unique node title validation restricts node edit": "https://www.drupal.org/files/issues/unique_node_title-2828307-5.patch"
