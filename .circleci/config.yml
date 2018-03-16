@@ -4,8 +4,8 @@ jobs:
     docker:
       - image: govau/dta-website-rebuild:latest
         # Gotcha - if you DONT specify command, then the entrypoint in the image
-        # is not run either
-        command: apache2ctl -D FOREGROUND
+        # is not run either. But we start the application further down just before running
+        # the integration tests.
         environment:
           VCAP_SERVICES: "{\"mysql\":[{\"binding_name\":null,\"credentials\":{\"host\":\"db\",\"name\":\"drupal\",\"password\":\"password\",\"port\":3306,\"username\":\"drupal\"},\"label\":\"mysql\",\"name\": \"dta-website-rebuild-db\",\"tags\":[\"mysql\"]}],\"user-provided\":[{\"credentials\":{\"SMTP_PASSWORD\":\"password\"},\"instance_name\":\"ups-website-redev\",\"label\":\"user-provided\",\"name\":\"ups-website-redev\",\"syslog_drain_url\":\"\",\"tags\":[],\"volume_mounts\":[]},{\"binding_name\":null,\"credentials\":{\"access_key\":\"AKIAIFOO\",\"secret_key\":\"BAR\"},\"instance_name\":\"ups-aws\",\"label\":\"user-provided\",\"name\":\"ups-aws\",\"syslog_drain_url\":\"\",\"tags\":[],\"volume_mounts\":[]}]}"
       - image: mariadb:10.2
@@ -46,6 +46,7 @@ jobs:
           key: composer-v1-{{ checksum "composer.lock" }}
           paths:
             - vendor
+      - run: ./scripts/test.sh
       - run:
           name: Install dockerize
           command: wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz && tar -C /usr/local/bin -xzvf dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz && rm dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
@@ -54,7 +55,10 @@ jobs:
       - run:
           name: Wait for db to start
           command: dockerize -wait tcp://db:3306 -timeout 1m
-      - run: ./scripts/test.sh
+      - run: ./.circleci/init.sh
+      - run:
+          command: apache2ctl -D FOREGROUND
+          background: true
       - run: ./scripts/int-test.sh
   deploy:
     docker:
