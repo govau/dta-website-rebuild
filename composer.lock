@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "6d4054465789a473da522cd7e4eb5ad3",
+    "content-hash": "df79601b2f2753e7c5e9cef8a7288e8e",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1329,7 +1329,7 @@
                 "Apache-2.0"
             ],
             "description": "The official PHP client library for disqus, with added composer.json.",
-            "time": "2013-11-07T10:47:07+00:00"
+            "time": "2013-11-07 10:47:07"
         },
         {
             "name": "drupal-composer/drupal-scaffold",
@@ -3954,7 +3954,7 @@
             "support": {
                 "source": "http://cgit.drupalcode.org/link_css"
             },
-            "time": "2016-11-08T03:19:30+00:00"
+            "time": "2016-11-08 03:19:30"
         },
         {
             "name": "drupal/linkit",
@@ -5104,11 +5104,17 @@
         },
         {
             "name": "drupal/redirect",
-            "version": "dev-1.x",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/redirect",
-                "reference": "24e1c6c6155b50a4e14eb94b986b50491499d782"
+                "reference": "8.x-1.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/redirect-8.x-1.1.zip",
+                "reference": "8.x-1.1",
+                "shasum": "32916081c436ea325b51bc5b3ec840fa19857cf7"
             },
             "require": {
                 "drupal/core": "~8"
@@ -5119,15 +5125,12 @@
                     "dev-1.x": "1.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-1.1+0-dev",
-                    "datestamp": "1520897580",
+                    "version": "8.x-1.1",
+                    "datestamp": "1520897880",
                     "security-coverage": {
-                        "status": "not-covered",
-                        "message": "Dev releases are not covered by Drupal security advisories."
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
                     }
-                },
-                "patches_applied": {
-                    "Unable to import configuration": "https://www.drupal.org/files/issues/redirect-catch-route-does-not-exist-2932263-15.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -5148,8 +5151,7 @@
             "homepage": "https://www.drupal.org/project/redirect",
             "support": {
                 "source": "http://cgit.drupalcode.org/redirect"
-            },
-            "time": "2018-03-12T23:29:57+00:00"
+            }
         },
         {
             "name": "drupal/respondjs",
@@ -5469,7 +5471,7 @@
                 },
                 "drupal": {
                     "version": "8.x-1.0-rc2",
-                    "datestamp": "1521362884",
+                    "datestamp": "1519829285",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "RC releases are not covered by Drupal security advisories."
@@ -5550,7 +5552,7 @@
             "support": {
                 "source": "http://cgit.drupalcode.org/search_api_page"
             },
-            "time": "2018-03-11T13:00:40+00:00"
+            "time": "2018-03-11 13:00:40"
         },
         {
             "name": "drupal/seckit",
@@ -6323,7 +6325,7 @@
                 "source": "http://cgit.drupalcode.org/typogrify",
                 "issues": "http://drupal.org/project/typogrify"
             },
-            "time": "2017-06-07T16:52:40+00:00"
+            "time": "2017-06-07 16:52:40"
         },
         {
             "name": "drupal/username_enumeration_prevention",
@@ -6945,7 +6947,7 @@
                 "reference": "master"
             },
             "type": "drupal-custom-theme",
-            "time": "2018-03-19T02:00:29+00:00"
+            "time": "2018-03-14 22:00:33"
         },
         {
             "name": "govau/dta-uikit-base",
@@ -6956,7 +6958,7 @@
                 "reference": "master"
             },
             "type": "drupal-custom-theme",
-            "time": "2018-03-14T21:57:49+00:00"
+            "time": "2018-03-14 21:57:49"
         },
         {
             "name": "govau/dta-uikit-base-theme",
@@ -6967,7 +6969,7 @@
                 "reference": "master"
             },
             "type": "drupal-custom-theme",
-            "time": "2018-03-14T21:57:49+00:00"
+            "time": "2018-03-06 04:29:05"
         },
         {
             "name": "grasmash/yaml-expander",
@@ -14053,7 +14055,6 @@
         "drupal/entity_embed": 10,
         "drupal/filefield_paths": 10,
         "drupal/link_css": 20,
-        "drupal/redirect": 20,
         "drupal/s3fs": 15,
         "drupal/search_api_autocomplete": 10,
         "drupal/search_api_page": 20,
