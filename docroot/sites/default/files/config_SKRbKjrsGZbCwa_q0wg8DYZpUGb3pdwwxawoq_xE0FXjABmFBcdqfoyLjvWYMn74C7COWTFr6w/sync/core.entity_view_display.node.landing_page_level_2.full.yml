@@ -1,21 +1,21 @@
-uuid: abc5bd22-8500-47b7-aa91-a0b592682b73
+uuid: 36bb590e-db7c-443a-9838-f11cbe9717d3
 langcode: en
 status: true
 dependencies:
   config:
     - core.entity_view_mode.node.full
-    - field.field.node.landing_page.field_body
-    - field.field.node.landing_page.field_facebook_image
-    - field.field.node.landing_page.field_index_image
-    - field.field.node.landing_page.field_introduction
-    - field.field.node.landing_page.field_linkedin_image
-    - field.field.node.landing_page.field_promote_to_get_help_advice
-    - field.field.node.landing_page.field_promote_to_our_projects
-    - field.field.node.landing_page.field_related_content
-    - field.field.node.landing_page.field_related_content_heading
-    - field.field.node.landing_page.field_summary
-    - field.field.node.landing_page.field_twitter_image
-    - node.type.landing_page
+    - field.field.node.landing_page_level_2.field_body
+    - field.field.node.landing_page_level_2.field_facebook_image
+    - field.field.node.landing_page_level_2.field_index_image
+    - field.field.node.landing_page_level_2.field_introduction
+    - field.field.node.landing_page_level_2.field_linkedin_image
+    - field.field.node.landing_page_level_2.field_promote_to_get_help_advice
+    - field.field.node.landing_page_level_2.field_promote_to_our_projects
+    - field.field.node.landing_page_level_2.field_related_content
+    - field.field.node.landing_page_level_2.field_related_content_heading
+    - field.field.node.landing_page_level_2.field_summary
+    - field.field.node.landing_page_level_2.field_twitter_image
+    - node.type.landing_page_level_2
   module:
     - ds
     - panelizer
@@ -31,70 +31,44 @@ third_party_settings:
       settings: {  }
     regions:
       content:
-        - content_moderation_control
-        - links
+        - node_links
         - field_introduction
         - field_body
-        - 'dynamic_block_field:node-landing_page_cards'
+        - 'dynamic_block_field:node-landing_page_cards_2_card_row'
         - field_related_content_heading
         - field_related_content
     fields:
-      'dynamic_block_field:node-landing_page_cards':
-        plugin_id: 'dynamic_block_field:node-landing_page_cards'
-        weight: 4
+      'dynamic_block_field:node-landing_page_cards_2_card_row':
+        plugin_id: 'dynamic_block_field:node-landing_page_cards_2_card_row'
+        weight: 3
         label: hidden
         formatter: default
-        ft:
-          id: expert
-          settings:
-            lb: ''
-            prefix: ''
-            lbw-el: ''
-            lbw-cl: ''
-            lbw-at: ''
-            ow-el: ''
-            ow-cl: ''
-            ow-at: ''
-            fis-el: ''
-            fis-cl: ''
-            fis-at: ''
-            fi-el: ''
-            fi-cl: ''
-            fi-at: ''
-            suffix: ''
-            lbw: false
-            lb-col: false
-            ow: false
-            ow-def-at: false
-            ow-def-cl: false
-            fis: false
-            fis-def-at: false
-            fi: false
-            fi-def-at: false
+      node_links:
+        plugin_id: node_links
+        weight: 0
+        label: hidden
+        formatter: default
   panelizer:
     enable: false
     custom: false
     allow: false
     default: default
-id: node.landing_page.full
+id: node.landing_page_level_2.full
 targetEntityType: node
-bundle: landing_page
+bundle: landing_page_level_2
 mode: full
 content:
-  content_moderation_control:
-    weight: 0
-    region: content
-    settings: {  }
-    third_party_settings: {  }
   field_body:
-    weight: 3
+    type: text_default
+    weight: 2
+    region: content
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    type: text_default
-    region: content
   field_introduction:
-    weight: 2
+    type: text_default
+    weight: 1
+    region: content
     label: hidden
     settings: {  }
     third_party_settings:
@@ -126,11 +100,9 @@ content:
             fis: false
             fis-def-at: false
             fi-def-at: false
-    type: text_default
-    region: content
   field_related_content:
     type: entity_reference_entity_view
-    weight: 6
+    weight: 5
     region: content
     label: hidden
     settings:
@@ -158,7 +130,7 @@ content:
             fis-at: ''
             fi: true
             fi-el: li
-            fi-cl: 'col-xs-12 col-sm-4'
+            fi-cl: 'col-xs-12 col-sm-6'
             fi-at: ''
             suffix: ''
             lb-col: false
@@ -168,7 +140,7 @@ content:
             fi-def-at: false
   field_related_content_heading:
     type: string
-    weight: 5
+    weight: 4
     region: content
     label: hidden
     settings:
@@ -202,11 +174,6 @@ content:
             fis: false
             fis-def-at: false
             fi-def-at: false
-  links:
-    weight: 1
-    region: content
-    settings: {  }
-    third_party_settings: {  }
 hidden:
   field_facebook_image: true
   field_index_image: true
@@ -215,3 +182,4 @@ hidden:
   field_promote_to_our_projects: true
   field_summary: true
   field_twitter_image: true
+  links: true

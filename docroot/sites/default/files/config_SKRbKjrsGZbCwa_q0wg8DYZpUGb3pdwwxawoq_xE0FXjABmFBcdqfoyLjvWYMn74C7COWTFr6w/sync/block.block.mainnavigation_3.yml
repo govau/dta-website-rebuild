@@ -32,8 +32,8 @@ visibility:
     id: 'entity_bundle:node'
     bundles:
       blog_post: blog_post
-      digital_service_standard: digital_service_standard
       govcms_event: govcms_event
+      landing_page_level_2: landing_page_level_2
       news_item: news_item
       page: page
       platforms_and_services: platforms_and_services
@@ -44,8 +44,8 @@ visibility:
     id: node_type
     bundles:
       blog_post: blog_post
-      digital_service_standard: digital_service_standard
       govcms_event: govcms_event
+      landing_page_level_2: landing_page_level_2
       news_item: news_item
       page: page
       platforms_and_services: platforms_and_services

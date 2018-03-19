@@ -1,0 +1,29 @@
+uuid: 97062854-e8a0-43c0-b357-e10b68b17f1a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_summary
+    - node.type.landing_page_level_2
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    plain_text: plain_text
+    rich_text: '0'
+    administration: '0'
+    html: '0'
+    introduction: '0'
+id: node.landing_page_level_2.field_summary
+field_name: field_summary
+entity_type: node
+bundle: landing_page_level_2
+label: Summary
+description: 'The summary is displayed on search listings and page listings.'
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

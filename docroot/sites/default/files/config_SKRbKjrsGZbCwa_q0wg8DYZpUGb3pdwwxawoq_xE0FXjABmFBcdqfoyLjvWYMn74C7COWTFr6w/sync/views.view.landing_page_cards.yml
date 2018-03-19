@@ -61,7 +61,7 @@ display:
       style:
         type: html_list
         options:
-          row_class: 'col-xs-12 col-sm-4'
+          row_class: 'col-xs-12 col-sm-6'
           default_row_class: false
           uses_fields: false
           type: ul
@@ -235,10 +235,28 @@ display:
   block_1:
     display_plugin: block
     id: block_1
-    display_title: Block
+    display_title: 'Block: 3-card row'
     position: 1
     display_options:
       display_extenders: {  }
+      display_description: 'Displays cards in a three-card row.'
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url
+        - 'user.node_grants:view'
+        - user.permissions
+      tags: {  }
+  block_2:
+    display_plugin: block
+    id: block_2
+    display_title: 'Block: 2-card row'
+    position: 1
+    display_options:
+      display_extenders: {  }
+      display_description: 'Displays cards in a two-card row.'
     cache_metadata:
       max-age: -1
       contexts:
