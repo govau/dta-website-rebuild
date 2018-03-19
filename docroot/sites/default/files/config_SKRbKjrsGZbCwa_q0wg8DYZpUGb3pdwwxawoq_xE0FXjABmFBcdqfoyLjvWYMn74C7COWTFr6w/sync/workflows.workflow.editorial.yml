@@ -6,6 +6,7 @@ dependencies:
     - node.type.blog_post
     - node.type.govcms_event
     - node.type.landing_page
+    - node.type.landing_page_level_2
     - node.type.news_item
     - node.type.page
     - node.type.platforms_and_services
@@ -85,6 +86,7 @@ type_settings:
       - blog_post
       - govcms_event
       - landing_page
+      - landing_page_level_2
       - news_item
       - page
       - platforms_and_services
