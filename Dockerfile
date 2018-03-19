@@ -7,6 +7,7 @@ RUN apt-get update && apt-get install -y \
 	vim \
 	wget \
 	libbz2-dev \
+	libfontconfig \
 	libpng-dev; \
 	docker-php-ext-install bz2 gd;
 
