@@ -15,9 +15,9 @@ third_party_settings:
     title_help: 'Titles have a limit of 65 characters and must be unique. We use this text for the <title> tag, for search engine optimisation (SEO) and to build the page address (URL).'
   wysiwyg_template:
     default_template: ''
-name: 'Landing page'
+name: 'Landing page - Level 1'
 type: landing_page
-description: 'A simple content type  to create landing pages. They will automatically include a view of child menu items. To ensure you see the correct items, make sure the menu is set up correctly.'
+description: 'A simple content type  to create level 1 landing pages. They will automatically include a view of child menu items. To ensure you see the correct items, make sure the menu is set up correctly.'
 help: ''
 new_revision: false
 preview_mode: 1

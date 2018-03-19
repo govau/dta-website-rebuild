@@ -1,4 +1,4 @@
-uuid: 09958595-1e4a-45f5-9d09-34b9e49e565e
+uuid: 4abf49b9-5777-4c23-9e48-5a74d797cf19
 langcode: en
 status: true
 dependencies:
@@ -12,14 +12,14 @@ dependencies:
     - node.type.news_item
     - node.type.page
     - node.type.platforms_and_services
-id: node.landing_page.field_related_content
+id: node.landing_page_level_2.field_related_content
 field_name: field_related_content
 entity_type: node
-bundle: landing_page
+bundle: landing_page_level_2
 label: 'Related content'
 description: 'Add any related content here. It will appear formatted as cards underneath the main card display.'
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:

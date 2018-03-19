@@ -1,0 +1,23 @@
+uuid: eb38cbac-577c-4f76-9b01-d54af150a1f3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_promote_to_get_help_advice
+    - node.type.landing_page_level_2
+id: node.landing_page_level_2.field_promote_to_get_help_advice
+field_name: field_promote_to_get_help_advice
+entity_type: node
+bundle: landing_page_level_2
+label: 'Promote to ''Get help and advice'''
+description: 'Select this if you wish to promote this content to the <strong>Get help and advice</strong> section on the home page. '
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

@@ -1,0 +1,29 @@
+uuid: 61050949-7eae-43d0-a0fe-b0c1f334c31c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_body
+    - node.type.landing_page_level_2
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    rich_text: rich_text
+    administration: '0'
+    html: '0'
+    introduction: '0'
+    plain_text: '0'
+id: node.landing_page_level_2.field_body
+field_name: field_body
+entity_type: node
+bundle: landing_page_level_2
+label: 'Body content'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long
