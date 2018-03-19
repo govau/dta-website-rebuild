@@ -9,15 +9,16 @@ label: 'Nodes based on menu trail'
 type: 'canonical_entities:node'
 pattern: '[node:menu-link:parents:join-path]/[node:title]'
 selection_criteria:
-  bdff6351-7a20-4e6b-8c29-a814061051e7:
+  8ce01e28-baef-4c02-92f3-dead9b43c9ef:
     id: node_type
     bundles:
       landing_page: landing_page
+      landing_page_level_2: landing_page_level_2
       page: page
     negate: false
     context_mapping:
       node: node
-    uuid: bdff6351-7a20-4e6b-8c29-a814061051e7
+    uuid: 8ce01e28-baef-4c02-92f3-dead9b43c9ef
 selection_logic: and
 weight: -10
 relationships: {  }
