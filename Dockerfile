@@ -15,7 +15,7 @@ RUN apt-get update && apt-get install -y \
 RUN set -ex; \
 	php -r "copy('https://getcomposer.org/download/1.6.3/composer.phar', 'composer.phar');" && \
 	php -r "if (hash_file('SHA256', 'composer.phar') === '52cb7bbbaee720471e3b34c8ae6db53a38f0b759c06078a80080db739e4dcab6') { echo 'composer.phar verified'; } else { echo 'composer.phar corrupt'; unlink('composer.phar'); } echo PHP_EOL;" &&\
-	mv composer.phar /usr/local/bin/composer
+	install -m 755 composer.phar /usr/local/bin/composer
 
 # We remove the drupal that comes from the base Dockerfile, and expect our local
 # code to be mounted at /app
