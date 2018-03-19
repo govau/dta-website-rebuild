@@ -2,10 +2,10 @@ id: landing_page_cards_2_card_row
 label: 'Landing page cards: 2-card row'
 ui_limit: landing_page_level_2|full
 properties:
-  block: 'views_block:landing_page_cards-block_2'
+  block: 'views_block:duplicate_of_landing_page_cards-block_1'
   use_block_title: false
   config:
-    id: 'views_block:landing_page_cards-block_2'
+    id: 'views_block:duplicate_of_landing_page_cards-block_1'
     label: ''
     provider: views
     label_display: visible

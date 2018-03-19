@@ -1,4 +1,4 @@
-uuid: ecc72455-7989-4047-a1ea-7f4917835f86
+uuid: 78475b39-8184-4030-96c5-ffaf35094bc6
 langcode: en
 status: true
 dependencies:
@@ -13,8 +13,8 @@ dependencies:
     - node
     - user
     - views_menu_children_filter
-id: landing_page_cards
-label: 'Landing page cards'
+id: duplicate_of_landing_page_cards
+label: 'Landing page cards: 2-card row'
 module: views
 description: 'A view to display child menu items as cards on landing pages.'
 tag: ''
@@ -61,7 +61,7 @@ display:
       style:
         type: html_list
         options:
-          row_class: 'col-xs-12 col-sm-4'
+          row_class: 'col-xs-12 col-sm-6'
           default_row_class: false
           uses_fields: false
           type: ul
@@ -235,7 +235,7 @@ display:
   block_1:
     display_plugin: block
     id: block_1
-    display_title: 'Block: 3-card row'
+    display_title: 'Block: 2-card row'
     position: 1
     display_options:
       display_extenders: {  }
