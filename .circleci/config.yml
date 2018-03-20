@@ -14,7 +14,6 @@ jobs:
           MYSQL_USER: drupal
           MYSQL_PASSWORD: password
           MYSQL_RANDOM_ROOT_PASSWORD: "yes"
-      - image: circleci/node:latest
     working_directory: /app
     steps:
       - run: composer self-update
@@ -32,6 +31,7 @@ jobs:
       # for all??
       # Or just set secure-http to false? https://getcomposer.org/doc/06-config.md#secure-http
       - run: sed -i 's/http:\/\/download.ckeditor.com/https:\/\/download.ckeditor.com/g' composer.lock
+      - run: apt-get update && apt-get install nodejs && apt-get install npm && nodejs -v && npm -v
       - run: npm install -g pa11y-ci
       - persist_to_workspace:
           root: /app
