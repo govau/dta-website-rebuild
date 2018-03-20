@@ -1,9 +1,0 @@
-global-styling:
-  version: 1.x
-  css:
-    theme:
-      css/govcms-ui.css: {}
-  js:
-    js/scripts.js: {}
-  dependencies:
-      - core/drupalSettings
