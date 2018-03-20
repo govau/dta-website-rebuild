@@ -113,6 +113,7 @@ projects[password_policy][version] = 3.0-alpha4
 projects[pathauto][type] = module
 projects[pathauto][version] = 1.1
 projects[redirect][type] = module
+projects[redirect][patch][] = https://www.drupal.org/files/issues/redirect-catch-route-does-not-exist-2932263-15.patch
 projects[redirect][version] = 1.1
 projects[respondjs][type] = module
 projects[respondjs][version] = 1.1
