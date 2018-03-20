@@ -1,0 +1,29 @@
+uuid: edde6e46-6e66-4318-9024-096d9584e71e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_body
+    - node.type.recruiterbox_position
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    rich_text: rich_text
+    administration: '0'
+    html: '0'
+    introduction: '0'
+    plain_text: '0'
+id: node.recruiterbox_position.field_body
+field_name: field_body
+entity_type: node
+bundle: recruiterbox_position
+label: Description
+description: 'This field maps to <code>"objects": [ { "description" } ]</code>.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

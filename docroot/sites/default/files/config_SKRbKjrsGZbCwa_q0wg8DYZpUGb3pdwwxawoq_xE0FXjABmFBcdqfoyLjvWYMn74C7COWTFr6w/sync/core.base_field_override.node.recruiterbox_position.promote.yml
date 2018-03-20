@@ -1,0 +1,22 @@
+uuid: e7f9410f-a390-4d1c-be36-907663112ec1
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.recruiterbox_position
+id: node.recruiterbox_position.promote
+field_name: promote
+entity_type: node
+bundle: recruiterbox_position
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean
