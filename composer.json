@@ -102,7 +102,20 @@
               "type": "zip"
             }
           }
+        },
+        {
+        "type": "package",
+        "package": {
+          "name": "govau/import_recruiterbox",
+          "version": "dev-master",
+          "type": "drupal-custom-module",
+          "source": {
+            "url": "https://github.com/govau/import_recruiterbox",
+            "type": "git",
+            "reference": "master"
+          }
         }
+      }
     ],
     "require": {
         "php": "~7.1.0",
