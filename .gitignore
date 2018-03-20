@@ -5,6 +5,7 @@ docroot/sites/*/settings.local.php
 docroot/sites/*/files/*
 !docroot/sites/*/files/config*
 docroot/sites/*/private
+storage
 
 # Ignore default text files
 #robots.txt
@@ -33,13 +34,15 @@ vendor
 #install.php
 #update.php
 #xmlrpc.php
+docroot/core
 #docroot/includes
+docroot/libraries
 #docroot/misc
-#docroot/modules
+docroot/modules
 #docroot/profiles
 #docroot/scripts
-#docroot/themes
-#docroot/libraries
+docroot/themes
+
 bin
 social_auth_google.settings.yml
 
