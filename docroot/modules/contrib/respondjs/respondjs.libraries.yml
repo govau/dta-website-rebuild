@@ -1,5 +1,0 @@
-respondjs:
-  version: 1.4.2
-  header: true
-  js:
-    lib/respond.min.js: { minified: true, weight: -21, preprocess: false, browsers: { 'IE': 'lte IE 8', '!IE': false } }

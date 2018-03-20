@@ -1,5 +1,0 @@
-<?php
-/**
- * @file
- * Expand menu items and set active-trail according to current path
- */
