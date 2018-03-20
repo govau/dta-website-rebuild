@@ -31,7 +31,7 @@ jobs:
       # for all??
       # Or just set secure-http to false? https://getcomposer.org/doc/06-config.md#secure-http
       - run: sed -i 's/http:\/\/download.ckeditor.com/https:\/\/download.ckeditor.com/g' composer.lock
-      - run: apt-get update -y && apt-get install nodejs && apt-get install npm && nodejs -v && npm -v
+      - run: apt-get update && apt-get install -y nodejs && apt-get install -y npm && nodejs -v && npm -v
       - run: npm install -g pa11y-ci
       - persist_to_workspace:
           root: /app
