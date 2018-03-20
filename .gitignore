@@ -36,12 +36,13 @@ vendor
 #xmlrpc.php
 docroot/core
 #docroot/includes
+docroot/libraries
 #docroot/misc
 docroot/modules
 #docroot/profiles
 #docroot/scripts
 docroot/themes
-#docroot/libraries
+
 bin
 social_auth_google.settings.yml
 
