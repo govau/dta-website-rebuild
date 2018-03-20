@@ -34,7 +34,7 @@ jobs:
       - run: curl -sL https://deb.nodesource.com/setup_9.x | bash
       - run: apt-get install -y nodejs
       - run: nodejs -v && npm -v
-      - run: npm install -g pa11y-ci
+      - run: npm install pa11y-ci
       - persist_to_workspace:
           root: /app
           paths:
