@@ -1,4 +1,4 @@
-uuid: 7933b26c-51e3-4268-a53f-6b22c7ab18f1
+uuid: b07a6ce2-48b8-493f-ada4-c740e7d292fa
 langcode: en
 status: true
 dependencies:
@@ -6,7 +6,7 @@ dependencies:
     module:
       - import_recruiterbox
 _core:
-  default_config_hash: U5qf0-f7o-NguvUzX5kXzAiAh61bkI18D4ft2fyv2kc
+  default_config_hash: bnb37qp_60tLbUcqCYktrAierbr---uJ3Jqzfe_Zxog
 id: import_recruiterbox_position
 class: null
 field_plugin_method: null
@@ -41,6 +41,22 @@ source:
       name: city
       label: City
       selector: /location/city
+    -
+      name: state
+      label: State
+      selector: /location/state
+    -
+      name: country
+      label: Country
+      selector: /location/country
+    -
+      name: position_type
+      label: 'Position type'
+      selector: position_type
+    -
+      name: allows_remote
+      label: 'Allows remote'
+      selector: allows_remote
   ids:
     uuid:
       type: string
@@ -54,8 +70,46 @@ process:
   field_body/format:
     plugin: default_value
     default_value: rich_text
-  field_city: city
+  field_city:
+    -
+      plugin: concat
+      source:
+        - city
+        - state
+        - country
+      delimiter: ', '
+    -
+      plugin: str_replace
+      search: ', , '
+      replace: ''
   field_external_link: url
+  field_position_type:
+    -
+      plugin: skip_on_empty
+      method: process
+      source: position_type
+    -
+      plugin: str_replace
+      search: full_time
+      replace: 'Full time'
+    -
+      plugin: str_replace
+      search: part_time
+      replace: 'Part time'
+    -
+      plugin: str_replace
+      search: contract
+      replace: Contract
+  field_allows_remote:
+    -
+      plugin: str_replace
+      search: true
+      replace: 1
+      source: allows_remote
+    -
+      plugin: str_replace
+      search: false
+      replace: 0
 destination:
   plugin: 'entity:node'
 migration_dependencies: null

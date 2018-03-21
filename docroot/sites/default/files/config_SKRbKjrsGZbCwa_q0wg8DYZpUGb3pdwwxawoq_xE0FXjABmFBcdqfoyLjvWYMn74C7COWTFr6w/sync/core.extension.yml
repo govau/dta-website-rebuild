@@ -60,6 +60,7 @@ module:
   htmlawed: 0
   image: 0
   imce: 0
+  import_recruiterbox: 0
   inline_form_errors: 0
   kint: 0
   layout_discovery: 0

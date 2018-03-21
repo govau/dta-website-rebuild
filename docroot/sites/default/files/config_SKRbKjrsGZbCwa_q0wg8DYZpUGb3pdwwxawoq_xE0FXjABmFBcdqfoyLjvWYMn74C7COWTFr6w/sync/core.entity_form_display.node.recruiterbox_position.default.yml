@@ -3,9 +3,11 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.recruiterbox_position.field_allows_remote
     - field.field.node.recruiterbox_position.field_body
     - field.field.node.recruiterbox_position.field_city
     - field.field.node.recruiterbox_position.field_external_link
+    - field.field.node.recruiterbox_position.field_position_type
     - node.type.recruiterbox_position
   module:
     - content_moderation
@@ -29,6 +31,13 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_allows_remote:
+    weight: 126
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
   field_body:
     weight: 121
     settings:
@@ -52,6 +61,14 @@ content:
       placeholder_title: ''
     third_party_settings: {  }
     type: link_default
+    region: content
+  field_position_type:
+    weight: 125
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
     region: content
   moderation_state:
     type: moderation_state_default

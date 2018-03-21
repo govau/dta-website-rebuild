@@ -1,30 +1,30 @@
-uuid: 24a9907d-08c0-48ff-b567-cb4bade9f866
+uuid: b93dea17-ef79-4df3-a907-2975e9a49e3e
 langcode: en
 status: true
 dependencies:
   config:
-    - views.view.programs_and_platforms
+    - views.view.recruiterbox_positions
   module:
     - system
     - views
   theme:
     - dta_gov_au
-id: views_block__programs_and_platforms_block_1
+id: views_block__recruiterbox_positions_block_1
 theme: dta_gov_au
 region: content
-weight: -3
+weight: 1
 provider: null
-plugin: 'views_block:programs_and_platforms-block_1'
+plugin: 'views_block:recruiterbox_positions-block_1'
 settings:
-  id: 'views_block:programs_and_platforms-block_1'
-  label: ''
+  id: 'views_block:recruiterbox_positions-block_1'
+  label: 'Current vacancies'
   provider: views
   label_display: visible
-  views_label: ''
+  views_label: 'Current vacancies'
   items_per_page: none
 visibility:
   request_path:
     id: request_path
-    pages: '<front>'
+    pages: /jobs
     negate: false
     context_mapping: {  }
