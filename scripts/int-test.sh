@@ -14,3 +14,5 @@ set -x
 source "$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )/buildrc"
 
 behat --strict --stop-on-failure --config tests/behat/behat.yml
+
+pa11y-ci --sitemap https://govcms8.local/sitemap.xml
