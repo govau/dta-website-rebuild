@@ -202,7 +202,8 @@
         "govau/dta-uikit-base": "dev-master",
         "govau/dta-uikit-base-theme": "dev-master",
         "harvesthq/chosen": "^1.8",
-        "oomphinc/composer-installers-extender": "^1.1"
+        "oomphinc/composer-installers-extender": "^1.1",
+        "govau/import_recruiterbox": "dev-master"
     },
     "require-dev": {
         "behat/behat": "^3.4",

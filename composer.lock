@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "2a7f1e52973bb1ddcc76d9c493d532d2",
+    "content-hash": "a29882e15bb6e28c7666c116a4d0d6fa",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -7120,6 +7120,17 @@
             "time": "2018-03-06 04:29:05"
         },
         {
+            "name": "govau/import_recruiterbox",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/govau/import_recruiterbox",
+                "reference": "master"
+            },
+            "type": "drupal-custom-module",
+            "time": "2018-03-21 22:47:59"
+        },
+        {
             "name": "grasmash/expander",
             "version": "1.0.0",
             "source": {
@@ -13551,7 +13562,8 @@
         "drupal/typogrify": 20,
         "govau/dta-gov-au": 20,
         "govau/dta-uikit-base": 20,
-        "govau/dta-uikit-base-theme": 20
+        "govau/dta-uikit-base-theme": 20,
+        "govau/import_recruiterbox": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
