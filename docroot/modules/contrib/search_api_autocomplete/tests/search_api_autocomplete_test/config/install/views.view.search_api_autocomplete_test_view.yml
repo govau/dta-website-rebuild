@@ -188,6 +188,13 @@ display:
     position: 1
     display_options:
       path: search-api-autocomplete-test
+  page_2:
+    display_plugin: page
+    id: page_2
+    display_title: 'Page 2'
+    position: 2
+    display_options:
+      path: search-api-autocomplete-test-2
 label: 'Search API Autocomplete Test view'
 module: views
 id: search_api_autocomplete_test_view

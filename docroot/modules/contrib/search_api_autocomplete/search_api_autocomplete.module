@@ -100,7 +100,9 @@ function search_api_autocomplete_form_views_exposed_form_alter(array &$form, For
 
   $config = $search->getSearchPlugin()->getConfiguration();
   $selected = in_array($view->current_display, $config['displays']['selected']);
-  if ($selected === $config['displays']['selected']) {
+  // @todo Replace with \Drupal\search_api\Utility\Utility::matches() once
+  //   we can use it (Search API 1.8 dependency).
+  if ($selected == $config['displays']['default']) {
     return;
   }
 
