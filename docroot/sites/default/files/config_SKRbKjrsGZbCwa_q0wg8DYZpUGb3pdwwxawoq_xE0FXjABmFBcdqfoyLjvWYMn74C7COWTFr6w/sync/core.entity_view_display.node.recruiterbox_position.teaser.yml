@@ -16,6 +16,8 @@ content:
     weight: 100
     region: content
 hidden:
+  field_allows_remote: true
   field_body: true
   field_city: true
   field_external_link: true
+  field_position_type: true
