@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# Tests that do NOT require a drupal instance can be run here.
+# If you need to add a test that requires drupal, add it to int-test.sh instead.
+
 # Exit immediately if there is an error
 set -e
 
@@ -24,22 +27,4 @@ if [ -n "$CIRCLE_BRANCH" ]; then
     git diff --name-only --diff-filter=M origin/develop... -- '*.php' | xargs -n1 php -l
   fi
 
-  if [[ $CIRCLE_BRANCH = master || $CIRCLE_BRANCH = develop ]]; then
-    RUN_PHPUNIT=1
-  else
-    # Only run phpunit if anything in core is different to the develop branch
-    for file in $(git diff --name-only --diff-filter=d origin/develop...); do
-      if [[ $file == docroot/core* ]]; then
-        RUN_PHPUNIT=1
-        break
-      fi
-    done
-  fi
-
-  if [ -n "$RUN_PHPUNIT" ]; then
-    pushd docroot/core
-      phpunit --testsuite=unit --exclude-group \
-        Composer,DependencyInjection,PageManager,jsonapi,legacy
-    popd
-  fi
 fi
