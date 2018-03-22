@@ -4,8 +4,10 @@ namespace Drupal\Tests\search_api_autocomplete\Kernel;
 
 use Drupal\KernelTests\KernelTestBase;
 use Drupal\search_api\Query\ConditionInterface;
+use Drupal\search_api_autocomplete\Entity\Search;
 use Drupal\search_api_autocomplete\Search\SearchPluginManager;
 use Drupal\search_api_autocomplete\Utility\PluginHelper;
+use Drupal\views\Entity\View;
 
 /**
  * Tests Views integration of the Autocomplete module.
@@ -145,6 +147,66 @@ class ViewsTest extends KernelTestBase {
     }
 
     return $ret;
+  }
+
+  /**
+   * Tests that Views forms are altered correctly.
+   *
+   * @see search_api_autocomplete_form_views_exposed_form_alter()
+   *
+   * @dataProvider formAlteringDataProvider
+   */
+  public function testFormAltering($display_id, $expect_altered) {
+    $this->installConfig('search_api_autocomplete_test');
+
+    Search::create([
+      'id' => 'search_api_autocomplete_test_view',
+      'label' => 'Search API Autocomplete Test view',
+      'index_id' => 'autocomplete_search_index',
+      'suggester_settings' => [
+        'live_results' => [],
+      ],
+      'search_settings' => [
+        'views:search_api_autocomplete_test_view' => [
+          'displays' => [
+            'default' => TRUE,
+            'selected' => ['page_2'],
+          ],
+        ],
+      ],
+    ])->save();
+
+    $view = View::load('search_api_autocomplete_test_view');
+    /** @var \Drupal\views\ViewExecutable $executable */
+    $executable = $view->getExecutable();
+    $this->assertTrue($executable->setDisplay($display_id));
+    $executable->initHandlers();
+
+    /** @var \Drupal\views\Plugin\views\exposed_form\ExposedFormPluginInterface $exposed_form */
+    $exposed_form = $executable->display_handler->getPlugin('exposed_form');
+    $form = $exposed_form->renderExposedForm();
+
+    if ($expect_altered) {
+      $this->assertEquals('search_api_autocomplete', $form['keys']['#type']);
+    }
+    else {
+      $this->assertEquals('textfield', $form['keys']['#type']);
+    }
+  }
+
+  /**
+   * Provides test data for testFormAltering().
+   *
+   * @return array
+   *   Array of argument arrays for testFormAltering().
+   *
+   * @see \Drupal\Tests\search_api_autocomplete\Kernel\ViewsTest::testFormAltering()
+   */
+  public function formAlteringDataProvider() {
+    return [
+      'do alter' => ['page', TRUE],
+      "don't alter" => ['page_2', FALSE],
+    ];
   }
 
 }

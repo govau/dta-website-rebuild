@@ -182,7 +182,7 @@ class IndexOverviewForm extends FormBase {
     }
 
     if (!Element::children($form)) {
-      $form['message']['#markup'] = '<p>' . $this->t('There are currently no searches known for this index.') . '</p>';
+      $form['message']['#markup'] = '<p>' . $this->t('There are currently no searches known for this index. You need to create at least one search view.') . '</p>';
     }
     else {
       $form['submit'] = [

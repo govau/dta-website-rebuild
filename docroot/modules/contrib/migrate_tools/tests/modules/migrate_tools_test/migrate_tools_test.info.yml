@@ -1,0 +1,14 @@
+type: module
+name: Migrate Tools Test
+description: 'Test module to test Migrate Tools.'
+package: Testing
+# core: 8.x
+dependencies:
+  - drupal:migrate (>=8.3)
+  - migrate_plus:migrate_plus
+
+# Information added by Drupal.org packaging script on 2018-02-23
+version: '8.x-4.0-beta3'
+core: '8.x'
+project: 'migrate_tools'
+datestamp: 1519400307

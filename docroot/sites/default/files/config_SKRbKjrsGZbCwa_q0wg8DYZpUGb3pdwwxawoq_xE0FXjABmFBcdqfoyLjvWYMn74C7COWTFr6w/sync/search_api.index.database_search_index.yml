@@ -93,6 +93,7 @@ datasource_settings:
       selected:
         - help_and_advice_links
         - landing_page
+        - recruiterbox_position
     languages:
       default: true
       selected: {  }

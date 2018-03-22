@@ -11,8 +11,8 @@ type: module
 package: Search
 hidden: true
 
-# Information added by Drupal.org packaging script on 2018-02-28
-version: '8.x-1.0-rc2'
+# Information added by Drupal.org packaging script on 2018-03-18
+version: '8.x-1.0'
 core: '8.x'
 project: 'search_api_autocomplete'
-datestamp: 1519829287
+datestamp: 1521362896
