@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "a29882e15bb6e28c7666c116a4d0d6fa",
+    "content-hash": "117437ca97cf1abd59c64a1c967030f2",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -7128,7 +7128,7 @@
                 "reference": "master"
             },
             "type": "drupal-custom-module",
-            "time": "2018-03-21 22:47:59"
+            "time": "2018-03-22 01:49:24"
         },
         {
             "name": "grasmash/expander",
