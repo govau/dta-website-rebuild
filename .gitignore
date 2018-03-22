@@ -33,6 +33,7 @@ vendor
 #install.php
 #update.php
 #xmlrpc.php
+docroot/core
 #docroot/includes
 #docroot/misc
 #docroot/modules
