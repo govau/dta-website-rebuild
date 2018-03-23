@@ -1,0 +1,48 @@
+responsive_menu.settings:
+  type: mapping
+  label: Settings
+  mapping:
+    horizontal_menu:
+      type: string
+    horizontal_depth:
+      type: integer
+    off_canvas_menus:
+      type: string
+    horizontal_wrapping_element:
+      type: string
+    horizontal_breakpoint:
+      type: string
+    horizontal_media_query:
+      type: string
+    include_css:
+      type: boolean
+    off_canvas_position:
+      type: string
+    off_canvas_theme:
+      type: string
+    pagedim:
+      type: string
+    horizontal_superfish:
+      type: boolean
+    horizontal_superfish_delay:
+      type: integer
+    horizontal_superfish_speed:
+      type: integer
+    horizontal_superfish_speed_out:
+      type: integer
+    horizontal_superfish_hoverintent:
+      type: boolean
+    hammerjs:
+      type: boolean
+    breakpoint_css_filepath:
+      type: string
+    use_breakpoint:
+      type: boolean
+    allow_admin:
+      type: boolean
+    wrapper_admin:
+      type: boolean
+    wrapper_theme:
+      type: boolean
+    extension_keyboard:
+      type: boolean

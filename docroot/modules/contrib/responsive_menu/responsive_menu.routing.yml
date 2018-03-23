@@ -1,0 +1,7 @@
+responsive_menu.settings:
+  path: '/admin/config/user-interface/responsive-menu'
+  defaults:
+    _form: 'Drupal\responsive_menu\Form\SettingsForm'
+    _title: 'Responsive Menu Settings'
+  requirements:
+    _permission: 'administer site configuration'
