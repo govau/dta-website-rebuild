@@ -6,6 +6,7 @@ dependencies:
     - core.entity_view_mode.node.card
     - node.type.govcms_event
     - node.type.landing_page
+    - node.type.landing_page_level_2
     - node.type.news_item
     - node.type.page
     - node.type.platforms_and_services
@@ -131,6 +132,7 @@ display:
           operator: in
           value:
             govcms_event: govcms_event
+            landing_page_level_2: landing_page_level_2
             landing_page: landing_page
             news_item: news_item
             page: page
