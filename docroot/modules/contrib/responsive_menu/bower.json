@@ -1,0 +1,24 @@
+{
+  "name": "responsive_menu",
+  "authors": [
+    "tanc <tanc@agile.coop>"
+  ],
+  "description": "Installs required and optional libraries",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "superfish": "^1.7.7",
+    "hammerjs": "^2.0.6",
+    "mmenu": "mmenu#^6.1.8"
+  }
+}

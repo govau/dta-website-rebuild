@@ -68,6 +68,45 @@
         {
           "type": "package",
           "package": {
+            "name": "FrDH/mmenu",
+            "type": "drupal-library",
+            "version": "dev-master",
+            "dist": {
+              "type": "zip",
+              "url": "https://api.github.com/repos/FrDH/jQuery.mmenu/zipball",
+              "reference": "master"
+            }
+          }
+        },
+        {
+          "type": "package",
+          "package": {
+            "name": "hammerjs/hammerjs",
+            "type": "drupal-library",
+            "version": "dev-master",
+            "dist": {
+              "type": "zip",
+              "url": "https://github.com/hammerjs/hammer.js/archive/master.zip",
+              "reference": "master"
+            }
+          }
+        },
+        {
+          "type": "package",
+          "package": {
+            "name": "joeldbirch/superfish",
+            "type": "drupal-library",
+            "version": "dev-master",
+            "dist": {
+              "type": "zip",
+              "url": "https://github.com/joeldbirch/superfish/archive/master.zip",
+              "reference": "master"
+            }
+          }
+        },
+        {
+          "type": "package",
+          "package": {
             "name": "govau/dta-uikit-base",
             "type": "drupal-custom-theme",
             "version": "dev-master",
@@ -176,6 +215,7 @@
         "drupal/pathauto": "^1.0",
         "drupal/redirect": "^1.1",
         "drupal/respondjs": "^1.1",
+        "drupal/responsive_menu": "^2.6",
         "drupal/restui": "^1.15",
         "drupal/robotstxt": "^1.1",
         "drupal/s3fs": "^3.0@alpha",
@@ -198,11 +238,14 @@
         "drupal/webform": "5.0-rc1",
         "drupal/wysiwyg_template": "^2.0",
         "drush/drush": "~9.0",
+        "FrDH/mmenu": "dev-master",
         "govau/dta-gov-au": "dev-master",
         "govau/dta-uikit-base": "dev-master",
         "govau/dta-uikit-base-theme": "dev-master",
         "govau/import_recruiterbox": "dev-master",
+        "hammerjs/hammerjs": "dev-master",
         "harvesthq/chosen": "^1.8",
+        "joeldbirch/superfish": "dev-master",
         "oomphinc/composer-installers-extender": "^1.1"
     },
     "require-dev": {

@@ -1,0 +1,20 @@
+uuid: 01c24b97-e72f-4423-88db-9e13343942f0
+langcode: en
+status: true
+dependencies:
+  module:
+    - responsive_menu
+  theme:
+    - dta_gov_au
+id: responsivemenumobileicon
+theme: dta_gov_au
+region: disabled
+weight: -10
+provider: null
+plugin: responsive_menu_toggle
+settings:
+  id: responsive_menu_toggle
+  label: 'Responsive menu mobile icon'
+  provider: responsive_menu
+  label_display: '0'
+visibility: {  }

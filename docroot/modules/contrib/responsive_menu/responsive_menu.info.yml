@@ -1,0 +1,14 @@
+name: 'Responsive menu'
+description: 'Provides a javascript based off-canvas responsive menu with depth. At wider browser widths it provides a horizontal menu capable of drop downs and flyouts.'
+# core: 8.x
+package: Other
+dependencies:
+  - drupal:breakpoint
+  - system (>=8.4)
+type: module
+
+# Information added by Drupal.org packaging script on 2018-01-13
+version: '8.x-2.6'
+core: '8.x'
+project: 'responsive_menu'
+datestamp: 1515872887

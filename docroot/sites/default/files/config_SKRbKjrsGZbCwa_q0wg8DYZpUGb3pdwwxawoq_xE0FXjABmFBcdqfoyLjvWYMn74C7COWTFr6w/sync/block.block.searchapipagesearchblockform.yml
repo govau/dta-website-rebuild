@@ -11,7 +11,7 @@ dependencies:
 id: searchapipagesearchblockform
 theme: dta_gov_au
 region: header
-weight: 0
+weight: -9
 provider: null
 plugin: search_api_page_form_block
 settings:
