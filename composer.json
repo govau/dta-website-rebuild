@@ -158,6 +158,7 @@
     ],
     "require": {
         "php": "~7.1.0",
+        "FrDH/mmenu": "dev-master",
         "bower-asset/dropzone": "^5.1",
         "ckeditor/tabletoolstoolbar": "^0.0.1",
         "cweagans/composer-patches": "^1.6",
@@ -239,7 +240,6 @@
         "drupal/webform": "5.0-rc1",
         "drupal/wysiwyg_template": "^2.0",
         "drush/drush": "~9.0",
-        "FrDH/mmenu": "dev-master",
         "govau/dta-gov-au": "dev-master",
         "govau/dta-uikit-base": "dev-master",
         "govau/dta-uikit-base-theme": "dev-master",
