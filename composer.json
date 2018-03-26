@@ -158,7 +158,6 @@
     ],
     "require": {
         "php": "~7.1.0",
-        "FrDH/mmenu": "dev-master",
         "bower-asset/dropzone": "^5.1",
         "ckeditor/tabletoolstoolbar": "^0.0.1",
         "cweagans/composer-patches": "^1.6",
