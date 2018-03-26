@@ -30,6 +30,8 @@ field_settings:
           blog_post: full
           govcms_event: full
           home_page: ''
+          landing_page: full
+          landing_page_level_2: full
           news_item: full
           page: full
           platforms_and_services: full
@@ -91,8 +93,8 @@ datasource_settings:
     bundles:
       default: true
       selected:
+        - external_link
         - help_and_advice_links
-        - landing_page
         - recruiterbox_position
     languages:
       default: true
@@ -106,7 +108,7 @@ processor_settings:
   entity_status: {  }
   highlight:
     highlight: always
-    highlight_partial: true
+    highlight_partial: false
     excerpt: true
     excerpt_length: 256
     exclude_fields: {  }
@@ -145,7 +147,7 @@ processor_settings:
       preprocess_index: -20
       preprocess_query: -20
   ignore_character:
-    all_fields: false
+    all_fields: true
     fields:
       - rendered_item
       - title
@@ -240,9 +242,24 @@ processor_settings:
     weights:
       preprocess_index: -6
       preprocess_query: -6
+  type_boost:
+    boosts:
+      'entity:node':
+        datasource_boost: !!float 1
+        bundle_boosts:
+          blog_post: !!float 0
+          govcms_event: !!float 0
+          home_page: !!float 0
+          landing_page: !!float 1
+          landing_page_level_2: !!float 1
+          news_item: !!float 0
+          page: !!float 0
+          platforms_and_services: !!float 0
+    weights:
+      preprocess_index: 0
 tracker_settings:
   default:
-    indexing_order: fifo
+    indexing_order: lifo
 options:
   index_directly: true
   cron_limit: 50
