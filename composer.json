@@ -158,6 +158,7 @@
     ],
     "require": {
         "php": "~7.1.0",
+        "FrDH/mmenu": "dev-master",
         "bower-asset/dropzone": "^5.1",
         "ckeditor/tabletoolstoolbar": "^0.0.1",
         "cweagans/composer-patches": "^1.6",
@@ -213,6 +214,7 @@
         "drupal/paragraphs": "^1.2",
         "drupal/password_policy": "^3.0",
         "drupal/pathauto": "^1.0",
+        "drupal/rabbit_hole": "^1.0@beta",
         "drupal/redirect": "^1.1",
         "drupal/respondjs": "^1.1",
         "drupal/responsive_menu": "^2.6",

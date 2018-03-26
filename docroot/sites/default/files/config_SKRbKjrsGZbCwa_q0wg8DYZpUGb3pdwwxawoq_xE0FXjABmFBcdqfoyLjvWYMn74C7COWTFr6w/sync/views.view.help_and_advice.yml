@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.storage.node.field_summary
     - node.type.landing_page
+    - node.type.landing_page_level_2
     - node.type.page
   module:
     - node
@@ -371,6 +372,7 @@ display:
           admin_label: ''
           operator: in
           value:
+            landing_page_level_2: landing_page_level_2
             landing_page: landing_page
             page: page
           group: 1

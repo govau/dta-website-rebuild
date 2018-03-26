@@ -5,7 +5,6 @@ dependencies:
   config:
     - field.storage.node.field_event_categories
     - node.type.govcms_event
-    - taxonomy.vocabulary.event_categories
 _core:
   default_config_hash: obOS1S76Z5O88qqsdjCczsW11B7rFkmepK5rdJGqNxQ
 id: node.govcms_event.field_event_categories
@@ -21,8 +20,7 @@ default_value_callback: ''
 settings:
   handler: 'default:taxonomy_term'
   handler_settings:
-    target_bundles:
-      event_categories: event_categories
+    target_bundles: {  }
     sort:
       field: name
       direction: asc
