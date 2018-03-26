@@ -1,4 +1,4 @@
-uuid: 01c24b97-e72f-4423-88db-9e13343942f0
+uuid: 0f6655bf-1aed-4c7d-8904-f244dfedded4
 langcode: en
 status: true
 dependencies:
@@ -9,7 +9,7 @@ dependencies:
 id: responsivemenumobileicon
 theme: dta_gov_au
 region: disabled
-weight: -10
+weight: 0
 provider: null
 plugin: responsive_menu_toggle
 settings:
