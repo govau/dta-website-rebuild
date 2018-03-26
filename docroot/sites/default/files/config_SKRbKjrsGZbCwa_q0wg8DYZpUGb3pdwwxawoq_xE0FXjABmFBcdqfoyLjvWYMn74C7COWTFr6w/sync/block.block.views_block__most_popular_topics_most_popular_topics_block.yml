@@ -11,7 +11,7 @@ dependencies:
 id: views_block__most_popular_topics_most_popular_topics_block
 theme: dta_gov_au
 region: header
-weight: -10
+weight: 0
 provider: null
 plugin: 'views_block:most_popular_topics-most_popular_topics_block'
 settings:

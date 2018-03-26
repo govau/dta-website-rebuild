@@ -1,0 +1,9 @@
+uuid: 6e21f9fb-1c9e-49ea-8e08-7b9d74e4dd90
+langcode: en
+status: true
+dependencies: {  }
+id: taxonomy_vocabulary_phase
+action: page_redirect
+allow_override: 1
+redirect: '<front>'
+redirect_code: 301

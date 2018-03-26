@@ -1,0 +1,9 @@
+uuid: c3cecc51-a00d-4589-a7d5-cc6b64e1b058
+langcode: en
+status: true
+dependencies: {  }
+id: taxonomy_vocabulary_contacts
+action: page_redirect
+allow_override: 1
+redirect: '<front>'
+redirect_code: 301

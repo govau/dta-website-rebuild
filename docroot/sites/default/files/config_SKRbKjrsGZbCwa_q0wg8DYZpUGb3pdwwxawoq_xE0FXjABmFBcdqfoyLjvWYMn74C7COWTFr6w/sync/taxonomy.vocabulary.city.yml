@@ -1,9 +1,0 @@
-uuid: 74b10c09-2c9c-4301-a90a-7d609495d8bf
-langcode: en
-status: true
-dependencies: {  }
-name: City
-vid: city
-description: 'This vocabulary is used for the Recruiterbox position content type.'
-hierarchy: 0
-weight: 0

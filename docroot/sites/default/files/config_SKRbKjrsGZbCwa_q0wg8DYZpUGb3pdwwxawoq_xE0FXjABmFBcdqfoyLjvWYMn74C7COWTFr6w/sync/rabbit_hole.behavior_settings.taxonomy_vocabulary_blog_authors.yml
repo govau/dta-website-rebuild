@@ -1,0 +1,9 @@
+uuid: c099acca-c5cf-44f6-96e6-9b0cba690cd3
+langcode: en
+status: true
+dependencies: {  }
+id: taxonomy_vocabulary_blog_authors
+action: page_redirect
+allow_override: 1
+redirect: '<front>'
+redirect_code: 301
