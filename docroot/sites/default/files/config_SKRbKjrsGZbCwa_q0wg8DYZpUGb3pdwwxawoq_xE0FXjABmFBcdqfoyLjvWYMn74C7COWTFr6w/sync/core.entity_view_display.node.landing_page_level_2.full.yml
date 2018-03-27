@@ -27,12 +27,13 @@ third_party_settings:
       id: layout_onecol
       library: layout_discovery/onecol
       disable_css: false
-      entity_classes: all_classes
+      entity_classes: no_classes
       settings: {  }
     regions:
       content:
         - node_links
         - field_introduction
+        - 'dynamic_block_field:node-recrtuierbox_positions_block'
         - field_body
         - 'dynamic_block_field:node-landing_page_cards_2_card_row'
         - field_related_content_heading
@@ -40,9 +41,41 @@ third_party_settings:
     fields:
       'dynamic_block_field:node-landing_page_cards_2_card_row':
         plugin_id: 'dynamic_block_field:node-landing_page_cards_2_card_row'
-        weight: 3
+        weight: 4
         label: hidden
         formatter: default
+      'dynamic_block_field:node-recrtuierbox_positions_block':
+        plugin_id: 'dynamic_block_field:node-recrtuierbox_positions_block'
+        weight: 2
+        label: above
+        formatter: default
+        ft:
+          id: expert
+          settings:
+            lb: 'Current vacancies'
+            prefix: ''
+            lbw: true
+            lbw-el: h2
+            lbw-cl: ''
+            lbw-at: ''
+            ow-el: ''
+            ow-cl: ''
+            ow-at: ''
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fi-el: ''
+            fi-cl: ''
+            fi-at: ''
+            suffix: ''
+            lb-col: false
+            ow: false
+            ow-def-at: false
+            ow-def-cl: false
+            fis: false
+            fis-def-at: false
+            fi: false
+            fi-def-at: false
       node_links:
         plugin_id: node_links
         weight: 0
@@ -60,7 +93,7 @@ mode: full
 content:
   field_body:
     type: text_default
-    weight: 2
+    weight: 3
     region: content
     label: hidden
     settings: {  }
@@ -102,7 +135,7 @@ content:
             fi-def-at: false
   field_related_content:
     type: entity_reference_entity_view
-    weight: 5
+    weight: 6
     region: content
     label: hidden
     settings:
@@ -140,7 +173,7 @@ content:
             fi-def-at: false
   field_related_content_heading:
     type: string
-    weight: 4
+    weight: 5
     region: content
     label: hidden
     settings:
@@ -175,6 +208,7 @@ content:
             fis-def-at: false
             fi-def-at: false
 hidden:
+  content_moderation_control: true
   field_facebook_image: true
   field_index_image: true
   field_linkedin_image: true
