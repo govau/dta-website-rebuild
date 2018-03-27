@@ -61,7 +61,7 @@ display:
         type: default
         options:
           grouping: {  }
-          row_class: ''
+          row_class: au-current-vacancies__item
           default_row_class: false
       row:
         type: fields
