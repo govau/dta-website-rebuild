@@ -2,7 +2,7 @@
 
 namespace Drupal\Tests\ds\Functional;
 
-use Drupal\field_group\Tests\FieldGroupTestTrait;
+use Drupal\Tests\field_group\Functional\FieldGroupTestTrait;
 
 /**
  * Tests for field group integration with Display Suite.

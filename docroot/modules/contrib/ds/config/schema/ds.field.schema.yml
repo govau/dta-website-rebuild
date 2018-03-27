@@ -53,6 +53,9 @@ ds.field.properties.block:
     use_block_title:
       type: boolean
       label: 'Use block title as label'
+    add_block_wrappers:
+      type: boolean
+      label: 'Add block wrappers and classes'
     config:
       type: block.settings.[%parent.block]
 

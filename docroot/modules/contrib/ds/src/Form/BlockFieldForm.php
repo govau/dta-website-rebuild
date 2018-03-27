@@ -56,6 +56,14 @@ class BlockFieldForm extends FieldFormBase implements ContainerInjectionInterfac
       '#weight' => 90,
     ];
 
+    $form['add_block_wrappers'] = [
+      '#type' => 'checkbox',
+      '#title' => $this->t('Add block wrappers and classes'),
+      '#default_value' => isset($field['properties']['add_block_wrappers']) ? $field['properties']['add_block_wrappers'] : FALSE,
+      '#description' => $this->t('Render using the block theme hook to add the block wrappers and clases.'),
+      '#weight' => 91,
+    ];
+
     return $form;
   }
 
@@ -72,8 +80,9 @@ class BlockFieldForm extends FieldFormBase implements ContainerInjectionInterfac
       $properties = $field['properties'];
     }
 
-    // Save title checkbox.
+    // Save configuration.
     $properties['use_block_title'] = $form_state->getValue('use_block_title');
+    $properties['add_block_wrappers'] = $form_state->getValue('add_block_wrappers');
 
     return $properties;
   }

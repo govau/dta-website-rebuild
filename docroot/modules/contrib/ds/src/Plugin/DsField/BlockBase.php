@@ -79,35 +79,64 @@ abstract class BlockBase extends DsFieldBase implements ContainerFactoryPluginIn
     $block_config = $this->blockConfig();
     $block->setConfiguration($block_config);
 
+    $add_wrappers = isset($this->getFieldConfiguration()['properties']['add_block_wrappers']) ? $this->getFieldConfiguration()['properties']['add_block_wrappers'] : FALSE;
+
     if ($block->access(\Drupal::currentUser())) {
       // Inject context values.
       if ($block instanceof ContextAwarePluginInterface) {
         $contexts = $this->contextRepository->getRuntimeContexts(array_values($block->getContextMapping()));
         $this->contextHandler->applyContextMapping($block, $contexts);
       }
+      $block_build = $block->build();
 
-      $block_elements = $block->build();
+      // If the user has chosen to add the block wrappers, theme as a block.
+      if ($add_wrappers) {
+        // @see \Drupal\block\BlockViewBuilder::buildPreRenderableBlock
+        // @see template_preprocess_block()
+        $render_element = [
+          '#theme' => 'block',
+          '#attributes' => [],
+          '#configuration' => $block->getConfiguration(),
+          '#plugin_id' => $block->getPluginId(),
+          '#base_plugin_id' => $block->getBaseId(),
+          '#derivative_plugin_id' => $block->getDerivativeId(),
+          'content' => $block_build,
+        ];
+      }
+      else {
+        // Otherwise just use the block build.
+        $render_element = $block_build;
+      }
+
 
       // Merge cache contexts, tags and max-age.
       if ($contexts = $block->getCacheContexts()) {
-        $block_elements['#cache']['contexts'] = (is_array($block_elements['#cache']['contexts']) ? $block_elements['#cache']['contexts'] : []);
-        $block_elements['#cache']['contexts'] = array_unique(array_merge($block_elements['#cache']['contexts'], $contexts));
+        $render_element['#cache']['contexts'] = [];
+        if (isset($block_build['#cache']) && is_array($block_build['#cache']['contexts'])) {
+          $render_element['#cache']['contexts'] = $block_build['#cache']['contexts'];
+        }
+
+        $render_element['#cache']['contexts'] = array_unique(array_merge($render_element['#cache']['contexts'], $contexts));
       }
 
       if ($tags = $block->getCacheTags()) {
-        $block_elements['#cache']['tags'] = (is_array($block_elements['#cache']['tags']) ? $block_elements['#cache']['tags'] : []);
-        $block_elements['#cache']['tags'] = array_unique(array_merge($block_elements['#cache']['tags'], $tags));
+        $render_element['#cache']['tags'] = [];
+        if (isset($block_build['#cache']) && is_array($block_build['#cache']['tags'])) {
+          $render_element['#cache']['tags'] = $block_build['#cache']['tags'];
+        }
+
+        $render_element['#cache']['tags'] = array_unique(array_merge($render_element['#cache']['tags'], $tags));
       }
 
       // Add the block base config cache tag.
-      $block_elements['#cache']['tags'][] = 'config:ds.block_base';
+      $render_element['#cache']['tags'][] = 'config:ds.block_base';
 
       if ($max_age = $block->getCacheMaxAge()) {
-        $block_elements['#cache']['max-age'] = $max_age;
+        $render_element['#cache']['max-age'] = $max_age;
       }
 
       // Return an empty array if there is nothing to render.
-      return Element::isEmpty($block_elements) ? [] : $block_elements;
+      return Element::isEmpty($render_element) ? [] : $render_element;
     }
 
     return [];

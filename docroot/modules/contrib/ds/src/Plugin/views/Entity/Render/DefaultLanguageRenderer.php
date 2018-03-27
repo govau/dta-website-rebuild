@@ -14,13 +14,11 @@ class DefaultLanguageRenderer extends RendererBase {
    *
    * @param \Drupal\views\ResultRow $row
    *   The result row.
-   * @param $relationship
-   *   The relationship.
    *
    * @return string
    *   A language code.
    */
-  public function getLangcode(ResultRow $row, $relationship = NULL) {
+  public function getLangcode(ResultRow $row) {
     return $row->_entity->getUntranslated()->language()->getId();
   }
 
