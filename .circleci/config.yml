@@ -32,6 +32,9 @@ jobs:
       - save_cache:
           key: composer-v1-{{ checksum "composer.lock" }}
           paths:
+            - docroot/core
+            - docroot/modules
+            - docroot/libraries
             - vendor
       - run: ./scripts/test.sh
       - run:
