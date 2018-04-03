@@ -854,6 +854,33 @@ if(isset($_ENV['VCAP_SERVICES'])) {
   $config['s3fs.settings']['secret_key'] = '';
 }
 
+/*
+* The following code block gets the relevant credentials from the environment.
+* If a local.settings.php file exists, it will read that instead so make sure
+* that that file is not pushed to anything.
+*
+* Read AWS service properties from the UPS.
+*/
+
+if(isset($_ENV['VCAP_SERVICES'])) {
+  $service_blob = json_decode($_ENV['VCAP_SERVICES'], true);
+  $smtp_service = array();
+  foreach($service_blob as $service_provider => $service_list) {
+    foreach ($service_list as $some_service) {
+      // look for a service where the name is 'ups-aws'
+      if ($some_service['name'] === 'ups-website-redev') {
+        $smtp_service[] = $some_service;
+      }
+    }
+  }
+
+  // Set the relevant settings.
+
+  $config['swiftmailer.transport']['smtp_credentials']['swiftmailer']['password'] = $smtp_service[0]['credentials']['SMTP_PASSWORD'];
+} else {
+  $config['swiftmailer.transport']['smtp_credentials']['swiftmailer']['password'] = '';
+}
+
 /**
  * Load local development override configuration, if available.
  *
