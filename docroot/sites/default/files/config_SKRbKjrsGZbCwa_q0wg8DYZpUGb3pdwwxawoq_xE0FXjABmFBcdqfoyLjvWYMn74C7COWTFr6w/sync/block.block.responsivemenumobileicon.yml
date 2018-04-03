@@ -9,7 +9,7 @@ dependencies:
 id: responsivemenumobileicon
 theme: dta_gov_au
 region: disabled
-weight: 0
+weight: -8
 provider: null
 plugin: responsive_menu_toggle
 settings:

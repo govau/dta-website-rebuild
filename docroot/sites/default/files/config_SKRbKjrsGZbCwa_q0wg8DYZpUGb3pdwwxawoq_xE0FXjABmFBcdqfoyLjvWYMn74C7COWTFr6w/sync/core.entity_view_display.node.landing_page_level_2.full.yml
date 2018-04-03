@@ -27,7 +27,7 @@ third_party_settings:
       id: layout_onecol
       library: layout_discovery/onecol
       disable_css: false
-      entity_classes: no_classes
+      entity_classes: all_classes
       settings: {  }
     regions:
       content:
@@ -50,32 +50,11 @@ third_party_settings:
         label: above
         formatter: default
         ft:
-          id: expert
+          id: default
           settings:
             lb: 'Current vacancies'
-            prefix: ''
-            lbw: true
-            lbw-el: h2
-            lbw-cl: ''
-            lbw-at: ''
-            ow: true
-            ow-el: div
-            ow-cl: au-current-vacancies
-            ow-at: ''
-            fis-el: ''
-            fis-cl: ''
-            fis-at: ''
-            fi-el: ''
-            fi-cl: ''
-            fi-at: ''
-            suffix: ''
             lb-col: false
-            ow-def-at: false
-            ow-def-cl: false
-            fis: false
-            fis-def-at: false
-            fi: false
-            fi-def-at: false
+            classes: {  }
       node_links:
         plugin_id: node_links
         weight: 0
