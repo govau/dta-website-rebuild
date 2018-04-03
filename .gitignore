@@ -36,7 +36,7 @@ vendor
 docroot/core
 #docroot/includes
 #docroot/misc
-#docroot/modules
+docroot/modules
 #docroot/profiles
 #docroot/scripts
 #docroot/themes

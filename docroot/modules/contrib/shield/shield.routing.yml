@@ -1,7 +1,0 @@
-shield.settings:
- path: '/admin/config/system/shield'
- defaults:
-   _title: 'Shield'
-   _form: 'Drupal\shield\Form\ShieldSettingsForm'
- requirements:
-   _permission: 'administer shield'

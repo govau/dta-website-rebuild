@@ -1,4 +1,0 @@
-services:
-  responsive_menu.tree_manipulators:
-    class: Drupal\responsive_menu\ResponsiveMenuMenuLinkTreeManipulators
-    arguments: ['@access_manager', '@current_user', '@entity.query']

@@ -1,6 +1,0 @@
-{
-  "directory": "libraries",
-  "scripts": {
-    "postinstall": "rm -rf libraries/jquery;"
-  }
-}

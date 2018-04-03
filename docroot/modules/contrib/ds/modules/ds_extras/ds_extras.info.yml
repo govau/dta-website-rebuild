@@ -1,8 +1,0 @@
-type: module
-name: 'Display Suite Extras'
-description: 'Contains additional features for Display Suite.'
-core: 8.x
-package: 'Display Suite'
-configure: admin/structure/ds/settings
-dependencies:
-  - ds:ds
