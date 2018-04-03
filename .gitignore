@@ -40,7 +40,7 @@ docroot/modules
 #docroot/profiles
 #docroot/scripts
 #docroot/themes
-#docroot/libraries
+docroot/libraries
 bin
 social_auth_google.settings.yml
 
