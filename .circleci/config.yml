@@ -25,11 +25,6 @@ jobs:
             # Since we cant use extra_hosts in circle, DIY the expected host entries
             echo "127.0.0.1      db" >> /etc/hosts
             echo "127.0.0.1      govcms8.local" >> /etc/hosts
-      # Change the ckeditor http url to https
-      # FIXME can we just fix this  so 'composer update' doesnt clobber it once and
-      # for all??
-      # Or just set secure-http to false? https://getcomposer.org/doc/06-config.md#secure-http
-      - run: sed -i 's/http:\/\/download.ckeditor.com/https:\/\/download.ckeditor.com/g' composer.lock
       - persist_to_workspace:
           root: /app
           paths:
