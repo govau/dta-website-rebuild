@@ -1,5 +1,0 @@
-services:
-  social_auth_google.manager:
-    class: Drupal\social_auth_google\GoogleAuthManager
-    arguments:
-      - '@config.factory'

@@ -1,5 +1,0 @@
-services:
-  logger.channel.migrate_tools:
-    class: Drupal\Core\Logger\LoggerChannel
-    factory: logger.factory:get
-    arguments: ['migrate_tools']

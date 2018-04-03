@@ -1,6 +1,0 @@
-name: 'Display Suite exportables test'
-description: 'Tests for exportables with Display Suite.'
-type: module
-package: 'Display Suite'
-core: 8.x
-hidden: TRUE

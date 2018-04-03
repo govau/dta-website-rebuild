@@ -1,6 +1,0 @@
-responsive_menu.settings:
-  title: 'Responsive menu'
-  description: 'Configure the off-canvas mobile menu and the horizontal desktop width menu.'
-  parent: system.admin_config_ui
-  route_name: responsive_menu.settings
-  weight: 10

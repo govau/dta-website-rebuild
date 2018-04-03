@@ -1,8 +1,0 @@
-type: module
-name: 'Display Suite Devel'
-description: 'Development functionality for Display Suite.'
-core: 8.x
-package: 'Display Suite'
-dependencies:
-  - ds:ds
-  - devel:devel
