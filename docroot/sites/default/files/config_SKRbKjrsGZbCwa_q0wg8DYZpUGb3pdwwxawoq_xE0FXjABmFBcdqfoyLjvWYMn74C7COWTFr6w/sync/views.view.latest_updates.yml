@@ -68,7 +68,7 @@ display:
         type: html_list
         options:
           grouping: {  }
-          row_class: 'col-xs-6 col-xs-offset-3 col-sm-offset-0 col-sm-6 col-md-4'
+          row_class: 'col-xs-12 col-sm-6 col-md-4'
           default_row_class: false
           type: ul
           wrapper_class: au-body
