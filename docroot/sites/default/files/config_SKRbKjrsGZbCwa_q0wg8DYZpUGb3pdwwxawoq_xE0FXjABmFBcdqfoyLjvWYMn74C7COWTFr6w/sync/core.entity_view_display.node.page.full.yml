@@ -254,7 +254,7 @@ content:
             fis-at: ''
             fi: true
             fi-el: li
-            fi-cl: 'col-xs-12 col-sm-6'
+            fi-cl: 'col-xs-12 col-sm-6 col-md-4'
             fi-at: ''
             suffix: ''
             lbw: false
