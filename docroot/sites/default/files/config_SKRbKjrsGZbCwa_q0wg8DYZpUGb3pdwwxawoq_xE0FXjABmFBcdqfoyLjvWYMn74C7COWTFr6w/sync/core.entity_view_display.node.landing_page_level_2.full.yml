@@ -35,15 +35,42 @@ third_party_settings:
         - field_introduction
         - 'dynamic_block_field:node-recrtuierbox_positions_block'
         - field_body
-        - 'dynamic_block_field:node-landing_page_cards_2_card_row'
+        - 'dynamic_block_field:node-landing_page_cards'
         - field_related_content_heading
         - field_related_content
     fields:
-      'dynamic_block_field:node-landing_page_cards_2_card_row':
-        plugin_id: 'dynamic_block_field:node-landing_page_cards_2_card_row'
+      'dynamic_block_field:node-landing_page_cards':
+        plugin_id: 'dynamic_block_field:node-landing_page_cards'
         weight: 4
         label: hidden
         formatter: default
+        ft:
+          id: expert
+          settings:
+            lb: ''
+            prefix: ''
+            lbw-el: ''
+            lbw-cl: ''
+            lbw-at: ''
+            ow: true
+            ow-el: div
+            ow-cl: au-landing-page-level-2-cards
+            ow-at: ''
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fi-el: ''
+            fi-cl: ''
+            fi-at: ''
+            suffix: ''
+            lbw: false
+            lb-col: false
+            ow-def-at: false
+            ow-def-cl: false
+            fis: false
+            fis-def-at: false
+            fi: false
+            fi-def-at: false
       'dynamic_block_field:node-recrtuierbox_positions_block':
         plugin_id: 'dynamic_block_field:node-recrtuierbox_positions_block'
         weight: 2
@@ -142,7 +169,7 @@ content:
             fis-at: ''
             fi: true
             fi-el: li
-            fi-cl: 'col-xs-12 col-sm-6'
+            fi-cl: 'col-xs-12 col-sm-6 col-md-4'
             fi-at: ''
             suffix: ''
             lb-col: false
