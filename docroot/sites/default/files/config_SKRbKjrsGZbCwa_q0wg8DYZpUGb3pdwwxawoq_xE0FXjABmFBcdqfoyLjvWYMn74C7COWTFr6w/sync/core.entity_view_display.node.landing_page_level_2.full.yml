@@ -161,7 +161,7 @@ content:
             lbw-at: ''
             ow: true
             ow-el: div
-            ow-cl: au-body
+            ow-cl: 'au-body au-landing-page-level-2-cards'
             ow-at: ''
             fis: true
             fis-el: ul
