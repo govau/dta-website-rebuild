@@ -1,11 +1,48 @@
-docroot/sites/*/local.services.yml
+# Ignore configuration files containing sensitive information.
 docroot/sites/*/settings.local.php
+
+# Ignore paths that contain generated content, although we need /tmp/ to be uploaded.
+docroot/sites/*/files/*
+!docroot/sites/*/files/config*
 docroot/sites/*/private
-docroot/sites/simpletest
-docroot/themes/*/*/node_modules
-docroot/tmp/*
-!docroot/tmp
-docroot/themes/*/*/pancake
+
+# Ignore default text files
+#robots.txt
+CHANGELOG.txt
+COPYRIGHT.txt
+INSTALL*.txt
+#LICENSE.txt
+MAINTAINERS.txt
+UPGRADE.txt
+README.txt
+
+# Ignore the extra 'vendor' folder.
+#docroot/vendor
+#docroot/composer.*
+#docroot/autoload.php
+
+# Ignore vendor folder.
 vendor
+
+# Ignore everything but the "sites" folder ( for non core developer )
+#.htaccess
+#web.config
+#authorize.php
+#cron.php
+#index.php
+#install.php
+#update.php
+#xmlrpc.php
+docroot/core
+#docroot/includes
+#docroot/misc
+docroot/modules
+#docroot/profiles
+#docroot/scripts
+docroot/themes
+docroot/libraries
 bin
-scripts/secrets*
+social_auth_google.settings.yml
+
+secrets-*
+disqus.settings.yml
