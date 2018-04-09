@@ -46,7 +46,7 @@ field_settings:
     label: Title
     datasource_id: 'entity:node'
     property_path: title
-    type: text
+    type: string
     boost: !!float 5
   status:
     label: status
@@ -185,7 +185,6 @@ processor_settings:
     all_fields: true
     fields:
       - rendered_item
-      - title
       - field_body
       - field_summary
       - field_introduction
@@ -232,7 +231,6 @@ processor_settings:
     all_fields: true
     fields:
       - rendered_item
-      - title
       - field_body
       - field_summary
       - field_introduction
@@ -247,14 +245,14 @@ processor_settings:
       'entity:node':
         datasource_boost: !!float 1
         bundle_boosts:
-          blog_post: !!float 0
-          govcms_event: !!float 0
+          blog_post: 0.5
+          govcms_event: 0.5
           home_page: !!float 0
           landing_page: !!float 1
           landing_page_level_2: !!float 1
-          news_item: !!float 0
-          page: !!float 0
-          platforms_and_services: !!float 0
+          news_item: 0.5
+          page: !!float 1
+          platforms_and_services: !!float 1
     weights:
       preprocess_index: 0
 tracker_settings:
