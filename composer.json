@@ -181,6 +181,7 @@
         "drupal/dropzonejs": "2.0.0-alpha3",
         "drupal/ds": "3.x-dev",
         "drupal/editor_advanced_link": "^1.4",
+        "drupal/empty_fields": "1.x-dev",
         "drupal/entity_browser": "2.0-alpha2",
         "drupal/entity_embed": "^1.0@beta",
         "drupal/entity_reference_revisions": "1.4",
@@ -300,6 +301,9 @@
           },
           "drupal/typogrify": {
             "Invalid placeholder (version) in string": "https://www.drupal.org/files/issues/2018-03-16/2953490-invalid-placeholder-fix.patch"
+          },
+          "drupal/empty_fields": {
+            "Plugin form not shown": "https://www.drupal.org/files/issues/2927913-8.patch"
           }
         }
     },
