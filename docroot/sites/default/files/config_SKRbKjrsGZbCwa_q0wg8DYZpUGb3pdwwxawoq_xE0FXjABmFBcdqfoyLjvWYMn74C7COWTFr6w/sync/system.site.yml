@@ -4,7 +4,7 @@ mail: website@digital.gov.au
 slogan: 'Simple. Clear. Fast.'
 page:
   403: ''
-  404: ''
+  404: /node/216
   front: /node
 admin_compact_mode: false
 weight_select_max: 100
