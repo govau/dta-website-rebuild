@@ -1,6 +1,6 @@
 id: landing_page_cards
-label: 'Landing page cards'
-ui_limit: landing_page|full
+label: 'Landing page cards: 3-card row'
+ui_limit: "landing_page|full\r\nlanding_page_level_2|full"
 properties:
   block: 'views_block:landing_page_cards-block_1'
   use_block_title: false

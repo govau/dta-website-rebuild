@@ -1,0 +1,24 @@
+uuid: 78d06d5f-8dca-4792-8b4d-5aab3b1c2c10
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+    - node_title_help_text
+    - wysiwyg_template
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+  node_title_help_text:
+    title_help: ''
+  wysiwyg_template:
+    default_template: ''
+name: 'Landing Page - Level 2'
+type: landing_page_level_2
+description: 'A content type  to create level 2 landing pages. They will automatically include a view of child menu items along with a left menu. To ensure you see the correct items, make sure the menu is set up correctly.'
+help: ''
+new_revision: false
+preview_mode: 1
+display_submitted: false

@@ -11,4 +11,4 @@ smtp_credential_provider: swiftmailer
 smtp_credentials:
   swiftmailer:
     username: website@digital.gov.au
-    password: X+ao7/edDLkXucW5WZPvymtUkXc/OOSU50D2EOVMn6c=
+    password: thisisnotthepassword

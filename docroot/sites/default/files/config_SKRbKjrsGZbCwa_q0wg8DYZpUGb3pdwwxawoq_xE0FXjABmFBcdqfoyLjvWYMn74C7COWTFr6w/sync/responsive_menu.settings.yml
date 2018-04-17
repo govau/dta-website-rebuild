@@ -1,0 +1,24 @@
+horizontal_menu: main
+horizontal_depth: 9
+off_canvas_menus: main
+horizontal_wrapping_element: nav
+horizontal_breakpoint: 'Extra small'
+horizontal_media_query: '(min-width: 576px)'
+include_css: true
+off_canvas_position: left
+off_canvas_theme: theme-dark
+pagedim: pagedim
+horizontal_superfish: true
+horizontal_superfish_delay: 300
+horizontal_superfish_speed: 100
+horizontal_superfish_speed_out: 100
+horizontal_superfish_hoverintent: true
+hammerjs: true
+breakpoint_css_filepath: 'public://css'
+use_breakpoint: true
+allow_admin: false
+wrapper_admin: true
+wrapper_theme: false
+extension_keyboard: true
+_core:
+  default_config_hash: U7p9WqE0yMw-SNTivefWcS3D61GPAcUrlQxPCm4mYxQ

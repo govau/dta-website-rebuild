@@ -1,0 +1,89 @@
+uuid: 2d2b90d7-4b7c-4a77-9ea6-342d604c3faa
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.card
+    - field.field.node.landing_page_level_2.field_body
+    - field.field.node.landing_page_level_2.field_facebook_image
+    - field.field.node.landing_page_level_2.field_index_image
+    - field.field.node.landing_page_level_2.field_introduction
+    - field.field.node.landing_page_level_2.field_linkedin_image
+    - field.field.node.landing_page_level_2.field_promote_to_get_help_advice
+    - field.field.node.landing_page_level_2.field_promote_to_our_projects
+    - field.field.node.landing_page_level_2.field_related_content
+    - field.field.node.landing_page_level_2.field_related_content_heading
+    - field.field.node.landing_page_level_2.field_summary
+    - field.field.node.landing_page_level_2.field_twitter_image
+    - node.type.landing_page_level_2
+  module:
+    - ds
+    - panelizer
+    - user
+third_party_settings:
+  ds:
+    layout:
+      id: layout_onecol
+      library: layout_discovery/onecol
+      disable_css: false
+      entity_classes: all_classes
+      settings: {  }
+    regions:
+      content:
+        - 'dynamic_token_field:node-related_content_card'
+    fields:
+      'dynamic_token_field:node-related_content_card':
+        plugin_id: 'dynamic_token_field:node-related_content_card'
+        weight: 0
+        label: hidden
+        formatter: default
+        ft:
+          id: expert
+          settings:
+            lb: ''
+            prefix: ''
+            lbw-el: ''
+            lbw-cl: ''
+            lbw-at: ''
+            ow-el: ''
+            ow-cl: ''
+            ow-at: ''
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fi-el: ''
+            fi-cl: ''
+            fi-at: ''
+            suffix: ''
+            lbw: false
+            lb-col: false
+            ow: false
+            ow-def-at: false
+            ow-def-cl: false
+            fis: false
+            fis-def-at: false
+            fi: false
+            fi-def-at: false
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
+id: node.landing_page_level_2.card
+targetEntityType: node
+bundle: landing_page_level_2
+mode: card
+content: {  }
+hidden:
+  field_body: true
+  field_facebook_image: true
+  field_index_image: true
+  field_introduction: true
+  field_linkedin_image: true
+  field_promote_to_get_help_advice: true
+  field_promote_to_our_projects: true
+  field_related_content: true
+  field_related_content_heading: true
+  field_summary: true
+  field_twitter_image: true
+  links: true

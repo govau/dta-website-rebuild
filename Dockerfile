@@ -3,17 +3,19 @@ FROM drupal:8.4-apache
 RUN apt-get update && apt-get install -y \
 	curl \
 	git \
+	jq \
 	vim \
 	wget \
 	libbz2-dev \
+	libfontconfig \
 	libpng-dev; \
 	docker-php-ext-install bz2 gd;
 
 # Install composer
-RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" && \
-	php composer-setup.php && \
-	mv composer.phar /usr/local/bin/composer && \
-	php -r "unlink('composer-setup.php');"
+RUN set -ex; \
+	php -r "copy('https://getcomposer.org/download/1.6.3/composer.phar', 'composer.phar');" && \
+	php -r "if (hash_file('SHA256', 'composer.phar') === '52cb7bbbaee720471e3b34c8ae6db53a38f0b759c06078a80080db739e4dcab6') { echo 'composer.phar verified'; } else { echo 'composer.phar corrupt'; unlink('composer.phar'); } echo PHP_EOL;" &&\
+	install -m 755 composer.phar /usr/local/bin/composer
 
 # We remove the drupal that comes from the base Dockerfile, and expect our local
 # code to be mounted at /app

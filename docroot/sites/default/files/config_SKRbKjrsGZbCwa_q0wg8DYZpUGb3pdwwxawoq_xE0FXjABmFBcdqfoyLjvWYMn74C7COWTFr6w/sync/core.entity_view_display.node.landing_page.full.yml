@@ -9,6 +9,8 @@ dependencies:
     - field.field.node.landing_page.field_index_image
     - field.field.node.landing_page.field_introduction
     - field.field.node.landing_page.field_linkedin_image
+    - field.field.node.landing_page.field_promote_to_get_help_advice
+    - field.field.node.landing_page.field_promote_to_our_projects
     - field.field.node.landing_page.field_related_content
     - field.field.node.landing_page.field_related_content_heading
     - field.field.node.landing_page.field_summary
@@ -29,6 +31,7 @@ third_party_settings:
       settings: {  }
     regions:
       content:
+        - content_moderation_control
         - links
         - field_introduction
         - field_body
@@ -38,16 +41,17 @@ third_party_settings:
     fields:
       'dynamic_block_field:node-landing_page_cards':
         plugin_id: 'dynamic_block_field:node-landing_page_cards'
-        weight: 3
-        label: hidden
+        weight: 4
+        label: above
         formatter: default
         ft:
           id: expert
           settings:
-            lb: ''
+            lb: 'Other content in this section'
             prefix: ''
-            lbw-el: ''
-            lbw-cl: ''
+            lbw: true
+            lbw-el: h2
+            lbw-cl: sr-only
             lbw-at: ''
             ow-el: ''
             ow-cl: ''
@@ -59,7 +63,6 @@ third_party_settings:
             fi-cl: ''
             fi-at: ''
             suffix: ''
-            lbw: false
             lb-col: false
             ow: false
             ow-def-at: false
@@ -78,15 +81,20 @@ targetEntityType: node
 bundle: landing_page
 mode: full
 content:
+  content_moderation_control:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   field_body:
-    weight: 2
+    weight: 3
     label: hidden
     settings: {  }
     third_party_settings: {  }
     type: text_default
     region: content
   field_introduction:
-    weight: 1
+    weight: 2
     label: hidden
     settings: {  }
     third_party_settings:
@@ -122,7 +130,7 @@ content:
     region: content
   field_related_content:
     type: entity_reference_entity_view
-    weight: 5
+    weight: 6
     region: content
     label: hidden
     settings:
@@ -142,7 +150,7 @@ content:
             lbw-at: ''
             ow: true
             ow-el: div
-            ow-cl: au-body
+            ow-cl: 'au-body au-landing-page-level-2-cards'
             ow-at: ''
             fis: true
             fis-el: ul
@@ -160,12 +168,16 @@ content:
             fi-def-at: false
   field_related_content_heading:
     type: string
-    weight: 4
+    weight: 5
     region: content
     label: hidden
     settings:
       link_to_entity: false
     third_party_settings:
+      empty_fields:
+        handler: text
+        settings:
+          empty_text: ''
       ds:
         ft:
           id: expert
@@ -195,14 +207,15 @@ content:
             fis-def-at: false
             fi-def-at: false
   links:
-    weight: 0
+    weight: 1
     region: content
     settings: {  }
     third_party_settings: {  }
 hidden:
-  content_moderation_control: true
   field_facebook_image: true
   field_index_image: true
   field_linkedin_image: true
+  field_promote_to_get_help_advice: true
+  field_promote_to_our_projects: true
   field_summary: true
   field_twitter_image: true

@@ -8,6 +8,7 @@ dependencies:
     - htmlawed
     - linkit
     - toc_filter
+    - typogrify
     - video_embed_wysiwyg
     - wysiwyg_template_core
 _core:
@@ -26,20 +27,20 @@ filters:
     id: filter_htmlcorrector
     provider: filter
     status: true
-    weight: -46
+    weight: -48
     settings: {  }
   filter_url:
     id: filter_url
     provider: filter
     status: true
-    weight: -47
+    weight: -45
     settings:
       filter_url_length: 72
   filter_html:
     id: filter_html
     provider: filter
     status: false
-    weight: -42
+    weight: -41
     settings:
       allowed_html: '<a href hreflang id rel title class target> <em> <strong> <cite> <blockquote cite> <code> <ul type class> <ol start type> <li class> <dl> <dt> <dd> <h2 id class> <h3 id class> <h4 id class> <h5 id class> <h6 id class> <img src alt data-entity-type data-entity-uuid> <u> <s> <sup> <sub> <table id summary class> <caption> <tbody> <thead> <tfoot> <th class style> <td class style> <tr class> <p class> <div class id> <iframe> <drupal-entity data-*> <hr>'
       filter_html_help: true
@@ -54,7 +55,7 @@ filters:
     id: toc_filter
     provider: toc_filter
     status: true
-    weight: -43
+    weight: -42
     settings:
       type: default
       auto: ''
@@ -63,58 +64,79 @@ filters:
     id: editor_file_reference
     provider: editor
     status: false
-    weight: -40
+    weight: -39
     settings: {  }
   entity_embed:
     id: entity_embed
     provider: entity_embed
     status: true
-    weight: -45
+    weight: -44
     settings: {  }
   filter_html_image_secure:
     id: filter_html_image_secure
     provider: filter
     status: false
-    weight: -37
+    weight: -36
     settings: {  }
   filter_html_escape:
     id: filter_html_escape
     provider: filter
     status: false
-    weight: -41
+    weight: -40
     settings: {  }
   filter_align:
     id: filter_align
     provider: filter
     status: false
-    weight: -39
+    weight: -38
     settings: {  }
   linkit:
     id: linkit
     provider: linkit
     status: false
-    weight: -38
+    weight: -37
     settings:
       title: true
   video_embed_wysiwyg:
     id: video_embed_wysiwyg
     provider: video_embed_wysiwyg
     status: true
-    weight: -48
+    weight: -46
     settings: {  }
   filter_htmlawed:
     id: filter_htmlawed
     provider: htmlawed
     status: true
-    weight: -44
+    weight: -47
     settings:
-      config: '''safe'' => 1, ''elements'' => ''a, em, strong, cite, blockquote, code, ul , li, dl, dt, dd, h2, h3, h4, h5, h6, img, sup, sub, table, caption, tbody, thead, tfoot, th, td, tr,p, div, iframe, drupal-entity, hr'','
+      config: '''safe'' => 1, ''elements'' => ''a, br, em, strong, cite, blockquote, code, ul, ol, li, dl, dt, dd, h2, h3, h4, h5, h6, img, sup, sub, table, caption, tbody, thead, tfoot, th, td, tr,p, div, iframe, drupal-entity, hr'','
       spec: 'a=href, hreflang, id, rel, title, class, target; td, tr=class, id, style; blockquote=cite; ul=type, class; ol=type, class, start; li=class; h2=id, class; h3=id, class; h4=id, class; h5=id, class; h6=id, class; img=src, alt, data-entity-type, data-entity-uuid; table=id, summary, class; th=class, style; td=class, style; tr=class; p=class; div=id,class; drupal-entity=data-*;'
-      help: 'Allowed HTML tags: <a> <em> <strong> <cite> <blockquote> <code> <ul> <ol> <li> <dl> <dt> <dd> <h2> <h3> <h4> <h5> <h6> <img > <sup> <sub> <table> <caption> <tbody> <thead> <tfoot> <th> <td> <tr> <p> <div> <iframe> <drupal-entity> <hr>'
-      helplong: 'These HTML tags are allowed: <a> <em> <strong> <cite> <blockquote> <code> <ul> <ol> <li> <dl> <dt> <dd> <h2> <h3> <h4> <h5> <h6> <img > <sup> <sub> <table> <caption> <tbody> <thead> <tfoot> <th> <td> <tr> <p> <div> <iframe> <drupal-entity> <hr>. Javascript is not permitted.'
+      help: 'Allowed HTML tags: <a> <br> <em> <strong> <cite> <blockquote> <code> <ul> <ol> <li> <dl> <dt> <dd> <h2> <h3> <h4> <h5> <h6> <img > <sup> <sub> <table> <caption> <tbody> <thead> <tfoot> <th> <td> <tr> <p> <div> <iframe> <drupal-entity> <hr>'
+      helplong: 'These HTML tags are allowed: <a> <br> <em> <strong> <cite> <blockquote> <code> <ul> <ol> <li> <dl> <dt> <dd> <h2> <h3> <h4> <h5> <h6> <img > <sup> <sub> <table> <caption> <tbody> <thead> <tfoot> <th> <td> <tr> <p> <div> <iframe> <drupal-entity> <hr>. Javascript is not permitted.'
   filter_wysiwyg_cleanup:
     id: filter_wysiwyg_cleanup
     provider: wysiwyg_template_core
     status: false
-    weight: -36
+    weight: -35
     settings: {  }
+  TypogrifyFilter:
+    id: TypogrifyFilter
+    provider: typogrify
+    status: true
+    weight: -43
+    settings:
+      smartypants_enabled: '1'
+      smartypants_hyphens: '3'
+      space_hyphens: '0'
+      widont_enabled: '1'
+      hyphenate_shy: '0'
+      space_to_nbsp: '0'
+      wrap_caps: '0'
+      wrap_ampersand: '0'
+      wrap_abbr: '0'
+      wrap_numbers: '0'
+      wrap_initial_quotes: '1'
+      ligatures: 'a:0:{}'
+      arrows: 'a:0:{}'
+      fractions: 'a:0:{}'
+      quotes: 'a:0:{}'

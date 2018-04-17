@@ -7,13 +7,29 @@ dependencies:
     - search_api_page.search_api_page.search
   module:
     - search_api_page
+    - search_api_autocomplete
 id: search
 label: Search
 index_id: database_search_index
 suggester_settings:
+  live_results:
+    fields:
+      - title
+    view_modes:
+      'entity:node':
+        blog_post: ''
+        govcms_event: ''
+        home_page: ''
+        landing_page: ''
+        landing_page_level_2: ''
+        news_item: ''
+        page: ''
+        platforms_and_services: ''
   server:
-    fields: {  }
+    fields:
+      - title
 suggester_weights:
+  live_results: 0
   server: 0
 suggester_limits:
   server: 10

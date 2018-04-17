@@ -7,6 +7,13 @@ dependencies:
     - node.type.landing_page
   module:
     - text
+third_party_settings:
+  allowed_formats:
+    rich_text: rich_text
+    administration: '0'
+    html: '0'
+    introduction: '0'
+    plain_text: '0'
 id: node.landing_page.field_body
 field_name: field_body
 entity_type: node

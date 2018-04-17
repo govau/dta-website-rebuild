@@ -1,8 +1,0 @@
-/**
- * @file
- * TOC menu jQuery UI styling
- */
-
-.toc-menu .ui-selectmenu-button {
-  width: 100% !important; /* Using !important to override inline width set by the jQuery UI selectmenu */
-}

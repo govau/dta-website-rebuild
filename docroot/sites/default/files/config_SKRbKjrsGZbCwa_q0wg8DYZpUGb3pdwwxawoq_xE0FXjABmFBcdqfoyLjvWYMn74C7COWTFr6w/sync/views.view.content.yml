@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   module:
+    - content_moderation
     - node
     - user
 _core:
@@ -40,11 +41,23 @@ display:
         type: full
         options:
           items_per_page: 50
+          offset: 0
+          id: 0
+          total_pages: null
           tags:
             previous: '‹ Previous'
             next: 'Next ›'
             first: '« First'
             last: 'Last »'
+          expose:
+            items_per_page: false
+            items_per_page_label: 'Items per page'
+            items_per_page_options: '5, 10, 25, 50'
+            items_per_page_options_all: true
+            items_per_page_options_all_label: '- All -'
+            offset: false
+            offset_label: Offset
+          quantity: 9
       style:
         type: table
         options:
@@ -63,10 +76,8 @@ display:
             name: name
             status: status
             changed: changed
-            edit_node: edit_node
-            delete_node: delete_node
-            dropbutton: dropbutton
-            timestamp: title
+            operations: operations
+            moderation_state: moderation_state
           info:
             node_bulk_form:
               align: ''
@@ -88,7 +99,7 @@ display:
               empty_column: false
               responsive: ''
             name:
-              sortable: false
+              sortable: true
               default_sort_order: asc
               align: ''
               separator: ''
@@ -108,29 +119,13 @@ display:
               separator: ''
               empty_column: false
               responsive: priority-low
-            edit_node:
-              sortable: false
-              default_sort_order: asc
+            operations:
               align: ''
               separator: ''
               empty_column: false
               responsive: ''
-            delete_node:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            dropbutton:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            timestamp:
-              sortable: false
+            moderation_state:
+              sortable: true
               default_sort_order: asc
               align: ''
               separator: ''
@@ -145,16 +140,61 @@ display:
           id: node_bulk_form
           table: node
           field: node_bulk_form
+          relationship: none
+          group_type: group
+          admin_label: ''
           label: ''
           exclude: false
           alter:
             alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
           element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
           element_default_classes: true
           empty: ''
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
+          action_title: Action
+          include_exclude: exclude
+          selected_actions:
+            - node_delete_action
+            - node_make_sticky_action
+            - node_make_unsticky_action
+            - node_promote_action
+            - node_publish_action
+            - node_save_action
+            - node_unpromote_action
+            - node_unpublish_action
           plugin_id: node_bulk_form
           entity_type: node
         title:
@@ -283,6 +323,69 @@ display:
           plugin_id: field
           entity_type: node
           entity_field: status
+        moderation_state:
+          id: moderation_state
+          table: node_field_data
+          field: moderation_state
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'Moderation state'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: content_moderation_state
+          settings: {  }
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          entity_type: node
+          plugin_id: field
         changed:
           id: changed
           table: node_field_data
@@ -484,15 +587,6 @@ display:
           plugin_id: boolean
           entity_type: node
           entity_field: status
-        status_extra:
-          id: status_extra
-          table: node_field_data
-          field: status_extra
-          operator: '='
-          value: false
-          plugin_id: node_status
-          group: 1
-          entity_type: node
       sorts: {  }
       title: Content
       empty:
@@ -528,7 +622,6 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
-        - user
         - 'user.node_grants:view'
         - user.permissions
       max-age: 0
@@ -560,7 +653,6 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
-        - user
         - 'user.node_grants:view'
         - user.permissions
       max-age: 0

@@ -1,0 +1,23 @@
+uuid: b9e43271-c721-4d4b-a29d-dc3c870e3938
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - node.type.recruiterbox_position
+  module:
+    - user
+id: node.recruiterbox_position.teaser
+targetEntityType: node
+bundle: recruiterbox_position
+mode: teaser
+content:
+  links:
+    weight: 100
+    region: content
+hidden:
+  field_allows_remote: true
+  field_body: true
+  field_city: true
+  field_external_link: true
+  field_position_type: true

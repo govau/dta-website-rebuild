@@ -33,13 +33,14 @@ vendor
 #install.php
 #update.php
 #xmlrpc.php
+docroot/core
 #docroot/includes
 #docroot/misc
-#docroot/modules
+docroot/modules
 #docroot/profiles
 #docroot/scripts
 #docroot/themes
-#docroot/libraries
+docroot/libraries
 bin
 social_auth_google.settings.yml
 

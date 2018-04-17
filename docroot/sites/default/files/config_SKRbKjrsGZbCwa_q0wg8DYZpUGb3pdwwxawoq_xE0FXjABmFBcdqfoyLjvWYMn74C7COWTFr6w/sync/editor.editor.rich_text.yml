@@ -102,7 +102,7 @@ settings:
     language:
       language_list: un
     stylescombo:
-      styles: "div.au-callout|Callout: container\r\np.au-callout|Callout: paragraph"
+      styles: "div.au-callout|Callout: container\r\np.au-callout|Callout: paragraph\r\np.au-pullquote|Pullquote: paragraph"
     video_embed:
       defaults:
         children:

@@ -30,6 +30,8 @@ field_settings:
           blog_post: full
           govcms_event: full
           home_page: ''
+          landing_page: full
+          landing_page_level_2: full
           news_item: full
           page: full
           platforms_and_services: full
@@ -44,8 +46,8 @@ field_settings:
     label: Title
     datasource_id: 'entity:node'
     property_path: title
-    type: text
-    boost: !!float 2
+    type: string
+    boost: !!float 5
   status:
     label: status
     datasource_id: 'entity:node'
@@ -65,6 +67,7 @@ field_settings:
     datasource_id: 'entity:node'
     property_path: field_body
     type: text
+    boost: !!float 2
     dependencies:
       config:
         - field.storage.node.field_body
@@ -73,7 +76,7 @@ field_settings:
     datasource_id: 'entity:node'
     property_path: field_summary
     type: text
-    boost: 0.8
+    boost: !!float 3
     dependencies:
       config:
         - field.storage.node.field_summary
@@ -82,7 +85,6 @@ field_settings:
     datasource_id: 'entity:node'
     property_path: field_introduction
     type: text
-    boost: 0.8
     dependencies:
       config:
         - field.storage.node.field_introduction
@@ -91,8 +93,9 @@ datasource_settings:
     bundles:
       default: true
       selected:
+        - external_link
         - help_and_advice_links
-        - landing_page
+        - recruiterbox_position
     languages:
       default: true
       selected: {  }
@@ -105,7 +108,7 @@ processor_settings:
   entity_status: {  }
   highlight:
     highlight: always
-    highlight_partial: true
+    highlight_partial: false
     excerpt: true
     excerpt_length: 256
     exclude_fields: {  }
@@ -143,8 +146,7 @@ processor_settings:
     weights:
       preprocess_index: -20
       preprocess_query: -20
-  rendered_item: {  }
-  stemmer:
+  ignore_character:
     all_fields: true
     fields:
       - rendered_item
@@ -152,17 +154,37 @@ processor_settings:
       - field_body
       - field_summary
       - field_introduction
-    exceptions:
-      texan: texa
-      mexican: mexic
+    ignorable: '[''¿¡!?,.:;]'
+    strip:
+      character_sets:
+        Pc: Pc
+        Pd: Pd
+        Pe: Pe
+        Pf: Pf
+        Pi: Pi
+        Po: Po
+        Ps: Ps
+        Cc: 0
+        Cf: 0
+        Co: 0
+        Mc: 0
+        Me: 0
+        Mn: 0
+        Sc: 0
+        Sk: 0
+        Sm: 0
+        So: 0
+        Zl: 0
+        Zp: 0
+        Zs: 0
     weights:
-      preprocess_index: 0
-      preprocess_query: 0
+      preprocess_index: -10
+      preprocess_query: -10
+  rendered_item: {  }
   stopwords:
     all_fields: true
     fields:
       - rendered_item
-      - title
       - field_body
       - field_summary
       - field_introduction
@@ -209,7 +231,6 @@ processor_settings:
     all_fields: true
     fields:
       - rendered_item
-      - title
       - field_body
       - field_summary
       - field_introduction
@@ -219,9 +240,24 @@ processor_settings:
     weights:
       preprocess_index: -6
       preprocess_query: -6
+  type_boost:
+    boosts:
+      'entity:node':
+        datasource_boost: !!float 1
+        bundle_boosts:
+          blog_post: 0.5
+          govcms_event: 0.5
+          home_page: !!float 0
+          landing_page: !!float 1
+          landing_page_level_2: !!float 1
+          news_item: 0.5
+          page: !!float 1
+          platforms_and_services: !!float 1
+    weights:
+      preprocess_index: 0
 tracker_settings:
   default:
-    indexing_order: fifo
+    indexing_order: lifo
 options:
   index_directly: true
   cron_limit: 50

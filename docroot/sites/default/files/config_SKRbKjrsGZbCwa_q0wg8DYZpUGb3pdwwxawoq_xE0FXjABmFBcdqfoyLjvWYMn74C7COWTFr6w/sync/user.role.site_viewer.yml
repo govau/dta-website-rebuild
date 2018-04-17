@@ -17,7 +17,6 @@ permissions:
   - 'use advanced search'
   - 'view all revisions'
   - 'view any unpublished content'
-  - 'view disqus comments'
   - 'view latest version'
   - 'view own unpublished content'
   - 'view the administration theme'
