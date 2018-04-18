@@ -7,7 +7,7 @@ applications:
   path: .
   timeout: 120
   services:
-  - dta-website-db
+  - beta-dta-gov-au-db
   - ups-aws
   - ups-website-redev
   buildpack: php_buildpack
