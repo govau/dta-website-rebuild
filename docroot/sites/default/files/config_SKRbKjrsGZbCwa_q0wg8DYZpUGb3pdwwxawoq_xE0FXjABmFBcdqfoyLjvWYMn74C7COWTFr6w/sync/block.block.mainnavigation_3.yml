@@ -52,6 +52,6 @@ visibility:
       node: '@node.node_route_context:node'
   request_path:
     id: request_path
-    pages: '<front>'
+    pages: "<front>\r\n/contact-us\r\n/accessibility\r\n/cookies\r\n/our-privacy-policy\r\n/disclaimer-and-copyright"
     negate: true
     context_mapping: {  }
