@@ -13,7 +13,7 @@ entity_type: node
 bundle: home_page
 label: 'Link to content'
 description: 'Add a link to existing content. Depending on the location of the node on the home page, this will be formatted differently.'
-required: true
+required: false
 translatable: true
 default_value: {  }
 default_value_callback: ''
