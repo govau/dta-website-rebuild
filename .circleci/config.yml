@@ -32,6 +32,7 @@ jobs:
       - restore_cache:
           keys:
             - composer-v1-{{ checksum "composer.lock" }}
+      - run: rm -rf docroot/themes/custom/dta-gov-au
       - run: composer install -n --prefer-dist --no-progress
       - save_cache:
           key: composer-v1-{{ checksum "composer.lock" }}
