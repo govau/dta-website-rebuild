@@ -19,6 +19,7 @@ dependencies:
   module:
     - datetime
     - ds
+    - empty_fields
     - field_group
     - panelizer
     - responsive_image
@@ -257,8 +258,10 @@ content:
     weight: 2
     label: inline
     settings:
-      link: true
+      link: false
     third_party_settings:
+      empty_fields:
+        handler: ''
       ds:
         ds_limit: ''
         ft:

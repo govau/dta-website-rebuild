@@ -24,6 +24,7 @@ dependencies:
     - datetime
     - disqus
     - ds
+    - empty_fields
     - field_group
     - panelizer
     - responsive_image
@@ -41,19 +42,18 @@ third_party_settings:
       content:
         - content_moderation_control
         - group_author_and_date
-        - field_author
         - field_tags
-        - field_date
+        - field_author
         - field_introduction
+        - field_date
         - group_image_and_caption
-        - field_image
         - field_body
-        - field_image_caption
+        - field_image
         - 'dynamic_token_field:node-author_and_position'
+        - field_image_caption
         - field_disqus_comment
         - links
         - 'dynamic_token_field:node-comment_heading'
-        - field_comments
     fields:
       'dynamic_token_field:node-author_and_position':
         plugin_id: 'dynamic_token_field:node-author_and_position'
@@ -166,7 +166,6 @@ third_party_settings:
     group_comments:
       children:
         - 'dynamic_token_field:node-comment_heading'
-        - field_comments
       parent_name: ''
       weight: 9
       format_type: html_element
@@ -195,8 +194,10 @@ content:
     weight: 2
     label: hidden
     settings:
-      link: true
+      link: false
     third_party_settings:
+      empty_fields:
+        handler: ''
       ds:
         ft:
           id: expert
@@ -418,8 +419,10 @@ content:
     weight: 2
     label: inline
     settings:
-      link: true
+      link: false
     third_party_settings:
+      empty_fields:
+        handler: ''
       ds:
         ds_limit: ''
         ft:
