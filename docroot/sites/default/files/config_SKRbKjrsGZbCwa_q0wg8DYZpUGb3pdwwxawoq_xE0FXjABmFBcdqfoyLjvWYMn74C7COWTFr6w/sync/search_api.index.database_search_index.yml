@@ -46,8 +46,8 @@ field_settings:
     label: Title
     datasource_id: 'entity:node'
     property_path: title
-    type: string
-    boost: !!float 5
+    type: text
+    boost: !!float 21
   status:
     label: status
     datasource_id: 'entity:node'
@@ -91,11 +91,15 @@ field_settings:
 datasource_settings:
   'entity:node':
     bundles:
-      default: true
+      default: false
       selected:
-        - external_link
-        - help_and_advice_links
-        - recruiterbox_position
+        - blog_post
+        - govcms_event
+        - landing_page
+        - landing_page_level_2
+        - news_item
+        - page
+        - platforms_and_services
     languages:
       default: true
       selected: {  }
@@ -185,6 +189,7 @@ processor_settings:
     all_fields: true
     fields:
       - rendered_item
+      - title
       - field_body
       - field_summary
       - field_introduction
@@ -231,6 +236,7 @@ processor_settings:
     all_fields: true
     fields:
       - rendered_item
+      - title
       - field_body
       - field_summary
       - field_introduction
