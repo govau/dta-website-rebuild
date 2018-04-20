@@ -17,22 +17,17 @@ suggester_settings:
       - title
     view_modes:
       'entity:node':
-        blog_post: ''
-        govcms_event: ''
-        home_page: ''
         landing_page: ''
         landing_page_level_2: ''
-        news_item: ''
-        page: ''
-        platforms_and_services: ''
   server:
     fields:
-      - title
+      - rendered_item
 suggester_weights:
   live_results: 0
   server: 0
 suggester_limits:
-  server: 10
+  live_results: 5
+  server: 5
 search_settings:
   'page:search': {  }
 options:

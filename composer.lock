@@ -4,19 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "cecc9308e143bea34ee637d353e1ce51",
+    "content-hash": "b231d2069394c49e6cfd5f25efda1cb0",
     "packages": [
-        {
-            "name": "FrDH/mmenu",
-            "version": "dev-master",
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/FrDH/jQuery.mmenu/zipball",
-                "reference": "master",
-                "shasum": null
-            },
-            "type": "drupal-library"
-        },
         {
             "name": "asm89/stack-cors",
             "version": "1.2.0",
@@ -6349,6 +6338,56 @@
             }
         },
         {
+            "name": "drupal/superfish",
+            "version": "1.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/superfish",
+                "reference": "8.x-1.2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/superfish-8.x-1.2.zip",
+                "reference": "8.x-1.2",
+                "shasum": "e6f11be2bb2b95957d144bb0155c29c7aad40a62"
+            },
+            "require": {
+                "drupal/core": "~8.0",
+                "mehrpadin/superfish": "~2.0"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.2",
+                    "datestamp": "1517739480",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "mehrpadin",
+                    "homepage": "https://www.drupal.org/u/mehrpadin",
+                    "role": "Maintainer"
+                }
+            ],
+            "description": "Adds jQuery Superfish plugin to menu blocks.",
+            "homepage": "https://www.drupal.org/project/superfish",
+            "support": {
+                "source": "https://cgit.drupalcode.org/superfish",
+                "issues": "https://www.drupal.org/project/superfish"
+            }
+        },
+        {
             "name": "drupal/swiftmailer",
             "version": "1.0.0-beta2",
             "source": {
@@ -7313,7 +7352,7 @@
                 "reference": "master"
             },
             "type": "drupal-custom-theme",
-            "time": "2018-04-19T00:46:07+00:00"
+            "time": "2018-04-20T01:59:08+00:00"
         },
         {
             "name": "govau/dta-uikit-base",
@@ -7346,7 +7385,7 @@
                 "reference": "master"
             },
             "type": "drupal-custom-module",
-            "time": "2018-04-13T03:29:43+00:00"
+            "time": "2018-03-21T22:47:59+00:00"
         },
         {
             "name": "grasmash/expander",
@@ -7625,17 +7664,6 @@
             "time": "2017-03-20T17:10:46+00:00"
         },
         {
-            "name": "hammerjs/hammerjs",
-            "version": "dev-master",
-            "dist": {
-                "type": "zip",
-                "url": "https://github.com/hammerjs/hammer.js/archive/master.zip",
-                "reference": "master",
-                "shasum": null
-            },
-            "type": "drupal-library"
-        },
-        {
             "name": "harvesthq/chosen",
             "version": "1.8.2",
             "dist": {
@@ -7772,17 +7800,6 @@
                 }
             ],
             "time": "2015-04-20T18:58:01+00:00"
-        },
-        {
-            "name": "joeldbirch/superfish",
-            "version": "dev-master",
-            "dist": {
-                "type": "zip",
-                "url": "https://github.com/joeldbirch/superfish/archive/master.zip",
-                "reference": "master",
-                "shasum": null
-            },
-            "type": "drupal-library"
         },
         {
             "name": "lcobucci/jwt",
@@ -8207,6 +8224,33 @@
                 "xml"
             ],
             "time": "2017-09-04T12:26:28+00:00"
+        },
+        {
+            "name": "mehrpadin/superfish",
+            "version": "2.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mehrpadin/Superfish-for-Drupal.git",
+                "reference": "80a0a484b727e9fbe6b0ee609f80e10e5e158683"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mehrpadin/Superfish-for-Drupal/zipball/80a0a484b727e9fbe6b0ee609f80e10e5e158683",
+                "reference": "80a0a484b727e9fbe6b0ee609f80e10e5e158683",
+                "shasum": ""
+            },
+            "type": "drupal-library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Superfish library for the Drupal Superfish module.",
+            "homepage": "https://github.com/mehrpadin/Superfish-for-Drupal",
+            "keywords": [
+                "jquery",
+                "plugin"
+            ],
+            "time": "2017-05-30T13:00:18+00:00"
         },
         {
             "name": "mtdowling/jmespath.php",
@@ -13708,7 +13752,6 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "frdh/mmenu": 20,
         "drupal/contact_storage": 10,
         "drupal/disqus": 5,
         "drupal/ds": 20,
@@ -13723,9 +13766,7 @@
         "govau/dta-gov-au": 20,
         "govau/dta-uikit-base": 20,
         "govau/dta-uikit-base-theme": 20,
-        "govau/import_recruiterbox": 20,
-        "hammerjs/hammerjs": 20,
-        "joeldbirch/superfish": 20
+        "govau/import_recruiterbox": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
