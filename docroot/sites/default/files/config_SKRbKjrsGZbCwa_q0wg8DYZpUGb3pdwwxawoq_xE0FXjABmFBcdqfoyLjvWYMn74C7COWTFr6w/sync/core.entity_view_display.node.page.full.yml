@@ -162,11 +162,13 @@ content:
     settings:
       link_to_entity: false
     third_party_settings:
+      empty_fields:
+        handler: ''
       ds:
         ft:
           id: expert
           settings:
-            lb: Caption
+            lb: 'Caption:'
             prefix: ''
             lbw: true
             lbw-el: span
