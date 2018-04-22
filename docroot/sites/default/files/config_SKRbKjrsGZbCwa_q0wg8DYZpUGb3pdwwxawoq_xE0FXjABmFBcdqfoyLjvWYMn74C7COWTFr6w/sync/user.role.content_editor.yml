@@ -99,6 +99,8 @@ permissions:
   - 'edit terms in tags'
   - 'override all promote to front page option'
   - 'post comments'
+  - 'rabbit hole bypass taxonomy_term'
+  - 'rabbit hole bypass user'
   - 'revert all revisions'
   - 'revert blog_post revisions'
   - 'revert digital_service_standard revisions'
