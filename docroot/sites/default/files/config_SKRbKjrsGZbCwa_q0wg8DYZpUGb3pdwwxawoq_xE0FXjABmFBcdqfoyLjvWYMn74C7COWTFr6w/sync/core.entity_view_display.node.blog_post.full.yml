@@ -364,7 +364,6 @@ content:
             lbw-el: span
             lbw-cl: image-caption-label
             lbw-at: ''
-            lb-col: true
             ow: true
             ow-el: figcaption
             ow-cl: ''
@@ -377,6 +376,7 @@ content:
             fi-cl: image-caption
             fi-at: ''
             suffix: ''
+            lb-col: false
             ow-def-at: false
             ow-def-cl: false
             fis: false
