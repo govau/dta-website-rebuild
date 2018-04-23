@@ -7,7 +7,7 @@ dependencies:
 id: search
 label: Search
 path: search
-clean_url: true
+clean_url: false
 show_all_when_no_keys: false
 index: database_search_index
 limit: 20
