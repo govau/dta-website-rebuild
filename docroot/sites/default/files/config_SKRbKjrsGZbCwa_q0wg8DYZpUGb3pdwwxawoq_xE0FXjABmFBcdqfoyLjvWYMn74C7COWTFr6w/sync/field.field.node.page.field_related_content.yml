@@ -4,14 +4,7 @@ status: true
 dependencies:
   config:
     - field.storage.node.field_related_content
-    - node.type.blog_post
-    - node.type.external_link
-    - node.type.govcms_event
-    - node.type.landing_page
-    - node.type.landing_page_level_2
-    - node.type.news_item
     - node.type.page
-    - node.type.platforms_and_services
 id: node.page.field_related_content
 field_name: field_related_content
 entity_type: node
@@ -23,19 +16,10 @@ translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:
-  handler: 'default:node'
+  handler: views
   handler_settings:
-    target_bundles:
-      blog_post: blog_post
-      govcms_event: govcms_event
-      external_link: external_link
-      landing_page_level_2: landing_page_level_2
-      landing_page: landing_page
-      news_item: news_item
-      page: page
-      platforms_and_services: platforms_and_services
-    sort:
-      field: _none
-    auto_create: false
-    auto_create_bundle: blog_post
+    view:
+      view_name: content_reference
+      display_name: entity_reference_1
+      arguments: {  }
 field_type: entity_reference
