@@ -6,7 +6,6 @@ dependencies:
     - node.type.blog_post
     - node.type.external_link
     - node.type.govcms_event
-    - node.type.help_and_advice_links
     - node.type.home_page
     - node.type.landing_page
     - node.type.landing_page_level_2
@@ -90,7 +89,6 @@ type_settings:
       - blog_post
       - external_link
       - govcms_event
-      - help_and_advice_links
       - home_page
       - landing_page
       - landing_page_level_2

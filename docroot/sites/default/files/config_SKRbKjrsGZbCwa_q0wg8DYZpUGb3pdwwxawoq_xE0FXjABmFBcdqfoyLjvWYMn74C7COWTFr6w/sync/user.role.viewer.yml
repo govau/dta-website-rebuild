@@ -4,7 +4,7 @@ status: true
 dependencies: {  }
 id: viewer
 label: Viewer
-weight: -5
+weight: -8
 is_admin: null
 permissions:
   - 'access comments'
