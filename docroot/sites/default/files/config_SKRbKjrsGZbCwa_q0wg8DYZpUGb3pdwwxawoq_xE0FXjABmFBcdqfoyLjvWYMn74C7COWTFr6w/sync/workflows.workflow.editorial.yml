@@ -73,6 +73,7 @@ type_settings:
       from:
         - archived
         - draft
+        - needs_review
         - published
       to: needs_review
       weight: -9
