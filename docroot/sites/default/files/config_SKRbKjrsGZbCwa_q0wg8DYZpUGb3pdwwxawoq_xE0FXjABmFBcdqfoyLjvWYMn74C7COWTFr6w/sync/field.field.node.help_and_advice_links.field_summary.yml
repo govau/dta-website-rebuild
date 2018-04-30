@@ -1,0 +1,28 @@
+uuid: bb1c0e85-598a-42a1-969f-6b2460892742
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_summary
+    - node.type.help_and_advice_links
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    plain_text: plain_text
+    rich_text: '0'
+    administration: '0'
+    introduction: '0'
+id: node.help_and_advice_links.field_summary
+field_name: field_summary
+entity_type: node
+bundle: help_and_advice_links
+label: Summary
+description: 'Summary text appears under the title on the home page card. It is not required, however it provides more context for users.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long
