@@ -6,6 +6,7 @@ dependencies:
     - node.type.home_page
     - node.type.recruiterbox_position
     - user.role.administrator
+    - user.role.content_approver
     - user.role.content_editor
     - workflows.workflow.editorial
   module:
@@ -31,8 +32,9 @@ display:
         type: role
         options:
           role:
-            administrator: administrator
             content_editor: content_editor
+            content_approver: content_approver
+            administrator: administrator
       cache:
         type: tag
         options: {  }
