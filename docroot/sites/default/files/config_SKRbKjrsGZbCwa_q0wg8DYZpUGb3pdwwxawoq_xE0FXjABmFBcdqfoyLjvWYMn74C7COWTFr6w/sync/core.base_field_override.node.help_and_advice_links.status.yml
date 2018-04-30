@@ -1,0 +1,22 @@
+uuid: 3a614d8f-fe39-4583-a80c-3c4aca4ee97c
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.help_and_advice_links
+id: node.help_and_advice_links.status
+field_name: status
+entity_type: node
+bundle: help_and_advice_links
+label: Published
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean
