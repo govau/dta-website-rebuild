@@ -3,7 +3,6 @@ langcode: en
 status: true
 dependencies:
   config:
-    - node.type.help_and_advice_links
     - node.type.home_page
     - node.type.recruiterbox_position
     - user.role.administrator
@@ -450,7 +449,6 @@ display:
           admin_label: ''
           operator: 'not in'
           value:
-            help_and_advice_links: help_and_advice_links
             home_page: home_page
             recruiterbox_position: recruiterbox_position
           group: 1
