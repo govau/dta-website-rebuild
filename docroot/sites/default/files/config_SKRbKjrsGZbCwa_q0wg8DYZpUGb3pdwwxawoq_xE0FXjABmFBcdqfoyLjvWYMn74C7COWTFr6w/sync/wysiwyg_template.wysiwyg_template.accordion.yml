@@ -1,0 +1,18 @@
+uuid: 41ce5f60-da57-414d-bbe4-fe6311d7d3cb
+langcode: en
+status: true
+dependencies: {  }
+id: accordion
+label: Accordion
+description: 'Add an accordion to the page.'
+body:
+  value: "<section class=\"au-accordion\"><a aria-controls=\"accordion-closed\" aria-expanded=\"false\" aria-selected=\"false\" class=\"au-accordion__title au-accordion--closed js-au-accordion\" href=\"#accordion-closed\" role=\"tab\">This is the title of the accordion</a>\r\n<div aria-hidden=\"true\" class=\"au-accordion__body au-accordion--closed\" id=\"accordion-closed\">\r\n<div class=\"au-accordion__body-wrapper\">\r\n<p>Add your accordion content here.</p>\r\n</div>\r\n</div>\r\n</section>\r\n"
+  format: rich_text
+weight: null
+node_types:
+  - blog_post
+  - govcms_event
+  - landing_page
+  - landing_page_level_2
+  - news_item
+  - page

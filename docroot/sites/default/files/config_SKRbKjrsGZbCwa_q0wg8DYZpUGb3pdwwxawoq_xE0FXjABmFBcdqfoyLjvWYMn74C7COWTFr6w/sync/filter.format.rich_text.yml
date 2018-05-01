@@ -109,10 +109,10 @@ filters:
     status: true
     weight: -47
     settings:
-      config: '''safe'' => 1, ''elements'' => ''a, br, em, strong, cite, blockquote, code, ul, ol, li, dl, dt, dd, h2, h3, h4, h5, h6, img, sup, sub, table, caption, tbody, thead, tfoot, th, td, tr,p, div, iframe, drupal-entity, hr'','
-      spec: 'a=href, hreflang, id, rel, title, class, target; td, tr=class, id, style; blockquote=cite; ul=type, class; ol=type, class, start; li=class; h2=id, class; h3=id, class; h4=id, class; h5=id, class; h6=id, class; img=src, alt, data-entity-type, data-entity-uuid; table=id, summary, class; th=class, style; td=class, style; tr=class; p=class; div=id,class; drupal-entity=data-*;'
-      help: 'Allowed HTML tags: <a> <br> <em> <strong> <cite> <blockquote> <code> <ul> <ol> <li> <dl> <dt> <dd> <h2> <h3> <h4> <h5> <h6> <img > <sup> <sub> <table> <caption> <tbody> <thead> <tfoot> <th> <td> <tr> <p> <div> <iframe> <drupal-entity> <hr>'
-      helplong: 'These HTML tags are allowed: <a> <br> <em> <strong> <cite> <blockquote> <code> <ul> <ol> <li> <dl> <dt> <dd> <h2> <h3> <h4> <h5> <h6> <img > <sup> <sub> <table> <caption> <tbody> <thead> <tfoot> <th> <td> <tr> <p> <div> <iframe> <drupal-entity> <hr>. Javascript is not permitted.'
+      config: '''safe'' => 1, ''elements'' => ''a, br, em, strong, cite, blockquote, code, ul, ol, li, dl, dt, dd, h2, h3, h4, h5, h6, img, sup, sub, table, caption, tbody, thead, tfoot, th, td, tr,p, div, iframe, drupal-entity, hr, section'','
+      spec: 'a=href, hreflang, id, rel, title, class, target, aria-controls, aria-expanded, aria-selected, role; td, tr=class, id, style; blockquote=cite; ul=type, class; ol=type, class, start; li=class; h2=id, class; h3=id, class; h4=id, class; h5=id, class; h6=id, class; img=src, alt, data-entity-type, data-entity-uuid; table=id, summary, class; th=class, style; td=class, style; tr=class; p=class; div=id,class; drupal-entity=data-*; section=class;'
+      help: 'Allowed HTML tags: <a> <br> <em> <strong> <cite> <blockquote> <code> <ul> <ol> <li> <dl> <dt> <dd> <h2> <h3> <h4> <h5> <h6> <img > <sup> <sub> <table> <caption> <tbody> <thead> <tfoot> <th> <td> <tr> <p> <div> <iframe> <drupal-entity> <hr> <section>'
+      helplong: 'These HTML tags are allowed: <a> <br> <em> <strong> <cite> <blockquote> <code> <ul> <ol> <li> <dl> <dt> <dd> <h2> <h3> <h4> <h5> <h6> <img > <sup> <sub> <table> <caption> <tbody> <thead> <tfoot> <th> <td> <tr> <p> <div> <iframe> <drupal-entity> <hr> <section>. Javascript is not permitted.'
   filter_wysiwyg_cleanup:
     id: filter_wysiwyg_cleanup
     provider: wysiwyg_template_core
