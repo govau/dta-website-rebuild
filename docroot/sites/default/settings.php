@@ -898,3 +898,29 @@ if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
 
 $settings['install_profile'] = 'govcms';
 $config_directories['sync'] = 'sites/default/files/config_SKRbKjrsGZbCwa_q0wg8DYZpUGb3pdwwxawoq_xE0FXjABmFBcdqfoyLjvWYMn74C7COWTFr6w/sync';
+
+/**
+ * Settings for config_split
+ */
+
+/* Check for the production or staging environments. */
+$environment = '';
+
+if(isset($_ENV['ENVIRONMENT'])) {
+  $environment = $_ENV['ENVIRONMENT'];
+}
+
+switch ($environment) {
+  case 'production':
+    $config['config_split.config_split.development_configuration']['status'] = FALSE;
+    break;
+  case 'staging':
+    $config['config_split.config_split.development_configuration']['status'] = FALSE;
+    break;
+  case 'development':
+    $config['config_split.config_split.development_configuration']['status'] = TRUE;
+    break;
+  default:
+    $config['config_split.config_split.development_configuration']['status'] = TRUE;
+    break;
+}
