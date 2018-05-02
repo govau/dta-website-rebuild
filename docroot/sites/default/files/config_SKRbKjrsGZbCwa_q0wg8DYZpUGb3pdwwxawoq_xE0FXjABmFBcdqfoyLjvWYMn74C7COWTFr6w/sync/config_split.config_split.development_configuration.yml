@@ -14,7 +14,9 @@ blacklist:
   - devel.settings
   - devel.toolbar.settings
   - system.menu.devel
-graylist: {  }
+graylist:
+  - s3fs.settings
+  - system.performance
 graylist_dependents: true
 graylist_skip_equal: true
 weight: 0
