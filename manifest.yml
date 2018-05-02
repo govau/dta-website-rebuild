@@ -15,3 +15,4 @@ applications:
   - route: dta-website-rebuild-develop.apps.y.cld.gov.au
   env:
     DRUPAL_UUID: "59f85df3-5f18-45dd-bf6a-40977b57a842"
+    ENVIRONMENT: development

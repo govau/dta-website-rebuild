@@ -4,6 +4,7 @@ docroot/sites/*/settings.local.php
 # Ignore paths that contain generated content, although we need /tmp/ to be uploaded.
 docroot/sites/*/files/*
 !docroot/sites/*/files/config*
+!docroot/sites/*/files/development_configuration
 docroot/sites/*/private
 
 # Ignore default text files

@@ -622,7 +622,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "<div class=\"au-card au-card--shadow\">\n    <div class=\"au-card__image au-card__fullwidth\">\n       {{ field_index_image }}\n        <div class=\"au-card--content au-card--author_image\">{{ field_author_image }}</div>\n    </div>\n    <p class=\"au-card--content au-card--content_type\"><a href=\"/news-blogs/{{ type_1 }}\">{{ type }}</a></p>\n    {% if name %}<p class=\"au-card--content au-card--author_name\">by {{ name }}</p>{% endif %}\n    <h3 class=\"au-card__title\">{{ title }}</h3>\n    <p class=\"au-card--content au-card--date\">{{ field_date }}</p>\n</div>"
+            text: "<div class=\"au-card au-card--shadow\">\n        {% if field_index_image %}\n            <div class=\"au-card__image au-card__fullwidth\">\n                {{ field_index_image }}\n                <div class=\"au-card--content au-card--author_image\">{{ field_author_image }}</div>\n            </div>\n        {% endif %}\n    <p class=\"au-card--content au-card--content_type\"><a href=\"/news-blogs/{{ type_1 }}\">{{ type }}</a></p>\n    {% if name %}<p class=\"au-card--content au-card--author_name {% if not field_index_image %}au-card--author_name--no-image{% endif %}\">by {{ name }}</p>{% endif %}\n    <h3 class=\"au-card__title\">{{ title }}</h3>\n    <p class=\"au-card--content au-card--date\">{{ field_date }}</p>\n</div>"
             make_link: false
             path: ''
             absolute: false
