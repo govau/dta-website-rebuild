@@ -31,7 +31,6 @@ module:
   datetime: 0
   datetime_range: 0
   dblog: 0
-  devel: 0
   disqus: 0
   editor: 0
   editor_advanced_link: 0
@@ -61,7 +60,6 @@ module:
   imce: 0
   import_recruiterbox: 0
   inline_form_errors: 0
-  kint: 0
   layout_discovery: 0
   link: 0
   link_css: 0
