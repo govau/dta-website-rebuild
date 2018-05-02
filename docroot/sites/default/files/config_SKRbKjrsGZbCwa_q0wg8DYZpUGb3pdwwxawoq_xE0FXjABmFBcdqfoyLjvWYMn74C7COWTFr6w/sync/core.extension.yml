@@ -3,6 +3,9 @@ module:
   admin_toolbar: 0
   admin_toolbar_tools: 0
   adminimal_admin_toolbar: 0
+  advagg: 0
+  advagg_css_minify: 0
+  advagg_js_minify: 0
   allowed_formats: 0
   automated_cron: 0
   backup_migrate: 0
@@ -31,7 +34,6 @@ module:
   datetime: 0
   datetime_range: 0
   dblog: 0
-  devel: 0
   disqus: 0
   editor: 0
   editor_advanced_link: 0
