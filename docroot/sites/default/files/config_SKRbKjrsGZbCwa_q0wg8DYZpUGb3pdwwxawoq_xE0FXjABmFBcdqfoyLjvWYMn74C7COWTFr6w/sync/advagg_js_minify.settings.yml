@@ -1,0 +1,6 @@
+add_license: true
+minifier: 5
+ratio_max: 0.9
+ratio_min: 0.1
+_core:
+  default_config_hash: XuBGsU001H80w-QoPwPSN-l2VXMUzqZ2ml0MJ6fFuIw
