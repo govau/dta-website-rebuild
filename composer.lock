@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "b231d2069394c49e6cfd5f25efda1cb0",
+    "content-hash": "5904c4d79a013a8f978c52b24ef1cb63",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1558,6 +1558,87 @@
             "homepage": "https://www.drupal.org/project/adminimal_theme",
             "support": {
                 "source": "http://cgit.drupalcode.org/adminimal_theme"
+            }
+        },
+        {
+            "name": "drupal/advagg",
+            "version": "3.5.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/advagg",
+                "reference": "8.x-3.5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/advagg-8.x-3.5.zip",
+                "reference": "8.x-3.5",
+                "shasum": "b95bfc7ae31bb9c8cd626dc13146414682211dc1"
+            },
+            "require": {
+                "drupal/core": "~8.0"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-3.x": "3.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-3.5",
+                    "datestamp": "1518683580",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                },
+                "drush": {
+                    "services": {
+                        "drush.services.yml": "^9"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Mike Carper (mikeytown2)",
+                    "homepage": "https://www.drupal.org/u/mikeytown2",
+                    "role": "Creator, Maintainer"
+                },
+                {
+                    "name": "Nick Wilde (nickwilde)",
+                    "homepage": "https://www.drupal.org/u/nickwilde",
+                    "email": "design@briarmoon.ca",
+                    "role": "Drupal 8 Port/maintainer"
+                },
+                {
+                    "name": "doublejosh",
+                    "homepage": "https://www.drupal.org/user/199720"
+                },
+                {
+                    "name": "iamcarrico",
+                    "homepage": "https://www.drupal.org/user/1300542"
+                },
+                {
+                    "name": "markcarver",
+                    "homepage": "https://www.drupal.org/user/501638"
+                },
+                {
+                    "name": "mikeytown2",
+                    "homepage": "https://www.drupal.org/user/282446"
+                },
+                {
+                    "name": "rupl",
+                    "homepage": "https://www.drupal.org/user/411999"
+                }
+            ],
+            "description": "Improved aggregation of CSS/JS files to speed up page load times.",
+            "homepage": "https://drupal.org/project/advagg",
+            "support": {
+                "source": "https://cgit.drupalcode.org/advagg",
+                "issues": "https://drupal.org/project/issues/advagg",
+                "irc": "irc://irc.freenode.org/drupal-contribute"
             }
         },
         {
@@ -7352,7 +7433,7 @@
                 "reference": "master"
             },
             "type": "drupal-custom-theme",
-            "time": "2018-04-23T03:47:26+00:00"
+            "time": "2018-05-02T02:37:47+00:00"
         },
         {
             "name": "govau/dta-uikit-base",
@@ -7363,7 +7444,7 @@
                 "reference": "master"
             },
             "type": "drupal-custom-theme",
-            "time": "2018-04-12T20:59:55+00:00"
+            "time": "2018-04-26T04:18:54+00:00"
         },
         {
             "name": "govau/dta-uikit-base-theme",
@@ -7374,7 +7455,7 @@
                 "reference": "master"
             },
             "type": "drupal-custom-theme",
-            "time": "2018-02-07T22:28:08+00:00"
+            "time": "2018-03-06T04:29:05+00:00"
         },
         {
             "name": "govau/import_recruiterbox",
@@ -7385,7 +7466,7 @@
                 "reference": "master"
             },
             "type": "drupal-custom-module",
-            "time": "2018-03-22T01:49:24+00:00"
+            "time": "2018-04-13T03:29:43+00:00"
         },
         {
             "name": "grasmash/expander",
