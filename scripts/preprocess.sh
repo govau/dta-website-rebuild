@@ -42,6 +42,26 @@ if [[ "${CF_INSTANCE_INDEX}" = "0" ]]; then
     drush updatedb --no-cache-clear
   fi
 
+  # Uninstall modules on certain environments.
+  if [[ -n ${ENVIRONMENT+x} ]]; then
+    echo "Currently running in the ${ENVIRONMENT} environment."
+    if [[ ${ENVIRONMENT} = "staging" ]] || [[ ${ENVIRONMENT} = "production" ]]; then
+      DEVEL_STATUS=$(drush pm-list --pipe --type=module --status=enabled --no-core --fields=name | grep "devel")
+      if [[ $DEVEL_STATUS != ""]]; then
+        drush pm-uninstall devel -y
+      fi
+      KINT_STATUS=$(drush pm-list --pipe --type=module --status=enabled --no-core --fields=name | grep "kint")
+      if [[ $KINT_STATUS != ""]]; then
+        drush pm-uninstall kint -y
+      fi
+      LINK_CSS_STATUS=$(drush pm-list --pipe --type=module --status=enabled --no-core --fields=name | grep "link_css")
+      if [[ $KINT_STATUS != ""]]; then
+        drush pm-uninstall link_css -y
+      fi
+    fi
+  else
+    echo "Currently running in a local environment (or an environment without the correct environment variables set!)"
+  fi
 else
   echo "I am not the first instance"
 fi
