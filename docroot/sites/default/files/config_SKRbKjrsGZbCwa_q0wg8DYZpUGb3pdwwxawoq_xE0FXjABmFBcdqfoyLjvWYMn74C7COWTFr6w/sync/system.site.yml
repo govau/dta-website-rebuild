@@ -3,7 +3,7 @@ name: 'Digital Transformation Agency'
 mail: website@digital.gov.au
 slogan: 'Simple. Clear. Fast.'
 page:
-  403: ''
+  403: /node/216
   404: /node/216
   front: /node
 admin_compact_mode: false
