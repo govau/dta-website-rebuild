@@ -1,7 +1,9 @@
 uuid: a699c035-04c4-4d7e-bb95-ce0f01b5e381
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  module:
+    - image_style_quality
 name: news_and_blogs_home_page
 label: 'News and blogs home page'
 effects:
@@ -12,3 +14,9 @@ effects:
     data:
       width: 398
       height: 265
+  285a37a6-85c4-4670-a83a-5a907d3e592a:
+    uuid: 285a37a6-85c4-4670-a83a-5a907d3e592a
+    id: image_style_quality
+    weight: 2
+    data:
+      quality: 100

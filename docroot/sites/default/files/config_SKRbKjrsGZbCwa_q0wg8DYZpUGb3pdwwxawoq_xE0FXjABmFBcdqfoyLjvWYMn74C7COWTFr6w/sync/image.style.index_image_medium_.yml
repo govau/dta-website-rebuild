@@ -1,0 +1,22 @@
+uuid: f16fec65-d191-4a4f-8d5d-603891044a9c
+langcode: en
+status: true
+dependencies:
+  module:
+    - image_style_quality
+name: index_image_medium_
+label: 'Index image (Medium)'
+effects:
+  be01308b-2806-4102-878e-8eb825097f39:
+    uuid: be01308b-2806-4102-878e-8eb825097f39
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 291
+      height: 193
+  1c4d3ed0-3af5-48f6-a283-108013f0043d:
+    uuid: 1c4d3ed0-3af5-48f6-a283-108013f0043d
+    id: image_style_quality
+    weight: 2
+    data:
+      quality: 100
