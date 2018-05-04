@@ -154,6 +154,7 @@
         "drupal/disqus": "^1.0@RC",
         "drupal/dropzonejs": "2.0.0-alpha3",
         "drupal/ds": "3.x-dev",
+        "drupal/ds_chains": "^1.0-beta2",
         "drupal/editor_advanced_link": "^1.4",
         "drupal/empty_fields": "1.x-dev",
         "drupal/entity_browser": "2.0-alpha2",
