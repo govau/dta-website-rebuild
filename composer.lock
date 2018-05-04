@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "5904c4d79a013a8f978c52b24ef1cb63",
+    "content-hash": "be6e5fa844e282a8fa09928da1465faf",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1543,7 +1543,7 @@
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
             "license": [
-                "GPL-2.0+"
+                "GPL-2.0-or-later"
             ],
             "authors": [
                 {
@@ -1555,6 +1555,7 @@
                     "homepage": "https://www.drupal.org/user/139189"
                 }
             ],
+            "description": "Drupal administration theme with modern minimalist design.",
             "homepage": "https://www.drupal.org/project/adminimal_theme",
             "support": {
                 "source": "http://cgit.drupalcode.org/adminimal_theme"
@@ -3788,7 +3789,7 @@
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
             "license": [
-                "GPL-2.0+"
+                "GPL-2.0-or-later"
             ],
             "authors": [
                 {
@@ -3966,6 +3967,53 @@
             "homepage": "https://www.drupal.org/project/htmlawed",
             "support": {
                 "source": "http://cgit.drupalcode.org/htmlawed"
+            }
+        },
+        {
+            "name": "drupal/image_style_quality",
+            "version": "1.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/image_style_quality",
+                "reference": "8.x-1.3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/image_style_quality-8.x-1.3.zip",
+                "reference": "8.x-1.3",
+                "shasum": "396fc4abfe2fd152e87a4808753e2a1b9972291b"
+            },
+            "require": {
+                "drupal/core": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.3",
+                    "datestamp": "1444452839",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Sam152",
+                    "homepage": "https://www.drupal.org/user/1485048"
+                }
+            ],
+            "description": "Provides an image effect plugin that allows you to choose the quality of images.",
+            "homepage": "https://www.drupal.org/project/image_style_quality",
+            "support": {
+                "source": "http://cgit.drupalcode.org/image_style_quality"
             }
         },
         {
@@ -7433,7 +7481,7 @@
                 "reference": "master"
             },
             "type": "drupal-custom-theme",
-            "time": "2018-05-02T02:37:47+00:00"
+            "time": "2018-05-03T00:03:03+00:00"
         },
         {
             "name": "govau/dta-uikit-base",
@@ -7444,7 +7492,7 @@
                 "reference": "master"
             },
             "type": "drupal-custom-theme",
-            "time": "2018-04-26T04:18:54+00:00"
+            "time": "2018-05-03T03:09:42+00:00"
         },
         {
             "name": "govau/dta-uikit-base-theme",

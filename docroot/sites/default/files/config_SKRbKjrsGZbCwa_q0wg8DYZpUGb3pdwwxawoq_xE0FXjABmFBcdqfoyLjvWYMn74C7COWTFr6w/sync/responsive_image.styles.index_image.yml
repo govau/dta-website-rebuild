@@ -1,14 +1,41 @@
 uuid: d4505f4f-0a2d-41f9-8785-5600df8e9204
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  config:
+    - image.style.index_image_extra_small
+    - image.style.index_image_large
+    - image.style.index_image_medium_
+    - image.style.index_image_small
+  theme:
+    - dta_gov_au
 id: index_image
 label: 'Index image'
 image_style_mappings:
   -
-    breakpoint_id: responsive_image.viewport_sizing
+    breakpoint_id: dta_gov_au.lg
     multiplier: 1x
     image_mapping_type: image_style
-    image_mapping: '_original image_'
-breakpoint_group: responsive_image
+    image_mapping: index_image_large
+  -
+    breakpoint_id: dta_gov_au.md
+    multiplier: 1x
+    image_mapping_type: image_style
+    image_mapping: index_image_medium_
+  -
+    breakpoint_id: dta_gov_au.sm
+    multiplier: 1x
+    image_mapping_type: image_style
+    image_mapping: index_image_small
+  -
+    breakpoint_id: dta_gov_au.xs
+    multiplier: 1x
+    image_mapping_type: image_style
+    image_mapping: index_image_extra_small
+  -
+    breakpoint_id: dta_gov_au.mobile
+    multiplier: 1x
+    image_mapping_type: image_style
+    image_mapping: index_image_extra_small
+breakpoint_group: dta_gov_au
 fallback_image_style: '_original image_'

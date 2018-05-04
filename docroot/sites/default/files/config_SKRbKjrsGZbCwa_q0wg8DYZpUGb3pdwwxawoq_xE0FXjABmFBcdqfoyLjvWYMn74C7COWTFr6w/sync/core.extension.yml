@@ -35,6 +35,7 @@ module:
   datetime_range: 0
   dblog: 0
   disqus: 0
+  ds_chains: 0
   editor: 0
   editor_advanced_link: 0
   embed: 0
@@ -60,6 +61,7 @@ module:
   honeypot: 0
   htmlawed: 0
   image: 0
+  image_style_quality: 0
   imce: 0
   import_recruiterbox: 0
   inline_form_errors: 0

@@ -1,0 +1,22 @@
+uuid: 3d050c86-f64d-4cc1-9e60-1dcd384b3afc
+langcode: en
+status: true
+dependencies:
+  module:
+    - image_style_quality
+name: index_image_extra_small
+label: 'Index image (Extra small)'
+effects:
+  3a8c20ff-ce84-4d17-bf63-2ee74591c9ee:
+    uuid: 3a8c20ff-ce84-4d17-bf63-2ee74591c9ee
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 376
+      height: 250
+  09cda7c3-4171-4812-b7c8-0ed812bce6f2:
+    uuid: 09cda7c3-4171-4812-b7c8-0ed812bce6f2
+    id: image_style_quality
+    weight: 2
+    data:
+      quality: 100
