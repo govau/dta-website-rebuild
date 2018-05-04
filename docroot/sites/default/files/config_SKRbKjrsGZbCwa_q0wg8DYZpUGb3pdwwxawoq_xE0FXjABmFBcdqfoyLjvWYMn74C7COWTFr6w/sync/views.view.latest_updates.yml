@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_mode.node.card
     - field.storage.node.field_author
     - field.storage.node.field_date
     - field.storage.node.field_index_image
@@ -15,6 +16,7 @@ dependencies:
   module:
     - better_exposed_filters
     - datetime
+    - ds
     - image
     - node
     - responsive_image
@@ -91,12 +93,25 @@ display:
           wrapper_class: au-body
           class: 'au-card-list au-card-list--matchheight'
       row:
-        type: fields
+        type: 'ds_entity:node'
         options:
-          default_field_elements: false
-          inline: {  }
-          separator: ''
-          hide_empty: false
+          relationship: none
+          view_mode: card
+          alternating_fieldset:
+            alternating: false
+            allpages: false
+            item_0: teaser
+            item_1: teaser
+            item_2: teaser
+            item_3: teaser
+            item_4: teaser
+            item_5: teaser
+          grouping_fieldset:
+            group: false
+            group_field: node__field_date|field_date_value
+            group_field_function: ''
+          advanced_fieldset:
+            advanced: false
       fields:
         title:
           id: title
