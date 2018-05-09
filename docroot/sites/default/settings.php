@@ -859,12 +859,11 @@ if(isset($_ENV['VCAP_SERVICES'])) {
   }
 
   // Set the relevant settings.
-
-  $config['s3fs.settings']['access_key'] = $aws_service[0]['credentials']['key'];
-  $config['s3fs.settings']['secret_key'] = $aws_service[0]['credentials']['secret'];
+  $settings['s3fs.access_key'] = $aws_service[0]['credentials']['key'];
+  $settings['s3fs.secret_key'] = $aws_service[0]['credentials']['secret'];
 } else {
-  //$config['s3fs.settings']['key'] = '';
-  //$config['s3fs.settings']['secret'] = '';
+  $settings['s3fs.access_key'] = '';
+  $settings['s3fs.secret_key'] = '';
 }
 
 /*
