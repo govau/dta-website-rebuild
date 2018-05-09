@@ -60,16 +60,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.54.4",
+            "version": "3.55.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "6642a13df7ddcccf19e66c744c5bfae5b61e9e85"
+                "reference": "ec7b972330ce65fa33875025ffec8e09e0476a8f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/6642a13df7ddcccf19e66c744c5bfae5b61e9e85",
-                "reference": "6642a13df7ddcccf19e66c744c5bfae5b61e9e85",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/ec7b972330ce65fa33875025ffec8e09e0476a8f",
+                "reference": "ec7b972330ce65fa33875025ffec8e09e0476a8f",
                 "shasum": ""
             },
             "require": {
@@ -136,7 +136,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2018-04-10T22:11:31+00:00"
+            "time": "2018-05-08T16:37:41+00:00"
         },
         {
             "name": "bower-asset/dropzone",
@@ -5852,17 +5852,17 @@
         },
         {
             "name": "drupal/s3fs",
-            "version": "3.0.0-alpha9",
+            "version": "3.0.0-alpha10",
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/s3fs",
-                "reference": "8.x-3.0-alpha9"
+                "reference": "8.x-3.0-alpha10"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/s3fs-8.x-3.0-alpha9.zip",
-                "reference": "8.x-3.0-alpha9",
-                "shasum": "85b564788483506a4a29244af41ee30601ad983c"
+                "url": "https://ftp.drupal.org/files/projects/s3fs-8.x-3.0-alpha10.zip",
+                "reference": "8.x-3.0-alpha10",
+                "shasum": "8542958a4e2e5468d5167d2c8cb93c5071881ecc"
             },
             "require": {
                 "aws/aws-sdk-php": "^3.18",
@@ -5874,8 +5874,8 @@
                     "dev-3.x": "3.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-3.0-alpha9",
-                    "datestamp": "1523006284",
+                    "version": "8.x-3.0-alpha10",
+                    "datestamp": "1525449183",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Alpha releases are not covered by Drupal security advisories."
@@ -7529,7 +7529,7 @@
                 "reference": "master"
             },
             "type": "drupal-custom-theme",
-            "time": "2018-05-03T00:03:03+00:00"
+            "time": "2018-05-04T05:20:50+00:00"
         },
         {
             "name": "govau/dta-uikit-base",
