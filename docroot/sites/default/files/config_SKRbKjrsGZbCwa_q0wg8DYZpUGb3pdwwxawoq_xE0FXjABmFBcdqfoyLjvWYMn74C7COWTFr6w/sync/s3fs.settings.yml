@@ -1,8 +1,8 @@
 access_key: ''
 secret_key: ''
 use_instance_profile: false
-default_cache_config: ''
-bucket: dta-www-drupal-20180130215411153400000001
+credentials_file: ''
+bucket: dta-www-drupal-test-20180221050325640300000001
 region: ap-southeast-2
 use_cname: false
 use_customhost: false
@@ -21,4 +21,5 @@ presigned_urls: ''
 saveas: ''
 torrents: ''
 _core:
-  default_config_hash: Wz6PTtS3IfcQyIXd6y39R1bfFrylxlagWJxgMdChsCY
+  default_config_hash: XB-f-XhPo-I1_3q7Xf3WpnuGRr2ioacLa0iKWYAPwJg
+default_cache_config: ''
