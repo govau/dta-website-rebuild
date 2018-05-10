@@ -922,29 +922,29 @@ if(isset($_ENV['ENVIRONMENT'])) {
   $environment = 'local';
 }
 
-switch ($environment) {
-  case 'production':
-    $config['config_split.config_split.development_configuration']['status'] = FALSE;
-    $settings['s3fs.settings']['no_rewrite_cssjs'] = TRUE;
-    $config['system.performance']['css']['preprocess'] = TRUE;
-    $config['system.performance']['js']['preprocess'] = TRUE;
-    break;
-  case 'staging':
-    $config['config_split.config_split.development_configuration']['status'] = FALSE;
-    $settings['s3fs.settings']['no_rewrite_cssjs'] = TRUE;
-    $config['system.performance']['css']['preprocess'] = TRUE;
-    $config['system.performance']['js']['preprocess'] = TRUE;
-    break;
-  case 'development':
-    $config['config_split.config_split.development_configuration']['status'] = TRUE;
-    $settings['s3fs.settings']['no_rewrite_cssjs'] = FALSE;
-    $config['system.performance']['css']['preprocess'] = FALSE;
-    $config['system.performance']['js']['preprocess'] = FALSE;
-    break;
-  default:
-    $config['config_split.config_split.development_configuration']['status'] = TRUE;
-    $settings['s3fs.settings']['no_rewrite_cssjs'] = FALSE;
-    $config['system.performance']['css']['preprocess'] = FALSE;
-    $config['system.performance']['js']['preprocess'] = FALSE;
-    break;
-}
+// switch ($environment) {
+//   case 'production':
+//     $config['config_split.config_split.development_configuration']['status'] = FALSE;
+//     $settings['s3fs.settings']['no_rewrite_cssjs'] = TRUE;
+//     $config['system.performance']['css']['preprocess'] = TRUE;
+//     $config['system.performance']['js']['preprocess'] = TRUE;
+//     break;
+//   case 'staging':
+//     $config['config_split.config_split.development_configuration']['status'] = FALSE;
+//     $settings['s3fs.settings']['no_rewrite_cssjs'] = TRUE;
+//     $config['system.performance']['css']['preprocess'] = TRUE;
+//     $config['system.performance']['js']['preprocess'] = TRUE;
+//     break;
+//   case 'development':
+//     $config['config_split.config_split.development_configuration']['status'] = TRUE;
+//     $settings['s3fs.settings']['no_rewrite_cssjs'] = FALSE;
+//     $config['system.performance']['css']['preprocess'] = FALSE;
+//     $config['system.performance']['js']['preprocess'] = FALSE;
+//     break;
+//   default:
+//     $config['config_split.config_split.development_configuration']['status'] = TRUE;
+//     $settings['s3fs.settings']['no_rewrite_cssjs'] = FALSE;
+//     $config['system.performance']['css']['preprocess'] = FALSE;
+//     $config['system.performance']['js']['preprocess'] = FALSE;
+//     break;
+// }
