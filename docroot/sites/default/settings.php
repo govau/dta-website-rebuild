@@ -840,7 +840,7 @@ if(isset($_ENV['VCAP_SERVICES'])) {
     foreach ($service_list as $some_service) {
       // Look for a service where the name matches the appopriate environment.
 
-      if ($_ENV['ENVIRONMENT'] === 'development') {
+      if ($_ENV['ENVIRONMENT'] === 'test') {
         if ($some_service['name'] === 'dta-website-rebuild-test-aws-ups') {
           $aws_service[] = $some_service;
         }
@@ -922,29 +922,17 @@ if(isset($_ENV['ENVIRONMENT'])) {
   $environment = 'local';
 }
 
-// switch ($environment) {
-//   case 'production':
-//     $config['config_split.config_split.development_configuration']['status'] = FALSE;
-//     $settings['s3fs.settings']['no_rewrite_cssjs'] = TRUE;
-//     $config['system.performance']['css']['preprocess'] = TRUE;
-//     $config['system.performance']['js']['preprocess'] = TRUE;
-//     break;
-//   case 'staging':
-//     $config['config_split.config_split.development_configuration']['status'] = FALSE;
-//     $settings['s3fs.settings']['no_rewrite_cssjs'] = TRUE;
-//     $config['system.performance']['css']['preprocess'] = TRUE;
-//     $config['system.performance']['js']['preprocess'] = TRUE;
-//     break;
-//   case 'development':
-//     $config['config_split.config_split.development_configuration']['status'] = TRUE;
-//     $settings['s3fs.settings']['no_rewrite_cssjs'] = FALSE;
-//     $config['system.performance']['css']['preprocess'] = FALSE;
-//     $config['system.performance']['js']['preprocess'] = FALSE;
-//     break;
-//   default:
-//     $config['config_split.config_split.development_configuration']['status'] = TRUE;
-//     $settings['s3fs.settings']['no_rewrite_cssjs'] = FALSE;
-//     $config['system.performance']['css']['preprocess'] = FALSE;
-//     $config['system.performance']['js']['preprocess'] = FALSE;
-//     break;
-// }
+switch ($environment) {
+   case 'production':
+    $config['s3fs.settings']['bucket'] = 'dta-www-drupal-20180130215411153400000001';
+    break;
+  case 'staging':
+    $config['s3fs.settings']['bucket'] = 'dta-www-drupal-staging-20180504063601229200000001';
+    break;
+  case 'test':
+    $config['s3fs.settings']['bucket'] = 'dta-www-drupal-test-20180221050325640300000001';
+    break;
+  default:
+    $config['s3fs.settings']['bucket'] = '';
+    break;
+}
