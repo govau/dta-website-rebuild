@@ -2,7 +2,7 @@ access_key: ''
 secret_key: ''
 use_instance_profile: false
 credentials_file: ''
-bucket: dta-www-drupal-test-20180221050325640300000001
+bucket: yeah-and-i-got-a-bucket-on-my-head
 region: ap-southeast-2
 use_cname: false
 use_customhost: false

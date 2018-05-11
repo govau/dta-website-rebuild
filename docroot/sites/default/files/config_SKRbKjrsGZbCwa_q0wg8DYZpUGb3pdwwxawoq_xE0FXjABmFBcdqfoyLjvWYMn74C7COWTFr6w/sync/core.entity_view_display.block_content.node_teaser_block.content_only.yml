@@ -1,24 +1,16 @@
-uuid: de142916-46da-432a-a26e-1e9e13566e42
+uuid: 57f1bd7c-0ae1-4478-955b-c6dec76653e5
 langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.home_page.body
-    - field.field.node.home_page.field_link_to_content
-    - node.type.home_page
+    - block_content.type.node_teaser_block
+    - core.entity_view_mode.block_content.content_only
+    - field.field.block_content.node_teaser_block.field_content
   module:
     - ds
     - ds_chains
-    - link
-    - panelizer
-    - text
-    - user
+    - empty_fields
 third_party_settings:
-  panelizer:
-    enable: false
-    custom: false
-    allow: false
-    default: default
   ds:
     layout:
       id: layout_onecol
@@ -28,33 +20,23 @@ third_party_settings:
       settings: {  }
     regions:
       content:
-        - links
-        - body
-        - field_link_to_content
+        - field_content
   ds_chains:
     fields: {  }
-id: node.home_page.default
-targetEntityType: node
-bundle: home_page
-mode: default
+id: block_content.node_teaser_block.content_only
+targetEntityType: block_content
+bundle: node_teaser_block
+mode: content_only
 content:
-  body:
-    label: hidden
-    type: text_default
+  field_content:
     weight: 1
-    settings: {  }
-    third_party_settings: {  }
-    region: content
-  field_link_to_content:
-    weight: 2
     label: hidden
     settings:
-      trim_length: 80
-      url_only: false
-      url_plain: false
-      rel: '0'
-      target: '0'
+      view_mode: body_only
+      link: false
     third_party_settings:
+      empty_fields:
+        handler: ''
       ds:
         ft:
           id: expert
@@ -70,9 +52,8 @@ content:
             fis-el: ''
             fis-cl: ''
             fis-at: ''
-            fi: true
             fi-el: ''
-            fi-cl: 'au-btn au-btn--dark au-btn--secondary'
+            fi-cl: ''
             fi-at: ''
             suffix: ''
             lbw: false
@@ -82,13 +63,8 @@ content:
             ow-def-cl: false
             fis: false
             fis-def-at: false
+            fi: false
             fi-def-at: false
-    type: link
+    type: entity_reference_entity_view
     region: content
-  links:
-    weight: 0
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-hidden:
-  content_moderation_control: true
+hidden: {  }

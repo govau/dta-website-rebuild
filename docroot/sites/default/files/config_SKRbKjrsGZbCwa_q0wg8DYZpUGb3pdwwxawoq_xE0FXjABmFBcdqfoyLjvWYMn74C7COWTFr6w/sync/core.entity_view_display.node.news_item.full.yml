@@ -19,6 +19,7 @@ dependencies:
   module:
     - datetime
     - ds
+    - ds_chains
     - empty_fields
     - field_group
     - panelizer
@@ -37,17 +38,17 @@ third_party_settings:
       content:
         - content_moderation_control
         - group_p
-        - field_tags
         - field_date
+        - field_tags
         - field_introduction
         - group_figure
         - field_body
-        - 'dynamic_token_field:node-media_contact'
+        - 'dynamic_block_field:node-media_enquiries'
         - field_image
         - field_image_caption
     fields:
-      'dynamic_token_field:node-media_contact':
-        plugin_id: 'dynamic_token_field:node-media_contact'
+      'dynamic_block_field:node-media_enquiries':
+        plugin_id: 'dynamic_block_field:node-media_enquiries'
         weight: 6
         label: hidden
         formatter: default
@@ -120,6 +121,8 @@ third_party_settings:
         classes: au-hero
       label: 'Image and caption'
       region: content
+  ds_chains:
+    fields: {  }
 id: node.news_item.full
 targetEntityType: node
 bundle: news_item

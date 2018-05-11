@@ -891,21 +891,6 @@ if(isset($_ENV['VCAP_SERVICES'])) {
   $config['swiftmailer.transport']['smtp_credentials']['swiftmailer']['password'] = '';
 }
 
-/**
- * Load local development override configuration, if available.
- *
- * Use settings.local.php to override variables on secondary (staging,
- * development, etc) installations of this site. Typically used to disable
- * caching, JavaScript/CSS compression, re-routing of outgoing emails, and
- * other things that should not happen on development and testing sites.
- *
- * Keep this code block at the end of this file to take full effect.
- */
-#
-if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
- include $app_root . '/' . $site_path . '/settings.local.php';
-}
-
 $settings['install_profile'] = 'govcms';
 $config_directories['sync'] = 'sites/default/files/config_SKRbKjrsGZbCwa_q0wg8DYZpUGb3pdwwxawoq_xE0FXjABmFBcdqfoyLjvWYMn74C7COWTFr6w/sync';
 
@@ -935,4 +920,19 @@ switch ($environment) {
   default:
     $config['s3fs.settings']['bucket'] = '';
     break;
+}
+
+/**
+ * Load local development override configuration, if available.
+ *
+ * Use settings.local.php to override variables on secondary (staging,
+ * development, etc) installations of this site. Typically used to disable
+ * caching, JavaScript/CSS compression, re-routing of outgoing emails, and
+ * other things that should not happen on development and testing sites.
+ *
+ * Keep this code block at the end of this file to take full effect.
+ */
+#
+if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
+ include $app_root . '/' . $site_path . '/settings.local.php';
 }

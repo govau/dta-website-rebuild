@@ -1,0 +1,49 @@
+uuid: 92900aee-6b28-4eab-90d7-ddfcf8097850
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.body_only
+    - field.field.node.home_page.body
+    - field.field.node.home_page.field_link_to_content
+    - node.type.home_page
+  module:
+    - ds
+    - ds_chains
+    - panelizer
+    - text
+    - user
+third_party_settings:
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
+  ds:
+    layout:
+      id: layout_onecol
+      library: layout_discovery/onecol
+      disable_css: false
+      entity_classes: all_classes
+      settings: {  }
+    regions:
+      content:
+        - body
+  ds_chains:
+    fields: {  }
+id: node.home_page.body_only
+targetEntityType: node
+bundle: home_page
+mode: body_only
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  content_moderation_control: true
+  field_link_to_content: true
+  links: true
