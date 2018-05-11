@@ -891,6 +891,30 @@ if(isset($_ENV['VCAP_SERVICES'])) {
   $config['swiftmailer.transport']['smtp_credentials']['swiftmailer']['password'] = '';
 }
 
+$settings['install_profile'] = 'govcms';
+$config_directories['sync'] = 'sites/default/files/config_SKRbKjrsGZbCwa_q0wg8DYZpUGb3pdwwxawoq_xE0FXjABmFBcdqfoyLjvWYMn74C7COWTFr6w/sync';
+
+/**
+ * Settings for config_split and other performance settings.
+ */
+
+/* Check for the production or staging environments. */
+
+if(isset($_ENV['ENVIRONMENT'])) {
+  $environment = $_ENV['ENVIRONMENT'];
+  if ($environment === 'production') {
+    $config['s3fs.settings']['bucket'] = 'dta-www-drupal-20180130215411153400000001';
+  }
+  if ($environment === 'staging') {
+    $config['s3fs.settings']['bucket'] = 'dta-www-drupal-staging-20180504063601229200000001';
+  }
+  if ($environment === 'test') {
+    $config['s3fs.settings']['bucket'] = 'dta-www-drupal-test-20180221050325640300000001';
+  }
+} else {
+  $config['s3fs.settings']['bucket'] = '';
+}
+
 /**
  * Load local development override configuration, if available.
  *
@@ -904,35 +928,4 @@ if(isset($_ENV['VCAP_SERVICES'])) {
 #
 if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
  include $app_root . '/' . $site_path . '/settings.local.php';
-}
-
-$settings['install_profile'] = 'govcms';
-$config_directories['sync'] = 'sites/default/files/config_SKRbKjrsGZbCwa_q0wg8DYZpUGb3pdwwxawoq_xE0FXjABmFBcdqfoyLjvWYMn74C7COWTFr6w/sync';
-
-/**
- * Settings for config_split and other performance settings.
- */
-
-/* Check for the production or staging environments. */
-$environment = '';
-
-if(isset($_ENV['ENVIRONMENT'])) {
-  $environment = $_ENV['ENVIRONMENT'];
-} else {
-  $environment = 'local';
-}
-
-switch ($environment) {
-   case 'production':
-    $config['s3fs.settings']['bucket'] = 'dta-www-drupal-20180130215411153400000001';
-    break;
-  case 'staging':
-    $config['s3fs.settings']['bucket'] = 'dta-www-drupal-staging-20180504063601229200000001';
-    break;
-  case 'test':
-    $config['s3fs.settings']['bucket'] = 'dta-www-drupal-test-20180221050325640300000001';
-    break;
-  default:
-    $config['s3fs.settings']['bucket'] = '';
-    break;
 }
