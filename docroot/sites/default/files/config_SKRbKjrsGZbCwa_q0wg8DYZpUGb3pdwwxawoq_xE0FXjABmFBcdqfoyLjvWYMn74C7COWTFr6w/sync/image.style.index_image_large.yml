@@ -1,0 +1,22 @@
+uuid: 2ee363eb-09a7-4c7e-9f9a-c3a3376bf510
+langcode: en
+status: true
+dependencies:
+  module:
+    - image_style_quality
+name: index_image_large
+label: 'Index image (Large)'
+effects:
+  9a98bd8a-3b50-4197-8f2a-51ed613ba0d9:
+    uuid: 9a98bd8a-3b50-4197-8f2a-51ed613ba0d9
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 352
+      height: 234
+  d7753dbd-ee22-4f2c-aa4b-f5f12bfc444f:
+    uuid: d7753dbd-ee22-4f2c-aa4b-f5f12bfc444f
+    id: image_style_quality
+    weight: 2
+    data:
+      quality: 100

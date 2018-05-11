@@ -8,11 +8,11 @@ applications:
   timeout: 120
   services:
   - dta-website-db-test
-  - ups-aws
+  - dta-website-rebuild-test-aws-ups
   - ups-website-redev
   buildpack: php_buildpack
   routes:
-  - route: dta-website-rebuild-develop.apps.y.cld.gov.au
+  - route: dta-website-rebuild-test.apps.y.cld.gov.au
   env:
     DRUPAL_UUID: "59f85df3-5f18-45dd-bf6a-40977b57a842"
-    ENVIRONMENT: development
+    ENVIRONMENT: test

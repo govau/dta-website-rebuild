@@ -8,7 +8,7 @@ applications:
   timeout: 120
   services:
   - dta-website-rebuild-staging-db
-  - ups-aws
+  - dta-website-rebuild-staging-aws-ups
   - ups-website-redev
   buildpack: php_buildpack
   env:
