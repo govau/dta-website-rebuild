@@ -899,27 +899,20 @@ $config_directories['sync'] = 'sites/default/files/config_SKRbKjrsGZbCwa_q0wg8DY
  */
 
 /* Check for the production or staging environments. */
-$environment = '';
 
 if(isset($_ENV['ENVIRONMENT'])) {
   $environment = $_ENV['ENVIRONMENT'];
-} else {
-  $environment = 'local';
-}
-
-switch ($environment) {
-   case 'production':
+  if ($environment === 'production') {
     $config['s3fs.settings']['bucket'] = 'dta-www-drupal-20180130215411153400000001';
-    break;
-  case 'staging':
+  }
+  if ($environment === 'staging') {
     $config['s3fs.settings']['bucket'] = 'dta-www-drupal-staging-20180504063601229200000001';
-    break;
-  case 'test':
+  }
+  if ($environment === 'test') {
     $config['s3fs.settings']['bucket'] = 'dta-www-drupal-test-20180221050325640300000001';
-    break;
-  default:
-    $config['s3fs.settings']['bucket'] = '';
-    break;
+  }
+} else {
+  $config['s3fs.settings']['bucket'] = '';
 }
 
 /**
