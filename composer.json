@@ -212,6 +212,7 @@
         "drupal/token": "1.1.0",
         "drupal/twig_tweak": "^1.9",
         "drupal/typogrify": "1.x-dev",
+        "drupal/url_embed": "^1.0",
         "drupal/username_enumeration_prevention": "^1.0",
         "drupal/video_embed_field": "^2.0",
         "drupal/views_menu_children_filter": "^1.0",

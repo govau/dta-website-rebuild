@@ -59,6 +59,7 @@ settings:
             - video_embed
             - node
             - block
+            - tweet
         -
           name: Templates
           items:
