@@ -2,11 +2,11 @@ id: media_enquiries
 label: 'Media enquiries'
 ui_limit: news_item|full
 properties:
-  block: 'block_content:c53ae09f-9a69-426b-ae5b-8d3255f60228'
+  block: 'block_content:1a98812f-f056-4cf5-97fd-d2316636f507'
   use_block_title: false
   add_block_wrappers: false
   config:
-    id: 'block_content:c53ae09f-9a69-426b-ae5b-8d3255f60228'
+    id: 'block_content:1a98812f-f056-4cf5-97fd-d2316636f507'
     label: ''
     provider: block_content
     label_display: visible
