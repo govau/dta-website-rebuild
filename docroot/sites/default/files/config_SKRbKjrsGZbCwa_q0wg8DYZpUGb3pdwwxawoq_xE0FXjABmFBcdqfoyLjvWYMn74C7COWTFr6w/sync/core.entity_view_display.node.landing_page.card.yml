@@ -9,24 +9,28 @@ dependencies:
     - field.field.node.landing_page.field_index_image
     - field.field.node.landing_page.field_introduction
     - field.field.node.landing_page.field_linkedin_image
+    - field.field.node.landing_page.field_promote_to_get_help_advice
+    - field.field.node.landing_page.field_promote_to_our_projects
     - field.field.node.landing_page.field_related_content
+    - field.field.node.landing_page.field_related_content_heading
     - field.field.node.landing_page.field_summary
     - field.field.node.landing_page.field_twitter_image
     - node.type.landing_page
   module:
     - ds
+    - ds_chains
     - panelizer
     - user
 third_party_settings:
   ds:
     layout:
-      id: layout_onecol
+      id: ds_1col
       library: layout_discovery/onecol
       disable_css: false
       entity_classes: all_classes
       settings: {  }
     regions:
-      content:
+      ds_content:
         - 'dynamic_token_field:node-related_content_card'
     fields:
       'dynamic_token_field:node-related_content_card':
@@ -39,18 +43,24 @@ third_party_settings:
     custom: false
     allow: false
     default: default
+  ds_chains:
+    fields: {  }
 id: node.landing_page.card
 targetEntityType: node
 bundle: landing_page
 mode: card
 content: {  }
 hidden:
+  content_moderation_control: true
   field_body: true
   field_facebook_image: true
   field_index_image: true
   field_introduction: true
   field_linkedin_image: true
+  field_promote_to_get_help_advice: true
+  field_promote_to_our_projects: true
   field_related_content: true
+  field_related_content_heading: true
   field_summary: true
   field_twitter_image: true
   links: true
