@@ -9,6 +9,7 @@ dependencies:
     - linkit
     - toc_filter
     - typogrify
+    - url_embed
     - video_embed_wysiwyg
     - wysiwyg_template_core
 _core:
@@ -33,16 +34,16 @@ filters:
     id: filter_url
     provider: filter
     status: true
-    weight: -45
+    weight: -43
     settings:
       filter_url_length: 72
   filter_html:
     id: filter_html
     provider: filter
-    status: false
-    weight: -41
+    status: true
+    weight: -47
     settings:
-      allowed_html: '<a href hreflang id rel title class target> <em> <strong> <cite> <blockquote cite> <code> <ul type class> <ol start type> <li class> <dl> <dt> <dd> <h2 id class> <h3 id class> <h4 id class> <h5 id class> <h6 id class> <img src alt data-entity-type data-entity-uuid> <u> <s> <sup> <sub> <table id summary class> <caption> <tbody> <thead> <tfoot> <th class style> <td class style> <tr class> <p class> <div class id> <iframe> <drupal-entity data-*> <hr>'
+      allowed_html: '<a href hreflang id rel title class target aria-controls aria-expanded aria-selected role> <em> <strong> <cite> <blockquote cite> <code> <ul type class> <ol start type class> <li class> <dl> <dt> <dd> <h2 id class> <h3 id class> <h4 id class> <h5 id class> <h6 id class> <img src alt data-entity-type data-entity-uuid> <section class> <sup> <sub> <table id summary class> <caption> <tbody> <thead> <tfoot> <th class id style> <td class id style> <tr class id style> <p class> <div class id> <iframe> <drupal-entity data-*> <drupal-url data-*> <hr>'
       filter_html_help: true
       filter_html_nofollow: false
   filter_caption:
@@ -55,7 +56,7 @@ filters:
     id: toc_filter
     provider: toc_filter
     status: true
-    weight: -42
+    weight: -41
     settings:
       type: default
       auto: ''
@@ -64,66 +65,66 @@ filters:
     id: editor_file_reference
     provider: editor
     status: false
-    weight: -39
+    weight: -38
     settings: {  }
   entity_embed:
     id: entity_embed
     provider: entity_embed
     status: true
-    weight: -44
+    weight: -46
     settings: {  }
   filter_html_image_secure:
     id: filter_html_image_secure
     provider: filter
     status: false
-    weight: -36
+    weight: -35
     settings: {  }
   filter_html_escape:
     id: filter_html_escape
     provider: filter
     status: false
-    weight: -40
+    weight: -39
     settings: {  }
   filter_align:
     id: filter_align
     provider: filter
     status: false
-    weight: -38
+    weight: -37
     settings: {  }
   linkit:
     id: linkit
     provider: linkit
     status: false
-    weight: -37
+    weight: -36
     settings:
       title: true
   video_embed_wysiwyg:
     id: video_embed_wysiwyg
     provider: video_embed_wysiwyg
     status: true
-    weight: -46
+    weight: -44
     settings: {  }
   filter_htmlawed:
     id: filter_htmlawed
     provider: htmlawed
-    status: true
-    weight: -47
+    status: false
+    weight: -40
     settings:
-      config: '''safe'' => 1, ''elements'' => ''a, br, em, strong, cite, blockquote, code, ul, ol, li, dl, dt, dd, h2, h3, h4, h5, h6, img, sup, sub, table, caption, tbody, thead, tfoot, th, td, tr,p, div, iframe, drupal-entity, hr, section'','
-      spec: 'a=href, hreflang, id, rel, title, class, target, aria-controls, aria-expanded, aria-selected, role; td, tr=class, id, style; blockquote=cite; ul=type, class; ol=type, class, start; li=class; h2=id, class; h3=id, class; h4=id, class; h5=id, class; h6=id, class; img=src, alt, data-entity-type, data-entity-uuid; table=id, summary, class; th=class, style; td=class, style; tr=class; p=class; div=id,class; drupal-entity=data-*; section=class;'
+      config: '''safe'' => 1, ''elements'' => ''a, br, em, strong, cite, blockquote, code, ul, ol, li, dl, dt, dd, h2, h3, h4, h5, h6, img, sup, sub, table, caption, tbody, thead, tfoot, th, td, tr, p, div, iframe, drupal-entity, drupal-url, hr, section'','
+      spec: 'a=href, hreflang, id, rel, title, class, target, aria-controls, aria-expanded, aria-selected, role; td, tr=class, id, style; blockquote=cite; ul=type, class; ol=type, class, start; li=class; h2=id, class; h3=id, class; h4=id, class; h5=id, class; h6=id, class; img=src, alt, data-entity-type, data-entity-uuid; table=id, summary, class; th=class, style; td=class, style; tr=class; p=class; div=id,class; drupal-entity=*; drupal-url=*; section=class;'
       help: 'Allowed HTML tags: <a> <br> <em> <strong> <cite> <blockquote> <code> <ul> <ol> <li> <dl> <dt> <dd> <h2> <h3> <h4> <h5> <h6> <img > <sup> <sub> <table> <caption> <tbody> <thead> <tfoot> <th> <td> <tr> <p> <div> <iframe> <drupal-entity> <hr> <section>'
       helplong: 'These HTML tags are allowed: <a> <br> <em> <strong> <cite> <blockquote> <code> <ul> <ol> <li> <dl> <dt> <dd> <h2> <h3> <h4> <h5> <h6> <img > <sup> <sub> <table> <caption> <tbody> <thead> <tfoot> <th> <td> <tr> <p> <div> <iframe> <drupal-entity> <hr> <section>. Javascript is not permitted.'
   filter_wysiwyg_cleanup:
     id: filter_wysiwyg_cleanup
     provider: wysiwyg_template_core
     status: false
-    weight: -35
+    weight: -34
     settings: {  }
   TypogrifyFilter:
     id: TypogrifyFilter
     provider: typogrify
     status: true
-    weight: -43
+    weight: -42
     settings:
       smartypants_enabled: '1'
       smartypants_hyphens: '3'
@@ -140,3 +141,16 @@ filters:
       arrows: 'a:0:{}'
       fractions: 'a:0:{}'
       quotes: 'a:0:{}'
+  url_embed_convert_links:
+    id: url_embed_convert_links
+    provider: url_embed
+    status: false
+    weight: -33
+    settings:
+      url_prefix: ''
+  url_embed:
+    id: url_embed
+    provider: url_embed
+    status: true
+    weight: -45
+    settings: {  }
