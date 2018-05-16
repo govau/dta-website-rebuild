@@ -38,8 +38,8 @@ third_party_settings:
       content:
         - content_moderation_control
         - group_p
-        - field_date
         - field_tags
+        - field_date
         - field_introduction
         - group_figure
         - field_body
@@ -275,19 +275,19 @@ content:
             lb: ''
             prefix: ''
             lbw: true
-            lbw-el: dt
+            lbw-el: span
             lbw-cl: ''
             lbw-at: ''
             lb-col: true
             ow: true
-            ow-el: dl
+            ow-el: ul
             ow-cl: au-tags
             ow-at: ''
             fis-el: ''
             fis-cl: ''
             fis-at: ''
             fi: true
-            fi-el: dd
+            fi-el: li
             fi-cl: ''
             fi-at: ''
             suffix: ''
