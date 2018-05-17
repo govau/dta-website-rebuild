@@ -1,0 +1,13 @@
+uuid: ded1bddd-10a4-4343-8a98-2f367a4036d0
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'file:file:d0b6dd22-cf61-458b-9d0f-1a66158f8830'
+  module:
+    - url_embed
+label: Tweet
+id: tweet
+type_id: url
+type_settings: {  }
+icon_uuid: d0b6dd22-cf61-458b-9d0f-1a66158f8830

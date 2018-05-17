@@ -24,6 +24,7 @@ dependencies:
     - datetime
     - disqus
     - ds
+    - ds_chains
     - empty_fields
     - field_group
     - panelizer
@@ -180,6 +181,8 @@ third_party_settings:
         speed: fast
       label: Comments
       region: hidden
+  ds_chains:
+    fields: {  }
 id: node.blog_post.full
 targetEntityType: node
 bundle: blog_post
@@ -433,19 +436,19 @@ content:
             lb: ''
             prefix: ''
             lbw: true
-            lbw-el: dt
+            lbw-el: span
             lbw-cl: ''
             lbw-at: ''
             lb-col: true
             ow: true
-            ow-el: dl
+            ow-el: ul
             ow-cl: au-tags
             ow-at: ''
             fis-el: ''
             fis-cl: ''
             fis-at: ''
             fi: true
-            fi-el: dd
+            fi-el: li
             fi-cl: ''
             fi-at: ''
             suffix: ''
