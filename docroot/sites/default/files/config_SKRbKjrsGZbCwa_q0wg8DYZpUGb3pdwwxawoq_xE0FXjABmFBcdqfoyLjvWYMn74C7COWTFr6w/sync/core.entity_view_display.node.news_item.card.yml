@@ -22,6 +22,7 @@ dependencies:
     - ds
     - ds_chains
     - empty_fields
+    - field_group
     - panelizer
     - responsive_image
     - user
@@ -34,20 +35,29 @@ third_party_settings:
   ds:
     layout:
       id: ds_1col
-      library: layout_discovery/onecol
+      library: null
       disable_css: false
       entity_classes: all_classes
-      settings: {  }
+      settings:
+        wrappers:
+          ds_content: div
+        outer_wrapper: div
+        attributes: ''
+        link_attribute: ''
+        link_custom: ''
+        classes:
+          layout_class: {  }
     regions:
       ds_content:
         - field_index_image
-        - 'bundle_field:node'
         - node_title
+        - group_footer
         - field_date
+        - 'bundle_field:node'
     fields:
       'bundle_field:node':
         plugin_id: 'bundle_field:node'
-        weight: 1
+        weight: 5
         label: hidden
         formatter: default
         ft:
@@ -115,6 +125,25 @@ third_party_settings:
             fi-def-at: false
   ds_chains:
     fields: {  }
+  field_group:
+    group_footer:
+      children:
+        - field_date
+        - 'bundle_field:node'
+      parent_name: ''
+      weight: 3
+      format_type: html_element
+      format_settings:
+        id: ''
+        classes: ''
+        element: footer
+        show_label: false
+        label_element: h3
+        attributes: 'role="contentinfo"'
+        effect: none
+        speed: fast
+      label: Footer
+      region: hidden
 id: node.news_item.card
 targetEntityType: node
 bundle: news_item
@@ -122,7 +151,7 @@ mode: card
 content:
   field_date:
     type: datetime_custom
-    weight: 3
+    weight: 4
     region: ds_content
     label: hidden
     settings:

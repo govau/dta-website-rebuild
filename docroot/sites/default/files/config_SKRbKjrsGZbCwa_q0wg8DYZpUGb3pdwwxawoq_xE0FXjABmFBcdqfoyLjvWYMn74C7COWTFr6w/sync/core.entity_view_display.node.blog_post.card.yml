@@ -50,16 +50,16 @@ third_party_settings:
         link_custom: ''
         classes:
           layout_class: {  }
-          ds_content: {  }
     regions:
       ds_content:
         - group_images
         - field_index_image
-        - 'ds_chains:node/blog_post/field_author/field_author_image'
-        - 'bundle_field:node'
-        - field_author
         - node_title
+        - 'ds_chains:node/blog_post/field_author/field_author_image'
+        - group_footer
+        - field_author
         - field_date
+        - 'bundle_field:node'
     fields:
       'ds_chains:node/blog_post/field_author/field_author_image':
         plugin_id: 'ds_chains:node/blog_post/field_author/field_author_image'
@@ -98,7 +98,7 @@ third_party_settings:
             fi-def-at: false
       'bundle_field:node':
         plugin_id: 'bundle_field:node'
-        weight: 2
+        weight: 5
         label: hidden
         formatter: default
         ft:
@@ -130,7 +130,7 @@ third_party_settings:
             fi-def-at: false
       node_title:
         plugin_id: node_title
-        weight: 4
+        weight: 1
         label: hidden
         formatter: default
         settings:
@@ -186,6 +186,25 @@ third_party_settings:
         speed: fast
       label: Images
       region: hidden
+    group_footer:
+      children:
+        - field_author
+        - field_date
+        - 'bundle_field:node'
+      parent_name: ''
+      weight: 2
+      format_type: html_element
+      format_settings:
+        id: ''
+        classes: ''
+        element: footer
+        show_label: false
+        label_element: h3
+        attributes: 'role="contentinfo"'
+        effect: none
+        speed: fast
+      label: Footer
+      region: hidden
 id: node.blog_post.card
 targetEntityType: node
 bundle: blog_post
@@ -231,7 +250,7 @@ content:
             fi-def-at: false
   field_date:
     type: datetime_custom
-    weight: 5
+    weight: 4
     region: ds_content
     label: hidden
     settings:
