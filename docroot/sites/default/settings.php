@@ -916,6 +916,13 @@ if(isset($_ENV['ENVIRONMENT'])) {
 }
 
 /**
+ * Settings for composer_deploy
+ */
+
+// Let composer_deploy know where the vendor path is. See https://www.drupal.org/project/composer_deploy/issues/2769381.
+$config['composer_deploy.settings']['vendor_dir'] = '../vendor';
+
+/**
  * Load local development override configuration, if available.
  *
  * Use settings.local.php to override variables on secondary (staging,
