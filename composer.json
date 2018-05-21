@@ -265,6 +265,9 @@
           },
           "drupal/empty_fields": {
             "Plugin form not shown": "https://www.drupal.org/files/issues/2927913-8.patch"
+          },
+          "drupal/core": {
+            "Cannot use relationship for rendered entity on Views": "https://www.drupal.org/files/issues/2457999-164.patch"
           }
         }
     },

@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "290d06d481db39b4070b9062c4a5dc52",
+    "content-hash": "03a0783efac3d9172e1ec8b380f9a25e",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2587,6 +2587,9 @@
                     "recurse": false,
                     "replace": false,
                     "merge-extra": false
+                },
+                "patches_applied": {
+                    "Cannot use relationship for rendered entity on Views": "https://www.drupal.org/files/issues/2457999-164.patch"
                 }
             },
             "autoload": {
@@ -7752,7 +7755,7 @@
                 "reference": "master"
             },
             "type": "drupal-custom-theme",
-            "time": "2018-05-17T05:28:22+00:00"
+            "time": "2018-05-18T01:48:42+00:00"
         },
         {
             "name": "govau/dta-uikit-base",
@@ -7774,7 +7777,7 @@
                 "reference": "master"
             },
             "type": "drupal-custom-theme",
-            "time": "2018-03-06T04:29:05+00:00"
+            "time": "2018-02-07T22:28:08+00:00"
         },
         {
             "name": "govau/import_recruiterbox",
@@ -7785,7 +7788,7 @@
                 "reference": "master"
             },
             "type": "drupal-custom-module",
-            "time": "2018-03-21T22:47:59+00:00"
+            "time": "2018-03-22T01:49:24+00:00"
         },
         {
             "name": "grasmash/expander",
