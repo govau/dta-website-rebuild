@@ -1,0 +1,28 @@
+uuid: a0034a3f-626e-494a-918c-60930ae8e588
+langcode: en
+status: true
+dependencies:
+  config:
+    - facets.facet.tags
+  module:
+    - facets
+    - system
+  theme:
+    - dta_gov_au
+id: tags
+theme: dta_gov_au
+region: sidebar
+weight: -8
+provider: null
+plugin: 'facet_block:tags'
+settings:
+  id: 'facet_block:tags'
+  label: Tags
+  provider: facets
+  label_display: visible
+visibility:
+  request_path:
+    id: request_path
+    pages: /news-and-blogs-facets
+    negate: false
+    context_mapping: {  }
