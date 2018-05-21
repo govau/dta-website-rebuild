@@ -18,6 +18,7 @@ dependencies:
     - node.type.landing_page
   module:
     - ds
+    - ds_chains
     - panelizer
     - text
     - user
@@ -36,8 +37,7 @@ third_party_settings:
         - field_introduction
         - field_body
         - 'dynamic_block_field:node-landing_page_cards'
-        - field_related_content_heading
-        - field_related_content
+        - 'dynamic_block_field:node-related_links_block'
     fields:
       'dynamic_block_field:node-landing_page_cards':
         plugin_id: 'dynamic_block_field:node-landing_page_cards'
@@ -71,11 +71,45 @@ third_party_settings:
             fis-def-at: false
             fi: false
             fi-def-at: false
+      'dynamic_block_field:node-related_links_block':
+        plugin_id: 'dynamic_block_field:node-related_links_block'
+        weight: 5
+        label: hidden
+        formatter: default
+        ft:
+          id: expert
+          settings:
+            lb: ''
+            prefix: ''
+            lbw-el: ''
+            lbw-cl: ''
+            lbw-at: ''
+            ow: true
+            ow-el: section
+            ow-cl: ''
+            ow-at: 'id="related-links-block" role="complementary"'
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fi-el: ''
+            fi-cl: ''
+            fi-at: ''
+            suffix: ''
+            lbw: false
+            lb-col: false
+            ow-def-at: false
+            ow-def-cl: false
+            fis: false
+            fis-def-at: false
+            fi: false
+            fi-def-at: false
   panelizer:
     enable: false
     custom: false
     allow: false
     default: default
+  ds_chains:
+    fields: {  }
 id: node.landing_page.full
 targetEntityType: node
 bundle: landing_page
@@ -128,84 +162,6 @@ content:
             fi-def-at: false
     type: text_default
     region: content
-  field_related_content:
-    type: entity_reference_entity_view
-    weight: 6
-    region: content
-    label: hidden
-    settings:
-      view_mode: card
-      link: false
-    third_party_settings:
-      ds:
-        ds_limit: ''
-        ft:
-          id: expert
-          settings:
-            lb: ''
-            prefix: ''
-            lbw: true
-            lbw-el: h2
-            lbw-cl: ''
-            lbw-at: ''
-            ow: true
-            ow-el: div
-            ow-cl: 'au-body au-landing-page-level-2-cards'
-            ow-at: ''
-            fis: true
-            fis-el: ul
-            fis-cl: 'au-card-list au-card-list--matchheight'
-            fis-at: ''
-            fi: true
-            fi-el: li
-            fi-cl: 'col-xs-12 col-sm-4'
-            fi-at: ''
-            suffix: ''
-            lb-col: false
-            ow-def-at: false
-            ow-def-cl: false
-            fis-def-at: false
-            fi-def-at: false
-  field_related_content_heading:
-    type: string
-    weight: 5
-    region: content
-    label: hidden
-    settings:
-      link_to_entity: false
-    third_party_settings:
-      empty_fields:
-        handler: text
-        settings:
-          empty_text: ''
-      ds:
-        ft:
-          id: expert
-          settings:
-            lb: ''
-            prefix: ''
-            lbw-el: ''
-            lbw-cl: ''
-            lbw-at: ''
-            ow-el: ''
-            ow-cl: ''
-            ow-at: ''
-            fis-el: ''
-            fis-cl: ''
-            fis-at: ''
-            fi: true
-            fi-el: h2
-            fi-cl: ''
-            fi-at: ''
-            suffix: ''
-            lbw: false
-            lb-col: false
-            ow: false
-            ow-def-at: false
-            ow-def-cl: false
-            fis: false
-            fis-def-at: false
-            fi-def-at: false
   links:
     weight: 1
     region: content
@@ -217,5 +173,7 @@ hidden:
   field_linkedin_image: true
   field_promote_to_get_help_advice: true
   field_promote_to_our_projects: true
+  field_related_content: true
+  field_related_content_heading: true
   field_summary: true
   field_twitter_image: true
