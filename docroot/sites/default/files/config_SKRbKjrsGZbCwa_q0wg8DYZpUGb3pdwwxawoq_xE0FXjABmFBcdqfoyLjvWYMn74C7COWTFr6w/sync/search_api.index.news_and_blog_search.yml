@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.storage.node.field_tags
+    - field.storage.node.field_date
     - search_api.server.database_search
     - core.entity_view_mode.node.card
   module:
@@ -11,7 +12,7 @@ dependencies:
     - node
 id: news_and_blog_search
 name: 'News and blog search'
-description: ''
+description: 'Searches only news and blog items to create a faceted search system.'
 read_only: false
 field_settings:
   rendered_item:
@@ -33,6 +34,14 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.field_tags
+  field_date:
+    label: Date
+    datasource_id: 'entity:node'
+    property_path: field_date
+    type: date
+    dependencies:
+      config:
+        - field.storage.node.field_date
 datasource_settings:
   'entity:node':
     bundles:

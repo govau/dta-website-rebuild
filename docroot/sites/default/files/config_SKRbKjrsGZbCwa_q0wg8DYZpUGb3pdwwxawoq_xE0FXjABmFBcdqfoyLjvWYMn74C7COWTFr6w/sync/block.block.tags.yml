@@ -11,13 +11,13 @@ dependencies:
     - dta_gov_au
 id: tags
 theme: dta_gov_au
-region: sidebar
-weight: -8
+region: content
+weight: -7
 provider: null
 plugin: 'facet_block:tags'
 settings:
   id: 'facet_block:tags'
-  label: Tags
+  label: 'Filter by tags'
   provider: facets
   label_display: visible
 visibility:

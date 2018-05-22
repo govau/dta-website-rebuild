@@ -14,7 +14,7 @@ dependencies:
 id: mainnavigation_3
 theme: dta_gov_au
 region: sidebar
-weight: -10
+weight: -11
 provider: null
 plugin: 'menu_block:main'
 settings:
