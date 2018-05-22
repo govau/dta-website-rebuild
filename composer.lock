@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "03a0783efac3d9172e1ec8b380f9a25e",
+    "content-hash": "9a2f8ab598c949ae6e275956519fe4f8",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -7755,7 +7755,7 @@
                 "reference": "master"
             },
             "type": "drupal-custom-theme",
-            "time": "2018-05-18T01:48:42+00:00"
+            "time": "2018-05-21T02:21:55+00:00"
         },
         {
             "name": "govau/dta-uikit-base",
@@ -7777,7 +7777,7 @@
                 "reference": "master"
             },
             "type": "drupal-custom-theme",
-            "time": "2018-02-07T22:28:08+00:00"
+            "time": "2018-03-06T04:29:05+00:00"
         },
         {
             "name": "govau/import_recruiterbox",
@@ -7788,7 +7788,7 @@
                 "reference": "master"
             },
             "type": "drupal-custom-module",
-            "time": "2018-03-22T01:49:24+00:00"
+            "time": "2018-03-21T22:47:59+00:00"
         },
         {
             "name": "grasmash/expander",
