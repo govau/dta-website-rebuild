@@ -73,6 +73,7 @@ module:
   login_security: 0
   mailsystem: 0
   menu_block: 0
+  menu_link_attributes: 0
   menu_trail_by_path: 0
   menu_ui: 0
   metatag: 0

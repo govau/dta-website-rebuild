@@ -4,7 +4,11 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
+<<<<<<< Updated upstream
     "content-hash": "03a0783efac3d9172e1ec8b380f9a25e",
+=======
+    "content-hash": "e9fedfa00a3bc19b93dca316747da68b",
+>>>>>>> Stashed changes
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -4703,6 +4707,57 @@
             }
         },
         {
+            "name": "drupal/menu_link_attributes",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/menu_link_attributes",
+                "reference": "8.x-1.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/menu_link_attributes-8.x-1.0.zip",
+                "reference": "8.x-1.0",
+                "shasum": "6386cc2fcd7ae0d17d2a82d690866028b132055c"
+            },
+            "require": {
+                "drupal/core": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.0",
+                    "datestamp": "1507195827",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "yannickoo",
+                    "homepage": "https://www.drupal.org/user/531118"
+                }
+            ],
+            "description": "Allows you to add attributes to menu links.",
+            "homepage": "http://drupal.org/project/menu_link_attributes",
+            "keywords": [
+                "Drupal"
+            ],
+            "support": {
+                "source": "http://cgit.drupalcode.org/menu_link_attributes",
+                "issues": "http://drupal.org/project/issues/menu_link_attributes"
+            }
+        },
+        {
             "name": "drupal/menu_trail_by_path",
             "version": "1.1.0",
             "source": {
@@ -7755,7 +7810,11 @@
                 "reference": "master"
             },
             "type": "drupal-custom-theme",
+<<<<<<< Updated upstream
             "time": "2018-05-18T01:48:42+00:00"
+=======
+            "time": "2018-05-22T23:54:42+00:00"
+>>>>>>> Stashed changes
         },
         {
             "name": "govau/dta-uikit-base",
@@ -8116,6 +8175,36 @@
             ],
             "description": "Converts HTML to formatted plain text",
             "time": "2016-03-16T23:24:34+00:00"
+        },
+        {
+            "name": "imperator99/superfish",
+            "version": "2.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/imperator99/Superfish-for-Drupal.git",
+                "reference": "2e5c405b5f8adb1d1ebb22932e40a6abf8b4cfae"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/imperator99/Superfish-for-Drupal/zipball/2e5c405b5f8adb1d1ebb22932e40a6abf8b4cfae",
+                "reference": "2e5c405b5f8adb1d1ebb22932e40a6abf8b4cfae",
+                "shasum": ""
+            },
+            "replace": {
+                "mehrpadin/superfish": "~2.0"
+            },
+            "type": "drupal-library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "A fork of the Superfish library for the Drupal Superfish module. Slight changes made to enhance accessibility.",
+            "homepage": "https://github.com/imperator99/Superfish-for-Drupal",
+            "keywords": [
+                "jquery",
+                "plugin"
+            ],
+            "time": "2018-05-24T06:57:02+00:00"
         },
         {
             "name": "jakub-onderka/php-console-color",
@@ -8627,33 +8716,6 @@
                 "xml"
             ],
             "time": "2017-09-04T12:26:28+00:00"
-        },
-        {
-            "name": "mehrpadin/superfish",
-            "version": "2.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/mehrpadin/Superfish-for-Drupal.git",
-                "reference": "80a0a484b727e9fbe6b0ee609f80e10e5e158683"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/mehrpadin/Superfish-for-Drupal/zipball/80a0a484b727e9fbe6b0ee609f80e10e5e158683",
-                "reference": "80a0a484b727e9fbe6b0ee609f80e10e5e158683",
-                "shasum": ""
-            },
-            "type": "drupal-library",
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "description": "Superfish library for the Drupal Superfish module.",
-            "homepage": "https://github.com/mehrpadin/Superfish-for-Drupal",
-            "keywords": [
-                "jquery",
-                "plugin"
-            ],
-            "time": "2017-05-30T13:00:18+00:00"
         },
         {
             "name": "mtdowling/jmespath.php",
