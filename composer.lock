@@ -7806,11 +7806,7 @@
                 "reference": "master"
             },
             "type": "drupal-custom-theme",
-<<<<<<< Updated upstream
-            "time": "2018-05-18T01:48:42+00:00"
-=======
             "time": "2018-05-22T23:54:42+00:00"
->>>>>>> Stashed changes
         },
         {
             "name": "govau/dta-uikit-base",
