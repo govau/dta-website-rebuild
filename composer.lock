@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "e9fedfa00a3bc19b93dca316747da68b",
+    "content-hash": "7c28a4a493056ffb9edb84f13d72a440",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -7806,7 +7806,7 @@
                 "reference": "master"
             },
             "type": "drupal-custom-theme",
-            "time": "2018-05-22T23:54:42+00:00"
+            "time": "2018-05-28T23:54:19+00:00"
         },
         {
             "name": "govau/dta-uikit-base",
@@ -7820,17 +7820,6 @@
             "time": "2018-05-03T03:09:42+00:00"
         },
         {
-            "name": "govau/dta-uikit-base-theme",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/govau/dta-uikit-base-theme",
-                "reference": "master"
-            },
-            "type": "drupal-custom-theme",
-            "time": "2018-02-07T22:28:08+00:00"
-        },
-        {
             "name": "govau/import_recruiterbox",
             "version": "dev-master",
             "source": {
@@ -7839,7 +7828,7 @@
                 "reference": "master"
             },
             "type": "drupal-custom-module",
-            "time": "2018-03-22T01:49:24+00:00"
+            "time": "2018-03-21T22:47:59+00:00"
         },
         {
             "name": "grasmash/expander",
@@ -12493,6 +12482,17 @@
             "time": "2017-11-19T08:45:40+00:00"
         },
         {
+            "name": "govau/dta-uikit-base-theme",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/govau/dta-uikit-base-theme",
+                "reference": "master"
+            },
+            "type": "drupal-custom-theme",
+            "time": "2018-03-06T04:29:05+00:00"
+        },
+        {
             "name": "grasmash/drupal-security-warning",
             "version": "1.1.1",
             "source": {
@@ -14223,7 +14223,6 @@
         "drupal/typogrify": 20,
         "govau/dta-gov-au": 20,
         "govau/dta-uikit-base": 20,
-        "govau/dta-uikit-base-theme": 20,
         "govau/import_recruiterbox": 20
     },
     "prefer-stable": true,
