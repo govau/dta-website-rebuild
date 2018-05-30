@@ -16,6 +16,8 @@ dependencies:
   module:
     - datetime_range
     - ds
+    - ds_chains
+    - empty_fields
     - file
     - panelizer
     - taxonomy
@@ -43,6 +45,8 @@ third_party_settings:
         - field_event_categories
         - links
         - field_attachments
+  ds_chains:
+    fields: {  }
 _core:
   default_config_hash: PtYCggW-l5rc7XiJVczf9gEHuRfS_N1OGN-z2BbOehw
 id: node.govcms_event.full
@@ -53,7 +57,8 @@ content:
   field_attachments:
     weight: 7
     label: above
-    settings: {  }
+    settings:
+      use_description_as_link_text: true
     third_party_settings: {  }
     type: file_default
     region: content
@@ -102,6 +107,8 @@ content:
     label: hidden
     settings: {  }
     third_party_settings:
+      empty_fields:
+        handler: ''
       ds:
         ft:
           id: expert
@@ -111,20 +118,20 @@ content:
             lbw-el: ''
             lbw-cl: ''
             lbw-at: ''
-            ow: true
-            ow-el: div
-            ow-cl: au-introduction
+            ow-el: ''
+            ow-cl: ''
             ow-at: ''
             fis-el: ''
             fis-cl: ''
             fis-at: ''
             fi: true
             fi-el: p
-            fi-cl: ''
+            fi-cl: au-introduction
             fi-at: ''
             suffix: ''
             lbw: false
             lb-col: false
+            ow: false
             ow-def-at: false
             ow-def-cl: false
             fis: false
