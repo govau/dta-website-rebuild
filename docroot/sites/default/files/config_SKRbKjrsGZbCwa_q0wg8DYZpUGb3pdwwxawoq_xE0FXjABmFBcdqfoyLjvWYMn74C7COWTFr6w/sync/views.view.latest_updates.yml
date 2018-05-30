@@ -743,7 +743,7 @@ display:
             label: ''
           granularity: second
           plugin_id: datetime
-      title: 'Our latest updates'
+      title: 'News and blogs'
       header: {  }
       footer: {  }
       empty: {  }
