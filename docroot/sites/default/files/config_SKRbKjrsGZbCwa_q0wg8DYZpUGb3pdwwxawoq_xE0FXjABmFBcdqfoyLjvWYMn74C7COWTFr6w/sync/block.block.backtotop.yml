@@ -1,0 +1,31 @@
+uuid: bced27e1-774c-4a03-bac5-3aa2d0b8cab2
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:script:a0cf1a18-eb2b-4583-8832-ab6dc7d7d6c3'
+  module:
+    - block_content
+    - system
+  theme:
+    - dta_gov_au
+id: backtotop
+theme: dta_gov_au
+region: content
+weight: 1
+provider: null
+plugin: 'block_content:a0cf1a18-eb2b-4583-8832-ab6dc7d7d6c3'
+settings:
+  id: 'block_content:a0cf1a18-eb2b-4583-8832-ab6dc7d7d6c3'
+  label: 'Back to top'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: "/help-and-advice\r\n/news-blogs\r\n/our-projects\r\n<front>"
+    negate: false
+    context_mapping: {  }

@@ -12,7 +12,7 @@ dependencies:
 id: homepageleft
 theme: dta_gov_au
 region: content
-weight: -5
+weight: -6
 provider: null
 plugin: 'block_content:a1cc8430-996b-4bc9-81f9-532605a0b317'
 settings:
