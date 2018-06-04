@@ -62,7 +62,7 @@ third_party_settings:
             lbw-at: ''
             ow: true
             ow-el: div
-            ow-cl: au-media-contact
+            ow-cl: 'au-media-contact au-callout'
             ow-at: ''
             fis-el: ''
             fis-cl: ''
