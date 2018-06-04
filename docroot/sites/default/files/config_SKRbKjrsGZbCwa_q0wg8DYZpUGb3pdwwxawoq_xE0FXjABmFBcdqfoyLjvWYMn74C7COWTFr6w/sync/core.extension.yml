@@ -63,7 +63,6 @@ module:
   image: 0
   image_style_quality: 0
   imce: 0
-  import_recruiterbox: 0
   inline_form_errors: 0
   layout_discovery: 0
   link: 0
