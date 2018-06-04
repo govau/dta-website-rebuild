@@ -1,6 +1,6 @@
 uuid: 1bfa6b03-491d-4fb6-84d6-44f01011ddcb
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - field.storage.node.field_allows_remote

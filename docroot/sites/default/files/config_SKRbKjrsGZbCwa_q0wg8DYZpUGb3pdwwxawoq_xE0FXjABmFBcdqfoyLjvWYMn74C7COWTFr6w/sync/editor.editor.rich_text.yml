@@ -103,7 +103,7 @@ settings:
     language:
       language_list: un
     stylescombo:
-      styles: "div.au-callout|Callout: container\r\np.au-callout|Callout: paragraph\r\np.au-pullquote|Pullquote: paragraph\r\nimg.align-left|Image: Align left\r\nimg.align-right|image: Align right"
+      styles: "div.au-callout|Callout: container\r\np.au-callout|Callout: paragraph\r\np.au-pullquote|Pullquote: paragraph\r\np.align-left|Align left\r\np.align-right|Align right"
     video_embed:
       defaults:
         children:
