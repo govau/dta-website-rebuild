@@ -102,20 +102,7 @@
               "type": "zip"
             }
           }
-        },
-        {
-        "type": "package",
-        "package": {
-          "name": "govau/import_recruiterbox",
-          "version": "dev-master",
-          "type": "drupal-custom-module",
-          "source": {
-            "url": "https://github.com/govau/import_recruiterbox",
-            "type": "git",
-            "reference": "master"
-          }
         }
-      }
     ],
     "require": {
         "php": "~7.1.0",
@@ -147,7 +134,7 @@
         "drupal/empty_fields": "1.x-dev",
         "drupal/entity_browser": "2.0-alpha2",
         "drupal/entity_embed": "^1.0@beta",
-        "drupal/entity_reference_revisions": "1.4",
+        "drupal/entity_reference_revisions": "^1.4",
         "drupal/environment_indicator": "^3.2",
         "drupal/facets": "^1.0-beta1",
         "drupal/features": "^3.5",
@@ -199,7 +186,7 @@
         "drupal/superfish": "^1.2",
         "drupal/swiftmailer": "^1.0",
         "drupal/toc_filter": "^2.0",
-        "drupal/token": "1.1.0",
+        "drupal/token": "^1.1",
         "drupal/twig_tweak": "^1.9",
         "drupal/typogrify": "1.x-dev",
         "drupal/url_embed": "^1.0",
@@ -211,7 +198,6 @@
         "drush/drush": "~9.0",
         "govau/dta-gov-au": "dev-master",
         "govau/dta-uikit-base": "dev-master",
-        "govau/import_recruiterbox": "dev-master",
         "harvesthq/chosen": "^1.8",
         "imperator99/superfish": "^2.3",
         "oomphinc/composer-installers-extender": "^1.1"
