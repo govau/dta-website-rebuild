@@ -1,0 +1,9 @@
+uuid: daefc624-cdc2-456e-87bb-c2499db28d0a
+langcode: en
+status: true
+dependencies: {  }
+name: 'Roadmap transformation experiences'
+vid: roadmap_transformation_experienc
+description: 'This vocabulary holds transformation experiences for roadmaps.'
+hierarchy: 1
+weight: 0

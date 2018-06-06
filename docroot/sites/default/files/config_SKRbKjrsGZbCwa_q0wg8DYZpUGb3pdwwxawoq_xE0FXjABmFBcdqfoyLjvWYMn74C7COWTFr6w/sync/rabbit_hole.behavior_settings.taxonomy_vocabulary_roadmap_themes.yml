@@ -1,0 +1,9 @@
+uuid: 4f3c7c2b-b7fa-467b-b26c-5060ce6c84eb
+langcode: en
+status: true
+dependencies: {  }
+id: taxonomy_vocabulary_roadmap_themes
+action: page_redirect
+allow_override: 1
+redirect: '<front>'
+redirect_code: 301

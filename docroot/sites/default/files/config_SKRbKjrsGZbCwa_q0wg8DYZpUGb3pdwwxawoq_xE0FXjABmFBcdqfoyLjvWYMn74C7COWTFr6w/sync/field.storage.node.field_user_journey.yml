@@ -1,0 +1,20 @@
+uuid: e9084be1-61a7-4399-9742-2bcf1a6462dd
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - taxonomy
+id: node.field_user_journey
+field_name: field_user_journey
+entity_type: node
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

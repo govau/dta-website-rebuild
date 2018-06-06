@@ -1,0 +1,23 @@
+uuid: 8da7c1cc-aa2c-4070-b6cb-30b2ecf2bebd
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+    - node_title_help_text
+    - wysiwyg_template
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+  node_title_help_text:
+    title_help: 'This is the ''title'' of the user experience and will be the main text displayed on the card.'
+  wysiwyg_template:
+    default_template: ''
+name: 'Business roadmap user experience'
+type: business_roadmap_user_experience
+description: 'This content type is used to hold user experiences for the Business roadmap.'
+help: ''
+new_revision: false
+preview_mode: 0
+display_submitted: false
