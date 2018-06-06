@@ -4,7 +4,6 @@ status: true
 dependencies:
   config:
     - node.type.home_page
-    - node.type.recruiterbox_position
     - user.role.administrator
     - user.role.content_approver
     - user.role.content_editor
@@ -452,7 +451,6 @@ display:
           operator: 'not in'
           value:
             home_page: home_page
-            recruiterbox_position: recruiterbox_position
           group: 1
           exposed: false
           expose:
