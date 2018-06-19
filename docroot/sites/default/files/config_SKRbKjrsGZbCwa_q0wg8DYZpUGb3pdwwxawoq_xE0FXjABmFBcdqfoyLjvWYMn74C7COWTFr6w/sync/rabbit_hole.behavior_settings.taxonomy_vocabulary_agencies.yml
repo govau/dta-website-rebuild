@@ -1,0 +1,9 @@
+uuid: 584fa4d9-20c5-4b74-8ca9-2cc9d39b6248
+langcode: en
+status: true
+dependencies: {  }
+id: taxonomy_vocabulary_agencies
+action: page_redirect
+allow_override: 1
+redirect: '<front>'
+redirect_code: 301

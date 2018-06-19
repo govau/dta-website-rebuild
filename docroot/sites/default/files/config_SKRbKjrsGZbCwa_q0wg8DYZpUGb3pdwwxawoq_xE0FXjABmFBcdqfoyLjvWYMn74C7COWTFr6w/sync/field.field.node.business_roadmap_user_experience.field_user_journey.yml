@@ -1,0 +1,29 @@
+uuid: 7b273721-0f95-4008-b3d3-16a9d32b41f6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_user_journey
+    - node.type.business_roadmap_user_experience
+    - taxonomy.vocabulary.roadmap_user_journeys
+id: node.business_roadmap_user_experience.field_user_journey
+field_name: field_user_journey
+entity_type: node
+bundle: business_roadmap_user_experience
+label: 'User journey'
+description: 'Select the user journeys to which this experience relates.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      roadmap_user_journeys: roadmap_user_journeys
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
