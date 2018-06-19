@@ -152,6 +152,7 @@ display:
       arguments: {  }
       display_extenders: {  }
       css_class: au-cards--blogs-news
+      use_ajax: false
     cache_metadata:
       max-age: -1
       contexts:
