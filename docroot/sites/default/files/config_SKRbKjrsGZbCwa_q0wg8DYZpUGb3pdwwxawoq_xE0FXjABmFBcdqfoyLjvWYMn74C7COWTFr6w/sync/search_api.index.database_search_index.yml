@@ -29,11 +29,12 @@ field_settings:
         'entity:node':
           blog_post: full
           govcms_event: full
+          home_page: ''
           landing_page: full
           landing_page_level_2: full
           news_item: full
           page: full
-          platforms_and_services: ''
+          platforms_and_services: full
   node_grants:
     label: 'Node access information'
     property_path: search_api_node_grants
@@ -111,7 +112,7 @@ processor_settings:
   entity_status: {  }
   highlight:
     highlight: always
-    highlight_partial: true
+    highlight_partial: false
     excerpt: true
     excerpt_length: 256
     exclude_fields: {  }
