@@ -16,9 +16,9 @@ dependencies:
     - text
     - user
 id: business_roadmap_page_taxonomy
-label: 'Business roadmap page - taxonomy'
+label: Roadmaps
 module: views
-description: ''
+description: 'This view displays roadmaps.'
 tag: ''
 base_table: taxonomy_term_field_data
 base_field: tid
@@ -1011,11 +1011,12 @@ display:
   page_1:
     display_plugin: page
     id: page_1
-    display_title: Page
+    display_title: Business
     position: 1
     display_options:
       display_extenders: {  }
-      path: business-roadmap
+      path: our-projects/digital-investment-management-office/government-digital-transformation-roadmap-2016/business-roadmap
+      display_description: 'The business roadmap.'
     cache_metadata:
       max-age: -1
       contexts:
