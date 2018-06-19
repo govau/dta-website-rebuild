@@ -62,7 +62,7 @@ third_party_settings:
             lbw-at: ''
             ow: true
             ow-el: div
-            ow-cl: au-media-contact
+            ow-cl: 'au-media-contact au-callout'
             ow-at: ''
             fis-el: ''
             fis-cl: ''
@@ -231,6 +231,8 @@ content:
     label: hidden
     settings: {  }
     third_party_settings:
+      empty_fields:
+        handler: ''
       ds:
         ft:
           id: expert
@@ -240,20 +242,20 @@ content:
             lbw-el: ''
             lbw-cl: ''
             lbw-at: ''
-            ow: true
-            ow-el: div
-            ow-cl: au-introduction
+            ow-el: ''
+            ow-cl: ''
             ow-at: ''
             fis-el: ''
             fis-cl: ''
             fis-at: ''
             fi: true
             fi-el: p
-            fi-cl: ''
+            fi-cl: au-introduction
             fi-at: ''
             suffix: ''
             lbw: false
             lb-col: false
+            ow: false
             ow-def-at: false
             ow-def-cl: false
             fis: false

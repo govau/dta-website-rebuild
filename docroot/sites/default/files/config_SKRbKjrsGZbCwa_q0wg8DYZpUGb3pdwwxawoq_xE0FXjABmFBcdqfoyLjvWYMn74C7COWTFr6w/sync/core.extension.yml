@@ -63,7 +63,6 @@ module:
   image: 0
   image_style_quality: 0
   imce: 0
-  import_recruiterbox: 0
   inline_form_errors: 0
   layout_discovery: 0
   link: 0
@@ -73,6 +72,7 @@ module:
   login_security: 0
   mailsystem: 0
   menu_block: 0
+  menu_link_attributes: 0
   menu_trail_by_path: 0
   menu_ui: 0
   metatag: 0
