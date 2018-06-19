@@ -1,0 +1,12 @@
+uuid: fa36ac22-9eb7-4bb1-95e0-0cc22a5345f5
+langcode: en
+status: true
+dependencies: {  }
+id: search_api__views_page__news_and_blogs_facets__page_1
+name: 'search_api:views_page__news_and_blogs_facets__page_1'
+filter_key: ''
+url_processor: query_string
+breadcrumb:
+  active: false
+  before: true
+  group: false

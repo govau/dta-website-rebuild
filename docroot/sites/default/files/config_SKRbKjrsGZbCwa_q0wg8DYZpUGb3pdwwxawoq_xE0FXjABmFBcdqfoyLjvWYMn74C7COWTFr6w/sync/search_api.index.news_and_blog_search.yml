@@ -1,0 +1,65 @@
+uuid: dd647f0e-7672-4a7a-8d02-22aab454e126
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_tags
+    - field.storage.node.field_date
+    - search_api.server.database_search
+    - core.entity_view_mode.node.card
+  module:
+    - search_api
+    - node
+id: news_and_blog_search
+name: 'News and blog search'
+description: 'Searches only news and blog items to create a faceted search system.'
+read_only: false
+field_settings:
+  rendered_item:
+    label: 'Rendered HTML output'
+    property_path: rendered_item
+    type: text
+    configuration:
+      roles:
+        anonymous: anonymous
+      view_mode:
+        'entity:node':
+          blog_post: card
+          news_item: card
+  field_tags:
+    label: Tags
+    datasource_id: 'entity:node'
+    property_path: field_tags
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_tags
+  field_date:
+    label: Date
+    datasource_id: 'entity:node'
+    property_path: field_date
+    type: date
+    dependencies:
+      config:
+        - field.storage.node.field_date
+datasource_settings:
+  'entity:node':
+    bundles:
+      default: false
+      selected:
+        - blog_post
+        - news_item
+    languages:
+      default: true
+      selected: {  }
+processor_settings:
+  add_url: {  }
+  aggregated_field: {  }
+  rendered_item: {  }
+tracker_settings:
+  default:
+    indexing_order: fifo
+options:
+  index_directly: true
+  cron_limit: 50
+server: database_search

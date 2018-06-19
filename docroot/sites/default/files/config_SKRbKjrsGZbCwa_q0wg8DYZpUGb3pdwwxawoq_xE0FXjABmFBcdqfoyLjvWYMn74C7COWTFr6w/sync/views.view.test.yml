@@ -1,14 +1,14 @@
-uuid: 5214732e-0a12-4398-a808-36ef52914ad4
+uuid: ebbd69aa-baf2-44c3-b862-7236d406e427
 langcode: en
 status: true
 dependencies:
   module:
     - node
     - user
-id: entity_reference_all_content
-label: 'Entity reference: all content'
+id: test
+label: test
 module: views
-description: 'This view is used to reference content for entity reference purposes.'
+description: ''
 tag: ''
 base_table: node_field_data
 base_field: nid
@@ -138,20 +138,21 @@ display:
             operator: ''
           group: 1
       sorts:
-        title:
-          id: title
+        created:
+          id: created
           table: node_field_data
-          field: title
-          order: ASC
+          field: created
+          order: DESC
           entity_type: node
-          entity_field: title
-          plugin_id: standard
+          entity_field: created
+          plugin_id: date
           relationship: none
           group_type: group
           admin_label: ''
           exposed: false
           expose:
             label: ''
+          granularity: second
       header: {  }
       footer: {  }
       empty: {  }

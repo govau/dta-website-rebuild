@@ -98,6 +98,7 @@ module:
   rdf: 0
   redirect: 0
   responsive_image: 0
+  rh_node: 0
   rh_taxonomy: 0
   rh_user: 0
   s3fs: 0
