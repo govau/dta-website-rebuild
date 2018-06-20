@@ -1,0 +1,9 @@
+uuid: 96949c2b-96a1-468c-9530-48a68b0a6160
+langcode: en
+status: true
+dependencies: {  }
+name: 'Roadmap themes'
+vid: roadmap_themes
+description: 'This vocabulary is used to apply ''themes'' to roadmaps.'
+hierarchy: 0
+weight: 0

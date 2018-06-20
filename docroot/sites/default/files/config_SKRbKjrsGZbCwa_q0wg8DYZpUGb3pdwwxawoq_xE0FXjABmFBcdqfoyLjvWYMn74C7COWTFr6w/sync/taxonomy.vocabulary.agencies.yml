@@ -1,0 +1,9 @@
+uuid: a27cf246-8b95-4c6f-9f63-3beb9288669d
+langcode: en
+status: true
+dependencies: {  }
+name: Agencies
+vid: agencies
+description: 'This vocabulary holds agency names for various purposes.'
+hierarchy: 0
+weight: 0

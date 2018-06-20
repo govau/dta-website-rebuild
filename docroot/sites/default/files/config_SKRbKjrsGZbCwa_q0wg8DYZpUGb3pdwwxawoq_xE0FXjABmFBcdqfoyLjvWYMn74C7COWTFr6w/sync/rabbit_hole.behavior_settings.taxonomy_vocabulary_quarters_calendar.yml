@@ -1,0 +1,9 @@
+uuid: 0d0ddbb5-64f9-414a-a5fa-f7caab5da8e4
+langcode: en
+status: true
+dependencies: {  }
+id: taxonomy_vocabulary_quarters_calendar
+action: page_redirect
+allow_override: 1
+redirect: '<front>'
+redirect_code: 301

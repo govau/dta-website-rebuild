@@ -98,6 +98,7 @@ module:
   rdf: 0
   redirect: 0
   responsive_image: 0
+  rh_node: 0
   rh_taxonomy: 0
   rh_user: 0
   s3fs: 0
@@ -112,6 +113,7 @@ module:
   social_auth: 0
   social_auth_google: 0
   statistics: 0
+  structure_sync: 0
   superfish: 0
   swiftmailer: 0
   syslog: 0

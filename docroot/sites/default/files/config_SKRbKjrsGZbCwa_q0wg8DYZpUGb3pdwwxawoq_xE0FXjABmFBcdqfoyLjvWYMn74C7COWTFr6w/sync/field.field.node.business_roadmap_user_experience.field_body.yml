@@ -1,0 +1,29 @@
+uuid: f04658af-b760-4377-b1fa-d1c15b3f58b8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_body
+    - node.type.business_roadmap_user_experience
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    rich_text: rich_text
+    administration: '0'
+    html: '0'
+    introduction: '0'
+    plain_text: '0'
+id: node.business_roadmap_user_experience.field_body
+field_name: field_body
+entity_type: node
+bundle: business_roadmap_user_experience
+label: 'How will we deliver this change of experience?'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

@@ -253,7 +253,6 @@ processor_settings:
         bundle_boosts:
           blog_post: 0.5
           govcms_event: 0.5
-          home_page: !!float 0
           landing_page: !!float 1
           landing_page_level_2: !!float 1
           news_item: 0.5

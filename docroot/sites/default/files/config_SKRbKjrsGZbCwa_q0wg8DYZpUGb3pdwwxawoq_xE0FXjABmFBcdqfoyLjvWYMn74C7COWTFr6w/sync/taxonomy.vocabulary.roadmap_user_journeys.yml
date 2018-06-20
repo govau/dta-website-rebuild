@@ -1,0 +1,9 @@
+uuid: fafc0926-c3f7-49e0-9608-1cb1fc3be6dd
+langcode: en
+status: true
+dependencies: {  }
+name: 'Roadmap user journeys'
+vid: roadmap_user_journeys
+description: 'This vocabulary is used to apply user journeys to roadmaps.'
+hierarchy: 0
+weight: 0

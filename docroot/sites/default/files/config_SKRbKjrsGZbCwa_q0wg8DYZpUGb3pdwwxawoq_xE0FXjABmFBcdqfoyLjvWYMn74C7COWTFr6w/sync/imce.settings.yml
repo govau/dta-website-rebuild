@@ -1,9 +1,11 @@
 abs_urls: false
 admin_theme: false
 roles_profiles:
-  authenticated:
-    public: admin
   content_editor:
     public: member
+  content_approver:
+    public: member
+  administrator:
+    public: admin
 _core:
   default_config_hash: 4FhrEwOM9yJ8neEoN77sxroTRBUXqRwap0KSJtFnYJs

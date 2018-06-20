@@ -1,0 +1,9 @@
+uuid: a5b73202-3d9c-4637-8db0-e951939aa266
+langcode: en
+status: true
+dependencies: {  }
+name: 'Quarters - calendar'
+vid: quarters_calendar
+description: 'This vocabulary holds the four quarters in a calendar year for roadmap purposes.'
+hierarchy: 1
+weight: 0

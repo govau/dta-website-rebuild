@@ -1,0 +1,19 @@
+uuid: b171d0d2-4cd1-42f3-9229-f29ba0c26bd5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_id
+    - node.type.business_roadmap_user_experience
+id: node.business_roadmap_user_experience.field_id
+field_name: field_id
+entity_type: node
+bundle: business_roadmap_user_experience
+label: ID
+description: 'Add the ID number of the experience.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
