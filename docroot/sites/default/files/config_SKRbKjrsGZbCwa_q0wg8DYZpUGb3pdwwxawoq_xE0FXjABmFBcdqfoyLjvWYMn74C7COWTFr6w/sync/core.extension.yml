@@ -113,6 +113,7 @@ module:
   social_auth: 0
   social_auth_google: 0
   statistics: 0
+  structure_sync: 0
   superfish: 0
   swiftmailer: 0
   syslog: 0
