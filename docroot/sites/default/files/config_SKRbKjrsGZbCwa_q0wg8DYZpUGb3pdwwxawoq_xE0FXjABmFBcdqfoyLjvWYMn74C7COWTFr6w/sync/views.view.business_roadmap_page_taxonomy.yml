@@ -33,7 +33,7 @@ display:
       access:
         type: perm
         options:
-          perm: 'access content'
+          perm: 'access site in maintenance mode'
       cache:
         type: tag
         options: {  }
@@ -88,7 +88,7 @@ display:
               rendered_strip: false
             -
               field: name
-              rendered: false
+              rendered: true
               rendered_strip: false
           row_class: ''
           default_row_class: false
@@ -100,72 +100,6 @@ display:
           separator: ''
           hide_empty: false
       fields:
-        name:
-          id: name
-          table: taxonomy_term_field_data
-          field: name
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: ''
-          exclude: true
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: false
-            ellipsis: false
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: h3
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: false
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: string
-          settings:
-            link_to_entity: false
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          convert_spaces: false
-          entity_type: taxonomy_term
-          entity_field: name
-          plugin_id: term_name
         description__value:
           id: description__value
           table: taxonomy_term_field_data
@@ -174,7 +108,7 @@ display:
           group_type: group
           admin_label: ''
           label: ''
-          exclude: false
+          exclude: true
           alter:
             alter_text: false
             text: ''
@@ -230,6 +164,72 @@ display:
           entity_type: taxonomy_term
           entity_field: description
           plugin_id: field
+        name:
+          id: name
+          table: taxonomy_term_field_data
+          field: name
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: true
+          alter:
+            alter_text: true
+            text: "<h3>{{ name }}</h3>\n{{ description__value }}"
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: false
+            ellipsis: false
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: false
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: false
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          convert_spaces: false
+          entity_type: taxonomy_term
+          entity_field: name
+          plugin_id: term_name
         title:
           id: title
           table: node_field_data
@@ -814,7 +814,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "{% if title is not empty %}\n<div class=\"au-card--roadmap\" data-user-journeys=\"{{ field_user_journey_1 }}\">\n   <div class=\"au-card--roadmap__text au-card--roadmap__{{ name_2|lower }}\">\n        {{ title }}\n        {{ field_user_journey }}\n   </div>\n<section class=\"au-accordion\">\n    <a aria-controls=\"accordion-closed-{{ nid }}\" aria-expanded=\"false\" aria-selected=\"false\" class=\"au-accordion__title au-accordion--closed js-au-accordion\" href=\"#accordion-closed\" role=\"tab\"><span class=\"sr-only\">Card details</span></a>\n    <div class=\"au-accordion__body au-accordion--closed\" id=\"accordion-closed-{{ nid }}\">\n        <div class=\"au-accordion__body-wrapper\">\n            <h4>Delivery goal</h4>\n            {{ field_body }}\n            <h4>Owner</h4>\n            <p>{{ field_agency }}</p>\n           <h4>Initiative</h4>\n            {{ field_initiative }}\n        </div>\n    </div>\n</section>\n</div>\n{% endif %}\n"
+            text: "{% if title is not empty %}\n<div class=\"col-xs-12 col-sm-6 col-md-12\">\n<div class=\"au-card--roadmap\" data-user-journeys=\"{{ field_user_journey_1 }}\">\n   <div class=\"au-card--roadmap__text au-card--roadmap__{{ name_2|clean_class }}\">\n        {{ title }}\n        {{ field_user_journey }}\n   </div>\n<section class=\"au-accordion\">\n    <a aria-controls=\"accordion-closed-{{ nid }}\" aria-expanded=\"false\" aria-selected=\"false\" class=\"au-accordion__title au-accordion--closed js-au-accordion\" href=\"#accordion-closed\" role=\"tab\"><span class=\"sr-only\">Card details</span></a>\n    <div class=\"au-accordion__body au-accordion--closed\" id=\"accordion-closed-{{ nid }}\">\n        <div class=\"au-accordion__body-wrapper\">\n            <h4>Delivery goal</h4>\n            {{ field_body }}\n            <h4>Owner</h4>\n            <p>{{ field_agency }}</p>\n           <h4>Initiative</h4>\n            {{ field_initiative }}\n        </div>\n    </div>\n</section>\n</div>\n</div>\n{% endif %}\n"
             make_link: false
             path: ''
             absolute: false

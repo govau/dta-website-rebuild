@@ -12,7 +12,7 @@ entity_type: node
 bundle: business_roadmap_user_experience
 label: 'What transformation experiences does this map to?'
 description: 'Select which transformation experiences this user experience maps to.'
-required: true
+required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
