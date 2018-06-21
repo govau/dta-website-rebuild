@@ -15,4 +15,13 @@ content:
   links:
     weight: 100
     region: content
-hidden: {  }
+hidden:
+  field_agency: true
+  field_body: true
+  field_experiences: true
+  field_id: true
+  field_initiative: true
+  field_quarter: true
+  field_theme: true
+  field_user_journey: true
+  field_year: true

@@ -6,12 +6,10 @@ dependencies:
     - field.field.node.business_roadmap_user_experience.field_agency
     - field.field.node.business_roadmap_user_experience.field_body
     - field.field.node.business_roadmap_user_experience.field_experiences
-    - field.field.node.business_roadmap_user_experience.field_id
     - field.field.node.business_roadmap_user_experience.field_initiative
     - field.field.node.business_roadmap_user_experience.field_quarter
     - field.field.node.business_roadmap_user_experience.field_theme
     - field.field.node.business_roadmap_user_experience.field_user_journey
-    - field.field.node.business_roadmap_user_experience.field_year
     - node.type.business_roadmap_user_experience
   module:
     - content_moderation
@@ -54,14 +52,6 @@ content:
     third_party_settings: {  }
     type: options_buttons
     region: content
-  field_id:
-    weight: 1
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: string_textfield
-    region: content
   field_initiative:
     weight: 7
     settings:
@@ -87,12 +77,6 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: options_buttons
-    region: content
-  field_year:
-    weight: 5
-    settings: {  }
-    third_party_settings: {  }
-    type: options_select
     region: content
   moderation_state:
     type: moderation_state_default
