@@ -33,7 +33,7 @@ display:
       access:
         type: perm
         options:
-          perm: 'access content'
+          perm: 'access site in maintenance mode'
       cache:
         type: tag
         options: {  }
