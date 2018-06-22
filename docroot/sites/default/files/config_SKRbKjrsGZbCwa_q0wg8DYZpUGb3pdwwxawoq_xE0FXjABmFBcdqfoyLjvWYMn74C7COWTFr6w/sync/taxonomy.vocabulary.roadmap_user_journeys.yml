@@ -5,5 +5,5 @@ dependencies: {  }
 name: 'Roadmap user journeys'
 vid: roadmap_user_journeys
 description: 'This vocabulary is used to apply user journeys to roadmaps.'
-hierarchy: 0
+hierarchy: 1
 weight: 0
