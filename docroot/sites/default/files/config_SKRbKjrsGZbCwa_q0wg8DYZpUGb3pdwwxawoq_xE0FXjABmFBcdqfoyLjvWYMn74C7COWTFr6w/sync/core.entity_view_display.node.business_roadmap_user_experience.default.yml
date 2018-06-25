@@ -10,6 +10,7 @@ dependencies:
     - field.field.node.business_roadmap_user_experience.field_quarter
     - field.field.node.business_roadmap_user_experience.field_theme
     - field.field.node.business_roadmap_user_experience.field_user_journey
+    - field.field.node.business_roadmap_user_experience.field_weight
     - node.type.business_roadmap_user_experience
   module:
     - text
@@ -72,6 +73,15 @@ content:
       link: true
     third_party_settings: {  }
     type: entity_reference_label
+    region: content
+  field_weight:
+    weight: 112
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
     region: content
   links:
     weight: 100
