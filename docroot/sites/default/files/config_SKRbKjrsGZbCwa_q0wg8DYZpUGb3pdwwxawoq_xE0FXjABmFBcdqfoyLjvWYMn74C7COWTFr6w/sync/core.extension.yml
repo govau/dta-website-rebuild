@@ -133,6 +133,7 @@ module:
   video_embed_wysiwyg: 0
   views_menu_children_filter: 0
   views_ui: 0
+  weight: 0
   workflows: 0
   wysiwyg_template: 0
   wysiwyg_template_core: 0
