@@ -1,0 +1,18 @@
+uuid: 852cd64b-59e8-463d-bfc3-226dd67dc208
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.individual_roadmap_ux
+id: node.individual_roadmap_ux.title
+field_name: title
+entity_type: node
+bundle: individual_roadmap_ux
+label: 'Experience change'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

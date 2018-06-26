@@ -1086,6 +1086,7 @@ display:
       arguments: {  }
       display_extenders: {  }
       use_ajax: false
+      css_class: au-roadmap
     cache_metadata:
       max-age: -1
       contexts:

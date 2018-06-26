@@ -1,0 +1,29 @@
+uuid: 4007bd51-1eb5-4ff2-bab9-e402d13221a5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_user_journey
+    - node.type.individual_roadmap_ux
+    - taxonomy.vocabulary.roadmap_user_journeys
+id: node.individual_roadmap_ux.field_user_journey
+field_name: field_user_journey
+entity_type: node
+bundle: individual_roadmap_ux
+label: 'Business user journey'
+description: 'Select the business user journey (if applicable). <strong>For dummy content, ensure each set of user journeys has at least one item selected.</strong>'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      roadmap_user_journeys: roadmap_user_journeys
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

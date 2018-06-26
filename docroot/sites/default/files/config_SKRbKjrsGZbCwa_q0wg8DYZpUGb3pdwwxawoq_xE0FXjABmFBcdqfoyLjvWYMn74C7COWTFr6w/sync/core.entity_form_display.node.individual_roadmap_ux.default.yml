@@ -1,0 +1,166 @@
+uuid: null
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.individual_roadmap_ux.field_agency
+    - field.field.node.individual_roadmap_ux.field_body
+    - field.field.node.individual_roadmap_ux.field_dummy_content
+    - field.field.node.individual_roadmap_ux.field_individual_user_journey
+    - field.field.node.individual_roadmap_ux.field_initiative_formatted
+    - field.field.node.individual_roadmap_ux.field_quarter
+    - field.field.node.individual_roadmap_ux.field_theme
+    - field.field.node.individual_roadmap_ux.field_user_journey
+    - field.field.node.individual_roadmap_ux.field_weight
+    - node.type.individual_roadmap_ux
+  module:
+    - content_moderation
+    - field_layout
+    - layout_discovery
+    - path
+    - text
+    - weight
+third_party_settings:
+  field_layout:
+    id: layout_onecol
+    settings: {  }
+id: node.individual_roadmap_ux.default
+targetEntityType: node
+bundle: individual_roadmap_ux
+mode: default
+content:
+  created:
+    type: datetime_timestamp
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_agency:
+    weight: 7
+    settings: {  }
+    third_party_settings: {  }
+    type: options_buttons
+    region: content
+  field_body:
+    weight: 1
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  field_dummy_content:
+    weight: 17
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_experiences:
+    weight: 6
+    settings: {  }
+    third_party_settings: {  }
+    type: options_buttons
+    region: content
+  field_individual_user_journey:
+    weight: 4
+    settings: {  }
+    third_party_settings: {  }
+    type: options_buttons
+    region: content
+  field_initiative:
+    weight: 5
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textfield
+    region: content
+  field_initiative_formatted:
+    weight: 6
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  field_quarter:
+    weight: 2
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_theme:
+    weight: 3
+    settings: {  }
+    third_party_settings: {  }
+    type: options_buttons
+    region: content
+  field_user_journey:
+    weight: 5
+    settings: {  }
+    third_party_settings: {  }
+    type: options_buttons
+    region: content
+  field_weight:
+    weight: 8
+    settings: {  }
+    third_party_settings: {  }
+    type: weight_selector
+    region: content
+  moderation_state:
+    type: moderation_state_default
+    weight: 15
+    settings: {  }
+    region: content
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 13
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  promote:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 11
+    region: content
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 16
+    region: content
+    third_party_settings: {  }
+  sticky:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 12
+    region: content
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 9
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    region: content
+    third_party_settings: {  }
+  url_redirects:
+    weight: 14
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }

@@ -1,0 +1,53 @@
+uuid: 33fc17ef-affd-4ddb-b0f4-135372a20213
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.agencies.field_agency_website
+    - taxonomy.vocabulary.agencies
+  module:
+    - field_layout
+    - layout_discovery
+    - link
+    - path
+    - text
+third_party_settings:
+  field_layout:
+    id: layout_onecol
+    settings: {  }
+id: taxonomy_term.agencies.default
+targetEntityType: taxonomy_term
+bundle: agencies
+mode: default
+content:
+  description:
+    type: text_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_agency_website:
+    weight: 31
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  name:
+    type: string_textfield
+    weight: -5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 30
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }

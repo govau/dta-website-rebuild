@@ -1,0 +1,9 @@
+uuid: 87b66108-3034-42a5-9891-82103b5c4d44
+langcode: en
+status: true
+dependencies: {  }
+name: 'Roadmap user journeys: individual'
+vid: individual_user_journeys
+description: 'This vocabulary holds user journeys specific to the individual roadmap.'
+hierarchy: 0
+weight: 0

@@ -1,0 +1,35 @@
+uuid: 490888f1-7d39-4bbd-9978-d461664607c2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.agencies.field_agency_website
+    - taxonomy.vocabulary.agencies
+  module:
+    - link
+    - text
+id: taxonomy_term.agencies.default
+targetEntityType: taxonomy_term
+bundle: agencies
+mode: default
+content:
+  description:
+    label: hidden
+    type: text_default
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_agency_website:
+    weight: 1
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+hidden: {  }
