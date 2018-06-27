@@ -1,0 +1,23 @@
+uuid: fda204e9-f15b-4a11-bf91-8d3349415aa6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_dummy_content
+    - node.type.individual_roadmap_ux
+id: node.individual_roadmap_ux.field_dummy_content
+field_name: field_dummy_content
+entity_type: node
+bundle: individual_roadmap_ux
+label: 'Dummy content'
+description: 'Check this to make this content dummy content. <strong>For dummy content, ensure each set of user journeys has at least one item selected.</strong>'
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

@@ -1,8 +1,8 @@
-uuid: 2e4c142f-88fe-48e5-80ce-6348b1728258
+uuid: d27d4070-5216-4ca6-8e9d-0067570cde84
 langcode: en
 status: true
 dependencies: {  }
-id: taxonomy_vocabulary_roadmap_user_journeys
+id: taxonomy_vocabulary_individual_user_journeys
 action: page_redirect
 allow_override: 0
 redirect: '<front>'

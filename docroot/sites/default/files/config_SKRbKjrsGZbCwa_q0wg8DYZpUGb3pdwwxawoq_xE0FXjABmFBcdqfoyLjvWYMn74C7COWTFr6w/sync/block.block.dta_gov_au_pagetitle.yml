@@ -22,6 +22,6 @@ settings:
 visibility:
   request_path:
     id: request_path
-    pages: '*/business-roadmap'
+    pages: "*/business-roadmap\r\n/*-roadmap"
     negate: true
     context_mapping: {  }

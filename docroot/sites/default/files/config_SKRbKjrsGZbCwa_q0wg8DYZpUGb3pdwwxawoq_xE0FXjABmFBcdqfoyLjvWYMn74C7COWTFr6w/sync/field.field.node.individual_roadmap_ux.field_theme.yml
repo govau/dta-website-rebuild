@@ -1,0 +1,29 @@
+uuid: e605a22d-d3d1-43df-af8d-4264e40bbfca
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_theme
+    - node.type.individual_roadmap_ux
+    - taxonomy.vocabulary.roadmap_themes
+id: node.individual_roadmap_ux.field_theme
+field_name: field_theme
+entity_type: node
+bundle: individual_roadmap_ux
+label: Theme
+description: 'Select the theme to which this user journey relates.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      roadmap_themes: roadmap_themes
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,18 @@
+uuid: f29f80cf-eaa0-4842-9ae4-a03a4b0329b4
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_dummy_content
+field_name: field_dummy_content
+entity_type: node
+type: boolean
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

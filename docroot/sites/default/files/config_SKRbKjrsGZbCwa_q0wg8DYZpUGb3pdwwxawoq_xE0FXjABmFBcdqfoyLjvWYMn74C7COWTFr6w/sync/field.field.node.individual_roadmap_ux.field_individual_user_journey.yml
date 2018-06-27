@@ -1,0 +1,29 @@
+uuid: 2c3b758c-4dbc-42d6-90b5-95090a2cece5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_individual_user_journey
+    - node.type.individual_roadmap_ux
+    - taxonomy.vocabulary.individual_user_journeys
+id: node.individual_roadmap_ux.field_individual_user_journey
+field_name: field_individual_user_journey
+entity_type: node
+bundle: individual_roadmap_ux
+label: 'Individual user journey'
+description: 'Select the individual user journey (if applicable). <strong>For dummy content, ensure each set of user journeys has at least one item selected.</strong>'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      individual_user_journeys: individual_user_journeys
+    sort:
+      field: name
+      direction: asc
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference

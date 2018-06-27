@@ -1,0 +1,29 @@
+uuid: 2223946e-c3ac-47df-a1ab-ee520d8b02e7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_quarter
+    - node.type.individual_roadmap_ux
+    - taxonomy.vocabulary.quarters_calendar
+id: node.individual_roadmap_ux.field_quarter
+field_name: field_quarter
+entity_type: node
+bundle: individual_roadmap_ux
+label: 'Planned delivery'
+description: 'Select which calendar quarter this initiative will be delivered in.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      quarters_calendar: quarters_calendar
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
