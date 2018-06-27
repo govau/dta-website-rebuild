@@ -1,0 +1,23 @@
+uuid: bb2fb294-cc00-4eb7-9e83-071957191767
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_agency_website
+    - taxonomy.vocabulary.agencies
+  module:
+    - link
+id: taxonomy_term.agencies.field_agency_website
+field_name: field_agency_website
+entity_type: taxonomy_term
+bundle: agencies
+label: 'Agency website'
+description: 'Add the website for the agency here.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 16
+  title: 0
+field_type: link

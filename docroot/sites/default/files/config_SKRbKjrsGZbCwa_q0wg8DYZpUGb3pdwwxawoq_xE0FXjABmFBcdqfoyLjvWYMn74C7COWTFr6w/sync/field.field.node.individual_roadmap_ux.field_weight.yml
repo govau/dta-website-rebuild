@@ -1,0 +1,24 @@
+uuid: 105107a8-70d4-456e-b9e4-fc69f4824b2f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_weight
+    - node.type.individual_roadmap_ux
+  module:
+    - weight
+id: node.individual_roadmap_ux.field_weight
+field_name: field_weight
+entity_type: node
+bundle: individual_roadmap_ux
+label: Weighting
+description: 'Set the weight of an item to ensure it sits at the top (-20) or at the bottom (20) of a series of cards.'
+required: false
+translatable: false
+default_value:
+  -
+    value: '0'
+default_value_callback: ''
+settings:
+  range: '20'
+field_type: weight

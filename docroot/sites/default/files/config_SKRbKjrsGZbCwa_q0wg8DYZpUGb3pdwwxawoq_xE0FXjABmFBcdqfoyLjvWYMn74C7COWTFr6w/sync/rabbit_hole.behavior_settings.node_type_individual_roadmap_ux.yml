@@ -1,0 +1,9 @@
+uuid: 7bf4d18c-78d9-4126-9e00-00fa92c923d4
+langcode: en
+status: true
+dependencies: {  }
+id: node_type_individual_roadmap_ux
+action: page_redirect
+allow_override: 1
+redirect: '<front>'
+redirect_code: 301
