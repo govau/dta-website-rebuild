@@ -4,6 +4,6 @@ status: true
 dependencies: {  }
 name: 'Roadmap user journeys: business'
 vid: roadmap_user_journeys
-description: 'This vocabulary is used to apply user journeys to the busines roadmap.'
-hierarchy: 0
+description: 'This vocabulary is used to apply user journeys to roadmaps.'
+hierarchy: 1
 weight: 0

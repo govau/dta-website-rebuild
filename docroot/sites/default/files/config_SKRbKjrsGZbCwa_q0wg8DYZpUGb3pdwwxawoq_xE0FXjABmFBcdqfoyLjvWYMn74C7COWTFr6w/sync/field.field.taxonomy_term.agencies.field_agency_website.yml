@@ -1,4 +1,4 @@
-uuid: c8672b1d-e9c5-4771-8c9d-e94b90b5779b
+uuid: bb2fb294-cc00-4eb7-9e83-071957191767
 langcode: en
 status: true
 dependencies:
@@ -12,7 +12,7 @@ field_name: field_agency_website
 entity_type: taxonomy_term
 bundle: agencies
 label: 'Agency website'
-description: 'Add the website of the agency here.'
+description: 'Add the website for the agency here.'
 required: false
 translatable: false
 default_value: {  }
