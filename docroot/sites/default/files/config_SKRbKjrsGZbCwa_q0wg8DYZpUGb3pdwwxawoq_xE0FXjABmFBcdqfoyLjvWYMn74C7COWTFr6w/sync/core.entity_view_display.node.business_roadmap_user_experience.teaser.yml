@@ -24,4 +24,5 @@ hidden:
   field_quarter: true
   field_theme: true
   field_user_journey: true
+  field_weight: true
   field_year: true
