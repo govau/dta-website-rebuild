@@ -792,6 +792,8 @@ display:
         use_more_text: false
         pager: false
         fields: false
+        link_display: false
+        link_url: false
       use_more_always: true
       use_more_text: 'See more news and blogs'
       pager:
@@ -1188,6 +1190,8 @@ display:
           separator: ', '
           field_api_classes: false
           plugin_id: field
+      link_display: custom_url
+      link_url: news-blogs
     cache_metadata:
       max-age: -1
       contexts:
@@ -1349,6 +1353,7 @@ display:
           text_input_required_format: rich_text
       use_ajax: true
       display_description: 'Displays all news and blogs.'
+      enabled: false
     cache_metadata:
       max-age: -1
       contexts:
