@@ -1,9 +1,0 @@
-uuid: 9cda5ab2-3b94-4cc4-b4b9-b44cfef1ec95
-langcode: en
-status: true
-dependencies: {  }
-name: 'Years - calendar'
-vid: years_calendar
-description: 'This vocabulary holds years for roadmap purposes.'
-hierarchy: 0
-weight: 0
