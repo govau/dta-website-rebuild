@@ -7,7 +7,6 @@ dependencies:
     - field.storage.node.field_body
     - field.storage.node.field_dummy_content
     - field.storage.node.field_individual_user_journey
-    - field.storage.node.field_initiative
     - field.storage.node.field_initiative_formatted
     - field.storage.node.field_user_journey
     - field.storage.node.field_weight
@@ -17,12 +16,12 @@ dependencies:
     - taxonomy.vocabulary.quarters_calendar
     - taxonomy.vocabulary.roadmap_user_journeys
   content:
-    - 'taxonomy_term:individual_user_journeys:6ae57bb4-9aaa-4e4b-a9be-44064c2db010'
-    - 'taxonomy_term:individual_user_journeys:7a763c39-4363-4751-aeb2-76a90379d749'
-    - 'taxonomy_term:individual_user_journeys:af8f6305-a556-4522-8231-ada8527f02c6'
-    - 'taxonomy_term:individual_user_journeys:b1d6dad9-ac10-4d6a-b735-43d6accc20f1'
-    - 'taxonomy_term:individual_user_journeys:efc0275a-02f2-4365-ba1c-988931a3cd99'
-    - 'taxonomy_term:individual_user_journeys:f148525f-7e99-456c-afe0-cca7636ff723'
+    - 'taxonomy_term:contacts:f22da792-e62a-44e7-82d3-452bc0bb3289'
+    - 'taxonomy_term:individual_user_journeys:5269cb9a-d8d0-4453-8c5b-9b11f80aad53'
+    - 'taxonomy_term:individual_user_journeys:5af1fdb4-6cbb-4a90-8684-77b008d9426c'
+    - 'taxonomy_term:individual_user_journeys:6d837858-4162-41d8-8bdb-46d782c8abfa'
+    - 'taxonomy_term:individual_user_journeys:b1c77f61-06f2-467a-9455-983c5cb9b7f2'
+    - 'taxonomy_term:individual_user_journeys:fa58115e-4f10-480f-a22e-5b0f7b9089a4'
     - 'taxonomy_term:roadmap_user_journeys:42abf9b8-6860-4cd9-9d9d-7c75800ce4d8'
     - 'taxonomy_term:roadmap_user_journeys:94ef1139-4e4e-45b4-8714-db55df253a45'
     - 'taxonomy_term:roadmap_user_journeys:bf7067fc-9639-4c00-be6a-2b78688ae475'
@@ -54,7 +53,7 @@ display:
       access:
         type: perm
         options:
-          perm: 'access content'
+          perm: 'access site in maintenance mode'
       cache:
         type: tag
         options: {  }
@@ -637,68 +636,6 @@ display:
           separator: ', '
           field_api_classes: false
           plugin_id: field
-        field_initiative:
-          id: field_initiative
-          table: node__field_initiative
-          field: field_initiative
-          relationship: reverse__node__field_quarter
-          group_type: group
-          admin_label: ''
-          label: ''
-          exclude: true
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: false
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: text_default
-          settings: {  }
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          plugin_id: field
         field_agency:
           id: field_agency
           table: node__field_agency
@@ -1118,7 +1055,6 @@ display:
       tags:
         - 'config:field.storage.node.field_agency'
         - 'config:field.storage.node.field_body'
-        - 'config:field.storage.node.field_initiative'
         - 'config:field.storage.node.field_user_journey'
         - 'config:field.storage.node.field_weight'
   page_1:
@@ -1128,7 +1064,7 @@ display:
     position: 1
     display_options:
       display_extenders: {  }
-      path: our-projects/digital-investment-management-office/government-digital-transformation-roadmap-2016/businesses-roadmap
+      path: our-projects/digital-investment-management-office/government-digital-transformation-roadmap-2016/business-roadmap
       display_description: 'The business roadmap.'
       title: 'Roadmap of service improvements for businesses'
       defaults:
@@ -1896,7 +1832,7 @@ display:
           delta_reversed: false
           delta_first_last: false
           multi_type: separator
-          separator: ', '
+          separator: '|'
           field_api_classes: false
           plugin_id: field
         name_3:
@@ -2329,6 +2265,20 @@ display:
           entity_type: taxonomy_term
           entity_field: weight
           plugin_id: standard
+        weight_1:
+          id: weight_1
+          table: taxonomy_term_field_data
+          field: weight
+          relationship: none
+          group_type: group
+          admin_label: ''
+          order: ASC
+          exposed: false
+          expose:
+            label: ''
+          entity_type: taxonomy_term
+          entity_field: weight
+          plugin_id: standard
         field_weight_value:
           id: field_weight_value
           table: node__field_weight
@@ -2391,7 +2341,7 @@ display:
     position: 1
     display_options:
       display_extenders: {  }
-      path: our-projects/digital-investment-management-office/government-digital-transformation-roadmap-2016/individuals-roadmap
+      path: our-projects/digital-investment-management-office/government-digital-transformation-roadmap-2016/individual-roadmap
       display_description: 'The individuals roadmap.'
       title: 'Roadmap of service improvements for individuals'
       defaults:
@@ -3159,7 +3109,7 @@ display:
           delta_reversed: false
           delta_first_last: false
           multi_type: separator
-          separator: ', '
+          separator: '|'
           field_api_classes: false
           plugin_id: field
         name_3:
@@ -3583,6 +3533,20 @@ display:
           table: taxonomy_term_field_data
           field: weight
           relationship: parent
+          group_type: group
+          admin_label: ''
+          order: ASC
+          exposed: false
+          expose:
+            label: ''
+          entity_type: taxonomy_term
+          entity_field: weight
+          plugin_id: standard
+        weight_1:
+          id: weight_1
+          table: taxonomy_term_field_data
+          field: weight
+          relationship: none
           group_type: group
           admin_label: ''
           order: ASC
