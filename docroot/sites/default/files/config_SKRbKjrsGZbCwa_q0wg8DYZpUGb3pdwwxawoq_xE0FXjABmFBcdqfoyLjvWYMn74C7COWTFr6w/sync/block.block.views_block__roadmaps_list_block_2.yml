@@ -1,0 +1,30 @@
+uuid: 0be78d0a-993d-469d-a368-9fbf6577678b
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.roadmaps_list
+  module:
+    - system
+    - views
+  theme:
+    - dta_gov_au
+id: views_block__roadmaps_list_block_2
+theme: dta_gov_au
+region: content
+weight: 0
+provider: null
+plugin: 'views_block:roadmaps_list-block_2'
+settings:
+  id: 'views_block:roadmaps_list-block_2'
+  label: ''
+  provider: views
+  label_display: '0'
+  views_label: ''
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    pages: /node/463
+    negate: false
+    context_mapping: {  }

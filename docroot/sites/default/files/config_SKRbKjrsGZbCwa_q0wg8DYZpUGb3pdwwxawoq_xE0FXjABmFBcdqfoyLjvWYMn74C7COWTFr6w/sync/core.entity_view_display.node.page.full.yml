@@ -44,10 +44,10 @@ third_party_settings:
         - content_moderation_control
         - field_introduction
         - group_image_and_
-        - field_body
         - field_image
-        - 'dynamic_block_field:node-related_links_block'
+        - field_body
         - field_image_caption
+        - 'dynamic_block_field:node-related_links_block'
     fields:
       'dynamic_block_field:node-related_links_block':
         plugin_id: 'dynamic_block_field:node-related_links_block'
