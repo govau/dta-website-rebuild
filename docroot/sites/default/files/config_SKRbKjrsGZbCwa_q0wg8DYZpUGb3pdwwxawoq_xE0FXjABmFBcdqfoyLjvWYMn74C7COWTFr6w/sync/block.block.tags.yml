@@ -12,7 +12,7 @@ dependencies:
 id: tags
 theme: dta_gov_au
 region: content
-weight: -7
+weight: -8
 provider: null
 plugin: 'facet_block:tags'
 settings:

@@ -188,6 +188,8 @@ display:
           include_exclude: include
           selected_actions:
             - node_delete_action
+            - node_publish_action
+            - node_unpublish_action
             - pathauto_update_alias_node
           plugin_id: node_bulk_form
           entity_type: node

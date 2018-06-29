@@ -12,7 +12,7 @@ dependencies:
 id: dta_gov_au_views_block__contact_module_block_1
 theme: dta_gov_au
 region: content
-weight: 0
+weight: 2
 provider: null
 plugin: 'views_block:contact_module-block_1'
 settings:
