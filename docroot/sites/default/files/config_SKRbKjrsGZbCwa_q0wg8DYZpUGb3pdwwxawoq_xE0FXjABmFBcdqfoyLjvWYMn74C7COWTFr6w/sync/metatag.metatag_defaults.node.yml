@@ -7,11 +7,15 @@ _core:
 id: node
 label: Content
 tags:
-  abstract: '[node:summary]'
+  abstract: '[node:field_summary]'
   canonical_url: '[node:url]'
-  description: '[node:summary]'
+  description: '[node:field_summary]'
   image_src: '[node:field_index_image]'
   title: '[node:title] | [site:name]'
+  dcterms_date: '[node:changed]'
+  dcterms_description: '[node:field_summary]'
+  dcterms_title: '[node:title]'
+  og_description: '[node:field_summary]'
   og_image: '[node:field_linkedin_image]'
   og_image_height: '[node:field_linkedin_image:height]'
   og_image_secure_url: '[node:field_index_image:entity:url]'
@@ -20,7 +24,7 @@ tags:
   og_title: '[node:title]'
   og_updated_time: '[node:changed]'
   og_url: '[node:url:absolute]'
-  twitter_cards_description: '[node:summary]'
+  twitter_cards_description: '[node:field_summary]'
   twitter_cards_image: '[node:field_twitter_image]'
   twitter_cards_image_alt: '[node:field_twitter_image:alt]'
   twitter_cards_image_height: '[node:field_twitter_image:height]'
