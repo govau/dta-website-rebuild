@@ -7,6 +7,7 @@ dependencies:
     - system.menu.main
   module:
     - search_api
+    - user
 id: news_and_blogs_facets
 label: 'News and blogs facets'
 module: views
@@ -23,8 +24,9 @@ display:
     position: 0
     display_options:
       access:
-        type: none
-        options: {  }
+        type: perm
+        options:
+          perm: 'access content'
       cache:
         type: tag
         options: {  }
@@ -134,7 +136,43 @@ display:
           multi_type: separator
           multi_separator: ', '
           plugin_id: search_api
-      filters: {  }
+      filters:
+        status:
+          id: status
+          table: search_api_index_news_and_blog_search
+          field: status
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value: '1'
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: search_api_boolean
       sorts:
         field_date:
           id: field_date
@@ -199,6 +237,7 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
+        - user.permissions
       tags: {  }
   block_1:
     display_plugin: block
@@ -232,6 +271,7 @@ display:
       max-age: -1
       contexts:
         - 'languages:language_interface'
+        - user.permissions
       tags: {  }
   page_1:
     display_plugin: page
@@ -264,4 +304,5 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
+        - user.permissions
       tags: {  }
