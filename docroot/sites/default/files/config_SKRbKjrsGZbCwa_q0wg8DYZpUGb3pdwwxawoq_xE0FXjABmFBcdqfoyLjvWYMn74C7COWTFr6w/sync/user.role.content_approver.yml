@@ -4,7 +4,7 @@ status: true
 dependencies: {  }
 id: content_approver
 label: 'Content approver'
-weight: -5
+weight: -4
 is_admin: null
 permissions:
   - 'access administration pages'

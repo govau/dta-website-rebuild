@@ -4,7 +4,7 @@ status: true
 dependencies: {  }
 id: content_editor
 label: 'Content editor'
-weight: -6
+weight: -5
 is_admin: null
 permissions:
   - 'access administration pages'
