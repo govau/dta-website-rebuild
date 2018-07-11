@@ -136,7 +136,7 @@
         "drupal/entity_embed": "^1.0@beta",
         "drupal/entity_reference_revisions": "^1.4",
         "drupal/environment_indicator": "^3.2",
-        "drupal/facets": "^1.0",
+        "drupal/facets": "1.x-dev",
         "drupal/features": "^3.5",
         "drupal/field_group": "^3.0",
         "drupal/filefield_paths": "^1.0@beta",
