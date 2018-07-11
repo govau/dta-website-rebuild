@@ -67,8 +67,8 @@ display:
       style:
         type: html_list
         options:
-          row_class: 'col-xs-12 col-sm-4'
-          default_row_class: true
+          row_class: 'col-xs-12 col-sm-6 col-md-4'
+          default_row_class: false
           uses_fields: false
           type: ul
           wrapper_class: au-body
@@ -153,7 +153,43 @@ display:
       footer: {  }
       empty: {  }
       relationships: {  }
-      arguments: {  }
+      arguments:
+        type:
+          id: type
+          table: search_api_index_news_and_blog_search
+          field: type
+          relationship: none
+          group_type: group
+          admin_label: ''
+          default_action: default
+          exception:
+            value: all
+            title_enable: true
+            title: 'News and blog'
+          title_enable: true
+          title: '{{ arguments.type|capitalize|replace({''_'':'' ''}) ~ ''s'' }}'
+          default_argument_type: raw
+          default_argument_options:
+            index: 1
+            use_alias: true
+          default_argument_skip_url: false
+          summary_options: {  }
+          summary:
+            sort_order: asc
+            number_of_records: 0
+            format: default_summary
+          specify_validation: true
+          validate:
+            type: 'entity:node_type'
+            fail: ignore
+          validate_options:
+            access: true
+            operation: view
+            multiple: 0
+            bundles: null
+          break_phrase: false
+          not: false
+          plugin_id: search_api
       display_extenders: {  }
       css_class: au-cards--blogs-news
       use_ajax: false
@@ -161,20 +197,56 @@ display:
       max-age: -1
       contexts:
         - 'languages:language_interface'
+        - url
         - url.query_args
+      tags: {  }
+  block_1:
+    display_plugin: block
+    id: block_1
+    display_title: 'News and blogs block'
+    position: 2
+    display_options:
+      display_extenders:
+        metatag_display_extender: {  }
+      arguments: {  }
+      defaults:
+        arguments: false
+        pager: false
+        link_display: false
+        link_url: false
+        use_more: false
+        use_more_always: false
+        use_more_text: false
+      display_description: ''
+      pager:
+        type: some
+        options:
+          items_per_page: 6
+          offset: 0
+      link_display: custom_url
+      link_url: news-blogs/all
+      use_more: true
+      use_more_always: true
+      use_more_text: 'See more news and blogs'
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_interface'
       tags: {  }
   page_1:
     display_plugin: page
     id: page_1
-    display_title: Page
+    display_title: 'News and blogs page'
     position: 1
     display_options:
-      display_extenders: {  }
-      path: news-blogs
+      display_extenders:
+        metatag_display_extender: {  }
+      path: news-blogs/%
       cache:
         type: none
       defaults:
         cache: false
+        use_ajax: false
       menu:
         type: normal
         title: 'News and blogs'
@@ -184,9 +256,12 @@ display:
         weight: -84
         context: '0'
         menu_name: main
+      display_description: ''
+      use_ajax: true
     cache_metadata:
       max-age: -1
       contexts:
         - 'languages:language_interface'
+        - url
         - url.query_args
       tags: {  }

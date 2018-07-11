@@ -20,9 +20,10 @@ settings:
   label: 'Filter by tags'
   provider: facets
   label_display: visible
+  block_id: tags
 visibility:
   request_path:
     id: request_path
-    pages: /news-blogs
+    pages: "/news-blogs\r\n/news-blogs/*\r\n/news-blogs-*"
     negate: false
     context_mapping: {  }

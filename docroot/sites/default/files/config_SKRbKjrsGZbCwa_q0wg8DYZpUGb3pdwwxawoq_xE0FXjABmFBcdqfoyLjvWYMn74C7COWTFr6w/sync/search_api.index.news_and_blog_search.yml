@@ -42,6 +42,11 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.field_date
+  type:
+    label: 'Content type'
+    datasource_id: 'entity:node'
+    property_path: type
+    type: string
 datasource_settings:
   'entity:node':
     bundles:
