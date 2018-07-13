@@ -1,0 +1,9 @@
+uuid: b71c16ea-1970-420b-899f-ca4094fb0b0b
+langcode: en
+status: true
+dependencies: {  }
+id: dss_criterion
+label: 'DSS Criterion'
+icon_uuid: null
+description: 'Used to select DSS criteria for assessment reports.'
+behavior_plugins: {  }

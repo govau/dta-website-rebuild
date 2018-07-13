@@ -1,0 +1,21 @@
+uuid: b04376e5-01dc-4e6f-b9b4-d8aa8998e0c7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_date
+    - node.type.assessment_report
+  module:
+    - datetime
+id: node.assessment_report.field_date
+field_name: field_date
+entity_type: node
+bundle: assessment_report
+label: 'Date of assessment'
+description: 'Select the date of the assessment.'
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

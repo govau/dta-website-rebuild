@@ -1,0 +1,19 @@
+uuid: 57d4232e-1093-41ea-83af-0c51243ad4ef
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - text
+id: node.field_recommendations
+field_name: field_recommendations
+entity_type: node
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

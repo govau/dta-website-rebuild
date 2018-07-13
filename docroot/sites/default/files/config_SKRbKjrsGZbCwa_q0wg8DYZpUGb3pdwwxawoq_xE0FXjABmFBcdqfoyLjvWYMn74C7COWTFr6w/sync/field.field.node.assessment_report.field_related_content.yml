@@ -1,0 +1,27 @@
+uuid: 3f1fe2cf-92fe-4670-a598-818bd2871684
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_related_content
+    - node.type.assessment_report
+id: node.assessment_report.field_related_content
+field_name: field_related_content
+entity_type: node
+bundle: assessment_report
+label: 'Other assessment reports'
+description: 'Select other assessment reports if they exist.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      assessment_report: assessment_report
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
