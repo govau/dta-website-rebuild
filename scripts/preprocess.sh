@@ -62,10 +62,9 @@ if [[ "${CF_INSTANCE_INDEX}" = "0" ]]; then
   else
     echo "Currently running in a local environment (or an environment without the correct environment variables set!)"
   fi
+  drush cache-rebuild
 else
   echo "I am not the first instance"
 fi
-
-drush cache-rebuild
 
 echo "preprocess.sh finished"
