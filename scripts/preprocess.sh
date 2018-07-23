@@ -39,7 +39,21 @@ if [[ "${CF_INSTANCE_INDEX}" = "0" ]]; then
   # Run updatedb if necessary
   UPDATEDB_STATUS=$(drush updatedb-status 2>/dev/null)
   if [[ $UPDATEDB_STATUS != "" ]]; then
-    drush updatedb --no-cache-clear
+    echo "Updates required"
+    error_file=$(mktemp)
+    UPDATEDB_OUTPUT+=$(drush updatedb -y --no-cache-clear 2>$error_file)
+    err=$(< $error_file)
+    case "${err}" in
+      *"Update failed"*)
+        echo "An error occured"
+        echo $err
+        exit
+        ;;
+      *)
+        echo "Updates performed without error. Please check output"
+        echo $err
+        ;;
+    esac
   fi
 
   # Uninstall modules on certain environments.
@@ -55,7 +69,7 @@ if [[ "${CF_INSTANCE_INDEX}" = "0" ]]; then
         drush pm-uninstall kint -y
       fi
       LINK_CSS_STATUS=$(drush pm-list --pipe --type=module --status=enabled --no-core --fields=name | grep "link_css")
-      if [[ $KINT_STATUS != "" ]]; then
+      if [[ $LINK_CSS_STATUS != "" ]]; then
         drush pm-uninstall link_css -y
       fi
     fi

@@ -107,6 +107,7 @@
     "require": {
         "php": "~7.1.0",
         "bower-asset/dropzone": "^5.1",
+        "chi-teck/drupal-code-generator": "^1.24.0",
         "ckeditor/tabletoolstoolbar": "^0.0.1",
         "cweagans/composer-patches": "^1.6",
         "drupal-composer/drupal-scaffold": "^2.4",
@@ -197,7 +198,7 @@
         "drupal/webform": "5.0-rc1",
         "drupal/weight": "^3.0",
         "drupal/wysiwyg_template": "^2.0",
-        "drush/drush": "~9.0",
+        "drush/drush": "9.3.0",
         "govau/dta-gov-au": "dev-master",
         "govau/dta-uikit-base": "dev-master",
         "harvesthq/chosen": "^1.8",
