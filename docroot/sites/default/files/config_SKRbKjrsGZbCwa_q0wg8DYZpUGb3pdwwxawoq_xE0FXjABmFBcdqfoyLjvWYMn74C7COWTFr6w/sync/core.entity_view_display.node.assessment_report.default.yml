@@ -1,0 +1,144 @@
+uuid: 027f02b5-07e1-4421-8ef9-ad0c35b87df6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.assessment_report.field_agency
+    - field.field.node.assessment_report.field_assessment_method
+    - field.field.node.assessment_report.field_body
+    - field.field.node.assessment_report.field_date
+    - field.field.node.assessment_report.field_dss_assessment
+    - field.field.node.assessment_report.field_introduction
+    - field.field.node.assessment_report.field_lead_assessor
+    - field.field.node.assessment_report.field_pass_rationale
+    - field.field.node.assessment_report.field_phase
+    - field.field.node.assessment_report.field_recommendations
+    - field.field.node.assessment_report.field_related_content
+    - field.field.node.assessment_report.field_result_assessment
+    - field.field.node.assessment_report.field_service_manager
+    - node.type.assessment_report
+  module:
+    - datetime
+    - entity_reference_revisions
+    - options
+    - panelizer
+    - text
+    - user
+third_party_settings:
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
+id: node.assessment_report.default
+targetEntityType: node
+bundle: assessment_report
+mode: default
+content:
+  field_agency:
+    weight: 2
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_assessment_method:
+    weight: 4
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+  field_body:
+    weight: 11
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_date:
+    weight: 3
+    label: above
+    settings:
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_dss_assessment:
+    type: entity_reference_revisions_entity_view
+    weight: 13
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+  field_introduction:
+    weight: 1
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_lead_assessor:
+    weight: 7
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_pass_rationale:
+    weight: 10
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_phase:
+    weight: 5
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_recommendations:
+    weight: 12
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_related_content:
+    weight: 9
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_result_assessment:
+    weight: 6
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_service_manager:
+    weight: 8
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  links:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }

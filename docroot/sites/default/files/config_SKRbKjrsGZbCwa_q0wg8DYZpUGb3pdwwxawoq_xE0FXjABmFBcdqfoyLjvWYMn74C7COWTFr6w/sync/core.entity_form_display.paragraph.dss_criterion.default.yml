@@ -1,0 +1,36 @@
+uuid: c0b9a8f0-3c60-4747-af91-9427d55105d7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.dss_criterion.field_result
+    - paragraphs.paragraphs_type.dss_criterion
+  module:
+    - content_moderation
+    - field_layout
+    - layout_discovery
+third_party_settings:
+  field_layout:
+    id: layout_onecol
+    settings: {  }
+id: paragraph.dss_criterion.default
+targetEntityType: paragraph
+bundle: dss_criterion
+mode: default
+content:
+  field_result:
+    weight: 2
+    settings: {  }
+    third_party_settings: {  }
+    type: options_buttons
+    region: content
+  moderation_state:
+    type: moderation_state_default
+    weight: 0
+    settings: {  }
+    region: content
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true
+  uid: true

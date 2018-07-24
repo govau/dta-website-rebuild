@@ -1,0 +1,22 @@
+uuid: 5595c344-6e8b-4227-a52a-c11a01611a5f
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.assessment_report
+id: node.assessment_report.promote
+field_name: promote
+entity_type: node
+bundle: assessment_report
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

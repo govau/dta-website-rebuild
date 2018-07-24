@@ -1,0 +1,29 @@
+uuid: df8f4c4a-74f0-4f20-8fb4-d860677ea8b2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_phase
+    - node.type.assessment_report
+    - taxonomy.vocabulary.phase
+id: node.assessment_report.field_phase
+field_name: field_phase
+entity_type: node
+bundle: assessment_report
+label: 'Assessment stage'
+description: 'Select the phase of the project to which this assessment report applies.'
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      phase: phase
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

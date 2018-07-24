@@ -1,0 +1,9 @@
+uuid: 82913ec0-1a79-4855-8321-9bc1d3a90f2c
+langcode: en
+status: true
+dependencies: {  }
+id: taxonomy_vocabulary_dss_assessment
+action: page_redirect
+allow_override: 1
+redirect: '<front>'
+redirect_code: 301

@@ -1,0 +1,19 @@
+uuid: 33fc55ec-d3cf-4c8a-b1fc-32ef0b014029
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_service_manager
+    - node.type.assessment_report
+id: node.assessment_report.field_service_manager
+field_name: field_service_manager
+entity_type: node
+bundle: assessment_report
+label: 'Service manager'
+description: 'Enter the name of the service manager.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

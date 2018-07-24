@@ -1,0 +1,9 @@
+uuid: 549c7cf2-e6fd-4915-8303-fc4c898561d8
+langcode: en
+status: true
+dependencies: {  }
+name: 'DSS Assessment'
+vid: dss_assessment
+description: 'This vocabulary stores statuses for DSS assessments.'
+hierarchy: 0
+weight: 0
