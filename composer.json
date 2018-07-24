@@ -66,32 +66,6 @@
           }
         },
         {
-          "type": "package",
-          "package": {
-            "name": "govau/dta-uikit-base",
-            "type": "drupal-custom-theme",
-            "version": "dev-master",
-            "source": {
-              "type": "git",
-              "url": "https://github.com/govau/dta-uikit-base",
-              "reference": "master"
-            }
-          }
-        },
-        {
-          "type": "package",
-          "package": {
-            "name": "govau/dta-gov-au",
-            "type": "drupal-custom-theme",
-            "version": "dev-master",
-            "source": {
-              "type": "git",
-              "url": "https://github.com/govau/dta-gov-au",
-              "reference": "master"
-            }
-          }
-        },
-        {
         "type": "package",
         "package": {
             "name": "ckeditor/tabletoolstoolbar",
@@ -198,8 +172,7 @@
         "drupal/weight": "^3.0",
         "drupal/wysiwyg_template": "^2.0",
         "drush/drush": "~9.0",
-        "govau/dta-gov-au": "dev-master",
-        "govau/dta-uikit-base": "dev-master",
+        "govau/dta-gov-au": "1.0.3",
         "harvesthq/chosen": "^1.8",
         "imperator99/superfish": "^2.3",
         "oomphinc/composer-installers-extender": "^1.1"

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ec21775e8384114552b974aaf64ddfbe",
+    "content-hash": "d24c2f21e1380e5d8b5cfd03e83011eb",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -7932,25 +7932,62 @@
         },
         {
             "name": "govau/dta-gov-au",
-            "version": "dev-master",
+            "version": "1.0.3",
             "source": {
                 "type": "git",
-                "url": "https://github.com/govau/dta-gov-au",
-                "reference": "master"
+                "url": "https://github.com/govau/dta-gov-au.git",
+                "reference": "9791bbb26b3255212b5d99218a56706d8fe5d786"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/govau/dta-gov-au/zipball/9791bbb26b3255212b5d99218a56706d8fe5d786",
+                "reference": "9791bbb26b3255212b5d99218a56706d8fe5d786",
+                "shasum": ""
+            },
+            "require": {
+                "govau/dta-uikit-base": ">=1.0"
             },
             "type": "drupal-custom-theme",
-            "time": "2018-07-12T01:32:32+00:00"
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "A Drupal 8 theme for dta.gov.au.",
+            "homepage": "https://github.com/govau/dta-gov-au",
+            "keywords": [
+                "drupal",
+                "government",
+                "theme"
+            ],
+            "time": "2018-07-23T23:03:58+00:00"
         },
         {
             "name": "govau/dta-uikit-base",
-            "version": "dev-master",
+            "version": "1.0.2",
             "source": {
                 "type": "git",
-                "url": "https://github.com/govau/dta-uikit-base",
-                "reference": "master"
+                "url": "https://github.com/govau/dta-uikit-base.git",
+                "reference": "f2511ad37d109ace43e5587fa1fbc39dcb162708"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/govau/dta-uikit-base/zipball/f2511ad37d109ace43e5587fa1fbc39dcb162708",
+                "reference": "f2511ad37d109ace43e5587fa1fbc39dcb162708",
+                "shasum": ""
             },
             "type": "drupal-custom-theme",
-            "time": "2018-07-04T02:35:27+00:00"
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "A Drupal 8 base theme for dta.gov.au.",
+            "homepage": "https://github.com/govau/dta-uikit-base",
+            "keywords": [
+                "drupal",
+                "government",
+                "theme"
+            ],
+            "time": "2018-07-23T23:02:16+00:00"
         },
         {
             "name": "grasmash/expander",
@@ -12675,17 +12712,6 @@
             "time": "2017-11-19T08:45:40+00:00"
         },
         {
-            "name": "govau/dta-uikit-base-theme",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/govau/dta-uikit-base-theme",
-                "reference": "master"
-            },
-            "type": "drupal-custom-theme",
-            "time": "2018-03-06T04:29:05+00:00"
-        },
-        {
             "name": "grasmash/drupal-security-warning",
             "version": "1.1.1",
             "source": {
@@ -14414,9 +14440,7 @@
         "drupal/rabbit_hole": 10,
         "drupal/search_api_autocomplete": 10,
         "drupal/search_api_page": 20,
-        "drupal/typogrify": 20,
-        "govau/dta-gov-au": 20,
-        "govau/dta-uikit-base": 20
+        "drupal/typogrify": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
