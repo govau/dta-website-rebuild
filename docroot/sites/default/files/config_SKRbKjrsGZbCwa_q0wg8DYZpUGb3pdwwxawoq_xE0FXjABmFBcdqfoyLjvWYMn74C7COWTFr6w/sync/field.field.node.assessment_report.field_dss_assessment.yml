@@ -1,0 +1,31 @@
+uuid: 80cc82b2-ad4f-4cfd-97aa-db62993f285c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_dss_assessment
+    - node.type.assessment_report
+    - paragraphs.paragraphs_type.dss_criterion
+  module:
+    - entity_reference_revisions
+id: node.assessment_report.field_dss_assessment
+field_name: field_dss_assessment
+entity_type: node
+bundle: assessment_report
+label: 'Assessment against the Digital Service Standard'
+description: 'Select the result of the assessment against each criterion. The DTA or assessing agency assessed some services against the <em>beta</em> version of the DSS, so there is a maximum of 14 items.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      dss_criterion: dss_criterion
+    target_bundles_drag_drop:
+      dss_criterion:
+        enabled: true
+        weight: 2
+field_type: entity_reference_revisions

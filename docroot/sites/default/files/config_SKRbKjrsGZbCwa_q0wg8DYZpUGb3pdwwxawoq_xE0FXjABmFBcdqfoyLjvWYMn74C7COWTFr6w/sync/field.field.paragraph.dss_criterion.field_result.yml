@@ -1,0 +1,33 @@
+uuid: afce760d-f397-42d4-9a40-e06cf758db65
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_result
+    - paragraphs.paragraphs_type.dss_criterion
+    - taxonomy.vocabulary.dss_assessment
+  content:
+    - 'taxonomy_term:dss_assessment:fbec6f06-445b-484f-9560-56981b3a6407'
+id: paragraph.dss_criterion.field_result
+field_name: field_result
+entity_type: paragraph
+bundle: dss_criterion
+label: Result
+description: 'Select the assessment result for this criterion.'
+required: false
+translatable: false
+default_value:
+  -
+    target_uuid: fbec6f06-445b-484f-9560-56981b3a6407
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      dss_assessment: dss_assessment
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

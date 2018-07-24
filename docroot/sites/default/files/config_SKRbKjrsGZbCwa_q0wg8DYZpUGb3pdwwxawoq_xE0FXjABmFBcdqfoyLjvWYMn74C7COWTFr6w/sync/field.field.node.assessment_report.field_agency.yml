@@ -1,0 +1,29 @@
+uuid: 0911b468-6f6d-431e-ab52-28bb2dce7d49
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_agency
+    - node.type.assessment_report
+    - taxonomy.vocabulary.agencies
+id: node.assessment_report.field_agency
+field_name: field_agency
+entity_type: node
+bundle: assessment_report
+label: Department/Agency
+description: 'Select the department or agency this assessment refers to.'
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      agencies: agencies
+    sort:
+      field: name
+      direction: asc
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference

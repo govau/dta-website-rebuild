@@ -1,0 +1,34 @@
+uuid: 9c4c7b3b-1185-4272-870a-76acbaa6a33c
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.assessment_report.field_agency
+    - field.field.node.assessment_report.field_assessment_method
+    - field.field.node.assessment_report.field_body
+    - field.field.node.assessment_report.field_date
+    - field.field.node.assessment_report.field_lead_assessor
+    - field.field.node.assessment_report.field_phase
+    - field.field.node.assessment_report.field_related_content
+    - field.field.node.assessment_report.field_service_manager
+    - node.type.assessment_report
+  module:
+    - user
+id: node.assessment_report.teaser
+targetEntityType: node
+bundle: assessment_report
+mode: teaser
+content:
+  links:
+    weight: 100
+    region: content
+hidden:
+  field_agency: true
+  field_assessment_method: true
+  field_body: true
+  field_date: true
+  field_lead_assessor: true
+  field_phase: true
+  field_related_content: true
+  field_service_manager: true

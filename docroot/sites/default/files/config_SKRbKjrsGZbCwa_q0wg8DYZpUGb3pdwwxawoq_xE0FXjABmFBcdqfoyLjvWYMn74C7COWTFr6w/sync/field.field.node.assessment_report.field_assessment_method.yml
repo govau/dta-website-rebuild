@@ -1,0 +1,21 @@
+uuid: fe5a50ed-44e8-4d56-b961-464c21c436e5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_assessment_method
+    - node.type.assessment_report
+  module:
+    - options
+id: node.assessment_report.field_assessment_method
+field_name: field_assessment_method
+entity_type: node
+bundle: assessment_report
+label: 'Assessment type'
+description: 'Select the type of assessment.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

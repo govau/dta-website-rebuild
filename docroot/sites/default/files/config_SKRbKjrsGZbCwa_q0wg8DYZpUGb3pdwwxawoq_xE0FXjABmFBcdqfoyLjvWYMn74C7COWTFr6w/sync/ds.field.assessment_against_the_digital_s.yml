@@ -1,0 +1,20 @@
+id: assessment_against_the_digital_s
+label: 'Assessment against the Digital Service Standard'
+ui_limit: assessment_report|full
+properties:
+  block: 'views_block:dss_assessment_results-block_1'
+  use_block_title: true
+  add_block_wrappers: false
+  config:
+    id: 'views_block:dss_assessment_results-block_1'
+    label: ''
+    provider: views
+    label_display: visible
+    views_label: ''
+    items_per_page: none
+    context_mapping:
+      nid: '@node.node_route_context:node'
+type: block
+type_label: 'Block field'
+entities:
+  node: node
