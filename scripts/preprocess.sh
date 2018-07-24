@@ -39,27 +39,25 @@ if [[ "${CF_INSTANCE_INDEX}" = "0" ]]; then
   # Run updatedb if necessary
   UPDATEDB_STATUS=$(drush updatedb-status 2>/dev/null)
   if [[ $UPDATEDB_STATUS != "" ]]; then
+    printf "%s\n" "$UPDATEDB_STATUS"
     echo "Updates required"
-    echo "Test exit!"
-    exit 1
     error_file=$(mktemp)
-    UPDATEDB_OUTPUT+=$(drush updatedb -y --no-cache-clear 2>$error_file)
+    UPDATEDB_OUTPUT+=$(drush updatedb -y --entity-updates --no-cache-clear 2>$error_file)
+    printf "%s\n" "$UPDATEDB_OUTPUT"
     err=$(< $error_file)
     case "${err}" in
       *"Update failed"*)
-        echo "An error occured"
-        echo $err
+        echo "An error occured!"
+        printf "%s\n" "$UPDATEDB_OUTPUT"
         exit 1
         ;;
       *)
-        echo "Updates performed without error. Please check output"
-        echo $err
+        echo "Updates performed without error. Please check output."
+        printf "%s\n" "$UPDATEDB_OUTPUT"
         ;;
     esac
   else
     echo "No updates required."
-    echo "Test exit!"
-    exit 1
   fi
 
   # Uninstall modules on certain environments.
