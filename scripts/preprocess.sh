@@ -47,7 +47,7 @@ if [[ "${CF_INSTANCE_INDEX}" = "0" ]]; then
       *"Update failed"*)
         echo "An error occured"
         echo $err
-        exit
+        exit 1
         ;;
       *)
         echo "Updates performed without error. Please check output"
