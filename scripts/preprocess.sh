@@ -40,6 +40,8 @@ if [[ "${CF_INSTANCE_INDEX}" = "0" ]]; then
   UPDATEDB_STATUS=$(drush updatedb-status 2>/dev/null)
   if [[ $UPDATEDB_STATUS != "" ]]; then
     echo "Updates required"
+    echo "Test exit!"
+    exit 1
     error_file=$(mktemp)
     UPDATEDB_OUTPUT+=$(drush updatedb -y --no-cache-clear 2>$error_file)
     err=$(< $error_file)
@@ -54,6 +56,10 @@ if [[ "${CF_INSTANCE_INDEX}" = "0" ]]; then
         echo $err
         ;;
     esac
+  else
+    echo "No updates required."
+    echo "Test exit!"
+    exit 1
   fi
 
   # Uninstall modules on certain environments.
