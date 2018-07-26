@@ -282,10 +282,8 @@ display:
       display_extenders:
         metatag_display_extender: {  }
       path: news-blogs/%
-      cache:
-        type: none
       defaults:
-        cache: false
+        cache: true
         use_ajax: false
       menu:
         type: normal
