@@ -9,6 +9,7 @@ SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 PATH="${SCRIPT_DIR}/../bin:${PATH}"
 
 # Add included mysql cli to PATH
+PATH="${SCRIPT_DIR}/scripts/mysql:${PATH}"
 PATH="${HOME}/scripts/mysql:${PATH}"
 
 # Note its nice to be able to run the same script locally as well as in CI,
