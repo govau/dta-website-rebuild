@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "20c01a1d8e8b86d81b92d866edb9a67b",
+    "content-hash": "b1cc4be530ea61a1d722dfb29dd0e56b",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -7932,20 +7932,20 @@
         },
         {
             "name": "govau/dta-gov-au",
-            "version": "1.0.3",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/govau/dta-gov-au.git",
-                "reference": "9791bbb26b3255212b5d99218a56706d8fe5d786"
+                "reference": "2766f470f1d65a4b4b61d346a6312fcd0ce8de56"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/govau/dta-gov-au/zipball/9791bbb26b3255212b5d99218a56706d8fe5d786",
-                "reference": "9791bbb26b3255212b5d99218a56706d8fe5d786",
+                "url": "https://api.github.com/repos/govau/dta-gov-au/zipball/2766f470f1d65a4b4b61d346a6312fcd0ce8de56",
+                "reference": "2766f470f1d65a4b4b61d346a6312fcd0ce8de56",
                 "shasum": ""
             },
             "require": {
-                "govau/dta-uikit-base": ">=1.0"
+                "govau/dta-uikit-base": ">=1.2.0"
             },
             "type": "drupal-custom-theme",
             "notification-url": "https://packagist.org/downloads/",
@@ -7959,20 +7959,20 @@
                 "government",
                 "theme"
             ],
-            "time": "2018-07-23T23:03:58+00:00"
+            "time": "2018-07-30T06:32:18+00:00"
         },
         {
             "name": "govau/dta-uikit-base",
-            "version": "1.0.2",
+            "version": "1.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/govau/dta-uikit-base.git",
-                "reference": "f2511ad37d109ace43e5587fa1fbc39dcb162708"
+                "reference": "1ed542e63666d406437a1dace71d2c773a8929f6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/govau/dta-uikit-base/zipball/f2511ad37d109ace43e5587fa1fbc39dcb162708",
-                "reference": "f2511ad37d109ace43e5587fa1fbc39dcb162708",
+                "url": "https://api.github.com/repos/govau/dta-uikit-base/zipball/1ed542e63666d406437a1dace71d2c773a8929f6",
+                "reference": "1ed542e63666d406437a1dace71d2c773a8929f6",
                 "shasum": ""
             },
             "type": "drupal-custom-theme",
@@ -7987,7 +7987,7 @@
                 "government",
                 "theme"
             ],
-            "time": "2018-07-23T23:02:16+00:00"
+            "time": "2018-07-26T03:04:35+00:00"
         },
         {
             "name": "grasmash/expander",
