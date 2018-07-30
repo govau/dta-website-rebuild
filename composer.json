@@ -173,7 +173,7 @@
         "drupal/weight": "^3.0",
         "drupal/wysiwyg_template": "^2.0",
         "drush/drush": "9.3.0",
-        "govau/dta-gov-au": "1.0.4",
+        "govau/dta-gov-au": "1.1.0",
         "harvesthq/chosen": "^1.8",
         "imperator99/superfish": "^2.3",
         "oomphinc/composer-installers-extender": "^1.1"

@@ -45,19 +45,19 @@ third_party_settings:
       content:
         - links
         - field_introduction
-        - group_report_metadata
         - field_agency
-        - field_related_content
+        - group_report_metadata
         - field_date
-        - field_assessment_method
         - field_pass_rationale
-        - field_phase
+        - field_assessment_method
         - field_body
-        - field_recommendations
+        - field_phase
         - field_result_assessment
-        - field_lead_assessor
+        - field_recommendations
         - 'dynamic_block_field:node-assessment_against_the_digital_s'
+        - field_lead_assessor
         - field_service_manager
+        - field_related_content
     fields:
       'dynamic_block_field:node-assessment_against_the_digital_s':
         plugin_id: 'dynamic_block_field:node-assessment_against_the_digital_s'
@@ -103,6 +103,7 @@ third_party_settings:
         - field_result_assessment
         - field_lead_assessor
         - field_service_manager
+        - field_related_content
       parent_name: ''
       weight: 2
       format_type: html_element
@@ -372,7 +373,7 @@ content:
     type: text_default
     region: content
   field_related_content:
-    weight: 3
+    weight: 9
     label: above
     settings:
       link: true
@@ -390,8 +391,9 @@ content:
             lbw-el: h3
             lbw-cl: ''
             lbw-at: ''
-            ow-el: ''
-            ow-cl: ''
+            ow: true
+            ow-el: div
+            ow-cl: 'metadata-wrapper metadata-other-reports'
             ow-at: ''
             fis: true
             fis-el: ul
@@ -403,7 +405,6 @@ content:
             fi-at: ''
             suffix: ''
             lb-col: false
-            ow: false
             ow-def-at: false
             ow-def-cl: false
             fis-def-at: false
