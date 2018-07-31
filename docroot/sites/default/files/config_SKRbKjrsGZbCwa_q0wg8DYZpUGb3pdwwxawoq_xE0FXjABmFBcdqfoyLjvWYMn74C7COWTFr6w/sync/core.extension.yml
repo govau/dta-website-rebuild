@@ -34,7 +34,6 @@ module:
   datetime: 0
   datetime_range: 0
   dblog: 0
-  disqus: 0
   ds_chains: 0
   editor: 0
   editor_advanced_link: 0
@@ -81,16 +80,11 @@ module:
   metatag_open_graph: 0
   metatag_twitter_cards: 0
   metatag_views: 0
-  migrate: 0
-  migrate_plus: 0
-  migrate_tools: 0
   module_filter: 0
   node: 0
   node_title_help_text: 0
   node_title_validation: 0
   options: 0
-  override_node_options: 0
-  panelizer: 0
   panels: 0
   panels_ipe: 0
   path: 0

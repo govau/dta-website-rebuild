@@ -9,13 +9,16 @@ dependencies:
     - field.field.node.landing_page.field_index_image
     - field.field.node.landing_page.field_introduction
     - field.field.node.landing_page.field_linkedin_image
+    - field.field.node.landing_page.field_promote_to_get_help_advice
+    - field.field.node.landing_page.field_promote_to_our_projects
+    - field.field.node.landing_page.field_related_content
+    - field.field.node.landing_page.field_related_content_heading
     - field.field.node.landing_page.field_summary
     - field.field.node.landing_page.field_twitter_image
     - node.type.landing_page
     - responsive_image.styles.index_image
   module:
     - ds
-    - panelizer
     - responsive_image
     - text
     - user
@@ -31,16 +34,14 @@ third_party_settings:
       content:
         - field_index_image
         - field_summary
-  panelizer:
-    enable: false
-    custom: false
-    allow: false
-    default: default
 id: node.landing_page.teaser
 targetEntityType: node
 bundle: landing_page
 mode: teaser
 content:
+  content_moderation_control:
+    weight: -20
+    region: content
   field_index_image:
     type: responsive_image
     weight: 0
@@ -90,5 +91,9 @@ hidden:
   field_facebook_image: true
   field_introduction: true
   field_linkedin_image: true
+  field_promote_to_get_help_advice: true
+  field_promote_to_our_projects: true
+  field_related_content: true
+  field_related_content_heading: true
   field_twitter_image: true
   links: true

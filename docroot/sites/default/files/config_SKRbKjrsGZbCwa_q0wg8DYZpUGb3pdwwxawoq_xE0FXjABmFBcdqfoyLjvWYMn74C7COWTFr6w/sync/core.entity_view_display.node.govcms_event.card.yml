@@ -15,14 +15,8 @@ dependencies:
     - node.type.govcms_event
   module:
     - ds
-    - panelizer
     - user
 third_party_settings:
-  panelizer:
-    enable: false
-    custom: false
-    allow: false
-    default: default
   ds:
     layout:
       id: layout_onecol

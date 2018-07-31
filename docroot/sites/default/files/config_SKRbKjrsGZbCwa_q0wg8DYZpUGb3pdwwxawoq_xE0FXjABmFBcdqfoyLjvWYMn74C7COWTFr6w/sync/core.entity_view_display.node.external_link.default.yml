@@ -8,20 +8,16 @@ dependencies:
     - node.type.external_link
   module:
     - link
-    - panelizer
     - text
     - user
-third_party_settings:
-  panelizer:
-    enable: false
-    custom: false
-    allow: false
-    default: default
 id: node.external_link.default
 targetEntityType: node
 bundle: external_link
 mode: default
 content:
+  content_moderation_control:
+    weight: -20
+    region: content
   field_external_link:
     weight: 102
     label: above

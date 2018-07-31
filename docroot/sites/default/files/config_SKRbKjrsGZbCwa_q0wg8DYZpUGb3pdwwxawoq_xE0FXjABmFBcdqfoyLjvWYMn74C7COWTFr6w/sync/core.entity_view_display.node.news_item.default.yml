@@ -18,15 +18,8 @@ dependencies:
   module:
     - datetime
     - image
-    - panelizer
     - text
     - user
-third_party_settings:
-  panelizer:
-    enable: false
-    custom: false
-    allow: false
-    default: default
 id: node.news_item.default
 targetEntityType: node
 bundle: news_item

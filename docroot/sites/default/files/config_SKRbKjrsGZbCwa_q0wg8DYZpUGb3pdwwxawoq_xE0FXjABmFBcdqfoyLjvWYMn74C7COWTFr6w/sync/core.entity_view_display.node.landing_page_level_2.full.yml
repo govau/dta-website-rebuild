@@ -20,7 +20,6 @@ dependencies:
     - ds
     - ds_chains
     - empty_fields
-    - panelizer
     - text
     - user
 third_party_settings:
@@ -122,11 +121,6 @@ third_party_settings:
         weight: 2
         label: hidden
         formatter: default
-  panelizer:
-    enable: false
-    custom: false
-    allow: false
-    default: default
   ds_chains:
     fields: {  }
 id: node.landing_page_level_2.full

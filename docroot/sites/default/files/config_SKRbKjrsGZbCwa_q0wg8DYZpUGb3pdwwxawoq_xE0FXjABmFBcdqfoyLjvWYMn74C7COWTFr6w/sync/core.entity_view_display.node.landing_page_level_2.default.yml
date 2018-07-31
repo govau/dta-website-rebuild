@@ -17,15 +17,8 @@ dependencies:
     - node.type.landing_page_level_2
   module:
     - image
-    - panelizer
     - text
     - user
-third_party_settings:
-  panelizer:
-    enable: false
-    custom: false
-    allow: false
-    default: default
 id: node.landing_page_level_2.default
 targetEntityType: node
 bundle: landing_page_level_2

@@ -17,16 +17,10 @@ dependencies:
   module:
     - datetime_range
     - ds
-    - panelizer
     - responsive_image
     - text
     - user
 third_party_settings:
-  panelizer:
-    enable: false
-    custom: false
-    allow: false
-    default: default
   ds:
     layout:
       id: layout_onecol
@@ -47,6 +41,9 @@ targetEntityType: node
 bundle: govcms_event
 mode: teaser
 content:
+  content_moderation_control:
+    weight: -20
+    region: content
   field_event_date:
     type: daterange_default
     weight: 0

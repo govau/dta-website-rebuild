@@ -19,7 +19,6 @@ dependencies:
     - responsive_image.styles.index_image
   module:
     - ds
-    - panelizer
     - responsive_image
     - text
     - user
@@ -35,16 +34,14 @@ third_party_settings:
       content:
         - field_index_image
         - field_summary
-  panelizer:
-    enable: false
-    custom: false
-    allow: false
-    default: default
 id: node.landing_page_level_2.teaser
 targetEntityType: node
 bundle: landing_page_level_2
 mode: teaser
 content:
+  content_moderation_control:
+    weight: -20
+    region: content
   field_index_image:
     type: responsive_image
     weight: 0

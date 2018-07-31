@@ -27,7 +27,6 @@ dependencies:
     - ds_chains
     - empty_fields
     - field_group
-    - panelizer
     - responsive_image
     - text
     - user
@@ -81,11 +80,6 @@ third_party_settings:
             fis-def-at: false
             fi: false
             fi-def-at: false
-  panelizer:
-    enable: false
-    custom: false
-    allow: false
-    default: default
   field_group:
     group_image_and_:
       children:

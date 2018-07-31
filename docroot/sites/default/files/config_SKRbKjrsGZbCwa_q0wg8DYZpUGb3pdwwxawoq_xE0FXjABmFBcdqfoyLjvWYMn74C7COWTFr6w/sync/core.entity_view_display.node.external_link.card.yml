@@ -9,7 +9,6 @@ dependencies:
     - node.type.external_link
   module:
     - ds
-    - panelizer
     - user
 third_party_settings:
   ds:
@@ -28,16 +27,14 @@ third_party_settings:
         weight: 0
         label: hidden
         formatter: default
-  panelizer:
-    enable: false
-    custom: false
-    allow: false
-    default: default
 id: node.external_link.card
 targetEntityType: node
 bundle: external_link
 mode: card
-content: {  }
+content:
+  content_moderation_control:
+    weight: -20
+    region: content
 hidden:
   field_external_link: true
   field_summary: true

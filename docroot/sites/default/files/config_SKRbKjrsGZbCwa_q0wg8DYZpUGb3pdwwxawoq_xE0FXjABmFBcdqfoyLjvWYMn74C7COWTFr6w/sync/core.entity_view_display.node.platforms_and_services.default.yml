@@ -13,20 +13,16 @@ dependencies:
   module:
     - datetime
     - image
-    - panelizer
     - text
     - user
-third_party_settings:
-  panelizer:
-    enable: false
-    custom: false
-    allow: false
-    default: default
 id: node.platforms_and_services.default
 targetEntityType: node
 bundle: platforms_and_services
 mode: default
 content:
+  content_moderation_control:
+    weight: -20
+    region: content
   field_body:
     weight: 101
     label: above

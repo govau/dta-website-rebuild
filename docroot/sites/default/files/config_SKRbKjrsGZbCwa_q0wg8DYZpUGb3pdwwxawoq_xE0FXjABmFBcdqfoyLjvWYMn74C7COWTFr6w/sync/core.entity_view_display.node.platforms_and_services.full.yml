@@ -13,7 +13,6 @@ dependencies:
     - node.type.platforms_and_services
   module:
     - ds
-    - panelizer
     - text
     - user
 third_party_settings:
@@ -28,11 +27,6 @@ third_party_settings:
       content:
         - field_introduction
         - field_body
-  panelizer:
-    enable: false
-    custom: false
-    allow: false
-    default: default
 id: node.platforms_and_services.full
 targetEntityType: node
 bundle: platforms_and_services

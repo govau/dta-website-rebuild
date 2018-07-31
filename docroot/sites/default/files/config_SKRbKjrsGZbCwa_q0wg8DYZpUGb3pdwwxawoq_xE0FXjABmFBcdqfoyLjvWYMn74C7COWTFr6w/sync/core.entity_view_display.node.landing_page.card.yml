@@ -19,7 +19,6 @@ dependencies:
   module:
     - ds
     - ds_chains
-    - panelizer
     - user
 third_party_settings:
   ds:
@@ -38,11 +37,6 @@ third_party_settings:
         weight: 0
         label: hidden
         formatter: default
-  panelizer:
-    enable: false
-    custom: false
-    allow: false
-    default: default
   ds_chains:
     fields: {  }
 id: node.landing_page.card

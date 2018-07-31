@@ -23,15 +23,9 @@ dependencies:
     - ds_chains
     - empty_fields
     - field_group
-    - panelizer
     - responsive_image
     - user
 third_party_settings:
-  panelizer:
-    enable: false
-    custom: false
-    allow: false
-    default: default
   ds:
     layout:
       id: ds_1col
