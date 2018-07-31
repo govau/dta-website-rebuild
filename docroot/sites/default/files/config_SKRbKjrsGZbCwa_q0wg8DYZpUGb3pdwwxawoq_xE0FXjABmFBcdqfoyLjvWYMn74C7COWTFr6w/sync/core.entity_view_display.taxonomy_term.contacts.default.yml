@@ -5,14 +5,7 @@ dependencies:
   config:
     - taxonomy.vocabulary.contacts
   module:
-    - panelizer
     - text
-third_party_settings:
-  panelizer:
-    enable: false
-    custom: false
-    allow: false
-    default: default
 id: taxonomy_term.contacts.default
 targetEntityType: taxonomy_term
 bundle: contacts

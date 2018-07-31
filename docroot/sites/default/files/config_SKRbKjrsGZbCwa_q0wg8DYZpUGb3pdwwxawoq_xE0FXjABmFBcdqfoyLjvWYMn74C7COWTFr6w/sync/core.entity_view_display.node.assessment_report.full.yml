@@ -25,15 +25,9 @@ dependencies:
     - empty_fields
     - field_group
     - options
-    - panelizer
     - text
     - user
 third_party_settings:
-  panelizer:
-    enable: false
-    custom: false
-    allow: false
-    default: default
   ds:
     layout:
       id: layout_onecol

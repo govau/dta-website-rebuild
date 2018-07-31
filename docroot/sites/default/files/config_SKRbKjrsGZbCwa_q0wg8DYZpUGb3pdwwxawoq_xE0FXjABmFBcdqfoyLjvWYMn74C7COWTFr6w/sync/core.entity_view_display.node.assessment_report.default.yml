@@ -21,15 +21,8 @@ dependencies:
     - datetime
     - entity_reference_revisions
     - options
-    - panelizer
     - text
     - user
-third_party_settings:
-  panelizer:
-    enable: false
-    custom: false
-    allow: false
-    default: default
 id: node.assessment_report.default
 targetEntityType: node
 bundle: assessment_report

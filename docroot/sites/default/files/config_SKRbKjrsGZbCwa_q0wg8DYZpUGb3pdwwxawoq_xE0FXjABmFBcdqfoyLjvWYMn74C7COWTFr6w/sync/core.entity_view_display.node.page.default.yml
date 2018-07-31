@@ -24,15 +24,9 @@ dependencies:
     - datetime
     - ds
     - image
-    - panelizer
     - text
     - user
 third_party_settings:
-  panelizer:
-    enable: false
-    custom: false
-    allow: false
-    default: default
   ds:
     layout:
       id: ds_1col

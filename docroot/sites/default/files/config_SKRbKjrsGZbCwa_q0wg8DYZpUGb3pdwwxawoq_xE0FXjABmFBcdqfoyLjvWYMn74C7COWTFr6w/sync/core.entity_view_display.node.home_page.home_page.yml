@@ -10,7 +10,6 @@ dependencies:
   module:
     - ds
     - link
-    - panelizer
     - text
     - user
 third_party_settings:
@@ -32,11 +31,6 @@ third_party_settings:
         weight: 0
         label: hidden
         formatter: default
-  panelizer:
-    enable: false
-    custom: false
-    allow: false
-    default: default
 id: node.home_page.home_page
 targetEntityType: node
 bundle: home_page
@@ -48,6 +42,9 @@ content:
     weight: 101
     settings: {  }
     third_party_settings: {  }
+    region: content
+  content_moderation_control:
+    weight: -20
     region: content
   field_link_to_content:
     weight: 102

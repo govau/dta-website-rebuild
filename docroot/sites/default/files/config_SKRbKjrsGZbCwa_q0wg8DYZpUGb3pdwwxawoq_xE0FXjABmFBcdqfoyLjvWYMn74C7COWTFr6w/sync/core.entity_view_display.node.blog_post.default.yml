@@ -6,7 +6,6 @@ dependencies:
     - field.field.node.blog_post.field_author
     - field.field.node.blog_post.field_body
     - field.field.node.blog_post.field_date
-    - field.field.node.blog_post.field_disqus_comment
     - field.field.node.blog_post.field_facebook_image
     - field.field.node.blog_post.field_image
     - field.field.node.blog_post.field_image_caption
@@ -20,17 +19,9 @@ dependencies:
     - node.type.blog_post
   module:
     - datetime
-    - disqus
     - image
-    - panelizer
     - text
     - user
-third_party_settings:
-  panelizer:
-    enable: false
-    custom: false
-    allow: false
-    default: default
 id: node.blog_post.default
 targetEntityType: node
 bundle: blog_post
@@ -64,13 +55,6 @@ content:
       timezone_override: ''
     third_party_settings: {  }
     type: datetime_default
-    region: content
-  field_disqus_comment:
-    weight: 119
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: disqus_comment
     region: content
   field_facebook_image:
     weight: 110

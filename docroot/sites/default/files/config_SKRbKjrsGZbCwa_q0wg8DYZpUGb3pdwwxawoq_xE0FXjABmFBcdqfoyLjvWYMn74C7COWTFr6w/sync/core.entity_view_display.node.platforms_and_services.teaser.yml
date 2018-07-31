@@ -6,12 +6,13 @@ dependencies:
     - core.entity_view_mode.node.teaser
     - field.field.node.platforms_and_services.field_body
     - field.field.node.platforms_and_services.field_contact_module
+    - field.field.node.platforms_and_services.field_index_image
     - field.field.node.platforms_and_services.field_introduction
+    - field.field.node.platforms_and_services.field_review_date
     - field.field.node.platforms_and_services.field_summary
     - node.type.platforms_and_services
   module:
     - ds
-    - panelizer
     - text
     - user
 third_party_settings:
@@ -63,16 +64,14 @@ third_party_settings:
             fis-def-at: false
             fi: false
             fi-def-at: false
-  panelizer:
-    enable: false
-    custom: false
-    allow: false
-    default: default
 id: node.platforms_and_services.teaser
 targetEntityType: node
 bundle: platforms_and_services
 mode: teaser
 content:
+  content_moderation_control:
+    weight: -20
+    region: content
   field_summary:
     type: text_default
     weight: 1
@@ -83,5 +82,7 @@ content:
 hidden:
   field_body: true
   field_contact_module: true
+  field_index_image: true
   field_introduction: true
+  field_review_date: true
   links: true

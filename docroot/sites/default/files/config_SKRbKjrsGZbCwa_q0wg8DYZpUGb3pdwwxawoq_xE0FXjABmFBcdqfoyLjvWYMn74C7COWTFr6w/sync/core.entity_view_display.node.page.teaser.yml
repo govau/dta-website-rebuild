@@ -24,16 +24,10 @@ dependencies:
     - responsive_image.styles.index_image
   module:
     - ds
-    - panelizer
     - responsive_image
     - text
     - user
 third_party_settings:
-  panelizer:
-    enable: false
-    custom: false
-    allow: false
-    default: default
   ds:
     layout:
       id: layout_onecol

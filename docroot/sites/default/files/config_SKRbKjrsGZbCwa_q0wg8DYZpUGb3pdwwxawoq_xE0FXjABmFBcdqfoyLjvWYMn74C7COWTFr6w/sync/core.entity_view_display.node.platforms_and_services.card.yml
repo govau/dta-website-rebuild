@@ -13,7 +13,6 @@ dependencies:
     - node.type.platforms_and_services
   module:
     - ds
-    - panelizer
     - user
 third_party_settings:
   ds:
@@ -32,16 +31,14 @@ third_party_settings:
         weight: 0
         label: hidden
         formatter: default
-  panelizer:
-    enable: false
-    custom: false
-    allow: false
-    default: default
 id: node.platforms_and_services.card
 targetEntityType: node
 bundle: platforms_and_services
 mode: card
-content: {  }
+content:
+  content_moderation_control:
+    weight: -20
+    region: content
 hidden:
   field_body: true
   field_contact_module: true
