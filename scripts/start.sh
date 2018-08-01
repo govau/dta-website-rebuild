@@ -24,6 +24,7 @@ if [[ "${CF_INSTANCE_INDEX}" = "0" ]]; then
   drush status
 
   CACHE_FLAG="false"
+
   # If DRUPAL_UUID is defined, change our UUID to it if necessary
   if [[ -n ${DRUPAL_UUID+x} ]]; then
     CURRENT_UUID=$(drush cget "system.site" --format=json | jq -r .uuid )
@@ -79,28 +80,36 @@ if [[ "${CF_INSTANCE_INDEX}" = "0" ]]; then
     echo "No updates required."
   fi
 
-  # Uninstall modules on certain environments.
-  if [[ -n ${ENVIRONMENT+x} ]]; then
-    echo "Currently running in the ${ENVIRONMENT} environment."
-    if [[ ${ENVIRONMENT} = "staging" ]] || [[ ${ENVIRONMENT} = "production" ]]; then
-      DEVEL_STATUS=$(drush pm-list --pipe --type=module --status=enabled --no-core --fields=name | grep "devel")
-      if [[ $DEVEL_STATUS != "" ]]; then
-        drush pm-uninstall devel -y
-        CACHE_FLAG="true"
-      fi
-      KINT_STATUS=$(drush pm-list --pipe --type=module --status=enabled --no-core --fields=name | grep "kint")
-      if [[ $KINT_STATUS != "" ]]; then
-        drush pm-uninstall kint -y
-        CACHE_FLAG="true"
-      fi
-      LINK_CSS_STATUS=$(drush pm-list --pipe --type=module --status=enabled --no-core --fields=name | grep "link_css")
-      if [[ $LINK_CSS_STATUS != "" ]]; then
-        drush pm-uninstall link_css -y
-        CACHE_FLAG="true"
-      fi
-    fi
+  # Uninstall modules on Circle environments. This is a fallback, just in case.
+
+  DEVEL_STATUS=$(drush pm-list --pipe --type=module --status=enabled --no-core --fields=name | grep "devel" || : 2>/dev/null)
+
+  if [[ -n $DEVEL_STATUS ]]; then
+    echo 'Devel installed, uninstalling.'
+    drush pm-uninstall devel -y
+    CACHE_FLAG="true"
   else
-    echo "Currently running in a local environment (or an environment without the correct environment variables set!)"
+    echo 'Devel not installed.'
+  fi
+
+  KINT_STATUS=$(drush pm-list --pipe --type=module --status=enabled --no-core --fields=name | grep "kint" || : 2>/dev/null)
+
+  if [[ -n $KINT_STATUS ]]; then
+    echo 'Kint installed, uninstalling.'
+    drush pm-uninstall kint -y
+    CACHE_FLAG="true"
+  else
+    echo 'Kint not installed.'
+  fi
+
+  LINK_CSS_STATUS=$(drush pm-list --pipe --type=module --status=enabled --no-core --fields=name | grep "link_css" || : 2>/dev/null)
+
+  if [[ -n $LINK_CSS_STATUS ]]; then
+    echo 'link_css installed, uninstalling.'
+    drush pm-uninstall link_css -y
+    CACHE_FLAG="true"
+  else
+    echo 'link_css not installed.'
   fi
 
   # Clear the caches if required.
@@ -110,9 +119,3 @@ if [[ "${CF_INSTANCE_INDEX}" = "0" ]]; then
 else
   echo 'I am not the first instance'
 fi
-
-# Start the server.
-
-${HOME}/httpd/bin/apachectl -f "$HOME/httpd/conf/httpd.conf" -k start -DFOREGROUND
-
-echo 'start script finished'

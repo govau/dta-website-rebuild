@@ -1,7 +1,7 @@
 ---
 applications:
 - name: dta-website-rebuild
-  memory: 512M
+  memory: 1G
   disk_quota: 2G
   instances: 2
   path: .
