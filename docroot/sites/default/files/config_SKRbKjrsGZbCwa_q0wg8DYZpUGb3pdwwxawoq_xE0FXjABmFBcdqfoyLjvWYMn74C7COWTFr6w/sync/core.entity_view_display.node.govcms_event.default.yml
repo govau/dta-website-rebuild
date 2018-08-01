@@ -16,15 +16,8 @@ dependencies:
     - datetime_range
     - file
     - image
-    - panelizer
     - text
     - user
-third_party_settings:
-  panelizer:
-    enable: false
-    custom: false
-    allow: false
-    default: default
 _core:
   default_config_hash: PtYCggW-l5rc7XiJVczf9gEHuRfS_N1OGN-z2BbOehw
 id: node.govcms_event.default

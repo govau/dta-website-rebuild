@@ -31,6 +31,7 @@ visibility:
   'entity_bundle:node':
     id: 'entity_bundle:node'
     bundles:
+      assessment_report: assessment_report
       govcms_event: govcms_event
       landing_page_level_2: landing_page_level_2
       page: page
@@ -41,6 +42,7 @@ visibility:
   node_type:
     id: node_type
     bundles:
+      assessment_report: assessment_report
       blog_post: blog_post
       govcms_event: govcms_event
       landing_page_level_2: landing_page_level_2

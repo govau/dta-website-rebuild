@@ -1,0 +1,33 @@
+uuid: fffc528f-b013-4889-bfd1-e9711f433ae8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_result_assessment
+    - node.type.assessment_report
+    - taxonomy.vocabulary.dss_assessment
+  content:
+    - 'taxonomy_term:dss_assessment:9ca59d03-f02a-4d88-a19c-75ca53d11d1c'
+id: node.assessment_report.field_result_assessment
+field_name: field_result_assessment
+entity_type: node
+bundle: assessment_report
+label: 'Result of assessment'
+description: 'Select what the <strong>overall</strong> assessment is.'
+required: true
+translatable: false
+default_value:
+  -
+    target_uuid: 9ca59d03-f02a-4d88-a19c-75ca53d11d1c
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      dss_assessment: dss_assessment
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

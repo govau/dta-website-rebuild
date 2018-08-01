@@ -93,6 +93,7 @@ datasource_settings:
     bundles:
       default: false
       selected:
+        - assessment_report
         - blog_post
         - govcms_event
         - landing_page

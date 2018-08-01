@@ -1,0 +1,29 @@
+uuid: 601bcd24-9aee-4273-82b8-ce36c70fff19
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_introduction
+    - node.type.assessment_report
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    introduction: introduction
+    rich_text: '0'
+    administration: '0'
+    html: '0'
+    plain_text: '0'
+id: node.assessment_report.field_introduction
+field_name: field_introduction
+entity_type: node
+bundle: assessment_report
+label: Introduction
+description: 'Add an introduction for the assessment.  Usually this is a brief description of the service itself.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

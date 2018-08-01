@@ -1,0 +1,22 @@
+uuid: 4c5db0ed-53a4-4fdb-8c24-ea194fd83fcf
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: assessment_reports
+label: 'Assessment reports'
+type: 'canonical_entities:node'
+pattern: '/help-and-advice/digital-service-standard/assessment-reports/[node:title]'
+selection_criteria:
+  d68ffc3a-3d45-4dcf-a126-5c3f0f5a8ed4:
+    id: node_type
+    bundles:
+      assessment_report: assessment_report
+    negate: false
+    context_mapping:
+      node: node
+    uuid: d68ffc3a-3d45-4dcf-a126-5c3f0f5a8ed4
+selection_logic: and
+weight: -5
+relationships: {  }

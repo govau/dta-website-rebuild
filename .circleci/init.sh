@@ -30,4 +30,4 @@ drush ev '\Drupal::entityManager()->getStorage("shortcut_set")->load("default")-
 # preprocess.sh before starting the application to hopefully pick up
 # any issues there.
 CF_INSTANCE_INDEX=0 DRUPAL_UUID="59f85df3-5f18-45dd-bf6a-40977b57a842" \
-  ./scripts/preprocess.sh
+  ./scripts/start.sh

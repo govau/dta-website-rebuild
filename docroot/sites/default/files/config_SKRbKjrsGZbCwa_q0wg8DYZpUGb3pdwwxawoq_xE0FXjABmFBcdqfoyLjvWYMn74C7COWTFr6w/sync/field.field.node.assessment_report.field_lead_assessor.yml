@@ -1,0 +1,19 @@
+uuid: ceea2d3a-8261-4349-abcd-23dcae07752f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_lead_assessor
+    - node.type.assessment_report
+id: node.assessment_report.field_lead_assessor
+field_name: field_lead_assessor
+entity_type: node
+bundle: assessment_report
+label: 'Lead assessor'
+description: 'Enter the name of the lead assessor'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

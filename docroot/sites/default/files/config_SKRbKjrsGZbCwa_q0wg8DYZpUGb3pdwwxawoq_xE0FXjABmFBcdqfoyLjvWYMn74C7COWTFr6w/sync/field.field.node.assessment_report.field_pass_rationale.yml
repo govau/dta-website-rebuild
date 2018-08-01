@@ -1,0 +1,29 @@
+uuid: aa0f1fe9-2200-4093-9230-ac0afc798188
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_pass_rationale
+    - node.type.assessment_report
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    rich_text: rich_text
+    administration: '0'
+    html: '0'
+    introduction: '0'
+    plain_text: '0'
+id: node.assessment_report.field_pass_rationale
+field_name: field_pass_rationale
+entity_type: node
+bundle: assessment_report
+label: 'Assessment rationale'
+description: 'Add the rationale for the pass here. Generally this appears at the top of the report and provides context for the assessment details. '
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

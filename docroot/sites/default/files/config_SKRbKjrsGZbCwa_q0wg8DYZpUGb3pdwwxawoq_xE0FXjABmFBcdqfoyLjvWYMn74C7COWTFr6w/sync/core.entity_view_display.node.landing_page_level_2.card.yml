@@ -19,7 +19,6 @@ dependencies:
   module:
     - ds
     - ds_chains
-    - panelizer
     - user
 third_party_settings:
   ds:
@@ -65,11 +64,6 @@ third_party_settings:
             fis-def-at: false
             fi: false
             fi-def-at: false
-  panelizer:
-    enable: false
-    custom: false
-    allow: false
-    default: default
   ds_chains:
     fields: {  }
 id: node.landing_page_level_2.card
