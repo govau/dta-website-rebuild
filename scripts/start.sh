@@ -82,20 +82,34 @@ if [[ "${CF_INSTANCE_INDEX}" = "0" ]]; then
 
   # Uninstall modules on Circle environments. This is a fallback, just in case.
 
-  DEVEL_STATUS=$(drush pm-list --pipe --type=module --status=enabled --no-core --fields=name | grep "devel")
-  if [[ $DEVEL_STATUS != "" ]]; then
+  DEVEL_STATUS=$(drush pm-list --pipe --type=module --status=enabled --no-core --fields=name | grep "devel" || : 2>/dev/null)
+
+  if [[ -n $DEVEL_STATUS ]]; then
+    echo 'Devel installed, uninstalling.'
     drush pm-uninstall devel -y
     CACHE_FLAG="true"
+  else
+    echo 'Devel not installed.'
   fi
-  KINT_STATUS=$(drush pm-list --pipe --type=module --status=enabled --no-core --fields=name | grep "kint")
-  if [[ $KINT_STATUS != "" ]]; then
+
+  KINT_STATUS=$(drush pm-list --pipe --type=module --status=enabled --no-core --fields=name | grep "kint" || : 2>/dev/null)
+
+  if [[ -n $KINT_STATUS ]]; then
+    echo 'Kint installed, uninstalling.'
     drush pm-uninstall kint -y
     CACHE_FLAG="true"
+  else
+    echo 'Kint not installed.'
   fi
-  LINK_CSS_STATUS=$(drush pm-list --pipe --type=module --status=enabled --no-core --fields=name | grep "link_css")
-  if [[ $LINK_CSS_STATUS != "" ]]; then
+
+  LINK_CSS_STATUS=$(drush pm-list --pipe --type=module --status=enabled --no-core --fields=name | grep "link_css" || : 2>/dev/null)
+
+  if [[ -n $LINK_CSS_STATUS ]]; then
+    echo 'link_css installed, uninstalling.'
     drush pm-uninstall link_css -y
     CACHE_FLAG="true"
+  else
+    echo 'link_css not installed.'
   fi
 
   # Clear the caches if required.
