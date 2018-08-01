@@ -15,10 +15,10 @@ third_party_settings:
     title_help: 'Titles have a limit of 65 characters and must be unique. We use this text for the <title> tag, for search engine optimisation (SEO) and to build the page address (URL).'
   wysiwyg_template:
     default_template: ''
-name: 'Blog Post'
+name: 'Blog post'
 type: blog_post
 description: 'Use <em>Blog posts</em> for articles by guest authors. The home page displays the eight most recent blog and news items .'
 help: ''
-new_revision: false
+new_revision: true
 preview_mode: 1
 display_submitted: false

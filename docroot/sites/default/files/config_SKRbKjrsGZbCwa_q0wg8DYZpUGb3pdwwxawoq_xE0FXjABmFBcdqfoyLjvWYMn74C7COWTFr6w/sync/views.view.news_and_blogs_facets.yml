@@ -283,7 +283,7 @@ display:
         metatag_display_extender: {  }
       path: news-blogs/%
       defaults:
-        cache: true
+        cache: false
         use_ajax: false
       menu:
         type: normal
@@ -296,6 +296,8 @@ display:
         menu_name: main
       display_description: ''
       use_ajax: true
+      cache:
+        type: none
     cache_metadata:
       max-age: -1
       contexts:
