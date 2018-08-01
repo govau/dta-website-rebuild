@@ -26,5 +26,8 @@ drush -y site-install
 # These entities need to be deleted before importing."
 drush ev '\Drupal::entityManager()->getStorage("shortcut_set")->load("default")->delete();'
 
-# We want to mimic the app running on cloudfoundry.
-CF_INSTANCE_INDEX=0 DRUPAL_UUID="59f85df3-5f18-45dd-bf6a-40977b57a842"
+# We want to mimic the app running on cloudfoundry, so we call
+# preprocess.sh before starting the application to hopefully pick up
+# any issues there.
+CF_INSTANCE_INDEX=0 DRUPAL_UUID="59f85df3-5f18-45dd-bf6a-40977b57a842" \
+  ./scripts/start.sh

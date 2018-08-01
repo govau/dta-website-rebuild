@@ -1,8 +1,7 @@
 ---
 applications:
 - name: dta-website-rebuild-test
-  command: ./scripts/start.sh
-  memory: 512M
+  memory: 1G
   disk_quota: 2G
   instances: 2
   path: .
