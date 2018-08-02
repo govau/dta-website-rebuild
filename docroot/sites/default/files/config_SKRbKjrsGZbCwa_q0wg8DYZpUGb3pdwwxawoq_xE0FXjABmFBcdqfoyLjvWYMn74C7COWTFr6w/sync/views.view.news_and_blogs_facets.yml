@@ -283,8 +283,9 @@ display:
         metatag_display_extender: {  }
       path: news-blogs/%
       defaults:
-        cache: true
+        cache: false
         use_ajax: false
+        empty: false
       menu:
         type: normal
         title: 'News and blogs'
@@ -296,6 +297,22 @@ display:
         menu_name: main
       display_description: ''
       use_ajax: true
+      cache:
+        type: none
+      empty:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: true
+          tokenize: false
+          content:
+            value: "<div role=\"alert\" class=\"au-page-alerts au-page-alerts--warning\">\n  <h3>Oh no!</h3>\n  <p>Your filters didn't return any results! <a href=\"/news-blogs\">Reset your filters</a>.</p>\n</div>"
+            format: rich_text
+          plugin_id: text
     cache_metadata:
       max-age: -1
       contexts:
