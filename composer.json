@@ -96,7 +96,7 @@
         "drupal/ckeditor_tabletoolstoolbar": "1.0",
         "drupal/composer_deploy": "1.2",
         "drupal/config_split": "1.2",
-        "drupal/core": "8.5.4",
+        "drupal/core": "8.5.6",
         "drupal/devel": "1.2",
         "drupal/disqus": "1.0-rc3",
         "drupal/ds": "3.x-dev",
@@ -157,10 +157,12 @@
         "drupal/weight": "3.0",
         "drupal/wysiwyg_template": "2.0-beta1",
         "drush/drush": "9.3.0",
-        "govau/dta-gov-au": "1.1.0",
+        "govau/dta-gov-au": "1.1.1",
         "harvesthq/chosen": "1.8.2",
         "imperator99/superfish": "2.3",
-        "oomphinc/composer-installers-extender": "1.1.2"
+        "oomphinc/composer-installers-extender": "1.1.2",
+        "symfony/http-foundation": "~3.4.14",
+        "symfony/http-kernel": "~3.4.14"
     },
     "require-dev": {
         "behat/behat": "3.4.3",
