@@ -17,3 +17,4 @@ backend_config:
     suggest_suffix: true
     suggest_words: false
   matching: partial
+  partial_matches: false
