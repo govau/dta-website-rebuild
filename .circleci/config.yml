@@ -65,6 +65,9 @@ jobs:
       - run:
           name: Deploying to cloud.gov.au
           command: ./scripts/deploy.sh
+      - run:
+          name: Updating configuration and database
+          command: ./scripts/start.sh
 workflows:
   version: 2
   test-and-deploy:

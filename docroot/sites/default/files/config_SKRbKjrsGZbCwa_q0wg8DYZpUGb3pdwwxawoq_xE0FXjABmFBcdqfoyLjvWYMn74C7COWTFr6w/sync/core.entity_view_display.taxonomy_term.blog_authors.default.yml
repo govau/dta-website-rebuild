@@ -9,6 +9,19 @@ dependencies:
   module:
     - image
     - text
+third_party_settings:
+  ds:
+    layout:
+      id: layout_onecol
+      library: layout_discovery/onecol
+      disable_css: false
+      entity_classes: all_classes
+      settings: {  }
+    regions:
+      content:
+        - field_author_image
+  ds_chains:
+    fields: {  }
 id: taxonomy_term.blog_authors.default
 targetEntityType: taxonomy_term
 bundle: blog_authors

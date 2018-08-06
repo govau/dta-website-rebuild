@@ -28,7 +28,12 @@ hidden:
   field_assessment_method: true
   field_body: true
   field_date: true
+  field_dss_assessment: true
+  field_introduction: true
   field_lead_assessor: true
+  field_pass_rationale: true
   field_phase: true
+  field_recommendations: true
   field_related_content: true
+  field_result_assessment: true
   field_service_manager: true

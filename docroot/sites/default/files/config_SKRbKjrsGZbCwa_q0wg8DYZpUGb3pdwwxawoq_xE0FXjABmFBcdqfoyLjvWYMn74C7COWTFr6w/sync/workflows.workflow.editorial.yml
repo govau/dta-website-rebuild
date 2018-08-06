@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - node.type.assessment_report
     - node.type.blog_post
     - node.type.external_link
     - node.type.govcms_event
@@ -86,6 +87,7 @@ type_settings:
         - published
   entity_types:
     node:
+      - assessment_report
       - blog_post
       - external_link
       - govcms_event
