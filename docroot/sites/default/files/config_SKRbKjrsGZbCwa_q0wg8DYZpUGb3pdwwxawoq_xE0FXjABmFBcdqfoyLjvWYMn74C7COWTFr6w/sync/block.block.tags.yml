@@ -11,8 +11,8 @@ dependencies:
     - dta_gov_au
 id: tags
 theme: dta_gov_au
-region: sidebar
-weight: -10
+region: sidebar_off_canvas
+weight: -11
 provider: null
 plugin: 'facet_block:tags'
 settings:
