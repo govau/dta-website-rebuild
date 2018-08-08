@@ -16,12 +16,6 @@ dependencies:
     - taxonomy.vocabulary.individual_user_journeys
     - taxonomy.vocabulary.quarters_calendar
     - taxonomy.vocabulary.roadmap_user_journeys
-    - user.role.administrator
-    - user.role.authenticated
-    - user.role.content_approver
-    - user.role.content_editor
-    - user.role.roadmap_viewer
-    - user.role.site_viewer
   content:
     - 'taxonomy_term:contacts:f22da792-e62a-44e7-82d3-452bc0bb3289'
     - 'taxonomy_term:individual_user_journeys:5269cb9a-d8d0-4453-8c5b-9b11f80aad53'
@@ -58,15 +52,9 @@ display:
     position: 0
     display_options:
       access:
-        type: role
+        type: perm
         options:
-          role:
-            authenticated: authenticated
-            roadmap_viewer: roadmap_viewer
-            site_viewer: site_viewer
-            content_editor: content_editor
-            content_approver: content_approver
-            administrator: administrator
+          perm: 'access content'
       cache:
         type: tag
         options: {  }
@@ -1064,7 +1052,7 @@ display:
         - 'languages:language_interface'
         - url
         - user
-        - user.roles
+        - user.permissions
       tags:
         - 'config:field.storage.node.field_agency'
         - 'config:field.storage.node.field_body'
@@ -2349,7 +2337,7 @@ display:
         - 'languages:language_interface'
         - url
         - user
-        - user.roles
+        - user.permissions
       tags:
         - 'config:field.storage.node.field_body'
         - 'config:field.storage.node.field_dummy_content'
@@ -2363,7 +2351,8 @@ display:
     display_title: Individual
     position: 1
     display_options:
-      display_extenders: {  }
+      display_extenders:
+        metatag_display_extender: {  }
       path: our-projects/digital-transformation-roadmaps/roadmap-for-individuals
       display_description: 'The individuals roadmap.'
       title: 'Roadmap of service improvements for individuals'
@@ -3635,7 +3624,7 @@ display:
         - 'languages:language_interface'
         - url
         - user
-        - user.roles
+        - user.permissions
       tags:
         - 'config:field.storage.node.field_body'
         - 'config:field.storage.node.field_dummy_content'
