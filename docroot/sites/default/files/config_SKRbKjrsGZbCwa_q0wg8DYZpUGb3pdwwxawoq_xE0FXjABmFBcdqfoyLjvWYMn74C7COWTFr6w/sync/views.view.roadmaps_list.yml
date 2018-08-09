@@ -15,8 +15,6 @@ dependencies:
     - taxonomy.vocabulary.quarters_calendar
     - taxonomy.vocabulary.roadmap_user_journeys
   content:
-    - 'node:page:62936fcf-3932-484c-aab3-5e27fbcab17a'
-    - 'node:page:f80bba04-168e-41c9-bffc-0d0e4b707b96'
     - 'taxonomy_term:individual_user_journeys:5269cb9a-d8d0-4453-8c5b-9b11f80aad53'
     - 'taxonomy_term:individual_user_journeys:5af1fdb4-6cbb-4a90-8684-77b008d9426c'
     - 'taxonomy_term:individual_user_journeys:6d837858-4162-41d8-8bdb-46d782c8abfa'
@@ -54,7 +52,7 @@ display:
       access:
         type: perm
         options:
-          perm: 'access site in maintenance mode'
+          perm: 'access content'
       cache:
         type: tag
         options: {  }
@@ -1056,7 +1054,8 @@ display:
     display_title: 'Individuals list - Block'
     position: 1
     display_options:
-      display_extenders: {  }
+      display_extenders:
+        metatag_display_extender: {  }
       display_description: 'The individual roadmap as a block.'
       title: 'Roadmap of service improvements for businesses'
       defaults:

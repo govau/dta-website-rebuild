@@ -11,8 +11,8 @@ dependencies:
     - dta_gov_au
 id: contenttype
 theme: dta_gov_au
-region: sidebar
-weight: -11
+region: sidebar_off_canvas
+weight: -12
 provider: null
 plugin: 'facet_block:content_type'
 settings:
