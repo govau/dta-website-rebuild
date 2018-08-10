@@ -48,79 +48,9 @@ third_party_settings:
         - group_images
         - field_index_image
         - node_title
-        - 'ds_chains:node/blog_post/field_author/field_author_image'
         - group_footer
-        - field_author
         - field_date
-        - 'bundle_field:node'
     fields:
-      'ds_chains:node/blog_post/field_author/field_author_image':
-        plugin_id: 'ds_chains:node/blog_post/field_author/field_author_image'
-        weight: 1
-        label: hidden
-        formatter: image
-        settings:
-          image_style: ''
-          image_link: ''
-        ft:
-          id: expert
-          settings:
-            lb: ''
-            prefix: ''
-            lbw-el: ''
-            lbw-cl: ''
-            lbw-at: ''
-            ow: true
-            ow-el: div
-            ow-cl: 'au-card--content au-card--author_image'
-            ow-at: ''
-            fis-el: ''
-            fis-cl: ''
-            fis-at: ''
-            fi-el: ''
-            fi-cl: ''
-            fi-at: ''
-            suffix: ''
-            lbw: false
-            lb-col: false
-            ow-def-at: false
-            ow-def-cl: false
-            fis: false
-            fis-def-at: false
-            fi: false
-            fi-def-at: false
-      'bundle_field:node':
-        plugin_id: 'bundle_field:node'
-        weight: 5
-        label: hidden
-        formatter: default
-        ft:
-          id: expert
-          settings:
-            lb: ''
-            prefix: ''
-            lbw-el: ''
-            lbw-cl: ''
-            lbw-at: ''
-            ow: true
-            ow-el: p
-            ow-cl: 'au-card--content au-card--content_type'
-            ow-at: ''
-            fis-el: ''
-            fis-cl: ''
-            fis-at: ''
-            fi: true
-            fi-el: a
-            fi-cl: ''
-            fi-at: 'href="/news-blogs/[node:content-type:machine-name]"'
-            suffix: ''
-            lbw: false
-            lb-col: false
-            ow-def-at: false
-            ow-def-cl: false
-            fis: false
-            fis-def-at: false
-            fi-def-at: false
       node_title:
         plugin_id: node_title
         weight: 1
@@ -158,13 +88,11 @@ third_party_settings:
             fi: false
             fi-def-at: false
   ds_chains:
-    fields:
-      field_author: field_author
+    fields: {  }
   field_group:
     group_images:
       children:
         - field_index_image
-        - 'ds_chains:node/blog_post/field_author/field_author_image'
       parent_name: ''
       weight: 0
       format_type: html_element
@@ -181,9 +109,7 @@ third_party_settings:
       region: hidden
     group_footer:
       children:
-        - field_author
         - field_date
-        - 'bundle_field:node'
       parent_name: ''
       weight: 2
       format_type: html_element
@@ -203,44 +129,6 @@ targetEntityType: node
 bundle: blog_post
 mode: card
 content:
-  field_author:
-    type: entity_reference_label
-    weight: 3
-    region: ds_content
-    label: hidden
-    settings:
-      link: false
-    third_party_settings:
-      empty_fields:
-        handler: ''
-      ds:
-        ft:
-          id: expert
-          settings:
-            lb: ''
-            prefix: ''
-            lbw-el: ''
-            lbw-cl: ''
-            lbw-at: ''
-            ow-el: ''
-            ow-cl: ''
-            ow-at: ''
-            fis-el: ''
-            fis-cl: ''
-            fis-at: ''
-            fi: true
-            fi-el: p
-            fi-cl: 'au-card--content au-card--author_name'
-            fi-at: ''
-            suffix: ''
-            lbw: false
-            lb-col: false
-            ow: false
-            ow-def-at: false
-            ow-def-cl: false
-            fis: false
-            fis-def-at: false
-            fi-def-at: false
   field_date:
     type: datetime_custom
     weight: 4
@@ -321,6 +209,7 @@ content:
             fi-def-at: false
 hidden:
   content_moderation_control: true
+  field_author: true
   field_body: true
   field_facebook_image: true
   field_image: true

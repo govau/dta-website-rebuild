@@ -47,40 +47,7 @@ third_party_settings:
         - node_title
         - group_footer
         - field_date
-        - 'bundle_field:node'
     fields:
-      'bundle_field:node':
-        plugin_id: 'bundle_field:node'
-        weight: 5
-        label: hidden
-        formatter: default
-        ft:
-          id: expert
-          settings:
-            lb: ''
-            prefix: ''
-            lbw-el: ''
-            lbw-cl: ''
-            lbw-at: ''
-            ow: true
-            ow-el: p
-            ow-cl: 'au-card--content au-card--content_type'
-            ow-at: ''
-            fis-el: ''
-            fis-cl: ''
-            fis-at: ''
-            fi: true
-            fi-el: a
-            fi-cl: ''
-            fi-at: 'href="/news-blogs/[node:content-type:machine-name]"'
-            suffix: ''
-            lbw: false
-            lb-col: false
-            ow-def-at: false
-            ow-def-cl: false
-            fis: false
-            fis-def-at: false
-            fi-def-at: false
       node_title:
         plugin_id: node_title
         weight: 2
@@ -123,7 +90,6 @@ third_party_settings:
     group_footer:
       children:
         - field_date
-        - 'bundle_field:node'
       parent_name: ''
       weight: 3
       format_type: html_element
