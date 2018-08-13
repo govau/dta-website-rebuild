@@ -45,7 +45,7 @@ third_party_settings:
           layout_class: {  }
     regions:
       ds_content:
-        - group_images
+        - group_link
         - field_index_image
         - node_title
         - group_footer
@@ -57,9 +57,9 @@ third_party_settings:
         label: hidden
         formatter: default
         settings:
-          link: true
           wrapper: h3
           class: au-card__title
+          link: false
         ft:
           id: expert
           settings:
@@ -90,27 +90,10 @@ third_party_settings:
   ds_chains:
     fields: {  }
   field_group:
-    group_images:
-      children:
-        - field_index_image
-      parent_name: ''
-      weight: 0
-      format_type: html_element
-      format_settings:
-        id: ''
-        classes: 'au-card__image au-card__fullwidth'
-        element: div
-        show_label: false
-        label_element: h3
-        attributes: ''
-        effect: none
-        speed: fast
-      label: Images
-      region: hidden
     group_footer:
       children:
         - field_date
-      parent_name: ''
+      parent_name: group_link
       weight: 2
       format_type: html_element
       format_settings:
@@ -123,6 +106,22 @@ third_party_settings:
         effect: none
         speed: fast
       label: Footer
+      region: hidden
+    group_link:
+      children:
+        - field_index_image
+        - node_title
+        - group_footer
+      parent_name: ''
+      weight: 0
+      format_type: link
+      format_settings:
+        id: ''
+        classes: 'au-card au-card--shadow au-cta-link'
+        target: entity
+        custom_uri: ''
+        target_attribute: default
+      label: Link
       region: hidden
 id: node.blog_post.card
 targetEntityType: node
@@ -194,8 +193,9 @@ content:
             fis-el: ''
             fis-cl: ''
             fis-at: ''
+            fi: true
             fi-el: ''
-            fi-cl: ''
+            fi-cl: 'au-card__image au-card__fullwidth'
             fi-at: ''
             suffix: ''
             lbw: false
@@ -205,7 +205,6 @@ content:
             ow-def-cl: false
             fis: false
             fis-def-at: false
-            fi: false
             fi-def-at: false
 hidden:
   content_moderation_control: true
