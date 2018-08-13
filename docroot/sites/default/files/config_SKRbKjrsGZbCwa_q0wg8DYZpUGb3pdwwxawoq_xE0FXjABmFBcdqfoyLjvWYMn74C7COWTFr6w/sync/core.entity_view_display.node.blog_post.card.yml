@@ -45,91 +45,21 @@ third_party_settings:
           layout_class: {  }
     regions:
       ds_content:
-        - group_images
+        - group_link
         - field_index_image
         - node_title
-        - 'ds_chains:node/blog_post/field_author/field_author_image'
         - group_footer
-        - field_author
         - field_date
-        - 'bundle_field:node'
     fields:
-      'ds_chains:node/blog_post/field_author/field_author_image':
-        plugin_id: 'ds_chains:node/blog_post/field_author/field_author_image'
-        weight: 1
-        label: hidden
-        formatter: image
-        settings:
-          image_style: ''
-          image_link: ''
-        ft:
-          id: expert
-          settings:
-            lb: ''
-            prefix: ''
-            lbw-el: ''
-            lbw-cl: ''
-            lbw-at: ''
-            ow: true
-            ow-el: div
-            ow-cl: 'au-card--content au-card--author_image'
-            ow-at: ''
-            fis-el: ''
-            fis-cl: ''
-            fis-at: ''
-            fi-el: ''
-            fi-cl: ''
-            fi-at: ''
-            suffix: ''
-            lbw: false
-            lb-col: false
-            ow-def-at: false
-            ow-def-cl: false
-            fis: false
-            fis-def-at: false
-            fi: false
-            fi-def-at: false
-      'bundle_field:node':
-        plugin_id: 'bundle_field:node'
-        weight: 5
-        label: hidden
-        formatter: default
-        ft:
-          id: expert
-          settings:
-            lb: ''
-            prefix: ''
-            lbw-el: ''
-            lbw-cl: ''
-            lbw-at: ''
-            ow: true
-            ow-el: p
-            ow-cl: 'au-card--content au-card--content_type'
-            ow-at: ''
-            fis-el: ''
-            fis-cl: ''
-            fis-at: ''
-            fi: true
-            fi-el: a
-            fi-cl: ''
-            fi-at: 'href="/news-blogs/[node:content-type:machine-name]"'
-            suffix: ''
-            lbw: false
-            lb-col: false
-            ow-def-at: false
-            ow-def-cl: false
-            fis: false
-            fis-def-at: false
-            fi-def-at: false
       node_title:
         plugin_id: node_title
         weight: 1
         label: hidden
         formatter: default
         settings:
-          link: true
           wrapper: h3
           class: au-card__title
+          link: false
         ft:
           id: expert
           settings:
@@ -158,33 +88,12 @@ third_party_settings:
             fi: false
             fi-def-at: false
   ds_chains:
-    fields:
-      field_author: field_author
+    fields: {  }
   field_group:
-    group_images:
-      children:
-        - field_index_image
-        - 'ds_chains:node/blog_post/field_author/field_author_image'
-      parent_name: ''
-      weight: 0
-      format_type: html_element
-      format_settings:
-        id: ''
-        classes: 'au-card__image au-card__fullwidth'
-        element: div
-        show_label: false
-        label_element: h3
-        attributes: ''
-        effect: none
-        speed: fast
-      label: Images
-      region: hidden
     group_footer:
       children:
-        - field_author
         - field_date
-        - 'bundle_field:node'
-      parent_name: ''
+      parent_name: group_link
       weight: 2
       format_type: html_element
       format_settings:
@@ -198,49 +107,27 @@ third_party_settings:
         speed: fast
       label: Footer
       region: hidden
+    group_link:
+      children:
+        - field_index_image
+        - node_title
+        - group_footer
+      parent_name: ''
+      weight: 0
+      format_type: link
+      format_settings:
+        id: ''
+        classes: 'au-card au-card--shadow au-cta-link'
+        target: entity
+        custom_uri: ''
+        target_attribute: default
+      label: Link
+      region: hidden
 id: node.blog_post.card
 targetEntityType: node
 bundle: blog_post
 mode: card
 content:
-  field_author:
-    type: entity_reference_label
-    weight: 3
-    region: ds_content
-    label: hidden
-    settings:
-      link: false
-    third_party_settings:
-      empty_fields:
-        handler: ''
-      ds:
-        ft:
-          id: expert
-          settings:
-            lb: ''
-            prefix: ''
-            lbw-el: ''
-            lbw-cl: ''
-            lbw-at: ''
-            ow-el: ''
-            ow-cl: ''
-            ow-at: ''
-            fis-el: ''
-            fis-cl: ''
-            fis-at: ''
-            fi: true
-            fi-el: p
-            fi-cl: 'au-card--content au-card--author_name'
-            fi-at: ''
-            suffix: ''
-            lbw: false
-            lb-col: false
-            ow: false
-            ow-def-at: false
-            ow-def-cl: false
-            fis: false
-            fis-def-at: false
-            fi-def-at: false
   field_date:
     type: datetime_custom
     weight: 4
@@ -306,8 +193,9 @@ content:
             fis-el: ''
             fis-cl: ''
             fis-at: ''
+            fi: true
             fi-el: ''
-            fi-cl: ''
+            fi-cl: 'au-card__image au-card__fullwidth'
             fi-at: ''
             suffix: ''
             lbw: false
@@ -317,10 +205,10 @@ content:
             ow-def-cl: false
             fis: false
             fis-def-at: false
-            fi: false
             fi-def-at: false
 hidden:
   content_moderation_control: true
+  field_author: true
   field_body: true
   field_facebook_image: true
   field_image: true

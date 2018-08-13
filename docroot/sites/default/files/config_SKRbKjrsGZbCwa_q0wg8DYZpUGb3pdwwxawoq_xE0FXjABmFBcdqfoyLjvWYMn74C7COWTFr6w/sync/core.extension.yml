@@ -46,6 +46,7 @@ module:
   features: 0
   field: 0
   field_group: 0
+  field_group_link: 0
   field_layout: 0
   field_ui: 0
   file: 0
