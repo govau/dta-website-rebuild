@@ -43,53 +43,21 @@ third_party_settings:
           layout_class: {  }
     regions:
       ds_content:
+        - group_link
         - field_index_image
         - node_title
         - group_footer
         - field_date
-        - 'bundle_field:node'
     fields:
-      'bundle_field:node':
-        plugin_id: 'bundle_field:node'
-        weight: 5
-        label: hidden
-        formatter: default
-        ft:
-          id: expert
-          settings:
-            lb: ''
-            prefix: ''
-            lbw-el: ''
-            lbw-cl: ''
-            lbw-at: ''
-            ow: true
-            ow-el: p
-            ow-cl: 'au-card--content au-card--content_type'
-            ow-at: ''
-            fis-el: ''
-            fis-cl: ''
-            fis-at: ''
-            fi: true
-            fi-el: a
-            fi-cl: ''
-            fi-at: 'href="/news-blogs/[node:content-type:machine-name]"'
-            suffix: ''
-            lbw: false
-            lb-col: false
-            ow-def-at: false
-            ow-def-cl: false
-            fis: false
-            fis-def-at: false
-            fi-def-at: false
       node_title:
         plugin_id: node_title
         weight: 2
         label: hidden
         formatter: default
         settings:
-          link: true
           wrapper: h3
           class: au-card__title
+          link: false
         ft:
           id: expert
           settings:
@@ -123,8 +91,7 @@ third_party_settings:
     group_footer:
       children:
         - field_date
-        - 'bundle_field:node'
-      parent_name: ''
+      parent_name: group_link
       weight: 3
       format_type: html_element
       format_settings:
@@ -137,6 +104,22 @@ third_party_settings:
         effect: none
         speed: fast
       label: Footer
+      region: hidden
+    group_link:
+      children:
+        - field_index_image
+        - node_title
+        - group_footer
+      parent_name: ''
+      weight: 0
+      format_type: link
+      format_settings:
+        id: ''
+        classes: 'au-card au-card--shadow au-cta-link'
+        target: entity
+        custom_uri: ''
+        target_attribute: default
+      label: Link
       region: hidden
 id: node.news_item.card
 targetEntityType: node
@@ -184,7 +167,7 @@ content:
             fi-def-at: false
   field_index_image:
     type: responsive_image
-    weight: 0
+    weight: 1
     region: ds_content
     label: hidden
     settings:
