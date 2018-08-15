@@ -15,6 +15,7 @@ permissions:
   - 'access toolbar'
   - 'search content'
   - 'use advanced search'
+  - 'use text format commenting'
   - 'view all revisions'
   - 'view any unpublished content'
   - 'view latest version'

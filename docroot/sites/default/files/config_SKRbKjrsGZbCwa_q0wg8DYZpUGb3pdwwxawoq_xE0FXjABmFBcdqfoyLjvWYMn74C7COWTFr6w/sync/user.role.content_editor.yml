@@ -132,6 +132,7 @@ permissions:
   - 'use editorial transition create_new_draft'
   - 'use editorial transition needs_review'
   - 'use editorial transition publish'
+  - 'use text format commenting'
   - 'use text format introduction'
   - 'use text format rich_text'
   - 'view all revisions'

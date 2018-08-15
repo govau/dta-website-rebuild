@@ -9,8 +9,16 @@ label: 'Authenticated user'
 weight: -9
 is_admin: false
 permissions:
+  - 'access comments'
   - 'access content'
   - 'access shortcuts'
+  - 'edit own comments'
+  - 'post comments'
+  - 'restful delete comment'
+  - 'restful get comment'
+  - 'restful patch comment'
+  - 'restful put comment'
   - 'search content'
   - 'use search_api_autocomplete for search'
+  - 'use text format commenting'
   - 'view search api pages'

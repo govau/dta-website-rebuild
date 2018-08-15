@@ -1,0 +1,162 @@
+uuid: 1b5cf969-cd0c-4f9c-a2ba-ad1a5d27e817
+langcode: en
+status: true
+dependencies:
+  module:
+    - editor
+    - entity_embed
+    - htmlawed
+    - linkit
+    - markdown
+    - toc_filter
+    - typogrify
+    - url_embed
+    - video_embed_wysiwyg
+    - wysiwyg_template_core
+name: Commenting
+format: commenting
+weight: 0
+filters:
+  editor_file_reference:
+    id: editor_file_reference
+    provider: editor
+    status: false
+    weight: -44
+    settings: {  }
+  entity_embed:
+    id: entity_embed
+    provider: entity_embed
+    status: false
+    weight: -43
+    settings: {  }
+  filter_align:
+    id: filter_align
+    provider: filter
+    status: false
+    weight: -42
+    settings: {  }
+  filter_autop:
+    id: filter_autop
+    provider: filter
+    status: true
+    weight: -48
+    settings: {  }
+  filter_caption:
+    id: filter_caption
+    provider: filter
+    status: false
+    weight: -41
+    settings: {  }
+  filter_html:
+    id: filter_html
+    provider: filter
+    status: true
+    weight: -49
+    settings:
+      allowed_html: '<a href> <em> <strong> <blockquote> <code> <ul> <ol> <li>'
+      filter_html_help: false
+      filter_html_nofollow: false
+  filter_htmlcorrector:
+    id: filter_htmlcorrector
+    provider: filter
+    status: true
+    weight: -46
+    settings: {  }
+  filter_html_escape:
+    id: filter_html_escape
+    provider: filter
+    status: false
+    weight: -45
+    settings: {  }
+  filter_html_image_secure:
+    id: filter_html_image_secure
+    provider: filter
+    status: false
+    weight: -35
+    settings: {  }
+  filter_url:
+    id: filter_url
+    provider: filter
+    status: true
+    weight: -47
+    settings:
+      filter_url_length: 72
+  filter_htmlawed:
+    id: filter_htmlawed
+    provider: htmlawed
+    status: false
+    weight: -32
+    settings:
+      config: '''safe'' => 1, ''elements'' => ''a, em, strong, cite, code, ol, ul, li, dl, dt, dd, br, p'', ''deny_attribute'' => ''id, style'''
+      spec: ''
+      help: 'Allowed HTML tags: <a>, <em>, <strong>, <cite>, <code>, <ol>, <ul>, <li>, <dl>, <dt>, <dd>, <br>, <p>'
+      helplong: 'These HTML tags are allowed: <a>, <em>, <strong>, <cite>, <code>, <ol>, <ul>, <li>, <dl>, <dt>, <dd>, <br>, <p>. Javascript and the ''id'' and ''style'' HTML attributes are not permitted.'
+  linkit:
+    id: linkit
+    provider: linkit
+    status: false
+    weight: -40
+    settings:
+      title: true
+  markdown:
+    id: markdown
+    provider: markdown
+    status: false
+    weight: -50
+    settings:
+      markdown_library: php-markdown
+  toc_filter:
+    id: toc_filter
+    provider: toc_filter
+    status: false
+    weight: -39
+    settings:
+      type: default
+      auto: ''
+      block: '0'
+  TypogrifyFilter:
+    id: TypogrifyFilter
+    provider: typogrify
+    status: false
+    weight: -34
+    settings:
+      smartypants_enabled: '1'
+      smartypants_hyphens: '3'
+      space_hyphens: '0'
+      widont_enabled: '1'
+      hyphenate_shy: '0'
+      space_to_nbsp: '1'
+      wrap_caps: '1'
+      wrap_ampersand: '1'
+      wrap_abbr: '0'
+      wrap_numbers: '0'
+      wrap_initial_quotes: '1'
+      ligatures: 'a:0:{}'
+      arrows: 'a:0:{}'
+      fractions: 'a:0:{}'
+      quotes: 'a:0:{}'
+  url_embed_convert_links:
+    id: url_embed_convert_links
+    provider: url_embed
+    status: false
+    weight: -37
+    settings:
+      url_prefix: ''
+  url_embed:
+    id: url_embed
+    provider: url_embed
+    status: false
+    weight: -38
+    settings: {  }
+  video_embed_wysiwyg:
+    id: video_embed_wysiwyg
+    provider: video_embed_wysiwyg
+    status: false
+    weight: -36
+    settings: {  }
+  filter_wysiwyg_cleanup:
+    id: filter_wysiwyg_cleanup
+    provider: wysiwyg_template_core
+    status: false
+    weight: -33
+    settings: {  }
