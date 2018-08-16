@@ -43,15 +43,16 @@ third_party_settings:
       content:
         - content_moderation_control
         - group_author_and_date
-        - field_tags
         - field_author
-        - field_introduction
+        - field_tags
         - field_date
+        - field_introduction
         - group_image_and_caption
-        - field_body
         - field_image
-        - 'dynamic_token_field:node-author_and_position'
+        - field_body
         - field_image_caption
+        - 'dynamic_token_field:node-author_and_position'
+        - 'dynamic_token_field:node-join_the_discussion'
         - field_comments
     fields:
       'dynamic_token_field:node-author_and_position':
@@ -78,6 +79,38 @@ third_party_settings:
             fi-at: ''
             suffix: ''
             lbw: false
+            lb-col: false
+            ow: false
+            ow-def-at: false
+            ow-def-cl: false
+            fis: false
+            fis-def-at: false
+            fi: false
+            fi-def-at: false
+      'dynamic_token_field:node-join_the_discussion':
+        plugin_id: 'dynamic_token_field:node-join_the_discussion'
+        weight: 7
+        label: above
+        formatter: default
+        ft:
+          id: expert
+          settings:
+            lb: 'Join the discussion'
+            prefix: ''
+            lbw: true
+            lbw-el: h3
+            lbw-cl: ''
+            lbw-at: ''
+            ow-el: ''
+            ow-cl: ''
+            ow-at: ''
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fi-el: ''
+            fi-cl: ''
+            fi-at: ''
+            suffix: ''
             lb-col: false
             ow: false
             ow-def-at: false
@@ -184,9 +217,9 @@ content:
     third_party_settings: {  }
   field_comments:
     type: comment_default
-    weight: 7
+    weight: 8
     region: content
-    label: above
+    label: hidden
     settings:
       pager_id: 0
       view_mode: default
@@ -197,9 +230,8 @@ content:
         ft:
           id: expert
           settings:
-            lb: 'Join the discussion'
+            lb: ''
             prefix: ''
-            lbw: true
             lbw-el: h3
             lbw-cl: ''
             lbw-at: ''
@@ -213,6 +245,7 @@ content:
             fi-cl: ''
             fi-at: ''
             suffix: ''
+            lbw: false
             lb-col: false
             ow: false
             ow-def-at: false

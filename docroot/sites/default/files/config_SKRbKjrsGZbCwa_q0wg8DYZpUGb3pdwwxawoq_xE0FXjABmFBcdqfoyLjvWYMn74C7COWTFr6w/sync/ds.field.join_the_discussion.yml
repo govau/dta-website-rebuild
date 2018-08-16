@@ -1,0 +1,11 @@
+id: join_the_discussion
+label: 'Join the discussion'
+ui_limit: blog_post|full
+properties:
+  content:
+    value: "<p><a href=\"/news-and-blogs/blog-comment-and-moderation-policy\">Read our blog comment moderation policy</a></p>\r\n"
+    format: html
+type: token
+type_label: 'Token field'
+entities:
+  node: node

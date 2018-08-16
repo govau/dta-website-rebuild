@@ -5,14 +5,24 @@ unprotected_forms:
   - views_exposed_form
   - honeypot_settings_form
 protect_all_forms: false
-log: false
+log: true
 element_name: url
 time_limit: 5
 expire: 300
 form_settings:
-  user_register_form: false
-  user_pass: false
-  feedback_contact_message_form: false
-  _contact_message_form: false
+  user_register_form: true
+  user_pass: true
+  node_assessment_report_form: false
+  node_blog_post_form: false
+  node_external_link_form: false
+  node_govcms_event_form: false
+  node_home_page_form: false
+  node_individual_roadmap_ux_form: false
+  node_landing_page_form: false
+  node_landing_page_level_2_form: false
+  node_news_item_form: false
+  node_page_form: false
+  node_platforms_and_services_form: false
+  comment_comment_form: true
 _core:
   default_config_hash: 9bVDfWSa_In6VzTXmy04jJ_3ZQobihKjO9isuuUCPaw
