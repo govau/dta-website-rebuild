@@ -5363,7 +5363,7 @@
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
             "license": [
-                "GPL-2.0+"
+                "GPL-2.0-or-later"
             ],
             "authors": [
                 {
@@ -5871,7 +5871,7 @@
                 },
                 "drupal": {
                     "version": "8.x-1.8",
-                    "datestamp": "1523872384",
+                    "datestamp": "1531985581",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -7524,16 +7524,16 @@
         },
         {
             "name": "govau/dta-uikit-base",
-            "version": "1.2.1",
+            "version": "1.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/govau/dta-uikit-base.git",
-                "reference": "1ed542e63666d406437a1dace71d2c773a8929f6"
+                "reference": "b505ae1378f6508a043c7410acc50c33ad1080ce"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/govau/dta-uikit-base/zipball/1ed542e63666d406437a1dace71d2c773a8929f6",
-                "reference": "1ed542e63666d406437a1dace71d2c773a8929f6",
+                "url": "https://api.github.com/repos/govau/dta-uikit-base/zipball/b505ae1378f6508a043c7410acc50c33ad1080ce",
+                "reference": "b505ae1378f6508a043c7410acc50c33ad1080ce",
                 "shasum": ""
             },
             "type": "drupal-custom-theme",
@@ -7548,7 +7548,7 @@
                 "government",
                 "theme"
             ],
-            "time": "2018-07-26T03:04:35+00:00"
+            "time": "2018-08-17T03:21:53+00:00"
         },
         {
             "name": "grasmash/expander",
