@@ -29,18 +29,16 @@ expression:
         context_values:
           roles:
             - comment_moderator
-          subject: 'New comment on [comment:node]'
-          message: '[site:url]admin/content/comment/approval  [comment:url]  [comment:title] - [comment:node]  at [comment:created] by [comment:auth'
-          node: node
-        context_mapping: {  }
+          subject: 'A new comment has been posted on the staging site!'
+          message: 'Please view all comments at https://dta-website-rebuild-staging.apps.y.cld.gov.au/admin/content/comment/approval to publish.'
+        context_mapping:
+          node: '@node.node_route_context:node'
         context_processors:
           roles:
             rules_tokens: {  }
           subject:
             rules_tokens: {  }
           message:
-            rules_tokens: {  }
-          node:
             rules_tokens: {  }
         provides_mapping: {  }
         action_id: role_email_action

@@ -6,7 +6,7 @@ dependencies:
     - toc_filter
 name: HTML
 format: html
-weight: 0
+weight: -7
 filters:
   toc_filter:
     id: toc_filter
