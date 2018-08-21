@@ -15,7 +15,7 @@ dependencies:
     - wysiwyg_template_core
 name: Commenting
 format: commenting
-weight: 0
+weight: -10
 filters:
   editor_file_reference:
     id: editor_file_reference
