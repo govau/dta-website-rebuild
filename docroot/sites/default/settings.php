@@ -867,26 +867,29 @@ if(isset($_ENV['VCAP_SERVICES'])) {
 }
 
 /*
-* The following code block gets the SMTP credentials from the environment.
+* The following code block gets the SMTP and Mailchimp credentials from the environment.
 * If a local.settings.php file exists, it will read that instead so make sure
 * that that file is not pushed to anything.
 */
 
 if(isset($_ENV['VCAP_SERVICES'])) {
   $service_blob = json_decode($_ENV['VCAP_SERVICES'], true);
-  $smtp_service = array();
+  $service = array();
   foreach($service_blob as $service_provider => $service_list) {
     foreach ($service_list as $some_service) {
       // look for a service where the name is 'ups-website-redev'
       if ($some_service['name'] === 'ups-website-redev') {
-        $smtp_service[] = $some_service;
+        $service[] = $some_service;
       }
     }
   }
 
   // Set the relevant settings.
 
-  $config['swiftmailer.transport']['smtp_credentials']['swiftmailer']['password'] = $smtp_service[0]['credentials']['SMTP_PASSWORD'];
+  $config['swiftmailer.transport']['smtp_credentials']['swiftmailer']['password'] = $service[0]['credentials']['SMTP_PASSWORD'];
+
+  $config['mailchimp.settings']['api_key'] = $service[0]['credentials']['MAILCHIMP_API_KEY'];
+
 } else {
   $config['swiftmailer.transport']['smtp_credentials']['swiftmailer']['password'] = '';
 }
