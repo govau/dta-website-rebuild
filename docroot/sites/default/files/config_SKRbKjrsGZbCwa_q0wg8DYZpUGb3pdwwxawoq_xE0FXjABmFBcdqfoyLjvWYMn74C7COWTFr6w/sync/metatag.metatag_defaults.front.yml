@@ -10,3 +10,6 @@ tags:
   canonical_url: '[site:url]'
   shortlink: '[site:url]'
   title: '[site:name]'
+  og_title: '[site:name]'
+  twitter_cards_site: '@DTA'
+  twitter_cards_title: '[site:name]'

@@ -1,0 +1,29 @@
+uuid: 156564cc-8262-426d-a701-1a0d6dd8ca11
+langcode: en
+status: true
+dependencies:
+  module:
+    - mailchimp_signup
+    - node
+  theme:
+    - dta_gov_au
+id: mailchimp_subscription_form_signup_for_updates
+theme: dta_gov_au
+region: sidebar_right
+weight: -12
+provider: null
+plugin: 'mailchimp_signup_subscribe_block:sign_up_for_updates'
+settings:
+  id: 'mailchimp_signup_subscribe_block:sign_up_for_updates'
+  label: 'Sign-up for updates'
+  provider: mailchimp_signup
+  label_display: visible
+visibility:
+  node_type:
+    id: node_type
+    bundles:
+      blog_post: blog_post
+      news_item: news_item
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
