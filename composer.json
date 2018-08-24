@@ -221,7 +221,8 @@
             "Plugin form not shown": "https://www.drupal.org/files/issues/2927913-8.patch"
           },
           "drupal/core": {
-            "Cannot use relationship for rendered entity on Views": "https://www.drupal.org/files/issues/2457999-164.patch"
+            "Cannot use relationship for rendered entity on Views": "https://www.drupal.org/files/issues/2457999-164.patch",
+            "Views RSS feeds have validation issues": "https://www.drupal.org/files/issues/d8-rss-validation-atom-link-missing-1337894-25.patch"
           }
         }
     },
