@@ -43,15 +43,15 @@ third_party_settings:
       content:
         - content_moderation_control
         - group_author_and_date
-        - field_author
         - field_tags
-        - field_date
+        - field_author
         - field_introduction
+        - field_date
         - group_image_and_caption
-        - field_image
         - field_body
-        - field_image_caption
+        - field_image
         - 'dynamic_token_field:node-author_and_position'
+        - field_image_caption
         - 'dynamic_token_field:node-join_the_discussion'
         - field_comments
     fields:
@@ -101,8 +101,9 @@ third_party_settings:
             lbw-el: h3
             lbw-cl: ''
             lbw-at: ''
-            ow-el: ''
-            ow-cl: ''
+            ow: true
+            ow-el: div
+            ow-cl: hidden
             ow-at: ''
             fis-el: ''
             fis-cl: ''
@@ -112,7 +113,6 @@ third_party_settings:
             fi-at: ''
             suffix: ''
             lb-col: false
-            ow: false
             ow-def-at: false
             ow-def-cl: false
             fis: false
