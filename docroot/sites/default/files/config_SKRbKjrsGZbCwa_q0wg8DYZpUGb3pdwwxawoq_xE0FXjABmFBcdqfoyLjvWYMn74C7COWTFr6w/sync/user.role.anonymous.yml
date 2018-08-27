@@ -9,10 +9,7 @@ label: 'Anonymous user'
 weight: -10
 is_admin: false
 permissions:
-  - 'access comments'
   - 'access content'
-  - 'edit own comments'
-  - 'post comments'
   - 'restful get comments'
   - 'restful get me'
   - 'restful post comments'
