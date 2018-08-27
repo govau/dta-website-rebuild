@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.node.blog_post.field_author
     - field.field.node.blog_post.field_body
+    - field.field.node.blog_post.field_comments
     - field.field.node.blog_post.field_date
     - field.field.node.blog_post.field_facebook_image
     - field.field.node.blog_post.field_image
@@ -19,6 +20,7 @@ dependencies:
     - image.style.thumbnail
     - node.type.blog_post
   module:
+    - comment
     - content_moderation
     - datetime
     - field_layout
@@ -57,6 +59,12 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: text_textarea
+    region: content
+  field_comments:
+    weight: 51
+    settings: {  }
+    third_party_settings: {  }
+    type: comment_default
     region: content
   field_date:
     weight: 8

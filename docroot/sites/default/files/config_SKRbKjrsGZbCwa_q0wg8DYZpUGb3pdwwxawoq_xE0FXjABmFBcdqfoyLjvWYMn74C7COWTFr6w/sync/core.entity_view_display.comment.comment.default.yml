@@ -1,0 +1,63 @@
+uuid: 7b683f6c-4317-4a5f-b874-c7068e1cf1a5
+langcode: en
+status: true
+dependencies:
+  config:
+    - comment.type.comment
+    - field.field.comment.comment.comment_body
+  module:
+    - ds
+    - ds_chains
+    - empty_fields
+    - text
+third_party_settings:
+  ds_chains:
+    fields: {  }
+id: comment.comment.default
+targetEntityType: comment
+bundle: comment
+mode: default
+content:
+  comment_body:
+    label: hidden
+    type: text_default
+    weight: 0
+    settings: {  }
+    third_party_settings:
+      empty_fields:
+        handler: ''
+      ds:
+        ft:
+          id: expert
+          settings:
+            lb: ''
+            prefix: ''
+            lbw-el: ''
+            lbw-cl: ''
+            lbw-at: ''
+            ow-el: ''
+            ow-cl: ''
+            ow-at: ''
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fi-el: ''
+            fi-cl: ''
+            fi-at: ''
+            suffix: ''
+            lbw: false
+            lb-col: false
+            ow: false
+            ow-def-at: false
+            ow-def-cl: false
+            fis: false
+            fis-def-at: false
+            fi: false
+            fi-def-at: false
+    region: content
+  links:
+    weight: 100
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }

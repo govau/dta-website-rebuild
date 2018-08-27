@@ -1,22 +1,17 @@
-uuid: fb798d64-d620-4e6c-93f6-00abb1c4a167
+uuid: f3d82d95-c306-47e6-b904-234e52955b63
 langcode: en
 status: true
 dependencies: {  }
-id: site_viewer
-label: Reviewer
-weight: -7
+id: comment_moderator
+label: 'Comment moderator'
+weight: -5
 is_admin: null
 permissions:
   - 'access administration pages'
-  - 'access content'
   - 'access content overview'
-  - 'access files overview'
   - 'access site in maintenance mode'
-  - 'access toolbar'
-  - 'search content'
-  - 'use advanced search'
-  - 'use text format commenting'
-  - 'view all revisions'
+  - 'administer comments'
+  - 'skip comment approval'
   - 'view any unpublished content'
   - 'view latest version'
   - 'view own unpublished content'

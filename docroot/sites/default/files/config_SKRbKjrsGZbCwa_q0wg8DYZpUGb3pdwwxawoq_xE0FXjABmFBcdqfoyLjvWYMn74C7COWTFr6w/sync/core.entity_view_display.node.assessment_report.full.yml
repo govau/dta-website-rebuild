@@ -117,6 +117,9 @@ targetEntityType: node
 bundle: assessment_report
 mode: full
 content:
+  content_moderation_control:
+    weight: -20
+    region: content
   field_agency:
     weight: 2
     label: inline

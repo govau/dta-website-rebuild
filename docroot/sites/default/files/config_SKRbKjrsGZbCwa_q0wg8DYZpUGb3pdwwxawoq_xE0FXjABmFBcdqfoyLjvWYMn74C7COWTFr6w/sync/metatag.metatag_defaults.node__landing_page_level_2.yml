@@ -1,0 +1,11 @@
+uuid: 84a086dd-4ae0-4776-b2a1-30a161b90f2d
+langcode: en
+status: true
+dependencies: {  }
+id: node__landing_page_level_2
+label: 'Content: Landing Page - Level 2'
+tags:
+  image_src: '[site:url]themes/custom/dta-gov-au/logo.png'
+  og_image: '[site:url]themes/custom/dta-gov-au/images/dta-opengraph.png'
+  twitter_cards_image: '[site:url]themes/custom/dta-gov-au/images/dta-twitter.png'
+  twitter_cards_type: summary_large_image

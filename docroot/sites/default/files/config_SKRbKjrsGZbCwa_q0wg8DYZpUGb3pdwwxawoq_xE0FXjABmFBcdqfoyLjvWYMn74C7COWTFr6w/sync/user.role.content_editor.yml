@@ -4,7 +4,7 @@ status: true
 dependencies: {  }
 id: content_editor
 label: 'Content editor'
-weight: -5
+weight: -4
 is_admin: null
 permissions:
   - 'access administration pages'
@@ -132,6 +132,7 @@ permissions:
   - 'use editorial transition create_new_draft'
   - 'use editorial transition needs_review'
   - 'use editorial transition publish'
+  - 'use text format commenting'
   - 'use text format introduction'
   - 'use text format rich_text'
   - 'view all revisions'

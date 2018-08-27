@@ -10,7 +10,7 @@ dependencies:
     - video_embed_wysiwyg
 name: Administration
 format: administration
-weight: 0
+weight: -8
 filters:
   editor_file_reference:
     id: editor_file_reference

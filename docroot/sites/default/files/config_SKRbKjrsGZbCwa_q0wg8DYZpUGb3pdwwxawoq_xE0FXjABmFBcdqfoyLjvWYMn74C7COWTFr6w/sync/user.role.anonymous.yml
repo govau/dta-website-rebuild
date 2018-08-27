@@ -10,6 +10,10 @@ weight: -10
 is_admin: false
 permissions:
   - 'access content'
+  - 'restful get comments'
+  - 'restful get me'
+  - 'restful post comments'
   - 'search content'
   - 'use search_api_autocomplete for search'
+  - 'use text format commenting'
   - 'view search api pages'
