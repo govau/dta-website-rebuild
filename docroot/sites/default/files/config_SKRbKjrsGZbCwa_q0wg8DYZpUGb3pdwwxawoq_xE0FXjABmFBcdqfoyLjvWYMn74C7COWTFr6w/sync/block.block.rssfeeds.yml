@@ -1,0 +1,33 @@
+uuid: 01c89192-227b-4e44-8afa-2e8a0127133b
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:script:a6d99dab-d0d6-42f7-9905-10b876711929'
+  module:
+    - block_content
+    - node
+  theme:
+    - dta_gov_au
+id: rssfeeds
+theme: dta_gov_au
+region: sidebar_right
+weight: 0
+provider: null
+plugin: 'block_content:a6d99dab-d0d6-42f7-9905-10b876711929'
+settings:
+  id: 'block_content:a6d99dab-d0d6-42f7-9905-10b876711929'
+  label: 'RSS feeds'
+  provider: block_content
+  label_display: visible
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  node_type:
+    id: node_type
+    bundles:
+      blog_post: blog_post
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
