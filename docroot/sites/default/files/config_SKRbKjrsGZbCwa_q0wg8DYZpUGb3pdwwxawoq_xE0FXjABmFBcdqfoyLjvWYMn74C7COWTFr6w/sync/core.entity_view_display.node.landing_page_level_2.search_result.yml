@@ -1,29 +1,60 @@
-uuid: ca3c3985-96ba-4969-bda0-40d69e60488c
+uuid: 9c317747-95a9-4258-88b5-45f8d4c0b3fb
 langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.landing_page.field_body
-    - field.field.node.landing_page.field_facebook_image
-    - field.field.node.landing_page.field_index_image
-    - field.field.node.landing_page.field_introduction
-    - field.field.node.landing_page.field_linkedin_image
-    - field.field.node.landing_page.field_promote_to_get_help_advice
-    - field.field.node.landing_page.field_promote_to_our_projects
-    - field.field.node.landing_page.field_related_content
-    - field.field.node.landing_page.field_related_content_heading
-    - field.field.node.landing_page.field_summary
-    - field.field.node.landing_page.field_twitter_image
-    - node.type.landing_page
+    - core.entity_view_mode.node.search_result
+    - field.field.node.landing_page_level_2.field_body
+    - field.field.node.landing_page_level_2.field_facebook_image
+    - field.field.node.landing_page_level_2.field_index_image
+    - field.field.node.landing_page_level_2.field_introduction
+    - field.field.node.landing_page_level_2.field_linkedin_image
+    - field.field.node.landing_page_level_2.field_promote_to_get_help_advice
+    - field.field.node.landing_page_level_2.field_promote_to_our_projects
+    - field.field.node.landing_page_level_2.field_related_content
+    - field.field.node.landing_page_level_2.field_related_content_heading
+    - field.field.node.landing_page_level_2.field_summary
+    - field.field.node.landing_page_level_2.field_twitter_image
+    - node.type.landing_page_level_2
   module:
     - ds
     - image
     - text
     - user
-id: node.landing_page.default
+third_party_settings:
+  ds:
+    layout:
+      id: ds_1col
+      library: null
+      disable_css: false
+      entity_classes: all_classes
+      settings:
+        classes: {  }
+        wrappers:
+          ds_content: div
+        outer_wrapper: div
+        attributes: ''
+        link_attribute: ''
+        link_custom: ''
+    regions:
+      ds_content:
+        - content_moderation_control
+        - links
+        - field_body
+        - field_facebook_image
+        - field_index_image
+        - field_introduction
+        - field_linkedin_image
+        - field_promote_to_get_help_advice
+        - field_promote_to_our_projects
+        - field_related_content
+        - field_related_content_heading
+        - field_summary
+        - field_twitter_image
+id: node.landing_page_level_2.search_result
 targetEntityType: node
-bundle: landing_page
-mode: default
+bundle: landing_page_level_2
+mode: search_result
 content:
   content_moderation_control:
     weight: -20
@@ -72,7 +103,7 @@ content:
     type: image
     region: content
   field_promote_to_get_help_advice:
-    weight: 110
+    weight: 106
     label: above
     settings:
       format: default
@@ -82,7 +113,7 @@ content:
     type: boolean
     region: content
   field_promote_to_our_projects:
-    weight: 111
+    weight: 107
     label: above
     settings:
       format: default
@@ -95,39 +126,9 @@ content:
     weight: 108
     label: above
     settings:
-      view_mode: card
-      link: false
-    third_party_settings:
-      ds:
-        ds_limit: ''
-        ft:
-          id: expert
-          settings:
-            lb: ''
-            prefix: ''
-            lbw-el: ''
-            lbw-cl: ''
-            lbw-at: ''
-            ow-el: ''
-            ow-cl: ''
-            ow-at: ''
-            fis-el: ''
-            fis-cl: ''
-            fis-at: ''
-            fi-el: ''
-            fi-cl: ''
-            fi-at: ''
-            suffix: ''
-            lbw: false
-            lb-col: false
-            ow: false
-            ow-def-at: false
-            ow-def-cl: false
-            fis: false
-            fis-def-at: false
-            fi: false
-            fi-def-at: false
-    type: entity_reference_entity_view
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
     region: content
   field_related_content_heading:
     weight: 109
@@ -138,14 +139,14 @@ content:
     type: string
     region: content
   field_summary:
-    weight: 106
+    weight: 110
     label: above
     settings: {  }
     third_party_settings: {  }
     type: text_default
     region: content
   field_twitter_image:
-    weight: 107
+    weight: 111
     label: above
     settings:
       image_style: ''
