@@ -259,7 +259,7 @@ content:
     weight: 2
     label: inline
     settings:
-      link: false
+      link: true
     third_party_settings:
       empty_fields:
         handler: ''
