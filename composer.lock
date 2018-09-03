@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6260283ba64877b59020ff48b3da76ff",
+    "content-hash": "4183d7fc95f8d7ce133035e33c56cc85",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -3988,6 +3988,60 @@
             "homepage": "https://www.drupal.org/project/htmlawed",
             "support": {
                 "source": "http://cgit.drupalcode.org/htmlawed"
+            }
+        },
+        {
+            "name": "drupal/ie8",
+            "version": "0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/ie8",
+                "reference": "8.x-0.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/ie8-8.x-0.1.zip",
+                "reference": "8.x-0.1",
+                "shasum": "c8f5afe63a7091d9558f548b5e5e0747b19cf2e5"
+            },
+            "require": {
+                "drupal/core": "~8.0"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-0.x": "0.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-0.1",
+                    "datestamp": "1446316159",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                },
+                "patches_applied": {
+                    "drupal.js Incompatible in D8.5": "https://www.drupal.org/files/issues/2018-03-30/drupal_js.patch"
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "jessebeach",
+                    "homepage": "https://www.drupal.org/user/748566"
+                },
+                {
+                    "name": "nod_",
+                    "homepage": "https://www.drupal.org/user/598310"
+                }
+            ],
+            "description": "Adds back IE8 compatibility",
+            "homepage": "https://www.drupal.org/project/ie8",
+            "support": {
+                "source": "http://cgit.drupalcode.org/ie8"
             }
         },
         {

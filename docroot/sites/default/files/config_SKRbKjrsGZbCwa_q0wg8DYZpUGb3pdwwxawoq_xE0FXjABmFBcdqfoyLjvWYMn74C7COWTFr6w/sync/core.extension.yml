@@ -60,13 +60,13 @@ module:
   history: 0
   honeypot: 0
   htmlawed: 0
+  ie8: 0
   image: 0
   image_style_quality: 0
   imce: 0
   inline_form_errors: 0
   layout_discovery: 0
   link: 0
-  link_css: 0
   linkit: 0
   login_emailusername: 0
   login_security: 0
