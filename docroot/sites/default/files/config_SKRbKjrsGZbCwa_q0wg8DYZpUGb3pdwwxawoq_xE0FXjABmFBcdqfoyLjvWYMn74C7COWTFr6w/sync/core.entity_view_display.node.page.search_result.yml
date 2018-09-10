@@ -24,12 +24,14 @@ dependencies:
   module:
     - ds
     - ds_chains
+    - empty_fields
+    - text
     - user
 third_party_settings:
   ds:
     layout:
-      id: ds_1col
-      library: null
+      id: layout_onecol
+      library: layout_discovery/onecol
       disable_css: false
       entity_classes: all_classes
       settings:
@@ -42,27 +44,43 @@ third_party_settings:
         classes:
           layout_class: {  }
     regions:
-      ds_content:
+      content:
         - node_title
         - 'bundle_field:node'
-        - 'dynamic_token_field:node-summary'
-        - 'dynamic_block_field:node-breadcrumb'
+        - field_summary
     fields:
       'bundle_field:node':
         plugin_id: 'bundle_field:node'
         weight: 1
         label: hidden
         formatter: default
-      'dynamic_block_field:node-breadcrumb':
-        plugin_id: 'dynamic_block_field:node-breadcrumb'
-        weight: 3
-        label: hidden
-        formatter: default
-      'dynamic_token_field:node-summary':
-        plugin_id: 'dynamic_token_field:node-summary'
-        weight: 2
-        label: hidden
-        formatter: default
+        ft:
+          id: expert
+          settings:
+            lb: ''
+            prefix: ''
+            lbw-el: ''
+            lbw-cl: ''
+            lbw-at: ''
+            ow-el: ''
+            ow-cl: ''
+            ow-at: ''
+            fis: true
+            fis-el: p
+            fis-cl: ''
+            fis-at: ''
+            fi: true
+            fi-el: em
+            fi-cl: ''
+            fi-at: ''
+            suffix: ''
+            lbw: false
+            lb-col: false
+            ow: false
+            ow-def-at: false
+            ow-def-cl: false
+            fis-def-at: false
+            fi-def-at: false
       node_title:
         plugin_id: node_title
         weight: 0
@@ -105,7 +123,44 @@ id: node.page.search_result
 targetEntityType: node
 bundle: page
 mode: search_result
-content: {  }
+content:
+  field_summary:
+    type: text_default
+    weight: 2
+    region: ds_content
+    label: hidden
+    settings: {  }
+    third_party_settings:
+      empty_fields:
+        handler: ''
+      ds:
+        ft:
+          id: expert
+          settings:
+            lb: ''
+            prefix: ''
+            lbw-el: ''
+            lbw-cl: ''
+            lbw-at: ''
+            ow-el: ''
+            ow-cl: ''
+            ow-at: ''
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fi-el: ''
+            fi-cl: ''
+            fi-at: ''
+            suffix: ''
+            lbw: false
+            lb-col: false
+            ow: false
+            ow-def-at: false
+            ow-def-cl: false
+            fis: false
+            fis-def-at: false
+            fi: false
+            fi-def-at: false
 hidden:
   content_moderation_control: true
   field_body: true
@@ -122,6 +177,5 @@ hidden:
   field_related_content: true
   field_related_content_heading: true
   field_review_date: true
-  field_summary: true
   field_twitter_image: true
   links: true
