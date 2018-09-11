@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "17064e161bf268b5e7d11484da89a91c",
+    "content-hash": "ccee9ed8dd1c4d98f97a27500d1a37b3",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -5499,7 +5499,7 @@
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
             "license": [
-                "GPL-2.0+"
+                "GPL-2.0-or-later"
             ],
             "authors": [
                 {
@@ -6007,7 +6007,7 @@
                 },
                 "drupal": {
                     "version": "8.x-1.8",
-                    "datestamp": "1523872384",
+                    "datestamp": "1531985581",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -7629,16 +7629,16 @@
         },
         {
             "name": "govau/dta-gov-au",
-            "version": "1.5.7",
+            "version": "1.5.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/govau/dta-gov-au.git",
-                "reference": "c895e1748220eae749897cea402ee20d83d0bdb5"
+                "reference": "6ebcafe07465f0497875c2ece8d2367c3bf3d49d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/govau/dta-gov-au/zipball/c895e1748220eae749897cea402ee20d83d0bdb5",
-                "reference": "c895e1748220eae749897cea402ee20d83d0bdb5",
+                "url": "https://api.github.com/repos/govau/dta-gov-au/zipball/6ebcafe07465f0497875c2ece8d2367c3bf3d49d",
+                "reference": "6ebcafe07465f0497875c2ece8d2367c3bf3d49d",
                 "shasum": ""
             },
             "require": {
@@ -7656,7 +7656,7 @@
                 "government",
                 "theme"
             ],
-            "time": "2018-09-10T03:11:36+00:00"
+            "time": "2018-09-11T06:04:50+00:00"
         },
         {
             "name": "govau/dta-uikit-base",
