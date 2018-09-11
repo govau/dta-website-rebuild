@@ -1,9 +1,10 @@
-uuid: 2d084932-e42b-4181-8031-835aee82bc1b
+uuid: 2b2c859c-b2a1-4dc9-b67a-43fc5cd47118
 langcode: en
 status: true
 dependencies:
   config:
     - core.entity_view_display.comment.comment.default
+    - core.entity_view_mode.node.search_result
     - field.field.node.blog_post.field_author
     - field.field.node.blog_post.field_body
     - field.field.node.blog_post.field_comments
@@ -22,13 +23,47 @@ dependencies:
   module:
     - comment
     - datetime
+    - ds
     - image
     - text
     - user
-id: node.blog_post.default
+third_party_settings:
+  ds:
+    layout:
+      id: ds_1col
+      library: null
+      disable_css: false
+      entity_classes: all_classes
+      settings:
+        classes: {  }
+        wrappers:
+          ds_content: div
+        outer_wrapper: div
+        attributes: ''
+        link_attribute: ''
+        link_custom: ''
+    regions:
+      ds_content:
+        - content_moderation_control
+        - links
+        - field_author
+        - field_date
+        - field_tags
+        - field_image
+        - field_twitter_image
+        - field_facebook_image
+        - field_image_caption
+        - field_body
+        - field_summary
+        - field_introduction
+        - field_index_image
+        - field_linkedin_image
+        - field_review_date
+        - field_comments
+id: node.blog_post.search_result
 targetEntityType: node
 bundle: blog_post
-mode: default
+mode: search_result
 content:
   content_moderation_control:
     weight: -20

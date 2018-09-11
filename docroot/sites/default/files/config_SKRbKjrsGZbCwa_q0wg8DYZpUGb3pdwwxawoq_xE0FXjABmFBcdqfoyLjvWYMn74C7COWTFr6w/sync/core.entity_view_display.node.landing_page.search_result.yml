@@ -1,8 +1,9 @@
-uuid: ca3c3985-96ba-4969-bda0-40d69e60488c
+uuid: afa6a6f9-053c-4ba1-ad26-4e80c8a43e90
 langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_mode.node.search_result
     - field.field.node.landing_page.field_body
     - field.field.node.landing_page.field_facebook_image
     - field.field.node.landing_page.field_index_image
@@ -20,10 +21,40 @@ dependencies:
     - image
     - text
     - user
-id: node.landing_page.default
+third_party_settings:
+  ds:
+    layout:
+      id: ds_1col
+      library: null
+      disable_css: false
+      entity_classes: all_classes
+      settings:
+        classes: {  }
+        wrappers:
+          ds_content: div
+        outer_wrapper: div
+        attributes: ''
+        link_attribute: ''
+        link_custom: ''
+    regions:
+      ds_content:
+        - content_moderation_control
+        - links
+        - field_body
+        - field_facebook_image
+        - field_index_image
+        - field_introduction
+        - field_linkedin_image
+        - field_summary
+        - field_twitter_image
+        - field_related_content
+        - field_related_content_heading
+        - field_promote_to_get_help_advice
+        - field_promote_to_our_projects
+id: node.landing_page.search_result
 targetEntityType: node
 bundle: landing_page
-mode: default
+mode: search_result
 content:
   content_moderation_control:
     weight: -20

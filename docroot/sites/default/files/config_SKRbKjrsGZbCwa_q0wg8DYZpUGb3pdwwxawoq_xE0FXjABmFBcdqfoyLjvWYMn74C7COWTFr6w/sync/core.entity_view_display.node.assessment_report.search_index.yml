@@ -1,8 +1,9 @@
-uuid: 027f02b5-07e1-4421-8ef9-ad0c35b87df6
+uuid: 0966e4b0-4a6a-414c-b1f6-156a4db98947
 langcode: en
-status: true
+status: false
 dependencies:
   config:
+    - core.entity_view_mode.node.search_index
     - field.field.node.assessment_report.field_agency
     - field.field.node.assessment_report.field_assessment_method
     - field.field.node.assessment_report.field_body
@@ -23,10 +24,10 @@ dependencies:
     - options
     - text
     - user
-id: node.assessment_report.default
+id: node.assessment_report.search_index
 targetEntityType: node
 bundle: assessment_report
-mode: default
+mode: search_index
 content:
   content_moderation_control:
     weight: -20

@@ -23,6 +23,7 @@ dependencies:
   module:
     - datetime
     - ds
+    - ds_chains
     - image
     - text
     - user
@@ -47,7 +48,6 @@ third_party_settings:
         - content_moderation_control
         - links
         - field_contact_module
-        - field_links
         - field_phase
         - field_body
         - field_summary
@@ -59,6 +59,12 @@ third_party_settings:
         - field_linkedin_image
         - field_twitter_image
         - field_review_date
+        - field_promote_to_get_help_advice
+        - field_promote_to_our_projects
+        - field_related_content
+        - field_related_content_heading
+  ds_chains:
+    fields: {  }
 id: node.page.default
 targetEntityType: node
 bundle: page
@@ -152,7 +158,7 @@ content:
       format_custom_true: ''
     third_party_settings: {  }
     type: boolean
-    region: content
+    region: ds_content
   field_promote_to_our_projects:
     weight: 116
     label: above
@@ -162,7 +168,7 @@ content:
       format_custom_true: ''
     third_party_settings: {  }
     type: boolean
-    region: content
+    region: ds_content
   field_related_content:
     weight: 117
     label: above
@@ -170,7 +176,7 @@ content:
       link: true
     third_party_settings: {  }
     type: entity_reference_label
-    region: content
+    region: ds_content
   field_related_content_heading:
     weight: 118
     label: above
@@ -178,7 +184,7 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     type: string
-    region: content
+    region: ds_content
   field_review_date:
     weight: 114
     label: above

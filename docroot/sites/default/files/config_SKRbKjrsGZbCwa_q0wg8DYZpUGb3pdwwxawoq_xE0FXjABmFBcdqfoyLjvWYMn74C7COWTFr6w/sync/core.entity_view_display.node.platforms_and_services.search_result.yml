@@ -1,8 +1,9 @@
-uuid: 6b267bb3-8566-438a-8043-2fe35672d818
+uuid: 76820a10-656e-4ac0-ba99-948a0e126def
 langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_mode.node.search_result
     - field.field.node.platforms_and_services.field_body
     - field.field.node.platforms_and_services.field_contact_module
     - field.field.node.platforms_and_services.field_index_image
@@ -12,13 +13,39 @@ dependencies:
     - node.type.platforms_and_services
   module:
     - datetime
+    - ds
     - image
     - text
     - user
-id: node.platforms_and_services.default
+third_party_settings:
+  ds:
+    layout:
+      id: ds_1col
+      library: null
+      disable_css: false
+      entity_classes: all_classes
+      settings:
+        classes: {  }
+        wrappers:
+          ds_content: div
+        outer_wrapper: div
+        attributes: ''
+        link_attribute: ''
+        link_custom: ''
+    regions:
+      ds_content:
+        - content_moderation_control
+        - links
+        - field_body
+        - field_introduction
+        - field_summary
+        - field_contact_module
+        - field_review_date
+        - field_index_image
+id: node.platforms_and_services.search_result
 targetEntityType: node
 bundle: platforms_and_services
-mode: default
+mode: search_result
 content:
   content_moderation_control:
     weight: -20
