@@ -65,6 +65,7 @@ module:
   image_style_quality: 0
   imce: 0
   inline_form_errors: 0
+  kint: 0
   layout_discovery: 0
   link: 0
   linkit: 0
