@@ -28,8 +28,6 @@ if [[ -n ${ENVIRONMENT+x} ]]; then
     if [[ "${CF_INSTANCE_INDEX}" = "0" ]]; then
       echo "I am the first instance"
 
-      drush status
-
       CACHE_FLAG="false"
 
       # If DRUPAL_UUID is defined, change our UUID to it if necessary
