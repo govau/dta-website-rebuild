@@ -18,145 +18,124 @@ dependencies:
     - node.type.landing_page_level_2
   module:
     - ds
-    - image
+    - ds_chains
     - text
     - user
 third_party_settings:
   ds:
     layout:
       id: ds_1col
-      library: null
+      library: ds/ds_2col
       disable_css: false
       entity_classes: all_classes
       settings:
-        classes: {  }
         wrappers:
-          ds_content: div
+          left: div
+          right: div
         outer_wrapper: div
         attributes: ''
         link_attribute: ''
         link_custom: ''
+        classes:
+          layout_class: {  }
     regions:
       ds_content:
-        - content_moderation_control
-        - links
-        - field_body
-        - field_facebook_image
-        - field_index_image
-        - field_introduction
-        - field_linkedin_image
-        - field_promote_to_get_help_advice
-        - field_promote_to_our_projects
-        - field_related_content
-        - field_related_content_heading
+        - node_title
+        - 'bundle_field:node'
         - field_summary
-        - field_twitter_image
+    fields:
+      'bundle_field:node':
+        plugin_id: 'bundle_field:node'
+        weight: 1
+        label: hidden
+        formatter: default
+        ft:
+          id: expert
+          settings:
+            lb: ''
+            prefix: ''
+            lbw-el: ''
+            lbw-cl: ''
+            lbw-at: ''
+            ow-el: ''
+            ow-cl: ''
+            ow-at: ''
+            fis: true
+            fis-el: p
+            fis-cl: ''
+            fis-at: ''
+            fi: true
+            fi-el: em
+            fi-cl: ''
+            fi-at: ''
+            suffix: ''
+            lbw: false
+            lb-col: false
+            ow: false
+            ow-def-at: false
+            ow-def-cl: false
+            fis-def-at: false
+            fi-def-at: false
+      node_title:
+        plugin_id: node_title
+        weight: 0
+        label: hidden
+        formatter: default
+        settings:
+          link: true
+          wrapper: h3
+          class: ''
+        ft:
+          id: expert
+          settings:
+            lb: ''
+            prefix: ''
+            lbw-el: ''
+            lbw-cl: ''
+            lbw-at: ''
+            ow-el: ''
+            ow-cl: ''
+            ow-at: ''
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fi-el: ''
+            fi-cl: ''
+            fi-at: ''
+            suffix: ''
+            lbw: false
+            lb-col: false
+            ow: false
+            ow-def-at: false
+            ow-def-cl: false
+            fis: false
+            fis-def-at: false
+            fi: false
+            fi-def-at: false
+  ds_chains:
+    fields: {  }
 id: node.landing_page_level_2.search_result
 targetEntityType: node
 bundle: landing_page_level_2
 mode: search_result
 content:
-  content_moderation_control:
-    weight: -20
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  field_body:
-    weight: 101
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: text_default
-    region: content
-  field_facebook_image:
-    weight: 102
-    label: above
-    settings:
-      image_style: ''
-      image_link: ''
-    third_party_settings: {  }
-    type: image
-    region: content
-  field_index_image:
-    weight: 103
-    label: above
-    settings:
-      image_style: ''
-      image_link: ''
-    third_party_settings: {  }
-    type: image
-    region: content
-  field_introduction:
-    weight: 104
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: text_default
-    region: content
-  field_linkedin_image:
-    weight: 105
-    label: above
-    settings:
-      image_style: ''
-      image_link: ''
-    third_party_settings: {  }
-    type: image
-    region: content
-  field_promote_to_get_help_advice:
-    weight: 106
-    label: above
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    type: boolean
-    region: content
-  field_promote_to_our_projects:
-    weight: 107
-    label: above
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    type: boolean
-    region: content
-  field_related_content:
-    weight: 108
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    type: entity_reference_label
-    region: content
-  field_related_content_heading:
-    weight: 109
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    type: string
-    region: content
   field_summary:
-    weight: 110
-    label: above
-    settings: {  }
-    third_party_settings: {  }
     type: text_default
-    region: content
-  field_twitter_image:
-    weight: 111
-    label: above
-    settings:
-      image_style: ''
-      image_link: ''
-    third_party_settings: {  }
-    type: image
-    region: content
-  links:
-    weight: 100
-    region: content
+    weight: 2
+    region: left
+    label: hidden
     settings: {  }
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  content_moderation_control: true
+  field_body: true
+  field_facebook_image: true
+  field_index_image: true
+  field_introduction: true
+  field_linkedin_image: true
+  field_promote_to_get_help_advice: true
+  field_promote_to_our_projects: true
+  field_related_content: true
+  field_related_content_heading: true
+  field_twitter_image: true
+  links: true
