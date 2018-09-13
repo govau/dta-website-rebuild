@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_display.comment.comment.default
     - field.field.node.blog_post.field_author
     - field.field.node.blog_post.field_body
     - field.field.node.blog_post.field_comments

@@ -1,0 +1,142 @@
+uuid: 0c4a2505-52f1-4920-8526-8529573634e6
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.search_result
+    - field.field.node.assessment_report.field_agency
+    - field.field.node.assessment_report.field_assessment_method
+    - field.field.node.assessment_report.field_body
+    - field.field.node.assessment_report.field_date
+    - field.field.node.assessment_report.field_dss_assessment
+    - field.field.node.assessment_report.field_introduction
+    - field.field.node.assessment_report.field_lead_assessor
+    - field.field.node.assessment_report.field_pass_rationale
+    - field.field.node.assessment_report.field_phase
+    - field.field.node.assessment_report.field_recommendations
+    - field.field.node.assessment_report.field_related_content
+    - field.field.node.assessment_report.field_result_assessment
+    - field.field.node.assessment_report.field_service_manager
+    - node.type.assessment_report
+  module:
+    - ds
+    - ds_chains
+    - user
+third_party_settings:
+  ds:
+    layout:
+      id: ds_1col
+      library: null
+      disable_css: false
+      entity_classes: all_classes
+      settings:
+        wrappers:
+          ds_content: div
+        outer_wrapper: div
+        attributes: ''
+        link_attribute: ''
+        link_custom: ''
+        classes:
+          layout_class: {  }
+    regions:
+      ds_content:
+        - node_title
+        - 'bundle_field:node'
+        - 'dynamic_token_field:node-summary'
+    fields:
+      'bundle_field:node':
+        plugin_id: 'bundle_field:node'
+        weight: 1
+        label: hidden
+        formatter: default
+        ft:
+          id: expert
+          settings:
+            lb: ''
+            prefix: ''
+            lbw-el: ''
+            lbw-cl: ''
+            lbw-at: ''
+            ow-el: ''
+            ow-cl: ''
+            ow-at: ''
+            fis: true
+            fis-el: p
+            fis-cl: ''
+            fis-at: ''
+            fi: true
+            fi-el: em
+            fi-cl: ''
+            fi-at: ''
+            suffix: ''
+            lbw: false
+            lb-col: false
+            ow: false
+            ow-def-at: false
+            ow-def-cl: false
+            fis-def-at: false
+            fi-def-at: false
+      'dynamic_token_field:node-summary':
+        plugin_id: 'dynamic_token_field:node-summary'
+        weight: 2
+        label: hidden
+        formatter: default
+      node_title:
+        plugin_id: node_title
+        weight: 0
+        label: hidden
+        formatter: default
+        settings:
+          link: true
+          wrapper: h3
+          class: ''
+        ft:
+          id: expert
+          settings:
+            lb: ''
+            prefix: ''
+            lbw-el: ''
+            lbw-cl: ''
+            lbw-at: ''
+            ow-el: ''
+            ow-cl: ''
+            ow-at: ''
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fi-el: ''
+            fi-cl: ''
+            fi-at: ''
+            suffix: ''
+            lbw: false
+            lb-col: false
+            ow: false
+            ow-def-at: false
+            ow-def-cl: false
+            fis: false
+            fis-def-at: false
+            fi: false
+            fi-def-at: false
+  ds_chains:
+    fields: {  }
+id: node.assessment_report.search_result
+targetEntityType: node
+bundle: assessment_report
+mode: search_result
+content: {  }
+hidden:
+  content_moderation_control: true
+  field_agency: true
+  field_assessment_method: true
+  field_body: true
+  field_date: true
+  field_dss_assessment: true
+  field_introduction: true
+  field_lead_assessor: true
+  field_pass_rationale: true
+  field_phase: true
+  field_recommendations: true
+  field_related_content: true
+  field_result_assessment: true
+  field_service_manager: true
+  links: true
