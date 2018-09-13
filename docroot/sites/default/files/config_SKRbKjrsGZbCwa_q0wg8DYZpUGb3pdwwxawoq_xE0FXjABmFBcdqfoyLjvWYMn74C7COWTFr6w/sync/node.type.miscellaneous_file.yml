@@ -1,0 +1,23 @@
+uuid: 03093061-1353-4c11-90ed-570c704716c7
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+    - node_title_help_text
+    - wysiwyg_template
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+  node_title_help_text:
+    title_help: ''
+  wysiwyg_template:
+    default_template: ''
+name: 'HTML file'
+type: miscellaneous_file
+description: 'This content type is used for uploading miscellaneous HTML files to the site.'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false

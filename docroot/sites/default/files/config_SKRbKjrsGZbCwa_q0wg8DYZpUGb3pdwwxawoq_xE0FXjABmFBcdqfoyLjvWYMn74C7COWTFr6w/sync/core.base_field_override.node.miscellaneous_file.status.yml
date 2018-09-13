@@ -1,0 +1,22 @@
+uuid: a2d9cf5c-1d04-4c3a-bf49-2e5b24b09b0e
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.miscellaneous_file
+id: node.miscellaneous_file.status
+field_name: status
+entity_type: node
+bundle: miscellaneous_file
+label: Published
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean
