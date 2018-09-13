@@ -1,0 +1,18 @@
+uuid: 0d368e33-ef6e-4463-b123-78ddcda7221b
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - node.type.miscellaneous_file
+  module:
+    - user
+id: node.miscellaneous_file.teaser
+targetEntityType: node
+bundle: miscellaneous_file
+mode: teaser
+content:
+  links:
+    weight: 100
+    region: content
+hidden: {  }

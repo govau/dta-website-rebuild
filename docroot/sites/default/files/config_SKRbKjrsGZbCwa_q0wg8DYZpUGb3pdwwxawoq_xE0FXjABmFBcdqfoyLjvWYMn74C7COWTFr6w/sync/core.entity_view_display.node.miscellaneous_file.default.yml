@@ -1,0 +1,27 @@
+uuid: e6c526ad-b0bf-40f1-8cba-825b8a14c7ba
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.miscellaneous_file.field_file
+    - node.type.miscellaneous_file
+  module:
+    - file
+    - user
+id: node.miscellaneous_file.default
+targetEntityType: node
+bundle: miscellaneous_file
+mode: default
+content:
+  field_file:
+    weight: 101
+    label: above
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+    type: file_default
+    region: content
+  links:
+    weight: 100
+    region: content
+hidden: {  }
