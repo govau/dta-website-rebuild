@@ -1,0 +1,18 @@
+extlink_target: true
+extlink_target_no_override: false
+extlink_nofollow: true
+extlink_follow_no_override: true
+extlink_subdomains: false
+extlink_alert: true
+extlink_alert_text: 'You are now leaving beta.dta.gov.au. Please select ''Cancel'' if you wish to stay.'
+extlink_exclude: ''
+extlink_include: ''
+extlink_class: ext
+extlink_label: '(link is external)'
+extlink_img_class: false
+extlink_css_exclude: ''
+extlink_css_explicit: ''
+extlink_mailto_class: mailto
+extlink_mailto_label: '(link sends email)'
+_core:
+  default_config_hash: rHbHZIIF9TP3H2Vs37uCHz4Gm4phULg0rQ_OKihxJfM

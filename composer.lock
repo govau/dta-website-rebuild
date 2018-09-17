@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4241f58adbe29e569fd36f0a5e32b012",
+    "content-hash": "ecece04371abd672e3e716281812f76a",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -3481,6 +3481,56 @@
             "support": {
                 "source": "http://cgit.drupalcode.org/entity_reference_revisions"
             }
+        },
+        {
+            "name": "drupal/extlink",
+            "version": "dev-1.x",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/extlink",
+                "reference": "f63704f4ca4ab9a1474535b13e50e40b99197850"
+            },
+            "require": {
+                "drupal/core": "~8.0"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.1+22-dev",
+                    "datestamp": "1529537020",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Dev releases are not covered by Drupal security advisories."
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "elachlan",
+                    "homepage": "https://www.drupal.org/user/1021502"
+                },
+                {
+                    "name": "jjeff",
+                    "homepage": "https://www.drupal.org/user/17190"
+                },
+                {
+                    "name": "quicksketch",
+                    "homepage": "https://www.drupal.org/user/35821"
+                }
+            ],
+            "description": "Modify behavior and appearance of external links.",
+            "homepage": "https://www.drupal.org/project/extlink",
+            "support": {
+                "source": "http://cgit.drupalcode.org/extlink"
+            },
+            "time": "2018-07-16T22:35:32+00:00"
         },
         {
             "name": "drupal/facets",
@@ -14068,6 +14118,7 @@
     "stability-flags": {
         "drupal/ds": 20,
         "drupal/empty_fields": 20,
+        "drupal/extlink": 20,
         "drupal/facets": 20,
         "drupal/link_css": 20,
         "drupal/react_comments": 20,
