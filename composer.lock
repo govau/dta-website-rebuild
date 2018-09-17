@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "05b60b7b8f9fd0aa73f8723be817576e",
+    "content-hash": "ecece04371abd672e3e716281812f76a",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -3484,17 +3484,11 @@
         },
         {
             "name": "drupal/extlink",
-            "version": "1.1.0",
+            "version": "dev-1.x",
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/extlink",
-                "reference": "8.x-1.1"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/extlink-8.x-1.1.zip",
-                "reference": "8.x-1.1",
-                "shasum": "0894f1cd12e2e1aa6b00ea4a6dd5e7234eb2b2b2"
+                "reference": "f63704f4ca4ab9a1474535b13e50e40b99197850"
             },
             "require": {
                 "drupal/core": "~8.0"
@@ -3505,11 +3499,11 @@
                     "dev-1.x": "1.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-1.1",
-                    "datestamp": "1524232684",
+                    "version": "8.x-1.1+22-dev",
+                    "datestamp": "1529537020",
                     "security-coverage": {
-                        "status": "covered",
-                        "message": "Covered by Drupal's security advisory policy"
+                        "status": "not-covered",
+                        "message": "Dev releases are not covered by Drupal security advisories."
                     }
                 }
             },
@@ -3535,7 +3529,8 @@
             "homepage": "https://www.drupal.org/project/extlink",
             "support": {
                 "source": "http://cgit.drupalcode.org/extlink"
-            }
+            },
+            "time": "2018-07-16T22:35:32+00:00"
         },
         {
             "name": "drupal/facets",
@@ -14123,6 +14118,7 @@
     "stability-flags": {
         "drupal/ds": 20,
         "drupal/empty_fields": 20,
+        "drupal/extlink": 20,
         "drupal/facets": 20,
         "drupal/link_css": 20,
         "drupal/react_comments": 20,
