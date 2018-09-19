@@ -1,0 +1,19 @@
+uuid: 488780f1-cda4-46fa-a94c-ccc3e49501d9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_title
+    - paragraphs.paragraphs_type.related_documents
+id: paragraph.related_documents.field_title
+field_name: field_title
+entity_type: paragraph
+bundle: related_documents
+label: Title
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

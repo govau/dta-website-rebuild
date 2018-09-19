@@ -1,0 +1,30 @@
+uuid: 3a79ea38-39f8-471d-8787-d919d7f6a629
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_summary
+    - paragraphs.paragraphs_type.related_documents
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    rich_text: rich_text
+    commenting: '0'
+    administration: '0'
+    html: '0'
+    introduction: '0'
+    plain_text: '0'
+id: paragraph.related_documents.field_summary
+field_name: field_summary
+entity_type: paragraph
+bundle: related_documents
+label: Summary
+description: 'Summarise the documents you are linking to.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

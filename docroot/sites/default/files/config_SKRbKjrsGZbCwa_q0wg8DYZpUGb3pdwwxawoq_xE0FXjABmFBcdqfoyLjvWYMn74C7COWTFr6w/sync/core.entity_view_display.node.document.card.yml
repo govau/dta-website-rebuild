@@ -1,0 +1,173 @@
+uuid: 16633d84-b833-4eec-998b-f8b1c218666e
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.card
+    - field.field.node.document.field_file
+    - field.field.node.document.field_index_image
+    - field.field.node.document.field_summary
+    - node.type.document
+    - responsive_image.styles.index_image
+  module:
+    - ds
+    - ds_chains
+    - empty_fields
+    - field_group
+    - responsive_image
+    - text
+    - user
+third_party_settings:
+  ds:
+    layout:
+      id: layout_onecol
+      library: layout_discovery/onecol
+      disable_css: false
+      entity_classes: all_classes
+      settings: {  }
+    regions:
+      content:
+        - group_link
+        - field_index_image
+        - node_title
+        - field_summary
+    fields:
+      node_title:
+        plugin_id: node_title
+        weight: 19
+        label: hidden
+        formatter: default
+        settings:
+          wrapper: h3
+          class: au-card__title
+          link: false
+        ft:
+          id: expert
+          settings:
+            lb: ''
+            prefix: ''
+            lbw-el: ''
+            lbw-cl: ''
+            lbw-at: ''
+            ow-el: ''
+            ow-cl: ''
+            ow-at: ''
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fi-el: ''
+            fi-cl: ''
+            fi-at: ''
+            suffix: ''
+            lbw: false
+            lb-col: false
+            ow: false
+            ow-def-at: false
+            ow-def-cl: false
+            fis: false
+            fis-def-at: false
+            fi: false
+            fi-def-at: false
+  field_group:
+    group_link:
+      children:
+        - field_index_image
+        - node_title
+        - field_summary
+      parent_name: ''
+      weight: 0
+      format_type: link
+      format_settings:
+        id: ''
+        classes: 'au-card au-card--shadow au-cta-link'
+        target: field_file
+        custom_uri: ''
+        target_attribute: _blank
+      label: Link
+      region: content
+  ds_chains:
+    fields: {  }
+id: node.document.card
+targetEntityType: node
+bundle: document
+mode: card
+content:
+  field_index_image:
+    weight: 18
+    label: hidden
+    settings:
+      responsive_image_style: index_image
+      image_link: ''
+    third_party_settings:
+      empty_fields:
+        handler: ''
+      ds:
+        ft:
+          id: expert
+          settings:
+            lb: ''
+            prefix: ''
+            lbw-el: ''
+            lbw-cl: ''
+            lbw-at: ''
+            ow-el: ''
+            ow-cl: ''
+            ow-at: ''
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fi: true
+            fi-el: ''
+            fi-cl: 'au-card__image au-card__fullwidth'
+            fi-at: ''
+            suffix: ''
+            lbw: false
+            lb-col: false
+            ow: false
+            ow-def-at: false
+            ow-def-cl: false
+            fis: false
+            fis-def-at: false
+            fi-def-at: false
+    type: responsive_image
+    region: content
+  field_summary:
+    weight: 20
+    label: hidden
+    settings: {  }
+    third_party_settings:
+      empty_fields:
+        handler: ''
+      ds:
+        ft:
+          id: expert
+          settings:
+            lb: ''
+            prefix: ''
+            lbw-el: ''
+            lbw-cl: ''
+            lbw-at: ''
+            ow-el: ''
+            ow-cl: ''
+            ow-at: ''
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fi: true
+            fi-el: p
+            fi-cl: au-card__text
+            fi-at: ''
+            suffix: ''
+            lbw: false
+            lb-col: false
+            ow: false
+            ow-def-at: false
+            ow-def-cl: false
+            fis: false
+            fis-def-at: false
+            fi-def-at: false
+    type: text_default
+    region: content
+hidden:
+  field_file: true
+  links: true

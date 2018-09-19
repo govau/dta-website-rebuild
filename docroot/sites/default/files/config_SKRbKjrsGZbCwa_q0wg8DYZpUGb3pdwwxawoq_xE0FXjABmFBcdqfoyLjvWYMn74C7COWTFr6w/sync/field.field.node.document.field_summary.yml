@@ -1,0 +1,30 @@
+uuid: c0296927-640a-4a5b-b012-1c5ecf6df3ad
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_summary
+    - node.type.document
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    plain_text: plain_text
+    commenting: '0'
+    rich_text: '0'
+    administration: '0'
+    html: '0'
+    introduction: '0'
+id: node.document.field_summary
+field_name: field_summary
+entity_type: node
+bundle: document
+label: Summary
+description: 'The summary is displayed on search listings and page listings, and is particularly visible on cards. For documents, it is not strictly necessary, however authors are encouraged to add a summary.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long
