@@ -1,0 +1,49 @@
+uuid: d810ffff-1e58-47a4-9310-f1d8c520bf5d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.document.field_file
+    - field.field.node.document.field_index_image
+    - field.field.node.document.field_summary
+    - node.type.document
+  module:
+    - file
+    - image
+    - text
+    - user
+id: node.document.default
+targetEntityType: node
+bundle: document
+mode: default
+content:
+  field_file:
+    weight: 102
+    label: above
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+    type: file_default
+    region: content
+  field_index_image:
+    weight: 104
+    label: above
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  field_summary:
+    weight: 103
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  links:
+    weight: 100
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }

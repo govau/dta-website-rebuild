@@ -91,6 +91,7 @@ module:
   options: 0
   panels: 0
   panels_ipe: 0
+  paragraphs_entity_embed: 0
   path: 0
   rabbit_hole: 0
   redirect: 0
