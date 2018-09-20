@@ -55,15 +55,15 @@ display:
           expose_sort_order: false
           sort_asc_label: Asc
           sort_desc_label: Desc
-          input_required: false
-          text_input_required: 'Select any filter and click on Apply to see results'
+          input_required: true
+          text_input_required: 'Select a filter and select Apply to see results'
           bef:
             general:
               allow_secondary: false
               secondary_label: 'Advanced options'
-              autosubmit: true
+              autosubmit: false
               autosubmit_exclude_textfield: false
-              autosubmit_hide: true
+              autosubmit_hide: false
             field_phase_target_id:
               bef_format: bef
               more_options:
@@ -80,21 +80,59 @@ display:
                 is_secondary: false
                 rewrite:
                   filter_rewrite_values: ''
-          text_input_required_format: rich_text
+          text_input_required_format: plain_text
       pager:
         type: none
         options:
           items_per_page: null
           offset: 0
       style:
-        type: html_list
+        type: table
         options:
           grouping: {  }
-          row_class: ''
+          row_class: '{{ field_phase|render|striptags|trim|clean_class }}'
           default_row_class: false
-          type: ul
-          wrapper_class: 'assessment-reports col-xs-12'
-          class: au-link-list
+          override: true
+          sticky: false
+          caption: 'Digital Service Standard assessment reports'
+          summary: ''
+          description: ''
+          columns:
+            field_phase: field_phase
+            title: title
+            field_assessment_method: field_assessment_method
+            field_date: field_date
+          info:
+            field_phase:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            title:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_assessment_method:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_date:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+          default: title
+          empty_table: false
       row:
         type: fields
         options:
@@ -110,10 +148,10 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: ''
+          label: Stage
           exclude: false
           alter:
-            alter_text: true
+            alter_text: false
             text: '{{ field_phase ~ '' '' }}'
             make_link: false
             path: ''
@@ -139,14 +177,14 @@ display:
             trim: false
             preserve_tags: ''
             html: false
-          element_type: span
-          element_class: 'au-badge au-badge__{{ field_phase|render|striptags|trim|clean_class }}'
+          element_type: ''
+          element_class: ''
           element_label_type: ''
           element_label_class: ''
           element_label_colon: false
           element_wrapper_type: ''
           element_wrapper_class: ''
-          element_default_classes: false
+          element_default_classes: true
           empty: ''
           hide_empty: false
           empty_zero: false
@@ -173,7 +211,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: ''
+          label: Title
           exclude: false
           alter:
             alter_text: false
@@ -238,7 +276,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: ''
+          label: Type
           exclude: false
           alter:
             alter_text: true
@@ -267,14 +305,14 @@ display:
             trim: false
             preserve_tags: ''
             html: false
-          element_type: span
-          element_class: assessment-type
+          element_type: ''
+          element_class: ''
           element_label_type: ''
           element_label_class: ''
           element_label_colon: false
           element_wrapper_type: ''
           element_wrapper_class: ''
-          element_default_classes: false
+          element_default_classes: true
           empty: ''
           hide_empty: false
           empty_zero: false
@@ -300,7 +338,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: ''
+          label: Date
           exclude: false
           alter:
             alter_text: false
@@ -329,23 +367,23 @@ display:
             trim: false
             preserve_tags: ''
             html: false
-          element_type: span
-          element_class: assessment-date
+          element_type: ''
+          element_class: ''
           element_label_type: ''
           element_label_class: ''
           element_label_colon: false
           element_wrapper_type: ''
           element_wrapper_class: ''
-          element_default_classes: false
+          element_default_classes: true
           empty: ''
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: value
-          type: datetime_default
+          type: datetime_custom
           settings:
             timezone_override: ''
-            format_type: month_date_year
+            date_format: j/m/Y
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -510,12 +548,14 @@ display:
       arguments: {  }
       display_extenders: {  }
       use_ajax: true
+      css_class: assessment-reports
     cache_metadata:
       max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url
+        - url.query_args
         - user
         - 'user.node_grants:view'
         - user.permissions
@@ -538,6 +578,7 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url
+        - url.query_args
         - user
         - 'user.node_grants:view'
         - user.permissions
