@@ -230,6 +230,11 @@ processor_settings:
       - was
       - will
       - with
+      - from
+      - can
+      - our
+      - have
+      - more
     weights:
       preprocess_index: -5
       preprocess_query: -2
@@ -252,6 +257,7 @@ processor_settings:
       'entity:node':
         datasource_boost: !!float 1
         bundle_boosts:
+          assessment_report: !!float 0
           blog_post: 0.5
           govcms_event: 0.5
           landing_page: !!float 1
