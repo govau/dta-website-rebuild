@@ -19,19 +19,19 @@ dependencies:
   module:
     - ds
     - ds_chains
+    - empty_fields
     - text
     - user
 third_party_settings:
   ds:
     layout:
       id: ds_1col
-      library: ds/ds_2col
+      library: null
       disable_css: false
       entity_classes: all_classes
       settings:
         wrappers:
-          left: div
-          right: div
+          ds_content: div
         outer_wrapper: div
         attributes: ''
         link_attribute: ''
@@ -122,10 +122,17 @@ content:
   field_summary:
     type: text_default
     weight: 2
-    region: left
+    region: ds_content
     label: hidden
     settings: {  }
-    third_party_settings: {  }
+    third_party_settings:
+      empty_fields:
+        handler: ''
+      ds:
+        ft:
+          id: reset
+          settings:
+            lb: ''
 hidden:
   content_moderation_control: true
   field_body: true
