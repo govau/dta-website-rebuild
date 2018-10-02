@@ -48,7 +48,7 @@ display:
       exposed_form:
         type: bef
         options:
-          submit_button: Apply
+          submit_button: 'Filter assessments'
           reset_button: false
           reset_button_label: Reset
           exposed_sorts_label: 'Sort by'
@@ -56,7 +56,7 @@ display:
           sort_asc_label: Asc
           sort_desc_label: Desc
           input_required: true
-          text_input_required: 'Select a filter and select Apply to see results'
+          text_input_required: ''
           bef:
             general:
               allow_secondary: false
@@ -80,7 +80,7 @@ display:
                 is_secondary: false
                 rewrite:
                   filter_rewrite_values: ''
-          text_input_required_format: plain_text
+          text_input_required_format: html
       pager:
         type: none
         options:
@@ -528,7 +528,20 @@ display:
           granularity: second
           plugin_id: datetime
       title: 'Assessment reports'
-      header: {  }
+      header:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: true
+          tokenize: false
+          content:
+            value: '<p>Select a filter and select Apply to see results.</p>'
+            format: rich_text
+          plugin_id: text
       footer: {  }
       empty:
         area:
