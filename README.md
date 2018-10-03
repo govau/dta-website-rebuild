@@ -1,4 +1,6 @@
-# beta.dta.gov.au
+# beta.dta.gov.au 
+
+[![CircleCI](https://circleci.com/gh/govau/dta-website-rebuild.svg?style=svg)](https://circleci.com/gh/govau/dta-website-rebuild)
 
 beta.dta.gov.aus is built with Drupal 8 around a GovCMS8 core.
 
