@@ -1,0 +1,24 @@
+uuid: 121935cd-344b-43c0-b137-a2d322477d42
+langcode: en
+status: false
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.document.field_file
+    - field.field.node.document.field_index_image
+    - field.field.node.document.field_summary
+    - node.type.document
+  module:
+    - user
+id: node.document.teaser
+targetEntityType: node
+bundle: document
+mode: teaser
+content:
+  links:
+    weight: 100
+    region: content
+hidden:
+  field_file: true
+  field_index_image: true
+  field_summary: true

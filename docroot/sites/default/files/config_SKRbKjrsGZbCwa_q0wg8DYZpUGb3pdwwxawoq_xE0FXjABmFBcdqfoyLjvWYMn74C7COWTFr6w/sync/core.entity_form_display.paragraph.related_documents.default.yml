@@ -1,0 +1,58 @@
+uuid: 53c1e81b-1895-4109-9b1d-093328abcf19
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.related_documents.field_document
+    - field.field.paragraph.related_documents.field_summary
+    - field.field.paragraph.related_documents.field_title
+    - paragraphs.paragraphs_type.related_documents
+  module:
+    - content_moderation
+    - field_layout
+    - layout_discovery
+    - text
+third_party_settings:
+  field_layout:
+    id: layout_onecol
+    settings: {  }
+id: paragraph.related_documents.default
+targetEntityType: paragraph
+bundle: related_documents
+mode: default
+content:
+  field_document:
+    weight: 3
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_summary:
+    weight: 2
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  field_title:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  moderation_state:
+    type: moderation_state_default
+    weight: 0
+    settings: {  }
+    region: content
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true
+  uid: true

@@ -42,22 +42,58 @@ third_party_settings:
     regions:
       content:
         - content_moderation_control
+        - 'ds_chains:node/blog_post/field_author/field_author_image'
         - group_author_and_date
         - field_tags
-        - field_author
         - field_introduction
-        - field_date
-        - group_image_and_caption
-        - field_body
+        - field_author
         - field_image
-        - 'dynamic_token_field:node-author_and_position'
+        - group_image_and_caption
+        - field_date
+        - field_body
         - field_image_caption
+        - 'dynamic_token_field:node-author_and_position'
         - 'dynamic_token_field:node-join_the_discussion'
         - field_comments
     fields:
+      'ds_chains:node/blog_post/field_author/field_author_image':
+        plugin_id: 'ds_chains:node/blog_post/field_author/field_author_image'
+        weight: 1
+        label: hidden
+        formatter: image
+        settings:
+          image_style: thumbnail
+          image_link: ''
+        ft:
+          id: expert
+          settings:
+            lb: ''
+            prefix: ''
+            lbw-el: ''
+            lbw-cl: ''
+            lbw-at: ''
+            ow-el: ''
+            ow-cl: ''
+            ow-at: ''
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fi: true
+            fi-el: div
+            fi-cl: author-image
+            fi-at: ''
+            suffix: ''
+            lbw: false
+            lb-col: false
+            ow: false
+            ow-def-at: false
+            ow-def-cl: false
+            fis: false
+            fis-def-at: false
+            fi-def-at: false
       'dynamic_token_field:node-author_and_position':
         plugin_id: 'dynamic_token_field:node-author_and_position'
-        weight: 6
+        weight: 7
         label: hidden
         formatter: default
         ft:
@@ -89,7 +125,7 @@ third_party_settings:
             fi-def-at: false
       'dynamic_token_field:node-join_the_discussion':
         plugin_id: 'dynamic_token_field:node-join_the_discussion'
-        weight: 7
+        weight: 8
         label: above
         formatter: default
         ft:
@@ -125,7 +161,7 @@ third_party_settings:
         - field_author
         - field_date
       parent_name: ''
-      weight: 1
+      weight: 2
       format_type: html_element
       format_settings:
         label: 'Author and date'
@@ -144,7 +180,7 @@ third_party_settings:
         - field_image
         - field_image_caption
       parent_name: ''
-      weight: 4
+      weight: 5
       format_type: html_element
       format_settings:
         label: 'Image and caption'
@@ -159,7 +195,8 @@ third_party_settings:
       label: 'Image and caption'
       region: content
   ds_chains:
-    fields: {  }
+    fields:
+      field_author: field_author
 id: node.blog_post.full
 targetEntityType: node
 bundle: blog_post
@@ -171,7 +208,7 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_author:
-    weight: 2
+    weight: 4
     label: hidden
     settings:
       link: false
@@ -210,14 +247,14 @@ content:
     region: content
   field_body:
     type: text_default
-    weight: 5
+    weight: 6
     region: content
     label: hidden
     settings: {  }
     third_party_settings: {  }
   field_comments:
     type: comment_default
-    weight: 8
+    weight: 9
     region: content
     label: hidden
     settings:
@@ -255,7 +292,7 @@ content:
             fi: false
             fi-def-at: false
   field_date:
-    weight: 3
+    weight: 5
     label: hidden
     settings:
       timezone_override: ''
@@ -368,7 +405,7 @@ content:
             fi-def-at: false
   field_introduction:
     type: text_default
-    weight: 3
+    weight: 4
     region: content
     label: hidden
     settings: {  }
@@ -404,7 +441,7 @@ content:
             fis-def-at: false
             fi-def-at: false
   field_tags:
-    weight: 2
+    weight: 3
     label: inline
     settings:
       link: true

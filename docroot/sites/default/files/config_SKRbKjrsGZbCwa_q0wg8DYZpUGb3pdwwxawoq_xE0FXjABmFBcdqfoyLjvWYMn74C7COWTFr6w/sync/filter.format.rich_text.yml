@@ -7,6 +7,8 @@ dependencies:
     - entity_embed
     - htmlawed
     - linkit
+    - markdown
+    - paragraphs_entity_embed
     - toc_filter
     - typogrify
     - url_embed
@@ -41,7 +43,7 @@ filters:
     id: filter_html
     provider: filter
     status: true
-    weight: -46
+    weight: -47
     settings:
       allowed_html: '<a href hreflang id rel title class target aria-controls aria-expanded aria-selected role> <em> <strong> <cite> <blockquote cite> <code> <ul type class> <ol start type class> <li class> <dl> <dt> <dd> <h2 id class> <h3 id class> <h4 id class> <h5 id class> <h6 id class> <img src alt data-* class> <section class> <sup> <sub> <table id summary class> <caption> <tbody> <thead> <tfoot> <th colspan class id style> <td colspan rowspan class id style> <tr class id style> <colgroup> <col> <p class> <div class id> <iframe> <drupal-entity data-*> <drupal-url data-*> <hr> <br>'
       filter_html_help: true
@@ -65,37 +67,37 @@ filters:
     id: editor_file_reference
     provider: editor
     status: false
-    weight: -38
+    weight: -35
     settings: {  }
   entity_embed:
     id: entity_embed
     provider: entity_embed
     status: true
-    weight: -45
+    weight: -46
     settings: {  }
   filter_html_image_secure:
     id: filter_html_image_secure
     provider: filter
     status: false
-    weight: -35
+    weight: -34
     settings: {  }
   filter_html_escape:
     id: filter_html_escape
     provider: filter
     status: false
-    weight: -39
+    weight: -36
     settings: {  }
   filter_align:
     id: filter_align
     provider: filter
     status: true
-    weight: -37
+    weight: -39
     settings: {  }
   linkit:
     id: linkit
     provider: linkit
     status: true
-    weight: -36
+    weight: -38
     settings:
       title: true
   video_embed_wysiwyg:
@@ -108,7 +110,7 @@ filters:
     id: filter_htmlawed
     provider: htmlawed
     status: false
-    weight: -47
+    weight: -37
     settings:
       config: '''safe'' => 1, ''elements'' => ''a, br, em, strong, cite, blockquote, code, ul, ol, li, dl, dt, dd, h2, h3, h4, h5, h6, img, sup, sub, table, caption, tbody, thead, tfoot, th, td, tr,p, div, iframe, drupal-entity, hr, section'','
       spec: 'a=href, hreflang, id, rel, title, class, target, aria-controls, aria-expanded, aria-selected, role; td, tr=class, id, style; blockquote=cite; ul=type, class; ol=type, class, start; li=class; h2=id, class; h3=id, class; h4=id, class; h5=id, class; h6=id, class; img=src, alt, data-entity-type, data-entity-uuid; table=id, summary, class; th=class, style; td=class, style; tr=class; p=class; div=id,class; drupal-entity=data-*; section=class;'
@@ -118,7 +120,7 @@ filters:
     id: filter_wysiwyg_cleanup
     provider: wysiwyg_template_core
     status: false
-    weight: -34
+    weight: -33
     settings: {  }
   TypogrifyFilter:
     id: TypogrifyFilter
@@ -145,12 +147,25 @@ filters:
     id: url_embed_convert_links
     provider: url_embed
     status: false
-    weight: -33
+    weight: -32
     settings:
       url_prefix: ''
   url_embed:
     id: url_embed
     provider: url_embed
+    status: true
+    weight: -45
+    settings: {  }
+  markdown:
+    id: markdown
+    provider: markdown
+    status: false
+    weight: -31
+    settings:
+      markdown_library: php-markdown
+  paragraphs_entity_embed:
+    id: paragraphs_entity_embed
+    provider: paragraphs_entity_embed
     status: true
     weight: -44
     settings: {  }

@@ -22,26 +22,19 @@ dependencies:
   module:
     - ds
     - ds_chains
+    - empty_fields
     - text
     - user
 third_party_settings:
   ds:
     layout:
-      id: ds_1col
-      library: null
+      id: layout_onecol
+      library: layout_discovery/onecol
       disable_css: false
       entity_classes: all_classes
-      settings:
-        wrappers:
-          ds_content: div
-        outer_wrapper: div
-        attributes: ''
-        link_attribute: ''
-        link_custom: ''
-        classes:
-          layout_class: {  }
+      settings: {  }
     regions:
-      ds_content:
+      content:
         - node_title
         - 'bundle_field:node'
         - field_summary
@@ -124,10 +117,17 @@ content:
   field_summary:
     type: text_default
     weight: 2
-    region: ds_content
+    region: content
     label: hidden
     settings: {  }
-    third_party_settings: {  }
+    third_party_settings:
+      empty_fields:
+        handler: ''
+      ds:
+        ft:
+          id: reset
+          settings:
+            lb: ''
 hidden:
   content_moderation_control: true
   field_author: true

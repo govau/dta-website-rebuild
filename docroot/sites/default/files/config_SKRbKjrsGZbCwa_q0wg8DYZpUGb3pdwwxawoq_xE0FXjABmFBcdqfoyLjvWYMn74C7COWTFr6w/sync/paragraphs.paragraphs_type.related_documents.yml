@@ -1,0 +1,9 @@
+uuid: 6a4022bd-165b-4b0d-bc2e-4775626ba1ec
+langcode: en
+status: true
+dependencies: {  }
+id: related_documents
+label: 'Related documents'
+icon_uuid: null
+description: ''
+behavior_plugins: {  }

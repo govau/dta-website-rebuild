@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4241f58adbe29e569fd36f0a5e32b012",
+    "content-hash": "76f8b396c4470da3fc813fe4127b3e5c",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -3483,6 +3483,56 @@
             }
         },
         {
+            "name": "drupal/extlink",
+            "version": "dev-1.x",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/extlink",
+                "reference": "f63704f4ca4ab9a1474535b13e50e40b99197850"
+            },
+            "require": {
+                "drupal/core": "~8.0"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.1+22-dev",
+                    "datestamp": "1529537020",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Dev releases are not covered by Drupal security advisories."
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "elachlan",
+                    "homepage": "https://www.drupal.org/user/1021502"
+                },
+                {
+                    "name": "jjeff",
+                    "homepage": "https://www.drupal.org/user/17190"
+                },
+                {
+                    "name": "quicksketch",
+                    "homepage": "https://www.drupal.org/user/35821"
+                }
+            ],
+            "description": "Modify behavior and appearance of external links.",
+            "homepage": "https://www.drupal.org/project/extlink",
+            "support": {
+                "source": "http://cgit.drupalcode.org/extlink"
+            },
+            "time": "2018-07-16T22:35:32+00:00"
+        },
+        {
             "name": "drupal/facets",
             "version": "dev-1.x",
             "source": {
@@ -5464,6 +5514,71 @@
             "support": {
                 "source": "http://cgit.drupalcode.org/paragraphs"
             }
+        },
+        {
+            "name": "drupal/paragraphs_entity_embed",
+            "version": "dev-1.x",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/paragraphs_entity_embed",
+                "reference": "e8189e8b01869de0182c46e96bec905ea6678261"
+            },
+            "require": {
+                "drupal/core": "~8.0",
+                "drupal/embed": "*",
+                "drupal/entity_embed": "*",
+                "drupal/paragraphs": "*"
+            },
+            "require-dev": {
+                "drupal/embed": "^1.4",
+                "drupal/entity_embed": "^2.0",
+                "drupal/paragraphs": "^1.2"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.0-alpha4+1-dev",
+                    "datestamp": "1536679380",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Project has not opted into security advisory coverage!"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Nikolay Ignatov",
+                    "homepage": "https://www.drupal.org/user/1443204",
+                    "email": "nikolai.ignatov@gmail.com",
+                    "role": "Creator and Maintainer"
+                },
+                {
+                    "name": "Dobrin Dobrev",
+                    "homepage": "https://www.drupal.org/user/2803987",
+                    "email": "ddobrev81@gmail.com",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "Milka Petkova",
+                    "homepage": "https://www.drupal.org/user/417078",
+                    "email": "milka.petkova.88@gmail.com",
+                    "role": "Maintainer"
+                }
+            ],
+            "description": "Allows for paragraph entities to be embedded as items into the CKE editor.",
+            "homepage": "https://www.drupal.org/project/paragraphs_entity_embed",
+            "support": {
+                "source": "http://cgit.drupalcode.org/paragraphs_entity_embed",
+                "issues": "https://www.drupal.org/project/issues/paragraphs_entity_embed"
+            },
+            "time": "2018-09-13T20:18:03+00:00"
         },
         {
             "name": "drupal/password_policy",
@@ -7629,16 +7744,16 @@
         },
         {
             "name": "govau/dta-gov-au",
-            "version": "1.5.9-alpha2",
+            "version": "1.5.18",
             "source": {
                 "type": "git",
                 "url": "https://github.com/govau/dta-gov-au.git",
-                "reference": "e57a8e633d6ffdf86fa7466b3802d1a4e126b269"
+                "reference": "27529d535cb342b08b082a1acf881c3635414965"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/govau/dta-gov-au/zipball/e57a8e633d6ffdf86fa7466b3802d1a4e126b269",
-                "reference": "e57a8e633d6ffdf86fa7466b3802d1a4e126b269",
+                "url": "https://api.github.com/repos/govau/dta-gov-au/zipball/27529d535cb342b08b082a1acf881c3635414965",
+                "reference": "27529d535cb342b08b082a1acf881c3635414965",
                 "shasum": ""
             },
             "require": {
@@ -7656,7 +7771,7 @@
                 "government",
                 "theme"
             ],
-            "time": "2018-09-12T06:06:34+00:00"
+            "time": "2018-10-03T00:01:28+00:00"
         },
         {
             "name": "govau/dta-uikit-base",
@@ -14068,8 +14183,10 @@
     "stability-flags": {
         "drupal/ds": 20,
         "drupal/empty_fields": 20,
+        "drupal/extlink": 20,
         "drupal/facets": 20,
         "drupal/link_css": 20,
+        "drupal/paragraphs_entity_embed": 20,
         "drupal/react_comments": 20,
         "drupal/search_api_page": 20
     },

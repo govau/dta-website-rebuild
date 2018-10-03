@@ -69,7 +69,7 @@ display:
       style:
         type: html_list
         options:
-          row_class: 'col-xs-12 col-sm-6'
+          row_class: 'col-xs-12 col-sm-6 col-md-4'
           default_row_class: false
           uses_fields: false
           type: ul
@@ -286,6 +286,8 @@ display:
         cache: false
         use_ajax: false
         empty: false
+        style: false
+        row: false
       menu:
         type: normal
         title: 'News and blogs'
@@ -313,6 +315,22 @@ display:
             value: "<div role=\"alert\" class=\"au-page-alerts au-page-alerts--warning\">\n  <h3>Oh no!</h3>\n  <p>Your filters didn't return any results! <a href=\"/news-blogs\">Reset your filters</a>.</p>\n</div>"
             format: rich_text
           plugin_id: text
+      style:
+        type: html_list
+        options:
+          row_class: 'col-xs-12 col-sm-6'
+          default_row_class: false
+          uses_fields: false
+          type: ul
+          wrapper_class: au-body
+          class: 'au-card-list au-card-list--matchheight'
+      row:
+        type: search_api
+        options:
+          view_modes:
+            'entity:node':
+              blog_post: card
+              news_item: card
     cache_metadata:
       max-age: -1
       contexts:
