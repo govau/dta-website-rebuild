@@ -47,6 +47,6 @@ Deployment to cloud.gov.au is accomplished using Github pull requests and Circle
 
 Once the branch has passed its tests, you can merge to deploy the new code onto the [staging site](dta-website-rebuild-staging.apps.y.cld.gov.au).
 
-Make sure that the new configuration is imported on the staging site using the administration UI or use `drush cim -y` via the Cloud Foundry app (`cf run-task [APP NAME] "source bin/buildrc && drush cim -y"`) and then clear the site caches. Clearing the caches via the site UI is not recommended as it will cause a 503 error on cloud.gov.au. Instead use `cf run-task [APP NAME] "source bin/buildrc && drush cr"`.
+Make sure that the new configuration is imported on the staging site using the administration UI or use `drush cim -y` via the Cloud Foundry app (`cf run-task [APP NAME] "source scripts/buildrc && drush cim -y"`) and then clear the site caches. Clearing the caches via the site UI is not recommended as it will cause a 503 error on cloud.gov.au. Instead use `cf run-task [APP NAME] "source scripts/buildrc && drush cr"`.
 
 Once you are satisfied that the changes are working as expected, you can deploy to master using the same procedure. It is *strongly* recommended you export a copy of the beta database with the Backup and Migrate module (`Configuration -> Development -> Backup and migrate` then `Backup now`), just in case. When the tests are complete, merge the changes to deploy the site to the production environment. Import the configuration and clear the caches as described above (if necessary).
