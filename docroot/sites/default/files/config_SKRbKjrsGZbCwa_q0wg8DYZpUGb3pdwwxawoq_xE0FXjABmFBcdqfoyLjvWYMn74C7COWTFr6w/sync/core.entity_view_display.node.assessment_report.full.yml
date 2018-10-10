@@ -46,17 +46,17 @@ third_party_settings:
         - field_assessment_method
         - field_body
         - field_phase
-        - field_result_assessment
         - field_recommendations
-        - 'dynamic_block_field:node-assessment_against_the_digital_s'
+        - field_result_assessment
         - field_lead_assessor
+        - 'dynamic_block_field:node-assessment_against_the_digital_s'
         - field_service_manager
         - field_related_content
     fields:
       'dynamic_block_field:node-assessment_against_the_digital_s':
         plugin_id: 'dynamic_block_field:node-assessment_against_the_digital_s'
         weight: 7
-        label: above
+        label: hidden
         formatter: default
         ft:
           id: expert
@@ -117,9 +117,6 @@ targetEntityType: node
 bundle: assessment_report
 mode: full
 content:
-  content_moderation_control:
-    weight: -20
-    region: content
   field_agency:
     weight: 2
     label: inline
@@ -490,4 +487,5 @@ content:
     settings: {  }
     third_party_settings: {  }
 hidden:
+  content_moderation_control: true
   field_dss_assessment: true

@@ -62,7 +62,7 @@ display:
           default_row_class: false
           override: false
           sticky: false
-          caption: 'Assessment result for each criteria'
+          caption: ''
           summary: 'Summary of assessment results'
           description: 'This table displays the results of the assessment against the Digital Service Standard for each criterion.'
           columns:
@@ -213,9 +213,32 @@ display:
           plugin_id: bundle
       sorts: {  }
       title: 'DSS Assessment Results'
-      header: {  }
+      header:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: false
+          tokenize: false
+          content:
+            value: '<h2>Assessment against the Digital Service Standard</h2>'
+            format: rich_text
+          plugin_id: text
       footer: {  }
-      empty: {  }
+      empty:
+        title:
+          id: title
+          table: views
+          field: title
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: true
+          title: ''
+          plugin_id: title
       relationships:
         field_dss_assessment:
           id: field_dss_assessment

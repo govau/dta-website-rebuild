@@ -14,7 +14,7 @@ entity_type: node
 bundle: assessment_report
 label: 'Assessment against the Digital Service Standard'
 description: 'Select the result of the assessment against each criterion. The DTA or assessing agency assessed some services against the <em>beta</em> version of the DSS, so there is a maximum of 14 items.'
-required: true
+required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
@@ -28,4 +28,7 @@ settings:
       dss_criterion:
         enabled: true
         weight: 2
+      related_documents:
+        weight: 4
+        enabled: false
 field_type: entity_reference_revisions
