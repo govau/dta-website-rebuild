@@ -8,9 +8,14 @@ dependencies:
     - field.field.node.assessment_report.field_assessment_method
     - field.field.node.assessment_report.field_body
     - field.field.node.assessment_report.field_date
+    - field.field.node.assessment_report.field_dss_assessment
+    - field.field.node.assessment_report.field_introduction
     - field.field.node.assessment_report.field_lead_assessor
+    - field.field.node.assessment_report.field_pass_rationale
     - field.field.node.assessment_report.field_phase
+    - field.field.node.assessment_report.field_recommendations
     - field.field.node.assessment_report.field_related_content
+    - field.field.node.assessment_report.field_result_assessment
     - field.field.node.assessment_report.field_service_manager
     - node.type.assessment_report
   module:
@@ -23,9 +28,13 @@ content:
   content_moderation_control:
     weight: -20
     region: content
+    settings: {  }
+    third_party_settings: {  }
   links:
     weight: 100
     region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden:
   field_agency: true
   field_assessment_method: true
