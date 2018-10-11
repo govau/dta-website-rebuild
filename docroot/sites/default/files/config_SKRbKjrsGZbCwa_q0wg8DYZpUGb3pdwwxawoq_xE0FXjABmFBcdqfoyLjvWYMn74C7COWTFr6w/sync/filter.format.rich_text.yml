@@ -45,7 +45,7 @@ filters:
     status: true
     weight: -47
     settings:
-      allowed_html: '<a href hreflang id rel title class target aria-controls aria-expanded aria-selected role> <em> <strong> <cite> <blockquote cite> <code> <ul type start class> <ol start type class> <li class> <dl> <dt> <dd> <h2 id class> <h3 id class> <h4 id class> <h5 id class> <h6 id class> <img src alt data-* class> <section class> <sup> <sub> <table id summary class> <caption> <tbody> <thead> <tfoot> <th colspan class id style> <td colspan rowspan class id style> <tr class id style> <colgroup> <col> <p class> <div class id> <iframe> <drupal-entity data-*> <drupal-url data-*> <hr> <br> <figure> <figcaption'
+      allowed_html: '<a href hreflang id rel title class target aria-controls aria-expanded aria-selected role> <em> <strong> <cite> <blockquote cite> <code> <ul type start class> <ol start type class> <li class> <dl> <dt> <dd> <h2 id class> <h3 id class> <h4 id class> <h5 id class> <h6 id class> <img src alt data-* class> <section class> <sup> <sub> <table id summary class> <caption> <tbody> <thead> <tfoot> <th colspan class id style> <td colspan rowspan class id style> <tr class id style> <colgroup> <col> <p class> <div class id> <iframe> <drupal-entity data-*> <drupal-url data-*> <hr> <br> <figure> <figcaption>'
       filter_html_help: true
       filter_html_nofollow: false
   filter_caption:

@@ -6,6 +6,7 @@ dependencies:
     - core.entity_view_mode.node.teaser
     - field.field.node.blog_post.field_author
     - field.field.node.blog_post.field_body
+    - field.field.node.blog_post.field_comments
     - field.field.node.blog_post.field_date
     - field.field.node.blog_post.field_facebook_image
     - field.field.node.blog_post.field_image
@@ -94,6 +95,7 @@ content:
 hidden:
   field_author: true
   field_body: true
+  field_comments: true
   field_date: true
   field_facebook_image: true
   field_image: true
