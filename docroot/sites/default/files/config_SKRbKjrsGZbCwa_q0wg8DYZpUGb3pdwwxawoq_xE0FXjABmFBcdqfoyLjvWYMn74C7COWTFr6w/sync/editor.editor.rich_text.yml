@@ -62,7 +62,6 @@ settings:
             - node
             - block
             - tweet
-            - paragraphs
         -
           name: Templates
           items:
