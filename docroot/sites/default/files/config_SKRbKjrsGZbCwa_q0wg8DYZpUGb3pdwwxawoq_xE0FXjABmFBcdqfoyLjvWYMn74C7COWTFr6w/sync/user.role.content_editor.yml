@@ -135,6 +135,7 @@ permissions:
   - 'use text format commenting'
   - 'use text format introduction'
   - 'use text format rich_text'
+  - 'use text format summary'
   - 'view all revisions'
   - 'view any unpublished content'
   - 'view assessment_report revisions'

@@ -1,0 +1,73 @@
+uuid: d1eff253-4939-4a4d-9b76-7e92eaca0f87
+langcode: en
+status: true
+dependencies:
+  module:
+    - htmlawed
+    - toc_filter
+    - typogrify
+name: Summary
+format: summary
+weight: 0
+filters:
+  filter_autop:
+    id: filter_autop
+    provider: filter
+    status: true
+    weight: 0
+    settings: {  }
+  filter_html:
+    id: filter_html
+    provider: filter
+    status: true
+    weight: -10
+    settings:
+      allowed_html: '<em> <strong> <ul type> <ol start type> <li>'
+      filter_html_help: true
+      filter_html_nofollow: false
+  filter_htmlcorrector:
+    id: filter_htmlcorrector
+    provider: filter
+    status: true
+    weight: 10
+    settings: {  }
+  filter_htmlawed:
+    id: filter_htmlawed
+    provider: htmlawed
+    status: false
+    weight: 50
+    settings:
+      config: '''safe'' => 1, ''elements'' => ''a, em, strong, cite, code, ol, ul, li, dl, dt, dd, br, p'', ''deny_attribute'' => ''id, style'''
+      spec: ''
+      help: 'Allowed HTML tags: <a>, <em>, <strong>, <cite>, <code>, <ol>, <ul>, <li>, <dl>, <dt>, <dd>, <br>, <p>'
+      helplong: 'These HTML tags are allowed: <a>, <em>, <strong>, <cite>, <code>, <ol>, <ul>, <li>, <dl>, <dt>, <dd>, <br>, <p>. Javascript and the ''id'' and ''style'' HTML attributes are not permitted.'
+  toc_filter:
+    id: toc_filter
+    provider: toc_filter
+    status: false
+    weight: 0
+    settings:
+      type: default
+      auto: ''
+      block: '0'
+  TypogrifyFilter:
+    id: TypogrifyFilter
+    provider: typogrify
+    status: false
+    weight: 10
+    settings:
+      smartypants_enabled: '1'
+      smartypants_hyphens: '3'
+      space_hyphens: '0'
+      widont_enabled: '1'
+      hyphenate_shy: '0'
+      space_to_nbsp: '1'
+      wrap_caps: '1'
+      wrap_ampersand: '1'
+      wrap_abbr: '0'
+      wrap_numbers: '0'
+      wrap_initial_quotes: '1'
+      ligatures: 'a:0:{}'
+      arrows: 'a:0:{}'
+      fractions: 'a:0:{}'
+      quotes: 'a:0:{}'

@@ -6,7 +6,17 @@ dependencies:
     - field.storage.node.field_body
     - node.type.page
   module:
+    - allowed_formats
     - text
+third_party_settings:
+  allowed_formats:
+    rich_text: rich_text
+    commenting: '0'
+    administration: '0'
+    html: '0'
+    introduction: '0'
+    plain_text: '0'
+    summary: '0'
 id: node.page.field_body
 field_name: field_body
 entity_type: node
