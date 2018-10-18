@@ -79,7 +79,7 @@
         }
     ],
     "require": {
-        "php": "~7.1.0",
+        "php": ">=7.1.0",
         "chi-teck/drupal-code-generator": "1.25.1",
         "ckeditor/tabletoolstoolbar": "0.0.1",
         "cweagans/composer-patches": "1.6.4",
@@ -96,7 +96,7 @@
         "drupal/ckeditor_tabletoolstoolbar": "1.0",
         "drupal/composer_deploy": "1.2",
         "drupal/config_split": "1.2",
-        "drupal/core": "8.6.1",
+        "drupal/core": "8.6.2",
         "drupal/devel": "1.2",
         "drupal/ds": "3.1",
         "drupal/ds_chains": "1.0-beta2",
