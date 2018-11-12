@@ -1,0 +1,23 @@
+uuid: c839ff1a-1b29-4132-b4fd-1d915918aed9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_goal_achieved
+    - node.type.roadmap_2_user_experience_
+id: node.roadmap_2_user_experience_.field_goal_achieved
+field_name: field_goal_achieved
+entity_type: node
+bundle: roadmap_2_user_experience_
+label: 'Goal achieved'
+description: 'Has the delivery goal been achieved?'
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

@@ -1,0 +1,22 @@
+uuid: 920ddf02-d633-4d83-bcd6-cb44201ecbc3
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.roadmap_2_user_experience_.field_body
+    - node.type.roadmap_2_user_experience_
+  module:
+    - user
+id: node.roadmap_2_user_experience_.teaser
+targetEntityType: node
+bundle: roadmap_2_user_experience_
+mode: teaser
+content:
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_body: true

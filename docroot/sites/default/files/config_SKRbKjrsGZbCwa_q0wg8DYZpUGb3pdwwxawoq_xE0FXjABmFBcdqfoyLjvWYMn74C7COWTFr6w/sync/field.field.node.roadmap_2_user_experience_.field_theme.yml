@@ -1,0 +1,29 @@
+uuid: 172c962e-9b60-4447-af7f-bea26aeef65a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_theme
+    - node.type.roadmap_2_user_experience_
+    - taxonomy.vocabulary.roadmap_2_themes
+id: node.roadmap_2_user_experience_.field_theme
+field_name: field_theme
+entity_type: node
+bundle: roadmap_2_user_experience_
+label: Theme
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      roadmap_2_themes: roadmap_2_themes
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

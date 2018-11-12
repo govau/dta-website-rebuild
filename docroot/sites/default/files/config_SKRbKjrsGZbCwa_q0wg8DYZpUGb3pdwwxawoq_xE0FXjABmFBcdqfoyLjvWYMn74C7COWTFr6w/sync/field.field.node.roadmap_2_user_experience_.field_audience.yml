@@ -1,0 +1,21 @@
+uuid: b5b340a4-0ea6-45cf-b3ae-efeaaaa7e660
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_audience
+    - node.type.roadmap_2_user_experience_
+  module:
+    - options
+id: node.roadmap_2_user_experience_.field_audience
+field_name: field_audience
+entity_type: node
+bundle: roadmap_2_user_experience_
+label: Audience
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

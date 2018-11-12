@@ -1,0 +1,30 @@
+uuid: f6e479c6-6854-496f-94e7-a3fa78215f00
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_body
+    - node.type.roadmap_2_user_experience_
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    rich_text: rich_text
+    commenting: '0'
+    administration: '0'
+    html: '0'
+    introduction: '0'
+    plain_text: '0'
+id: node.roadmap_2_user_experience_.field_body
+field_name: field_body
+entity_type: node
+bundle: roadmap_2_user_experience_
+label: 'Delivery goal'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

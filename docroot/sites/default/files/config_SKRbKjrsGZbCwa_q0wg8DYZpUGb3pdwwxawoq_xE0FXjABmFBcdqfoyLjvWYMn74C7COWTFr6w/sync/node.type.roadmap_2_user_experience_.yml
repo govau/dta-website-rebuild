@@ -1,0 +1,23 @@
+uuid: 2116839e-9199-46c4-ad4d-93887dee886e
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+    - node_title_help_text
+    - wysiwyg_template
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+  node_title_help_text:
+    title_help: 'This is the ''title'' of the user experience and will be the main text displayed on the card.'
+  wysiwyg_template:
+    default_template: ''
+name: 'Roadmap 2 user experience'
+type: roadmap_2_user_experience_
+description: ''
+help: ''
+new_revision: true
+preview_mode: 0
+display_submitted: false

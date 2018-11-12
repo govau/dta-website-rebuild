@@ -1,0 +1,29 @@
+uuid: 402c2952-9808-457c-b690-c1d964ba5bfe
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_planned_delivery
+    - node.type.roadmap_2_user_experience_
+    - taxonomy.vocabulary.financial_years
+id: node.roadmap_2_user_experience_.field_planned_delivery
+field_name: field_planned_delivery
+entity_type: node
+bundle: roadmap_2_user_experience_
+label: 'Planned delivery'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      financial_years: financial_years
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
