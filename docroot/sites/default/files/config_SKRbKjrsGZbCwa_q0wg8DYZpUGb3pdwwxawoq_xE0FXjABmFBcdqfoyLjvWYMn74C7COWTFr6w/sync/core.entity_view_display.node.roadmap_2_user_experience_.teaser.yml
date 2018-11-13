@@ -19,4 +19,9 @@ content:
     third_party_settings: {  }
     region: content
 hidden:
+  field_audience: true
   field_body: true
+  field_goal_achieved: true
+  field_planned_delivery: true
+  field_theme: true
+  field_weight: true
