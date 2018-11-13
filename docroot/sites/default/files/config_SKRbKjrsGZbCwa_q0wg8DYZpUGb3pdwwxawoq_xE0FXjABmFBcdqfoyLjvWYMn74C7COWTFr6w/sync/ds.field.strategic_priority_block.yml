@@ -1,0 +1,19 @@
+id: strategic_priority_block
+label: 'Strategic priority'
+ui_limit: book|full
+properties:
+  block: 'views_block:strategic_priorities-block_1'
+  use_block_title: false
+  config:
+    id: 'views_block:strategic_priorities-block_1'
+    label: ''
+    provider: views
+    label_display: visible
+    views_label: ''
+    items_per_page: none
+    context_mapping:
+      nid: '@node.node_route_context:node'
+type: block
+type_label: 'Block field'
+entities:
+  node: node

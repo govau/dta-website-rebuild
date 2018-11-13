@@ -1,0 +1,30 @@
+uuid: ff4e89bd-02c0-4cce-b3f4-1bdcde44d591
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.roadmap_2_themes.field_alternative_name
+    - taxonomy.vocabulary.roadmap_2_themes
+  module:
+    - text
+id: taxonomy_term.roadmap_2_themes.default
+targetEntityType: taxonomy_term
+bundle: roadmap_2_themes
+mode: default
+content:
+  description:
+    label: hidden
+    type: text_default
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_alternative_name:
+    weight: 1
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden: {  }

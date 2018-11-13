@@ -1,0 +1,29 @@
+uuid: 16e3a0f5-9817-4ef3-9476-3c8272b97940
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_theme
+    - node.type.book
+    - taxonomy.vocabulary.roadmap_2_themes
+id: node.book.field_theme
+field_name: field_theme
+entity_type: node
+bundle: book
+label: Theme
+description: 'Select the theme which may apply to this book page. This will add a coloured bar and the <strong>alternative name</strong> to the top of the page.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      roadmap_2_themes: roadmap_2_themes
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
