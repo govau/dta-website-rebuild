@@ -3,11 +3,34 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.book.body
+    - field.field.node.book.field_body
+    - field.field.node.book.field_image
+    - field.field.node.book.field_image_caption
+    - field.field.node.book.field_introduction
+    - field.field.node.book.field_related_content
+    - field.field.node.book.field_summary
+    - field.field.node.book.field_theme
     - node.type.book
   module:
+    - ds
+    - ds_chains
+    - image
     - text
     - user
+third_party_settings:
+  ds:
+    layout:
+      id: layout_onecol
+      library: layout_discovery/onecol
+      disable_css: false
+      entity_classes: all_classes
+      settings: {  }
+    regions:
+      content:
+        - body
+        - links
+  ds_chains:
+    fields: {  }
 _core:
   default_config_hash: UWTnZUj-u-jp8I_S1C1nUCTlM5iIV2QKdxm37ehFjoI
 id: node.book.default
@@ -15,14 +38,63 @@ targetEntityType: node
 bundle: book
 mode: default
 content:
-  body:
-    label: hidden
+  field_body:
+    weight: 3
+    label: above
+    settings: {  }
+    third_party_settings: {  }
     type: text_default
-    weight: 100
+    region: content
+  field_image:
+    weight: 6
+    label: above
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  field_image_caption:
+    weight: 7
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_introduction:
+    weight: 4
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_related_content:
+    weight: 5
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_summary:
+    weight: 2
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_theme:
+    weight: 8
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  links:
+    weight: 1
     region: content
     settings: {  }
     third_party_settings: {  }
-  links:
-    weight: 101
-    region: content
 hidden: {  }
