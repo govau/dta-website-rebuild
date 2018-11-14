@@ -1,0 +1,18 @@
+uuid: 149b21ac-f400-463c-8943-3bff329d8047
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.roadmap_2_user_experience_
+id: node.roadmap_2_user_experience_.title
+field_name: title
+entity_type: node
+bundle: roadmap_2_user_experience_
+label: 'Experience change'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

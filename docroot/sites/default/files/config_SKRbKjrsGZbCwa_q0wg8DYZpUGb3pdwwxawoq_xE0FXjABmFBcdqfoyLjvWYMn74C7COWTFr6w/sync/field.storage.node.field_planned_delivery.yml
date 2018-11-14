@@ -1,0 +1,20 @@
+uuid: 4739e638-58d7-45ea-9248-7260df4bbb98
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - taxonomy
+id: node.field_planned_delivery
+field_name: field_planned_delivery
+entity_type: node
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

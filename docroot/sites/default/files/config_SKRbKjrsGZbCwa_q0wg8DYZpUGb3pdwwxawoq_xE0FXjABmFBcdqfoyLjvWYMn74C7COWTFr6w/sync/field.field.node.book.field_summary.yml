@@ -1,0 +1,31 @@
+uuid: 621eca3f-5a5e-437a-a72d-9a5c5775b1d4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_summary
+    - node.type.book
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    summary: summary
+    commenting: '0'
+    rich_text: '0'
+    administration: '0'
+    html: '0'
+    introduction: '0'
+    plain_text: '0'
+id: node.book.field_summary
+field_name: field_summary
+entity_type: node
+bundle: book
+label: Summary
+description: 'The summary is displayed on search listings and page listings.'
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

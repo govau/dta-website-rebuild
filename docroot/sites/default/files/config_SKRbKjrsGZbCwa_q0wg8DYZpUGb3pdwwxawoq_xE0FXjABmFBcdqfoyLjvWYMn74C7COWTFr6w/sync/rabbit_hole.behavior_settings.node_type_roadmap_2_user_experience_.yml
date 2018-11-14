@@ -1,0 +1,9 @@
+uuid: c33b6bbe-a8e2-4fa6-a0a0-9edf7f8d8f6f
+langcode: en
+status: true
+dependencies: {  }
+id: node_type_roadmap_2_user_experience_
+action: display_page
+allow_override: 1
+redirect: ''
+redirect_code: 301

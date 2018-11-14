@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   module:
+    - ctools
     - system
   theme:
     - dta_gov_au
@@ -25,3 +26,10 @@ visibility:
     pages: "/our-projects/digital-transformation-roadmaps/roadmap-for-individuals\r\n/our-projects/digital-transformation-roadmaps/roadmap-for-business-users"
     negate: true
     context_mapping: {  }
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    bundles:
+      book: book
+    negate: true
+    context_mapping:
+      node: '@node.node_route_context:node'

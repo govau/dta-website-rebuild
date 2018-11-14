@@ -1,6 +1,6 @@
 id: related_links_block
 label: 'Related links block'
-ui_limit: "landing_page|full\r\nlanding_page_level_2|full\r\npage|full"
+ui_limit: "landing_page|full\r\nlanding_page_level_2|full\r\npage|full\r\nbook|full"
 properties:
   block: 'views_block:related_links-related_links_block_1'
   use_block_title: false
