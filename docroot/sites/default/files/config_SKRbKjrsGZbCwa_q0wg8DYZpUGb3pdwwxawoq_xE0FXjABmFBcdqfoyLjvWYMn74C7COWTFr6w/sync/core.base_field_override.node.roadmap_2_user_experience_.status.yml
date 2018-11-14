@@ -1,0 +1,22 @@
+uuid: 2e349021-4fda-4cee-9134-8bb1a0ee4eab
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.roadmap_2_user_experience_
+id: node.roadmap_2_user_experience_.status
+field_name: status
+entity_type: node
+bundle: roadmap_2_user_experience_
+label: Published
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

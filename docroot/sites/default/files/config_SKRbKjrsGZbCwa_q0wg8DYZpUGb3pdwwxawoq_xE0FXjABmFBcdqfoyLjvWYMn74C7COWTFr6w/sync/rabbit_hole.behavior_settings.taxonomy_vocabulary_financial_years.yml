@@ -1,0 +1,9 @@
+uuid: 3dfdf04d-4a10-4d80-a506-a2d93efe1bb4
+langcode: en
+status: true
+dependencies: {  }
+id: taxonomy_vocabulary_financial_years
+action: display_page
+allow_override: 1
+redirect: ''
+redirect_code: 301

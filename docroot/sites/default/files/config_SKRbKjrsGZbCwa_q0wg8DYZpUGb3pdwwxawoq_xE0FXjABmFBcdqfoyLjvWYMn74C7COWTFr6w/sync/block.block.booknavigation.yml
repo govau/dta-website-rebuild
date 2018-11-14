@@ -1,0 +1,37 @@
+uuid: ff049130-d2e2-45d4-a407-b9ec4675e5bb
+langcode: en
+status: true
+dependencies:
+  module:
+    - book
+    - ctools
+    - node
+  theme:
+    - dta_gov_au
+id: booknavigation
+theme: dta_gov_au
+region: disabled
+weight: -10
+provider: null
+plugin: book_navigation
+settings:
+  id: book_navigation
+  label: 'Book navigation'
+  provider: book
+  label_display: visible
+  block_mode: 'book pages'
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    bundles:
+      book: book
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+  node_type:
+    id: node_type
+    bundles:
+      book: book
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'

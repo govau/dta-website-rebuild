@@ -1,0 +1,24 @@
+uuid: 8c44f05d-95eb-4bb9-9c96-f40d49b2f511
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_weight
+    - node.type.roadmap_2_user_experience_
+  module:
+    - weight
+id: node.roadmap_2_user_experience_.field_weight
+field_name: field_weight
+entity_type: node
+bundle: roadmap_2_user_experience_
+label: Weighting
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: '0'
+default_value_callback: ''
+settings:
+  range: '20'
+field_type: weight

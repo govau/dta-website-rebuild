@@ -1,0 +1,68 @@
+uuid: ed01fa5d-979b-4dd7-9408-af27a63c336a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.roadmap_2_user_experience_.field_audience
+    - field.field.node.roadmap_2_user_experience_.field_body
+    - field.field.node.roadmap_2_user_experience_.field_goal_achieved
+    - field.field.node.roadmap_2_user_experience_.field_planned_delivery
+    - field.field.node.roadmap_2_user_experience_.field_theme
+    - field.field.node.roadmap_2_user_experience_.field_weight
+    - node.type.roadmap_2_user_experience_
+  module:
+    - options
+    - text
+    - user
+id: node.roadmap_2_user_experience_.default
+targetEntityType: node
+bundle: roadmap_2_user_experience_
+mode: default
+content:
+  field_audience:
+    weight: 106
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+  field_body:
+    weight: 102
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_goal_achieved:
+    weight: 103
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_planned_delivery:
+    weight: 104
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_theme:
+    weight: 105
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_weight: true

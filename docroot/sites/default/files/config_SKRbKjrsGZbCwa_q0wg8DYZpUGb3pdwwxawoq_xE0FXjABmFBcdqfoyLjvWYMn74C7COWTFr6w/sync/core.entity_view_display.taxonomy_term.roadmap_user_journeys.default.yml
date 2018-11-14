@@ -1,0 +1,53 @@
+uuid: 5a8b61d5-a5ac-4d46-aeb5-725b361cdd55
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.roadmap_user_journeys
+  module:
+    - ds
+    - empty_fields
+    - text
+id: taxonomy_term.roadmap_user_journeys.default
+targetEntityType: taxonomy_term
+bundle: roadmap_user_journeys
+mode: default
+content:
+  description:
+    label: hidden
+    type: text_default
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings:
+      empty_fields:
+        handler: ''
+      ds:
+        ft:
+          id: expert
+          settings:
+            lb: ''
+            prefix: 'heee '
+            lbw-el: ''
+            lbw-cl: ''
+            lbw-at: ''
+            ow-el: ''
+            ow-cl: ''
+            ow-at: ''
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fi-el: ''
+            fi-cl: ''
+            fi-at: ''
+            suffix: ''
+            lbw: false
+            lb-col: false
+            ow: false
+            ow-def-at: false
+            ow-def-cl: false
+            fis: false
+            fis-def-at: false
+            fi: false
+            fi-def-at: false
+hidden: {  }
