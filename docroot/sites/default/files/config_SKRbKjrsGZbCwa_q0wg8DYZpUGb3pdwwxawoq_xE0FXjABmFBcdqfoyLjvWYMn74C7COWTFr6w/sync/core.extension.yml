@@ -34,8 +34,6 @@ module:
   datetime: 0
   datetime_range: 0
   dblog: 0
-  devel: 0
-  devel_generate: 0
   ds_chains: 0
   editor: 0
   editor_advanced_link: 0

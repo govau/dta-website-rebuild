@@ -5,6 +5,7 @@ dependencies:
   config:
     - node.type.assessment_report
     - node.type.blog_post
+    - node.type.book
     - node.type.external_link
     - node.type.govcms_event
     - node.type.home_page
@@ -89,6 +90,7 @@ type_settings:
     node:
       - assessment_report
       - blog_post
+      - book
       - external_link
       - govcms_event
       - home_page

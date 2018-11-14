@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "dbfd0a172464ea5629c9332763cd1c9b",
+    "content-hash": "8e24dbd1c36fc9733699e56bf70eefa0",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -60,16 +60,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.71.3",
+            "version": "3.71.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "fa7f498cb41c7eb47e952355b8be2061816a9a60"
+                "reference": "18f0f1c2224610b473c80690f0df0bac116da957"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/fa7f498cb41c7eb47e952355b8be2061816a9a60",
-                "reference": "fa7f498cb41c7eb47e952355b8be2061816a9a60",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/18f0f1c2224610b473c80690f0df0bac116da957",
+                "reference": "18f0f1c2224610b473c80690f0df0bac116da957",
                 "shasum": ""
             },
             "require": {
@@ -139,7 +139,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2018-11-09T21:57:53+00:00"
+            "time": "2018-11-12T22:58:19+00:00"
         },
         {
             "name": "chi-teck/drupal-code-generator",
@@ -5601,7 +5601,7 @@
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
             "license": [
-                "GPL-2.0+"
+                "GPL-2.0-or-later"
             ],
             "authors": [
                 {
@@ -7759,16 +7759,16 @@
         },
         {
             "name": "govau/dta-gov-au",
-            "version": "1.6.0",
+            "version": "1.6.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/govau/dta-gov-au.git",
-                "reference": "67ff76fc4341fd58a6b600f9efdb17cd25c68253"
+                "reference": "54367a4adf3da17eb0f1561e3d2cafb206a4a2eb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/govau/dta-gov-au/zipball/67ff76fc4341fd58a6b600f9efdb17cd25c68253",
-                "reference": "67ff76fc4341fd58a6b600f9efdb17cd25c68253",
+                "url": "https://api.github.com/repos/govau/dta-gov-au/zipball/54367a4adf3da17eb0f1561e3d2cafb206a4a2eb",
+                "reference": "54367a4adf3da17eb0f1561e3d2cafb206a4a2eb",
                 "shasum": ""
             },
             "require": {
@@ -7786,7 +7786,7 @@
                 "government",
                 "theme"
             ],
-            "time": "2018-11-12T23:51:55+00:00"
+            "time": "2018-11-14T04:53:08+00:00"
         },
         {
             "name": "govau/dta-uikit-base",

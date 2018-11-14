@@ -199,7 +199,7 @@ content:
     type: string
     weight: 23
     region: content
-    label: inline
+    label: hidden
     settings:
       link_to_entity: false
     third_party_settings:
@@ -271,6 +271,7 @@ content:
             fis-def-at: false
             fi-def-at: false
 hidden:
+  content_moderation_control: true
   field_related_content: true
   field_summary: true
   field_theme: true
