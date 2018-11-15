@@ -1,9 +1,9 @@
-uuid: 9562edae-2b3a-4087-93d0-919c1a83e4b2
+uuid: 764a4f40-aa52-4eb9-b4ad-a22cd6c848ab
 langcode: en
 status: true
 dependencies:
   content:
-    - 'block_content:script:8a7d111d-8226-4c91-b5dc-d1c2cd725f60'
+    - 'block_content:script:74c07265-788d-4db0-8bcf-e9681296b452'
   module:
     - block_content
   theme:
@@ -13,9 +13,9 @@ theme: dta_gov_au
 region: disabled
 weight: 0
 provider: null
-plugin: 'block_content:8a7d111d-8226-4c91-b5dc-d1c2cd725f60'
+plugin: 'block_content:74c07265-788d-4db0-8bcf-e9681296b452'
 settings:
-  id: 'block_content:8a7d111d-8226-4c91-b5dc-d1c2cd725f60'
+  id: 'block_content:74c07265-788d-4db0-8bcf-e9681296b452'
   label: 'DTS Landing Page content'
   provider: block_content
   label_display: '0'

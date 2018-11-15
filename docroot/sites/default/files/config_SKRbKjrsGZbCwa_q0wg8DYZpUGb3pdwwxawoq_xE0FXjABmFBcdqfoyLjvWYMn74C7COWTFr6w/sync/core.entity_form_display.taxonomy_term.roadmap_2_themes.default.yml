@@ -3,11 +3,13 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.taxonomy_term.roadmap_2_themes.field_agency_website
     - field.field.taxonomy_term.roadmap_2_themes.field_alternative_name
     - taxonomy.vocabulary.roadmap_2_themes
   module:
     - field_layout
     - layout_discovery
+    - link
     - path
     - text
 third_party_settings:
@@ -27,6 +29,14 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  field_agency_website:
+    weight: 32
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
   field_alternative_name:
     weight: 31
     settings:
