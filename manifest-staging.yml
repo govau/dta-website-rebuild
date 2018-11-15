@@ -10,6 +10,8 @@ applications:
   - dta-website-rebuild-staging-db
   - dta-website-rebuild-staging-aws-ups
   - ups-website-redev
+  routes: 
+    - route: dta-website-beta.staging.digital.gov.au
   buildpack: php_buildpack
   env:
     DRUPAL_UUID: "59f85df3-5f18-45dd-bf6a-40977b57a842"

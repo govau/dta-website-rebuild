@@ -7,6 +7,7 @@ dependencies:
     - field.field.node.book.field_image
     - field.field.node.book.field_image_caption
     - field.field.node.book.field_introduction
+    - field.field.node.book.field_menu_card_display
     - field.field.node.book.field_related_content
     - field.field.node.book.field_summary
     - field.field.node.book.field_theme
@@ -70,6 +71,13 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: text_textarea
+    region: content
+  field_menu_card_display:
+    weight: 26
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
     region: content
   field_related_content:
     weight: 15
