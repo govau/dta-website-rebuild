@@ -1,0 +1,23 @@
+uuid: 6255bd1f-c8ec-4e61-8be4-e7d69386b1e1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_agency_website
+    - taxonomy.vocabulary.roadmap_2_themes
+  module:
+    - link
+id: taxonomy_term.roadmap_2_themes.field_agency_website
+field_name: field_agency_website
+entity_type: taxonomy_term
+bundle: roadmap_2_themes
+label: Destination
+description: 'Select the destination this term will point to.'
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 1
+  title: 0
+field_type: link
