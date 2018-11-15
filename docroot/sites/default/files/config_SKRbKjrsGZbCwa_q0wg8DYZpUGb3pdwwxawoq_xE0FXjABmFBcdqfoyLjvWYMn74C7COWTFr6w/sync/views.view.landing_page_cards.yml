@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.card
+    - node.type.book
     - node.type.govcms_event
     - node.type.landing_page
     - node.type.landing_page_level_2
@@ -133,6 +134,7 @@ display:
           admin_label: ''
           operator: in
           value:
+            book: book
             govcms_event: govcms_event
             landing_page_level_2: landing_page_level_2
             landing_page: landing_page
@@ -178,6 +180,8 @@ display:
           admin_label: ''
           operator: in
           value:
+            editorial-draft: editorial-draft
+            editorial-needs_review: editorial-needs_review
             editorial-published: editorial-published
           group: 1
           exposed: false

@@ -23,7 +23,7 @@ entity_type: node
 bundle: book
 label: Introduction
 description: 'The introduction text is placed after the title and before the hero image. It has a different style from body content.'
-required: true
+required: false
 translatable: true
 default_value: {  }
 default_value_callback: ''

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8e24dbd1c36fc9733699e56bf70eefa0",
+    "content-hash": "722118c463dc15ddc539fc233e818393",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2673,7 +2673,8 @@
                 },
                 "patches_applied": {
                     "Cannot use relationship for rendered entity on Views": "https://www.drupal.org/files/issues/2457999-164.patch",
-                    "Views RSS feeds have validation issues": "https://www.drupal.org/files/issues/d8-rss-validation-atom-link-missing-1337894-25.patch"
+                    "Views RSS feeds have validation issues": "https://www.drupal.org/files/issues/d8-rss-validation-atom-link-missing-1337894-25.patch",
+                    "Allow users with access to unpublished nodes to create unpublished books": "https://www.drupal.org/files/issues/26552-133.patch"
                 }
             },
             "autoload": {
