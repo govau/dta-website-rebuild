@@ -62,6 +62,7 @@ settings:
             - node
             - block
             - tweet
+            - view_block
         -
           name: Templates
           items:

@@ -28,7 +28,7 @@ filters:
   filter_htmlcorrector:
     id: filter_htmlcorrector
     provider: filter
-    status: true
+    status: false
     weight: -48
     settings: {  }
   filter_url:
@@ -41,7 +41,7 @@ filters:
   filter_html:
     id: filter_html
     provider: filter
-    status: true
+    status: false
     weight: -47
     settings:
       allowed_html: '<a href hreflang id rel title class target aria-controls aria-expanded aria-selected role> <em> <strong> <cite> <blockquote cite> <code> <ul type start class> <ol start type class> <li class> <dl> <dt> <dd> <h2 id class> <h3 id class> <h4 id class> <h5 id class> <h6 id class> <img src alt data-* class> <section class> <sup> <sub> <table id summary class> <caption> <tbody> <thead> <tfoot> <th colspan class id style> <td colspan rowspan class id style> <tr class id style> <colgroup> <col> <p class> <div class id> <iframe> <drupal-entity data-*> <drupal-url data-*> <hr> <br> <figure> <figcaption>'
@@ -130,14 +130,14 @@ filters:
       smartypants_enabled: '1'
       smartypants_hyphens: '3'
       space_hyphens: '0'
-      wrap_ampersand: '0'
       widont_enabled: '0'
-      space_to_nbsp: '0'
       hyphenate_shy: '0'
-      wrap_abbr: '0'
+      space_to_nbsp: '0'
       wrap_caps: '0'
-      wrap_initial_quotes: '1'
+      wrap_ampersand: '0'
+      wrap_abbr: '0'
       wrap_numbers: '0'
+      wrap_initial_quotes: '1'
       ligatures: 'a:0:{}'
       arrows: 'a:0:{}'
       fractions: 'a:0:{}'
