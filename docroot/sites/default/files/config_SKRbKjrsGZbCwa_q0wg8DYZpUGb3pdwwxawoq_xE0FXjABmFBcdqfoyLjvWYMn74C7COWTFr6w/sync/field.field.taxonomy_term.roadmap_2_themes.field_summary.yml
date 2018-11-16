@@ -1,0 +1,31 @@
+uuid: 2def8cd0-22f0-4ee2-9c74-a7a66d6d2bd3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_summary
+    - taxonomy.vocabulary.roadmap_2_themes
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    summary: summary
+    commenting: '0'
+    rich_text: '0'
+    administration: '0'
+    html: '0'
+    introduction: '0'
+    plain_text: '0'
+id: taxonomy_term.roadmap_2_themes.field_summary
+field_name: field_summary
+entity_type: taxonomy_term
+bundle: roadmap_2_themes
+label: Summary
+description: 'Enter a summary for this theme. Generally this is in the form of dot points.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long
