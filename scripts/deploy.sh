@@ -40,7 +40,7 @@ main() {
 
   case "${GIT_BRANCH}" in
     master)
-      cf zero-downtime-push dta-website-rebuild -f manifest-beta.yml
+      cf zero-downtime-push dta-website-rebuild -f manifest-prod.yml
       ;;
     develop)
       cf zero-downtime-push dta-website-rebuild-staging -f manifest-staging.yml

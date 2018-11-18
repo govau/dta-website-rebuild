@@ -12,8 +12,8 @@ field_name: field_audience
 entity_type: node
 bundle: roadmap_2_user_experience_
 label: Audience
-description: ''
-required: false
+description: 'Select the audience for this roadmap item. Selecting ''people and business'' will cause the item to appear at the top of the list spanning both columns.'
+required: true
 translatable: false
 default_value: {  }
 default_value_callback: ''
