@@ -12,7 +12,7 @@ applications:
   - ups-website-redev
   buildpack: php_buildpack
   routes:
-    - route: beta.dta.gov.au
+    - route: www.dta.gov.au
   env:
     DRUPAL_UUID: "59f85df3-5f18-45dd-bf6a-40977b57a842"
     ENVIRONMENT: production
