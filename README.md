@@ -1,8 +1,8 @@
-# beta.dta.gov.au
+# www.dta.gov.au
 
 [![CircleCI](https://circleci.com/gh/govau/dta-website-rebuild.svg?style=svg)](https://circleci.com/gh/govau/dta-website-rebuild)
 
-beta.dta.gov.aus is built with Drupal 8 around a GovCMS8 core.
+www..dta.gov.au is built with Drupal 8 around a GovCMS8 core.
 
 Please be aware that while the site uses GovCMS8, it no longer actively follows developments to the GovCMS8 code base.
 
@@ -51,7 +51,7 @@ Once you have finished development work locally, export the configuration using 
 
 Deployment to cloud.gov.au is accomplished using Github pull requests and Circle CI. To begin integration and testing, submit a pull request into the `develop` branch from your new `feature` branch. This will start automated testing against the `develop` branch.
 
-Once the branch has passed its tests, you can merge to deploy the new code onto the [staging site](dta-website-rebuild-staging.apps.y.cld.gov.au).
+Once the branch has passed its tests, you can merge to deploy the new code onto the [staging site](https://dta-website-beta.staging.digital.gov.au). Similarly to production, this is behind AWS cloudfront CDN. You can also access the staging site directly i.e. bypassing the cdn: https://dta-website-staging-direct.apps.y.cld.gov.au
 
 Make sure that the new configuration is imported on the staging site using the administration UI or use `drush cim -y` via the Cloud Foundry app (`cf run-task [APP NAME] "source scripts/buildrc && drush cim -y"`) and then clear the site caches. Clearing the caches via the site UI is not recommended as it will cause a 503 error on cloud.gov.au. Instead use `cf run-task [APP NAME] "source scripts/buildrc && drush cr"`.
 
