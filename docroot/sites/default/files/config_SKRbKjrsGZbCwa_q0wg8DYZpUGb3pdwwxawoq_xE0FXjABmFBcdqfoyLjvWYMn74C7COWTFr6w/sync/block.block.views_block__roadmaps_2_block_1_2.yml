@@ -1,18 +1,20 @@
-uuid: a9f1e6b3-5c84-485e-9cf4-0e0bda36d508
+uuid: 2c3c3df0-921d-404d-9601-63c8fb299945
 langcode: en
 status: true
 dependencies:
   config:
     - views.view.roadmaps_2
   module:
+    - ctools
+    - node
     - system
     - views
   theme:
     - dta_gov_au
-id: views_block__roadmaps_2_block_1
+id: views_block__roadmaps_2_block_1_2
 theme: dta_gov_au
-region: disabled
-weight: 0
+region: content
+weight: -3
 provider: null
 plugin: 'views_block:roadmaps_2-block_1'
 settings:
@@ -23,6 +25,20 @@ settings:
   views_label: ''
   items_per_page: none
 visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    bundles:
+      book: book
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+  node_type:
+    id: node_type
+    bundles:
+      book: book
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
   request_path:
     id: request_path
     pages: /digital-transformation-strategy/roadmap
