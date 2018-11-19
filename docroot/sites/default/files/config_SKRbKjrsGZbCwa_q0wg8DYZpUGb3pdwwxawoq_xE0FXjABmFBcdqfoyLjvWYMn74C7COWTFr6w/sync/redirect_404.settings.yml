@@ -1,0 +1,5 @@
+row_limit: 10000
+pages: "/.well-known/autoconfig/mail/config-v1.1.xml\r\n/autodiscover/autodiscover.xml\r\n/search-engine/index.json\r\n/images/uikit1/icons/chevron-down--navy.svg\r\n/images/icons/search--navy.svg\r\n/images/uikit1/icons/arrow-right--aqua.svg\r\n/images/icons/youtube.svg\r\n/images/icons/twitter.svg\r\n/images/icons/facebook.svg\n"
+suppress_404: false
+_core:
+  default_config_hash: FgPCEDevf9dhNU_QB_fo-4AWxi0rrSZ2SGfd7bLNzLM

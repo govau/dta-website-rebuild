@@ -764,6 +764,64 @@ display:
         metatag_display_extender: {  }
       display_description: ''
       block_description: 'Digital Transformation Strategy Roadmap'
+      use_ajax: true
+      defaults:
+        use_ajax: false
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url
+        - user
+        - 'user.node_grants:view'
+        - user.permissions
+      tags:
+        - 'config:field.storage.node.field_audience'
+        - 'config:field.storage.node.field_body'
+        - 'config:field.storage.node.field_goal_achieved'
+        - 'config:field.storage.node.field_planned_delivery'
+        - 'config:field.storage.node.field_theme'
+  page_1:
+    display_plugin: page
+    id: page_1
+    display_title: Page
+    position: 2
+    display_options:
+      display_extenders:
+        metatag_display_extender: {  }
+      path: digital-transformation-strategy/roadmap-page
+      header:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: false
+          tokenize: false
+          content:
+            value: "<h1>Roadmap</h1>\r\n<p class=\"au-introduction\">We have developed a comprehensive roadmap to achieve our goals by 2025. This includes accelerating some initiatives, so we can address your needs even faster.</p>\r\n<nav class=\"book-navigation\" id=\"book-navigation-digital-transformation-strategy\" role=\"navigation\" aria-labelledby=\"book-label-594\">\r\n              <h2 class=\"visually-hidden\">Navigation links for Roadmap</h2>\r\n        <ul class=\"au-link-list au-link-list--inline row\">\r\n                  <li class=\"col-md-3\">\r\n            <a class=\"au-btn au-btn--secondary au-button--prev\" href=\"/digital-transformation-strategy/whats-going-change-you/whats-going-change-when-you-experience-death-loved-one\" rel=\"prev\" title=\"Death of a loved one\"> <b>‹</b> Previous</a>\r\n          </li>\r\n                  <li class=\"col-md-6\">\r\n            <a class=\"strategy-home-link\" href=\"/strategy\" title=\"2025 Digital Transformation Strategy\">2025 Digital Transformation Strategy</a>\r\n          </li>\r\n                  <li class=\"col-md-3\">\r\n            <a class=\"au-btn au-btn--secondary au-button--next\" href=\"/digital-transformation-strategy/our-principles\" rel=\"next\" title=\"Our principles\">Next <b>›</b></a>\r\n          </li>\r\n              </ul>\r\n          </nav>"
+            format: html
+          plugin_id: text
+      defaults:
+        header: false
+        footer: false
+      footer:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: false
+          tokenize: false
+          content:
+            value: "<nav class=\"book-navigation\" id=\"book-navigation-digital-transformation-strategy\" role=\"navigation\" aria-labelledby=\"book-label-594\">\r\n              <h2 class=\"visually-hidden\">Navigation links for Roadmap</h2>\r\n        <ul class=\"au-link-list au-link-list--inline row\">\r\n                  <li class=\"col-md-3\">\r\n            <a class=\"au-btn au-btn--secondary au-button--prev\" href=\"/digital-transformation-strategy/whats-going-change-you/whats-going-change-when-you-experience-death-loved-one\" rel=\"prev\" title=\"Death of a loved one\"> <b>‹</b> Previous</a>\r\n          </li>\r\n                  <li class=\"col-md-6\">\r\n            <a class=\"strategy-home-link\" href=\"/strategy\" title=\"2025 Digital Transformation Strategy\">2025 Digital Transformation Strategy</a>\r\n          </li>\r\n                  <li class=\"col-md-3\">\r\n            <a class=\"au-btn au-btn--secondary au-button--next\" href=\"/digital-transformation-strategy/our-principles\" rel=\"next\" title=\"Our principles\">Next <b>›</b></a>\r\n          </li>\r\n              </ul>\r\n          </nav>"
+            format: html
+          plugin_id: text
     cache_metadata:
       max-age: -1
       contexts:

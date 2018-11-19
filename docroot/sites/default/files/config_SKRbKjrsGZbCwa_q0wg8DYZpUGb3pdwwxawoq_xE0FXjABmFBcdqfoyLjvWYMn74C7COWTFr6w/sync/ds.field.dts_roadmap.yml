@@ -1,0 +1,17 @@
+id: dts_roadmap
+label: 'DTS Roadmap'
+ui_limit: book|full
+properties:
+  block: 'views_block:roadmaps_2-block_1'
+  use_block_title: false
+  config:
+    id: 'views_block:roadmaps_2-block_1'
+    label: ''
+    provider: views
+    label_display: visible
+    views_label: ''
+    items_per_page: none
+type: block
+type_label: 'Block field'
+entities:
+  node: node

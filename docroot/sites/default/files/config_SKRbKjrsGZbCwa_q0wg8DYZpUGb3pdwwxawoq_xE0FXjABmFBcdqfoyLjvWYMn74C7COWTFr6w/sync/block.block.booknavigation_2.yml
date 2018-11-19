@@ -1,0 +1,21 @@
+uuid: 2bef7bea-3450-4bfb-98c8-844f44f8bd42
+langcode: en
+status: true
+dependencies:
+  module:
+    - book
+  theme:
+    - dta_gov_au
+id: booknavigation_2
+theme: dta_gov_au
+region: content
+weight: -2
+provider: null
+plugin: book_navigation
+settings:
+  id: book_navigation
+  label: 'Book navigation'
+  provider: book
+  label_display: '0'
+  block_mode: 'book pages'
+visibility: {  }
