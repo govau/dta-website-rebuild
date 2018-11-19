@@ -16,10 +16,10 @@ settings:
       label: People
     -
       value: business
-      label: Business
+      label: Businesses
     -
       value: people-business
-      label: 'People and business'
+      label: 'People and businesses'
   allowed_values_function: ''
 module: options
 locked: false

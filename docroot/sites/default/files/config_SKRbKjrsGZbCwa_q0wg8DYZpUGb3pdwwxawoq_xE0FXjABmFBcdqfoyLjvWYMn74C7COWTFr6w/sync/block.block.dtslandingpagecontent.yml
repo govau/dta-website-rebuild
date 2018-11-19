@@ -11,7 +11,7 @@ dependencies:
 id: dtslandingpagecontent
 theme: dta_gov_au
 region: disabled
-weight: 0
+weight: -12
 provider: null
 plugin: 'block_content:74c07265-788d-4db0-8bcf-e9681296b452'
 settings:
