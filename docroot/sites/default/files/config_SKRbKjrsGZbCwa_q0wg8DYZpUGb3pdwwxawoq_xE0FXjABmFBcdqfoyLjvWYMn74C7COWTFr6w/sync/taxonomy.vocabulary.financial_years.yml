@@ -4,6 +4,6 @@ status: true
 dependencies: {  }
 name: 'Financial Years'
 vid: financial_years
-description: 'Used for the Digital Transformation Strategy 2018'
+description: 'Used to group content on the Digital Transformation Strategy Roadmap.'
 hierarchy: 0
 weight: 0
