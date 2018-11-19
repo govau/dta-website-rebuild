@@ -22,10 +22,10 @@ login() {
 
   if [[ "${GIT_BRANCH}" = "master" ]]; then
     cf api $CF_PROD_API
-    cf auth ci-dta-website-rebuild "$CF_PASSWORD_PROD"
+    cf auth "$CF_USER" "$CF_PASSWORD_PROD"
   else
     cf api $CF_STAGING_API
-    cf auth ci-dta-website-redev "$CF_PASSWORD_STAGING"
+    cf auth "$CF_USER" "$CF_PASSWORD_STAGING"
   fi
 
   cf target -o $CF_ORG
