@@ -1,6 +1,6 @@
 ---
 applications:
-- name: dta-website-rebuild-staging
+- name: dta-website-staging
   memory: 1G
   disk_quota: 2G
   instances: 2
@@ -10,7 +10,8 @@ applications:
   - dta-website-rebuild-staging-db
   - dta-website-rebuild-staging-aws-ups
   - ups-website-redev
-  routes: 
+  routes:
+    - route: dta-website.staging.digital.gov.au
     - route: dta-website-beta.staging.digital.gov.au
     - route: dta-website-staging-direct.apps.y.cld.gov.au
   buildpack: php_buildpack

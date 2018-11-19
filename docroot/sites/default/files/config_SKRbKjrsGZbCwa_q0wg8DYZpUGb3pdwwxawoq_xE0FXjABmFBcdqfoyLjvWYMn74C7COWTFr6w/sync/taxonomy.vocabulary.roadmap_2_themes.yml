@@ -2,8 +2,8 @@ uuid: 582ac06d-ce9f-44db-86b4-f4f538d54ffe
 langcode: en
 status: true
 dependencies: {  }
-name: 'Roadmap 2 themes'
+name: 'Digital Transformation Strategy themes'
 vid: roadmap_2_themes
-description: ''
+description: 'Themes used to organise the Digital Transformation Strategy.'
 hierarchy: 0
 weight: 0
