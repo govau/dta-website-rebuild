@@ -11,6 +11,7 @@ body:
 weight: null
 node_types:
   - blog_post
+  - book
   - govcms_event
   - landing_page
   - landing_page_level_2

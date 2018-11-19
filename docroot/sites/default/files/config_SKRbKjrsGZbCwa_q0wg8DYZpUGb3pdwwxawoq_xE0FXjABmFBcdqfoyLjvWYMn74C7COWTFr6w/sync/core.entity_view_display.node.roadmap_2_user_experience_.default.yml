@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.roadmap_2_user_experience_.field_accelerated
     - field.field.node.roadmap_2_user_experience_.field_audience
     - field.field.node.roadmap_2_user_experience_.field_body
     - field.field.node.roadmap_2_user_experience_.field_goal_achieved
@@ -19,6 +20,16 @@ targetEntityType: node
 bundle: roadmap_2_user_experience_
 mode: default
 content:
+  field_accelerated:
+    weight: 107
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
   field_audience:
     weight: 106
     label: above

@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.storage.node.field_accelerated
     - field.storage.node.field_audience
     - field.storage.node.field_body
     - field.storage.node.field_goal_achieved
@@ -35,7 +36,7 @@ display:
       access:
         type: perm
         options:
-          perm: 'create roadmap_2_user_experience_ content'
+          perm: 'access content'
       cache:
         type: tag
         options: {  }
@@ -92,7 +93,7 @@ display:
               field: field_audience
               rendered: false
               rendered_strip: false
-          row_class: 'roadmap-card{{ field_goal_achieved }} {{ name }}'
+          row_class: 'roadmap-card{{ field_goal_achieved }}{{ field_accelerated }} {{ name }}'
           default_row_class: false
       row:
         type: fields
@@ -612,6 +613,71 @@ display:
           entity_type: taxonomy_term
           entity_field: name
           plugin_id: term_name
+        field_accelerated:
+          id: field_accelerated
+          table: node__field_accelerated
+          field: field_accelerated
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: true
+          alter:
+            alter_text: true
+            text: "{% if field_accelerated %}\r\n{{ \" \" ~ field_accelerated }}\r\n{% endif %}"
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: false
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: boolean
+          settings:
+            format: custom
+            format_custom_true: accelerated
+            format_custom_false: ''
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
       filters:
         type:
           id: type
@@ -749,6 +815,7 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags:
+        - 'config:field.storage.node.field_accelerated'
         - 'config:field.storage.node.field_audience'
         - 'config:field.storage.node.field_body'
         - 'config:field.storage.node.field_goal_achieved'
@@ -777,6 +844,7 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags:
+        - 'config:field.storage.node.field_accelerated'
         - 'config:field.storage.node.field_audience'
         - 'config:field.storage.node.field_body'
         - 'config:field.storage.node.field_goal_achieved'
@@ -832,6 +900,7 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags:
+        - 'config:field.storage.node.field_accelerated'
         - 'config:field.storage.node.field_audience'
         - 'config:field.storage.node.field_body'
         - 'config:field.storage.node.field_goal_achieved'

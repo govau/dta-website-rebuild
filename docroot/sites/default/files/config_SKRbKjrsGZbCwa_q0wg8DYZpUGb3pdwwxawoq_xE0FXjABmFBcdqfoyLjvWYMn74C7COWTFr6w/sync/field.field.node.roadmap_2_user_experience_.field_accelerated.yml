@@ -1,0 +1,23 @@
+uuid: 2f2c6ad8-9181-4a93-ae4e-cc57c1daf67f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_accelerated
+    - node.type.roadmap_2_user_experience_
+id: node.roadmap_2_user_experience_.field_accelerated
+field_name: field_accelerated
+entity_type: node
+bundle: roadmap_2_user_experience_
+label: Accelerated
+description: 'Select this if the initiative has been ''accelerated''.'
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: Accelerated
+  off_label: 'Not accelerated'
+field_type: boolean
