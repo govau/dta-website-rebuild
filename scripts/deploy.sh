@@ -40,10 +40,10 @@ main() {
 
   case "${GIT_BRANCH}" in
     master)
-      cf zero-downtime-push dta-website-rebuild -f manifest-prod.yml
+      cf zero-downtime-push dta-website -f manifest-prod.yml
       ;;
     develop)
-      cf zero-downtime-push dta-website-rebuild-staging -f manifest-staging.yml
+      cf zero-downtime-push dta-website-staging -f manifest-staging.yml
       ;;
     *)
       cf zero-downtime-push ${GIT_REPO}-`basename "${GIT_BRANCH}"` -f manifest.yml
