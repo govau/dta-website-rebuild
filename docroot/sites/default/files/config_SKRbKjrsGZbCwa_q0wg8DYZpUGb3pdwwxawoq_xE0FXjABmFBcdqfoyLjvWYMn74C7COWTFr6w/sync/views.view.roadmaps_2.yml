@@ -11,6 +11,11 @@ dependencies:
     - field.storage.node.field_theme
     - node.type.roadmap_2_user_experience_
     - taxonomy.vocabulary.roadmap_2_themes
+    - user.role.administrator
+    - user.role.content_approver
+    - user.role.content_editor
+    - user.role.roadmap_viewer
+    - user.role.site_viewer
   module:
     - better_exposed_filters
     - node
@@ -34,9 +39,14 @@ display:
     position: 0
     display_options:
       access:
-        type: perm
+        type: role
         options:
-          perm: 'create roadmap_2_user_experience_ content'
+          role:
+            roadmap_viewer: roadmap_viewer
+            site_viewer: site_viewer
+            content_editor: content_editor
+            content_approver: content_approver
+            administrator: administrator
       cache:
         type: tag
         options: {  }
@@ -874,7 +884,7 @@ display:
         - url
         - user
         - 'user.node_grants:view'
-        - user.permissions
+        - user.roles
       tags:
         - 'config:field.storage.node.field_accelerated'
         - 'config:field.storage.node.field_audience'
@@ -903,7 +913,7 @@ display:
         - url
         - user
         - 'user.node_grants:view'
-        - user.permissions
+        - user.roles
       tags:
         - 'config:field.storage.node.field_accelerated'
         - 'config:field.storage.node.field_audience'
@@ -959,7 +969,7 @@ display:
         - url
         - user
         - 'user.node_grants:view'
-        - user.permissions
+        - user.roles
       tags:
         - 'config:field.storage.node.field_accelerated'
         - 'config:field.storage.node.field_audience'

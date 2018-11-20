@@ -1,4 +1,11 @@
 node_title_validation_config:
+  comma-assessment_report: 0
+  exclude-assessment_report: ''
+  min-assessment_report: '1'
+  max-assessment_report: '255'
+  min-wc-assessment_report: '1'
+  max-wc-assessment_report: '25'
+  unique-assessment_report: 0
   comma-blog_post: 0
   exclude-blog_post: ''
   min-blog_post: '1'
@@ -6,13 +13,27 @@ node_title_validation_config:
   min-wc-blog_post: '1'
   max-wc-blog_post: '25'
   unique-blog_post: 1
-  comma-digital_service_standard: 0
-  exclude-digital_service_standard: ''
-  min-digital_service_standard: '1'
-  max-digital_service_standard: '65'
-  min-wc-digital_service_standard: '1'
-  max-wc-digital_service_standard: '25'
-  unique-digital_service_standard: 1
+  comma-book: 0
+  exclude-book: ''
+  min-book: '1'
+  max-book: '255'
+  min-wc-book: '1'
+  max-wc-book: '25'
+  unique-book: 0
+  comma-document: 0
+  exclude-document: ''
+  min-document: '1'
+  max-document: '255'
+  min-wc-document: '1'
+  max-wc-document: '25'
+  unique-document: 0
+  comma-external_link: 0
+  exclude-external_link: ''
+  min-external_link: '1'
+  max-external_link: '255'
+  min-wc-external_link: '1'
+  max-wc-external_link: '25'
+  unique-external_link: 0
   comma-govcms_event: 0
   exclude-govcms_event: ''
   min-govcms_event: '1'
@@ -20,6 +41,48 @@ node_title_validation_config:
   min-wc-govcms_event: '1'
   max-wc-govcms_event: '25'
   unique-govcms_event: 1
+  comma-home_page: 0
+  exclude-home_page: ''
+  min-home_page: '1'
+  max-home_page: '255'
+  min-wc-home_page: '1'
+  max-wc-home_page: '25'
+  unique-home_page: 0
+  comma-image: 0
+  exclude-image: ''
+  min-image: '1'
+  max-image: '255'
+  min-wc-image: '1'
+  max-wc-image: '25'
+  unique-image: 0
+  comma-individual_roadmap_ux: 0
+  exclude-individual_roadmap_ux: ''
+  min-individual_roadmap_ux: '1'
+  max-individual_roadmap_ux: '255'
+  min-wc-individual_roadmap_ux: '1'
+  max-wc-individual_roadmap_ux: '25'
+  unique-individual_roadmap_ux: 0
+  comma-landing_page: 0
+  exclude-landing_page: ''
+  min-landing_page: '1'
+  max-landing_page: '255'
+  min-wc-landing_page: '1'
+  max-wc-landing_page: '25'
+  unique-landing_page: 0
+  comma-landing_page_level_2: 0
+  exclude-landing_page_level_2: ''
+  min-landing_page_level_2: '1'
+  max-landing_page_level_2: '255'
+  min-wc-landing_page_level_2: '1'
+  max-wc-landing_page_level_2: '25'
+  unique-landing_page_level_2: 0
+  comma-miscellaneous_file: 0
+  exclude-miscellaneous_file: ''
+  min-miscellaneous_file: '1'
+  max-miscellaneous_file: '255'
+  min-wc-miscellaneous_file: '1'
+  max-wc-miscellaneous_file: '25'
+  unique-miscellaneous_file: 0
   comma-news_item: 0
   exclude-news_item: ''
   min-news_item: '1'
@@ -34,6 +97,20 @@ node_title_validation_config:
   min-wc-page: '1'
   max-wc-page: '25'
   unique-page: 1
-  unique: 1
+  comma-platforms_and_services: 0
+  exclude-platforms_and_services: ''
+  min-platforms_and_services: '1'
+  max-platforms_and_services: '255'
+  min-wc-platforms_and_services: '1'
+  max-wc-platforms_and_services: '25'
+  unique-platforms_and_services: 0
+  comma-roadmap_2_user_experience_: 0
+  exclude-roadmap_2_user_experience_: ''
+  min-roadmap_2_user_experience_: '1'
+  max-roadmap_2_user_experience_: '255'
+  min-wc-roadmap_2_user_experience_: '1'
+  max-wc-roadmap_2_user_experience_: '25'
+  unique-roadmap_2_user_experience_: 0
+  unique: 0
 _core:
   default_config_hash: 5p2lzpRAbNnhbgkvO2MKkxtc2QOBeMRkWubKyc7HYFE
