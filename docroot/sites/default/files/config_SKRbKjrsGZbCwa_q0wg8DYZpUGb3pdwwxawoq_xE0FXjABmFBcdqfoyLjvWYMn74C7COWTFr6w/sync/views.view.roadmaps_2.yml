@@ -761,7 +761,7 @@ display:
           expose:
             operator_id: field_theme_target_id_op
             label: Filter
-            description: 'Click to filter the roadmap initiatives based on the 3 strategic priorities below:'
+            description: 'Each initiative aligns to one of the Strategy''s three strategic priorities. Check the coloured boxes to filter by each priority:'
             use_operator: false
             operator: field_theme_target_id_op
             identifier: field_theme_target_id
