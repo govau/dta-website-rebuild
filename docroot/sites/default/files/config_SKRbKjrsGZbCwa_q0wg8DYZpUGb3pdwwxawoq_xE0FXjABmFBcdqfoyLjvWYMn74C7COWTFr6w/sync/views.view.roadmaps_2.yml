@@ -11,6 +11,12 @@ dependencies:
     - field.storage.node.field_theme
     - node.type.roadmap_2_user_experience_
     - taxonomy.vocabulary.roadmap_2_themes
+    - user.role.administrator
+    - user.role.authenticated
+    - user.role.content_approver
+    - user.role.content_editor
+    - user.role.roadmap_viewer
+    - user.role.site_viewer
   module:
     - better_exposed_filters
     - node
@@ -34,9 +40,15 @@ display:
     position: 0
     display_options:
       access:
-        type: perm
+        type: role
         options:
-          perm: 'create roadmap_2_user_experience_ content'
+          role:
+            authenticated: authenticated
+            roadmap_viewer: roadmap_viewer
+            site_viewer: site_viewer
+            content_editor: content_editor
+            content_approver: content_approver
+            administrator: administrator
       cache:
         type: tag
         options: {  }
@@ -751,7 +763,7 @@ display:
           expose:
             operator_id: field_theme_target_id_op
             label: Filter
-            description: 'Click to filter the roadmap initiatives based on the 3 strategic priorities below:'
+            description: 'Each initiative aligns to one of the Strategy''s three strategic priorities. Check the coloured boxes to filter by each priority:'
             use_operator: false
             operator: field_theme_target_id_op
             identifier: field_theme_target_id
@@ -874,7 +886,7 @@ display:
         - url
         - user
         - 'user.node_grants:view'
-        - user.permissions
+        - user.roles
       tags:
         - 'config:field.storage.node.field_accelerated'
         - 'config:field.storage.node.field_audience'
@@ -903,7 +915,7 @@ display:
         - url
         - user
         - 'user.node_grants:view'
-        - user.permissions
+        - user.roles
       tags:
         - 'config:field.storage.node.field_accelerated'
         - 'config:field.storage.node.field_audience'
@@ -959,7 +971,7 @@ display:
         - url
         - user
         - 'user.node_grants:view'
-        - user.permissions
+        - user.roles
       tags:
         - 'config:field.storage.node.field_accelerated'
         - 'config:field.storage.node.field_audience'

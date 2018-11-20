@@ -1,0 +1,19 @@
+uuid: 644cc4e4-72a8-4aa5-a7e7-2c76cbd2464c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_short_name
+    - node.type.book
+id: node.book.field_short_name
+field_name: field_short_name
+entity_type: node
+bundle: book
+label: 'Short name'
+description: 'Sometimes it is useful to have a short name for a page. If you think this page needs one, add it here.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
