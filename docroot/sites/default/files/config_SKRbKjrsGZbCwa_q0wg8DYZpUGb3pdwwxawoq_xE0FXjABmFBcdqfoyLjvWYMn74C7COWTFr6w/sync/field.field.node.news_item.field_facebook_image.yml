@@ -40,8 +40,8 @@ settings:
   file_directory: '[date:custom:Y]-[date:custom:m]'
   file_extensions: 'png gif jpg jpeg'
   max_filesize: '5 MB'
-  max_resolution: 940x788
-  min_resolution: 940x788
+  max_resolution: 940x940
+  min_resolution: 940x940
   alt_field: true
   alt_field_required: true
   title_field: false
