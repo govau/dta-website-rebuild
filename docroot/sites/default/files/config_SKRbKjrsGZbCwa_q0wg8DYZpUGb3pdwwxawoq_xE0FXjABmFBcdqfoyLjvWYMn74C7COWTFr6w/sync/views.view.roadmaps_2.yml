@@ -11,12 +11,6 @@ dependencies:
     - field.storage.node.field_theme
     - node.type.roadmap_2_user_experience_
     - taxonomy.vocabulary.roadmap_2_themes
-    - user.role.administrator
-    - user.role.authenticated
-    - user.role.content_approver
-    - user.role.content_editor
-    - user.role.roadmap_viewer
-    - user.role.site_viewer
   module:
     - better_exposed_filters
     - node
@@ -40,15 +34,9 @@ display:
     position: 0
     display_options:
       access:
-        type: role
+        type: perm
         options:
-          role:
-            authenticated: authenticated
-            roadmap_viewer: roadmap_viewer
-            site_viewer: site_viewer
-            content_editor: content_editor
-            content_approver: content_approver
-            administrator: administrator
+          perm: 'access content'
       cache:
         type: tag
         options: {  }
@@ -800,6 +788,44 @@ display:
           hierarchy: false
           error_message: false
           plugin_id: taxonomy_index_tid
+        status:
+          id: status
+          table: node_field_data
+          field: status
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value: '1'
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          entity_type: node
+          entity_field: status
+          plugin_id: boolean
       sorts:
         field_planned_delivery_target_id:
           id: field_planned_delivery_target_id
@@ -886,7 +912,7 @@ display:
         - url
         - user
         - 'user.node_grants:view'
-        - user.roles
+        - user.permissions
       tags:
         - 'config:field.storage.node.field_accelerated'
         - 'config:field.storage.node.field_audience'
@@ -915,7 +941,7 @@ display:
         - url
         - user
         - 'user.node_grants:view'
-        - user.roles
+        - user.permissions
       tags:
         - 'config:field.storage.node.field_accelerated'
         - 'config:field.storage.node.field_audience'
@@ -971,7 +997,7 @@ display:
         - url
         - user
         - 'user.node_grants:view'
-        - user.roles
+        - user.permissions
       tags:
         - 'config:field.storage.node.field_accelerated'
         - 'config:field.storage.node.field_audience'
