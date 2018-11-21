@@ -141,6 +141,8 @@ content:
       timezone_override: ''
       date_format: 'M j, Y'
     third_party_settings:
+      empty_fields:
+        handler: ''
       ds:
         ft:
           id: expert
@@ -157,7 +159,7 @@ content:
             fis-cl: ''
             fis-at: ''
             fi: true
-            fi-el: p
+            fi-el: span
             fi-cl: au-date
             fi-at: ''
             suffix: ''
