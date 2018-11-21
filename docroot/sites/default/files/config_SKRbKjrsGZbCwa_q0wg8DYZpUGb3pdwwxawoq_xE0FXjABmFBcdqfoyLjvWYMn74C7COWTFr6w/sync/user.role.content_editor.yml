@@ -19,6 +19,7 @@ permissions:
   - 'access site in maintenance mode'
   - 'access toolbar'
   - 'access user profiles'
+  - 'administer menu'
   - 'administer taxonomy'
   - 'bypass honeypot protection'
   - 'create assessment_report content'
