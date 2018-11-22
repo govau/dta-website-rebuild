@@ -70,7 +70,7 @@ jobs:
           command: ./scripts/start.sh
   cron:
     docker:
-      - image: govau/cf-circleci
+      - image: govau/cf-cli
     working_directory: /app
     steps:
       - attach_workspace:
