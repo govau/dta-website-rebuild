@@ -68,6 +68,16 @@ jobs:
       - run:
           name: Updating configuration and database
           command: ./scripts/start.sh
+  cron:
+    docker:
+      - image: govau/cf-circleci
+    working_directory: /app
+    steps:
+      - attach_workspace:
+          at: /app
+      - run:
+        name: Running cron
+        command: ./scripts/cron.sh
 workflows:
   version: 2
   test-and-deploy:
@@ -81,9 +91,20 @@ workflows:
               only:
                 - master
                 - develop
+  run-cron:
+    triggers:
+      - schedule:
+          cron: "0 */2 * * *"
+          filters:
+            branches:
+              only:
+                - master
+                - develop
+    jobs:
+      - cron
 experimental:
   notify:
     branches:
       only:
-        # - master
+        - master
         - develop
