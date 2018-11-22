@@ -74,8 +74,8 @@ jobs:
     working_directory: /app
     steps:
       - run:
-        name: Running cron
-        command: ./scripts/cron.sh
+          name: Running cron
+          command: ./scripts/cron.sh
 workflows:
   version: 2
   test-and-deploy:
