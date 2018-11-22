@@ -40,13 +40,13 @@ main() {
 
   case "${GIT_BRANCH}" in
     master)
-      cf run-task dta-website "drush cron"
+      cf run-task dta-website "source scripts/buildrc && drush cron"
       ;;
     develop)
-      cf run-task dta-website-staging "drush cron"
+      cf run-task dta-website-staging "source scripts/buildrc && drush cron"
       ;;
     *)
-      cf run-task ${GIT_REPO}-`basename "${GIT_BRANCH}"` "drush cron"
+      cf run-task ${GIT_REPO}-`basename "${GIT_BRANCH}"` "source scripts/buildrc && drush cron"
       ;;
   esac
 
