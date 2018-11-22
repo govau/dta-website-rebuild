@@ -73,8 +73,6 @@ jobs:
       - image: govau/cf-cli
     working_directory: /app
     steps:
-      - attach_workspace:
-          at: /app
       - run:
         name: Running cron
         command: ./scripts/cron.sh
@@ -94,7 +92,7 @@ workflows:
   run-cron:
     triggers:
       - schedule:
-          cron: "0 */2 * * *"
+          cron: "0 * * * *"
           filters:
             branches:
               only:
