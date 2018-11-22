@@ -73,6 +73,7 @@ jobs:
       - image: govau/cf-cli
     working_directory: /app
     steps:
+      - checkout
       - run:
           name: Running cron
           command: ./scripts/cron.sh
