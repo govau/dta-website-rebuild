@@ -38,18 +38,41 @@ main() {
 
   login
 
+  TASK_NAME="circleci-cron-$(openssl rand -hex 8)"
+
   case "${GIT_BRANCH}" in
     master)
-      cf run-task dta-website "source scripts/buildrc && drush cron"
+      CF_APP=dta-website
       ;;
     develop)
-      cf run-task dta-website-staging "source scripts/buildrc && drush cron"
+      CF_APP=dta-website-staging
       ;;
     *)
-      cf run-task ${GIT_REPO}-`basename "${GIT_BRANCH}"` "source scripts/buildrc && drush cron"
+      CF_APP=${GIT_REPO}-`basename "${GIT_BRANCH}"`
       ;;
   esac
 
+  cf run-task ${CF_APP} --name "${TASK_NAME}" "source scripts/buildrc && drush cron"
+
+  # Wait up to 2 minutes for task to finish
+  end=$((SECONDS+120))
+  while [ $SECONDS -lt $end ]; do
+      if [[ $(cf tasks "${CF_APP}" | grep "${TASK_NAME}") =~ "RUNNING" ]]; then
+        echo "Waiting for task to finish"
+        sleep 5
+      else
+        break
+      fi
+  done
+
+  CF_TASK_OUTPUT="$(cf tasks "${CF_APP}" | grep "${TASK_NAME}")"
+  if [[ ! $CF_TASK_OUTPUT =~ "SUCCEEDED" ]]; then
+    echo "Cron task failed or still running"
+    echo $CF_TASK_OUTPUT
+    exit 1
+  else
+    echo "Cron task succeeded"
+  fi
 }
 
 main $@
