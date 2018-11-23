@@ -2,15 +2,15 @@ uuid: 56b371d6-fc4d-4682-8818-c81dc879f058
 langcode: en
 status: true
 dependencies:
+  module:
+    - node
+    - search_api
   config:
     - field.storage.node.field_body
     - field.storage.node.field_summary
     - field.storage.node.field_introduction
     - search_api.server.database_search
     - core.entity_view_mode.node.full
-  module:
-    - search_api
-    - node
 _core:
   default_config_hash: C_H_RI-18mied-RtEfUQGN19oHD22I8Z09wKPHC6OSM
 id: database_search_index
@@ -18,6 +18,39 @@ name: 'Database search index'
 description: 'Default search index using the database search server'
 read_only: false
 field_settings:
+  field_body:
+    label: 'Body content'
+    datasource_id: 'entity:node'
+    property_path: field_body
+    type: text
+    boost: !!float 2
+    dependencies:
+      config:
+        - field.storage.node.field_body
+  field_introduction:
+    label: Introduction
+    datasource_id: 'entity:node'
+    property_path: field_introduction
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_introduction
+  field_summary:
+    label: Summary
+    datasource_id: 'entity:node'
+    property_path: field_summary
+    type: text
+    boost: !!float 3
+    dependencies:
+      config:
+        - field.storage.node.field_summary
+  node_grants:
+    label: 'Node access information'
+    property_path: search_api_node_grants
+    type: string
+    indexed_locked: true
+    type_locked: true
+    hidden: true
   rendered_item:
     label: 'Rendered HTML output'
     property_path: rendered_item
@@ -35,19 +68,6 @@ field_settings:
           news_item: full
           page: full
           platforms_and_services: full
-  node_grants:
-    label: 'Node access information'
-    property_path: search_api_node_grants
-    type: string
-    indexed_locked: true
-    type_locked: true
-    hidden: true
-  title:
-    label: Title
-    datasource_id: 'entity:node'
-    property_path: title
-    type: text
-    boost: !!float 21
   status:
     label: status
     datasource_id: 'entity:node'
@@ -55,6 +75,18 @@ field_settings:
     type: boolean
     indexed_locked: true
     type_locked: true
+    dependencies:
+      module:
+        - node
+  title:
+    label: Title
+    datasource_id: 'entity:node'
+    property_path: title
+    type: text
+    boost: !!float 21
+    dependencies:
+      module:
+        - node
   uid:
     label: uid
     datasource_id: 'entity:node'
@@ -62,32 +94,9 @@ field_settings:
     type: integer
     indexed_locked: true
     type_locked: true
-  field_body:
-    label: 'Body content'
-    datasource_id: 'entity:node'
-    property_path: field_body
-    type: text
-    boost: !!float 2
     dependencies:
-      config:
-        - field.storage.node.field_body
-  field_summary:
-    label: Summary
-    datasource_id: 'entity:node'
-    property_path: field_summary
-    type: text
-    boost: !!float 3
-    dependencies:
-      config:
-        - field.storage.node.field_summary
-  field_introduction:
-    label: Introduction
-    datasource_id: 'entity:node'
-    property_path: field_introduction
-    type: text
-    dependencies:
-      config:
-        - field.storage.node.field_introduction
+      module:
+        - node
 datasource_settings:
   'entity:node':
     bundles:
@@ -95,6 +104,7 @@ datasource_settings:
       selected:
         - assessment_report
         - blog_post
+        - book
         - govcms_event
         - landing_page
         - landing_page_level_2
@@ -124,44 +134,39 @@ processor_settings:
   html_filter:
     all_fields: true
     fields:
+      - field_body
+      - field_introduction
+      - field_summary
       - rendered_item
       - title
-      - field_body
-      - field_summary
-      - field_introduction
     title: true
     alt: true
     tags:
+      b: 2
       h1: 5
       h2: 3
       h3: 2
       strong: 2
-      b: 2
     weights:
       preprocess_index: -15
       preprocess_query: -15
-  ignorecase:
-    all_fields: true
-    fields:
-      - rendered_item
-      - title
-      - field_body
-      - field_summary
-      - field_introduction
-    weights:
-      preprocess_index: -20
-      preprocess_query: -20
   ignore_character:
     all_fields: true
     fields:
+      - field_body
+      - field_introduction
+      - field_summary
       - rendered_item
       - title
-      - field_body
-      - field_summary
-      - field_introduction
     ignorable: '[''¿¡!?,.:;]'
     strip:
       character_sets:
+        Cc: 0
+        Cf: 0
+        Co: 0
+        Mc: 0
+        Me: 0
+        Mn: 0
         Pc: Pc
         Pd: Pd
         Pe: Pe
@@ -169,12 +174,6 @@ processor_settings:
         Pi: Pi
         Po: Po
         Ps: Ps
-        Cc: 0
-        Cf: 0
-        Co: 0
-        Mc: 0
-        Me: 0
-        Mn: 0
         Sc: 0
         Sk: 0
         Sm: 0
@@ -185,15 +184,26 @@ processor_settings:
     weights:
       preprocess_index: -10
       preprocess_query: -10
+  ignorecase:
+    all_fields: true
+    fields:
+      - field_body
+      - field_introduction
+      - field_summary
+      - rendered_item
+      - title
+    weights:
+      preprocess_index: -20
+      preprocess_query: -20
   rendered_item: {  }
   stopwords:
     all_fields: true
     fields:
+      - field_body
+      - field_introduction
+      - field_summary
       - rendered_item
       - title
-      - field_body
-      - field_summary
-      - field_introduction
     stopwords:
       - a
       - an
@@ -204,17 +214,22 @@ processor_settings:
       - be
       - but
       - by
+      - can
       - for
+      - from
+      - have
       - if
       - in
       - into
       - is
       - it
+      - more
       - 'no'
       - not
       - of
       - 'on'
       - or
+      - our
       - s
       - such
       - t
@@ -230,22 +245,17 @@ processor_settings:
       - was
       - will
       - with
-      - from
-      - can
-      - our
-      - have
-      - more
     weights:
       preprocess_index: -5
       preprocess_query: -2
   tokenizer:
     all_fields: true
     fields:
+      - field_body
+      - field_introduction
+      - field_summary
       - rendered_item
       - title
-      - field_body
-      - field_summary
-      - field_introduction
     spaces: ''
     overlap_cjk: 1
     minimum_word_size: '3'

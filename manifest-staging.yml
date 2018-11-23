@@ -12,7 +12,6 @@ applications:
   - ups-website-redev
   routes:
     - route: dta-website.staging.digital.gov.au
-    - route: dta-website-beta.staging.digital.gov.au
     - route: dta-website-staging-direct.apps.y.cld.gov.au
   buildpack: php_buildpack
   env:

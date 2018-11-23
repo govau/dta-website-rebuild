@@ -1,0 +1,23 @@
+uuid: ec524589-ebc7-45f0-882a-c30621d99a58
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+    - node_title_help_text
+    - wysiwyg_template
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+  node_title_help_text:
+    title_help: ''
+  wysiwyg_template:
+    default_template: ''
+name: Image
+type: image
+description: 'This content type is used to hold images only, primarily so they can be stored for other uses.'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false

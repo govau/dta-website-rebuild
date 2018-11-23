@@ -9,14 +9,17 @@ dependencies:
     - field.field.node.book.field_index_image
     - field.field.node.book.field_introduction
     - field.field.node.book.field_related_content
+    - field.field.node.book.field_short_name
     - field.field.node.book.field_summary
     - field.field.node.book.field_theme
+    - field.field.node.book.field_view
     - node.type.book
   module:
     - ds
     - ds_chains
     - image
     - user
+    - viewsreference
 third_party_settings:
   ds:
     layout:
@@ -45,6 +48,23 @@ content:
       image_link: ''
     third_party_settings: {  }
     type: image
+    region: content
+  field_short_name:
+    weight: 5
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_view:
+    weight: 4
+    label: above
+    settings:
+      plugin_types:
+        - block
+    third_party_settings: {  }
+    type: viewsreference_formatter
     region: content
   links:
     weight: 1

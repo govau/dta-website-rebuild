@@ -391,7 +391,7 @@ display:
           entity_field: vid
           plugin_id: bundle
       sorts: {  }
-      title: 'Three strategic priorities'
+      title: '3 strategic priorities'
       header: {  }
       footer: {  }
       empty: {  }

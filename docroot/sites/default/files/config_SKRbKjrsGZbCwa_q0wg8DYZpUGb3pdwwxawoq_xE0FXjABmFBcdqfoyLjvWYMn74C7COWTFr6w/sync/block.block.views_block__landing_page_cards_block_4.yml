@@ -1,0 +1,25 @@
+uuid: 0bcd0d95-6a44-4deb-8903-d8a766b1ab78
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.landing_page_cards
+  module:
+    - views
+  theme:
+    - dta_gov_au
+id: views_block__landing_page_cards_block_4
+theme: dta_gov_au
+region: disabled
+weight: 0
+provider: null
+plugin: 'views_block:landing_page_cards-block_4'
+settings:
+  id: 'views_block:landing_page_cards-block_4'
+  label: ''
+  provider: views
+  label_display: '0'
+  views_label: ''
+  items_per_page: none
+  context_mapping: {  }
+visibility: {  }

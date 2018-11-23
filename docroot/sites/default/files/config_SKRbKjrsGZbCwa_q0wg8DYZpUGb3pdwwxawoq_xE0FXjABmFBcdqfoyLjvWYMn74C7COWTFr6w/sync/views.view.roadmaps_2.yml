@@ -36,7 +36,7 @@ display:
       access:
         type: perm
         options:
-          perm: 'create roadmap_2_user_experience_ content'
+          perm: 'access content'
       cache:
         type: tag
         options: {  }
@@ -751,7 +751,7 @@ display:
           expose:
             operator_id: field_theme_target_id_op
             label: Filter
-            description: 'Click to filter the roadmap initiatives based on the 3 strategic priorities below:'
+            description: 'Each initiative aligns to one of the Strategy''s three strategic priorities. Check the coloured boxes to filter by each priority:'
             use_operator: false
             operator: field_theme_target_id_op
             identifier: field_theme_target_id
@@ -788,6 +788,44 @@ display:
           hierarchy: false
           error_message: false
           plugin_id: taxonomy_index_tid
+        status:
+          id: status
+          table: node_field_data
+          field: status
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value: '1'
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          entity_type: node
+          entity_field: status
+          plugin_id: boolean
       sorts:
         field_planned_delivery_target_id:
           id: field_planned_delivery_target_id
