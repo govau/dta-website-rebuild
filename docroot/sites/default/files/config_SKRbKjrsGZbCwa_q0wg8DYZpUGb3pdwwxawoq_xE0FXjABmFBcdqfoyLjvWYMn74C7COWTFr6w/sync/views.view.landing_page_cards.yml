@@ -1030,7 +1030,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "<a href=\"{{ path }}\" class=\"au-card au-card--shadow au-cta-link\">\r\n    <div class=\"au-card__image au-card__fullwidth\">\r\n        {{ field_index_image }}\r\n    </div>\r\n    <h3 class=\"au-card__title\">{{ title }}</h3>\r\n    <div class=\"au-card__text\">{{ field_summary }}</div>\r\n</a>"
+            text: "<a href=\"{{ view_node }}\" class=\"au-card au-card--shadow au-cta-link\">\r\n    <div class=\"au-card__image au-card__fullwidth\">\r\n        {{ field_index_image }}\r\n    </div>\r\n    <h3 class=\"au-card__title\">{{ title }}</h3>\r\n    <div class=\"au-card__text\">{{ field_summary }}</div>\r\n</a>"
             make_link: false
             path: ''
             absolute: false
