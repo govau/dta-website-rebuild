@@ -1,0 +1,153 @@
+uuid: db6d9942-199f-4412-ad50-a07fb23c51a9
+langcode: en
+status: true
+dependencies:
+  module:
+    - context_metadata
+    - system
+name: search
+label: Search
+group: null
+description: 'Context for search pages'
+requireAllConditions: true
+disabled: false
+conditions:
+  request_path:
+    id: request_path
+    pages: "/search/\r\n/search*\r\n/search/*"
+    negate: 0
+    uuid: a140eddd-03bc-4665-ab88-b86c1d5c2be5
+    context_mapping: {  }
+reactions:
+  context_metadata:
+    id: context_metadata
+    geo_placename: ''
+    geo_position: ''
+    geo_region: ''
+    icbm: ''
+    canonical_url: ''
+    content_language: ''
+    robots:
+      noindex: noindex
+      nofollow: nofollow
+      index: 0
+      follow: 0
+      noarchive: 0
+      nosnippet: 0
+      noodp: 0
+      noydir: 0
+      noimageindex: 0
+      notranslate: 0
+    shortlink: ''
+    news_keywords: ''
+    standout: ''
+    generator: ''
+    image_src: ''
+    original_source: ''
+    google: ''
+    referrer: ''
+    rights: ''
+    set_cookie: ''
+    title: ''
+    description: ''
+    abstract: ''
+    keywords: ''
+    dcterms_title: ''
+    dcterms_creator: ''
+    dcterms_subject: ''
+    dcterms_description: ''
+    dcterms_publisher: ''
+    dcterms_contributor: ''
+    dcterms_date: ''
+    dcterms_type: ''
+    dcterms_format: ''
+    dcterms_identifier: ''
+    dcterms_source: ''
+    dcterms_language: ''
+    dcterms_relation: ''
+    dcterms_coverage: ''
+    dcterms_rights: ''
+    fb_admins: ''
+    fb_pages: ''
+    fb_app_id: ''
+    og_determiner: ''
+    og_site_name: ''
+    og_type: ''
+    og_url: ''
+    og_title: ''
+    og_description: ''
+    og_image: ''
+    og_video: ''
+    og_image_url: ''
+    og_image_secure_url: ''
+    og_video_secure_url: ''
+    og_image_type: ''
+    og_video_type: ''
+    og_image_width: ''
+    og_video_width: ''
+    og_image_height: ''
+    og_video_height: ''
+    og_image_alt: ''
+    og_updated_time: ''
+    og_latitude: ''
+    og_longitude: ''
+    og_see_also: ''
+    og_street_address: ''
+    og_locality: ''
+    og_region: ''
+    og_postal_code: ''
+    og_country_name: ''
+    og_email: ''
+    og_phone_number: ''
+    og_fax_number: ''
+    og_locale: ''
+    og_locale_alternative: ''
+    article_author: ''
+    article_publisher: ''
+    article_section: ''
+    article_tag: ''
+    article_published_time: ''
+    article_modified_time: ''
+    article_expiration_time: ''
+    book_author: ''
+    book_isbn: ''
+    book_release_date: ''
+    book_tag: ''
+    twitter_cards_type: ''
+    twitter_cards_description: ''
+    twitter_cards_site: ''
+    twitter_cards_title: ''
+    twitter_cards_site_id: ''
+    twitter_cards_creator: ''
+    twitter_cards_creator_id: ''
+    twitter_cards_donottrack: ''
+    twitter_cards_page_url: ''
+    twitter_cards_image: ''
+    twitter_cards_image_alt: ''
+    twitter_cards_image_height: ''
+    twitter_cards_image_width: ''
+    twitter_cards_gallery_image0: ''
+    twitter_cards_gallery_image1: ''
+    twitter_cards_gallery_image2: ''
+    twitter_cards_gallery_image3: ''
+    twitter_cards_app_store_country: ''
+    twitter_cards_app_name_iphone: ''
+    twitter_cards_app_id_iphone: ''
+    twitter_cards_app_url_iphone: ''
+    twitter_cards_app_name_ipad: ''
+    twitter_cards_app_id_ipad: ''
+    twitter_cards_app_url_ipad: ''
+    twitter_cards_app_name_googleplay: ''
+    twitter_cards_app_id_googleplay: ''
+    twitter_cards_app_url_googleplay: ''
+    twitter_cards_player: ''
+    twitter_cards_player_width: ''
+    twitter_cards_player_height: ''
+    twitter_cards_player_stream: ''
+    twitter_cards_player_stream_content_type: ''
+    twitter_cards_label1: ''
+    twitter_cards_data1: ''
+    twitter_cards_label2: ''
+    twitter_cards_data2: ''
+    saved: false
+weight: 0

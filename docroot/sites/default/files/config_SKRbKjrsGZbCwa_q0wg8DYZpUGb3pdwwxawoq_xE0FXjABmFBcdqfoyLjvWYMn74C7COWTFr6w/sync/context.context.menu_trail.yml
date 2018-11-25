@@ -1,0 +1,37 @@
+uuid: 5e9372af-e304-4fb6-b8ae-72b61b4ab5e1
+langcode: en
+status: true
+dependencies:
+  module:
+    - context_active_trail
+    - ctools
+name: menu_trail
+label: 'Menu trail'
+group: null
+description: 'Context to provide menu trails'
+requireAllConditions: false
+disabled: false
+conditions:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    bundles:
+      blog_post: blog_post
+      book: book
+      govcms_event: govcms_event
+      landing_page: landing_page
+      landing_page_level_2: landing_page_level_2
+      news_item: news_item
+      page: page
+      platforms_and_services: platforms_and_services
+    negate: 0
+    uuid: 1b6ac884-91cf-4292-ba3b-f87a5056b7e8
+    context_mapping:
+      node: '@node.node_route_context:node'
+reactions:
+  active_trail:
+    id: active_trail
+    trail: 'main:'
+    breadcrumbs: 1
+    breadcrumb_title: 0
+    uuid: 30a0b9f9-7b43-48f2-8ed2-ed502414b6ad
+weight: 0

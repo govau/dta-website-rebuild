@@ -96,6 +96,8 @@
         "drupal/ckeditor_tabletoolstoolbar": "1.0",
         "drupal/composer_deploy": "1.2",
         "drupal/config_split": "1.2",
+        "drupal/context_active_trail": "1.0-rc2",
+        "drupal/context_metadata": "2.x-dev",
         "drupal/core": "8.6.3",
         "drupal/devel": "1.2",
         "drupal/ds": "3.1",
@@ -127,7 +129,6 @@
         "drupal/markdown": "1.2",
         "drupal/menu_block": "1.5",
         "drupal/menu_link_attributes": "1.0",
-        "drupal/menu_trail_by_path": "1.1",
         "drupal/metatag": "1.7",
         "drupal/migrate_plus": "4.0-beta3",
         "drupal/migrate_tools": "4.0-beta3",
@@ -230,6 +231,9 @@
           },
           "drupal/ie8": {
             "drupal.js Incompatible in D8.5": "https://www.drupal.org/files/issues/2018-03-30/drupal_js.patch"
+          },
+          "drupal/context_metadata": {
+            "Check if default metadata is not null": "https://www.drupal.org/files/issues/2018-11-26/3003858-4-Check-if-default-metadata-is-not-null.patch"
           }
         }
     },
