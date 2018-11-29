@@ -11,7 +11,6 @@ dependencies:
     - field.field.node.page.field_index_image
     - field.field.node.page.field_introduction
     - field.field.node.page.field_linkedin_image
-    - field.field.node.page.field_phase
     - field.field.node.page.field_promote_to_get_help_advice
     - field.field.node.page.field_promote_to_our_projects
     - field.field.node.page.field_related_content
@@ -114,12 +113,6 @@ content:
       imce:
         enabled: true
     type: image_image
-    region: content
-  field_phase:
-    weight: 17
-    settings: {  }
-    third_party_settings: {  }
-    type: options_buttons
     region: content
   field_promote_to_get_help_advice:
     weight: 22
