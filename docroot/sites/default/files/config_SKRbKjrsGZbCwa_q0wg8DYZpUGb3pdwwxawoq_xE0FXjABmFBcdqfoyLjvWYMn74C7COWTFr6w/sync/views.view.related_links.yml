@@ -58,7 +58,7 @@ display:
         type: html_list
         options:
           grouping: {  }
-          row_class: 'col-xs-12 col-sm-4'
+          row_class: 'col-xs-12 col-sm-6'
           default_row_class: false
           uses_fields: true
           type: ul
@@ -327,7 +327,8 @@ display:
     display_title: 'Related links block'
     position: 1
     display_options:
-      display_extenders: {  }
+      display_extenders:
+        metatag_display_extender: {  }
       display_description: 'Displays related links for a page.'
       allow:
         items_per_page: false
