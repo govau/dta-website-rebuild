@@ -96,6 +96,8 @@
         "drupal/ckeditor_tabletoolstoolbar": "1.0",
         "drupal/composer_deploy": "1.2",
         "drupal/config_split": "1.2",
+        "drupal/context_active_trail": "1.0-rc2",
+        "drupal/context_metadata": "2.x-dev",
         "drupal/core": "8.6.3",
         "drupal/devel": "1.2",
         "drupal/ds": "3.1",
@@ -230,6 +232,9 @@
           },
           "drupal/ie8": {
             "drupal.js Incompatible in D8.5": "https://www.drupal.org/files/issues/2018-03-30/drupal_js.patch"
+          },
+          "drupal/context_metadata": {
+            "Check if default metadata is not null": "https://www.drupal.org/files/issues/2018-11-26/3003858-4-Check-if-default-metadata-is-not-null.patch"
           }
         }
     },

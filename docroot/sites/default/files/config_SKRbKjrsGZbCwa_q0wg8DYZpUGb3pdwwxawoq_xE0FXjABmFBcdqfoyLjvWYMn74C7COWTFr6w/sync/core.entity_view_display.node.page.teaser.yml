@@ -12,7 +12,6 @@ dependencies:
     - field.field.node.page.field_index_image
     - field.field.node.page.field_introduction
     - field.field.node.page.field_linkedin_image
-    - field.field.node.page.field_phase
     - field.field.node.page.field_promote_to_get_help_advice
     - field.field.node.page.field_promote_to_our_projects
     - field.field.node.page.field_related_content
@@ -141,7 +140,6 @@ hidden:
   field_introduction: true
   field_lede: true
   field_linkedin_image: true
-  field_phase: true
   field_promote_to_get_help_advice: true
   field_promote_to_our_projects: true
   field_related_content: true

@@ -11,7 +11,6 @@ dependencies:
     - field.field.node.page.field_index_image
     - field.field.node.page.field_introduction
     - field.field.node.page.field_linkedin_image
-    - field.field.node.page.field_phase
     - field.field.node.page.field_promote_to_get_help_advice
     - field.field.node.page.field_promote_to_our_projects
     - field.field.node.page.field_related_content
@@ -140,14 +139,6 @@ content:
       image_link: ''
     third_party_settings: {  }
     type: image
-    region: ds_content
-  field_phase:
-    weight: 104
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    type: entity_reference_label
     region: ds_content
   field_promote_to_get_help_advice:
     weight: 115

@@ -28,6 +28,9 @@ module:
   config_update: 0
   config_update_ui: 0
   content_moderation: 0
+  context: 0
+  context_active_trail: 0
+  context_ui: 0
   ctools: 0
   ctools_block: 0
   datetime: 0
@@ -76,7 +79,6 @@ module:
   markdown: 0
   menu_block: 0
   menu_link_attributes: 0
-  menu_trail_by_path: 0
   menu_ui: 0
   metatag: 0
   metatag_dc: 0
@@ -100,6 +102,7 @@ module:
   rh_node: 0
   rh_taxonomy: 0
   rh_user: 0
+  robotstxt: 0
   rules: 0
   rules_role_email: 0
   s3fs: 0
@@ -149,6 +152,7 @@ module:
   ds_extras: 2
   views: 10
   paragraphs: 11
+  context_metadata: 1000
   govcms: 1000
 theme:
   stable: 0
