@@ -38,11 +38,11 @@ third_party_settings:
         - field_introduction
         - 'dynamic_block_field:node-recrtuierbox_positions_block'
         - field_body
-        - 'dynamic_block_field:node-landing_page_cards'
+        - 'dynamic_block_field:node-landing_page_cards_2_card_row'
         - 'dynamic_block_field:node-related_links_block'
     fields:
-      'dynamic_block_field:node-landing_page_cards':
-        plugin_id: 'dynamic_block_field:node-landing_page_cards'
+      'dynamic_block_field:node-landing_page_cards_2_card_row':
+        plugin_id: 'dynamic_block_field:node-landing_page_cards_2_card_row'
         weight: 6
         label: above
         formatter: default
@@ -55,23 +55,23 @@ third_party_settings:
             lbw-el: h2
             lbw-cl: sr-only
             lbw-at: ''
-            ow: true
-            ow-el: div
-            ow-cl: au-landing-page-level-2-cards
+            ow-el: ''
+            ow-cl: ''
             ow-at: ''
             fis-el: ''
             fis-cl: ''
             fis-at: ''
-            fi-el: ''
-            fi-cl: ''
+            fi: true
+            fi-el: div
+            fi-cl: au-landing-page-level-2-cards
             fi-at: ''
             suffix: ''
             lb-col: false
+            ow: false
             ow-def-at: false
             ow-def-cl: false
             fis: false
             fis-def-at: false
-            fi: false
             fi-def-at: false
       'dynamic_block_field:node-recrtuierbox_positions_block':
         plugin_id: 'dynamic_block_field:node-recrtuierbox_positions_block'
