@@ -54,8 +54,8 @@ main() {
 
   cf run-task ${CF_APP} --name "${TASK_NAME}" "source scripts/buildrc && drush cron"
 
-  # Wait up to 2 minutes for task to finish
-  end=$((SECONDS+120))
+  # Wait up to 5 minutes for task to finish
+  end=$((SECONDS+300))
   while [ $SECONDS -lt $end ]; do
       if [[ $(cf tasks "${CF_APP}" | grep "${TASK_NAME}") =~ "RUNNING" ]]; then
         echo "Waiting for task to finish"
