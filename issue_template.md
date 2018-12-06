@@ -1,37 +1,51 @@
-- [ ] I’ve read and understood the [Contributing guidelines](./CONTRIBUTING.md) and have done my best effort to follow them.
 - [ ] I’ve read and agree to the [Code of Conduct](./CODE_OF_CONDUCT.md).
 - [ ] I’ve searched for any related issues and avoided creating a duplicate issue.
 
-# What happened
+# Thanks!
+
+Thanks for dropping an issue! To make it easier for us to work on your issue, we'd love it if you could formulate your issue as a scenario using a 'given...when...then' structure. Based on that we can build a test for the issue using [Behat](http://behat.org/en/latest/). You'll then be able to see the progression of your test when our tests run! try to keep your issue as simple as possible rather than doing more than one - remember you can always create new issues for each problem. This also helps us deal with them more efficiently.
+
+# What state was the website in when you encountered the problem?
 
 <!--
-	What happened that makes you think this is a bug or missing feature?
+	What page were you on? Are you logged in or logged out? What browser are you using?
+
+  For example:
+  - 'Given that I am on the home page using Chrome'
+  - 'Given that I am logged in as a content editor and on the 'Create a blog' page using Safari'
+  - 'Given that I am on the "Creating a Digital Identity" page at "https://www.dta.gov.au/our-projects/digital-identity/creating-digital-identity"'
 -->
 
-# What I expected to happen
+# What did you do or were you doing when the problem occurred?
 
 <!--
-	What did you expect to happen? You can skip this section if this is a feature request.
+	Did you click a button? Try to fill in a form? Using a link? Changing device orientation? Remember the context you gave above.
+
+  For example:
+  - 'When I click the 'Save' button'
+  - 'When I try to close the accordion'
+  - 'When I rotate my mobile phone to landscape mode'
 -->
 
+# Then what happened?
 
-# Reproducing
-
-- URL you were on when the problem happened.
-- The browser you are using (such as Chrome, Internet Explorer, Firefox and so on) and the browser version.
-- The operating system you are using (Mac, iOS, Windows and so on).
-
-
-## Steps to reproduce:
 <!--
-	If you took a particular series of actions before the problem occurred, please list them here.
+  Describe what you then expected to happen.
+
+  For example:
+   - 'Then I should see the new index card on the home page'
+   - 'Then I should navigate to the given link'
+   - 'Then the images on the cards should change size'
 -->
-1.
-2.
-3.
-4.
+
+# Any other information?
+
+<!--
+	If there is anything else you think might be relevant, just make a note here.
+-->
 
 # Screenshots
+
 <!--
     Screenshots are great to help diagnose issues so you don't have to describe them in huge amounts of detail.
 -->
