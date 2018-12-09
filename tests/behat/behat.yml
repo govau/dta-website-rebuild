@@ -12,7 +12,7 @@ default:
         features:           %paths.base%/features
   extensions:
     Behat\MinkExtension:
-      base_url:             'http://govcms8.local'
+      #base_url:             'Set via environment variables'
       goutte:               ~
       selenium2:
         wd_host:            'http://localhost:4444/wd/hub'
@@ -27,3 +27,7 @@ default:
         root:               'docroot'
       drupal:
         drupal_root:        'docroot'
+      region_map:
+        book_navigation:    '.book-navigation'
+        highlight:          '#highlight'
+        main_menu:          '#superfish-main'
