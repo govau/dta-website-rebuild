@@ -10,6 +10,24 @@ default:
         - '\Drupal\DrupalExtension\Context\DrushContext'
       paths:
         features:           %paths.base%/features
+    ui:
+      contexts:
+        - '\Drupal\DrupalExtension\Context\DrupalContext'
+        - '\Drupal\DrupalExtension\Context\MinkContext'
+      paths:
+        features:           %paths.base%/features/ui
+    content:
+      contexts:
+        - '\Drupal\DrupalExtension\Context\DrupalContext'
+        - '\Drupal\DrupalExtension\Context\MinkContext'
+      paths:
+        features:           %paths.base%/features/content
+    user:
+      contexts:
+        - '\Drupal\DrupalExtension\Context\DrupalContext'
+        - '\Drupal\DrupalExtension\Context\MinkContext'
+      paths:
+        features:           %paths.base%/features/user
   extensions:
     Behat\MinkExtension:
       #base_url:             'Set via environment variables'

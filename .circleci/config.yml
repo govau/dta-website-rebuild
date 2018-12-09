@@ -68,6 +68,7 @@ jobs:
       - run:
           name: Updating configuration and database
           command: ./scripts/start.sh
+      - run: ./scripts/prod-test.sh
   cron:
     docker:
       - image: govau/cf-cli
