@@ -4,15 +4,16 @@ default:
   suites:
     default:
       contexts:
+        - 'FeatureContext'
         - '\Drupal\DrupalExtension\Context\DrupalContext'
-        - '\Drupal\DrupalExtension\Context\MinkContext'
         - '\Drupal\DrupalExtension\Context\MessageContext'
         - '\Drupal\DrupalExtension\Context\DrushContext'
       paths:
         features:           %paths.base%/features
+        bootstrap:          %paths.base%/bootstrap
   extensions:
     Behat\MinkExtension:
-      base_url:             'http://govcms8.local'
+      base_url:             'http://au.gov.cld.y.dta-website-rebuild-test:8888/'
       goutte:               ~
       selenium2:
         wd_host:            'http://localhost:4444/wd/hub'
@@ -27,3 +28,5 @@ default:
         root:               'docroot'
       drupal:
         drupal_root:        'docroot'
+      region_map:
+        content:            'div#main-content'
