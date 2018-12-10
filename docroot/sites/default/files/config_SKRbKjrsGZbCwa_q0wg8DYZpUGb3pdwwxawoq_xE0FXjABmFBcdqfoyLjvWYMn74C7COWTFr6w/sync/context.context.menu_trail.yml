@@ -31,7 +31,7 @@ reactions:
   active_trail:
     id: active_trail
     trail: 'main:'
-    breadcrumbs: 1
+    breadcrumbs: 0
     breadcrumb_title: 0
     uuid: 30a0b9f9-7b43-48f2-8ed2-ed502414b6ad
 weight: 0
