@@ -39,7 +39,6 @@ default:
       drupal:
         drupal_root:        'docroot'
       region_map:
-        content:            'div#main-content'
         book_navigation:    '.book-navigation'
         highlight:          '#highlight'
         main_menu:          '#superfish-main'
