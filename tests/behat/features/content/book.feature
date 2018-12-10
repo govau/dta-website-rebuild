@@ -5,18 +5,22 @@ Feature: Book Pages
   As a user
   I need to be able to see the book title with a link at the bottom of each book page.
 
-  Scenario: Ensure DTS has correct title and link
-    Given I am an anonymous user
-    When I follow "Digital Transformation Strategy" in the "main_menu" region
-    And I click "Read the strategy" in the "highlight" region
-    And I click "Digital Transformation Strategy" in the "book_navigation" region
-    Then I should see the heading "Digital Transformation Strategy"
+  Background:
+    Given "book" content:
+      | title            | field_summary          | field_body   | moderation_state | bid        |
+      | Test Book Root   | Test book root summary | placeholder  | published        |                |
+      | Test Book Page   | Test book page summary | placeholder  | published        | Test Book Root |
+    When I am logged in as a user with the "Content editor" role
+    And I am on "test-book-page"
 
-  Scenario: Ensure the Platform Strategy has the correct title and link
-    Given I am logged in as a user with the "Content editor" role
-    When I follow "Our projects" in the "main_menu" region
-    And I click "Strategies"
-    And I click "Digital Service Platforms Strategy"
-    And I click "Foreword"
-    And I click "Digital Service Platforms Strategy" in the "book_navigation" region
-    Then I should see the heading "Digital Service Platforms Strategy"
+    Scenario: Book exists
+      Then I see the heading "Test Book Page"
+
+    Scenario: Edit book
+      When I click "Edit" in the "content" region
+      Then I should see the heading "Edit Book page Test Book Page"
+
+  Scenario: View book
+    Given I am an anonymous user
+    When I am on "test-book-page"
+    Then I should not see the link "Edit"
