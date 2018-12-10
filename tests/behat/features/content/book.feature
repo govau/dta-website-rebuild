@@ -8,7 +8,6 @@ Feature: Book Pages
   Background:
     Given "book" content:
       | title            | field_summary          | field_body   | moderation_state | bid        |
-      | Test Book Root   | Test book root summary | placeholder  | published        |                |
       | Test Book Page   | Test book page summary | placeholder  | published        | Test Book Root |
     When I am logged in as a user with the "Content editor" role
     And I am on "test-book-page"

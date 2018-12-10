@@ -2,16 +2,9 @@ default:
   autoload:
     '':                     %paths.base%/bootstrap
   suites:
-    default:
-      contexts:
-        - '\Drupal\DrupalExtension\Context\DrupalContext'
-        - '\Drupal\DrupalExtension\Context\MinkContext'
-        - '\Drupal\DrupalExtension\Context\MessageContext'
-        - '\Drupal\DrupalExtension\Context\DrushContext'
-      paths:
-        features:           %paths.base%/features
     ui:
       contexts:
+        - 'FeatureContext'
         - '\Drupal\DrupalExtension\Context\DrupalContext'
         - '\Drupal\DrupalExtension\Context\MinkContext'
       paths:

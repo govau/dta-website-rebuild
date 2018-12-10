@@ -82,18 +82,6 @@ display:
             offset_label: Offset
           quantity: 9
       sorts:
-        sticky:
-          id: sticky
-          table: taxonomy_index
-          field: sticky
-          order: DESC
-          plugin_id: standard
-          relationship: none
-          group_type: group
-          admin_label: ''
-          exposed: false
-          expose:
-            label: ''
         field_date_value:
           id: field_date_value
           table: node__field_date
@@ -101,7 +89,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          order: ASC
+          order: DESC
           exposed: false
           expose:
             label: ''
