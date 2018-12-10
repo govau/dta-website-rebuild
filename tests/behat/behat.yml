@@ -34,8 +34,8 @@ default:
       blackbox:             ~
       api_driver:           'drupal'
       drush:
-        alias:              'local'
         root:               'docroot'
+        alias:              'local'
       drupal:
         drupal_root:        'docroot'
       region_map:
