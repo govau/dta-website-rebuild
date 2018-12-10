@@ -49,3 +49,5 @@ default:
         book_navigation:    '.book-navigation'
         highlight:          '#highlight'
         main_menu:          '#superfish-main'
+        admin_menu:         '#toolbar-item-administration-tray'
+        content:            '#main-content'
