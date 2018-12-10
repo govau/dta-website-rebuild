@@ -17,3 +17,4 @@ applications:
   env:
     DRUPAL_UUID: "59f85df3-5f18-45dd-bf6a-40977b57a842"
     ENVIRONMENT: staging
+    BEHAT_PARAMS: '{"extensions":{"Behat\\MinkExtension":{"base_url":"http://govcms8.local"}}}'

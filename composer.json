@@ -167,7 +167,7 @@
         "drupal/weight": "3.0",
         "drupal/wysiwyg_template": "2.0-beta1",
         "drush/drush": "9.3.0",
-        "govau/dta-gov-au": "1.8.4",
+        "govau/dta-gov-au": "1.8.5",
         "harvesthq/chosen": "1.8.2",
         "imperator99/superfish": "2.3",
         "oomphinc/composer-installers-extender": "1.1.2",
@@ -175,7 +175,7 @@
         "symfony/http-kernel": "~3.4.14"
     },
     "require-dev": {
-        "behat/behat": "3.4.3",
+        "behat/behat": "3.5.0",
         "bex/behat-screenshot": "1.2.7",
         "dmore/behat-chrome-extension": "1.1.0",
         "drupal/coder": "8.2.12",

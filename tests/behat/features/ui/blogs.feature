@@ -8,4 +8,3 @@ Feature: Blogs and news items
   Scenario: Viewing tag pages/taxonomy terms
     Given I am viewing a "Tags" term with the name "ICT procurement"
     Then I should see the text "ICT procurement" in the "content" region
-    And I should see the most recent item first

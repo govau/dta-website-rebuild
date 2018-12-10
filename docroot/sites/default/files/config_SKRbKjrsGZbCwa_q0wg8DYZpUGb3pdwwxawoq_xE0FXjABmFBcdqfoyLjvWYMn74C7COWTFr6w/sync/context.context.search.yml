@@ -14,7 +14,7 @@ disabled: false
 conditions:
   request_path:
     id: request_path
-    pages: "/search/\r\n/search*\r\n/search/*"
+    pages: "/search/\r\n/search*\r\n/search/*\r\n/news-and-blogs/thanks-subscribing"
     negate: 0
     uuid: a140eddd-03bc-4665-ab88-b86c1d5c2be5
     context_mapping: {  }

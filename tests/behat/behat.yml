@@ -2,18 +2,28 @@ default:
   autoload:
     '':                     %paths.base%/bootstrap
   suites:
-    default:
+    ui:
       contexts:
         - 'FeatureContext'
         - '\Drupal\DrupalExtension\Context\DrupalContext'
-        - '\Drupal\DrupalExtension\Context\MessageContext'
-        - '\Drupal\DrupalExtension\Context\DrushContext'
+        - '\Drupal\DrupalExtension\Context\MinkContext'
       paths:
-        features:           %paths.base%/features
-        bootstrap:          %paths.base%/bootstrap
+        features:           %paths.base%/features/ui
+    content:
+      contexts:
+        - '\Drupal\DrupalExtension\Context\DrupalContext'
+        - '\Drupal\DrupalExtension\Context\MinkContext'
+      paths:
+        features:           %paths.base%/features/content
+    user:
+      contexts:
+        - '\Drupal\DrupalExtension\Context\DrupalContext'
+        - '\Drupal\DrupalExtension\Context\MinkContext'
+      paths:
+        features:           %paths.base%/features/user
   extensions:
     Behat\MinkExtension:
-      base_url:             'http://au.gov.cld.y.dta-website-rebuild-test:8888/'
+      #base_url:             'Set via environment variables'
       goutte:               ~
       selenium2:
         wd_host:            'http://localhost:4444/wd/hub'
@@ -30,3 +40,8 @@ default:
         drupal_root:        'docroot'
       region_map:
         content:            'div#main-content'
+        book_navigation:    '.book-navigation'
+        highlight:          '#highlight'
+        main_menu:          '#superfish-main'
+        admin_menu:         '#toolbar-item-administration-tray'
+        content:            '#main-content'
