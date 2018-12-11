@@ -29,14 +29,14 @@ type_settings:
       published: false
       default_revision: true
     draft:
-      label: Draft
       published: false
       default_revision: false
+      label: 'Content design'
       weight: -10
     needs_review:
       published: false
       default_revision: false
-      label: 'Needs Review'
+      label: 'Technical review'
       weight: -9
     published:
       label: Published
@@ -51,19 +51,19 @@ type_settings:
       to: archived
       weight: -7
     archived_draft:
-      label: 'Restore to Draft'
+      label: 'Restore to content design'
       from:
         - archived
       to: draft
       weight: -6
     archived_published:
-      label: Restore
+      label: Re-publish
       from:
         - archived
       to: published
       weight: -5
     create_new_draft:
-      label: 'Create New Draft'
+      label: 'Create new draft'
       to: draft
       weight: -10
       from:
@@ -71,7 +71,7 @@ type_settings:
         - needs_review
         - published
     needs_review:
-      label: 'Needs review'
+      label: 'Technical review'
       from:
         - archived
         - draft
@@ -84,6 +84,7 @@ type_settings:
       to: published
       weight: -8
       from:
+        - draft
         - needs_review
         - published
   entity_types:
