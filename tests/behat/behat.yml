@@ -21,6 +21,12 @@ default:
         - '\Drupal\DrupalExtension\Context\MinkContext'
       paths:
         features:           %paths.base%/features/user
+    admin:
+      contexts:
+        - '\Drupal\DrupalExtension\Context\DrupalContext'
+        - '\Drupal\DrupalExtension\Context\MinkContext'
+      paths:
+        features:           %paths.base%/features/admin
   extensions:
     Behat\MinkExtension:
       #base_url:             'Set via environment variables'
@@ -44,3 +50,4 @@ default:
         main_menu:          '#superfish-main'
         admin_menu:         '#toolbar-item-administration-tray'
         content:            '#main-content'
+        toolbar:            '#toolbar-administration'
