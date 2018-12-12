@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "669ec81a1ff65d9923a626170997009e",
+    "content-hash": "f4bce97bed2bd2086e990d9b6bea23ad",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2705,16 +2705,16 @@
         },
         {
             "name": "drupal/core",
-            "version": "8.6.3",
+            "version": "8.6.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal/core.git",
-                "reference": "9e9a1dd9e280ebaf10622217e54448b529167965"
+                "reference": "652bdf56b5e9e84648ea53ac7b1e7e73e7608ef4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drupal/core/zipball/9e9a1dd9e280ebaf10622217e54448b529167965",
-                "reference": "9e9a1dd9e280ebaf10622217e54448b529167965",
+                "url": "https://api.github.com/repos/drupal/core/zipball/652bdf56b5e9e84648ea53ac7b1e7e73e7608ef4",
+                "reference": "652bdf56b5e9e84648ea53ac7b1e7e73e7608ef4",
                 "shasum": ""
             },
             "require": {
@@ -2944,7 +2944,7 @@
                 "GPL-2.0-or-later"
             ],
             "description": "Drupal is an open source content management platform powering millions of websites and applications.",
-            "time": "2018-11-07T14:45:40+00:00"
+            "time": "2018-12-05T11:58:02+00:00"
         },
         {
             "name": "drupal/ctools",
@@ -5911,7 +5911,7 @@
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
             "license": [
-                "GPL-2.0+"
+                "GPL-2.0-or-later"
             ],
             "authors": [
                 {
