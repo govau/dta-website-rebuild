@@ -1,0 +1,60 @@
+uuid: 280def53-92c2-4c10-a1b6-fdd1232b866c
+langcode: en
+status: true
+dependencies:
+  config:
+    - search_api.index.news_and_blog_search
+    - views.view.news_and_blogs_facets
+  module:
+    - search_api
+id: archive_content_type
+name: 'Archive content type'
+url_alias: archive_content_type
+weight: 0
+min_count: 0
+show_only_one_result: false
+field_identifier: type
+facet_source_id: 'search_api:views_page__news_and_blogs_facets__page_2'
+widget:
+  type: checkbox
+  config:
+    show_numbers: true
+    soft_limit: 0
+    soft_limit_settings:
+      show_less_label: 'Show less'
+      show_more_label: 'Show more'
+query_operator: or
+use_hierarchy: false
+expand_hierarchy: false
+enable_parent_when_child_gets_disabled: true
+hard_limit: 0
+exclude: false
+only_visible_when_facet_source_is_visible: true
+processor_configs:
+  display_value_widget_order:
+    processor_id: display_value_widget_order
+    weights:
+      sort: 40
+    settings:
+      sort: ASC
+  hide_non_narrowing_result_processor:
+    processor_id: hide_non_narrowing_result_processor
+    weights:
+      build: 40
+    settings: {  }
+  translate_entity:
+    processor_id: translate_entity
+    weights:
+      build: 5
+    settings: {  }
+  url_processor_handler:
+    processor_id: url_processor_handler
+    weights:
+      pre_query: 50
+      build: 15
+    settings: {  }
+empty_behavior:
+  behavior: text
+  text_format: rich_text
+  text: "<p>Sorry, your selection didn't return any results&nbsp;so we can't show anything here. <a href=\"/news-blogs-archive\">Reset your filters</a>.</p>\r\n"
+show_title: false

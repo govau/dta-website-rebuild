@@ -1,0 +1,29 @@
+uuid: 0e6b9295-66cc-423d-96a3-a9ebb3e99ae9
+langcode: en
+status: true
+dependencies:
+  config:
+    - facets.facet.archive_filter_by_topic
+  module:
+    - facets
+    - system
+  theme:
+    - dta_gov_au
+id: archivefilterbytopic
+theme: dta_gov_au
+region: sidebar_off_canvas
+weight: 0
+provider: null
+plugin: 'facet_block:archive_filter_by_topic'
+settings:
+  id: 'facet_block:archive_filter_by_topic'
+  label: 'Filter by tags'
+  provider: facets
+  label_display: visible
+  block_id: archivefilterbytopic
+visibility:
+  request_path:
+    id: request_path
+    pages: /news-blogs-archive
+    negate: false
+    context_mapping: {  }
