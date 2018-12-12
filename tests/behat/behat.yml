@@ -51,3 +51,4 @@ default:
         admin_menu:         '#toolbar-item-administration-tray'
         content:            '#main-content'
         toolbar:            '#toolbar-administration'
+        breadcrumbs:        '#block-breadcrumbs-2'

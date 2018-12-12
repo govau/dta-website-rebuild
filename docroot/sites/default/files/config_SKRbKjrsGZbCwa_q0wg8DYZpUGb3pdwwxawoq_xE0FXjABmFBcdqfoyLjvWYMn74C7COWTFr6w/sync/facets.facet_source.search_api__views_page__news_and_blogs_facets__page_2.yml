@@ -1,0 +1,9 @@
+uuid: 0702a75f-eaaa-48c5-8a21-de5067f2982e
+langcode: en
+status: true
+dependencies: {  }
+id: search_api__views_page__news_and_blogs_facets__page_2
+name: 'search_api:views_page__news_and_blogs_facets__page_2'
+filter_key: null
+url_processor: query_string
+breadcrumb: {  }
