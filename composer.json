@@ -100,7 +100,7 @@
         "drupal/context_metadata": "2.x-dev",
         "drupal/core": "8.6.4",
         "drupal/devel": "1.2",
-        "drupal/ds": "3.1",
+        "drupal/ds": "3.2",
         "drupal/ds_chains": "1.0",
         "drupal/editor_advanced_link": "1.4",
         "drupal/empty_fields": "1.x-dev",

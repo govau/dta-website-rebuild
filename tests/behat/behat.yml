@@ -13,6 +13,7 @@ default:
       contexts:
         - '\Drupal\DrupalExtension\Context\DrupalContext'
         - '\Drupal\DrupalExtension\Context\MinkContext'
+        - '\Drupal\DrupalExtension\Context\MessageContext'
       paths:
         features:           %paths.base%/features/content
     user:
@@ -36,7 +37,12 @@ default:
         browser:            chrome
       javascript_session:   selenium2
       browser_name:         chrome
+      show_cmd:             '/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome %s'
     Drupal\DrupalExtension:
+      selectors:
+        message_selector: '.messages'
+        error_message_selector: '.messages.messages-error'
+        success_message_selector: '.messages.messages-status'
       blackbox:             ~
       api_driver:           'drupal'
       drush:
@@ -52,3 +58,4 @@ default:
         content:            '#main-content'
         toolbar:            '#toolbar-administration'
         breadcrumbs:        '#block-breadcrumbs-2'
+        publishing_meta:    '#edit-meta-published'
