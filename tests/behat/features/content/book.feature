@@ -36,8 +36,3 @@ Feature: Book Pages
     And I select "Published" from "Save as"
     And I press the "Save" button
     Then I should see the heading "Test Book page"
-
-  Scenario: View book
-    Given I am an anonymous user
-    When I am on "test-book"
-    Then I should get a "403" HTTP response
