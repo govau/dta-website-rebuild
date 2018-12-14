@@ -12,7 +12,7 @@ dependencies:
 id: archivefilterbytopic
 theme: dta_gov_au
 region: sidebar_off_canvas
-weight: 0
+weight: -14
 provider: null
 plugin: 'facet_block:archive_filter_by_topic'
 settings:

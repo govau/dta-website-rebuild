@@ -32,6 +32,8 @@ Feature: Blogs and news items
       And I should see the link "archive page"
       And I should see the heading "Filter by type"
       And I should see the heading "Filter by tags"
+      And I follow "archive page"
+      Then I should see the text "News and blogs archive" in the "breadcrumbs" region
 
     Scenario: Viewing archived blogs and news items
       When I visit "news-blogs-archive"
