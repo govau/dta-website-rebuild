@@ -13,6 +13,7 @@ default:
       contexts:
         - '\Drupal\DrupalExtension\Context\DrupalContext'
         - '\Drupal\DrupalExtension\Context\MinkContext'
+        - '\Drupal\DrupalExtension\Context\MessageContext'
       paths:
         features:           %paths.base%/features/content
     user:
@@ -21,6 +22,12 @@ default:
         - '\Drupal\DrupalExtension\Context\MinkContext'
       paths:
         features:           %paths.base%/features/user
+    admin:
+      contexts:
+        - '\Drupal\DrupalExtension\Context\DrupalContext'
+        - '\Drupal\DrupalExtension\Context\MinkContext'
+      paths:
+        features:           %paths.base%/features/admin
   extensions:
     Behat\MinkExtension:
       #base_url:             'Set via environment variables'
@@ -30,7 +37,12 @@ default:
         browser:            chrome
       javascript_session:   selenium2
       browser_name:         chrome
+      show_cmd:             '/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome %s'
     Drupal\DrupalExtension:
+      selectors:
+        message_selector: '.messages'
+        error_message_selector: '.messages.messages-error'
+        success_message_selector: '.messages.messages-status'
       blackbox:             ~
       api_driver:           'drupal'
       drush:
@@ -44,3 +56,6 @@ default:
         main_menu:          '#superfish-main'
         admin_menu:         '#toolbar-item-administration-tray'
         content:            '#main-content'
+        toolbar:            '#toolbar-administration'
+        breadcrumbs:        '#block-breadcrumbs-2'
+        publishing_meta:    '#edit-meta-published'

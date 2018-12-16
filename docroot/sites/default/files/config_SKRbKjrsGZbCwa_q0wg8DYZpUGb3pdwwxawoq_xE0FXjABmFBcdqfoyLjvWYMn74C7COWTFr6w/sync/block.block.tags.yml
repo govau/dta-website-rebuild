@@ -12,7 +12,7 @@ dependencies:
 id: tags
 theme: dta_gov_au
 region: sidebar_off_canvas
-weight: -11
+weight: -16
 provider: null
 plugin: 'facet_block:tags'
 settings:

@@ -5,21 +5,34 @@ Feature: Book Pages
   As a user
   I need to be able to see the book title with a link at the bottom of each book page.
 
-  Background:
-    Given "book" content:
-      | title            | field_summary          | field_body   | moderation_state | bid        |
-      | Test Book Page   | Test book page summary | placeholder  | published        | Test Book Root |
-    When I am logged in as a user with the "Content editor" role
-    And I am on "test-book-page"
+  Scenario: Create book
+    Given I am logged in as a user with the "Content editor" role
+    And I am on "node/add/book"
+    When I fill in "Test Book" for "Title"
+    And I fill in "Test book summary" for "Summary"
+    And I fill in "Test book placeholder text" for "Body"
+    And I select "- Create a new book -" from "Book"
+    And I select "Published" from "Save as"
+    And I press the "Save" button
+    And I am on "admin/structure/book"
+    And I follow "Test Book"
+    Then I should see the heading "Test Book"
 
-    Scenario: Book exists
-      Then I see the heading "Test Book Page"
-
-    Scenario: Edit book
-      When I click "Edit" in the "content" region
-      Then I should see the heading "Edit Book page Test Book Page"
-
-  Scenario: View book
-    Given I am an anonymous user
-    When I am on "test-book-page"
-    Then I should not see the link "Edit"
+  Scenario: Add child book
+    Given I am logged in as a user with the "Content editor" role
+    And I am on "node/add/book"
+    When I fill in "Test Book page" for "Title"
+    And I fill in "Test book summary" for "Summary"
+    And I fill in "Test book placeholder text" for "Body"
+    And I select "- Create a new book -" from "Book"
+    And I select "Published" from "Save as"
+    And I press the "Save" button
+    And I am on "admin/structure/book"
+    And I follow "Test Book"
+    And I click "Add child page"
+    And I fill in "Test Book page" for "Title"
+    And I fill in "Test book page summary" for "Summary"
+    And I fill in "Test book page placeholder text" for "Body"
+    And I select "Published" from "Save as"
+    And I press the "Save" button
+    Then I should see the heading "Test Book page"
