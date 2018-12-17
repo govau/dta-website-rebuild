@@ -28,6 +28,12 @@ default:
         - '\Drupal\DrupalExtension\Context\MinkContext'
       paths:
         features:           %paths.base%/features/admin
+    engagement:
+      contexts:
+        - '\Drupal\DrupalExtension\Context\DrupalContext'
+        - '\Drupal\DrupalExtension\Context\MinkContext'
+      paths:
+        features:           %paths.base%/features/engagement
   extensions:
     Behat\MinkExtension:
       #base_url:             'Set via environment variables'
