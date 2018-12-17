@@ -35,8 +35,7 @@ settings:
       news_item: news_item
       page: page
     sort:
-      field: title
-      direction: ASC
+      field: _none
     auto_create: false
     auto_create_bundle: blog_post
 field_type: entity_reference
