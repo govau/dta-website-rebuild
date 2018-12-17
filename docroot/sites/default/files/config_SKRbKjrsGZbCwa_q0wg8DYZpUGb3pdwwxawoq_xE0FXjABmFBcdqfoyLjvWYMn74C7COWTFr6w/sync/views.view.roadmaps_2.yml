@@ -282,9 +282,8 @@ display:
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: value
-          type: text_trimmed
-          settings:
-            trim_length: 255
+          type: text_default
+          settings: {  }
           group_column: value
           group_columns: {  }
           group_rows: true
