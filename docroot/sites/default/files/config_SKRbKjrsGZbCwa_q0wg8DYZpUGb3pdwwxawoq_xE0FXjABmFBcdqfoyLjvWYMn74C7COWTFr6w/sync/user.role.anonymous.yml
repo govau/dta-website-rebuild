@@ -10,6 +10,7 @@ weight: -10
 is_admin: false
 permissions:
   - 'access content'
+  - 'access printer-friendly version'
   - 'restful get comments'
   - 'restful get me'
   - 'restful post comments'
