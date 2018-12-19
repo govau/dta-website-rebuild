@@ -23,7 +23,7 @@ Background:
   Scenario: Print book
     Given I am an anonymous user
     And I am on "test-book"
-    When I follow "Printer-friendly version"
+    When I follow "Print version"
     Then I should see the heading "Test book"
     And I should see "Test book body"
     And I should see the heading "Test book page"
