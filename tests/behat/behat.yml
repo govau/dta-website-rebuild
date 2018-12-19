@@ -65,3 +65,4 @@ default:
         toolbar:            '#toolbar-administration'
         breadcrumbs:        '#block-breadcrumbs-2'
         publishing_meta:    '#edit-meta-published'
+        book_header:        '#book-header'
