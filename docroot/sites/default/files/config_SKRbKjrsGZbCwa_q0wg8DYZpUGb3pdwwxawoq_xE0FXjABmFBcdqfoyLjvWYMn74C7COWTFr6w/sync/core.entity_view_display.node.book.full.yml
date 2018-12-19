@@ -37,6 +37,7 @@ third_party_settings:
       content:
         - content_moderation_control
         - 'dynamic_block_field:node-strategic_priority_block'
+        - links
         - node_title
         - field_introduction
         - group_figure
@@ -290,10 +291,14 @@ content:
       plugin_types:
         - block
     third_party_settings: {  }
+  links:
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden:
   field_index_image: true
   field_related_content: true
   field_short_name: true
   field_summary: true
   field_theme: true
-  links: true

@@ -1,8 +1,9 @@
 @api
 
-Feature: Print content
-In order print content
+Feature: Viewing books
+In order to consume books
 As an anonymous user
+I need to be able to view them in different ways.
 
 Background:
   Given "book" content:
@@ -28,3 +29,10 @@ Background:
     And I should see "Test book body"
     And I should see the heading "Test book page"
     And I should see "Test book body 2"
+
+  @anon @book @view
+  Scenario: Go to book root
+    Given I am an anonymous user
+    And I am on "test-book-page"
+    When I follow "Test book" in the "book_header" region
+    Then I should see the heading "Test book" in the "content" region

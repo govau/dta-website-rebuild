@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5bf29d8aa5bdfa286c3dfb0fcf3b801c",
+    "content-hash": "fafdacbea7ce6efa0ad3bed9ca081ecc",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -8098,7 +8098,7 @@
         },
         {
             "name": "govau/dta-gov-au",
-            "version": "1.8.12",
+            "version": "1.8.13",
             "source": {
                 "type": "git",
                 "url": "https://github.com/govau/dta-gov-au.git",
