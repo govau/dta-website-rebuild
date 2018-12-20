@@ -1,9 +1,9 @@
 @api
 
 Feature: Book Pages
-  In order to understand which book I am reading and navigate to the top level.
-  As a user
-  I need to be able to see the book title with a link at the bottom of each book page.
+  In order to provide large amounts of related content
+  As a content editor
+  I need to be able to create, manage and maintain books.
 
   Scenario: Create book
     Given I am logged in as a user with the "Content editor" role

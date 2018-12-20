@@ -1,4 +1,4 @@
-uuid: ddd048ca-f6c6-4654-8816-ee107c89801e
+uuid: 5f2057ef-3ccf-408d-a367-ecbe69f8dee1
 langcode: en
 status: true
 dependencies:
@@ -14,10 +14,14 @@ dependencies:
     - field.field.node.book.field_theme
     - field.field.node.book.field_view
     - node.type.book
+    - responsive_image.styles.hero_image
   module:
     - ds
     - ds_chains
-    - image
+    - empty_fields
+    - field_group
+    - responsive_image
+    - text
     - user
     - viewsreference
 third_party_settings:
@@ -30,9 +34,126 @@ third_party_settings:
       settings: {  }
     regions:
       content:
+        - node_links
         - links
+        - content_moderation_control
+        - 'dynamic_block_field:node-strategic_priority_block'
+        - node_title
+        - field_introduction
+        - group_figure
+        - field_body
+        - 'dynamic_block_field:node-related_links_block'
+        - field_view
+        - book_navigation
+        - field_image
+        - field_image_caption
+    fields:
+      book_navigation:
+        plugin_id: book_navigation
+        weight: 7
+        label: hidden
+        formatter: default
+      'dynamic_block_field:node-related_links_block':
+        plugin_id: 'dynamic_block_field:node-related_links_block'
+        weight: 6
+        label: hidden
+        formatter: default
+        ft:
+          id: expert
+          settings:
+            lb: ''
+            prefix: ''
+            lbw-el: ''
+            lbw-cl: ''
+            lbw-at: ''
+            ow: true
+            ow-el: section
+            ow-cl: ''
+            ow-at: 'id="related-links-block" role="complementary"'
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fi-el: ''
+            fi-cl: ''
+            fi-at: ''
+            suffix: ''
+            lbw: false
+            lb-col: false
+            ow-def-at: false
+            ow-def-cl: false
+            fis: false
+            fis-def-at: false
+            fi: false
+            fi-def-at: false
+      'dynamic_block_field:node-strategic_priority_block':
+        plugin_id: 'dynamic_block_field:node-strategic_priority_block'
+        weight: 1
+        label: hidden
+        formatter: default
+      node_links:
+        plugin_id: node_links
+        weight: 0
+        label: hidden
+        formatter: default
+      node_title:
+        plugin_id: node_title
+        weight: 2
+        label: hidden
+        formatter: default
+        settings:
+          wrapper: h1
+          class: ''
+          link: false
+        ft:
+          id: expert
+          settings:
+            lb: ''
+            prefix: ''
+            lbw-el: ''
+            lbw-cl: ''
+            lbw-at: ''
+            ow-el: ''
+            ow-cl: ''
+            ow-at: ''
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fi-el: ''
+            fi-cl: ''
+            fi-at: ''
+            suffix: ''
+            lbw: false
+            lb-col: false
+            ow: false
+            ow-def-at: false
+            ow-def-cl: false
+            fis: false
+            fis-def-at: false
+            fi: false
+            fi-def-at: false
   ds_chains:
-    fields: {  }
+    fields:
+      field_theme: field_theme
+  field_group:
+    group_figure:
+      children:
+        - field_image
+        - field_image_caption
+      parent_name: ''
+      weight: 4
+      format_type: html_element
+      format_settings:
+        label: 'Image and caption'
+        element: figure
+        show_label: false
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
+        id: ''
+        classes: au-hero
+      label: 'Image and caption'
+      region: content
 _core:
   default_config_hash: UWTnZUj-u-jp8I_S1C1nUCTlM5iIV2QKdxm37ehFjoI
 id: node.book.default
@@ -40,43 +161,149 @@ targetEntityType: node
 bundle: book
 mode: default
 content:
-  field_index_image:
-    weight: 3
-    label: above
-    settings:
-      image_style: ''
-      image_link: ''
-    third_party_settings: {  }
-    type: image
+  content_moderation_control:
+    weight: 0
     region: content
-  field_short_name:
+    settings: {  }
+    third_party_settings: {  }
+  field_body:
+    type: text_default
     weight: 5
-    label: above
+    region: content
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+  field_image:
+    type: responsive_image
+    weight: 8
+    region: content
+    label: hidden
+    settings:
+      responsive_image_style: hero_image
+      image_link: ''
+    third_party_settings:
+      empty_fields:
+        handler: ''
+      ds:
+        ft:
+          id: expert
+          settings:
+            lb: ''
+            prefix: ''
+            lbw-el: ''
+            lbw-cl: ''
+            lbw-at: ''
+            ow-el: ''
+            ow-cl: ''
+            ow-at: ''
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fi-el: ''
+            fi-cl: ''
+            fi-at: ''
+            suffix: ''
+            lbw: false
+            lb-col: false
+            ow: false
+            ow-def-at: false
+            ow-def-cl: false
+            fis: false
+            fis-def-at: false
+            fi: false
+            fi-def-at: false
+  field_image_caption:
+    type: string
+    weight: 9
+    region: content
+    label: hidden
     settings:
       link_to_entity: false
-    third_party_settings: {  }
-    type: string
+    third_party_settings:
+      empty_fields:
+        handler: ''
+      ds:
+        ft:
+          id: expert
+          settings:
+            lb: 'Caption:'
+            prefix: ''
+            lbw: true
+            lbw-el: span
+            lbw-cl: image-caption-label
+            lbw-at: ''
+            ow: true
+            ow-el: figcaption
+            ow-cl: ''
+            ow-at: ''
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fi: true
+            fi-el: span
+            fi-cl: image-caption
+            fi-at: ''
+            suffix: ''
+            lb-col: false
+            ow-def-at: false
+            ow-def-cl: false
+            fis: false
+            fis-def-at: false
+            fi-def-at: false
+  field_introduction:
+    type: text_default
+    weight: 3
     region: content
+    label: hidden
+    settings: {  }
+    third_party_settings:
+      empty_fields:
+        handler: ''
+      ds:
+        ft:
+          id: expert
+          settings:
+            lb: ''
+            prefix: ''
+            lbw-el: ''
+            lbw-cl: ''
+            lbw-at: ''
+            ow-el: ''
+            ow-cl: ''
+            ow-at: ''
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fi: true
+            fi-el: p
+            fi-cl: au-introduction
+            fi-at: ''
+            suffix: ''
+            lbw: false
+            lb-col: false
+            ow: false
+            ow-def-at: false
+            ow-def-cl: false
+            fis: false
+            fis-def-at: false
+            fi-def-at: false
   field_view:
-    weight: 4
-    label: above
+    type: viewsreference_formatter
+    weight: 6
+    region: content
+    label: hidden
     settings:
       plugin_types:
         - block
     third_party_settings: {  }
-    type: viewsreference_formatter
-    region: content
   links:
-    weight: 1
+    weight: 0
     region: content
     settings: {  }
     third_party_settings: {  }
 hidden:
-  content_moderation_control: true
-  field_body: true
-  field_image: true
-  field_image_caption: true
-  field_introduction: true
+  field_index_image: true
   field_related_content: true
+  field_short_name: true
   field_summary: true
   field_theme: true

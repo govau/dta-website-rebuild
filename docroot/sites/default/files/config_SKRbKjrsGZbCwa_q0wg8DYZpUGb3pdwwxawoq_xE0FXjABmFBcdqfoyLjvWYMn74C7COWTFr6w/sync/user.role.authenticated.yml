@@ -11,6 +11,7 @@ is_admin: false
 permissions:
   - 'access comments'
   - 'access content'
+  - 'access printer-friendly version'
   - 'access shortcuts'
   - 'edit own comments'
   - 'post comments'
