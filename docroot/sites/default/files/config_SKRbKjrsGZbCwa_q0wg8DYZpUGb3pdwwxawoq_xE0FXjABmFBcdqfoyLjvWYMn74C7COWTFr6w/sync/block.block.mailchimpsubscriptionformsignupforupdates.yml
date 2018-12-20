@@ -17,7 +17,7 @@ settings:
   id: 'mailchimp_signup_subscribe_block:sign_up_for_updates'
   label: 'Sign-up for updates'
   provider: mailchimp_signup
-  label_display: visible
+  label_display: '0'
 visibility:
   request_path:
     id: request_path
