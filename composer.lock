@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3e0a0d7ef19c52d6881e800aca079c1c",
+    "content-hash": "60efef37b54d6968a88fdd53c4ce5072",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -8098,16 +8098,16 @@
         },
         {
             "name": "govau/dta-gov-au",
-            "version": "1.8.14",
+            "version": "1.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/govau/dta-gov-au.git",
-                "reference": "d396ed3a6522656f036b6a771e458f3b68671f3c"
+                "reference": "aee1019a7c1cce8b6756b865bd06724eeabed3ed"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/govau/dta-gov-au/zipball/d396ed3a6522656f036b6a771e458f3b68671f3c",
-                "reference": "d396ed3a6522656f036b6a771e458f3b68671f3c",
+                "url": "https://api.github.com/repos/govau/dta-gov-au/zipball/aee1019a7c1cce8b6756b865bd06724eeabed3ed",
+                "reference": "aee1019a7c1cce8b6756b865bd06724eeabed3ed",
                 "shasum": ""
             },
             "require": {
@@ -8125,7 +8125,7 @@
                 "government",
                 "theme"
             ],
-            "time": "2018-12-19T23:36:55+00:00"
+            "time": "2018-12-20T22:51:58+00:00"
         },
         {
             "name": "govau/dta-uikit-base",
