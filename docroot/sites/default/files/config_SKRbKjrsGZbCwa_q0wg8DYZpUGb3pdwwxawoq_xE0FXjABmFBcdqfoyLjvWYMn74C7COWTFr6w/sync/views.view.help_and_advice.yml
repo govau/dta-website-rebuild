@@ -170,7 +170,7 @@ display:
             more_link: false
             more_link_text: ''
             more_link_path: ''
-            strip_tags: true
+            strip_tags: false
             trim: false
             preserve_tags: ''
             html: false
@@ -313,7 +313,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "<a href=\"{{ path }}\" class=\"au-card au-card--shadow au-card--item-{{ counter }} au-cta-link\">\n    <h3 class=\"au-card__title\">{{ title }}</h3>\n    <p class=\"au-card__text\">{{ field_summary }}</p>\n</a>"
+            text: "<a href=\"{{ path }}\" class=\"au-card au-card--shadow au-card--item-{{ counter }} au-cta-link\">\r\n    <h3 class=\"au-card__title\">{{ title }}</h3>\r\n    <div class=\"au-card__text\">{{ field_summary }}</div>\r\n</a>"
             make_link: false
             path: ''
             absolute: false
