@@ -9,9 +9,9 @@ Feature: Blogs and news items
     Given "blog_post" content:
     | title       | field_body       | field_date | status | moderation_state | field_summary  |
     | test blog 1 | test blog 1 body | 1/1/2017   | 1      | published        | test summary 1 |
-    | test blog 2 | test blog 2 body | 1/6/2017   | 1      | published        | test summary 2 |
-    | test blog 3 | test blog 3 body | 1/9/2018   | 1      | published        | test summary 3 |
-    | test blog 4 | test blog 4 body | 1/12/2018  | 1      | published        | test summary 4 |
+    | test blog 2 | test blog 2 body | 1/1/2017   | 1      | published        | test summary 2 |
+    | test blog 3 | test blog 3 body | 1/1/2019   | 1      | published        | test summary 3 |
+    | test blog 4 | test blog 4 body | 1/1/2019   | 1      | published        | test summary 4 |
     | test blog 5 | test blog 5 body | 1/1/2019   | 1      | published        | test summary 5 |
     And I run cron
 
