@@ -5,7 +5,6 @@ dependencies:
   config:
     - core.entity_view_mode.node.search_result
     - field.field.node.landing_page.field_body
-    - field.field.node.landing_page.field_facebook_image
     - field.field.node.landing_page.field_index_image
     - field.field.node.landing_page.field_introduction
     - field.field.node.landing_page.field_linkedin_image
@@ -136,7 +135,6 @@ content:
 hidden:
   content_moderation_control: true
   field_body: true
-  field_facebook_image: true
   field_index_image: true
   field_introduction: true
   field_linkedin_image: true

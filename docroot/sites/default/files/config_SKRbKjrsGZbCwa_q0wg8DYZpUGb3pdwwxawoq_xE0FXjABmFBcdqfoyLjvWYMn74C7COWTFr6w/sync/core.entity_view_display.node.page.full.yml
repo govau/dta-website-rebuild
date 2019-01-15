@@ -6,7 +6,6 @@ dependencies:
     - core.entity_view_mode.node.full
     - field.field.node.page.field_body
     - field.field.node.page.field_contact_module
-    - field.field.node.page.field_facebook_image
     - field.field.node.page.field_image
     - field.field.node.page.field_image_caption
     - field.field.node.page.field_index_image
@@ -260,7 +259,6 @@ content:
             fi-def-at: false
 hidden:
   field_contact_module: true
-  field_facebook_image: true
   field_index_image: true
   field_linkedin_image: true
   field_promote_to_get_help_advice: true
