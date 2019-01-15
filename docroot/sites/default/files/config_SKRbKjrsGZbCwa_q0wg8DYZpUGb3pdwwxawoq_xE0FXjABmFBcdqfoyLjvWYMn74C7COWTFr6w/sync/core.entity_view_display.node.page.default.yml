@@ -5,7 +5,6 @@ dependencies:
   config:
     - field.field.node.page.field_body
     - field.field.node.page.field_contact_module
-    - field.field.node.page.field_facebook_image
     - field.field.node.page.field_image
     - field.field.node.page.field_image_caption
     - field.field.node.page.field_index_image
@@ -88,15 +87,6 @@ content:
       link: true
     third_party_settings: {  }
     type: entity_reference_label
-    region: ds_content
-  field_facebook_image:
-    weight: 109
-    label: above
-    settings:
-      image_style: ''
-      image_link: ''
-    third_party_settings: {  }
-    type: image
     region: ds_content
   field_image:
     weight: 110
