@@ -1,29 +1,16 @@
-uuid: 24afceee-53c6-48d4-93bb-3e5bb0d61832
+uuid: 8066652f-d8b6-489a-a297-3f0d29c62d8c
 langcode: en
 status: true
 dependencies: {  }
-_core:
-  default_config_hash: rpwvgyEURXLz_JjgMCrkS1rUv-0k3L79BpO-ReN7fDI
-id: node
-label: Content
+id: node__news_item
+label: 'Content: News item'
 tags:
-  abstract: '[node:field_summary]'
-  canonical_url: '[node:url]'
-  description: '[node:field_summary]'
-  image_src: '[node:field_index_image]'
-  title: '[node:title] | [site:name]'
-  dcterms_date: '[node:changed]'
-  dcterms_description: '[node:field_summary]'
-  dcterms_title: '[node:title]'
-  og_description: '[node:field_summary]'
   og_image: '[node:field_linkedin_image:entity:url]'
   og_image_height: '[node:field_linkedin_image:height]'
   og_image_secure_url: '[node:field_index_image:entity:url]'
   og_image_type: 'image/[node:field_index_image:entity:extension]'
   og_image_width: '[node:field_linkedin_image:width]'
-  og_title: '[node:title]'
   og_updated_time: '[node:changed]'
-  og_url: '[node:url:absolute]'
   twitter_cards_description: '[node:field_summary]'
   twitter_cards_image: '[node:field_twitter_image:entity:url]'
   twitter_cards_image_alt: '[node:field_twitter_image:alt]'

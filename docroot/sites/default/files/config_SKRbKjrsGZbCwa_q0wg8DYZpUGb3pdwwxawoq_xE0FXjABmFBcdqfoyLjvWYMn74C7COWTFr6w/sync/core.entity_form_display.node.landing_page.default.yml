@@ -4,7 +4,6 @@ status: true
 dependencies:
   config:
     - field.field.node.landing_page.field_body
-    - field.field.node.landing_page.field_facebook_image
     - field.field.node.landing_page.field_index_image
     - field.field.node.landing_page.field_introduction
     - field.field.node.landing_page.field_linkedin_image
@@ -46,16 +45,6 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: text_textarea
-    region: content
-  field_facebook_image:
-    weight: 12
-    settings:
-      preview_image_style: thumbnail
-      progress_indicator: throbber
-    third_party_settings:
-      imce:
-        enabled: true
-    type: image_image
     region: content
   field_index_image:
     weight: 11

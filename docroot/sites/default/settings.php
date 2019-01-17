@@ -910,9 +910,13 @@ if(isset($_ENV['ENVIRONMENT'])) {
   }
   if ($environment === 'staging') {
     $config['s3fs.settings']['bucket'] = 'dta-www-drupal-staging-20180504063601229200000001';
+    $config['system.performance']['css']['preprocess'] = FALSE;
+    $config['system.performance']['js']['preprocess'] = FALSE;
   }
   if ($environment === 'test') {
     $config['s3fs.settings']['bucket'] = 'dta-www-drupal-test-20180221050325640300000001';
+    $config['system.performance']['css']['preprocess'] = FALSE;
+    $config['system.performance']['js']['preprocess'] = FALSE;
   }
 } else {
   $config['s3fs.settings']['bucket'] = '';
