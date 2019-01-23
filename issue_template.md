@@ -5,7 +5,7 @@
 
 Thanks for dropping an issue! To make it easier for us to work on your issue, we'd love it if you could formulate your issue as a scenario using a 'given...when...then' structure. Based on that we can build a test for the issue using [Behat](http://behat.org/en/latest/). You'll then be able to see the progression of your test when our tests run! try to keep your issue as simple as possible rather than doing more than one - remember you can always create new issues for each problem. This also helps us deal with them more efficiently.
 
-# What state was the website in when you encountered the problem?
+# What is the context for your issue or request?
 
 <!--
 	What page were you on? Are you logged in or logged out? What browser are you using?
@@ -16,7 +16,7 @@ Thanks for dropping an issue! To make it easier for us to work on your issue, we
   - 'Given that I am on the "Creating a Digital Identity" page at "https://www.dta.gov.au/our-projects/digital-identity/creating-digital-identity"'
 -->
 
-# What did you do or were you doing when the problem occurred?
+# What action do you want to take within that context?
 
 <!--
 	Did you click a button? Try to fill in a form? Using a link? Changing device orientation? Remember the context you gave above.
@@ -27,7 +27,7 @@ Thanks for dropping an issue! To make it easier for us to work on your issue, we
   - 'When I rotate my mobile phone to landscape mode'
 -->
 
-# Then what happened?
+# What do you expect to happen when you take that action?
 
 <!--
   Describe what you then expected to happen.
