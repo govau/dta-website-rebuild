@@ -16,3 +16,5 @@ extlink_mailto_class: mailto
 extlink_mailto_label: '(link sends email)'
 _core:
   default_config_hash: rHbHZIIF9TP3H2Vs37uCHz4Gm4phULg0rQ_OKihxJfM
+extlink_use_font_awesome: false
+extlink_icon_placement: '0'

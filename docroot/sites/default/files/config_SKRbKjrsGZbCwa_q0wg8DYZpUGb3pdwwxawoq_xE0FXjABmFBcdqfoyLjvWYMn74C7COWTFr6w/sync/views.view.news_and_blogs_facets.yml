@@ -186,6 +186,18 @@ display:
           expose:
             label: ''
           plugin_id: search_api
+        created:
+          id: created
+          table: search_api_index_news_and_blog_search
+          field: created
+          relationship: none
+          group_type: group
+          admin_label: ''
+          order: DESC
+          exposed: false
+          expose:
+            label: ''
+          plugin_id: search_api
       title: 'News and blogs'
       header: {  }
       footer: {  }
