@@ -10,7 +10,7 @@ extlink_include: ''
 extlink_class: ext
 extlink_label: '(link is external)'
 extlink_img_class: false
-extlink_css_exclude: footer
+extlink_css_exclude: 'footer, a.au-card'
 extlink_css_explicit: ''
 extlink_mailto_class: mailto
 extlink_mailto_label: '(link sends email)'
