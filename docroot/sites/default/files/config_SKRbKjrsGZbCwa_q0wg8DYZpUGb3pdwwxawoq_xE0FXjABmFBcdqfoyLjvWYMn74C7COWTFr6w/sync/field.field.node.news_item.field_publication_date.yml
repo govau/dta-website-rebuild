@@ -1,19 +1,19 @@
-uuid: 0bb42bb1-0d71-403c-8c00-bc6f1f365c3d
+uuid: a3b7d16e-60d3-46fc-9ba3-364af5671453
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_date
+    - field.storage.node.field_publication_date
     - node.type.news_item
   module:
     - datetime
-id: node.news_item.field_date
-field_name: field_date
+id: node.news_item.field_publication_date
+field_name: field_publication_date
 entity_type: node
 bundle: news_item
-label: Date
-description: '<strong>Please note we are removing this field. Please use <em>Publication date</em> above as well!</strong>'
-required: false
+label: 'Publication date'
+description: 'Add the publication date of this news item.'
+required: true
 translatable: true
 default_value:
   -

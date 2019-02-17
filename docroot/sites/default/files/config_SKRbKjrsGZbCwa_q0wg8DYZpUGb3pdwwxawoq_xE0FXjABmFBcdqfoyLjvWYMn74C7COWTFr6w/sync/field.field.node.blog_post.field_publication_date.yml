@@ -1,19 +1,19 @@
-uuid: 8887ffc2-56f4-4257-a5fc-7f22bd0c90ef
+uuid: b2c7a1f5-7209-431e-969a-e5ffe4bbfad4
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_date
+    - field.storage.node.field_publication_date
     - node.type.blog_post
   module:
     - datetime
-id: node.blog_post.field_date
-field_name: field_date
+id: node.blog_post.field_publication_date
+field_name: field_publication_date
 entity_type: node
 bundle: blog_post
-label: Date
-description: '<strong>Please note we are removing this field. Please use <em>Publication date</em> above as well!</strong>'
-required: false
+label: 'Publication date'
+description: 'Enter the publication date of the blog post.'
+required: true
 translatable: false
 default_value:
   -

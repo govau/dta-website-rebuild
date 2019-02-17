@@ -187,6 +187,7 @@ display:
           action_title: Action
           include_exclude: include
           selected_actions:
+            - bulk_copy_fields_to_another_field
             - node_delete_action
             - node_publish_action
             - node_unpublish_action
