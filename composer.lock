@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b6c07c3f58d389b2a60ba7058c48818d",
+    "content-hash": "b6bf12a6ca9749362bcacab3d1746c44",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2799,16 +2799,16 @@
         },
         {
             "name": "drupal/core",
-            "version": "8.6.8",
+            "version": "8.6.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal/core.git",
-                "reference": "0e0ccce552859f6fd3aec6b5754ad0d6ede07227"
+                "reference": "cac12e0ec19d5c6fa53778522b3ff4c542f86c8d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drupal/core/zipball/0e0ccce552859f6fd3aec6b5754ad0d6ede07227",
-                "reference": "0e0ccce552859f6fd3aec6b5754ad0d6ede07227",
+                "url": "https://api.github.com/repos/drupal/core/zipball/cac12e0ec19d5c6fa53778522b3ff4c542f86c8d",
+                "reference": "cac12e0ec19d5c6fa53778522b3ff4c542f86c8d",
                 "shasum": ""
             },
             "require": {
@@ -3039,7 +3039,7 @@
                 "GPL-2.0-or-later"
             ],
             "description": "Drupal is an open source content management platform powering millions of websites and applications.",
-            "time": "2019-02-06T15:13:52+00:00"
+            "time": "2019-02-08T12:21:40+00:00"
         },
         {
             "name": "drupal/ctools",
@@ -3584,23 +3584,22 @@
         },
         {
             "name": "drupal/entity_browser",
-            "version": "2.0.0",
+            "version": "2.1.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/entity_browser",
-                "reference": "8.x-2.0"
+                "reference": "8.x-2.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/entity_browser-8.x-2.0.zip",
-                "reference": "8.x-2.0",
-                "shasum": "683a7a252c947433c7b78bb838d6d8973c13cf77"
+                "url": "https://ftp.drupal.org/files/projects/entity_browser-8.x-2.1.zip",
+                "reference": "8.x-2.1",
+                "shasum": "56cf190f3ea3fc0af71becbc44af5954a71f216b"
             },
             "require": {
                 "drupal/core": "~8.0"
             },
             "require-dev": {
-                "drupal/ctools": "*",
                 "drupal/inline_entity_form": "*",
                 "drupal/paragraphs": "*",
                 "drupal/token": "*"
@@ -3612,8 +3611,8 @@
                     "dev-8.x-1.x": "8.1.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-2.0",
-                    "datestamp": "1536328684",
+                    "version": "8.x-2.1",
+                    "datestamp": "1550237365",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -3641,12 +3640,20 @@
                     "role": "contributor"
                 },
                 {
+                    "name": "Drupal Media Team",
+                    "homepage": "https://www.drupal.org/user/3260690"
+                },
+                {
                     "name": "Primsi",
                     "homepage": "https://www.drupal.org/user/282629"
                 },
                 {
                     "name": "marcingy",
                     "homepage": "https://www.drupal.org/user/77320"
+                },
+                {
+                    "name": "oknate",
+                    "homepage": "https://www.drupal.org/user/471638"
                 },
                 {
                     "name": "samuel.mortenson",
@@ -7829,17 +7836,17 @@
         },
         {
             "name": "drupal/weight",
-            "version": "3.0.0",
+            "version": "3.1.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/weight",
-                "reference": "8.x-3.0"
+                "reference": "8.x-3.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/weight-8.x-3.0.zip",
-                "reference": "8.x-3.0",
-                "shasum": "cffa9ef43748f7c8bfea5d70682292d7680c68bf"
+                "url": "https://ftp.drupal.org/files/projects/weight-8.x-3.1.zip",
+                "reference": "8.x-3.1",
+                "shasum": "a5b418911c400ac545efcb7ad67c6e71ce575cdc"
             },
             "require": {
                 "drupal/core": "*"
@@ -7850,8 +7857,8 @@
                     "dev-3.x": "3.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-3.0",
-                    "datestamp": "1448735639",
+                    "version": "8.x-3.1",
+                    "datestamp": "1549993080",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -7886,6 +7893,14 @@
                 {
                     "name": "jjeff",
                     "homepage": "https://www.drupal.org/user/17190"
+                },
+                {
+                    "name": "kevinquillen",
+                    "homepage": "https://www.drupal.org/user/317279"
+                },
+                {
+                    "name": "ziomizar",
+                    "homepage": "https://www.drupal.org/user/814348"
                 }
             ],
             "description": "Allows arbitrary ordering of entities.",
