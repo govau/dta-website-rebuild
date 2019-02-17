@@ -9,10 +9,10 @@ Feature: Report checks
     Given I am logged in as a user with the "Administrator" role
     When I am on "admin/reports/status"
 
-    @reports
+    @reports @core
     Scenario: Reports page is available
       Then I see the heading "Status report"
 
-    @version
+    @version @core
     Scenario: Check Drupal version
-      Then I see the text "Drupal Version 8.6.8"
+      Then I see the text "Drupal Version 8.6.9"
