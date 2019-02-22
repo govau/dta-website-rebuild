@@ -6,7 +6,7 @@ dependencies:
     - node
     - search_api
   config:
-    - field.storage.node.field_date
+    - field.storage.node.field_publication_date
     - field.storage.node.field_tags
     - search_api.server.database_search
     - core.entity_view_mode.node.card
@@ -23,14 +23,14 @@ field_settings:
     dependencies:
       module:
         - node
-  field_date:
-    label: Date
+  field_publication_date:
+    label: 'Publication date'
     datasource_id: 'entity:node'
-    property_path: field_date
+    property_path: field_publication_date
     type: date
     dependencies:
       config:
-        - field.storage.node.field_date
+        - field.storage.node.field_publication_date
   field_tags:
     label: Tags
     datasource_id: 'entity:node'
