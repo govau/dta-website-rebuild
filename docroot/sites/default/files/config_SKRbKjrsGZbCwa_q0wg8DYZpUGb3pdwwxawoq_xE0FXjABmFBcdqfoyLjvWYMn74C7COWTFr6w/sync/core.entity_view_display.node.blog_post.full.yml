@@ -14,6 +14,7 @@ dependencies:
     - field.field.node.blog_post.field_index_image
     - field.field.node.blog_post.field_introduction
     - field.field.node.blog_post.field_linkedin_image
+    - field.field.node.blog_post.field_publication_date
     - field.field.node.blog_post.field_review_date
     - field.field.node.blog_post.field_summary
     - field.field.node.blog_post.field_tags
@@ -48,7 +49,7 @@ third_party_settings:
         - field_author
         - field_image
         - group_image_and_caption
-        - field_date
+        - field_publication_date
         - field_body
         - field_image_caption
         - 'dynamic_token_field:node-author_and_position'
@@ -157,8 +158,8 @@ third_party_settings:
   field_group:
     group_author_and_date:
       children:
+        - field_publication_date
         - field_author
-        - field_date
       parent_name: ''
       weight: 2
       format_type: html_element
@@ -290,43 +291,6 @@ content:
             fis-def-at: false
             fi: false
             fi-def-at: false
-  field_date:
-    weight: 5
-    label: hidden
-    settings:
-      timezone_override: ''
-      date_format: 'M j, Y'
-    third_party_settings:
-      ds:
-        ft:
-          id: expert
-          settings:
-            lb: ''
-            prefix: ''
-            lbw-el: ''
-            lbw-cl: ''
-            lbw-at: ''
-            ow-el: ''
-            ow-cl: ''
-            ow-at: ''
-            fis-el: ''
-            fis-cl: ''
-            fis-at: ''
-            fi: true
-            fi-el: span
-            fi-cl: date
-            fi-at: ''
-            suffix: ''
-            lbw: false
-            lb-col: false
-            ow: false
-            ow-def-at: false
-            ow-def-cl: false
-            fis: false
-            fis-def-at: false
-            fi-def-at: false
-    type: datetime_custom
-    region: content
   field_image:
     weight: 5
     label: hidden
@@ -439,6 +403,45 @@ content:
             fis: false
             fis-def-at: false
             fi-def-at: false
+  field_publication_date:
+    type: datetime_custom
+    weight: 5
+    region: content
+    label: hidden
+    settings:
+      timezone_override: Australia/Sydney
+      date_format: 'j F Y'
+    third_party_settings:
+      empty_fields:
+        handler: ''
+      ds:
+        ft:
+          id: expert
+          settings:
+            lb: ''
+            prefix: ''
+            lbw-el: ''
+            lbw-cl: ''
+            lbw-at: ''
+            ow-el: ''
+            ow-cl: ''
+            ow-at: ''
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fi: true
+            fi-el: span
+            fi-cl: au-date
+            fi-at: ''
+            suffix: ''
+            lbw: false
+            lb-col: false
+            ow: false
+            ow-def-at: false
+            ow-def-cl: false
+            fis: false
+            fis-def-at: false
+            fi-def-at: false
   field_tags:
     weight: 3
     label: inline
@@ -479,6 +482,7 @@ content:
     type: entity_reference_label
     region: content
 hidden:
+  field_date: true
   field_index_image: true
   field_linkedin_image: true
   field_review_date: true

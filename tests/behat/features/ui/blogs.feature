@@ -7,7 +7,7 @@ Feature: Blogs and news items
 
   Background:
     Given "blog_post" content:
-    | title       | field_body       | field_date | status | moderation_state | field_summary  |
+    | title       | field_body       | field_publication_date | status | moderation_state | field_summary  |
     | test blog 1 | test blog 1 body | 1/1/2017   | 1      | published        | test summary 1 |
     | test blog 2 | test blog 2 body | 1/1/2017   | 1      | published        | test summary 2 |
     | test blog 3 | test blog 3 body | 1/1/2019   | 1      | published        | test summary 3 |

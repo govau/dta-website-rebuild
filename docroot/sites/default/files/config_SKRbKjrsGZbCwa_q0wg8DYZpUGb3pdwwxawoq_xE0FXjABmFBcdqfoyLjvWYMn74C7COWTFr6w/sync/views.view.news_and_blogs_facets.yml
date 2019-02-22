@@ -174,10 +174,10 @@ display:
             group_items: {  }
           plugin_id: search_api_boolean
       sorts:
-        field_date:
-          id: field_date
+        field_publication_date:
+          id: field_publication_date
           table: search_api_index_news_and_blog_search
-          field: field_date
+          field: field_publication_date
           relationship: none
           group_type: group
           admin_label: ''
@@ -383,10 +383,10 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           plugin_id: search_api_boolean
-        field_date:
-          id: field_date
+        field_publication_date:
+          id: field_publication_date
           table: search_api_index_news_and_blog_search
-          field: field_date
+          field: field_publication_date
           relationship: none
           group_type: group
           admin_label: ''
@@ -498,10 +498,10 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           plugin_id: search_api_boolean
-        field_date:
-          id: field_date
+        field_publication_date:
+          id: field_publication_date
           table: search_api_index_news_and_blog_search
-          field: field_date
+          field: field_publication_date
           relationship: none
           group_type: group
           admin_label: ''
