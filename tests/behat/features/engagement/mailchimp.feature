@@ -7,10 +7,10 @@ Feature: Mailchimp signup
 
   Background:
     Given "news_item" content:
-    | title     | field_date | field_body  | field_summary | moderation_state | status |
+    | title     | field_publication_date | field_body  | field_summary | moderation_state | status |
     | Test news | 1/1/2018   | placeholder | placeholder   | published        | 1      |
     And "blog_post" content:
-    | title     | field_date | field_body  | field_summary | moderation_state | status |
+    | title     | field_publication_date | field_body  | field_summary | moderation_state | status |
     | Test blog | 1/1/2018   | placeholder | placeholder   | published        | 1      |
     And "page" content:
     | title                | field_introduction | field_body  | field_summary | moderation_state | status |

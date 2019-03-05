@@ -4,7 +4,6 @@ status: true
 dependencies:
   config:
     - field.field.node.news_item.field_body
-    - field.field.node.news_item.field_date
     - field.field.node.news_item.field_image
     - field.field.node.news_item.field_image_caption
     - field.field.node.news_item.field_index_image
@@ -36,15 +35,6 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: text_default
-    region: content
-  field_date:
-    weight: 102
-    label: above
-    settings:
-      format_type: medium
-      timezone_override: ''
-    third_party_settings: {  }
-    type: datetime_default
     region: content
   field_image:
     weight: 113
