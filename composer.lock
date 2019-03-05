@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d577afcc3428fd97f552d27ac453e25f",
+    "content-hash": "d851e132f63d74d4a02375fbc9459e0f",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2071,17 +2071,17 @@
         },
         {
             "name": "drupal/better_exposed_filters",
-            "version": "3.0.0-alpha5",
+            "version": "3.0.0-alpha6",
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/better_exposed_filters",
-                "reference": "8.x-3.0-alpha5"
+                "reference": "8.x-3.0-alpha6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/better_exposed_filters-8.x-3.0-alpha5.zip",
-                "reference": "8.x-3.0-alpha5",
-                "shasum": "8dbcff4b3bcd24f753d5d1ba6a523442a3690a76"
+                "url": "https://ftp.drupal.org/files/projects/better_exposed_filters-8.x-3.0-alpha6.zip",
+                "reference": "8.x-3.0-alpha6",
+                "shasum": "0cd9849aa28eea822e18555107e4539d755d95ef"
             },
             "require": {
                 "drupal/core": "*"
@@ -2092,8 +2092,8 @@
                     "dev-3.x": "3.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-3.0-alpha5",
-                    "datestamp": "1540513084",
+                    "version": "8.x-3.0-alpha6",
+                    "datestamp": "1550449381",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Alpha releases are not covered by Drupal security advisories."
@@ -3290,20 +3290,20 @@
         },
         {
             "name": "drupal/ds",
-            "version": "3.2.0",
+            "version": "3.3.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/ds",
-                "reference": "8.x-3.2"
+                "reference": "8.x-3.3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/ds-8.x-3.2.zip",
-                "reference": "8.x-3.2",
-                "shasum": "c5171e3e59d5ec666e5b5a53baf8f92c01956998"
+                "url": "https://ftp.drupal.org/files/projects/ds-8.x-3.3.zip",
+                "reference": "8.x-3.3",
+                "shasum": "0f586997908d464c123b1ab8817cf13363666459"
             },
             "require": {
-                "drupal/core": "^8.3"
+                "drupal/core": "^8.6"
             },
             "require-dev": {
                 "drupal/devel": "*",
@@ -3315,8 +3315,8 @@
                     "dev-3.x": "3.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-3.2",
-                    "datestamp": "1544537280",
+                    "version": "8.x-3.3",
+                    "datestamp": "1551355085",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -3871,7 +3871,7 @@
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/extlink",
-                "reference": "92c2d5b33b1f287bc51206417f95d8c9b5b57ea2"
+                "reference": "ddd52bf205db2a072a3abd9bad739e3e9d7da097"
             },
             "require": {
                 "drupal/core": "~8.0"
@@ -3882,8 +3882,8 @@
                     "dev-1.x": "1.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-1.1+30-dev",
-                    "datestamp": "1548978480",
+                    "version": "8.x-1.1+31-dev",
+                    "datestamp": "1548979080",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Dev releases are not covered by Drupal security advisories."
@@ -3913,21 +3913,21 @@
             "support": {
                 "source": "http://cgit.drupalcode.org/extlink"
             },
-            "time": "2019-01-31T23:53:42+00:00"
+            "time": "2019-02-06T00:53:55+00:00"
         },
         {
             "name": "drupal/facets",
-            "version": "1.2.0",
+            "version": "1.3.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/facets",
-                "reference": "8.x-1.2"
+                "reference": "8.x-1.3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/facets-8.x-1.2.zip",
-                "reference": "8.x-1.2",
-                "shasum": "bf0f9249d90025dcd16c0af7b7cd59e515fb9d9e"
+                "url": "https://ftp.drupal.org/files/projects/facets-8.x-1.3.zip",
+                "reference": "8.x-1.3",
+                "shasum": "2ca517094a34112e8168746123d337a25da6a227"
             },
             "require": {
                 "drupal/core": "~8.0"
@@ -3941,8 +3941,8 @@
                     "dev-1.x": "1.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-1.2",
-                    "datestamp": "1543065481",
+                    "version": "8.x-1.3",
+                    "datestamp": "1551291083",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -6027,7 +6027,7 @@
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
             "license": [
-                "GPL-2.0-or-later"
+                "GPL-2.0+"
             ],
             "authors": [
                 {
@@ -6120,25 +6120,24 @@
         },
         {
             "name": "drupal/rabbit_hole",
-            "version": "1.0.0-beta4",
+            "version": "1.0.0-beta5",
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/rabbit_hole",
-                "reference": "8.x-1.0-beta4"
+                "reference": "8.x-1.0-beta5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/rabbit_hole-8.x-1.0-beta4.zip",
-                "reference": "8.x-1.0-beta4",
-                "shasum": "ef2917a8b53b7576ac8df6bda1a39d93053cd831"
+                "url": "https://ftp.drupal.org/files/projects/rabbit_hole-8.x-1.0-beta5.zip",
+                "reference": "8.x-1.0-beta5",
+                "shasum": "93698de4f5e42f19dddab0052494c1ed009af330"
             },
             "require": {
                 "drupal/core": "~8.0"
             },
             "require-dev": {
                 "drupal/file_entity": "*",
-                "drupal/group": "*",
-                "drupal/media_entity": "*"
+                "drupal/group": "*"
             },
             "type": "drupal-module",
             "extra": {
@@ -6146,8 +6145,8 @@
                     "dev-1.x": "1.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-1.0-beta4",
-                    "datestamp": "1506790444",
+                    "version": "8.x-1.0-beta5",
+                    "datestamp": "1550891284",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Beta releases are not covered by Drupal security advisories."
@@ -6172,7 +6171,7 @@
                     "homepage": "https://www.drupal.org/user/536298"
                 },
                 {
-                    "name": "olofjohansson",
+                    "name": "olofbokedal",
                     "homepage": "https://www.drupal.org/user/1198438"
                 },
                 {
@@ -6361,21 +6360,20 @@
         },
         {
             "name": "drupal/rules_role_email",
-            "version": "1.0.0-alpha2",
+            "version": "1.0.0-alpha3",
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/rules_role_email",
-                "reference": "8.x-1.0-alpha2"
+                "reference": "8.x-1.0-alpha3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/rules_role_email-8.x-1.0-alpha2.zip",
-                "reference": "8.x-1.0-alpha2",
-                "shasum": "7173932c1b46db8a681961fa22827c91101aac55"
+                "url": "https://ftp.drupal.org/files/projects/rules_role_email-8.x-1.0-alpha3.zip",
+                "reference": "8.x-1.0-alpha3",
+                "shasum": "92eb921d57aaddb93f7120cd2079e85872856b40"
             },
             "require": {
-                "drupal/core": "~8.0",
-                "drupal/rules": "*"
+                "drupal/core": "*"
             },
             "type": "drupal-module",
             "extra": {
@@ -6383,8 +6381,8 @@
                     "dev-1.x": "1.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-1.0-alpha2",
-                    "datestamp": "1499786641",
+                    "version": "8.x-1.0-alpha3",
+                    "datestamp": "1551109984",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Project has not opted into security advisory coverage!"
@@ -14858,7 +14856,8 @@
         "drupal/context_metadata": 20,
         "drupal/empty_fields": 20,
         "drupal/extlink": 20,
-        "drupal/link_css": 20
+        "drupal/link_css": 20,
+        "drupal/rules": 15
     },
     "prefer-stable": true,
     "prefer-lowest": false,
