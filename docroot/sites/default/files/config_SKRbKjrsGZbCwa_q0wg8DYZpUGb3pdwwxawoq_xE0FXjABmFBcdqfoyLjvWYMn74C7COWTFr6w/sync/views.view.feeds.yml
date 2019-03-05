@@ -631,10 +631,10 @@ display:
           entity_field: type
           plugin_id: bundle
       sorts:
-        field_date_value:
-          id: field_date_value
-          table: node__field_date
-          field: field_date_value
+        field_publication_date_value:
+          id: field_publication_date_value
+          table: node__field_publication_date
+          field: field_publication_date_value
           relationship: none
           group_type: group
           admin_label: ''
