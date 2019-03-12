@@ -12,6 +12,7 @@ dependencies:
     - field.field.node.landing_page.field_related_content
     - field.field.node.landing_page.field_related_content_heading
     - field.field.node.landing_page.field_summary
+    - field.field.node.landing_page.field_tags
     - field.field.node.landing_page.field_twitter_image
     - image.style.thumbnail
     - node.type.landing_page
@@ -112,6 +113,15 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: text_textarea
+    region: content
+  field_tags:
+    weight: 51
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
     region: content
   field_twitter_image:
     weight: 14

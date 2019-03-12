@@ -16,6 +16,7 @@ dependencies:
     - field.field.node.assessment_report.field_related_content
     - field.field.node.assessment_report.field_result_assessment
     - field.field.node.assessment_report.field_service_manager
+    - field.field.node.assessment_report.field_tags
     - node.type.assessment_report
   module:
     - datetime
@@ -133,6 +134,14 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     type: string
+    region: content
+  field_tags:
+    weight: 14
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
     region: content
   links:
     weight: 0

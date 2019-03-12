@@ -11,6 +11,7 @@ dependencies:
     - field.field.node.govcms_event.field_index_image
     - field.field.node.govcms_event.field_introduction
     - field.field.node.govcms_event.field_summary
+    - field.field.node.govcms_event.field_tags
     - node.type.govcms_event
   module:
     - datetime_range
@@ -86,6 +87,14 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: text_default
+    region: content
+  field_tags:
+    weight: 109
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
     region: content
   links:
     weight: 0

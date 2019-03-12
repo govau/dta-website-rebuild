@@ -16,6 +16,7 @@ dependencies:
     - field.field.node.assessment_report.field_related_content
     - field.field.node.assessment_report.field_result_assessment
     - field.field.node.assessment_report.field_service_manager
+    - field.field.node.assessment_report.field_tags
     - node.type.assessment_report
   module:
     - content_moderation
@@ -144,6 +145,15 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
+    region: content
+  field_tags:
+    weight: 26
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
     region: content
   moderation_state:
     type: moderation_state_default

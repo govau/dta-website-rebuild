@@ -1,23 +1,26 @@
-uuid: 14a388d0-8554-460a-89e0-d818996f10a3
+uuid: b91215e0-7608-4bdf-90e6-699361cafab8
 langcode: en
 status: true
 dependencies:
   config:
     - core.entity_view_mode.node.search_index
-    - field.field.node.blog_post.field_author
-    - field.field.node.blog_post.field_body
-    - field.field.node.blog_post.field_comments
-    - field.field.node.blog_post.field_image
-    - field.field.node.blog_post.field_image_caption
-    - field.field.node.blog_post.field_index_image
-    - field.field.node.blog_post.field_introduction
-    - field.field.node.blog_post.field_linkedin_image
-    - field.field.node.blog_post.field_publication_date
-    - field.field.node.blog_post.field_review_date
-    - field.field.node.blog_post.field_summary
-    - field.field.node.blog_post.field_tags
-    - field.field.node.blog_post.field_twitter_image
-    - node.type.blog_post
+    - field.field.node.page.field_body
+    - field.field.node.page.field_contact_module
+    - field.field.node.page.field_image
+    - field.field.node.page.field_image_caption
+    - field.field.node.page.field_index_image
+    - field.field.node.page.field_introduction
+    - field.field.node.page.field_linkedin_image
+    - field.field.node.page.field_promote_to_get_help_advice
+    - field.field.node.page.field_promote_to_our_projects
+    - field.field.node.page.field_related_content
+    - field.field.node.page.field_related_content_heading
+    - field.field.node.page.field_review_date
+    - field.field.node.page.field_search_keywords
+    - field.field.node.page.field_summary
+    - field.field.node.page.field_tags
+    - field.field.node.page.field_twitter_image
+    - node.type.page
   module:
     - ds
     - ds_chains
@@ -37,7 +40,7 @@ third_party_settings:
         - field_introduction
         - field_body
         - field_summary
-        - field_tags
+        - field_search_keywords
     fields:
       node_title:
         plugin_id: node_title
@@ -77,9 +80,9 @@ third_party_settings:
             fi-def-at: false
   ds_chains:
     fields: {  }
-id: node.blog_post.search_index
+id: node.page.search_index
 targetEntityType: node
-bundle: blog_post
+bundle: page
 mode: search_index
 content:
   field_body:
@@ -96,6 +99,13 @@ content:
     third_party_settings: {  }
     type: text_default
     region: content
+  field_search_keywords:
+    type: basic_string
+    weight: 4
+    region: content
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
   field_summary:
     weight: 3
     label: hidden
@@ -103,23 +113,18 @@ content:
     third_party_settings: {  }
     type: text_default
     region: content
-  field_tags:
-    weight: 4
-    label: hidden
-    settings:
-      link: true
-    third_party_settings: {  }
-    type: entity_reference_label
-    region: content
 hidden:
   content_moderation_control: true
-  field_author: true
-  field_comments: true
+  field_contact_module: true
   field_image: true
   field_image_caption: true
   field_index_image: true
   field_linkedin_image: true
-  field_publication_date: true
+  field_promote_to_get_help_advice: true
+  field_promote_to_our_projects: true
+  field_related_content: true
+  field_related_content_heading: true
   field_review_date: true
+  field_tags: true
   field_twitter_image: true
   links: true

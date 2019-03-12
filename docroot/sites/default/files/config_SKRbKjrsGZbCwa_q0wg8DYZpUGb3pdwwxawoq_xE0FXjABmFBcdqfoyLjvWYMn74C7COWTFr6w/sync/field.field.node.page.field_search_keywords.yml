@@ -1,0 +1,19 @@
+uuid: b10c6657-af46-4af4-bf52-f90819f7645d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_search_keywords
+    - node.type.page
+id: node.page.field_search_keywords
+field_name: field_search_keywords
+entity_type: node
+bundle: page
+label: 'Search keywords'
+description: 'Enter search keywords for this content.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

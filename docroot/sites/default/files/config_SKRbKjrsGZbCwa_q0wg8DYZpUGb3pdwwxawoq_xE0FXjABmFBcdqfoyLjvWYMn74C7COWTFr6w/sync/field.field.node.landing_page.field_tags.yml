@@ -1,0 +1,29 @@
+uuid: e982bf65-3fba-4402-90e4-1b9b3613770e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_tags
+    - node.type.landing_page
+    - taxonomy.vocabulary.tags
+id: node.landing_page.field_tags
+field_name: field_tags
+entity_type: node
+bundle: landing_page
+label: Tags
+description: 'Select some tags to apply to this content. Note that for this content type, tags are not shown to end users. However, they can be used to increase the likelihood of the search engine returning a page with particular keywords on it.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      tags: tags
+    sort:
+      field: name
+      direction: asc
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference
