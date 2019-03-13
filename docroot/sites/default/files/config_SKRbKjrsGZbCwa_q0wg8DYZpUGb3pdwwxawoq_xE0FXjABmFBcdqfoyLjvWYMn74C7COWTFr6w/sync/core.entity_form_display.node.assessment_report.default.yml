@@ -15,7 +15,9 @@ dependencies:
     - field.field.node.assessment_report.field_recommendations
     - field.field.node.assessment_report.field_related_content
     - field.field.node.assessment_report.field_result_assessment
+    - field.field.node.assessment_report.field_search_keywords
     - field.field.node.assessment_report.field_service_manager
+    - field.field.node.assessment_report.field_tags
     - node.type.assessment_report
   module:
     - content_moderation
@@ -137,6 +139,14 @@ content:
     third_party_settings: {  }
     type: options_buttons
     region: content
+  field_search_keywords:
+    weight: 27
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
   field_service_manager:
     weight: 8
     settings:
@@ -144,6 +154,15 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
+    region: content
+  field_tags:
+    weight: 26
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
     region: content
   moderation_state:
     type: moderation_state_default

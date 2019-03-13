@@ -1,0 +1,19 @@
+uuid: 076e054a-1419-4971-8760-32e2d95f2c89
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_search_keywords
+    - node.type.news_item
+id: node.news_item.field_search_keywords
+field_name: field_search_keywords
+entity_type: node
+bundle: news_item
+label: 'Search keywords'
+description: 'Enter search keywords for this content.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

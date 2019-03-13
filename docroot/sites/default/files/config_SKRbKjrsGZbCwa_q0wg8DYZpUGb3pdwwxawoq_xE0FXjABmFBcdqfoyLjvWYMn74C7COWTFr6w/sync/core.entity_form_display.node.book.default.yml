@@ -9,8 +9,10 @@ dependencies:
     - field.field.node.book.field_index_image
     - field.field.node.book.field_introduction
     - field.field.node.book.field_related_content
+    - field.field.node.book.field_search_keywords
     - field.field.node.book.field_short_name
     - field.field.node.book.field_summary
+    - field.field.node.book.field_tags
     - field.field.node.book.field_theme
     - field.field.node.book.field_view
     - image.style.thumbnail
@@ -94,6 +96,14 @@ content:
     third_party_settings: {  }
     type: entity_reference_autocomplete
     region: content
+  field_search_keywords:
+    weight: 27
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
   field_short_name:
     weight: 1
     settings:
@@ -109,6 +119,15 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: text_textarea
+    region: content
+  field_tags:
+    weight: 26
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
     region: content
   field_theme:
     weight: 10

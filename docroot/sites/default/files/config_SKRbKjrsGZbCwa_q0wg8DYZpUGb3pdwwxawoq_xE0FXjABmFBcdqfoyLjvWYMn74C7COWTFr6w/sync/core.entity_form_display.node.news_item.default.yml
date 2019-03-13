@@ -10,6 +10,7 @@ dependencies:
     - field.field.node.news_item.field_introduction
     - field.field.node.news_item.field_linkedin_image
     - field.field.node.news_item.field_publication_date
+    - field.field.node.news_item.field_search_keywords
     - field.field.node.news_item.field_summary
     - field.field.node.news_item.field_tags
     - field.field.node.news_item.field_twitter_image
@@ -98,6 +99,14 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: datetime_default
+    region: content
+  field_search_keywords:
+    weight: 26
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
     region: content
   field_summary:
     weight: 12

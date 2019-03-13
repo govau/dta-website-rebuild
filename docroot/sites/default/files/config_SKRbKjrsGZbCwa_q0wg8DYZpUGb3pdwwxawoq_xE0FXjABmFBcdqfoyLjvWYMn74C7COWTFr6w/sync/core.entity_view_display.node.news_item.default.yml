@@ -10,6 +10,7 @@ dependencies:
     - field.field.node.news_item.field_introduction
     - field.field.node.news_item.field_linkedin_image
     - field.field.node.news_item.field_publication_date
+    - field.field.node.news_item.field_search_keywords
     - field.field.node.news_item.field_summary
     - field.field.node.news_item.field_tags
     - field.field.node.news_item.field_twitter_image
@@ -86,6 +87,13 @@ content:
       timezone_override: ''
     third_party_settings: {  }
     type: datetime_default
+    region: content
+  field_search_keywords:
+    weight: 116
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
     region: content
   field_summary:
     weight: 107
