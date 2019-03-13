@@ -307,6 +307,7 @@ hidden:
   field_related_content: true
   field_related_content_heading: true
   field_review_date: true
+  field_search_keywords: true
   field_summary: true
   field_tags: true
   field_twitter_image: true

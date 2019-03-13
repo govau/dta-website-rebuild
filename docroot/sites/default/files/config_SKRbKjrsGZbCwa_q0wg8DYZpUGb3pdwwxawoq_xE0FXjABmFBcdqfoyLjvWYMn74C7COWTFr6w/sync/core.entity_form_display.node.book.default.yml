@@ -9,6 +9,7 @@ dependencies:
     - field.field.node.book.field_index_image
     - field.field.node.book.field_introduction
     - field.field.node.book.field_related_content
+    - field.field.node.book.field_search_keywords
     - field.field.node.book.field_short_name
     - field.field.node.book.field_summary
     - field.field.node.book.field_tags
@@ -94,6 +95,14 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: entity_reference_autocomplete
+    region: content
+  field_search_keywords:
+    weight: 27
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
     region: content
   field_short_name:
     weight: 1

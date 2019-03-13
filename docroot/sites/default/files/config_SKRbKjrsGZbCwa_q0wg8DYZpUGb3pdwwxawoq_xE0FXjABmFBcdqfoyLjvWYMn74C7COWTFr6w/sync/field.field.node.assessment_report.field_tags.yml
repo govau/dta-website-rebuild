@@ -11,7 +11,7 @@ field_name: field_tags
 entity_type: node
 bundle: assessment_report
 label: Tags
-description: 'Select some tags to apply to this content. Note that for this content type, tags are not shown to end users. However, they can be used to increase the likelihood of the search engine returning a page with particular keywords on it.'
+description: 'Select some tags to apply to this content. Note that for this content type, tags are not shown to end users at this point.'
 required: false
 translatable: true
 default_value: {  }

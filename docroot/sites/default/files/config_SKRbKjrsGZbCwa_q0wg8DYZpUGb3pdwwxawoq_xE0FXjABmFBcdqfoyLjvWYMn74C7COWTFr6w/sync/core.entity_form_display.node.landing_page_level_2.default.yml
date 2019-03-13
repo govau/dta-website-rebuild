@@ -11,6 +11,7 @@ dependencies:
     - field.field.node.landing_page_level_2.field_promote_to_our_projects
     - field.field.node.landing_page_level_2.field_related_content
     - field.field.node.landing_page_level_2.field_related_content_heading
+    - field.field.node.landing_page_level_2.field_search_keywords
     - field.field.node.landing_page_level_2.field_summary
     - field.field.node.landing_page_level_2.field_tags
     - field.field.node.landing_page_level_2.field_twitter_image
@@ -100,6 +101,14 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
+    region: content
+  field_search_keywords:
+    weight: 27
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
     region: content
   field_summary:
     weight: 11

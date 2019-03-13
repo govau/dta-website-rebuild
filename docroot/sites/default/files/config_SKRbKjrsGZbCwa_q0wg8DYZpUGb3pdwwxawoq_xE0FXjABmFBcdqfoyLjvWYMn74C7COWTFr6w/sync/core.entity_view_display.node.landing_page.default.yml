@@ -11,6 +11,7 @@ dependencies:
     - field.field.node.landing_page.field_promote_to_our_projects
     - field.field.node.landing_page.field_related_content
     - field.field.node.landing_page.field_related_content_heading
+    - field.field.node.landing_page.field_search_keywords
     - field.field.node.landing_page.field_summary
     - field.field.node.landing_page.field_tags
     - field.field.node.landing_page.field_twitter_image
@@ -127,6 +128,13 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     type: string
+    region: content
+  field_search_keywords:
+    weight: 113
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
     region: content
   field_summary:
     weight: 106

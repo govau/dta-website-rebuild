@@ -133,4 +133,5 @@ hidden:
   field_assessment_method: true
   field_date: true
   field_related_content: true
+  field_tags: true
   links: true

@@ -1,0 +1,19 @@
+uuid: 650ef33b-b422-4beb-9a8e-c22a2f504026
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_search_keywords
+    - node.type.landing_page_level_2
+id: node.landing_page_level_2.field_search_keywords
+field_name: field_search_keywords
+entity_type: node
+bundle: landing_page_level_2
+label: 'Search keywords'
+description: 'Enter search keywords for this content.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

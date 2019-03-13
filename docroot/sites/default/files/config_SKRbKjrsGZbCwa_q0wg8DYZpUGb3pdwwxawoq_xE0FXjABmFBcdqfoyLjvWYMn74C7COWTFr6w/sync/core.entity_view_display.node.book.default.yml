@@ -9,6 +9,7 @@ dependencies:
     - field.field.node.book.field_index_image
     - field.field.node.book.field_introduction
     - field.field.node.book.field_related_content
+    - field.field.node.book.field_search_keywords
     - field.field.node.book.field_short_name
     - field.field.node.book.field_summary
     - field.field.node.book.field_tags
@@ -243,6 +244,13 @@ content:
             fis: false
             fis-def-at: false
             fi-def-at: false
+  field_search_keywords:
+    weight: 10
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
   field_view:
     type: viewsreference_formatter
     weight: 6

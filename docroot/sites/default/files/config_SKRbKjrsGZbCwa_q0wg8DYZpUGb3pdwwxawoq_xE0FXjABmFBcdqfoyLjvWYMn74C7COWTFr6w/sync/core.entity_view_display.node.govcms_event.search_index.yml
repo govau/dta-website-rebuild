@@ -134,4 +134,5 @@ hidden:
   field_attachments: true
   field_event_categories: true
   field_index_image: true
+  field_tags: true
   links: true

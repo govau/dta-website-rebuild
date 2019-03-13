@@ -15,6 +15,7 @@ dependencies:
     - field.field.node.assessment_report.field_recommendations
     - field.field.node.assessment_report.field_related_content
     - field.field.node.assessment_report.field_result_assessment
+    - field.field.node.assessment_report.field_search_keywords
     - field.field.node.assessment_report.field_service_manager
     - field.field.node.assessment_report.field_tags
     - node.type.assessment_report
@@ -126,6 +127,13 @@ content:
       link: true
     third_party_settings: {  }
     type: entity_reference_label
+    region: content
+  field_search_keywords:
+    weight: 15
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
     region: content
   field_service_manager:
     weight: 8
