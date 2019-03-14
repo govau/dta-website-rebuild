@@ -5,7 +5,7 @@ applications:
   disk_quota: 2G
   instances: 2
   path: .
-  timeout: 120
+  timeout: 300
   services:
   - dta-website-rebuild-staging-db
   - dta-website-rebuild-staging-aws-ups
