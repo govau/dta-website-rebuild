@@ -165,6 +165,7 @@ hidden:
   field_image_caption: true
   field_index_image: true
   field_related_content: true
+  field_search_keywords: true
   field_short_name: true
   field_summary: true
   field_tags: true

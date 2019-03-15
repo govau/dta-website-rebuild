@@ -16,6 +16,7 @@ dependencies:
     - field.field.node.page.field_related_content
     - field.field.node.page.field_related_content_heading
     - field.field.node.page.field_review_date
+    - field.field.node.page.field_search_keywords
     - field.field.node.page.field_summary
     - field.field.node.page.field_tags
     - field.field.node.page.field_twitter_image
@@ -40,7 +41,6 @@ third_party_settings:
     regions:
       content:
         - content_moderation_control
-        - switch_field
         - field_introduction
         - group_image_and_
         - field_body
@@ -74,45 +74,6 @@ third_party_settings:
             suffix: ''
             lbw: false
             lb-col: false
-            ow-def-at: false
-            ow-def-cl: false
-            fis: false
-            fis-def-at: false
-            fi: false
-            fi-def-at: false
-      switch_field:
-        plugin_id: switch_field
-        weight: 0
-        label: hidden
-        formatter: default
-        settings:
-          vms:
-            card: Card
-            full: Full
-            search_index: 'Search index'
-            search_result: 'Search result'
-            teaser: Teaser
-        ft:
-          id: expert
-          settings:
-            lb: ''
-            prefix: ''
-            lbw-el: ''
-            lbw-cl: ''
-            lbw-at: ''
-            ow-el: ''
-            ow-cl: ''
-            ow-at: ''
-            fis-el: ''
-            fis-cl: ''
-            fis-at: ''
-            fi-el: ''
-            fi-cl: ''
-            fi-at: ''
-            suffix: ''
-            lbw: false
-            lb-col: false
-            ow: false
             ow-def-at: false
             ow-def-cl: false
             fis: false

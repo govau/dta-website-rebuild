@@ -147,6 +147,7 @@ hidden:
   field_index_image: true
   field_introduction: true
   field_related_content: true
+  field_search_keywords: true
   field_short_name: true
   field_tags: true
   field_theme: true
