@@ -26,7 +26,6 @@ field_settings:
     datasource_id: 'entity:node'
     property_path: field_body
     type: text
-    boost: !!float 2
     dependencies:
       config:
         - field.storage.node.field_body
@@ -61,7 +60,7 @@ field_settings:
     datasource_id: 'entity:node'
     property_path: 'field_tags:entity:name'
     type: text
-    boost: !!float 5
+    boost: !!float 21
     dependencies:
       config:
         - field.storage.node.field_tags
@@ -300,14 +299,14 @@ processor_settings:
       'entity:node':
         datasource_boost: !!float 1
         bundle_boosts:
-          assessment_report: !!float 0
-          blog_post: 0.5
-          book: !!float 0
-          govcms_event: 0.5
-          landing_page: !!float 1
-          landing_page_level_2: !!float 1
-          news_item: 0.5
-          page: !!float 1
+          assessment_report: !!float 1
+          blog_post: !!float 3
+          book: !!float 1
+          govcms_event: !!float 1
+          landing_page: !!float 8
+          landing_page_level_2: !!float 8
+          news_item: !!float 5
+          page: !!float 13
     weights:
       preprocess_index: -43
 tracker_settings:
