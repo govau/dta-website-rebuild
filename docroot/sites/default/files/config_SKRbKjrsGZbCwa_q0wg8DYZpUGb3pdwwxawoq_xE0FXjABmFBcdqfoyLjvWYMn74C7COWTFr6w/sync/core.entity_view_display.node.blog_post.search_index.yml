@@ -121,5 +121,6 @@ hidden:
   field_linkedin_image: true
   field_publication_date: true
   field_review_date: true
+  field_search_keywords: true
   field_twitter_image: true
   links: true
