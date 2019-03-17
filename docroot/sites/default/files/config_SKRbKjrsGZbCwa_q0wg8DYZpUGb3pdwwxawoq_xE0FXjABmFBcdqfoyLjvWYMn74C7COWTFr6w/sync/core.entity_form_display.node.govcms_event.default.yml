@@ -11,6 +11,7 @@ dependencies:
     - field.field.node.govcms_event.field_index_image
     - field.field.node.govcms_event.field_introduction
     - field.field.node.govcms_event.field_summary
+    - field.field.node.govcms_event.field_tags
     - image.style.thumbnail
     - node.type.govcms_event
   module:
@@ -112,6 +113,15 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: text_textarea
+    region: content
+  field_tags:
+    weight: 127
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
     region: content
   moderation_state:
     type: moderation_state_default

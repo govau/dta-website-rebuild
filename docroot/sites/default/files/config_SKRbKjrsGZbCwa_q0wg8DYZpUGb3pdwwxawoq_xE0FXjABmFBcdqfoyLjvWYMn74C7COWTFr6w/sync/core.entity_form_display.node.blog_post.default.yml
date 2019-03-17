@@ -13,6 +13,7 @@ dependencies:
     - field.field.node.blog_post.field_linkedin_image
     - field.field.node.blog_post.field_publication_date
     - field.field.node.blog_post.field_review_date
+    - field.field.node.blog_post.field_search_keywords
     - field.field.node.blog_post.field_summary
     - field.field.node.blog_post.field_tags
     - field.field.node.blog_post.field_twitter_image
@@ -120,6 +121,14 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: datetime_default
+    region: content
+  field_search_keywords:
+    weight: 26
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
     region: content
   field_summary:
     weight: 12

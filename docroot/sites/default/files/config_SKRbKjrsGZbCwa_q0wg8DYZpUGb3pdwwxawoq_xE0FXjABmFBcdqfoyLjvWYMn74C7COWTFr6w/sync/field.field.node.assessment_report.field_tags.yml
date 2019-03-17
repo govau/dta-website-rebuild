@@ -1,0 +1,29 @@
+uuid: d7a868ad-08c0-4a10-a9a7-d3f977e0d3f1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_tags
+    - node.type.assessment_report
+    - taxonomy.vocabulary.tags
+id: node.assessment_report.field_tags
+field_name: field_tags
+entity_type: node
+bundle: assessment_report
+label: Tags
+description: 'Select some tags to apply to this content. Note that for this content type, tags are not shown to end users at this point.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      tags: tags
+    sort:
+      field: name
+      direction: asc
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference

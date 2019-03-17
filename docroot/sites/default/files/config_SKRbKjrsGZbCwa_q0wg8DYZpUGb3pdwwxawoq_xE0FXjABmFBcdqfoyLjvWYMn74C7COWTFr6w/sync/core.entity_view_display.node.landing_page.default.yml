@@ -11,7 +11,9 @@ dependencies:
     - field.field.node.landing_page.field_promote_to_our_projects
     - field.field.node.landing_page.field_related_content
     - field.field.node.landing_page.field_related_content_heading
+    - field.field.node.landing_page.field_search_keywords
     - field.field.node.landing_page.field_summary
+    - field.field.node.landing_page.field_tags
     - field.field.node.landing_page.field_twitter_image
     - node.type.landing_page
   module:
@@ -127,12 +129,27 @@ content:
     third_party_settings: {  }
     type: string
     region: content
+  field_search_keywords:
+    weight: 113
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
   field_summary:
     weight: 106
     label: above
     settings: {  }
     third_party_settings: {  }
     type: text_default
+    region: content
+  field_tags:
+    weight: 112
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
     region: content
   field_twitter_image:
     weight: 107

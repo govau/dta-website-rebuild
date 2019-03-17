@@ -92,8 +92,6 @@ module:
   node_title_help_text: 0
   node_title_validation: 0
   options: 0
-  panels: 0
-  panels_ipe: 0
   path: 0
   rabbit_hole: 0
   redirect: 0
