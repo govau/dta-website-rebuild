@@ -98,7 +98,7 @@
         "drupal/config_split": "1.2",
         "drupal/context_active_trail": "1.0-rc2",
         "drupal/context_metadata": "2.x-dev",
-        "drupal/core": "8.6.10",
+        "drupal/core": "8.6.13",
         "drupal/devel": "2.0",
         "drupal/ds": "3.3",
         "drupal/ds_chains": "1.0",
@@ -174,7 +174,8 @@
         "imperator99/superfish": "2.3",
         "oomphinc/composer-installers-extender": "1.1.2",
         "symfony/http-foundation": "~3.4.14",
-        "symfony/http-kernel": "~3.4.14"
+        "symfony/http-kernel": "~3.4.14",
+        "twig/twig": "^1.38.2"
     },
     "require-dev": {
         "behat/behat": "3.5.0",
