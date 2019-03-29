@@ -10,7 +10,7 @@ Background:
   | title          | field_body       | field_summary     | moderation_state | status |
   | Test book      | Test book body   | Test book summary | published        | 1      |
   | Test book page | Test book body 2 | Test book summary | published        | 1      |
-  And I am logged in as a user with the "Content editor" role
+  And I am logged in as a user with the "Book author" role
   And I am on "test-book"
   When I click "Edit" in the "content" region
   And I select "- Create a new book -" from "Book"
