@@ -1,0 +1,22 @@
+uuid: 411cf7e0-7091-475c-9f44-70959ab1e12b
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.govcms_event
+id: node.govcms_event.status
+field_name: status
+entity_type: node
+bundle: govcms_event
+label: Published
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

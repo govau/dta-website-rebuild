@@ -6,7 +6,7 @@ Feature: Social image fields
   I need to be able to add the appropriate social images to blog posts, news items, pages and landing pages.
 
   Background:
-    Given I am logged in as a user with the "Content editor" role
+    Given I am logged in as a user with the "Content author" role
 
     @social @editing @blogs
     Scenario: Social images fields exist on blogs

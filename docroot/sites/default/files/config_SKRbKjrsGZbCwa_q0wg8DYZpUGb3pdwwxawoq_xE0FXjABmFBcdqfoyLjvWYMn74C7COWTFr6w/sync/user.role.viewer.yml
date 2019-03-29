@@ -7,9 +7,7 @@ label: Viewer
 weight: -6
 is_admin: null
 permissions:
-  - 'access comments'
   - 'access content'
   - 'access site in maintenance mode'
   - 'use search_api_autocomplete for search'
-  - 'use text format commenting'
   - 'view search api pages'

@@ -1,0 +1,14 @@
+uuid: 3c7a48c1-0e04-4acc-b26d-bc93dc83453c
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.webform_author
+  module:
+    - user
+id: user_remove_role_action.webform_author
+label: 'Remove the Webform author role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: webform_author

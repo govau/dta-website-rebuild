@@ -1,0 +1,14 @@
+uuid: 09d51812-3e0b-4fb2-ac19-84f631b3ce73
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.digital_transformation_guide_author
+  module:
+    - user
+id: user_remove_role_action.digital_transformation_guide_author
+label: 'Remove the Digital Transformation Guide author role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: digital_transformation_guide_author
