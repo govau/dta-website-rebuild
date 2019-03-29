@@ -28,4 +28,5 @@ permissions:
   - 'edit webform source'
   - 'edit webform twig'
   - 'view any webform submission'
+  - 'view own unpublished content'
   - 'view own webform submission'
