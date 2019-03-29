@@ -6,7 +6,7 @@ Feature: Book Pages
   I need to be able to create, manage and maintain books.
 
   Background:
-    Given I am logged in as a user with the "Book author" role
+    Given I am logged in as a user with the "Content author" role
     And I am on "node/add/book"
     When I fill in "Test Book" for "Title"
     And I fill in "Test book summary" for "Summary"
