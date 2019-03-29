@@ -18,6 +18,6 @@ name: 'External link'
 type: external_link
 description: 'Use this content type if you wish to use a card to link to an external website. These are not searchable and contain no body content, only a summary.'
 help: ''
-new_revision: false
+new_revision: true
 preview_mode: 1
 display_submitted: false

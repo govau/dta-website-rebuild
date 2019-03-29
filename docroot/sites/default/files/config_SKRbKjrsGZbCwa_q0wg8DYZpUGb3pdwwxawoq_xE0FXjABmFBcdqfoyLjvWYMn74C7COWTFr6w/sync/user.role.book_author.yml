@@ -1,0 +1,39 @@
+uuid: 1bd94998-f17b-4832-8074-68492c3ba7c5
+langcode: en
+status: true
+dependencies: {  }
+id: book_author
+label: 'Book author'
+weight: -2
+is_admin: null
+permissions:
+  - 'access content overview'
+  - 'access files overview'
+  - 'access image_browser entity browser pages'
+  - 'access site in maintenance mode'
+  - 'add content to books'
+  - 'administer book outlines'
+  - 'administer main menu items'
+  - 'administer menu'
+  - 'bypass honeypot protection'
+  - 'create book content'
+  - 'create new books'
+  - 'create url aliases'
+  - 'delete terms in tags'
+  - 'edit any book content'
+  - 'edit own book content'
+  - 'edit terms in tags'
+  - 'revert book revisions'
+  - 'use editorial transition archive'
+  - 'use editorial transition archived_draft'
+  - 'use editorial transition archived_published'
+  - 'use editorial transition create_new_draft'
+  - 'use editorial transition needs_review'
+  - 'use editorial transition publish'
+  - 'use text format introduction'
+  - 'use text format rich_text'
+  - 'use text format summary'
+  - 'view any unpublished content'
+  - 'view book revisions'
+  - 'view latest version'
+  - 'view own unpublished content'

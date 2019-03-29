@@ -1,0 +1,31 @@
+uuid: e6474eab-97f4-4200-8d7a-e9b1fbf2848c
+langcode: en
+status: true
+dependencies: {  }
+id: webform_author
+label: 'Webform author'
+weight: -5
+is_admin: null
+permissions:
+  - 'access administration pages'
+  - 'access any webform configuration'
+  - 'access own webform configuration'
+  - 'access webform overview'
+  - 'access webform submission user'
+  - 'administer webform'
+  - 'administer webform element access'
+  - 'administer webform submission'
+  - 'create webform'
+  - 'delete any webform'
+  - 'delete any webform submission'
+  - 'delete own webform'
+  - 'delete own webform submission'
+  - 'edit any webform'
+  - 'edit any webform submission'
+  - 'edit own webform'
+  - 'edit own webform submission'
+  - 'edit webform assets'
+  - 'edit webform source'
+  - 'edit webform twig'
+  - 'view any webform submission'
+  - 'view own webform submission'

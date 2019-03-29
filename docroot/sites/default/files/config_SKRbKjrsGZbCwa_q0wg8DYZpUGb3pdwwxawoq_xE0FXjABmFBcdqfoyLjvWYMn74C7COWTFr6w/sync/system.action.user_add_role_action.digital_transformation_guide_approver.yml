@@ -1,0 +1,14 @@
+uuid: 2e437b45-3870-4a68-84ce-dfb8d50c21a2
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.digital_transformation_guide_approver
+  module:
+    - user
+id: user_add_role_action.digital_transformation_guide_approver
+label: 'Add the Digital Transformation Guide approver role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: digital_transformation_guide_approver

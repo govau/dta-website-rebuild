@@ -52,6 +52,7 @@ module:
   field_group: 0
   field_group_link: 0
   field_layout: 0
+  field_permissions: 0
   field_ui: 0
   file: 0
   filefield_paths: 0
@@ -114,8 +115,6 @@ module:
   shortcut: 0
   simple_sitemap: 0
   social_api: 0
-  social_auth: 0
-  social_auth_google: 0
   statistics: 0
   structure_sync: 0
   superfish: 0
@@ -147,6 +146,7 @@ module:
   wysiwyg_template_core: 0
   ds: 1
   extlink: 1
+  menu_admin_per_menu: 1
   menu_link_content: 1
   pathauto: 1
   ds_extras: 2

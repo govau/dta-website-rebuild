@@ -1,0 +1,14 @@
+uuid: 9d75354e-e1e8-475b-956a-2cc99cfa833a
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.webform_author
+  module:
+    - user
+id: user_add_role_action.webform_author
+label: 'Add the Webform author role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: webform_author

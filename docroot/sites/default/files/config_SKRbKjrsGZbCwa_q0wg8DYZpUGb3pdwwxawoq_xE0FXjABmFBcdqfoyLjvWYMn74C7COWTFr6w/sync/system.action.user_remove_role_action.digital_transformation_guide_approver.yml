@@ -1,0 +1,14 @@
+uuid: 9627f7b5-a6c4-4cc2-a7d0-f65bb2dbaa63
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.digital_transformation_guide_approver
+  module:
+    - user
+id: user_remove_role_action.digital_transformation_guide_approver
+label: 'Remove the Digital Transformation Guide approver role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: digital_transformation_guide_approver

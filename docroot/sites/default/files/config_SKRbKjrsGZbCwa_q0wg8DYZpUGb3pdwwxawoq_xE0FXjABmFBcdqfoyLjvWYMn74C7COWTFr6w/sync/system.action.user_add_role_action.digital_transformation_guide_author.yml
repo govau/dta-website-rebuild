@@ -1,0 +1,14 @@
+uuid: f06243d2-85e6-44d1-bb27-8f11964bd7f4
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.digital_transformation_guide_author
+  module:
+    - user
+id: user_add_role_action.digital_transformation_guide_author
+label: 'Add the Digital Transformation Guide author role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: digital_transformation_guide_author

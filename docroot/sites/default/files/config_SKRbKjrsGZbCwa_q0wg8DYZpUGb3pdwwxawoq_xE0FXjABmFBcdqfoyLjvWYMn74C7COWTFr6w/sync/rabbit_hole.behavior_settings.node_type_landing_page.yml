@@ -1,0 +1,11 @@
+uuid: 16d25ec3-802e-4665-96cd-9ce28a7ee3e0
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.landing_page
+id: node_type_landing_page
+action: display_page
+allow_override: 1
+redirect: ''
+redirect_code: 301
