@@ -1,17 +1,17 @@
 @api
 
-Feature: DTG authors
-  In order to provide users with digital transformation guide content
-  As a digital transformation guide approver
-  I need to be able to create, manage and maintain content.
+Feature: Restricted authors
+  In order to provide users with basic content
+  As an approver
+  I need to be able to create, manage and maintain content in a limited way.
 
   Background:
-    Given I am logged in as a user with the "Digital Transformation Guide approver" role
+    Given I am logged in as a user with the "Restricted approver" role
     And "page" content:
     | title     | field_introduction     | field_body     | field_summary  |
     | test page | test page introduction | test page body | test summary 1 |
 
-    @content @dtg-approver
+    @content @restricted-approver
 
     Scenario: Edit content
       Then I should be able to edit a page
