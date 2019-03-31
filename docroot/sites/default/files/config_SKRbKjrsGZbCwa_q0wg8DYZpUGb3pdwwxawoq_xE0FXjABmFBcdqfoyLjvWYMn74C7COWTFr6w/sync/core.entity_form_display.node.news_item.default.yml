@@ -36,12 +36,12 @@ mode: default
 content:
   created:
     type: datetime_timestamp
-    weight: 2
+    weight: 13
     region: content
     settings: {  }
     third_party_settings: {  }
   field_body:
-    weight: 11
+    weight: 3
     settings:
       rows: 9
       placeholder: ''
@@ -49,7 +49,7 @@ content:
     type: text_textarea
     region: content
   field_image:
-    weight: 14
+    weight: 6
     settings:
       preview_image_style: thumbnail
       progress_indicator: throbber
@@ -59,7 +59,7 @@ content:
     type: image_image
     region: content
   field_image_caption:
-    weight: 15
+    weight: 7
     settings:
       size: 60
       placeholder: ''
@@ -67,7 +67,7 @@ content:
     type: string_textfield
     region: content
   field_index_image:
-    weight: 13
+    weight: 5
     settings:
       preview_image_style: thumbnail
       progress_indicator: throbber
@@ -77,7 +77,7 @@ content:
     type: image_image
     region: content
   field_introduction:
-    weight: 10
+    weight: 2
     settings:
       rows: 5
       placeholder: ''
@@ -85,7 +85,7 @@ content:
     type: text_textarea
     region: content
   field_linkedin_image:
-    weight: 16
+    weight: 8
     settings:
       preview_image_style: thumbnail
       progress_indicator: throbber
@@ -95,13 +95,13 @@ content:
     type: image_image
     region: content
   field_publication_date:
-    weight: 8
+    weight: 1
     settings: {  }
     third_party_settings: {  }
     type: datetime_default
     region: content
   field_search_keywords:
-    weight: 26
+    weight: 19
     settings:
       rows: 5
       placeholder: ''
@@ -109,7 +109,7 @@ content:
     type: string_textarea
     region: content
   field_summary:
-    weight: 12
+    weight: 4
     settings:
       rows: 3
       placeholder: ''
@@ -126,7 +126,7 @@ content:
     type: entity_reference_autocomplete
     region: content
   field_twitter_image:
-    weight: 17
+    weight: 9
     settings:
       preview_image_style: thumbnail
       progress_indicator: throbber
@@ -137,13 +137,13 @@ content:
     region: content
   moderation_state:
     type: moderation_state_default
-    weight: 6
+    weight: 10
     settings: {  }
     region: content
     third_party_settings: {  }
   path:
     type: path
-    weight: 5
+    weight: 16
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -151,21 +151,21 @@ content:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 3
+    weight: 14
     region: content
     third_party_settings: {  }
   status:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 7
+    weight: 11
     region: content
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 4
+    weight: 15
     region: content
     third_party_settings: {  }
   title:
@@ -178,7 +178,7 @@ content:
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 1
+    weight: 12
     settings:
       match_operator: CONTAINS
       size: 60
@@ -186,7 +186,7 @@ content:
     region: content
     third_party_settings: {  }
   url_redirects:
-    weight: 19
+    weight: 17
     region: content
     settings: {  }
     third_party_settings: {  }
