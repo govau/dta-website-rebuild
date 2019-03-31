@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies: {  }
 id: digital_transformation_guide_author
-label: 'Digital Transformation Guide author'
+label: 'Restricted author'
 weight: -3
 is_admin: null
 permissions:
