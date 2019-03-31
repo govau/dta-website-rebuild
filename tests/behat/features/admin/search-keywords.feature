@@ -6,7 +6,7 @@ Feature: Search keywords
   I need to be able to add the appropriate search keywords.
 
   Background:
-    Given I am logged in as a user with the "Content editor" role
+    Given I am logged in as a user with the "Content author" role
 
     @editing @search @pages
     Scenario: Search keywords field exists on pages

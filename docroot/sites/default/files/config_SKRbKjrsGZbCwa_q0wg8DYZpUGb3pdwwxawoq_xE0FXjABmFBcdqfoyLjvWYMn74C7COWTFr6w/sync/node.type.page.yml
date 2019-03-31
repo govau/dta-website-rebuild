@@ -19,6 +19,6 @@ name: Page
 type: page
 description: 'Use the <em>page</em> content type for static content that does not need to be dynamically displayed.'
 help: ''
-new_revision: false
+new_revision: true
 preview_mode: 1
 display_submitted: false

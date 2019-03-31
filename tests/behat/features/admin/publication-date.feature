@@ -6,7 +6,7 @@ Feature: Publication date field
   I need to be able to add the appropriate publication date to blog posts and news items.
 
   Background:
-    Given I am logged in as a user with the "Content editor" role
+    Given I am logged in as a user with the "Content author" role
 
     @editing @blogs @date
     Scenario: Publication date field exists on blogs
