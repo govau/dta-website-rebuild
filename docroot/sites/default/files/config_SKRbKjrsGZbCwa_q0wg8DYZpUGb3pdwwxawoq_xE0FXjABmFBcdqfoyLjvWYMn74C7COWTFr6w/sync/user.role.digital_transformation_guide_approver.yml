@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies: {  }
 id: digital_transformation_guide_approver
-label: 'Digital Transformation Guide approver'
+label: 'Restricted approver'
 weight: 0
 is_admin: null
 permissions:
