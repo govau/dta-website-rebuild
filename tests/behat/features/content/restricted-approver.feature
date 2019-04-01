@@ -15,7 +15,6 @@ Feature: Restricted authors
 
     Scenario: Edit content
       Then I should be able to edit a page
-      And I should be able to edit a landing_page
       And I should be able to edit a landing_page_level_2
       And I should be able to edit a govcms_event
       And I should be able to edit an external_link

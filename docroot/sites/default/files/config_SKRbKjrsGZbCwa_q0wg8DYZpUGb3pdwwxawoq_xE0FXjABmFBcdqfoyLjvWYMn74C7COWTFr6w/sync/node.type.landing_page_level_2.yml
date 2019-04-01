@@ -12,12 +12,12 @@ third_party_settings:
       - main
     parent: 'main:'
   node_title_help_text:
-    title_help: ''
+    title_help: 'Titles have a limit of 65 characters and must be unique. We use this text for the <title> tag, for search engine optimisation (SEO) and to build the page address (URL).'
   wysiwyg_template:
     default_template: ''
-name: 'Landing page - Level 2'
+name: 'Sub-level landing page'
 type: landing_page_level_2
-description: 'A content type  to create level 2 landing pages. They will automatically include a view of child menu items along with a left menu. To ensure you see the correct items, make sure the menu is set up correctly.'
+description: 'A content type to create general landing pages. They will automatically include a view of child menu items along with a left menu. To ensure you see the correct items, make sure the menu is set up correctly. These can be placed at any level of the site, as long as it will include child items in the menu.'
 help: ''
 new_revision: true
 preview_mode: 1
