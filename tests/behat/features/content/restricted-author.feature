@@ -12,7 +12,14 @@ Feature: Restricted authors
     Scenario: Create content
       When I follow "Content"
       And I follow "Add content"
-      Then I should see 5 ".admin-list a" elements
+      Then I should see 4 ".admin-list a" elements
+
+    @content @restricted-author
+    Scenario: Edit content
+      Then I should be able to edit a "page"
+      And I should be able to edit a "landing_page_level_2"
+      And I should be able to edit an "external_link"
+      And I should be able to edit a "govcms_event"
 
     @menus @restricted-author
     Scenario: Edit menus
