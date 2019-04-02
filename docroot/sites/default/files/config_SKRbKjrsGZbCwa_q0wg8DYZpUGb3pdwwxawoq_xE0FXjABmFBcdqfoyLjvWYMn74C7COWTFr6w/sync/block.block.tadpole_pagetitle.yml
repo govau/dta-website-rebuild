@@ -2,9 +2,6 @@ uuid: 9c09b554-0d85-404d-9ce2-e97b4ea8b1a2
 langcode: en
 status: true
 dependencies:
-  module:
-    - ctools
-    - system
   theme:
     - tadpole
 _core:
@@ -20,16 +17,4 @@ settings:
   label: 'Page title'
   provider: core
   label_display: '0'
-visibility:
-  request_path:
-    id: request_path
-    pages: "/our-projects/digital-transformation-roadmaps/roadmap-for-individuals\r\n/our-projects/digital-transformation-roadmaps/roadmap-for-business-users"
-    negate: true
-    context_mapping: {  }
-  'entity_bundle:node':
-    id: 'entity_bundle:node'
-    bundles:
-      book: book
-    negate: true
-    context_mapping:
-      node: '@node.node_route_context:node'
+visibility: {  }
