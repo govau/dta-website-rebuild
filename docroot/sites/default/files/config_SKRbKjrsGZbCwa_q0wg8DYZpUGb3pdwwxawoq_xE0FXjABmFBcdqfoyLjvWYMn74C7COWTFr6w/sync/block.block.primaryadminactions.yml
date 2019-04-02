@@ -1,0 +1,18 @@
+uuid: 40b505a9-9b8d-4e72-83c1-6cd152421238
+langcode: en
+status: true
+dependencies:
+  theme:
+    - tadpole
+id: primaryadminactions
+theme: tadpole
+region: content
+weight: -1
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  provider: core
+  label_display: '0'
+visibility: {  }

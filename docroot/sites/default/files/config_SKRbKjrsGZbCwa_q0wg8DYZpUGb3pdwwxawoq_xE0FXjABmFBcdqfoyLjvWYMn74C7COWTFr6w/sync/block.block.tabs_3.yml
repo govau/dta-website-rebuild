@@ -1,0 +1,20 @@
+uuid: b4dc1ef6-26e4-4d5e-9375-37c80c6b2283
+langcode: en
+status: true
+dependencies:
+  theme:
+    - tadpole
+id: tabs_3
+theme: tadpole
+region: header
+weight: 0
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: 'Primary tabs'
+  provider: core
+  label_display: '0'
+  primary: true
+  secondary: false
+visibility: {  }

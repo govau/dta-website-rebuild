@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7d1429f4bfb459d8964a81657acb17df",
+    "content-hash": "105ff3d3549c07569e9d8399d5ef9b33",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -8487,6 +8487,34 @@
                 "theme"
             ],
             "time": "2018-08-17T03:21:53+00:00"
+        },
+        {
+            "name": "govau/tadpole",
+            "version": "1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/govau/tadpole.git",
+                "reference": "fd2ec969f6f337c59a97c692d83eab86c3451def"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/govau/tadpole/zipball/fd2ec969f6f337c59a97c692d83eab86c3451def",
+                "reference": "fd2ec969f6f337c59a97c692d83eab86c3451def",
+                "shasum": ""
+            },
+            "type": "drupal-custom-theme",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "A small override theme to help adjust the admin theme.",
+            "homepage": "https://github.com/govau/tadpole",
+            "keywords": [
+                "drupal",
+                "government",
+                "theme"
+            ],
+            "time": "2019-04-02T03:28:27+00:00"
         },
         {
             "name": "grasmash/expander",

@@ -1,0 +1,20 @@
+uuid: bd1de13b-a883-400a-a0a2-92434c086ea0
+langcode: en
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - tadpole
+id: tadpole_help_2
+theme: tadpole
+region: help
+weight: -1
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  provider: help
+  label_display: '0'
+visibility: {  }
