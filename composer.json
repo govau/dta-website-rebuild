@@ -1,0 +1,16 @@
+{
+  "name": "govau/tadpole",
+  "homepage": "https://github.com/govau/tadpole",
+  "description": "A small override theme to help adjust the admin theme.",
+  "type": "drupal-custom-theme",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/govau/tadpole"
+  },
+  "keywords": [
+    "Drupal",
+    "theme",
+    "government"
+  ],
+  "license": "MIT"
+}

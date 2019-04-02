@@ -1,0 +1,20 @@
+name: Tadpole - the DTA administration theme
+type: theme
+description: A small override theme to help adjust the admin theme.
+core: 8.x
+base theme: adminimal_theme
+screenshot: screenshot.png
+libraries:
+  - tadpole/admin-styles
+regions:
+  header: 'Header'
+  pre_content: 'Pre-content'
+  breadcrumb: Breadcrumb
+  highlighted: Highlighted
+  help: Help
+  content: Content
+  page_top: 'Page top'
+  page_bottom: 'Page bottom'
+  sidebar_first: 'First sidebar'
+regions_hidden:
+  - sidebar_first

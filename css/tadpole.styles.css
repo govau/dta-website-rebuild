@@ -1,0 +1,30 @@
+/* Style overrides for Tadpole */
+
+div.region-content form.node-form div.layout-region-node-main label,
+div.region-content form.node-form div.layout-region-node-main h4.label,
+div.region-content form.node-form div.layout-region-node-main span.fieldset-legend {
+  font-size: 1rem;
+}
+
+div.region-content form.node-form div.layout-region-node-main div.form-item,
+div.region-content form.node-form div.layout-region-node-main div.field--type-datetime,
+div.region-content form.node-form div.layout-region-node-main div.field--type-entity-reference,
+div.region-content form.node-form div.layout-region-node-main div.field--type-string-long {
+  border-top: 1px solid #666;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+}
+
+div.region-content form.node-form div.layout-region-node-main div.form-item.js-form-type-date,
+div.region-content form.node-form div.layout-region-node-main div.form-item.js-form-type-radio,
+div.region-content form.node-form div.layout-region-node-main div.form-item.js-form-type-textarea,
+div.region-content form.node-form div.layout-region-node-main div.field--type-entity-reference div.form-item,
+div.region-content form.node-form div.layout-region-node-main table div.form-item {
+  border-top: none;
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.layout-region-node-footer__content {
+  border: none;
+}
