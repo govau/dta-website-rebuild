@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "105ff3d3549c07569e9d8399d5ef9b33",
+    "content-hash": "ce749632bb9a2c15339227e194528033",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -8490,17 +8490,20 @@
         },
         {
             "name": "govau/tadpole",
-            "version": "1.0",
+            "version": "1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/govau/tadpole.git",
-                "reference": "fd2ec969f6f337c59a97c692d83eab86c3451def"
+                "reference": "ba4b7be4291aede1d6c09dc24ba4c1b2e0848ca1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/govau/tadpole/zipball/fd2ec969f6f337c59a97c692d83eab86c3451def",
-                "reference": "fd2ec969f6f337c59a97c692d83eab86c3451def",
+                "url": "https://api.github.com/repos/govau/tadpole/zipball/ba4b7be4291aede1d6c09dc24ba4c1b2e0848ca1",
+                "reference": "ba4b7be4291aede1d6c09dc24ba4c1b2e0848ca1",
                 "shasum": ""
+            },
+            "require": {
+                "drupal/adminimal_theme": ">=1.4.0"
             },
             "type": "drupal-custom-theme",
             "notification-url": "https://packagist.org/downloads/",
@@ -8514,7 +8517,7 @@
                 "government",
                 "theme"
             ],
-            "time": "2019-04-02T03:28:27+00:00"
+            "time": "2019-04-02T04:54:58+00:00"
         },
         {
             "name": "grasmash/expander",
