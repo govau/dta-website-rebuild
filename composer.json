@@ -234,7 +234,8 @@
           "drupal/core": {
             "Cannot use relationship for rendered entity on Views": "https://www.drupal.org/files/issues/2457999-164.patch",
             "Views RSS feeds have validation issues": "https://www.drupal.org/files/issues/d8-rss-validation-atom-link-missing-1337894-25.patch",
-            "Allow users with access to unpublished nodes to create unpublished books": "https://www.drupal.org/files/issues/26552-133.patch"
+            "Allow users with access to unpublished nodes to create unpublished books": "https://www.drupal.org/files/issues/26552-133.patch",
+            "Cannot save unpublished versions of published content for users without manage book privileges": "https://www.drupal.org/files/issues/2918537-36.patch"
           },
           "drupal/ie8": {
             "drupal.js Incompatible in D8.5": "https://www.drupal.org/files/issues/2018-03-30/drupal_js.patch"
