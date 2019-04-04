@@ -100,6 +100,7 @@
         "drupal/context_metadata": "2.x-dev",
         "drupal/core": "8.6.13",
         "drupal/devel": "2.0",
+        "drupal/diff": "1.0-rc2",
         "drupal/ds": "3.3",
         "drupal/ds_chains": "1.0",
         "drupal/editor_advanced_link": "1.4",
