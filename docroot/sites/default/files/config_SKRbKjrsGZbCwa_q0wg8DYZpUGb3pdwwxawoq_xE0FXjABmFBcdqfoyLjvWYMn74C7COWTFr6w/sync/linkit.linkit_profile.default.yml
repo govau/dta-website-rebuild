@@ -15,8 +15,9 @@ matchers:
     id: 'entity:node'
     weight: 0
     settings:
-      metadata: 'by [node:author] | [node:created:medium]'
+      metadata: 'by [node:author] | [node:created:medium] | [node:nid]'
       bundles: {  }
       group_by_bundle: true
       include_unpublished: true
       substitution_type: canonical
+      limit: 100

@@ -10,7 +10,7 @@ extlink_include: ''
 extlink_class: ext
 extlink_label: '(link is external)'
 extlink_img_class: false
-extlink_css_exclude: 'footer, a.au-card'
+extlink_css_exclude: 'footer, a.au-card, .au-btn'
 extlink_css_explicit: ''
 extlink_mailto_class: mailto
 extlink_mailto_label: '(link sends email)'
@@ -18,3 +18,6 @@ _core:
   default_config_hash: rHbHZIIF9TP3H2Vs37uCHz4Gm4phULg0rQ_OKihxJfM
 extlink_use_font_awesome: false
 extlink_icon_placement: '0'
+extlink_font_awesome_classes:
+  links: 'fa fa-external-link'
+  mailto: 'fa fa-envelope-o'
