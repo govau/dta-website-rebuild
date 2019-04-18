@@ -5,4 +5,4 @@ projects[drupal][patch][] = https://www.drupal.org/files/issues/2457999-164.patc
 projects[drupal][patch][] = https://www.drupal.org/files/issues/d8-rss-validation-atom-link-missing-1337894-25.patch
 projects[drupal][patch][] = https://www.drupal.org/files/issues/26552-133.patch
 projects[drupal][patch][] = https://www.drupal.org/files/issues/2918537-36.patch
-projects[drupal][version] = 8.6.13
+projects[drupal][version] = 8.6.15
