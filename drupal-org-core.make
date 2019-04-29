@@ -5,4 +5,6 @@ projects[drupal][patch][] = https://www.drupal.org/files/issues/2457999-164.patc
 projects[drupal][patch][] = https://www.drupal.org/files/issues/d8-rss-validation-atom-link-missing-1337894-25.patch
 projects[drupal][patch][] = https://www.drupal.org/files/issues/26552-133.patch
 projects[drupal][patch][] = https://www.drupal.org/files/issues/2918537-36.patch
+projects[drupal][patch][] = https://www.drupal.org/files/issues/2019-03-12/3030477-5.patch
+projects[drupal][patch][] = https://www.drupal.org/files/issues/drupal-core-allow-menu-items-to-link-to-unpublished-2807629-7-8.3.x.patch
 projects[drupal][version] = 8.6.15
