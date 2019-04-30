@@ -1,0 +1,14 @@
+uuid: 6699b913-78e4-4b8d-9e5c-0ee1623db908
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.technical_reviewer
+  module:
+    - user
+id: user_remove_role_action.technical_reviewer
+label: 'Remove the Technical reviewer role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: technical_reviewer

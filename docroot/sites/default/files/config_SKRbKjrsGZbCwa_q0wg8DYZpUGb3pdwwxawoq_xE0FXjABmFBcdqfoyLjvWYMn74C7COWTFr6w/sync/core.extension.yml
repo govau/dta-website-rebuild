@@ -80,6 +80,8 @@ module:
   mailchimp_signup: 0
   mailsystem: 0
   markdown: 0
+  masquerade: 0
+  masquerade_float_block: 0
   menu_block: 0
   menu_link_attributes: 0
   menu_ui: 0

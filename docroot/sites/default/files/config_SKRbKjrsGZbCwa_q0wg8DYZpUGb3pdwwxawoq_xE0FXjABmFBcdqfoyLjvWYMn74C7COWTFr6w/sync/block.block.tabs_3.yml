@@ -7,7 +7,7 @@ dependencies:
 id: tabs_3
 theme: tadpole
 region: header
-weight: 0
+weight: -2
 provider: null
 plugin: local_tasks_block
 settings:
