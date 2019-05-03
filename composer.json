@@ -150,7 +150,7 @@
         "drupal/rabbit_hole": "1.0-beta5",
         "drupal/redirect": "1.x-dev",
         "drupal/robotstxt": "1.2",
-        "drupal/rules": "3.0-alpha4",
+        "drupal/rules": "3.x-dev",
         "drupal/rules_role_email": "1.0-alpha3",
         "drupal/s3fs": "3.0-alpha13",
         "drupal/search_api": "1.12",
@@ -190,6 +190,7 @@
         "drupal/coder": "8.2.12",
         "drupal/console": "1.8.0",
         "drupal/drupal-extension": "3.4.1",
+        "drupal/mail_safety": "1.x-dev",
         "grasmash/drupal-security-warning": "1.1.1",
         "jakoch/phantomjs-installer": "2.1.1-p09",
         "jcalderonzumba/mink-phantomjs-driver": "0.3.3",
@@ -250,6 +251,10 @@
           },
           "drupal/masquerade_float_block": {
             "Masquerade Float Block appears for anonymous users":"https://www.drupal.org/files/issues/masquerade_float_block-2917207-3.patch"
+          },
+          "drupal/rules": {
+            "WSOD 'Cannot set a list with a non-array value'": "https://www.drupal.org/files/issues/2019-04-12/rules-2987505-19-Cannot-set-list-to-nonarray.patch",
+            "Condition UserHasRole throws an error":"https://www.drupal.org/files/issues/2816157-10.patch"
           }
         }
     },

@@ -1,0 +1,89 @@
+uuid: 00f8db6a-5841-438f-bd97-ed71a62bf966
+langcode: en
+status: true
+dependencies: {  }
+id: ready_to_publish
+label: 'Ready to publish (Content)'
+events:
+  -
+    event_name: 'rules_entity_update:node'
+description: 'Notifies content approvers content is ready to publish. This only applies to ''content authors'', not ''restricted authors''.'
+tags:
+  - notification
+  - workflow
+config_version: '3'
+expression:
+  id: rules_rule
+  uuid: 7a7c3555-ba90-4df3-9b5b-1b12134dafb6
+  conditions:
+    id: rules_and
+    uuid: a1adfad5-47d6-42cb-b24b-2e784dbfc2bd
+    conditions:
+      -
+        id: rules_condition
+        uuid: 1d9d459e-7952-4a6e-be2c-40d52728e3bb
+        context_values:
+          field: moderation_state
+        context_mapping:
+          entity: node
+        context_processors:
+          field:
+            rules_tokens: {  }
+        provides_mapping: {  }
+        condition_id: rules_entity_has_field
+        negate: false
+      -
+        id: rules_condition
+        uuid: cc99eb71-107c-4b23-9814-11418fc83f90
+        context_values:
+          operation: CONTAINS
+          value: ready_to_publish
+        context_mapping:
+          data: node.moderation_state.value
+        context_processors:
+          operation:
+            rules_tokens: {  }
+          value:
+            rules_tokens: {  }
+        provides_mapping: {  }
+        condition_id: rules_data_comparison
+        negate: false
+      -
+        id: rules_condition
+        uuid: d3fdfcd0-662b-439b-8699-a35d36919e7d
+        context_values:
+          operation: CONTAINS
+          value: content_editor
+        context_mapping:
+          data: node.uid.entity.roles.0.target_id
+        context_processors:
+          operation:
+            rules_tokens: {  }
+          value:
+            rules_tokens: {  }
+        provides_mapping: {  }
+        condition_id: rules_data_comparison
+        negate: false
+  actions:
+    id: rules_action_set
+    uuid: b4c1f206-52ac-4847-b581-a8084733b31a
+    actions:
+      -
+        id: rules_action
+        uuid: f72cda58-669f-4284-b8a7-089c57d102f9
+        context_values:
+          roles:
+            - content_approver
+          subject: 'Content ready to publish on dta.gov.au'
+          message: 'Hi! [node:title] is ready to publish at [node:url]. Jump in there now!'
+        context_mapping:
+          node: node
+        context_processors:
+          roles:
+            rules_tokens: {  }
+          subject:
+            rules_tokens: {  }
+          message:
+            rules_tokens: {  }
+        provides_mapping: {  }
+        action_id: role_email_action

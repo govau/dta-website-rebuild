@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f959d86a2e7ea53dc71cc2f5a81b25a7",
+    "content-hash": "cbff110e548889cbbe6e8c8a71f45b72",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -6526,7 +6526,7 @@
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
             "license": [
-                "GPL-2.0+"
+                "GPL-2.0-or-later"
             ],
             "authors": [
                 {
@@ -6793,26 +6793,15 @@
         },
         {
             "name": "drupal/rules",
-            "version": "3.0.0-alpha4",
+            "version": "dev-3.x",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/rules.git",
-                "reference": "8.x-3.0-alpha4"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/rules-8.x-3.0-alpha4.zip",
-                "reference": "8.x-3.0-alpha4",
-                "shasum": "d6f11a6bd867b3479504b00278b4465a5b138d3a"
+                "reference": "78c9c139f1f15ca5436e2e2f5f139fe17c2caf60"
             },
             "require": {
                 "drupal/core": "~8.0",
                 "drupal/typed_data": "*"
-            },
-            "require-dev": {
-                "dealerdirect/phpcodesniffer-composer-installer": "dev-master",
-                "drupal/coder": "8.2.*",
-                "squizlabs/php_codesniffer": "2.9.*"
             },
             "type": "drupal-module",
             "extra": {
@@ -6820,11 +6809,11 @@
                     "dev-3.x": "3.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-3.0-alpha4",
-                    "datestamp": "1526654284",
+                    "version": "8.x-3.0-alpha4+44-dev",
+                    "datestamp": "1553720286",
                     "security-coverage": {
                         "status": "not-covered",
-                        "message": "Alpha releases are not covered by Drupal security advisories."
+                        "message": "Dev releases are not covered by Drupal security advisories."
                     }
                 }
             },
@@ -6849,8 +6838,9 @@
             "description": "React on events and conditionally evaluate actions.",
             "homepage": "https://www.drupal.org/project/rules",
             "support": {
-                "source": "http://cgit.drupalcode.org/rules"
-            }
+                "source": "https://git.drupalcode.org/project/rules"
+            },
+            "time": "2019-04-07T05:20:28+00:00"
         },
         {
             "name": "drupal/rules_role_email",
@@ -13743,6 +13733,56 @@
             "time": "2017-12-06T20:35:40+00:00"
         },
         {
+            "name": "drupal/mail_safety",
+            "version": "dev-1.x",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/mail_safety.git",
+                "reference": "0664357f229e19d033580f80f408e3295e327fb1"
+            },
+            "require": {
+                "drupal/core": "~8.0"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.0+3-dev",
+                    "datestamp": "1515514984",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Dev releases are not covered by Drupal security advisories."
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Nitebreed",
+                    "homepage": "https://www.drupal.org/user/419423"
+                },
+                {
+                    "name": "barthje",
+                    "homepage": "https://www.drupal.org/user/1942906"
+                },
+                {
+                    "name": "rogierbom",
+                    "homepage": "https://www.drupal.org/user/1352176"
+                }
+            ],
+            "description": "A simple and safe way to test and debug outgoing emails without having to worry that all your users will get unwanted emails.",
+            "homepage": "https://www.drupal.org/project/mail_safety",
+            "support": {
+                "source": "https://git.drupalcode.org/project/mail_safety"
+            },
+            "time": "2018-01-09T16:18:19+00:00"
+        },
+        {
             "name": "fabpot/goutte",
             "version": "v3.2.3",
             "source": {
@@ -15521,7 +15561,9 @@
         "drupal/empty_fields": 20,
         "drupal/extlink": 20,
         "drupal/link_css": 20,
-        "drupal/redirect": 20
+        "drupal/redirect": 20,
+        "drupal/rules": 20,
+        "drupal/mail_safety": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
