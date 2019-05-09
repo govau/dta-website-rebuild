@@ -16,7 +16,9 @@ dependencies:
     - field.field.node.assessment_report.field_recommendations
     - field.field.node.assessment_report.field_related_content
     - field.field.node.assessment_report.field_result_assessment
+    - field.field.node.assessment_report.field_search_keywords
     - field.field.node.assessment_report.field_service_manager
+    - field.field.node.assessment_report.field_tags
     - node.type.assessment_report
   module:
     - user
@@ -48,4 +50,6 @@ hidden:
   field_recommendations: true
   field_related_content: true
   field_result_assessment: true
+  field_search_keywords: true
   field_service_manager: true
+  field_tags: true

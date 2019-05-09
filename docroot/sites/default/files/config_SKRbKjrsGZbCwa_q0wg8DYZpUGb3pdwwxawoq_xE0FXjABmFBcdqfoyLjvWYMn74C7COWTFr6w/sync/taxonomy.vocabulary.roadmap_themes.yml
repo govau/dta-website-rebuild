@@ -5,5 +5,4 @@ dependencies: {  }
 name: 'Roadmap themes'
 vid: roadmap_themes
 description: 'This vocabulary is used to apply ''themes'' to roadmaps.'
-hierarchy: 0
 weight: 0
