@@ -5,5 +5,4 @@ dependencies: {  }
 name: 'Quarters - calendar'
 vid: quarters_calendar
 description: 'This vocabulary holds the four quarters in a calendar year for roadmap purposes.'
-hierarchy: 1
 weight: 0

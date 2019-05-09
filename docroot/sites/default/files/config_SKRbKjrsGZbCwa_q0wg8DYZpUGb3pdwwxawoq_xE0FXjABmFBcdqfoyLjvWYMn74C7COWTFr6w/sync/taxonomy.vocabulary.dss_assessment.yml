@@ -5,5 +5,4 @@ dependencies: {  }
 name: 'DSS Assessment'
 vid: dss_assessment
 description: 'This vocabulary stores statuses for DSS assessments.'
-hierarchy: 0
 weight: 0

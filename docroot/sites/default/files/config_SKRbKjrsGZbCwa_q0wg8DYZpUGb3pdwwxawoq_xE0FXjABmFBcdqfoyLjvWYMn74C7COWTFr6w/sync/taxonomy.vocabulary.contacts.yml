@@ -5,5 +5,4 @@ dependencies: {  }
 name: Contacts
 vid: contacts
 description: 'Add contacts to this list to provide them to the contact module.'
-hierarchy: 0
 weight: 0

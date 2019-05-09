@@ -5,5 +5,4 @@ dependencies: {  }
 name: 'Digital Transformation Strategy themes'
 vid: roadmap_2_themes
 description: 'Themes used to organise the Digital Transformation Strategy.'
-hierarchy: 0
 weight: 0

@@ -5,5 +5,4 @@ dependencies: {  }
 name: Tags
 vid: tags
 description: 'Tags are used to collect content across the site.'
-hierarchy: 0
 weight: 0
