@@ -5,5 +5,4 @@ dependencies: {  }
 name: 'Blog authors'
 vid: blog_authors
 description: 'A list of blog authors.'
-hierarchy: 0
 weight: 0

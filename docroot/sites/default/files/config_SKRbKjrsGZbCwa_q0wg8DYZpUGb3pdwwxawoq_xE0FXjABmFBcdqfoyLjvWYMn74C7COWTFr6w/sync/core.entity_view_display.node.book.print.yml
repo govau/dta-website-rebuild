@@ -10,8 +10,10 @@ dependencies:
     - field.field.node.book.field_index_image
     - field.field.node.book.field_introduction
     - field.field.node.book.field_related_content
+    - field.field.node.book.field_search_keywords
     - field.field.node.book.field_short_name
     - field.field.node.book.field_summary
+    - field.field.node.book.field_tags
     - field.field.node.book.field_theme
     - field.field.node.book.field_view
     - node.type.book
@@ -205,7 +207,9 @@ hidden:
   content_moderation_control: true
   field_index_image: true
   field_related_content: true
+  field_search_keywords: true
   field_short_name: true
   field_summary: true
+  field_tags: true
   field_theme: true
   links: true

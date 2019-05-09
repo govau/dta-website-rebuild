@@ -16,7 +16,9 @@ dependencies:
     - field.field.node.page.field_related_content
     - field.field.node.page.field_related_content_heading
     - field.field.node.page.field_review_date
+    - field.field.node.page.field_search_keywords
     - field.field.node.page.field_summary
+    - field.field.node.page.field_tags
     - field.field.node.page.field_twitter_image
     - node.type.page
     - responsive_image.styles.index_image
@@ -143,5 +145,7 @@ hidden:
   field_related_content: true
   field_related_content_heading: true
   field_review_date: true
+  field_search_keywords: true
+  field_tags: true
   field_twitter_image: true
   links: true

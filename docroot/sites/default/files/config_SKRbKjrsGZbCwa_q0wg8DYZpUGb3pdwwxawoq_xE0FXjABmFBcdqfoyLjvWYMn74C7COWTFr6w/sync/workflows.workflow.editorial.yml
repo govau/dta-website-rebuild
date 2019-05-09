@@ -100,3 +100,4 @@ type_settings:
       - news_item
       - page
       - platforms_and_services
+  default_moderation_state: draft
