@@ -7,6 +7,8 @@ dependencies:
     - field.field.taxonomy_term.blog_authors.field_position
     - taxonomy.vocabulary.blog_authors
   module:
+    - ds
+    - ds_chains
     - image
     - text
 third_party_settings:

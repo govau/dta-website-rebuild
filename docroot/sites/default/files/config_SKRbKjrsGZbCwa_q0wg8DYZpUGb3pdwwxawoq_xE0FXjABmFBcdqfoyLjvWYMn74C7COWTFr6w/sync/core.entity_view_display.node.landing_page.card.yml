@@ -12,7 +12,9 @@ dependencies:
     - field.field.node.landing_page.field_promote_to_our_projects
     - field.field.node.landing_page.field_related_content
     - field.field.node.landing_page.field_related_content_heading
+    - field.field.node.landing_page.field_search_keywords
     - field.field.node.landing_page.field_summary
+    - field.field.node.landing_page.field_tags
     - field.field.node.landing_page.field_twitter_image
     - node.type.landing_page
   module:
@@ -53,6 +55,8 @@ hidden:
   field_promote_to_our_projects: true
   field_related_content: true
   field_related_content_heading: true
+  field_search_keywords: true
   field_summary: true
+  field_tags: true
   field_twitter_image: true
   links: true

@@ -12,6 +12,7 @@ dependencies:
     - field.field.node.govcms_event.field_index_image
     - field.field.node.govcms_event.field_introduction
     - field.field.node.govcms_event.field_summary
+    - field.field.node.govcms_event.field_tags
     - node.type.govcms_event
   module:
     - datetime_range
@@ -142,3 +143,4 @@ hidden:
   content_moderation_control: true
   field_index_image: true
   field_summary: true
+  field_tags: true

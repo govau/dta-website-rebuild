@@ -5,5 +5,4 @@ dependencies: {  }
 name: Phase
 vid: phase
 description: 'This vocabulary is used to mark content as in a particular phase.'
-hierarchy: 0
 weight: 0

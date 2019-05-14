@@ -5,5 +5,4 @@ dependencies: {  }
 name: 'Roadmap user journeys: individual'
 vid: individual_user_journeys
 description: 'This vocabulary holds user journeys specific to the individual roadmap.'
-hierarchy: 0
 weight: 0

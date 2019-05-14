@@ -5,5 +5,4 @@ dependencies: {  }
 name: Agencies
 vid: agencies
 description: 'This vocabulary holds agency names for various purposes.'
-hierarchy: 1
 weight: 0
