@@ -11,6 +11,7 @@ dependencies:
     - field.field.node.news_item.field_introduction
     - field.field.node.news_item.field_linkedin_image
     - field.field.node.news_item.field_publication_date
+    - field.field.node.news_item.field_search_keywords
     - field.field.node.news_item.field_summary
     - field.field.node.news_item.field_tags
     - field.field.node.news_item.field_twitter_image
@@ -298,6 +299,7 @@ content:
 hidden:
   field_index_image: true
   field_linkedin_image: true
+  field_search_keywords: true
   field_summary: true
   field_twitter_image: true
   links: true

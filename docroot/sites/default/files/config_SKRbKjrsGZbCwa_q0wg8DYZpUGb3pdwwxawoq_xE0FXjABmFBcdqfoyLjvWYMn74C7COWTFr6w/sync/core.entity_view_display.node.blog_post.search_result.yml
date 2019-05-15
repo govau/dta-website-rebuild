@@ -14,6 +14,7 @@ dependencies:
     - field.field.node.blog_post.field_linkedin_image
     - field.field.node.blog_post.field_publication_date
     - field.field.node.blog_post.field_review_date
+    - field.field.node.blog_post.field_search_keywords
     - field.field.node.blog_post.field_summary
     - field.field.node.blog_post.field_tags
     - field.field.node.blog_post.field_twitter_image
@@ -139,6 +140,7 @@ hidden:
   field_linkedin_image: true
   field_publication_date: true
   field_review_date: true
+  field_search_keywords: true
   field_tags: true
   field_twitter_image: true
   links: true

@@ -12,9 +12,7 @@ dependencies:
     - node.type.blog_post
     - node.type.news_item
     - responsive_image.styles.index_image
-    - taxonomy.vocabulary.tags
   module:
-    - better_exposed_filters
     - datetime
     - ds
     - image
