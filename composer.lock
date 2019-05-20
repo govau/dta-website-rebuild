@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "be966ed5c1c640f5152bbe209d047fbd",
+    "content-hash": "5a2f714069fad977a90a4c79123b5e4d",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -6736,7 +6736,7 @@
             "description": "React on events and conditionally evaluate actions.",
             "homepage": "https://www.drupal.org/project/rules",
             "support": {
-                "source": "http://cgit.drupalcode.org/rules"
+                "source": "https://git.drupalcode.org/project/rules"
             }
         },
         {
@@ -8756,16 +8756,16 @@
         },
         {
             "name": "govau/dta-gov-au",
-            "version": "1.9.7",
+            "version": "1.9.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/govau/dta-gov-au.git",
-                "reference": "6cae9c0e746196ef8e718bbdb71aeaf0c0cec157"
+                "reference": "707ddb5a19c8d52b3668045b1843c18bd7f5169b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/govau/dta-gov-au/zipball/6cae9c0e746196ef8e718bbdb71aeaf0c0cec157",
-                "reference": "6cae9c0e746196ef8e718bbdb71aeaf0c0cec157",
+                "url": "https://api.github.com/repos/govau/dta-gov-au/zipball/707ddb5a19c8d52b3668045b1843c18bd7f5169b",
+                "reference": "707ddb5a19c8d52b3668045b1843c18bd7f5169b",
                 "shasum": ""
             },
             "require": {
@@ -8783,7 +8783,7 @@
                 "government",
                 "theme"
             ],
-            "time": "2019-05-13T06:45:41+00:00"
+            "time": "2019-05-20T07:04:02+00:00"
         },
         {
             "name": "govau/dta-uikit-base",
