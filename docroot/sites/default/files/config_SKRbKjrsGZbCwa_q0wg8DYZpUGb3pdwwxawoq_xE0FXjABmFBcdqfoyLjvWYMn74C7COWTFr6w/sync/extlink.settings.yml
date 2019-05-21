@@ -7,12 +7,12 @@ extlink_alert: true
 extlink_alert_text: 'You are now leaving www.dta.gov.au. Please select ''Cancel'' if you wish to stay.'
 extlink_exclude: '.*(.doc|.docx|.pdf)$'
 extlink_include: ''
-extlink_class: ext
+extlink_class: '0'
 extlink_label: '(link is external)'
 extlink_img_class: false
 extlink_css_exclude: 'footer, a.au-card, .au-btn'
 extlink_css_explicit: ''
-extlink_mailto_class: mailto
+extlink_mailto_class: '0'
 extlink_mailto_label: '(link sends email)'
 _core:
   default_config_hash: rHbHZIIF9TP3H2Vs37uCHz4Gm4phULg0rQ_OKihxJfM
