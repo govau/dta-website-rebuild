@@ -584,6 +584,54 @@ display:
           plugin_id: boolean
           entity_type: node
           entity_field: status
+        moderation_state:
+          id: moderation_state
+          table: node_field_data
+          field: moderation_state
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: in
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: moderation_state_op
+            label: 'Moderation state'
+            description: ''
+            use_operator: false
+            operator: moderation_state_op
+            identifier: moderation_state
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              site_viewer: '0'
+              viewer: '0'
+              webform_author: '0'
+              digital_transformation_guide_author: '0'
+              content_editor: '0'
+              technical_reviewer: '0'
+              digital_transformation_guide_approver: '0'
+              content_approver: '0'
+              administrator: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          entity_type: node
+          plugin_id: moderation_state_filter
       sorts: {  }
       title: Content
       empty:
@@ -622,7 +670,8 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       max-age: 0
-      tags: {  }
+      tags:
+        - 'config:workflow_list'
   page_1:
     display_options:
       path: admin/content/node
@@ -653,4 +702,5 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       max-age: 0
-      tags: {  }
+      tags:
+        - 'config:workflow_list'
