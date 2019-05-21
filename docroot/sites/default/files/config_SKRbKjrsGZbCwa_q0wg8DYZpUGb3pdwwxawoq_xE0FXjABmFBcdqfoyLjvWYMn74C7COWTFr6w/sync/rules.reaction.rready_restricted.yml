@@ -52,7 +52,7 @@ expression:
         id: rules_condition
         uuid: 9b9fd445-227c-4c4a-82db-c1666d62cec2
         context_values:
-          data: '{{ node.uid.entity.roles }}'
+          data: '{{node.uid.entity.roles}}'
           operation: CONTAINS
           value: digital_transformation_guide_author
         context_mapping: {  }
