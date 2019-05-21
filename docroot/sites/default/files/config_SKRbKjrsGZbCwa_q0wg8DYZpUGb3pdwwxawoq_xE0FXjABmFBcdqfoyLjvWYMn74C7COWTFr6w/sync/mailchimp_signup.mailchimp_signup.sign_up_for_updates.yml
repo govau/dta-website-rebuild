@@ -3,12 +3,13 @@ langcode: en
 status: null
 dependencies: {  }
 id: sign_up_for_updates
-title: 'Sign-up for updates'
+title: 'Sign-up for DTA updates'
 mc_lists:
   427c57f270: 427c57f270
   eb749a2ae3: '0'
   a9a17467b5: '0'
-  40e2fe10c7: '0'
+  1b92e67061: '0'
+  ae34f55e65: '0'
   1e707cdf3f: '0'
   4f0690cacc: '0'
   a5ee71101c: '0'
@@ -16,19 +17,26 @@ mc_lists:
   d564e96414: '0'
   bd08da4529: '0'
   29b83419c1: '0'
+  e1289fe56b: '0'
   f2619e63fe: '0'
   633ccba094: '0'
   e08538ae89: '0'
   15eb3c9c83: '0'
   bd78da601e: '0'
+  40e2fe10c7: '0'
   e540c5e1f8: '0'
-  ab521ae799: '0'
+  55f9c09b84: '0'
+  9bd140bca0: '0'
+  924836109a: '0'
+  2ab0f6cbb8: '0'
+  2ce947c438: '0'
   b511e5c3d6: '0'
   492f8bca36: '0'
   514bfb8b65: '0'
   7ef159e8c5: '0'
   b9b5ce9b85: '0'
   52f4f137c4: '0'
+  3bd3ecbbb4: '0'
   6b385092d3: '0'
   fb384192ba: '0'
   447d8117f7: '0'
@@ -42,8 +50,8 @@ mergefields:
   FNAME: true
   LNAME: true
   STATE: true
-description: ''
-doublein: false
+description: '<p>If you would like to receive email notification when we publish news and blogs, please fill in the form.</p>'
+doublein: true
 send_welcome: null
 include_interest_groups: false
 settings:
@@ -56,7 +64,7 @@ settings:
     FNAME: 'O:8:"stdClass":12:{s:8:"merge_id";i:1;s:3:"tag";s:5:"FNAME";s:4:"name";s:10:"First name";s:4:"type";s:4:"text";s:8:"required";b:0;s:13:"default_value";s:0:"";s:6:"public";b:1;s:13:"display_order";i:2;s:7:"options";O:8:"stdClass":1:{s:4:"size";i:25;}s:9:"help_text";s:0:"";s:7:"list_id";s:10:"427c57f270";s:6:"_links";a:4:{i:0;O:8:"stdClass":4:{s:3:"rel";s:4:"self";s:4:"href";s:66:"https://us12.api.mailchimp.com/3.0/lists/427c57f270/merge-fields/1";s:6:"method";s:3:"GET";s:12:"targetSchema";s:85:"https://us12.api.mailchimp.com/schema/3.0/Definitions/Lists/MergeFields/Response.json";}i:1;O:8:"stdClass":5:{s:3:"rel";s:6:"parent";s:4:"href";s:64:"https://us12.api.mailchimp.com/3.0/lists/427c57f270/merge-fields";s:6:"method";s:3:"GET";s:12:"targetSchema";s:95:"https://us12.api.mailchimp.com/schema/3.0/Definitions/Lists/MergeFields/CollectionResponse.json";s:6:"schema";s:80:"https://us12.api.mailchimp.com/schema/3.0/CollectionLinks/Lists/MergeFields.json";}i:2;O:8:"stdClass":5:{s:3:"rel";s:6:"update";s:4:"href";s:66:"https://us12.api.mailchimp.com/3.0/lists/427c57f270/merge-fields/1";s:6:"method";s:5:"PATCH";s:12:"targetSchema";s:85:"https://us12.api.mailchimp.com/schema/3.0/Definitions/Lists/MergeFields/Response.json";s:6:"schema";s:82:"https://us12.api.mailchimp.com/schema/3.0/Definitions/Lists/MergeFields/PATCH.json";}i:3;O:8:"stdClass":3:{s:3:"rel";s:6:"delete";s:4:"href";s:66:"https://us12.api.mailchimp.com/3.0/lists/427c57f270/merge-fields/1";s:6:"method";s:6:"DELETE";}}}'
     LNAME: 'O:8:"stdClass":12:{s:8:"merge_id";i:2;s:3:"tag";s:5:"LNAME";s:4:"name";s:9:"Last name";s:4:"type";s:4:"text";s:8:"required";b:0;s:13:"default_value";s:0:"";s:6:"public";b:1;s:13:"display_order";i:3;s:7:"options";O:8:"stdClass":1:{s:4:"size";i:25;}s:9:"help_text";s:0:"";s:7:"list_id";s:10:"427c57f270";s:6:"_links";a:4:{i:0;O:8:"stdClass":4:{s:3:"rel";s:4:"self";s:4:"href";s:66:"https://us12.api.mailchimp.com/3.0/lists/427c57f270/merge-fields/2";s:6:"method";s:3:"GET";s:12:"targetSchema";s:85:"https://us12.api.mailchimp.com/schema/3.0/Definitions/Lists/MergeFields/Response.json";}i:1;O:8:"stdClass":5:{s:3:"rel";s:6:"parent";s:4:"href";s:64:"https://us12.api.mailchimp.com/3.0/lists/427c57f270/merge-fields";s:6:"method";s:3:"GET";s:12:"targetSchema";s:95:"https://us12.api.mailchimp.com/schema/3.0/Definitions/Lists/MergeFields/CollectionResponse.json";s:6:"schema";s:80:"https://us12.api.mailchimp.com/schema/3.0/CollectionLinks/Lists/MergeFields.json";}i:2;O:8:"stdClass":5:{s:3:"rel";s:6:"update";s:4:"href";s:66:"https://us12.api.mailchimp.com/3.0/lists/427c57f270/merge-fields/2";s:6:"method";s:5:"PATCH";s:12:"targetSchema";s:85:"https://us12.api.mailchimp.com/schema/3.0/Definitions/Lists/MergeFields/Response.json";s:6:"schema";s:82:"https://us12.api.mailchimp.com/schema/3.0/Definitions/Lists/MergeFields/PATCH.json";}i:3;O:8:"stdClass":3:{s:3:"rel";s:6:"delete";s:4:"href";s:66:"https://us12.api.mailchimp.com/3.0/lists/427c57f270/merge-fields/2";s:6:"method";s:6:"DELETE";}}}'
     STATE: 'O:8:"stdClass":12:{s:8:"merge_id";i:3;s:3:"tag";s:5:"STATE";s:4:"name";s:18:"State or territory";s:4:"type";s:8:"dropdown";s:8:"required";b:0;s:13:"default_value";s:0:"";s:6:"public";b:1;s:13:"display_order";i:10;s:7:"options";O:8:"stdClass":1:{s:7:"choices";a:9:{i:0;s:3:"ACT";i:1;s:3:"NSW";i:2;s:2:"NT";i:3;s:3:"QLD";i:4;s:2:"SA";i:5;s:3:"TAS";i:6;s:3:"VIC";i:7;s:2:"WA";i:8;s:17:"Outside Australia";}}s:9:"help_text";s:0:"";s:7:"list_id";s:10:"427c57f270";s:6:"_links";a:4:{i:0;O:8:"stdClass":4:{s:3:"rel";s:4:"self";s:4:"href";s:66:"https://us12.api.mailchimp.com/3.0/lists/427c57f270/merge-fields/3";s:6:"method";s:3:"GET";s:12:"targetSchema";s:85:"https://us12.api.mailchimp.com/schema/3.0/Definitions/Lists/MergeFields/Response.json";}i:1;O:8:"stdClass":5:{s:3:"rel";s:6:"parent";s:4:"href";s:64:"https://us12.api.mailchimp.com/3.0/lists/427c57f270/merge-fields";s:6:"method";s:3:"GET";s:12:"targetSchema";s:95:"https://us12.api.mailchimp.com/schema/3.0/Definitions/Lists/MergeFields/CollectionResponse.json";s:6:"schema";s:80:"https://us12.api.mailchimp.com/schema/3.0/CollectionLinks/Lists/MergeFields.json";}i:2;O:8:"stdClass":5:{s:3:"rel";s:6:"update";s:4:"href";s:66:"https://us12.api.mailchimp.com/3.0/lists/427c57f270/merge-fields/3";s:6:"method";s:5:"PATCH";s:12:"targetSchema";s:85:"https://us12.api.mailchimp.com/schema/3.0/Definitions/Lists/MergeFields/Response.json";s:6:"schema";s:82:"https://us12.api.mailchimp.com/schema/3.0/Definitions/Lists/MergeFields/PATCH.json";}i:3;O:8:"stdClass":3:{s:3:"rel";s:6:"delete";s:4:"href";s:66:"https://us12.api.mailchimp.com/3.0/lists/427c57f270/merge-fields/3";s:6:"method";s:6:"DELETE";}}}'
-  description: ''
-  doublein: false
+  description: '<p>If you would like to receive email notification when we publish news and blogs, please fill in the form.</p>'
+  doublein: true
   include_interest_groups: false
   safe_interest_groups: false
