@@ -48,6 +48,24 @@ expression:
         provides_mapping: {  }
         condition_id: rules_data_comparison
         negate: false
+      -
+        id: rules_condition
+        uuid: 72ace160-e84f-4409-9fca-fe87b2350afb
+        context_values:
+          data: '{{node.uid.entity.roles}}'
+          operation: CONTAINS
+          value: content_editor
+        context_mapping: {  }
+        context_processors:
+          data:
+            rules_tokens: {  }
+          operation:
+            rules_tokens: {  }
+          value:
+            rules_tokens: {  }
+        provides_mapping: {  }
+        condition_id: rules_data_comparison
+        negate: false
   actions:
     id: rules_action_set
     uuid: b4c1f206-52ac-4847-b581-a8084733b31a
