@@ -1,5 +1,5 @@
 api_key: impy-and-chimpy
-cron: false
+cron: true
 batch_limit: 100
 api_classname: Mailchimp\Mailchimp
 test_mode: false
