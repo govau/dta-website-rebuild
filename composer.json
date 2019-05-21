@@ -127,8 +127,11 @@
         "drupal/linkit": "5.0-beta8",
         "drupal/login_emailusername": "1.1",
         "drupal/login_security": "1.5",
+        "drupal/mail_safety": "1.x-dev",
         "drupal/mailchimp": "1.8",
         "drupal/markdown": "1.2",
+        "drupal/masquerade": "2.0-beta2",
+        "drupal/masquerade_float_block": "1.0-alpha1",
         "drupal/menu_admin_per_menu": "1.0",
         "drupal/menu_block": "1.5",
         "drupal/menu_link_attributes": "1.0",
@@ -148,7 +151,7 @@
         "drupal/rabbit_hole": "1.0-beta6",
         "drupal/redirect": "1.x-dev",
         "drupal/robotstxt": "1.2",
-        "drupal/rules": "3.0-alpha4",
+        "drupal/rules": "3.x-dev",
         "drupal/rules_role_email": "1.0-alpha3",
         "drupal/s3fs": "3.0-alpha13",
         "drupal/search_api": "1.13",
@@ -244,6 +247,13 @@
           },
           "drupal/context_metadata": {
             "Check if default metadata is not null": "https://www.drupal.org/files/issues/2018-11-26/3003858-4-Check-if-default-metadata-is-not-null.patch"
+          },
+          "drupal/masquerade_float_block": {
+            "Masquerade Float Block appears for anonymous users":"https://www.drupal.org/files/issues/masquerade_float_block-2917207-3.patch"
+          },
+          "drupal/rules": {
+            "WSOD 'Cannot set a list with a non-array value'": "https://www.drupal.org/files/issues/2019-04-12/rules-2987505-19-Cannot-set-list-to-nonarray.patch",
+            "Condition UserHasRole throws an error":"https://www.drupal.org/files/issues/2816157-10.patch"
           }
         }
     },

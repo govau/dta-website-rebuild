@@ -9,7 +9,7 @@ dependencies:
 id: booknavigation_2
 theme: dta_gov_au
 region: disabled
-weight: -8
+weight: -11
 provider: null
 plugin: book_navigation
 settings:

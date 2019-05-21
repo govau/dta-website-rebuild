@@ -1,21 +1,16 @@
-uuid: bbeb12dd-569f-4922-b0ec-910348c2d886
+uuid: 72766ec9-c46a-4db1-b1b7-5cc349090842
 langcode: en
 status: true
 dependencies: {  }
-id: content_approver
-label: 'Content approver'
-weight: 0
+id: technical_reviewer
+label: 'Technical reviewer'
+weight: -2
 is_admin: null
 permissions:
   - 'access administration pages'
   - 'access content overview'
-  - 'access contextual links'
-  - 'access files overview'
   - 'access image_browser entity browser pages'
-  - 'access in-place editing'
-  - 'access site in maintenance mode'
   - 'access taxonomy overview'
-  - 'access toolbar'
   - 'administer footer menu items'
   - 'administer main menu items'
   - 'bypass honeypot protection'
@@ -51,28 +46,8 @@ permissions:
   - 'edit terms in blog_authors'
   - 'edit terms in contacts'
   - 'edit terms in tags'
-  - 'override all promote to front page option'
-  - 'revert assessment_report revisions'
-  - 'revert blog_post revisions'
-  - 'revert book revisions'
-  - 'revert external_link revisions'
-  - 'revert govcms_event revisions'
-  - 'revert home_page revisions'
-  - 'revert individual_roadmap_ux revisions'
-  - 'revert landing_page revisions'
-  - 'revert landing_page_level_2 revisions'
-  - 'revert news_item revisions'
-  - 'revert page revisions'
-  - 'revert roadmap_2_user_experience_ revisions'
-  - 'use dta_publishing transition archived'
-  - 'use dta_publishing transition publish'
   - 'use dta_publishing transition ready_to_publish'
-  - 'use dta_publishing transition republish'
-  - 'use dta_publishing transition restore_to_content_design'
-  - 'use editorial transition archive'
-  - 'use editorial transition archived_draft'
-  - 'use editorial transition archived_published'
-  - 'use editorial transition publish'
+  - 'use dta_publishing transition technical_review'
   - 'use text format introduction'
   - 'use text format rich_text'
   - 'use text format summary'
@@ -91,4 +66,3 @@ permissions:
   - 'view own unpublished content'
   - 'view page revisions'
   - 'view roadmap_2_user_experience_ revisions'
-  - 'view the administration theme'

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5a2f714069fad977a90a4c79123b5e4d",
+    "content-hash": "27d1189adabf8669494a226fa73d043a",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -5130,6 +5130,56 @@
             }
         },
         {
+            "name": "drupal/mail_safety",
+            "version": "dev-1.x",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/mail_safety.git",
+                "reference": "0664357f229e19d033580f80f408e3295e327fb1"
+            },
+            "require": {
+                "drupal/core": "~8.0"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.0+3-dev",
+                    "datestamp": "1515514984",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Dev releases are not covered by Drupal security advisories."
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Nitebreed",
+                    "homepage": "https://www.drupal.org/user/419423"
+                },
+                {
+                    "name": "barthje",
+                    "homepage": "https://www.drupal.org/user/1942906"
+                },
+                {
+                    "name": "rogierbom",
+                    "homepage": "https://www.drupal.org/user/1352176"
+                }
+            ],
+            "description": "A simple and safe way to test and debug outgoing emails without having to worry that all your users will get unwanted emails.",
+            "homepage": "https://www.drupal.org/project/mail_safety",
+            "support": {
+                "source": "https://git.drupalcode.org/project/mail_safety"
+            },
+            "time": "2018-01-09T16:18:19+00:00"
+        },
+        {
             "name": "drupal/mailchimp",
             "version": "1.8.0",
             "source": {
@@ -5336,6 +5386,131 @@
             "support": {
                 "source": "https://cgit.drupalcode.org/markdown",
                 "issues": "https://www.drupal.org/project/markdown"
+            }
+        },
+        {
+            "name": "drupal/masquerade",
+            "version": "2.0.0-beta2",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/masquerade.git",
+                "reference": "8.x-2.0-beta2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/masquerade-8.x-2.0-beta2.zip",
+                "reference": "8.x-2.0-beta2",
+                "shasum": "a9fc1a54636f131d1e344113ce4c80a6c27bc8aa"
+            },
+            "require": {
+                "drupal/core": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-2.x": "2.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-2.0-beta2",
+                    "datestamp": "1521762446",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Project has not opted into security advisory coverage!"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Andrey Postnikov (andypost)",
+                    "homepage": "https://www.drupal.org/u/andypost",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "David Norman (deekayen)",
+                    "homepage": "https://www.drupal.org/u/deekayen",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "Mark Shropshire (shrop)",
+                    "homepage": "https://www.drupal.org/u/shrop",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "Daniel Kudwien (sun)",
+                    "homepage": "https://www.drupal.org/u/sun",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "Andrew Berry (deviantintegral)",
+                    "homepage": "https://www.drupal.org/u/deviantintegral",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "sun",
+                    "homepage": "https://www.drupal.org/user/54136"
+                }
+            ],
+            "description": "Allows privileged users to masquerade as another user.",
+            "homepage": "https://www.drupal.org/project/masquerade",
+            "support": {
+                "source": "https://git.drupal.org/project/masquerade.git",
+                "issues": "https://www.drupal.org/project/issues/masquerade",
+                "irc": "irc://irc.freenode.org/drupal-contribute"
+            }
+        },
+        {
+            "name": "drupal/masquerade_float_block",
+            "version": "1.0.0-alpha1",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/masquerade_float_block.git",
+                "reference": "8.x-1.0-alpha1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/masquerade_float_block-8.x-1.0-alpha1.zip",
+                "reference": "8.x-1.0-alpha1",
+                "shasum": "d8c23992e5ea4c425563babb7ced58d7d09f5bf4"
+            },
+            "require": {
+                "drupal/core": "~8.0",
+                "drupal/masquerade": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.0-alpha1",
+                    "datestamp": "1502277474",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Alpha releases are not covered by Drupal security advisories."
+                    }
+                },
+                "patches_applied": {
+                    "Masquerade Float Block appears for anonymous users": "https://www.drupal.org/files/issues/masquerade_float_block-2917207-3.patch"
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "dstorozhuk",
+                    "homepage": "https://www.drupal.org/user/1361080"
+                }
+            ],
+            "description": "This module provides the float masquerade block to switch users",
+            "homepage": "https://www.drupal.org/project/masquerade_float_block",
+            "support": {
+                "source": "https://git.drupalcode.org/project/masquerade_float_block"
             }
         },
         {
@@ -6413,7 +6588,7 @@
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
             "license": [
-                "GPL-2.0-or-later"
+                "GPL-2.0+"
             ],
             "authors": [
                 {
@@ -6680,26 +6855,15 @@
         },
         {
             "name": "drupal/rules",
-            "version": "3.0.0-alpha4",
+            "version": "dev-3.x",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/rules.git",
-                "reference": "8.x-3.0-alpha4"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/rules-8.x-3.0-alpha4.zip",
-                "reference": "8.x-3.0-alpha4",
-                "shasum": "d6f11a6bd867b3479504b00278b4465a5b138d3a"
+                "reference": "78c9c139f1f15ca5436e2e2f5f139fe17c2caf60"
             },
             "require": {
                 "drupal/core": "~8.0",
                 "drupal/typed_data": "*"
-            },
-            "require-dev": {
-                "dealerdirect/phpcodesniffer-composer-installer": "dev-master",
-                "drupal/coder": "8.2.*",
-                "squizlabs/php_codesniffer": "2.9.*"
             },
             "type": "drupal-module",
             "extra": {
@@ -6707,12 +6871,16 @@
                     "dev-3.x": "3.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-3.0-alpha4",
-                    "datestamp": "1526654284",
+                    "version": "8.x-3.0-alpha4+44-dev",
+                    "datestamp": "1553720286",
                     "security-coverage": {
                         "status": "not-covered",
-                        "message": "Alpha releases are not covered by Drupal security advisories."
+                        "message": "Dev releases are not covered by Drupal security advisories."
                     }
+                },
+                "patches_applied": {
+                    "WSOD 'Cannot set a list with a non-array value'": "https://www.drupal.org/files/issues/2019-04-12/rules-2987505-19-Cannot-set-list-to-nonarray.patch",
+                    "Condition UserHasRole throws an error": "https://www.drupal.org/files/issues/2816157-10.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -6737,7 +6905,8 @@
             "homepage": "https://www.drupal.org/project/rules",
             "support": {
                 "source": "https://git.drupalcode.org/project/rules"
-            }
+            },
+            "time": "2019-04-07T05:20:28+00:00"
         },
         {
             "name": "drupal/rules_role_email",
@@ -15626,7 +15795,9 @@
         "drupal/empty_fields": 20,
         "drupal/extlink": 20,
         "drupal/link_css": 20,
-        "drupal/redirect": 20
+        "drupal/mail_safety": 20,
+        "drupal/redirect": 20,
+        "drupal/rules": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
