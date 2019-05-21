@@ -1,0 +1,95 @@
+uuid: 1fac514d-c88a-43ed-9f12-dde24867dfbc
+langcode: en
+status: true
+dependencies: {  }
+id: content_published
+label: 'Content published'
+events:
+  -
+    event_name: 'rules_entity_update:node'
+description: 'This rule notifies content authors that their content has been published.'
+tags:
+  - workflow
+  - notification
+config_version: '3'
+expression:
+  id: rules_rule
+  uuid: 56d34178-c865-469b-8a74-62a195c2ed0b
+  conditions:
+    id: rules_and
+    uuid: 5b564c38-3618-4638-b311-1e9c5895c268
+    conditions:
+      -
+        id: rules_condition
+        uuid: e5686554-f187-495d-87c7-dabe7ba1d2c2
+        context_values:
+          field: moderation_state
+        context_mapping:
+          entity: node
+        context_processors:
+          field:
+            rules_tokens: {  }
+        provides_mapping: {  }
+        condition_id: rules_entity_has_field
+        negate: false
+      -
+        id: rules_condition
+        uuid: 6d23f467-c152-419f-b063-b574847eddb4
+        context_values:
+          operation: CONTAINS
+          value: published
+        context_mapping:
+          data: node.moderation_state.value
+        context_processors:
+          operation:
+            rules_tokens: {  }
+          value:
+            rules_tokens: {  }
+        provides_mapping: {  }
+        condition_id: rules_data_comparison
+        negate: false
+  actions:
+    id: rules_action_set
+    uuid: d7081596-f059-4161-85d6-ade3822768a7
+    actions:
+      -
+        id: rules_action
+        uuid: 7198fcf9-bd9f-4e2f-9ef7-7a7dbc0a4340
+        context_values:
+          to:
+            - '{{node.uid.entity.mail.value}}'
+          subject: 'Content published on dta.gov.au'
+          message: 'Good job! That content you worked so hard on has been published and is now live! Fistbump!'
+          reply: null
+          language: null
+        context_mapping: {  }
+        context_processors:
+          to:
+            rules_tokens: {  }
+          subject:
+            rules_tokens: {  }
+          message:
+            rules_tokens: {  }
+          reply:
+            rules_tokens: {  }
+          language:
+            rules_tokens: {  }
+        provides_mapping: {  }
+        action_id: rules_send_email
+      -
+        id: rules_action
+        uuid: da11a176-504c-47d2-95cf-4f694445cd12
+        context_values:
+          message: 'The moderation state is now ''Published''. <strong>The content is live</strong> and we''ve sent the author an email.'
+          type: status
+          repeat: null
+        context_mapping: {  }
+        context_processors:
+          message:
+            rules_tokens: {  }
+          type:
+            rules_tokens: {  }
+          repeat:
+            rules_tokens: {  }
+        provides_mapping: {  }
+        action_id: rules_system_message

@@ -1,5 +1,5 @@
-log: false
-debug_screen: false
+log: true
+debug_screen: true
 log_level_system: warning
 log_level_screen: warning
 _core:

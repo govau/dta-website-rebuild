@@ -1,0 +1,110 @@
+uuid: 5e9a5560-c7a4-4dd1-8eee-bf76cbfa14e8
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.blog_post
+    - node.type.book
+    - node.type.external_link
+    - node.type.govcms_event
+    - node.type.home_page
+    - node.type.landing_page
+    - node.type.landing_page_level_2
+    - node.type.news_item
+    - node.type.page
+    - node.type.platforms_and_services
+  module:
+    - content_moderation
+id: dta_publishing
+label: 'DTA Publishing'
+type: content_moderation
+type_settings:
+  states:
+    archived:
+      published: false
+      default_revision: true
+      label: Archived
+      weight: 1
+    draft:
+      published: false
+      default_revision: false
+      label: 'Content design'
+      weight: -3
+    published:
+      label: Published
+      published: true
+      default_revision: true
+      weight: 0
+    ready_to_publish:
+      published: false
+      default_revision: false
+      label: 'Ready to publish'
+      weight: -1
+    technical_review:
+      published: false
+      default_revision: false
+      label: 'Technical review'
+      weight: -2
+  transitions:
+    archived:
+      label: Archive
+      from:
+        - archived
+        - published
+      to: archived
+      weight: 1
+    create_new_draft:
+      label: 'Create New Draft'
+      to: draft
+      weight: -3
+      from:
+        - draft
+        - published
+        - ready_to_publish
+        - technical_review
+    publish:
+      label: Publish
+      to: published
+      weight: 0
+      from:
+        - published
+        - ready_to_publish
+    ready_to_publish:
+      label: 'Ready to publish'
+      from:
+        - ready_to_publish
+        - technical_review
+      to: ready_to_publish
+      weight: -1
+    republish:
+      label: Republish
+      from:
+        - archived
+      to: published
+      weight: 3
+    restore_to_content_design:
+      label: 'Restore to content design'
+      from:
+        - archived
+      to: draft
+      weight: 2
+    technical_review:
+      label: 'Technical review'
+      from:
+        - draft
+        - ready_to_publish
+        - technical_review
+      to: technical_review
+      weight: -2
+  entity_types:
+    node:
+      - blog_post
+      - book
+      - external_link
+      - govcms_event
+      - home_page
+      - landing_page
+      - landing_page_level_2
+      - news_item
+      - page
+      - platforms_and_services

@@ -1,0 +1,127 @@
+uuid: a014a3c7-56f4-4fad-9872-7340c04cd827
+langcode: en
+status: true
+dependencies: {  }
+id: rready_restricted
+label: 'Ready to publish (Restricted)'
+events:
+  -
+    event_name: 'rules_entity_update:node'
+description: 'Notifies restricted approvers and content approvers a content item is ready to publish.'
+tags:
+  - notification
+  - workflow
+config_version: '3'
+expression:
+  id: rules_rule
+  uuid: 4fcf3e77-6425-4992-a3a5-f61f8e40d5bf
+  conditions:
+    id: rules_and
+    uuid: b34d0ac8-6a6a-4571-a6fa-6746f011c02e
+    conditions:
+      -
+        id: rules_condition
+        uuid: a699a22e-509d-4af6-bd51-d53a054f31bd
+        context_values:
+          field: moderation_state
+        context_mapping:
+          entity: node
+        context_processors:
+          field:
+            rules_tokens: {  }
+        provides_mapping: {  }
+        condition_id: rules_entity_has_field
+        negate: false
+      -
+        id: rules_condition
+        uuid: ca7f0125-c0f1-43f3-b413-bdd2537e66ca
+        context_values:
+          operation: CONTAINS
+          value: ready_to_publish
+        context_mapping:
+          data: node.moderation_state.value
+        context_processors:
+          operation:
+            rules_tokens: {  }
+          value:
+            rules_tokens: {  }
+        provides_mapping: {  }
+        condition_id: rules_data_comparison
+        negate: false
+      -
+        id: rules_condition
+        uuid: 9b9fd445-227c-4c4a-82db-c1666d62cec2
+        context_values:
+          data: '{{ node.uid.entity.roles }}'
+          operation: CONTAINS
+          value: digital_transformation_guide_author
+        context_mapping: {  }
+        context_processors:
+          data:
+            rules_tokens: {  }
+          operation:
+            rules_tokens: {  }
+          value:
+            rules_tokens: {  }
+        provides_mapping: {  }
+        condition_id: rules_data_comparison
+        negate: false
+  actions:
+    id: rules_action_set
+    uuid: 4e24c184-e2df-4dae-8391-9cf32f6a53dc
+    actions:
+      -
+        id: rules_action
+        uuid: 66405d9e-07ac-486b-aa13-9f86d16e1043
+        context_values:
+          message: 'Moderation state is now ''Ready to publish''. An email has been sent to ''Restricted approvers'' and ''Content approvers''.'
+          type: status
+          repeat: null
+        context_mapping: {  }
+        context_processors:
+          message:
+            rules_tokens: {  }
+          type:
+            rules_tokens: {  }
+          repeat:
+            rules_tokens: {  }
+        provides_mapping: {  }
+        action_id: rules_system_message
+      -
+        id: rules_action
+        uuid: 7374637b-b31d-4cf6-bda6-4d15e233aa56
+        context_values:
+          roles:
+            - digital_transformation_guide_approver
+          subject: 'Content ready to publish on dta.gov.au'
+          message: 'Hi! [node:title] is ready to publish at [node:url]. Get it live!'
+        context_mapping:
+          node: node
+        context_processors:
+          roles:
+            rules_tokens: {  }
+          subject:
+            rules_tokens: {  }
+          message:
+            rules_tokens: {  }
+        provides_mapping: {  }
+        action_id: role_email_action
+      -
+        id: rules_action
+        uuid: 1e28edaa-c3e9-4655-92af-2f95517f8ee2
+        context_values:
+          roles:
+            - content_approver
+          subject: 'Content ready to publish on dta.gov.au'
+          message: 'Hi! [node:title] is ready to publish at [node:url]. Jump in there now!'
+        context_mapping:
+          node: node
+        context_processors:
+          roles:
+            rules_tokens: {  }
+          subject:
+            rules_tokens: {  }
+          message:
+            rules_tokens: {  }
+        provides_mapping: {  }
+        action_id: role_email_action

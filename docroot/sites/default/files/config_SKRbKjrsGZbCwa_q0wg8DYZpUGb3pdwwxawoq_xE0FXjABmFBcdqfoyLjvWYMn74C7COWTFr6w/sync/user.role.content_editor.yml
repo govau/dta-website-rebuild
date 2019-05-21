@@ -4,7 +4,7 @@ status: true
 dependencies: {  }
 id: content_editor
 label: 'Content author'
-weight: -4
+weight: -3
 is_admin: null
 permissions:
   - 'access administration pages'
@@ -96,6 +96,10 @@ permissions:
   - 'revert roadmap_2_user_experience_ revisions'
   - 'search content'
   - 'use advanced search'
+  - 'use dta_publishing transition archived'
+  - 'use dta_publishing transition create_new_draft'
+  - 'use dta_publishing transition restore_to_content_design'
+  - 'use dta_publishing transition technical_review'
   - 'use editorial transition archive'
   - 'use editorial transition archived_draft'
   - 'use editorial transition create_new_draft'

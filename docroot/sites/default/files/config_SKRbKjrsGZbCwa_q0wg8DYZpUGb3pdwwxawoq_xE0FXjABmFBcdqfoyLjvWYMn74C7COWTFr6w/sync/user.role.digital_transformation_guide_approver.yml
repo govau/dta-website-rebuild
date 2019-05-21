@@ -4,9 +4,10 @@ status: true
 dependencies: {  }
 id: digital_transformation_guide_approver
 label: 'Restricted approver'
-weight: 0
+weight: -1
 is_admin: null
 permissions:
+  - 'access administration pages'
   - 'access content overview'
   - 'access files overview'
   - 'access image_browser entity browser pages'
@@ -30,6 +31,11 @@ permissions:
   - 'revert govcms_event revisions'
   - 'revert landing_page_level_2 revisions'
   - 'revert page revisions'
+  - 'use dta_publishing transition archived'
+  - 'use dta_publishing transition publish'
+  - 'use dta_publishing transition ready_to_publish'
+  - 'use dta_publishing transition republish'
+  - 'use dta_publishing transition restore_to_content_design'
   - 'use editorial transition archive'
   - 'use editorial transition archived_draft'
   - 'use editorial transition archived_published'

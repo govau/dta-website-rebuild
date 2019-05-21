@@ -11,7 +11,7 @@ dependencies:
 id: views_block__digital_transformation_strategy_themes_block_2
 theme: dta_gov_au
 region: disabled
-weight: -9
+weight: -12
 provider: null
 plugin: 'views_block:digital_transformation_strategy_themes-block_2'
 settings:

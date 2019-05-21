@@ -1,0 +1,90 @@
+uuid: d2743585-75bb-488f-b6a8-c7afd1e2f092
+langcode: en
+status: true
+dependencies: {  }
+id: notification_of_technical_review
+label: 'Notification of technical review'
+events:
+  -
+    event_name: 'rules_entity_update:node'
+description: 'Notifies technical reviewers that content is ready for review.'
+tags:
+  - notification
+  - workflow
+config_version: '3'
+expression:
+  id: rules_rule
+  uuid: 4b303ea3-0fbc-4ff7-a39d-6843e0a45426
+  conditions:
+    id: rules_and
+    uuid: 7dfa7806-598d-4cf7-88c9-796f5ea56184
+    conditions:
+      -
+        id: rules_condition
+        uuid: d79f30d0-e30f-417a-b9fd-a6160c260559
+        context_values:
+          operation: CONTAINS
+          value: technical_review
+        context_mapping:
+          data: node.moderation_state.value
+        context_processors:
+          operation:
+            rules_tokens: {  }
+          value:
+            rules_tokens: {  }
+        provides_mapping: {  }
+        condition_id: rules_data_comparison
+        negate: false
+      -
+        id: rules_condition
+        uuid: e01e56d5-1b5c-4a05-8791-47720a065e29
+        context_values:
+          field: moderation_state
+        context_mapping:
+          entity: node
+        context_processors:
+          field:
+            rules_tokens: {  }
+        provides_mapping: {  }
+        condition_id: rules_entity_has_field
+        negate: false
+  actions:
+    id: rules_action_set
+    uuid: a766d393-152f-4c01-8e85-baf311c0d3bd
+    actions:
+      -
+        id: rules_action
+        uuid: b34022ee-4634-4b0a-a46d-aa9eba2300df
+        context_values:
+          roles:
+            - technical_reviewer
+          subject: 'Content available for technical review on dta.gov.au'
+          message: 'Hi! [node:title] is ready for technical review at [node:url]. Jump in there now!'
+        context_mapping:
+          node: node
+        context_processors:
+          roles:
+            rules_tokens: {  }
+          subject:
+            rules_tokens: {  }
+          message:
+            rules_tokens: {  }
+        provides_mapping: {  }
+        action_id: role_email_action
+      -
+        id: rules_action
+        uuid: 1a565125-dae0-4165-8f4d-cc6095a68dc4
+        context_values:
+          message: 'Moderation state is now ''Technical review''. An email has been sent to the ''Technical Reviewer'' role.'
+          type: status
+          repeat: null
+        context_mapping: {  }
+        context_processors:
+          message:
+            rules_tokens: {  }
+          type:
+            rules_tokens: {  }
+          repeat:
+            rules_tokens: {  }
+        provides_mapping: {  }
+        action_id: rules_system_message
