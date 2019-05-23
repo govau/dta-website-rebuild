@@ -1,6 +1,7 @@
 version: 2
 jobs:
   test:
+    resource_class: medium+
     docker:
       - image: govau/dta-website-rebuild:latest
         # Gotcha - if you DONT specify command, then the entrypoint in the image
