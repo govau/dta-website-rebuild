@@ -48,6 +48,8 @@ permissions:
   - 'edit terms in tags'
   - 'use dta_publishing transition ready_to_publish'
   - 'use dta_publishing transition technical_review'
+  - 'use external_links transition create_new_draft'
+  - 'use external_links transition publish'
   - 'use text format introduction'
   - 'use text format rich_text'
   - 'use text format summary'
