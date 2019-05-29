@@ -73,7 +73,7 @@ expression:
         uuid: 7198fcf9-bd9f-4e2f-9ef7-7a7dbc0a4340
         context_values:
           to:
-            - '{{node.revision_uid.entity.mail.value}}'
+            - '{{node.uid.entity.mail.value}}'
           subject: 'Content published on dta.gov.au'
           message: 'Good job! That content you worked so hard on has been published and is now live! Fistbump!'
           reply: null
