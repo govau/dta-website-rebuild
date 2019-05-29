@@ -5,7 +5,6 @@ dependencies:
   config:
     - node.type.blog_post
     - node.type.book
-    - node.type.external_link
     - node.type.govcms_event
     - node.type.home_page
     - node.type.landing_page
@@ -100,7 +99,6 @@ type_settings:
     node:
       - blog_post
       - book
-      - external_link
       - govcms_event
       - home_page
       - landing_page
@@ -108,3 +106,4 @@ type_settings:
       - news_item
       - page
       - platforms_and_services
+  default_moderation_state: draft

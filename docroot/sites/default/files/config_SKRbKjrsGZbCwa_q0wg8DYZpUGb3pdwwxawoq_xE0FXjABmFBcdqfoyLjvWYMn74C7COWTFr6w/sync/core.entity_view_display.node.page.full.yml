@@ -198,7 +198,7 @@ content:
         ft:
           id: expert
           settings:
-            lb: 'Caption:'
+            lb: Caption
             prefix: ''
             lbw: true
             lbw-el: span
