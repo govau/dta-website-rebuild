@@ -24,6 +24,7 @@ dependencies:
     - empty_fields
     - field_group
     - responsive_image
+    - text
     - user
 third_party_settings:
   ds:
@@ -47,6 +48,7 @@ third_party_settings:
         - field_publication_date
         - field_index_image
         - node_title
+        - field_summary
         - group_footer
     fields:
       node_title:
@@ -92,7 +94,7 @@ third_party_settings:
       children:
         - field_publication_date
       parent_name: group_link
-      weight: 3
+      weight: 4
       format_type: html_element
       format_settings:
         id: ''
@@ -109,6 +111,7 @@ third_party_settings:
       children:
         - field_index_image
         - node_title
+        - field_summary
         - group_footer
       parent_name: ''
       weight: 0
@@ -204,6 +207,43 @@ content:
             fis: false
             fis-def-at: false
             fi-def-at: false
+  field_summary:
+    type: text_default
+    weight: 3
+    region: ds_content
+    label: hidden
+    settings: {  }
+    third_party_settings:
+      empty_fields:
+        handler: ''
+      ds:
+        ft:
+          id: expert
+          settings:
+            lb: ''
+            prefix: ''
+            lbw-el: ''
+            lbw-cl: ''
+            lbw-at: ''
+            ow-el: ''
+            ow-cl: ''
+            ow-at: ''
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fi: true
+            fi-el: div
+            fi-cl: au-card__text
+            fi-at: ''
+            suffix: ''
+            lbw: false
+            lb-col: false
+            ow: false
+            ow-def-at: false
+            ow-def-cl: false
+            fis: false
+            fis-def-at: false
+            fi-def-at: false
 hidden:
   content_moderation_control: true
   field_body: true
@@ -212,7 +252,6 @@ hidden:
   field_introduction: true
   field_linkedin_image: true
   field_search_keywords: true
-  field_summary: true
   field_tags: true
   field_twitter_image: true
   links: true
