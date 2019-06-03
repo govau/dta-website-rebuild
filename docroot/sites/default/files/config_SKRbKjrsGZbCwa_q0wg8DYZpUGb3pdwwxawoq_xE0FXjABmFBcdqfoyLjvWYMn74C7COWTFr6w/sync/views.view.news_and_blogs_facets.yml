@@ -80,8 +80,8 @@ display:
         options:
           view_modes:
             'entity:node':
-              blog_post: card
-              news_item: card
+              blog_post: home_page_blog_card
+              news_item: home_page_blog_card
       fields:
         rendered_item:
           id: rendered_item
@@ -344,8 +344,8 @@ display:
         options:
           view_modes:
             'entity:node':
-              blog_post: card
-              news_item: card
+              blog_post: home_page_blog_card
+              news_item: home_page_blog_card
       filters:
         status:
           id: status
