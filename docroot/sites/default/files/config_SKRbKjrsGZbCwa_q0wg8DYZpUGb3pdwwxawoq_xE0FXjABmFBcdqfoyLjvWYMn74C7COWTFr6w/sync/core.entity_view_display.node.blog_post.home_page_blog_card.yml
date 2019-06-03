@@ -1,9 +1,9 @@
-uuid: f9e3fa0b-7fcb-4539-9d02-bcd17e50c032
+uuid: e26c1023-4c4e-483f-9dfe-3f7e123794b0
 langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_mode.node.card
+    - core.entity_view_mode.node.home_page_blog_card
     - field.field.node.blog_post.field_author
     - field.field.node.blog_post.field_body
     - field.field.node.blog_post.field_comments
@@ -27,7 +27,6 @@ dependencies:
     - empty_fields
     - field_group
     - responsive_image
-    - text
     - user
 third_party_settings:
   ds:
@@ -51,7 +50,6 @@ third_party_settings:
         - field_index_image
         - field_publication_date
         - node_title
-        - field_summary
         - group_footer
     fields:
       node_title:
@@ -97,7 +95,7 @@ third_party_settings:
       children:
         - field_publication_date
       parent_name: group_link
-      weight: 4
+      weight: 2
       format_type: html_element
       format_settings:
         id: ''
@@ -114,7 +112,6 @@ third_party_settings:
       children:
         - field_index_image
         - node_title
-        - field_summary
         - group_footer
       parent_name: ''
       weight: 0
@@ -127,10 +124,10 @@ third_party_settings:
         target_attribute: default
       label: Link
       region: hidden
-id: node.blog_post.card
+id: node.blog_post.home_page_blog_card
 targetEntityType: node
 bundle: blog_post
-mode: card
+mode: home_page_blog_card
 content:
   field_index_image:
     type: responsive_image
@@ -210,43 +207,6 @@ content:
             fis: false
             fis-def-at: false
             fi-def-at: false
-  field_summary:
-    type: text_default
-    weight: 2
-    region: ds_content
-    label: hidden
-    settings: {  }
-    third_party_settings:
-      empty_fields:
-        handler: ''
-      ds:
-        ft:
-          id: expert
-          settings:
-            lb: ''
-            prefix: ''
-            lbw-el: ''
-            lbw-cl: ''
-            lbw-at: ''
-            ow-el: ''
-            ow-cl: ''
-            ow-at: ''
-            fis-el: ''
-            fis-cl: ''
-            fis-at: ''
-            fi: true
-            fi-el: div
-            fi-cl: au-card__text
-            fi-at: ''
-            suffix: ''
-            lbw: false
-            lb-col: false
-            ow: false
-            ow-def-at: false
-            ow-def-cl: false
-            fis: false
-            fis-def-at: false
-            fi-def-at: false
 hidden:
   content_moderation_control: true
   field_author: true
@@ -258,6 +218,7 @@ hidden:
   field_linkedin_image: true
   field_review_date: true
   field_search_keywords: true
+  field_summary: true
   field_tags: true
   field_twitter_image: true
   links: true

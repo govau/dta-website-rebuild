@@ -1,0 +1,10 @@
+uuid: 037b4cd9-230a-4cdd-8d1c-420ef83039c8
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.home_page_blog_card
+label: 'Home page blog card'
+targetEntityType: node
+cache: true

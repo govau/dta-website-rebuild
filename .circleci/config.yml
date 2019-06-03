@@ -66,8 +66,18 @@ jobs:
           name: Deploying to cloud.gov.au
           command: ./scripts/deploy.sh
       - run:
-          name: Updating configuration and database
+          name: Running startup sequence
           command: ./scripts/start.sh
+  post_deploy:
+    docker:
+      - image: govau/cf-cli
+    working_directory: /app
+    steps:
+      - attach_workspace:
+          at: /app
+      - run:
+          name: Updating configuration and database
+          command: ./scripts/post-deploy.sh
   cron:
     docker:
       - image: govau/cf-cli
@@ -85,6 +95,14 @@ workflows:
       - deploy:
           requires:
             - test
+          filters:
+            branches:
+              only:
+                - master
+                - develop
+      - post_deploy:
+          requires:
+            - deploy
           filters:
             branches:
               only:
