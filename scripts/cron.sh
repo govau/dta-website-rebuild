@@ -21,11 +21,11 @@ login() {
   fi
 
   if [[ "${GIT_BRANCH}" = "master" ]]; then
-    cf api $CF_PROD_API
-    cf auth "$CF_USER" "$CF_PASSWORD_PROD"
+    cf api $CF_API_PROD
+    cf auth "$CF_USERNAME" "$CF_PASSWORD_PROD"
   else
-    cf api $CF_STAGING_API
-    cf auth "$CF_USER" "$CF_PASSWORD_STAGING"
+    cf api $CF_API_STAGING
+    cf auth "$CF_USERNAME" "$CF_PASSWORD_STAGING"
   fi
 
   cf target -o $CF_ORG
