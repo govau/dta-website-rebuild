@@ -5,7 +5,7 @@ extlink_follow_no_override: true
 extlink_subdomains: false
 extlink_alert: true
 extlink_alert_text: 'You are now leaving www.dta.gov.au. Please select ''Cancel'' if you wish to stay.'
-extlink_exclude: '.*(.doc|.docx|.pdf)$'
+extlink_exclude: '.*(.doc|.docx|.pdf|.zip)$'
 extlink_include: ''
 extlink_class: '0'
 extlink_label: '(link is external)'
