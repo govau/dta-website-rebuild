@@ -51,18 +51,34 @@ main() {
       CF_APP=${GIT_REPO}-`basename "${GIT_BRANCH}"`
       ;;
   esac
+  
+  # Running a task requires the app to be started i.e. not in the middle of a 
+  # deploy.The best way to do this seems to wait for at least one instance to 
+  # start, so we'll just wait on the first one.
+  # Wait up to 10 minutes
+  end=$((SECONDS+600)) 
+  while [ $SECONDS -lt $end ]; do
+    INSTANCE_STATE="$(cf curl /v2/apps/$(cf app ${CF_APP} --guid)/instances | jq -r '."0".state')"
+    if [[ ${INSTANCE_STATE} == "RUNNING" ]]; then
+      echo "App is started: ${CF_APP}"
+      break
+    else
+      echo "Waiting for app to start: ${CF_APP}"
+      sleep 5
+    fi
+  done
 
   cf run-task ${CF_APP} --name "${TASK_NAME}" "source scripts/buildrc && drush cron"
 
   # Wait up to 5 minutes for task to finish
   end=$((SECONDS+300))
   while [ $SECONDS -lt $end ]; do
-      if [[ $(cf tasks "${CF_APP}" | grep "${TASK_NAME}") =~ "RUNNING" ]]; then
-        echo "Waiting for task to finish"
-        sleep 5
-      else
-        break
-      fi
+    if [[ $(cf tasks "${CF_APP}" | grep "${TASK_NAME}") =~ "RUNNING" ]]; then
+      echo "Waiting for task to finish"
+      sleep 5
+    else
+      break
+    fi
   done
 
   CF_TASK_OUTPUT="$(cf tasks "${CF_APP}" | grep "${TASK_NAME}")"
