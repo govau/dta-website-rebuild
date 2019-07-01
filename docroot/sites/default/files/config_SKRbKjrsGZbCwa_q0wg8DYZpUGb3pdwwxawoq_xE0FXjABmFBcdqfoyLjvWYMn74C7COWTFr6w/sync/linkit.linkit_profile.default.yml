@@ -16,7 +16,15 @@ matchers:
     weight: 0
     settings:
       metadata: 'by [node:author] | [node:created:medium] | [node:nid]'
-      bundles: {  }
+      bundles:
+        assessment_report: assessment_report
+        blog_post: blog_post
+        book: book
+        govcms_event: govcms_event
+        landing_page: landing_page
+        landing_page_level_2: landing_page_level_2
+        news_item: news_item
+        page: page
       group_by_bundle: true
       include_unpublished: true
       substitution_type: canonical
