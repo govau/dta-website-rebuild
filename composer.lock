@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0c31b02ae531ae63befbf408743db6b7",
+    "content-hash": "d519c120156c78f726e8017d3f2a1873",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -6603,7 +6603,7 @@
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
             "license": [
-                "GPL-2.0-or-later"
+                "GPL-2.0+"
             ],
             "authors": [
                 {
@@ -7189,7 +7189,7 @@
                 },
                 "drupal": {
                     "version": "8.x-1.0-alpha12",
-                    "datestamp": "1560260888",
+                    "datestamp": "1532507885",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Alpha releases are not covered by Drupal security advisories."
@@ -7217,7 +7217,7 @@
             "description": "Create search pages using Search API indexes.",
             "homepage": "https://www.drupal.org/project/search_api_page",
             "support": {
-                "source": "https://git.drupalcode.org/project/search_api_page"
+                "source": "http://cgit.drupalcode.org/search_api_page"
             }
         },
         {
@@ -8944,16 +8944,16 @@
         },
         {
             "name": "govau/dta-gov-au",
-            "version": "1.9.15",
+            "version": "1.9.16",
             "source": {
                 "type": "git",
                 "url": "https://github.com/govau/dta-gov-au.git",
-                "reference": "25e487dcaee03045e6302c4648ab0ed5bc883847"
+                "reference": "ecfd2fd09b0eeb7dc221fd6a46d44871f6acbc1a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/govau/dta-gov-au/zipball/25e487dcaee03045e6302c4648ab0ed5bc883847",
-                "reference": "25e487dcaee03045e6302c4648ab0ed5bc883847",
+                "url": "https://api.github.com/repos/govau/dta-gov-au/zipball/ecfd2fd09b0eeb7dc221fd6a46d44871f6acbc1a",
+                "reference": "ecfd2fd09b0eeb7dc221fd6a46d44871f6acbc1a",
                 "shasum": ""
             },
             "require": {
@@ -8971,7 +8971,7 @@
                 "government",
                 "theme"
             ],
-            "time": "2019-06-06T01:50:29+00:00"
+            "time": "2019-07-02T00:15:52+00:00"
         },
         {
             "name": "govau/dta-uikit-base",
