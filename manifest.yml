@@ -10,6 +10,7 @@ applications:
   - dta-website-test-workflow
   - dta-website-rebuild-test-aws-ups
   - ups-website-redev
+  - ups-smtp
   buildpack: php_buildpack
   env:
     DRUPAL_UUID: "59f85df3-5f18-45dd-bf6a-40977b57a842"
