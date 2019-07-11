@@ -10,6 +10,7 @@ applications:
   - beta-dta-gov-au-db
   - ups-aws
   - ups-website-redev
+  - ups-smtp
   buildpack: php_buildpack
   routes:
     - route: www.dta.gov.au
