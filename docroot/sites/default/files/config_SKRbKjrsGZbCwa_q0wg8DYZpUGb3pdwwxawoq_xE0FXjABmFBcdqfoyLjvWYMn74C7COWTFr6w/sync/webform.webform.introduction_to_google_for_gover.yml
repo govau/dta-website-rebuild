@@ -1,0 +1,177 @@
+uuid: 72c178a0-06cf-4c4e-8032-4e5dcf081e28
+langcode: en
+status: open
+dependencies:
+  module:
+    - honeypot
+third_party_settings:
+  honeypot:
+    honeypot: true
+open: null
+close: null
+weight: 0
+uid: 1
+template: false
+archive: false
+id: introduction_to_google_for_gover
+title: 'Introduction to Google for Government'
+description: 'This form is used to test users&#39; understanding of Google Analytics before and after viewing the training video.'
+category: 'Google Analytics'
+elements: "page_introduction:\n  '#type': webform_wizard_page\n  '#title': 'Introduction to Google for Government'\n  '#open': true\n  '#prev_button_label': Back\n  '#next_button_label': Next\n  markup_intro:\n    '#type': webform_markup\n    '#wrapper_attributes':\n      class:\n        - .au-introduction\n    '#markup': '<p>To get started, please answer these 2 questions:</p>'\n  do_you_use_website_data_in_your_job_at_the_moment_:\n    '#type': select\n    '#title': 'Do you use website data in your job at the moment?'\n    '#title_display': before\n    '#options': yes_no\n    '#empty_option': 'Please select...'\n    '#required': true\n    '#required_error': 'We need this information to determine your pre-existing knowledge.'\n  how_would_you_rate_your_knowledge_of_website_analytics_:\n    '#type': select\n    '#title': 'How would you rate your knowledge of website analytics?'\n    '#title_display': before\n    '#options':\n      Beginner: Beginner\n      Intermediate: Intermediate\n      Advanced: Advanced\n    '#empty_option': 'Please select...'\n    '#required': true\n    '#required_error': 'We need this information to determine your level of knowledge.'\n  too_easy:\n    '#type': webform_message\n    '#states':\n      visible-slide:\n        ':input[name=\"how_would_you_rate_your_knowledge_of_website_analytics_\"]':\n          value: Advanced\n    '#message_type': warning\n    '#message_message': '<p>You&#39;ve selected &#39;advanced&#39; - this content may be a little light for you.</p>'\n    '#message_close': true\n    '#message_close_effect': fade\n  what_kind_of_work_do_you_do_:\n    '#type': webform_select_other\n    '#title': 'What kind of work do you do?'\n    '#multiple': true\n    '#description': 'You can select multiple answers.'\n    '#options': job_descriptions\n    '#empty_option': 'Please select one or more...'\n    '#required': true\n    '#required_error': 'We need this data so we can tailor our service to our users.'\npage_video:\n  '#type': webform_wizard_page\n  '#title': Video\n  '#open': true\n  '#prev_button_label': Back\n  '#next_button_label': Next\n  processed_text:\n    '#type': processed_text\n    '#text': \"<p>{\\\"preview_thumbnail\\\":\\\"/s3/files/styles/video_embed_wysiwyg_preview/public/video_thumbnails/BOxd7JH3GZo.jpg?itok=dB4KTMas\\\",\\\"video_url\\\":\\\"https://www.youtube.com/watch?v=BOxd7JH3GZo \\\",\\\"settings\\\":{\\\"responsive\\\":1,\\\"width\\\":\\\"854\\\",\\\"height\\\":\\\"480\\\",\\\"autoplay\\\":0},\\\"settings_summary\\\":[\\\"Embedded Video (Responsive).\\\"]}</p>\\r\\n\"\n    '#format': rich_text\npage_thanks:\n  '#type': webform_wizard_page\n  '#title': 'Thanks for watching!'\n  '#open': true\n  '#prev_button_label': Back\n  '#next_button_label': Close\n  what_did_you_think_:\n    '#type': webform_rating\n    '#title': 'What did you think?'\n    '#title_display': before\n    '#required': true\n    '#required_error': 'We really want to know what you think!'\n    '#reset': true\nactions:\n  '#type': webform_actions\n  '#title': 'Submit button(s)'\n  '#submit__label': Next"
+css: ''
+javascript: ''
+settings:
+  ajax: false
+  ajax_scroll_top: form
+  page: true
+  page_submit_path: ''
+  page_confirm_path: ''
+  form_title: source_entity_webform
+  form_submit_once: false
+  form_exception_message: ''
+  form_open_message: ''
+  form_close_message: ''
+  form_previous_submissions: true
+  form_confidential: false
+  form_confidential_message: ''
+  form_remote_addr: true
+  form_convert_anonymous: false
+  form_prepopulate: false
+  form_prepopulate_source_entity: false
+  form_prepopulate_source_entity_required: false
+  form_prepopulate_source_entity_type: ''
+  form_reset: false
+  form_disable_autocomplete: true
+  form_novalidate: false
+  form_disable_inline_errors: false
+  form_required: false
+  form_unsaved: false
+  form_disable_back: true
+  form_submit_back: false
+  form_autofocus: true
+  form_details_toggle: false
+  form_access_denied: default
+  form_access_denied_title: ''
+  form_access_denied_message: ''
+  form_access_denied_attributes: {  }
+  form_file_limit: ''
+  submission_label: ''
+  submission_log: false
+  submission_views: {  }
+  submission_views_replace:
+    webform_routes: {  }
+    node_routes: {  }
+  submission_user_columns: {  }
+  submission_user_duplicate: false
+  submission_access_denied: default
+  submission_access_denied_title: ''
+  submission_access_denied_message: ''
+  submission_access_denied_attributes: {  }
+  submission_exception_message: ''
+  submission_locked_message: ''
+  submission_excluded_elements: {  }
+  submission_exclude_empty: false
+  submission_exclude_empty_checkbox: false
+  previous_submission_message: ''
+  previous_submissions_message: ''
+  autofill: false
+  autofill_message: ''
+  autofill_excluded_elements: {  }
+  wizard_progress_bar: true
+  wizard_progress_pages: false
+  wizard_progress_percentage: false
+  wizard_progress_link: false
+  wizard_start_label: ''
+  wizard_preview_link: false
+  wizard_confirmation: false
+  wizard_confirmation_label: ''
+  wizard_track: index
+  preview: 0
+  preview_label: ''
+  preview_title: ''
+  preview_message: ''
+  preview_attributes: {  }
+  preview_excluded_elements: {  }
+  preview_exclude_empty: true
+  preview_exclude_empty_checkbox: false
+  draft: none
+  draft_multiple: false
+  draft_auto_save: false
+  draft_saved_message: ''
+  draft_loaded_message: ''
+  confirmation_type: page
+  confirmation_title: Thanks!
+  confirmation_message: "<h2>Thanks!</h2>\r\n\r\n<p>Thanks for participating in our training!</p>"
+  confirmation_url: ''
+  confirmation_attributes: {  }
+  confirmation_back: true
+  confirmation_back_label: 'Do it again!'
+  confirmation_back_attributes:
+    class:
+      - au-btn
+  confirmation_exclude_query: false
+  confirmation_exclude_token: false
+  limit_total: null
+  limit_total_interval: null
+  limit_total_message: ''
+  limit_total_unique: false
+  limit_user: null
+  limit_user_interval: null
+  limit_user_message: ''
+  limit_user_unique: false
+  entity_limit_total: null
+  entity_limit_total_interval: null
+  entity_limit_user: null
+  entity_limit_user_interval: null
+  purge: draft
+  purge_days: 5
+  results_disabled: false
+  results_disabled_ignore: false
+  token_update: false
+access:
+  create:
+    roles:
+      - webform_author
+    users: {  }
+    permissions: {  }
+  view_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  update_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  delete_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  purge_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  view_own:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  update_own:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  delete_own:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  administer:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  test:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  configuration:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+handlers: {  }
