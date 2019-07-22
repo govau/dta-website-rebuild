@@ -6,4 +6,4 @@ id: job_descriptions
 label: 'Job descriptions'
 category: General
 likert: false
-options: "Developer: Developer\n'Business/Systems analyst': 'Business/Systems analyst'\n'Policy/Support officer': 'Policy/Support officer'\n'Product/Website designer': 'Product/Website designer'\nArchitect: Architect\n'Product/Website manager': 'Product/Website manager'\n'Interaction/UX designer': 'Interaction/UX designer'\nEngagement/Communications: Engagement/Communications\n'Content design/writer': 'Content design/writer'\nStrategist: Strategist\n'Project manager': 'Project manager'\n"
+options: "Developer: Developer\n'Business/Systems analyst': 'Business/Systems analyst'\n'Policy/Support officer': 'Policy/Support officer'\n'Product/Website designer': 'Product/Website designer'\nArchitect: Architect\n'Product/Website manager': 'Product/Website manager'\n'Interaction/UX designer': 'Interaction/UX designer'\nEngagement/Communications: Engagement/Communications\n'Content design/writer': 'Content design/writer'\nStrategist: Strategist\n'Project manager': 'Project manager'\nOther: Other\n"
