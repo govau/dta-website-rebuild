@@ -1,0 +1,241 @@
+uuid: 20abbc70-fb41-4469-adb7-9f0e06c920d8
+langcode: en
+status: closed
+dependencies: {  }
+open: null
+close: null
+weight: 0
+uid: 17
+template: false
+archive: false
+id: summit_nomination_2019
+title: 'Nomination form'
+description: 'This is a single nomination form for the 3 award categories for the Digital Summit 2019.'
+category: 'Digital Summit'
+elements: "markup:\n  '#type': webform_markup\n  '#markup': \"<h1>Australian Government Digital Awards nominations</h1>\\r\\n\\r\\n<p>This form is for nominations for the Australian Government Digital Awards.</p>\\r\\n\\r\\n<p>All nominations must be submitted using this form. If you cannot access this form, please send an email to <a href=\\\"mailto:website@digital.gov.au\\\">website@digital.gov.au</a></p>\\r\\n\\r\\n<p>If you have any questions, please email <a href=\\\"mailto:awards@dta.gov.au\\\">awards@dta.gov.au</a></p>\\r\\n\\r\\n<h2>Terms and conditions</h2>\\r\\n\\r\\n<p>Please note the following terms and conditions of submitting a nomination:</p>\\r\\n\\r\\n<ul>\\r\\n\\t<li>nominations must only&nbsp;be for federal, state or territory and local government digital delivery. We accept public/private sector collaborative products&nbsp;</li>\\r\\n\\t<li>You can nominate one product or service per category. If you wish to nominate a product or service for multiple categories, submit a form for each category.</li>\\r\\n\\t<li>submission of a nomination indicates appropriate executive approval before submission</li>\\r\\n\\t<li>we will not accept incomplete nominations or nominations not meeting&nbsp;the word limits</li>\\r\\n\\t<li>the judging panel reserves the right to not declare finalists or a winner if they believe nominations are not of a high enough standard</li>\\r\\n</ul>\"\npersonal_details:\n  '#type': webform_section\n  '#title': 'Personal details'\n  email_address:\n    '#type': email\n    '#title': 'Email address'\n    '#placeholder': 'Your email'\n    '#required': true\n  name_of_nomination:\n    '#type': textfield\n    '#title': 'Name of nomination'\n    '#placeholder': 'Your answer'\n    '#required': true\n  name_of_nominator:\n    '#type': textfield\n    '#title': 'Name of nominator'\n    '#placeholder': 'Your answer'\n    '#required': true\n  alternate_email_address:\n    '#type': email\n    '#title': 'Alternate email address'\n    '#description': 'We&#39;ll use this in case we can&#39;t get in contact with the email address you gave above.'\n    '#placeholder': 'Your alternate email'\n    '#required': true\naward_selection:\n  '#type': webform_section\n  '#title': 'Award selection'\n  '#states':\n    visible:\n      ':input[name=\"email_address\"]':\n        filled: true\n      ':input[name=\"name_of_nomination\"]':\n        filled: true\n      ':input[name=\"name_of_nominator\"]':\n        filled: true\n      ':input[name=\"alternate_email_address\"]':\n        filled: true\n  award:\n    '#type': select\n    '#title': Award\n    '#description': 'Please select which award you are nominating for.&nbsp;'\n    '#options':\n      digital_delivery: 'Outstanding digital delivery'\n      partnerships: 'Excellence in partnerships'\n      individual: Individual\n    '#required': true\n    '#required_error': 'You must select an award to continue.'\n  section_digital_delivery_category:\n    '#type': webform_section\n    '#title': Category\n    '#title_tag': h2\n    '#states':\n      visible:\n        ':input[name=\"award\"]':\n          value: digital_delivery\n    category:\n      '#type': radios\n      '#title': 'Outstanding digital delivery category'\n      '#description': \"<p>Please select the award category.</p>\\r\\n\\r\\n<p>Judging criteria for all the categories is available on the website.</p>\\r\\n\\r\\n<p>Nomination can be made by any representative of the agency responsible.</p>\"\n      '#options':\n        product_service: ' 1a. Outstanding digital delivery - product/service -- Awarded to an outstanding digital product/service. The winner of this category will have created an innovative product/service that demonstrably improves the user experience.  The process for developing the product/service will have been user focused and will have followed appropriate government/industry standards and protocols.'\n        platform: '1b. Outstanding digital delivery - platform -- Awarded to an outstanding government platform. The platform should make it easier to access and deliver agency services. The process for developing the platform will have been user-focused and followed appropriate government/industry standards and protocols.'\n        emerging_technology: '1c. Outstanding digital delivery – emerging technology  -- Awarded to an outstanding use of emerging technology. The winner of this category will have created an innovative product/service that has used emerging technology to demonstrably improve the delivery of the product/service. The process for developing the product/service will have followed appropriate government/industry standards and protocols.'\n        methodology_approach: '1d. Outstanding digital delivery – methodology/approach  -- Awarded to an outstanding digital methodology/approach. The product/service will have gone through an innovative process and have been designed in partnership with stakeholders and the end user. The process for developing the product/service will have followed appropriate government/industry standards and protocols.'\n      '#label_attributes':\n        class:\n          - au-bold\n  category_excellence_in_partnerships:\n    '#type': webform_section\n    '#title': Category\n    '#states':\n      visible:\n        ':input[name=\"award\"]':\n          value: partnerships\n    excellence_in_partnerships:\n      '#type': radios\n      '#title': 'Excellence in partnerships'\n      '#description': \"<p>Please select the award category.</p>\\r\\n\\r\\n<p>Judging criteria for all the categories is available on the website.</p>\\r\\n\\r\\n<p>Nomination can be made by any representative of the agency responsible.</p>\"\n      '#options':\n        government_industry: '2a. Excellence in partnerships: Government-industry  -- Awarded to a digital product/service that was developed in collaboration between government and industry. The partnership should show an understanding of the user need and why the partnership was formed, a focus on design, development and delivery of the product/service, and how government delivered a better and more efficient product/service, through collaboration with industry.'\n        multi_agency: '2b Excellence in partnerships: Multi-agency  -- Awarded to a digital product/service that was developed in collaboration between government agencies. The partnership should show an understanding of the user need and why the partnership was formed, a focus on design, development and delivery of the product/service, and how government delivered a stronger product/service, through multi-agency collaboration.'\n      '#label_attributes':\n        class:\n          - au-bold\n  category_individual:\n    '#type': webform_section\n    '#title': Category\n    '#states':\n      visible:\n        ':input[name=\"award\"]':\n          value: individual\n    individual:\n      '#type': radios\n      '#title': 'Individual awards'\n      '#description': \"<p>Please select the award category.</p>\\r\\n\\r\\n<p>Judging criteria for all the categories is available on the website.</p>\\r\\n\\r\\n<p>Nomination can be made by any representative of the agency responsible.</p>\"\n      '#options':\n        digital_professional: '3a. Digital Professional of the Year  -- Awarded to a government employee with more than three years experience in a digital role. To enter, the nominee needs to have more than 3 years digital experience in a government role, be recommended by a colleague/sponsor and supported by referees. The winner of this award will be someone who shows commitment to digital transformation, digital leadership within their agency and contribution to digital development of industry and government.'\n        emerging_talent: '3b. Digital Emerging Talent of the Year. -- Awarded to a government employee who has spent five years or less in a digital role. To enter, the nominee needs to have 5 years or less digital experience in a government role, be recommended by a colleague/sponsor and supported by referees. The winner of this award will be someone who shows commitment to digital transformation, demonstrates initiative beyond their defined role and contribution to digital development of industry and government.'\n        diversity_champion: '3c. Digital Diversity Champion of the Year -- Awarded to a government employee who works in (or with) a digital team within their agency promoting diversity. To enter, the nominee needs to be recommended by a colleague and supported by referees. The winner of this award will be someone who shows they understand the importance of diversity in ensuring that digital products and services meet user needs as recognised by their peers.'\n      '#label_attributes':\n        class:\n          - au-bold\noutstanding_digital_delivery_all_categories:\n  '#type': webform_section\n  '#title': 'Outstanding digital delivery: all categories'\n  '#states':\n    visible:\n      ':input[name=\"category\"]':\n        checked: true\n      ':input[name=\"award\"]':\n        value: digital_delivery\n  '#prev_button_label': Back\n  '#next_button_label': Next\n  title_of_nomination:\n    '#type': textfield\n    '#title': 'Title of nomination'\n    '#placeholder': Title\n    '#autocomplete': 'off'\n    '#required': true\n  executive_summary:\n    '#type': textarea\n    '#title': 'Executive summary'\n    '#description': 'Add your executive summary here. Please limit your entry to 100 words.'\n    '#required': true\n    '#counter_type': word\n    '#counter_maximum': '100'\n  evidence_of_demonstrated_tangible_benefit_to_users:\n    '#type': textarea\n    '#title': 'Evidence of demonstrated tangible benefit to users'\n    '#description': 'You must provide evidence of a tangible benefit to users.'\n    '#required': true\n    '#counter_type': word\n    '#counter_minimum': '1'\n    '#counter_maximum': '100'\n  evidence_of_adopted_industry_and_government_standards_and_protoc:\n    '#type': textarea\n    '#title': 'Evidence of adopted industry and government standards and protocols'\n    '#description': 'You must provide evidence of adopted industry and government protocols.'\n    '#required': true\n    '#counter_type': word\n    '#counter_minimum': '1'\n    '#counter_maximum': '100'\n  category_1a_product_service:\n    '#type': webform_section\n    '#title': 'Category 1a - product/service'\n    '#title_tag': h2\n    '#states':\n      visible:\n        ':input[name=\"category\"]':\n          value: product_service\n    '#prev_button_label': Back\n    '#next_button_label': Next\n    evidence_of_user_centred_design:\n      '#type': textarea\n      '#title': 'Evidence of user-centred design'\n      '#description': 'You must provide evidence of user-centred design.'\n      '#required': true\n      '#counter_type': word\n      '#counter_minimum': '1'\n      '#counter_maximum': '100'\n    evidence_of_innovative_use_of_technology:\n      '#type': textarea\n      '#title': 'Evidence of innovative use of technology'\n      '#description': 'You must provide evidence of innovative use of technology. Please limit your response to 100 words.'\n      '#required': true\n      '#counter_type': word\n      '#counter_minimum': '1'\n      '#counter_maximum': '100'\n    evidence_that_the_outcome_improves_the_customer_experience:\n      '#type': textarea\n      '#title': 'Evidence that the outcome improves the customer experience'\n      '#description': 'You must provide evidence&nbsp;that the outcome improves the customer experience. Please limit your response to 100 words.'\n      '#required': true\n      '#counter_type': word\n      '#counter_minimum': '1'\n      '#counter_maximum': '100'\n  category_1b_platform:\n    '#type': webform_section\n    '#title': 'Category 1b: Platform'\n    '#title_tag': h2\n    '#states':\n      visible:\n        ':input[name=\"category\"]':\n          value: platform\n    '#prev_button_label': Back\n    '#next_button_label': Next\n    evidence_of_openness_of_platform_design:\n      '#type': textarea\n      '#title': 'Evidence of openness of platform design'\n      '#description': 'You must provide evidence&nbsp;of the openness of your platform design. Please limit your response to 100 words.'\n      '#required': true\n      '#counter_type': word\n      '#counter_minimum': '1'\n      '#counter_maximum': '100'\n    evidence_of_richness_of_platform_ecosystem:\n      '#type': textarea\n      '#title': 'Evidence of richness of platform ecosystem'\n      '#description': 'You must provide evidence&nbsp;of the&nbsp;richness of your platform ecosystem. Please limit your response to 100 words.'\n      '#required': true\n      '#counter_type': word\n      '#counter_minimum': '1'\n      '#counter_maximum': '100'\n    evidence_of_reusability_of_platform_for_multiple_purposes_and_or:\n      '#type': textarea\n      '#title': 'Evidence of reusability of platform for multiple purposes and/or agencies'\n      '#description': 'You must provide evidence&nbsp;of the reusability of your platform for multiple purposes and/or agencies. Please limit your response to 100 words.'\n      '#required': true\n      '#counter_type': word\n      '#counter_minimum': '1'\n      '#counter_maximum': '100'\n  category_1c_emerging_technology:\n    '#type': webform_section\n    '#title': 'Category 1c: emerging technology'\n    '#title_tag': h2\n    '#states':\n      visible:\n        ':input[name=\"category\"]':\n          value: emerging_technology\n    evidence_product_or_service_was_developed_based_on_user_needs:\n      '#type': textarea\n      '#title': 'Evidence product or service was developed based on user needs'\n      '#description': 'You must provide evidence you developed your product or service based on user needs. Please limit your response to 100 words.'\n      '#required': true\n      '#counter_type': word\n      '#counter_minimum': '1'\n      '#counter_maximum': '100'\n    evidence_of_utilisation_of_emerging_technology:\n      '#type': textarea\n      '#title': 'Evidence of utilisation of emerging technology'\n      '#description': 'You must provide evidence you are using emerging technology. Please limit your response to 100 words.'\n      '#required': true\n      '#counter_type': word\n      '#counter_minimum': '1'\n      '#counter_maximum': '100'\n    evidence_of_reusability_of_the_emerging_technology:\n      '#type': textarea\n      '#title': 'Evidence of reusability of the emerging technology'\n      '#description': 'You must provide evidence of the reusability of the emerging technology. Please limit your response to 100 words.'\n      '#required': true\n      '#counter_type': word\n      '#counter_minimum': '1'\n      '#counter_maximum': '100'\n  category_1d_methodology_or_approach:\n    '#type': webform_section\n    '#title': 'Category 1d: methodology or approach'\n    '#title_tag': h2\n    '#states':\n      visible:\n        ':input[name=\"category\"]':\n          value: methodology_approach\n    '#prev_button_label': Back\n    '#next_button_label': Next\n    evidence_of_use_of_innovative_methodology_throughout_the_process:\n      '#type': textarea\n      '#title': 'Evidence of use of innovative methodology throughout the process of designing and delivering the product or service'\n      '#description': 'You must provide evidence you used an innovative methodology throughout the process of designing and delivering the product or service. Please limit your response to 100 words.'\n      '#required': true\n      '#counter_type': word\n      '#counter_minimum': '1'\n      '#counter_maximum': '100'\n    evidence_of_reusability_of_the_methodology:\n      '#type': textarea\n      '#title': 'Evidence of reusability of the methodology'\n      '#description': 'You must provide evidence of the reusability of the methodology. Please limit your response to 100 words.'\n      '#required': true\n      '#counter_type': word\n      '#counter_minimum': '1'\n      '#counter_maximum': '100'\nexcellence_in_partnerships_all_categories:\n  '#type': webform_section\n  '#title': 'Excellence in partnerships: all categories'\n  '#description': \"<p>Judging criteria for both categories is available on the website.</p>\\r\\n\\r\\n<p>Nominations can be made by anyone within a partner agency or company, but must be supported by all partner agencies/industry.</p>\"\n  '#title_tag': h2\n  '#states':\n    visible:\n      ':input[name=\"award\"]':\n        value: partnerships\n      ':input[name=\"excellence_in_partnerships\"]':\n        checked: true\n  title_of_nomination_excellence:\n    '#type': textfield\n    '#title': 'Title of nomination'\n    '#placeholder': Title\n    '#autocomplete': 'off'\n    '#required': true\n  provide_short_summary_of_nomination:\n    '#type': textarea\n    '#title': 'Provide short summary of nomination'\n    '#description': 'You must provide a short summary of the nomination. Please limit your response to 100 words.'\n    '#required': true\n    '#counter_type': word\n    '#counter_maximum': '100'\n  detail_how_product_or_service_has_provided_benefit_to_users:\n    '#type': textarea\n    '#title': 'Detail how product or service has provided  benefit to users'\n    '#description': 'You must describe how the product or service has provided benefit to users. Please limit your response to 100 words.'\n    '#required': true\n    '#counter_type': word\n    '#counter_maximum': '100'\n  detail_how_industry_and_government_standards_and_protocols_were_:\n    '#type': textarea\n    '#title': 'Detail how industry and government standards and protocols were adopted (eg Digital Service Standard)'\n    '#description': 'You must describe how industry and government standards and protocols were adopted (eg Digital Service Standard). Please limit your response to 100 words.'\n    '#required': true\n    '#counter_type': word\n    '#counter_maximum': '100'\n  show_how_the_partnership_worked_to_address_user_needs:\n    '#type': textarea\n    '#title': 'Show how the partnership worked to address user needs'\n    '#description': 'You must show how the partnership worked to address user needs. Please limit your response to 100 words.'\n    '#required': true\n    '#counter_type': word\n    '#counter_maximum': '100'\n  show_how_the_partnership_influenced_the_outcome_delivered:\n    '#type': textarea\n    '#title': 'Show how the partnership influenced the outcome delivered'\n    '#description': 'You must show how the partnership influenced the outcome delivered. Please limit your response to 100 words.'\n    '#required': true\n    '#counter_type': word\n    '#counter_maximum': '100'\n  category_2a_government_industry:\n    '#type': webform_section\n    '#title': 'Category 2a: government-industry'\n    '#title_tag': h2\n    '#states':\n      visible:\n        ':input[name=\"excellence_in_partnerships\"]':\n          value: government_industry\n    detail_how_the_partners_integrated_to_deliver_the_outcome:\n      '#type': textarea\n      '#title': 'Detail how the partners integrated to deliver the outcome'\n      '#description': 'You must detail how the partners integrated to deliver the outcome. Please limit your response to 100 words.'\n      '#required': true\n      '#counter_type': word\n      '#counter_maximum': '100'\n  category_2b_multi_agency:\n    '#type': webform_section\n    '#title': 'Category 2b: multi-agency'\n    '#states':\n      visible:\n        ':input[name=\"excellence_in_partnerships\"]':\n          value: multi_agency\n    detail_how_the_agencies_integrated_to_deliver_the_outcome:\n      '#type': textarea\n      '#title': 'Detail how the agencies integrated to deliver the outcome'\n      '#description': 'You must detail how the agencies integrated to deliver the outcome. Please limit your response to 100 words.'\n      '#required': true\n      '#counter_type': word\n      '#counter_maximum': '100'\nindividual_all_categories:\n  '#type': webform_section\n  '#title': 'Individual awards: all categories'\n  '#description': \"<p>Judging criteria for these categories is available on the website.</p>\\r\\n\\r\\n<p>Nomination cannot be made by the individual being nominated and must be supported by two referees, once of which should be SES level.</p>\"\n  '#title_tag': h2\n  '#states':\n    visible:\n      ':input[name=\"award\"]':\n        value: individual\n      ':input[name=\"individual\"]':\n        checked: true\n  name_of_nominee:\n    '#type': textfield\n    '#title': 'Name of nominee'\n    '#placeholder': Name\n    '#autocomplete': 'off'\n    '#required': true\n  nominated_by:\n    '#type': textfield\n    '#title': 'Nominated by (include role and agency)'\n    '#placeholder': 'Name and agency'\n    '#autocomplete': 'off'\n    '#required': true\n  referee_statement_1:\n    '#type': textarea\n    '#title': 'Referee statement 1'\n    '#description': 'You must provide two references. Please limit your response for each to 100 words.'\n    '#required': true\n    '#counter_type': word\n    '#counter_maximum': '100'\n  referee_statement_2:\n    '#type': textarea\n    '#title': 'Referee statement 2'\n    '#description': 'You must provide two references. Please limit your response for each to 100 words.'\n    '#required': true\n    '#counter_type': word\n    '#counter_maximum': '100'\n  experience:\n    '#type': textarea\n    '#title': 'Experience in digital role (years)'\n    '#description': 'Enter how many years the nominee had been in a digital role.'\n    '#required': true\n    '#counter_type': word\n    '#counter_maximum': '100'\n  category_3a_digital_professional:\n    '#type': webform_section\n    '#title': 'Category 3a: digital professional of the year'\n    '#states':\n      visible:\n        ':input[name=\"individual\"]':\n          value: digital_professional\n    committed_to_digital_transformation:\n      '#type': textarea\n      '#title': 'Detail how the nominee is committed to digital transformation'\n      '#description': 'You must detail how the nominee is committed to digital transformation. Please limit your response to 100 words.'\n      '#required': true\n      '#counter_type': word\n      '#counter_maximum': '100'\n    digital_leadership:\n      '#type': textarea\n      '#title': 'Explain how the nominee has shown digital leadership within their agency'\n      '#description': 'You must explain how the nominee has shown digital leadership within their agency. Please limit your response to 100 words.'\n      '#required': true\n      '#counter_type': word\n      '#counter_maximum': '100'\n    contribution:\n      '#type': textarea\n      '#title': 'Show how the nominee has contributed to digital development in industry and government'\n      '#description': 'You must show how the nominee has contributed to digital development in industry and government. Please limit your response to 100 words.'\n      '#required': true\n      '#counter_type': word\n      '#counter_maximum': '100'\n  category_3b_digital_professional:\n    '#type': webform_section\n    '#title': 'Category 3b: digital emerging talent of the year'\n    '#states':\n      visible:\n        ':input[name=\"individual\"]':\n          value: emerging_talent\n    committed_to_digital_transformation_emerging:\n      '#type': textarea\n      '#title': 'Detail how the nominee is committed to digital transformation'\n      '#description': 'You must detail how the nominee is committed to digital transformation. Please limit your response to 100 words.'\n      '#required': true\n      '#counter_type': word\n      '#counter_maximum': '100'\n    initiative:\n      '#type': textarea\n      '#title': 'Show how the nominees has demonstrated initiative beyond their defined role'\n      '#description': 'You must show how the nominees has demonstrated initiative beyond their defined role. Please limit your response to 100 words.'\n      '#required': true\n      '#counter_type': word\n      '#counter_maximum': '100'\n    contribution_2:\n      '#type': textarea\n      '#title': 'Show how the nominee has contributed to digital development in industry and government'\n      '#description': 'You must show how the nominee has contributed to digital development in industry and government. Please limit your response to 100 words.'\n      '#required': true\n      '#counter_type': word\n      '#counter_maximum': '100'\n  category_3c_digital_diversity:\n    '#type': webform_section\n    '#title': 'Category 3c: digital diversity champion of the year'\n    '#states':\n      visible:\n        ':input[name=\"individual\"]':\n          value: diversity_champion\n    driven_diversity:\n      '#type': textarea\n      '#title': 'Detail how the nominee has driven diversity in their team or agency'\n      '#description': 'You must detail how the nominee has driven diversity in their team or agency. Please limit your response to 100 words.'\n      '#required': true\n      '#counter_type': word\n      '#counter_maximum': '100'\n    digital_leadership_2:\n      '#type': textarea\n      '#title': 'Explain how the nominee has shown digital diversity leadership within their team or agency'\n      '#description': 'You must explain how the nominee has shown digital diversity leadership within their team or agency. Please limit your response to 100 words.'\n      '#required': true\n      '#counter_type': word\n      '#counter_maximum': '100'\n    contribution_3:\n      '#type': textarea\n      '#title': 'Show how the nominee has contributed to digital development in industry and government'\n      '#description': 'You must show how the nominee has contributed to digital development in industry and government. Please limit your response to 100 words.'\n      '#required': true\n      '#counter_type': word\n      '#counter_maximum': '100'"
+css: ''
+javascript: ''
+settings:
+  ajax: false
+  ajax_scroll_top: form
+  page: true
+  page_submit_path: ''
+  page_confirm_path: ''
+  form_title: source_entity_webform
+  form_submit_once: false
+  form_exception_message: ''
+  form_open_message: ''
+  form_close_message: ''
+  form_previous_submissions: true
+  form_confidential: false
+  form_confidential_message: ''
+  form_remote_addr: true
+  form_convert_anonymous: false
+  form_prepopulate: false
+  form_prepopulate_source_entity: false
+  form_prepopulate_source_entity_required: false
+  form_prepopulate_source_entity_type: ''
+  form_reset: true
+  form_disable_autocomplete: false
+  form_novalidate: false
+  form_disable_inline_errors: false
+  form_required: false
+  form_unsaved: false
+  form_disable_back: false
+  form_submit_back: false
+  form_autofocus: false
+  form_details_toggle: false
+  form_access_denied: default
+  form_access_denied_title: ''
+  form_access_denied_message: ''
+  form_access_denied_attributes: {  }
+  form_file_limit: ''
+  submission_label: ''
+  submission_log: false
+  submission_views: {  }
+  submission_views_replace:
+    webform_routes: {  }
+    node_routes: {  }
+  submission_user_columns: {  }
+  submission_user_duplicate: false
+  submission_access_denied: default
+  submission_access_denied_title: ''
+  submission_access_denied_message: ''
+  submission_access_denied_attributes: {  }
+  submission_exception_message: ''
+  submission_locked_message: ''
+  submission_excluded_elements: {  }
+  submission_exclude_empty: false
+  submission_exclude_empty_checkbox: false
+  previous_submission_message: ''
+  previous_submissions_message: ''
+  autofill: false
+  autofill_message: ''
+  autofill_excluded_elements: {  }
+  wizard_progress_bar: true
+  wizard_progress_pages: false
+  wizard_progress_percentage: false
+  wizard_progress_link: false
+  wizard_start_label: ''
+  wizard_preview_link: false
+  wizard_confirmation: true
+  wizard_confirmation_label: ''
+  wizard_track: ''
+  preview: 0
+  preview_label: ''
+  preview_title: ''
+  preview_message: ''
+  preview_attributes: {  }
+  preview_excluded_elements: {  }
+  preview_exclude_empty: true
+  preview_exclude_empty_checkbox: false
+  draft: none
+  draft_multiple: false
+  draft_auto_save: false
+  draft_saved_message: ''
+  draft_loaded_message: ''
+  confirmation_type: page
+  confirmation_title: 'Thank you'
+  confirmation_message: "<h2>Thank you</h2>\r\n\r\n<p>Thank you for submitting a nomination for the Australian Government Digital Awards. An automated email will be sent to you confirming the nomination has been received.</p>\r\n\r\n<p>You will be notified 11 September 2019 if you are a finalist in the awards.</p>\r\n\r\n<p>The awards ceremony will take place 3 October 2019 at the National Convention Centre Canberra in conjunction with the Digital Summit 2019.<br />\r\n<br />\r\n<a href=\"/help-and-advice/digital-summit-2019\">Go back to the Digital Summity 2019</a></p>"
+  confirmation_url: ''
+  confirmation_attributes: {  }
+  confirmation_back: false
+  confirmation_back_label: ''
+  confirmation_back_attributes: {  }
+  confirmation_exclude_query: false
+  confirmation_exclude_token: false
+  limit_total: null
+  limit_total_interval: null
+  limit_total_message: ''
+  limit_total_unique: false
+  limit_user: null
+  limit_user_interval: null
+  limit_user_message: ''
+  limit_user_unique: false
+  entity_limit_total: null
+  entity_limit_total_interval: null
+  entity_limit_user: null
+  entity_limit_user_interval: null
+  purge: none
+  purge_days: null
+  results_disabled: false
+  results_disabled_ignore: false
+  token_update: true
+access:
+  create:
+    roles:
+      - webform_author
+      - administrator
+    users: {  }
+    permissions: {  }
+  view_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  update_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  delete_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  purge_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  view_own:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  update_own:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  delete_own:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  administer:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  test:
+    roles:
+      - webform_author
+      - administrator
+    users: {  }
+    permissions: {  }
+  configuration:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+handlers:
+  email:
+    id: email
+    label: Email
+    handler_id: email
+    status: true
+    conditions: {  }
+    weight: 0
+    settings:
+      states:
+        - completed
+      to_mail: awards@dta.gov.au
+      to_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      subject: 'New nomination Digital Summit 2019 nomination'
+      body: "<p>Hi!</p>\r\n\r\n<p>Someone has submitted a nomination form for the Digital Summit.</p>\r\n<p>You can view the submission <a href=\"{{ webform_token('[webform_submission:url]', webform_submission) }}\">here</a>. You may need to log into the website first.</p>\r\n\r\n<p>You can view all the submissions <a href=\"https://www.dta.gov.au/admin/structure/webform/manage/summit_nomination_2019/results/submissions\">here</a></p>\r\n\r\n<p><b>Details</b></p>\r\n\r\n<p>Submitted on {{ webform_token('[webform_submission:created]', webform_submission) }}</p>\r\n<p>Submitted by: {{ webform_token('[webform_submission:user]', webform_submission) }}</p>\r\n<p>Submitted values are:</p>\r\n{{ webform_token('[webform_submission:values]', webform_submission) }}\r\n"
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      html: true
+      attachments: false
+      twig: true
+      debug: false
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      theme_name: ''
+  email_1:
+    id: email
+    label: Email
+    handler_id: email_1
+    status: true
+    conditions: {  }
+    weight: 0
+    settings:
+      states:
+        - completed
+      to_mail: '[webform_submission:values:email_address:raw]'
+      to_options: {  }
+      cc_mail: '[webform_submission:values:alternate_email_address:raw]'
+      cc_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      subject: 'Thank you for your nomination!'
+      body: "<p>Hi!</p>\r\n\r\n<p>Thanks for submitting a nomination for the Digital Awards 2019.</p>\r\n\r\n<p>We will be in touch to let you know of the outcome of your submission.</p>\r\n\r\n<p>In the meantime, if you need to update your submission, you can do so using <a href=\"{{ webform_token('[webform_submission:update-url]', webform_submission) }}\">this link</a></p>\r\n\r\n<p>Submitted on {{ webform_token('[webform_submission:created]', webform_submission) }}</p>\r\n<p>Submitted by: {{ webform_token('[webform_submission:user]', webform_submission) }}</p>\r\n<p>Submitted values are:</p>\r\n{{ webform_token('[webform_submission:values]', webform_submission) }}\r\n"
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      html: true
+      attachments: false
+      twig: true
+      debug: false
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      theme_name: ''
