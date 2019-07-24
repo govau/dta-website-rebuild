@@ -5,6 +5,7 @@ dependencies: {  }
 id: node__news_item
 label: 'Content: News item'
 tags:
+  image_src: '[node:field_index_image:entity:url]'
   og_image: '[node:field_linkedin_image:entity:url]'
   og_image_height: '[node:field_linkedin_image:height]'
   og_image_secure_url: '[node:field_index_image:entity:url]'
