@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.storage.node.field_index_image
     - field.storage.node.field_summary
+    - node.type.landing_page_level_2
     - node.type.page
     - node.type.platforms_and_services
   module:
@@ -388,6 +389,7 @@ display:
           value:
             page: page
             platforms_and_services: platforms_and_services
+            landing_page_level_2: landing_page_level_2
           group: 1
           exposed: false
           expose:

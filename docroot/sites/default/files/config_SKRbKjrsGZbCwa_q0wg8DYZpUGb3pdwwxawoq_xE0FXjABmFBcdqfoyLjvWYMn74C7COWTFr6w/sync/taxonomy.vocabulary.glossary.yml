@@ -1,0 +1,8 @@
+uuid: 561f8bcd-e991-47b5-80b4-5e33a39022b1
+langcode: en
+status: true
+dependencies: {  }
+name: Glossary
+vid: glossary
+description: 'A glossary of terms used on the website.'
+weight: 0

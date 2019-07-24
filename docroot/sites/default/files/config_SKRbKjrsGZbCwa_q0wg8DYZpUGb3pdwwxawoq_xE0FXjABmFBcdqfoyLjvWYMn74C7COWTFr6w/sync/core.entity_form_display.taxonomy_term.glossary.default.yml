@@ -1,0 +1,37 @@
+uuid: 8fbfbd14-5ef6-4e17-bfa6-cba97bb48e58
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.glossary
+  module:
+    - field_layout
+    - layout_discovery
+    - text
+third_party_settings:
+  field_layout:
+    id: layout_onecol
+    settings: {  }
+id: taxonomy_term.glossary.default
+targetEntityType: taxonomy_term
+bundle: glossary
+mode: default
+content:
+  description:
+    type: text_textarea
+    weight: 1
+    region: content
+    settings:
+      placeholder: ''
+      rows: 5
+    third_party_settings: {  }
+  name:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  path: true

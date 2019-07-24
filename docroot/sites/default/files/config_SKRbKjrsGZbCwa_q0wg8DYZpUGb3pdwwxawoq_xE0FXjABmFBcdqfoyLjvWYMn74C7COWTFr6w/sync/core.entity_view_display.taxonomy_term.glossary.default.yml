@@ -1,0 +1,45 @@
+uuid: 3e75330f-35ba-42fb-9451-1d3c791e6769
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.glossary
+  module:
+    - ds
+    - ds_chains
+    - text
+third_party_settings:
+  ds:
+    layout:
+      id: ds_1col
+      library: null
+      disable_css: false
+      entity_classes: all_classes
+      settings:
+        wrappers:
+          ds_content: div
+        outer_wrapper: div
+        attributes: ''
+        link_attribute: ''
+        link_custom: ''
+        classes:
+          layout_class: {  }
+    regions:
+      ds_content:
+        - description
+  ds_chains:
+    fields: {  }
+id: taxonomy_term.glossary.default
+targetEntityType: taxonomy_term
+bundle: glossary
+mode: default
+content:
+  description:
+    label: hidden
+    type: text_default
+    weight: 0
+    region: ds_content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  search_api_excerpt: true
