@@ -24,6 +24,7 @@ permissions:
   - 'create url aliases'
   - 'delete terms in blog_authors'
   - 'delete terms in contacts'
+  - 'delete terms in tags'
   - 'edit any assessment_report content'
   - 'edit any blog_post content'
   - 'edit any book content'

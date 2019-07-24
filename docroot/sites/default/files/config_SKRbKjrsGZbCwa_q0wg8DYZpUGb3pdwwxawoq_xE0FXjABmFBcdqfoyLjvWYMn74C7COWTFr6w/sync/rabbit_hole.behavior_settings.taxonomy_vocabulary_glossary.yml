@@ -1,0 +1,11 @@
+uuid: ed221acb-44ac-410b-8665-715ff50c885b
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.glossary
+id: taxonomy_vocabulary_glossary
+action: display_page
+allow_override: 1
+redirect: ''
+redirect_code: 301
