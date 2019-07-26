@@ -1,0 +1,22 @@
+uuid: fcf4e240-83b8-45fe-b739-ce0ed3384306
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: media_release
+label: 'Media release'
+type: 'canonical_entities:node'
+pattern: '/media-release/[node:title]'
+selection_criteria:
+  038ff79e-4f0b-418a-ad30-3227c0f66a19:
+    id: node_type
+    bundles:
+      media_release: media_release
+    negate: false
+    context_mapping:
+      node: node
+    uuid: 038ff79e-4f0b-418a-ad30-3227c0f66a19
+selection_logic: and
+weight: -5
+relationships: {  }

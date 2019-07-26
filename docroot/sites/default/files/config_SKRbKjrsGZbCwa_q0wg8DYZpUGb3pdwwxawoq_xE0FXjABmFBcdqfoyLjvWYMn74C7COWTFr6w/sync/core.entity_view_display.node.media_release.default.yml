@@ -1,0 +1,85 @@
+uuid: 9688bb12-6c41-4660-bd95-234dcf7f2f0f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.media_release.field_body
+    - field.field.node.media_release.field_link_to_content
+    - field.field.node.media_release.field_media_release_image
+    - field.field.node.media_release.field_publication_date
+    - field.field.node.media_release.field_summary
+    - field.field.node.media_release.field_tags
+    - node.type.media_release
+  module:
+    - datetime
+    - link
+    - text
+    - user
+id: node.media_release.default
+targetEntityType: node
+bundle: media_release
+mode: default
+content:
+  content_moderation_control:
+    weight: -20
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_body:
+    weight: 102
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_link_to_content:
+    weight: 106
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_media_release_image:
+    weight: 104
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_publication_date:
+    weight: 103
+    label: above
+    settings:
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_summary:
+    weight: 101
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_tags:
+    weight: 105
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  links:
+    weight: 100
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  search_api_excerpt: true

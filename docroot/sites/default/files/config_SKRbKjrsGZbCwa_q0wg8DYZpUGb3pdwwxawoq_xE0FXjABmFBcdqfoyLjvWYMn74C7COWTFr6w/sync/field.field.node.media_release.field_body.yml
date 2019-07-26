@@ -1,0 +1,31 @@
+uuid: eecaa13a-15ee-4cb5-a25f-6cda52992550
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_body
+    - node.type.media_release
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    rich_text: rich_text
+    commenting: '0'
+    administration: '0'
+    html: '0'
+    introduction: '0'
+    plain_text: '0'
+    summary: '0'
+id: node.media_release.field_body
+field_name: field_body
+entity_type: node
+bundle: media_release
+label: Content
+description: '<em>Content</em> is the main body of the media release. It is only displayed on the page of the item.'
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

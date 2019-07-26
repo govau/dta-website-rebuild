@@ -1,0 +1,29 @@
+uuid: 0a847cbe-3cf1-4a2d-a72c-cbb489688edf
+langcode: en
+status: true
+dependencies: {  }
+id: media_release_author
+label: 'Media release author'
+weight: -4
+is_admin: null
+permissions:
+  - 'access administration pages'
+  - 'access content overview'
+  - 'access files overview'
+  - 'access image_browser entity browser pages'
+  - 'bypass honeypot protection'
+  - 'create media_release content'
+  - 'create url aliases'
+  - 'edit any media_release content'
+  - 'edit own media_release content'
+  - 'revert media_release revisions'
+  - 'use dta_publishing transition archived'
+  - 'use dta_publishing transition create_new_draft'
+  - 'use dta_publishing transition restore_to_content_design'
+  - 'use dta_publishing transition technical_review'
+  - 'use text format rich_text'
+  - 'use text format summary'
+  - 'view any unpublished content'
+  - 'view latest version'
+  - 'view media_release revisions'
+  - 'view own unpublished content'

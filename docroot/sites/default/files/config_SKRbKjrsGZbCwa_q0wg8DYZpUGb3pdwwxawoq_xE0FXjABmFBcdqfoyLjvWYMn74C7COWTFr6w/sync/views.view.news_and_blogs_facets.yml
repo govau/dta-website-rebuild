@@ -9,7 +9,7 @@ dependencies:
     - search_api
     - user
 id: news_and_blogs_facets
-label: 'News and blogs facets'
+label: 'News, blogs and media release facets'
 module: views
 description: ''
 tag: ''
@@ -81,6 +81,7 @@ display:
           view_modes:
             'entity:node':
               blog_post: home_page_blog_card
+              media_release: home_page_blog_card
               news_item: home_page_blog_card
       fields:
         rendered_item:
@@ -288,7 +289,7 @@ display:
   page_1:
     display_plugin: page
     id: page_1
-    display_title: 'News and blogs page'
+    display_title: 'News, blogs and media release page'
     position: 1
     display_options:
       display_extenders:
@@ -345,6 +346,7 @@ display:
           view_modes:
             'entity:node':
               blog_post: home_page_blog_card
+              media_release: home_page_blog_card
               news_item: home_page_blog_card
       filters:
         status:

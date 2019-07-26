@@ -3,6 +3,8 @@ admin_theme: false
 roles_profiles:
   digital_transformation_guide_author:
     public: member
+  media_release_author:
+    public: member
   content_editor:
     public: member
   content_approver:

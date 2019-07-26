@@ -4,7 +4,7 @@ status: true
 dependencies: {  }
 id: webform_author
 label: 'Webform author'
-weight: -5
+weight: -6
 is_admin: null
 permissions:
   - 'access administration pages'

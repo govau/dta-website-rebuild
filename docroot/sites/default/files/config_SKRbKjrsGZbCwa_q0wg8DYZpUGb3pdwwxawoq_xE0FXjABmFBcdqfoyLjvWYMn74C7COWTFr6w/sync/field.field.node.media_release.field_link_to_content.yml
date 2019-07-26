@@ -1,0 +1,23 @@
+uuid: 229a616d-4e5d-461b-9c97-7d59bbb018c8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_link_to_content
+    - node.type.media_release
+  module:
+    - link
+id: node.media_release.field_link_to_content
+field_name: field_link_to_content
+entity_type: node
+bundle: media_release
+label: 'Further information'
+description: 'If you like, you can add link to give users more information. If it is an <strong>internal</strong> link, then search for the page. Otherwise, copy and paste an external link.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 2
+field_type: link
