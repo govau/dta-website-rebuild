@@ -7,16 +7,16 @@ dependencies:
 id: media_release
 label: 'Media release'
 type: 'canonical_entities:node'
-pattern: '/media-release/[node:title]'
+pattern: 'media-release/[node:title]'
 selection_criteria:
-  038ff79e-4f0b-418a-ad30-3227c0f66a19:
+  ba5f4333-76bc-42a6-84b1-3d90a39bc707:
     id: node_type
     bundles:
       media_release: media_release
     negate: false
     context_mapping:
       node: node
-    uuid: 038ff79e-4f0b-418a-ad30-3227c0f66a19
+    uuid: ba5f4333-76bc-42a6-84b1-3d90a39bc707
 selection_logic: and
 weight: -5
 relationships: {  }

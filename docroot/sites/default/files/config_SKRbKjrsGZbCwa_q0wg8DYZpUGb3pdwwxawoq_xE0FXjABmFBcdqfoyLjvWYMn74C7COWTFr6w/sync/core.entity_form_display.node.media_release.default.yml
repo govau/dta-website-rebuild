@@ -10,6 +10,7 @@ dependencies:
     - field.field.node.media_release.field_summary
     - field.field.node.media_release.field_tags
     - node.type.media_release
+    - workflows.workflow.dta_publishing
   module:
     - content_moderation
     - datetime
@@ -118,7 +119,7 @@ content:
     region: content
     settings:
       size: 60
-      placeholder: M
+      placeholder: 'Media release:'
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
