@@ -1,0 +1,33 @@
+uuid: 48e0b9ae-63b2-49bb-bab2-5c29b561f685
+langcode: en
+status: false
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.media_release.field_body
+    - field.field.node.media_release.field_link_to_content
+    - field.field.node.media_release.field_media_release_image
+    - field.field.node.media_release.field_publication_date
+    - field.field.node.media_release.field_summary
+    - field.field.node.media_release.field_tags
+    - node.type.media_release
+  module:
+    - user
+id: node.media_release.teaser
+targetEntityType: node
+bundle: media_release
+mode: teaser
+content:
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_body: true
+  field_link_to_content: true
+  field_media_release_image: true
+  field_publication_date: true
+  field_summary: true
+  field_tags: true
+  search_api_excerpt: true

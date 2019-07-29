@@ -1,0 +1,8 @@
+uuid: 3e7d033a-d9ff-4bd2-a5d6-ea7cb4f5d04c
+langcode: en
+status: true
+dependencies: {  }
+name: 'Image type'
+vid: image_type
+description: 'Allows the user to tag images with a type.'
+weight: 0

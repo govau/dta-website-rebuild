@@ -11,8 +11,8 @@ dependencies:
     - search_api.server.database_search
     - core.entity_view_mode.node.card
 id: news_and_blog_search
-name: 'News and blog search'
-description: 'Searches only news and blog items to create a faceted search system.'
+name: 'News, blog and media release search'
+description: 'Searches only news, blog items and media releases to create a faceted search system.'
 read_only: false
 field_settings:
   created:
@@ -56,6 +56,7 @@ field_settings:
       view_mode:
         'entity:node':
           blog_post: card
+          media_release: card
           news_item: card
   status:
     label: Published
@@ -91,6 +92,7 @@ datasource_settings:
       default: false
       selected:
         - blog_post
+        - media_release
         - news_item
     languages:
       default: true
@@ -104,7 +106,7 @@ processor_settings:
   rendered_item: {  }
 tracker_settings:
   default:
-    indexing_order: fifo
+    indexing_order: lifo
 options:
   index_directly: true
   cron_limit: 50

@@ -96,7 +96,7 @@ expression:
           subject: 'Content ready to publish on dta.gov.au'
           message: 'Hi! [node:title] is ready to publish at [node:url]. Get it live!'
         context_mapping:
-          node: node
+          entity: node
         context_processors:
           roles:
             rules_tokens: {  }
@@ -115,7 +115,7 @@ expression:
           subject: 'Content ready to publish on dta.gov.au'
           message: 'Hi! [node:title] is ready to publish at [node:url]. Jump in there now!'
         context_mapping:
-          node: node
+          entity: node
         context_processors:
           roles:
             rules_tokens: {  }

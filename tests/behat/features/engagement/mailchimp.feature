@@ -15,6 +15,10 @@ Feature: Mailchimp signup
     And "page" content:
     | title                | field_introduction | field_body  | field_summary | moderation_state | status |
     | Subscribe to updates | placeholder        | placeholder | placeholder   | published        | 1      |
+    And "media_release" content:
+    | title              | field_body  | field_summary | moderation_state | status |
+    | Test media release | placeholder | placeholder   | published        | 1      |
+
     And I am logged in as a user with the "administrator" role
     When I am on "subscribe-updates"
     And I click "Edit" in the "content" region
@@ -33,6 +37,10 @@ Feature: Mailchimp signup
     When I am on "blogs/test-blog"
     Then I should see an "form#mailchimp-signup-subscribe-block-sign-up-for-updates-form" element
 
+  @anon @mailchimp @media-release
+  Scenario: Form on media releases
+    When I am on "media-release/test-media-release"
+    Then I should see an "form#mailchimp-signup-subscribe-block-sign-up-for-updates-form" element
 
   @anon @mailchimp
   Scenario: Standalone form

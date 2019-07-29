@@ -1,0 +1,25 @@
+uuid: df21c398-2229-4a46-bee9-352370e54333
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_media_release_image
+    - node.type.media_release
+id: node.media_release.field_media_release_image
+field_name: field_media_release_image
+entity_type: node
+bundle: media_release
+label: 'Media release image'
+description: "<p>We restrict the images available for media releases to streamline the process. You can select one of three default images. Each has the words 'Media release' and the DTA wordmark.</p>\r\n<ul>\r\n<li>Charcoal background, white text</li>\r\n<li>Blue background, white text</li>\r\n<li>Light grey background, charcoal text</li>\r\n</ul>"
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: views
+  handler_settings:
+    view:
+      view_name: media_release_images
+      display_name: entity_reference_1
+      arguments: {  }
+field_type: entity_reference

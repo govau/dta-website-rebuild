@@ -12,12 +12,13 @@ Feature: Authors
     Scenario: Create content
       When I follow "Content"
       And I follow "Add content"
-      Then I should see 11 ".admin-list a" elements
+      Then I should see 12 ".admin-list a" elements
 
     @content @content-author
     Scenario: Edit content
       Then I should be able to edit a "page"
       And I should be able to edit a "landing_page"
+      And I should be able to edit a "media_release"
       And I should be able to edit a "landing_page_level_2"
       And I should be able to edit an "assessment_report"
       And I should be able to edit a "blog_post"

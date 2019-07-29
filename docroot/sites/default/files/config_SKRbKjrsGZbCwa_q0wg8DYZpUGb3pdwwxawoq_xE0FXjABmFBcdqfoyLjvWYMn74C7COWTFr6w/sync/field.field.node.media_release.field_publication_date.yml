@@ -1,0 +1,24 @@
+uuid: 0a451161-971f-4590-a496-88821451d6b9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_publication_date
+    - node.type.media_release
+  module:
+    - datetime
+id: node.media_release.field_publication_date
+field_name: field_publication_date
+entity_type: node
+bundle: media_release
+label: 'Publication date'
+description: 'The <em>publication date</em> is when the media release is ''going out''. This may differ from the actual publication date, so you have the flexibility to publish or update a media release on a different day.'
+required: true
+translatable: true
+default_value:
+  -
+    default_date_type: now
+    default_date: now
+default_value_callback: ''
+settings: {  }
+field_type: datetime
