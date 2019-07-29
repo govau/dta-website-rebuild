@@ -10,6 +10,7 @@ dependencies:
     - node.type.govcms_event
     - node.type.landing_page
     - node.type.landing_page_level_2
+    - node.type.media_release
     - node.type.news_item
     - node.type.page
   module:
@@ -282,6 +283,7 @@ display:
             govcms_event: govcms_event
             external_link: external_link
             landing_page: landing_page
+            media_release: media_release
             news_item: news_item
             page: page
             landing_page_level_2: landing_page_level_2
