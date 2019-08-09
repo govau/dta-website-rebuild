@@ -7,9 +7,9 @@ dependencies:
     - node.type.book
     - node.type.govcms_event
     - node.type.home_page
+    - node.type.individual_roadmap_ux
     - node.type.landing_page
     - node.type.landing_page_level_2
-    - node.type.media_release
     - node.type.news_item
     - node.type.page
     - node.type.platforms_and_services
@@ -102,9 +102,9 @@ type_settings:
       - book
       - govcms_event
       - home_page
+      - individual_roadmap_ux
       - landing_page
       - landing_page_level_2
-      - media_release
       - news_item
       - page
       - platforms_and_services

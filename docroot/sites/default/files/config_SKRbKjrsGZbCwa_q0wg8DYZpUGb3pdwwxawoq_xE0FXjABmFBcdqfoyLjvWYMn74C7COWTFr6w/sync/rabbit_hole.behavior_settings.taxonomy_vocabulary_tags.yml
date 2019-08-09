@@ -1,9 +1,11 @@
 uuid: 2c1d4a1f-88de-42bf-bbf2-16d71b281b1f
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  config:
+    - taxonomy.vocabulary.tags
 id: taxonomy_vocabulary_tags
-action: display_page
+action: page_redirect
 allow_override: 0
-redirect: '<front>'
-redirect_code: 301
+redirect: '/news-blogs/all?f%5B0%5D=tags%3A[term:tid]'
+redirect_code: 303
