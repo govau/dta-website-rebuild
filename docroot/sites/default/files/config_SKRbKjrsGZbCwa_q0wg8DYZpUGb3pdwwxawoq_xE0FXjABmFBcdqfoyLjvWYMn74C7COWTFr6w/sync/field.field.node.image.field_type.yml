@@ -1,0 +1,33 @@
+uuid: a1ab2d26-81b6-497e-886e-e39cca400531
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_type
+    - node.type.image
+    - taxonomy.vocabulary.image_type
+  content:
+    - 'taxonomy_term:image_type:d8f9ff04-5de7-458f-859f-a4aca9075b29'
+id: node.image.field_type
+field_name: field_type
+entity_type: node
+bundle: image
+label: Type
+description: 'Select the type of image this is. This will determine how the site categorises and displays images to users in various situations.'
+required: true
+translatable: false
+default_value:
+  -
+    target_uuid: d8f9ff04-5de7-458f-859f-a4aca9075b29
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      image_type: image_type
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -7,16 +7,16 @@ dependencies:
 id: assessment_reports
 label: 'Assessment reports'
 type: 'canonical_entities:node'
-pattern: '/help-and-advice/digital-service-standard/assessment-reports/[node:title]'
+pattern: 'help-and-advice/digital-service-standard/assessment-reports/[node:title]'
 selection_criteria:
-  d68ffc3a-3d45-4dcf-a126-5c3f0f5a8ed4:
+  96ba59a2-e11b-4ade-8f66-de2291e8b906:
     id: node_type
     bundles:
       assessment_report: assessment_report
     negate: false
     context_mapping:
       node: node
-    uuid: d68ffc3a-3d45-4dcf-a126-5c3f0f5a8ed4
+    uuid: 96ba59a2-e11b-4ade-8f66-de2291e8b906
 selection_logic: and
 weight: -5
 relationships: {  }

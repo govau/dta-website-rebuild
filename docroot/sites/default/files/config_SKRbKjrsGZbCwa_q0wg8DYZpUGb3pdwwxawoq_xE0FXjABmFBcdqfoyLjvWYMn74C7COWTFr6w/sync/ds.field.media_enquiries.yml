@@ -1,6 +1,6 @@
 id: media_enquiries
 label: 'Media enquiries'
-ui_limit: news_item|full
+ui_limit: "news_item|full\r\nmedia_release|full"
 properties:
   block: 'block_content:1a98812f-f056-4cf5-97fd-d2316636f507'
   use_block_title: false

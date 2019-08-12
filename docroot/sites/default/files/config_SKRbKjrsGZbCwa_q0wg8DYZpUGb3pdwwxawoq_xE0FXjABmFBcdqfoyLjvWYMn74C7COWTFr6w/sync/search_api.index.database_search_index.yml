@@ -89,6 +89,7 @@ field_settings:
           govcms_event: search_index
           landing_page: search_index
           landing_page_level_2: search_index
+          media_release: search_index
           news_item: search_index
           page: search_index
   status:
@@ -131,6 +132,7 @@ datasource_settings:
         - govcms_event
         - landing_page
         - landing_page_level_2
+        - media_release
         - news_item
         - page
     languages:

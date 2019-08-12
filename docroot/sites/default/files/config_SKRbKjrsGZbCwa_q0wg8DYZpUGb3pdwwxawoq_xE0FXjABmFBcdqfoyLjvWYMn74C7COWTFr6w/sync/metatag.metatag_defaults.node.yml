@@ -10,7 +10,7 @@ tags:
   abstract: '[node:field_summary]'
   canonical_url: '[node:url]'
   description: '[node:field_summary]'
-  image_src: '[node:field_index_image]'
+  image_src: '[node:field_index_image:entity:url]'
   title: '[node:title] | [site:name]'
   dcterms_date: '[node:changed]'
   dcterms_description: '[node:field_summary]'

@@ -1,0 +1,123 @@
+uuid: ca5bbdba-216f-4363-bb9c-eb04424e6607
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.search_result
+    - field.field.node.media_release.field_body
+    - field.field.node.media_release.field_link_to_content
+    - field.field.node.media_release.field_media_release_image
+    - field.field.node.media_release.field_publication_date
+    - field.field.node.media_release.field_summary
+    - field.field.node.media_release.field_tags
+    - node.type.media_release
+  module:
+    - ds
+    - ds_chains
+    - text
+    - user
+third_party_settings:
+  ds:
+    layout:
+      id: layout_onecol
+      library: layout_discovery/onecol
+      disable_css: false
+      entity_classes: all_classes
+      settings: {  }
+    regions:
+      content:
+        - node_title
+        - 'bundle_field:node'
+        - field_summary
+    fields:
+      'bundle_field:node':
+        plugin_id: 'bundle_field:node'
+        weight: 1
+        label: hidden
+        formatter: default
+        ft:
+          id: expert
+          settings:
+            lb: ''
+            prefix: ''
+            lbw-el: ''
+            lbw-cl: ''
+            lbw-at: ''
+            ow-el: ''
+            ow-cl: ''
+            ow-at: ''
+            fis: true
+            fis-el: p
+            fis-cl: ''
+            fis-at: ''
+            fi: true
+            fi-el: em
+            fi-cl: ''
+            fi-at: ''
+            suffix: ''
+            lbw: false
+            lb-col: false
+            ow: false
+            ow-def-at: false
+            ow-def-cl: false
+            fis-def-at: false
+            fi-def-at: false
+      node_title:
+        plugin_id: node_title
+        weight: 0
+        label: hidden
+        formatter: default
+        settings:
+          link: true
+          wrapper: h3
+          class: ''
+        ft:
+          id: expert
+          settings:
+            lb: ''
+            prefix: ''
+            lbw-el: ''
+            lbw-cl: ''
+            lbw-at: ''
+            ow-el: ''
+            ow-cl: ''
+            ow-at: ''
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fi-el: ''
+            fi-cl: ''
+            fi-at: ''
+            suffix: ''
+            lbw: false
+            lb-col: false
+            ow: false
+            ow-def-at: false
+            ow-def-cl: false
+            fis: false
+            fis-def-at: false
+            fi: false
+            fi-def-at: false
+  ds_chains:
+    fields: {  }
+id: node.media_release.search_result
+targetEntityType: node
+bundle: media_release
+mode: search_result
+content:
+  field_summary:
+    weight: 2
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+hidden:
+  content_moderation_control: true
+  field_body: true
+  field_link_to_content: true
+  field_media_release_image: true
+  field_publication_date: true
+  field_tags: true
+  links: true
+  search_api_excerpt: true

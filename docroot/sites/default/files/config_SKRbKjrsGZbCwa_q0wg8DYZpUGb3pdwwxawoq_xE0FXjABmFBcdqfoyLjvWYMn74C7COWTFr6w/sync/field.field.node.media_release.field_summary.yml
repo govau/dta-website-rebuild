@@ -1,0 +1,31 @@
+uuid: b8f3422f-12f3-48b1-a818-1f28d896b796
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_summary
+    - node.type.media_release
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    summary: summary
+    commenting: '0'
+    rich_text: '0'
+    administration: '0'
+    html: '0'
+    introduction: '0'
+    plain_text: '0'
+id: node.media_release.field_summary
+field_name: field_summary
+entity_type: node
+bundle: media_release
+label: Summary
+description: 'Text you write in the <em>Summary</em> appears on ''cards'' when the media release is referenced by other items. It also appears in search results.'
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

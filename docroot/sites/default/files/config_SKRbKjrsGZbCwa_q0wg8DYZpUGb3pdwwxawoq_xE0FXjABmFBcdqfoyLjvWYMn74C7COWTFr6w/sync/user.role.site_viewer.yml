@@ -4,7 +4,7 @@ status: true
 dependencies: {  }
 id: site_viewer
 label: Reviewer
-weight: -7
+weight: -8
 is_admin: null
 permissions:
   - 'access content'

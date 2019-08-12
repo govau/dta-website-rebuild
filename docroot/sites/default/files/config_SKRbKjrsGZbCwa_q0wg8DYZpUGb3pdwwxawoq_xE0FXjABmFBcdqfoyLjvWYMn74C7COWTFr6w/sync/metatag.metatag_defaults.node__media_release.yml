@@ -1,0 +1,13 @@
+uuid: 4320f90b-d95b-4df8-9c9d-60eae11d8443
+langcode: en
+status: true
+dependencies: {  }
+id: node__media_release
+label: 'Content: Media release'
+tags:
+  image_src: '[node:field_media_release_image:entity:field_image:entity:url]'
+  og_updated_time: '[node:changed]'
+  twitter_cards_description: '[node:field_summary]'
+  twitter_cards_page_url: '[node:url]'
+  twitter_cards_title: '[node:title]'
+  twitter_cards_type: summary

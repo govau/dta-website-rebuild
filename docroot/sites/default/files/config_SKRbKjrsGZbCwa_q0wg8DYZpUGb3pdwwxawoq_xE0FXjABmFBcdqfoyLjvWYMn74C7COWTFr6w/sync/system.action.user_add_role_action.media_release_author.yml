@@ -1,0 +1,14 @@
+uuid: ed8fd292-d245-414f-8cef-a844aa1067de
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.media_release_author
+  module:
+    - user
+id: user_add_role_action.media_release_author
+label: 'Add the Media release author role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: media_release_author

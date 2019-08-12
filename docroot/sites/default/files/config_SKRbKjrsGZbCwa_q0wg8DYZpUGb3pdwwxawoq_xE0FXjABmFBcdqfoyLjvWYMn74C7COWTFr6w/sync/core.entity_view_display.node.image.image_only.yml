@@ -1,0 +1,41 @@
+uuid: 972a6e38-e6d7-4441-9eb0-c08183d6d0c4
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.image_only
+    - field.field.node.image.field_image
+    - field.field.node.image.field_type
+    - node.type.image
+  module:
+    - image
+    - user
+id: node.image.image_only
+targetEntityType: node
+bundle: image
+mode: image_only
+content:
+  field_image:
+    weight: 101
+    label: above
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  field_type:
+    weight: 102
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  links:
+    weight: 100
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  search_api_excerpt: true

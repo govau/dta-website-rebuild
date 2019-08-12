@@ -13,7 +13,9 @@ Feature: Search
     And "book" content:
     | title       | field_body       | field_summary  | status | moderation_state |
     | test page 2 | test page 2 body | test summary 2 | 1      | published        |
-
+    And "media_release" content:
+    | title       | field_body       | field_summary  | status | moderation_state |
+    | test page 3 | test page 3 body | test summary 3 | 1      | published        |
     And I run cron
 
     @content @search
@@ -21,4 +23,5 @@ Feature: Search
       When I go to "search?keys=test"
       Then I should see the text "test summary 1"
       And I should see the text "test summary 2"
-      And I should see 2 "h3 a" elements
+      And I should see the text "test summary 3"
+      And I should see 3 "h3 a" elements

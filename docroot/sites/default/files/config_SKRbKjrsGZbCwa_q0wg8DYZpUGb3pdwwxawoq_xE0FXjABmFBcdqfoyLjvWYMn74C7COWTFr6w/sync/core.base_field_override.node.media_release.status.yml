@@ -1,0 +1,22 @@
+uuid: 942237cc-9f99-42c6-bc4f-50d167371352
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.media_release
+id: node.media_release.status
+field_name: status
+entity_type: node
+bundle: media_release
+label: Published
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

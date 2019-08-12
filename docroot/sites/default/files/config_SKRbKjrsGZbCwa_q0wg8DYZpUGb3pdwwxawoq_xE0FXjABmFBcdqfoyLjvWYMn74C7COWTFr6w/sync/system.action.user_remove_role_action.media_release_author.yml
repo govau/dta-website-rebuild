@@ -1,0 +1,14 @@
+uuid: 0d0ac168-37d4-499f-bb7a-fe8cfb3cc6c9
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.media_release_author
+  module:
+    - user
+id: user_remove_role_action.media_release_author
+label: 'Remove the Media release author role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: media_release_author
