@@ -34,7 +34,6 @@ permissions:
   - 'edit own page content'
   - 'edit terms in contacts'
   - 'edit terms in glossary'
-  - 'edit terms in tags'
   - 'revert external_link revisions'
   - 'revert govcms_event revisions'
   - 'revert landing_page_level_2 revisions'

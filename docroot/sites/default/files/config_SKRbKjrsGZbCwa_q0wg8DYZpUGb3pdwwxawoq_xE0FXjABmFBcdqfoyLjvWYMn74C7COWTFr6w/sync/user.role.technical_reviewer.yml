@@ -47,7 +47,6 @@ permissions:
   - 'edit own roadmap_2_user_experience_ content'
   - 'edit terms in blog_authors'
   - 'edit terms in contacts'
-  - 'edit terms in tags'
   - 'revert individual_roadmap_ux revisions'
   - 'revert landing_page_level_2 revisions'
   - 'revert media_release revisions'
