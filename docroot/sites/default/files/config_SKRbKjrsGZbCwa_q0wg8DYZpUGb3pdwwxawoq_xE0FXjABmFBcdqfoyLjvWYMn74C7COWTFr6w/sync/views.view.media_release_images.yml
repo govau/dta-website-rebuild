@@ -8,7 +8,7 @@ dependencies:
     - node.type.image
     - taxonomy.vocabulary.image_type
   content:
-    - 'taxonomy_term:image_type:0b9cda25-8e3e-432a-8d3c-f3e00fb34533'
+    - 'taxonomy_term:image_type:9d8cf357-4b00-4f67-84e5-50a5548109f5'
   module:
     - entity_reference_revisions
     - image
@@ -247,7 +247,7 @@ display:
           admin_label: ''
           operator: or
           value:
-            299: 299
+            369: 369
           group: 1
           exposed: false
           expose:

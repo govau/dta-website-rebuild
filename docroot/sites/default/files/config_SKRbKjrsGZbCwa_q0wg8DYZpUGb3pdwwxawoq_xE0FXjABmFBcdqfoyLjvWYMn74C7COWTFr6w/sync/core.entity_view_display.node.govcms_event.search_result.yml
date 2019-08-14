@@ -126,3 +126,4 @@ hidden:
   field_event_categories: true
   field_summary: true
   field_tags: true
+  search_api_excerpt: true
