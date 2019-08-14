@@ -137,3 +137,4 @@ hidden:
   field_index_image: true
   field_tags: true
   links: true
+  search_api_excerpt: true
