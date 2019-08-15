@@ -10,6 +10,7 @@ dependencies:
     - node.type.individual_roadmap_ux
     - node.type.landing_page
     - node.type.landing_page_level_2
+    - node.type.media_release
     - node.type.news_item
     - node.type.page
     - node.type.platforms_and_services
@@ -105,6 +106,7 @@ type_settings:
       - individual_roadmap_ux
       - landing_page
       - landing_page_level_2
+      - media_release
       - news_item
       - page
       - platforms_and_services
