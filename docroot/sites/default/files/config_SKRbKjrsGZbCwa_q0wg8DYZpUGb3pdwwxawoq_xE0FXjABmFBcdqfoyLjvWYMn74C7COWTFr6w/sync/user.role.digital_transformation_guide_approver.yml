@@ -40,6 +40,7 @@ permissions:
   - 'use editorial transition publish'
   - 'use external_links transition create_new_draft'
   - 'use external_links transition publish'
+  - 'use text format full_rich_text'
   - 'use text format introduction'
   - 'use text format rich_text'
   - 'use text format summary'

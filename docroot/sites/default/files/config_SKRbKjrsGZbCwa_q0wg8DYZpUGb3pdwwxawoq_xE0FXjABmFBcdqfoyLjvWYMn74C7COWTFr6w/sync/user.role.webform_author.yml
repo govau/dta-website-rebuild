@@ -27,6 +27,7 @@ permissions:
   - 'edit webform assets'
   - 'edit webform source'
   - 'edit webform twig'
+  - 'use text format full_rich_text'
   - 'view any webform submission'
   - 'view own unpublished content'
   - 'view own webform submission'

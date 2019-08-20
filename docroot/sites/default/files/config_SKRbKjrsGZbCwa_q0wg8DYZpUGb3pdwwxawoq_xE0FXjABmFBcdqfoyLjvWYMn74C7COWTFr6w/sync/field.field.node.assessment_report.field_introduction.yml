@@ -11,10 +11,13 @@ dependencies:
 third_party_settings:
   allowed_formats:
     introduction: introduction
+    commenting: '0'
     rich_text: '0'
     administration: '0'
     html: '0'
     plain_text: '0'
+    full_rich_text: '0'
+    summary: '0'
 id: node.assessment_report.field_introduction
 field_name: field_introduction
 entity_type: node
