@@ -1,7 +1,7 @@
 seckit_xss:
   csp:
     checkbox: true
-    report-only: false
+    report-only: true
     default-src: ''
     script-src: ''
     object-src: ''
@@ -48,9 +48,9 @@ _core:
   default_config_hash: 1QSPl6Lx4K-hAcSOsRUFyntOnghLfpsDzjY6tbhnAVY
 seckit_ct:
   expect_ct: true
-  max_age: 0
+  max_age: 86400
   report_uri: ''
-  enforce: false
+  enforce: true
 seckit_fp:
   feature_policy: true
   feature_policy_policy: 'autoplay ''none''; sync-xhr ''self'''
