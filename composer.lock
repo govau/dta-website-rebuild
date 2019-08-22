@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "622095a12b8a9879caae8ea857b436c9",
+    "content-hash": "f26eb6e8f08ec3344aaf98dcc8744916",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -3892,7 +3892,7 @@
                 },
                 "drupal": {
                     "version": "8.x-2.2",
-                    "datestamp": "1562240585",
+                    "datestamp": "1562512232",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -4829,17 +4829,11 @@
         },
         {
             "name": "drupal/ie8",
-            "version": "0.1.0",
+            "version": "dev-1.x",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/ie8.git",
-                "reference": "8.x-0.1"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/ie8-8.x-0.1.zip",
-                "reference": "8.x-0.1",
-                "shasum": "c8f5afe63a7091d9558f548b5e5e0747b19cf2e5"
+                "reference": "90b69148118d5b61b121d99a3c8fae05167ad177"
             },
             "require": {
                 "drupal/core": "~8.0"
@@ -4847,14 +4841,14 @@
             "type": "drupal-module",
             "extra": {
                 "branch-alias": {
-                    "dev-0.x": "0.x-dev"
+                    "dev-1.x": "1.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-0.1",
+                    "version": "8.x-1.x-dev",
                     "datestamp": "1446316159",
                     "security-coverage": {
-                        "status": "covered",
-                        "message": "Covered by Drupal's security advisory policy"
+                        "status": "not-covered",
+                        "message": "Dev releases are not covered by Drupal security advisories."
                     }
                 },
                 "patches_applied": {
@@ -4878,8 +4872,9 @@
             "description": "Adds back IE8 compatibility",
             "homepage": "https://www.drupal.org/project/ie8",
             "support": {
-                "source": "http://cgit.drupalcode.org/ie8"
-            }
+                "source": "https://git.drupalcode.org/project/ie8"
+            },
+            "time": "2015-10-31T18:18:50+00:00"
         },
         {
             "name": "drupal/image_style_quality",
@@ -6651,7 +6646,7 @@
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
             "license": [
-                "GPL-2.0-or-later"
+                "GPL-2.0+"
             ],
             "authors": [
                 {
@@ -7240,7 +7235,7 @@
                 },
                 "drupal": {
                     "version": "8.x-1.0-alpha12",
-                    "datestamp": "1560260888",
+                    "datestamp": "1532507885",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Alpha releases are not covered by Drupal security advisories."
@@ -7268,7 +7263,7 @@
             "description": "Create search pages using Search API indexes.",
             "homepage": "https://www.drupal.org/project/search_api_page",
             "support": {
-                "source": "https://git.drupalcode.org/project/search_api_page"
+                "source": "http://cgit.drupalcode.org/search_api_page"
             }
         },
         {
@@ -15871,6 +15866,7 @@
         "drupal/empty_fields": 20,
         "drupal/extlink": 20,
         "drupal/field_group": 20,
+        "drupal/ie8": 20,
         "drupal/link_css": 20,
         "drupal/mail_safety": 20,
         "drupal/rules": 20

@@ -10,12 +10,13 @@ dependencies:
     - text
 third_party_settings:
   allowed_formats:
-    rich_text: rich_text
-    commenting: '0'
+    commenting: commenting
+    rich_text: '0'
     administration: '0'
     html: '0'
     introduction: '0'
     plain_text: '0'
+    full_rich_text: '0'
     summary: '0'
 id: node.media_release.field_body
 field_name: field_body
