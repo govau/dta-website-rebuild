@@ -816,7 +816,7 @@ display:
           expose:
             operator_id: field_theme_target_id_op
             label: Filter
-            description: 'Each initiative aligns to one of the Strategy''s three strategic priorities. Check the coloured boxes to filter by each priority:'
+            description: 'Each initiative aligns to one of the Strategy''s three strategic priorities. Check the boxes to filter by each priority:'
             use_operator: false
             operator: field_theme_target_id_op
             identifier: field_theme_target_id
@@ -826,11 +826,14 @@ display:
             remember_roles:
               authenticated: authenticated
               anonymous: '0'
-              roadmap_viewer: '0'
               site_viewer: '0'
               viewer: '0'
-              comment_moderator: '0'
+              webform_author: '0'
+              digital_transformation_guide_author: '0'
+              media_release_author: '0'
               content_editor: '0'
+              technical_reviewer: '0'
+              digital_transformation_guide_approver: '0'
               content_approver: '0'
               administrator: '0'
             reduce: false
