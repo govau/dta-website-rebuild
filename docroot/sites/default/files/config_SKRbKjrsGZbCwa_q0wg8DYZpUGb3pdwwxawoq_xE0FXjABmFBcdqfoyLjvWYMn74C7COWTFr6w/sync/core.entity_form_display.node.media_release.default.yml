@@ -116,7 +116,7 @@ content:
     region: content
     settings:
       size: 60
-      placeholder: 'Media release:'
+      placeholder: 'Media release title'
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete

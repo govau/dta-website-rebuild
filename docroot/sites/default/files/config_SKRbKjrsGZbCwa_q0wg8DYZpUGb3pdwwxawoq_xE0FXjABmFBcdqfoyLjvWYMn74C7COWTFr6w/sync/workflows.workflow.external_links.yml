@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - node.type.external_link
+    - node.type.media_release
   module:
     - content_moderation
 id: external_links
@@ -39,4 +40,5 @@ type_settings:
   entity_types:
     node:
       - external_link
+      - media_release
   default_moderation_state: draft
