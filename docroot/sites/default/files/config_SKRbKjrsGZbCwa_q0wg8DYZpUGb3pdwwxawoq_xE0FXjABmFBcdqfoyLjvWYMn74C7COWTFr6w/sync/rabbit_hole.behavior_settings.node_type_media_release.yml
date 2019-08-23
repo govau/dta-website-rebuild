@@ -1,0 +1,11 @@
+uuid: 4b9a436f-e6a2-4cbf-b26f-74f89c5ca73d
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.media_release
+id: node_type_media_release
+action: display_page
+allow_override: 1
+redirect: ''
+redirect_code: 301

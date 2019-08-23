@@ -19,5 +19,5 @@ type: media_release
 description: 'Use the <em>media release</em> content type to publish media releases on the website. These will appear on the home page along with news and blog items, in search results and on the main ''News and blogs'' page. You cannot include them in menus.'
 help: 'Use the <em>media release</em> content type to publish media releases on the website. These will appear on the home page along with news and blog items, in search results and on the main ''News and blogs'' page.'
 new_revision: true
-preview_mode: 1
+preview_mode: 2
 display_submitted: false
