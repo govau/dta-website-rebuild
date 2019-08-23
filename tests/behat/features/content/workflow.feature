@@ -26,9 +26,6 @@ Feature: Workflow
       And I follow "Edit"
       And I select "Published" from "Change to"
       And I press "Preview"
-      Then I should see the text "test page 6 body"
-      And I follow "Back to content editing"
-      And I press "Save"
       And the response status code should be 200
 
     @workflow @content-author
