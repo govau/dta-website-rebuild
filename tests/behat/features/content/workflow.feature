@@ -14,6 +14,20 @@ Feature: Workflow
     | test page 4 | test page 4 introduction | test page 4 body | test summary 4 | 0      | ready_to_publish |
     | test page 5 | test page 5 introduction | test page 5 body | test summary 5 | 0      | ready_to_publish |
 
+    And "media_release" content:
+    | title       | field_body       | field_summary  | status | moderation_state |
+    | test page 6 | test page 6 body | test summary 6 | 0      | draft            |
+
+    @workflow @media-release-author
+
+    Scenario: Create new content and publish
+      Given I am logged in as a user with the "Media release author" role
+      When I am on "/media-release/test-page-6"
+      And I follow "Edit"
+      And I select "Published" from "Change to"
+      And I press "Preview"
+      And the response status code should be 200
+
     @workflow @content-author
 
     Scenario: Create new content and submit for technical review
