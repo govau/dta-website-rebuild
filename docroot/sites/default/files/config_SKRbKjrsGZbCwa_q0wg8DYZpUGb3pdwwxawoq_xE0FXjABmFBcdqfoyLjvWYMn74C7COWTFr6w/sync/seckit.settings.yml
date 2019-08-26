@@ -11,7 +11,7 @@ seckit_xss:
     child-src: ''
     font-src: ''
     connect-src: ''
-    report-uri: /report-csp-violation
+    report-uri: 'https://dtagovau.report-uri.com/r/d/csp/reportOnly'
     policy-uri: ''
     vendor-prefix:
       x: true
@@ -49,7 +49,7 @@ _core:
 seckit_ct:
   expect_ct: true
   max_age: 86400
-  report_uri: ''
+  report_uri: 'https://dtagovau.report-uri.com/r/d/ct/enforce'
   enforce: true
 seckit_fp:
   feature_policy: true
