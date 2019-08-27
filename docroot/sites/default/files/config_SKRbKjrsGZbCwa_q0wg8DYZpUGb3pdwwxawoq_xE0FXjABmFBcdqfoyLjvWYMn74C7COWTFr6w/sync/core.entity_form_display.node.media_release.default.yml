@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.media_release.field_attachments
     - field.field.node.media_release.field_body
     - field.field.node.media_release.field_link_to_content
     - field.field.node.media_release.field_media_release_image
@@ -10,12 +11,14 @@ dependencies:
     - field.field.node.media_release.field_summary
     - field.field.node.media_release.field_tags
     - node.type.media_release
-    - workflows.workflow.dta_publishing
+    - workflows.workflow.external_links
   module:
     - content_moderation
     - datetime
     - entity_reference_views_select
     - field_layout
+    - file
+    - imce
     - layout_discovery
     - link
     - path
@@ -35,6 +38,15 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_attachments:
+    weight: 14
+    settings:
+      progress_indicator: throbber
+    third_party_settings:
+      imce:
+        enabled: false
+    type: file_generic
+    region: content
   field_body:
     weight: 12
     settings:
@@ -52,7 +64,7 @@ content:
     type: link_default
     region: content
   field_media_release_image:
-    weight: 14
+    weight: 15
     settings: {  }
     third_party_settings: {  }
     type: erviews_options_buttons

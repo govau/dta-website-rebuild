@@ -8,6 +8,7 @@ dependencies:
     - field.storage.node.field_publication_date
     - field.storage.node.field_summary
     - node.type.blog_post
+    - node.type.media_release
     - node.type.news_item
     - taxonomy.vocabulary.tags
   module:
@@ -599,6 +600,7 @@ display:
           operator: in
           value:
             blog_post: blog_post
+            media_release: media_release
             news_item: news_item
           group: 1
           exposed: false
