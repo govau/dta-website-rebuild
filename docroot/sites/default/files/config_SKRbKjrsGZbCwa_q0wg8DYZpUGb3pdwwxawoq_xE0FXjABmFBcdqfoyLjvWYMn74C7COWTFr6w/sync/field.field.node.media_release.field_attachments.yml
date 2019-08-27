@@ -1,0 +1,46 @@
+uuid: f8e09c57-141b-484d-98af-d27e25c1f0d1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_attachments
+    - node.type.media_release
+  module:
+    - file
+    - filefield_paths
+third_party_settings:
+  filefield_paths:
+    enabled: true
+    file_path:
+      value: files/attachments/media-releases
+      options:
+        slashes: true
+        pathauto: true
+        transliterate: true
+    redirect: true
+    retroactive_update: false
+    active_updating: false
+    file_name:
+      value: '[file:ffp-name-only-original].[file:ffp-extension-original]'
+      options:
+        slashes: true
+        pathauto: true
+        transliterate: true
+id: node.media_release.field_attachments
+field_name: field_attachments
+entity_type: node
+bundle: media_release
+label: 'File attachments'
+description: "<p>Use the <em>file attachments</em> field to attach one or more files to the page.</p>\r\n<ul>\r\n<li>The site uses the text you add to the <em>Description</em> field as the link text.</li>\r\n<li>If you add a single file, the site shows the link in a paragraph at the bottom of the page.</li>\r\n<li>If you add multiple files, the site shows the links as a bulleted list at the bottom of the page.</li>\r\n<li>The site automatically displays the file type and size, you don't need to add these manually.</li>\r\n</ul>"
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'pdf doc docx'
+  max_filesize: ''
+  description_field: true
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: file

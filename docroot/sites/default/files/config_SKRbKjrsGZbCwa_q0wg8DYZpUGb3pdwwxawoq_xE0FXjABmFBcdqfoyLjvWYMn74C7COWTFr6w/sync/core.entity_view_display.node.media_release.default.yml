@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.media_release.field_attachments
     - field.field.node.media_release.field_body
     - field.field.node.media_release.field_link_to_content
     - field.field.node.media_release.field_media_release_image
@@ -12,6 +13,7 @@ dependencies:
     - node.type.media_release
   module:
     - datetime
+    - file
     - link
     - text
     - user
@@ -25,6 +27,14 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_attachments:
+    weight: 107
+    label: above
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+    type: file_default
+    region: content
   field_body:
     weight: 102
     label: above

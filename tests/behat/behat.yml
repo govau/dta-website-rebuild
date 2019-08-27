@@ -35,15 +35,18 @@ default:
       paths:
         features:           %paths.base%/features/engagement
   extensions:
+    Bex\Behat\ScreenshotExtension:
+      image_drivers:
+        local:
+          screenshot_directory: ../tests/screenshots
     Behat\MinkExtension:
-      #base_url:             'Set via environment variables'
       goutte:               ~
-      selenium2:
-        wd_host:            'http://localhost:4444/wd/hub'
-        browser:            chrome
+      #base_url:             'Set via environment variables'
       javascript_session:   selenium2
-      browser_name:         chrome
       show_cmd:             '/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome %s'
+      selenium2:
+        wd_host:            http://au.gov.cld.y.dta-website-rebuild-test:4444/wd/hub
+      files_path:           %paths.base%/files/
     Drupal\DrupalExtension:
       selectors:
         message_selector: '.messages'
@@ -54,6 +57,9 @@ default:
       drush:
         root:               'docroot'
         alias:              'local'
+      text:
+        log_out:            'Log out'
+        log_in:             'Log in'
       drupal:
         drupal_root:        'docroot'
       region_map:
