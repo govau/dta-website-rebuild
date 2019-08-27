@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.full
+    - field.field.node.media_release.field_attachments
     - field.field.node.media_release.field_body
     - field.field.node.media_release.field_link_to_content
     - field.field.node.media_release.field_media_release_image
@@ -17,6 +18,7 @@ dependencies:
     - ds_chains
     - empty_fields
     - field_group
+    - file
     - link
     - text
     - user
@@ -35,12 +37,13 @@ third_party_settings:
         - field_tags
         - field_body
         - field_link_to_content
-        - 'dynamic_block_field:node-media_enquiries'
+        - field_attachments
         - field_publication_date
+        - 'dynamic_block_field:node-media_enquiries'
     fields:
       'dynamic_block_field:node-media_enquiries':
         plugin_id: 'dynamic_block_field:node-media_enquiries'
-        weight: 5
+        weight: 6
         label: hidden
         formatter: default
         ft:
@@ -101,6 +104,45 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_attachments:
+    type: file_default
+    weight: 5
+    region: content
+    label: hidden
+    settings:
+      use_description_as_link_text: true
+    third_party_settings:
+      empty_fields:
+        handler: ''
+      ds:
+        ds_limit: ''
+        ft:
+          id: expert
+          settings:
+            lb: ''
+            prefix: ''
+            lbw-el: ''
+            lbw-cl: ''
+            lbw-at: ''
+            ow: true
+            ow-el: div
+            ow-cl: ''
+            ow-at: ''
+            fis: true
+            fis-el: ul
+            fis-cl: ''
+            fis-at: ''
+            fi: true
+            fi-el: li
+            fi-cl: ''
+            fi-at: ''
+            suffix: ''
+            lbw: false
+            lb-col: false
+            ow-def-at: false
+            ow-def-cl: false
+            fis-def-at: false
+            fi-def-at: false
   field_body:
     weight: 3
     label: hidden
