@@ -38,7 +38,7 @@ filters:
     status: true
     weight: -10
     settings:
-      allowed_html: '<em> <strong> <cite> <blockquote cite> <code> <ul type> <ol start type> <li> <dl> <dt> <dd> <h2 id> <h3 id> <h4 id> <h5 id> <h6 id> <a href hreflang data-entity-substitution data-entity-type data-entity-uuid title> <sup> <p class="au-callout au-pullquote align-left align-right"> <pre> <div class="au-callout"> <table *> <caption> <tr *> <th *> <td *> <figure> <figcaption> <img *>'
+      allowed_html: '<em> <strong> <cite> <blockquote cite> <code> <ul type> <ol start type> <li> <dl> <dt> <dd> <h2 id> <h3 id> <h4 id> <h5 id> <h6 id> <a class href hreflang data-entity-substitution data-entity-type data-entity-uuid title> <sup> <p class> <pre> <div class id> <table class id summary> <caption> <tbody> <thead> <tfoot> <tr class> <col span> <colgroup> <th class rowspan colspan scope> <td class rowspan colspan scope> <figure> <figcaption> <img alt src class data-align data-caption>'
       filter_html_help: true
       filter_html_nofollow: false
   filter_url:
