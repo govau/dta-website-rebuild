@@ -1,0 +1,40 @@
+uuid: 32d258f5-9292-4d17-a275-eab2db18b229
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.card
+    - field.field.node.speaker_bio.field_body
+    - field.field.node.speaker_bio.field_index_image
+    - field.field.node.speaker_bio.field_short_name
+    - field.field.node.speaker_bio.field_speaker_type
+    - field.field.node.speaker_bio.field_weight
+    - node.type.speaker_bio
+  module:
+    - ds_chains
+    - image
+    - user
+third_party_settings:
+  ds_chains:
+    fields: {  }
+id: node.speaker_bio.card
+targetEntityType: node
+bundle: speaker_bio
+mode: card
+content:
+  field_index_image:
+    weight: 0
+    label: hidden
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+hidden:
+  field_body: true
+  field_short_name: true
+  field_speaker_type: true
+  field_weight: true
+  links: true
+  search_api_excerpt: true

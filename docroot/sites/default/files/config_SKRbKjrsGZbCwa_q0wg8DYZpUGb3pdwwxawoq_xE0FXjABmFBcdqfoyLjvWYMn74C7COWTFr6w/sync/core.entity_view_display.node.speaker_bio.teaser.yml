@@ -1,0 +1,27 @@
+uuid: f1f4e70a-9050-4e67-aa42-fd2f067dabda
+langcode: en
+status: false
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.speaker_bio.field_body
+    - field.field.node.speaker_bio.field_index_image
+    - field.field.node.speaker_bio.field_short_name
+    - node.type.speaker_bio
+  module:
+    - user
+id: node.speaker_bio.teaser
+targetEntityType: node
+bundle: speaker_bio
+mode: teaser
+content:
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_body: true
+  field_index_image: true
+  field_short_name: true
+  search_api_excerpt: true

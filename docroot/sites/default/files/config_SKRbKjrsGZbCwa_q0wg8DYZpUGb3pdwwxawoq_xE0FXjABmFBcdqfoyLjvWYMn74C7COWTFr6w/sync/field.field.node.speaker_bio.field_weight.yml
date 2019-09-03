@@ -1,0 +1,24 @@
+uuid: 9a29a5f0-cb8a-46e6-983b-d27b096184aa
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_weight
+    - node.type.speaker_bio
+  module:
+    - weight
+id: node.speaker_bio.field_weight
+field_name: field_weight
+entity_type: node
+bundle: speaker_bio
+label: Weighting
+description: 'Use the <em>weight</em> field to adjust the order of speakers.'
+required: false
+translatable: true
+default_value:
+  -
+    value: '0'
+default_value_callback: ''
+settings:
+  range: '20'
+field_type: weight
