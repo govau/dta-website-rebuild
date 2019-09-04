@@ -5,14 +5,17 @@ dependencies:
   config:
     - field.storage.node.field_event
     - node.type.govcms_event
+    - node.type.landing_page
+    - node.type.landing_page_level_2
+    - node.type.page
     - node.type.presentation
 id: node.presentation.field_event
 field_name: field_event
 entity_type: node
 bundle: presentation
 label: Event
-description: 'Use the <em>event</em> field to collect presentations or sessions into a group. Various views will ensure that only the correct items appear on a page.'
-required: false
+description: 'Use the <em>event</em> field to collect presentations into a group. Various views will ensure that only the correct speakers appear on a page. You can select from different content types, depending on how the event has been set up. This field will also create the URL.'
+required: true
 translatable: true
 default_value: {  }
 default_value_callback: ''
@@ -21,9 +24,12 @@ settings:
   handler_settings:
     target_bundles:
       govcms_event: govcms_event
+      landing_page: landing_page
+      page: page
+      landing_page_level_2: landing_page_level_2
     sort:
       field: title
       direction: ASC
     auto_create: false
-    auto_create_bundle: ''
+    auto_create_bundle: govcms_event
 field_type: entity_reference

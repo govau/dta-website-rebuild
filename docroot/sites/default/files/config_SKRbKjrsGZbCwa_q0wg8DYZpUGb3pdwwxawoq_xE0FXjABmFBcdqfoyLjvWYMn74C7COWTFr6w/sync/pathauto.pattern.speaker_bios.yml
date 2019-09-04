@@ -5,18 +5,19 @@ dependencies:
   module:
     - node
 id: speaker_bios
-label: 'Speaker bios'
+label: 'Speakers and presentations'
 type: 'canonical_entities:node'
-pattern: 'help-and-advice/digital-summit-2019/speakers/[node:title]'
+pattern: '[node:field_event:entity:menu-link:parents:join-path]/[node:field_event:entity:menu-link]/[node:menu-link:parent]/[node:title]'
 selection_criteria:
-  6e7c4a69-6bf6-4769-a54c-de97ba22b130:
+  0db52eda-ce38-489b-8e1f-60460d6a1ed0:
     id: node_type
     bundles:
+      presentation: presentation
       speaker_bio: speaker_bio
     negate: false
     context_mapping:
       node: node
-    uuid: 6e7c4a69-6bf6-4769-a54c-de97ba22b130
+    uuid: 0db52eda-ce38-489b-8e1f-60460d6a1ed0
 selection_logic: and
 weight: -5
 relationships: {  }
