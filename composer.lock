@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a137cec1e35e3f50e5d48785259cfe5f",
+    "content-hash": "a83e4bb9243f8d31f67ae79fe65e4d32",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2570,142 +2570,6 @@
             "homepage": "https://www.drupal.org/project/composer_deploy",
             "support": {
                 "source": "https://git.drupalcode.org/project/composer_deploy"
-            }
-        },
-        {
-            "name": "drupal/config_filter",
-            "version": "1.4.0",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupalcode.org/project/config_filter.git",
-                "reference": "8.x-1.4"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/config_filter-8.x-1.4.zip",
-                "reference": "8.x-1.4",
-                "shasum": "4b2b7f4dfc8358212f9e25f63dcc77cc2c1dcf6c"
-            },
-            "require": {
-                "drupal/core": "~8.0"
-            },
-            "suggest": {
-                "drupal/config_split": "Split site configuration for different environments."
-            },
-            "type": "drupal-module",
-            "extra": {
-                "branch-alias": {
-                    "dev-1.x": "1.x-dev"
-                },
-                "drupal": {
-                    "version": "8.x-1.4",
-                    "datestamp": "1542184982",
-                    "security-coverage": {
-                        "status": "covered",
-                        "message": "Covered by Drupal's security advisory policy"
-                    }
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0+"
-            ],
-            "authors": [
-                {
-                    "name": "Fabian Bircher",
-                    "homepage": "https://www.drupal.org/u/bircher",
-                    "email": "opensource@fabianbircher.com",
-                    "role": "Maintainer"
-                },
-                {
-                    "name": "Nuvole Web",
-                    "homepage": "http://nuvole.org",
-                    "email": "info@nuvole.org",
-                    "role": "Maintainer"
-                },
-                {
-                    "name": "pescetti",
-                    "homepage": "https://www.drupal.org/user/436244"
-                }
-            ],
-            "description": "Config Filter allows other modules to interact with a ConfigStorage through filter plugins.",
-            "homepage": "https://www.drupal.org/project/config_filter",
-            "keywords": [
-                "Drupal",
-                "configuration",
-                "configuration management"
-            ],
-            "support": {
-                "source": "http://cgit.drupalcode.org/config_filter",
-                "issues": "https://www.drupal.org/project/issues/config_filter",
-                "irc": "irc://irc.freenode.org/drupal-contribute"
-            }
-        },
-        {
-            "name": "drupal/config_split",
-            "version": "1.2.0",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupalcode.org/project/config_split.git",
-                "reference": "8.x-1.2"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/config_split-8.x-1.2.zip",
-                "reference": "8.x-1.2",
-                "shasum": "f3683737bae3927073b511c1313a047668d0eab1"
-            },
-            "require": {
-                "drupal/config_filter": "*",
-                "drupal/core": "*"
-            },
-            "type": "drupal-module",
-            "extra": {
-                "branch-alias": {
-                    "dev-1.x": "1.x-dev"
-                },
-                "drupal": {
-                    "version": "8.x-1.2",
-                    "datestamp": "1511810585",
-                    "security-coverage": {
-                        "status": "covered",
-                        "message": "Covered by Drupal's security advisory policy"
-                    }
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0+"
-            ],
-            "authors": [
-                {
-                    "name": "Fabian Bircher",
-                    "homepage": "https://www.drupal.org/u/bircher",
-                    "email": "opensource@fabianbircher.com",
-                    "role": "Maintainer"
-                },
-                {
-                    "name": "Nuvole Web",
-                    "homepage": "http://nuvole.org",
-                    "email": "info@nuvole.org",
-                    "role": "Maintainer"
-                },
-                {
-                    "name": "pescetti",
-                    "homepage": "https://www.drupal.org/user/436244"
-                }
-            ],
-            "description": "Configuration filter for importing and exporting extra config",
-            "homepage": "https://www.drupal.org/project/config_split",
-            "keywords": [
-                "Drupal",
-                "configuration",
-                "configuration management"
-            ],
-            "support": {
-                "source": "http://cgit.drupalcode.org/config_split",
-                "issues": "https://www.drupal.org/project/issues/config_split",
-                "irc": "irc://irc.freenode.org/drupal-contribute"
             }
         },
         {
@@ -9003,16 +8867,16 @@
         },
         {
             "name": "govau/dta-gov-au",
-            "version": "1.9.24",
+            "version": "1.9.25",
             "source": {
                 "type": "git",
                 "url": "https://github.com/govau/dta-gov-au.git",
-                "reference": "e3a6c2f72f284d33b51dda8013d8f6c25212b4f2"
+                "reference": "9aee4de7ab42241ec2867a58bceb0b96fc922503"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/govau/dta-gov-au/zipball/e3a6c2f72f284d33b51dda8013d8f6c25212b4f2",
-                "reference": "e3a6c2f72f284d33b51dda8013d8f6c25212b4f2",
+                "url": "https://api.github.com/repos/govau/dta-gov-au/zipball/9aee4de7ab42241ec2867a58bceb0b96fc922503",
+                "reference": "9aee4de7ab42241ec2867a58bceb0b96fc922503",
                 "shasum": ""
             },
             "require": {
@@ -9030,7 +8894,7 @@
                 "government",
                 "theme"
             ],
-            "time": "2019-08-28T23:33:11+00:00"
+            "time": "2019-09-04T05:14:00+00:00"
         },
         {
             "name": "govau/dta-uikit-base",
@@ -13711,6 +13575,142 @@
                 "standards"
             ],
             "time": "2017-03-18T10:28:49+00:00"
+        },
+        {
+            "name": "drupal/config_filter",
+            "version": "1.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/config_filter.git",
+                "reference": "8.x-1.4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/config_filter-8.x-1.4.zip",
+                "reference": "8.x-1.4",
+                "shasum": "4b2b7f4dfc8358212f9e25f63dcc77cc2c1dcf6c"
+            },
+            "require": {
+                "drupal/core": "~8.0"
+            },
+            "suggest": {
+                "drupal/config_split": "Split site configuration for different environments."
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.4",
+                    "datestamp": "1542184982",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Fabian Bircher",
+                    "homepage": "https://www.drupal.org/u/bircher",
+                    "email": "opensource@fabianbircher.com",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "Nuvole Web",
+                    "homepage": "http://nuvole.org",
+                    "email": "info@nuvole.org",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "pescetti",
+                    "homepage": "https://www.drupal.org/user/436244"
+                }
+            ],
+            "description": "Config Filter allows other modules to interact with a ConfigStorage through filter plugins.",
+            "homepage": "https://www.drupal.org/project/config_filter",
+            "keywords": [
+                "Drupal",
+                "configuration",
+                "configuration management"
+            ],
+            "support": {
+                "source": "http://cgit.drupalcode.org/config_filter",
+                "issues": "https://www.drupal.org/project/issues/config_filter",
+                "irc": "irc://irc.freenode.org/drupal-contribute"
+            }
+        },
+        {
+            "name": "drupal/config_split",
+            "version": "1.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/config_split.git",
+                "reference": "8.x-1.2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/config_split-8.x-1.2.zip",
+                "reference": "8.x-1.2",
+                "shasum": "f3683737bae3927073b511c1313a047668d0eab1"
+            },
+            "require": {
+                "drupal/config_filter": "*",
+                "drupal/core": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.2",
+                    "datestamp": "1511810585",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Fabian Bircher",
+                    "homepage": "https://www.drupal.org/u/bircher",
+                    "email": "opensource@fabianbircher.com",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "Nuvole Web",
+                    "homepage": "http://nuvole.org",
+                    "email": "info@nuvole.org",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "pescetti",
+                    "homepage": "https://www.drupal.org/user/436244"
+                }
+            ],
+            "description": "Configuration filter for importing and exporting extra config",
+            "homepage": "https://www.drupal.org/project/config_split",
+            "keywords": [
+                "Drupal",
+                "configuration",
+                "configuration management"
+            ],
+            "support": {
+                "source": "http://cgit.drupalcode.org/config_split",
+                "issues": "https://www.drupal.org/project/issues/config_split",
+                "irc": "irc://irc.freenode.org/drupal-contribute"
+            }
         },
         {
             "name": "drupal/console",

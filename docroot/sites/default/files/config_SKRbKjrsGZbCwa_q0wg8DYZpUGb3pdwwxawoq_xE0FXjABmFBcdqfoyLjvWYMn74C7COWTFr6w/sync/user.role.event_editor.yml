@@ -1,0 +1,35 @@
+uuid: ed4f13fe-7d2d-4b42-935e-bceb07fd6c70
+langcode: en
+status: true
+dependencies: {  }
+id: event_editor
+label: 'Event editor'
+weight: -3
+is_admin: null
+permissions:
+  - 'access administration pages'
+  - 'access content overview'
+  - 'access files overview'
+  - 'access image_browser entity browser pages'
+  - 'access taxonomy overview'
+  - 'administer main menu items'
+  - 'bypass honeypot protection'
+  - 'create govcms_event content'
+  - 'create speaker_bio content'
+  - 'create terms in speaker_type'
+  - 'delete terms in speaker_type'
+  - 'edit any govcms_event content'
+  - 'edit any speaker_bio content'
+  - 'edit own govcms_event content'
+  - 'edit own speaker_bio content'
+  - 'edit terms in speaker_type'
+  - 'revert govcms_event revisions'
+  - 'revert speaker_bio revisions'
+  - 'use external_links transition create_new_draft'
+  - 'use external_links transition publish'
+  - 'use text format commenting'
+  - 'view any unpublished content'
+  - 'view govcms_event revisions'
+  - 'view latest version'
+  - 'view own unpublished content'
+  - 'view speaker_bio revisions'

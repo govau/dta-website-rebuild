@@ -24,4 +24,5 @@ view_mode_configuration:
   'entity:node_media_release': search_result
   'entity:node_news_item': search_result
   'entity:node_page': search_result
+  'entity:node_speaker_bio': search_result
 show_search_form: true

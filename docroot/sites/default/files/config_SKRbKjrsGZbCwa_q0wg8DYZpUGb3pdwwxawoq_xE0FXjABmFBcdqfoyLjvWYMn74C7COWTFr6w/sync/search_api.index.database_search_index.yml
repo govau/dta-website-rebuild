@@ -92,6 +92,7 @@ field_settings:
           media_release: search_index
           news_item: search_index
           page: search_index
+          speaker_bio: search_index
   status:
     label: status
     datasource_id: 'entity:node'
@@ -135,6 +136,7 @@ datasource_settings:
         - media_release
         - news_item
         - page
+        - speaker_bio
     languages:
       default: true
       selected: {  }
@@ -187,9 +189,6 @@ processor_settings:
       - rendered_item
       - title
     ignorable: '[''¿¡!?,.:;]'
-    weights:
-      preprocess_index: -46
-      preprocess_query: -46
     ignorable_classes:
       - Pc
       - Pd
@@ -198,6 +197,9 @@ processor_settings:
       - Pi
       - Po
       - Ps
+    weights:
+      preprocess_index: -46
+      preprocess_query: -46
   ignorecase:
     all_fields: true
     fields:
@@ -293,8 +295,10 @@ processor_settings:
           govcms_event: !!float 1
           landing_page: !!float 8
           landing_page_level_2: !!float 8
+          media_release: !!float 1
           news_item: !!float 5
           page: !!float 13
+          speaker_bio: !!float 1
     weights:
       preprocess_index: -43
 tracker_settings:
