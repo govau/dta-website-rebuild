@@ -4,11 +4,12 @@ status: true
 dependencies: {  }
 id: technical_reviewer
 label: 'Technical reviewer'
-weight: -2
+weight: -1
 is_admin: null
 permissions:
   - 'access administration pages'
   - 'access content overview'
+  - 'access files overview'
   - 'access image_browser entity browser pages'
   - 'access taxonomy overview'
   - 'administer footer menu items'

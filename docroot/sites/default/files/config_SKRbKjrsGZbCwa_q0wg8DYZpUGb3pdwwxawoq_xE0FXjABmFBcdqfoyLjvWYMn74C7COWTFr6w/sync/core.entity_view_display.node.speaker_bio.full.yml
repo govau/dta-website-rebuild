@@ -10,7 +10,6 @@ dependencies:
     - field.field.node.speaker_bio.field_orgnaisation
     - field.field.node.speaker_bio.field_position
     - field.field.node.speaker_bio.field_short_name
-    - field.field.node.speaker_bio.field_speaker_type
     - field.field.node.speaker_bio.field_weight
     - node.type.speaker_bio
     - responsive_image.styles.hero_image
@@ -206,7 +205,6 @@ content:
 hidden:
   content_moderation_control: true
   field_index_image: true
-  field_speaker_type: true
   field_weight: true
   links: true
   search_api_excerpt: true

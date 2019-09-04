@@ -14,7 +14,6 @@ dependencies:
     - node.type.speaker_bio
   module:
     - image
-    - options
     - text
     - user
 id: node.speaker_bio.default
@@ -77,11 +76,12 @@ content:
     type: string
     region: content
   field_speaker_type:
-    weight: 105
+    weight: 109
     label: above
-    settings: {  }
+    settings:
+      link: true
     third_party_settings: {  }
-    type: list_default
+    type: entity_reference_label
     region: content
   field_weight:
     weight: 104

@@ -86,10 +86,10 @@ content:
     type: string_textfield
     region: content
   field_speaker_type:
-    weight: 125
+    weight: 129
     settings: {  }
     third_party_settings: {  }
-    type: options_select
+    type: options_buttons
     region: content
   field_weight:
     weight: 124
@@ -149,7 +149,7 @@ content:
     third_party_settings: {  }
   url_redirects:
     weight: 50
+    region: content
     settings: {  }
     third_party_settings: {  }
-    region: content
 hidden: {  }

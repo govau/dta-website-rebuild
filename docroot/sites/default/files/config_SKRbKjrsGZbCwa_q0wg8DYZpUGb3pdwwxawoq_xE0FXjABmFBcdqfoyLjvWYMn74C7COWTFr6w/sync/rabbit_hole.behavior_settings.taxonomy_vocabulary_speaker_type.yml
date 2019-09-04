@@ -1,0 +1,11 @@
+uuid: 3d64e75d-45be-4ff0-83f1-6acd8eb75636
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.speaker_type
+id: taxonomy_vocabulary_speaker_type
+action: display_page
+allow_override: 1
+redirect: ''
+redirect_code: 301

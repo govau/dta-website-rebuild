@@ -10,13 +10,11 @@ dependencies:
     - field.field.node.speaker_bio.field_orgnaisation
     - field.field.node.speaker_bio.field_position
     - field.field.node.speaker_bio.field_short_name
-    - field.field.node.speaker_bio.field_speaker_type
     - field.field.node.speaker_bio.field_weight
     - node.type.speaker_bio
   module:
     - ds
     - ds_chains
-    - options
     - text
     - user
 third_party_settings:
@@ -79,13 +77,6 @@ content:
     third_party_settings: {  }
     type: string
     region: content
-  field_speaker_type:
-    type: list_default
-    weight: 2
-    region: content
-    label: hidden
-    settings: {  }
-    third_party_settings: {  }
 hidden:
   content_moderation_control: true
   field_image: true

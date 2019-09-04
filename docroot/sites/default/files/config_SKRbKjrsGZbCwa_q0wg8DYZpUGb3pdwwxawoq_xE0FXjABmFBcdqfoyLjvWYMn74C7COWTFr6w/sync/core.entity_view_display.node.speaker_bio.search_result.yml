@@ -10,7 +10,6 @@ dependencies:
     - field.field.node.speaker_bio.field_orgnaisation
     - field.field.node.speaker_bio.field_position
     - field.field.node.speaker_bio.field_short_name
-    - field.field.node.speaker_bio.field_speaker_type
     - field.field.node.speaker_bio.field_weight
     - node.type.speaker_bio
   module:
@@ -153,7 +152,6 @@ hidden:
   field_orgnaisation: true
   field_position: true
   field_short_name: true
-  field_speaker_type: true
   field_weight: true
   links: true
   search_api_excerpt: true
