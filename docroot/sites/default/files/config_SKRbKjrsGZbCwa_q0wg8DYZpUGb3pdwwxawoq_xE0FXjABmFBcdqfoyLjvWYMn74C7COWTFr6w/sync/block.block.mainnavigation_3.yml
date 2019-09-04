@@ -37,6 +37,7 @@ visibility:
       landing_page_level_2: landing_page_level_2
       page: page
       platforms_and_services: platforms_and_services
+      speaker_bio: speaker_bio
     negate: false
     context_mapping:
       node: '@node.node_route_context:node'
@@ -51,6 +52,7 @@ visibility:
       news_item: news_item
       page: page
       platforms_and_services: platforms_and_services
+      speaker_bio: speaker_bio
     negate: false
     context_mapping:
       node: '@node.node_route_context:node'

@@ -4,7 +4,10 @@ status: true
 dependencies:
   config:
     - field.field.node.speaker_bio.field_body
+    - field.field.node.speaker_bio.field_image
     - field.field.node.speaker_bio.field_index_image
+    - field.field.node.speaker_bio.field_orgnaisation
+    - field.field.node.speaker_bio.field_position
     - field.field.node.speaker_bio.field_short_name
     - field.field.node.speaker_bio.field_speaker_type
     - field.field.node.speaker_bio.field_weight
@@ -19,12 +22,26 @@ targetEntityType: node
 bundle: speaker_bio
 mode: default
 content:
+  content_moderation_control:
+    weight: -20
+    settings: {  }
+    third_party_settings: {  }
+    region: content
   field_body:
     weight: 101
     label: above
     settings: {  }
     third_party_settings: {  }
     type: text_default
+    region: content
+  field_image:
+    weight: 108
+    label: above
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
     region: content
   field_index_image:
     weight: 102
@@ -34,6 +51,22 @@ content:
       image_link: ''
     third_party_settings: {  }
     type: image
+    region: content
+  field_orgnaisation:
+    weight: 107
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_position:
+    weight: 106
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
     region: content
   field_short_name:
     weight: 103

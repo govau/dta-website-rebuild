@@ -5,15 +5,20 @@ dependencies:
   config:
     - core.entity_view_mode.node.full
     - field.field.node.speaker_bio.field_body
+    - field.field.node.speaker_bio.field_image
     - field.field.node.speaker_bio.field_index_image
+    - field.field.node.speaker_bio.field_orgnaisation
+    - field.field.node.speaker_bio.field_position
     - field.field.node.speaker_bio.field_short_name
+    - field.field.node.speaker_bio.field_speaker_type
     - field.field.node.speaker_bio.field_weight
     - node.type.speaker_bio
+    - responsive_image.styles.hero_image
   module:
     - ds
     - ds_chains
     - empty_fields
-    - image
+    - responsive_image
     - text
     - user
 third_party_settings:
@@ -26,7 +31,9 @@ third_party_settings:
       settings: {  }
     regions:
       content:
-        - field_index_image
+        - field_image
+        - field_position
+        - field_orgnaisation
         - field_body
         - field_short_name
   ds_chains:
@@ -37,17 +44,19 @@ bundle: speaker_bio
 mode: full
 content:
   field_body:
-    weight: 2
+    weight: 4
     label: hidden
     settings: {  }
     third_party_settings: {  }
     type: text_default
     region: content
-  field_index_image:
-    weight: 1
+  field_image:
+    type: responsive_image
+    weight: 0
+    region: content
     label: hidden
     settings:
-      image_style: ''
+      responsive_image_style: hero_image
       image_link: ''
     third_party_settings:
       empty_fields:
@@ -80,10 +89,84 @@ content:
             fis-def-at: false
             fi: false
             fi-def-at: false
-    type: image
-    region: content
-  field_short_name:
+  field_orgnaisation:
+    type: string
     weight: 3
+    region: content
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings:
+      empty_fields:
+        handler: ''
+      ds:
+        ft:
+          id: expert
+          settings:
+            lb: ''
+            prefix: ''
+            lbw-el: ''
+            lbw-cl: ''
+            lbw-at: ''
+            ow: true
+            ow-el: p
+            ow-cl: ''
+            ow-at: ''
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fi: true
+            fi-el: strong
+            fi-cl: ''
+            fi-at: ''
+            suffix: ''
+            lbw: false
+            lb-col: false
+            ow-def-at: false
+            ow-def-cl: false
+            fis: false
+            fis-def-at: false
+            fi-def-at: false
+  field_position:
+    type: string
+    weight: 2
+    region: content
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings:
+      empty_fields:
+        handler: ''
+      ds:
+        ft:
+          id: expert
+          settings:
+            lb: ''
+            prefix: ''
+            lbw-el: ''
+            lbw-cl: ''
+            lbw-at: ''
+            ow: true
+            ow-el: p
+            ow-cl: ''
+            ow-at: ''
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fi: true
+            fi-el: em
+            fi-cl: ''
+            fi-at: ''
+            suffix: ''
+            lbw: false
+            lb-col: false
+            ow-def-at: false
+            ow-def-cl: false
+            fis: false
+            fis-def-at: false
+            fi-def-at: false
+  field_short_name:
+    weight: 5
     label: hidden
     settings:
       link_to_entity: false
@@ -121,6 +204,9 @@ content:
     type: string
     region: content
 hidden:
+  content_moderation_control: true
+  field_index_image: true
+  field_speaker_type: true
   field_weight: true
   links: true
   search_api_excerpt: true

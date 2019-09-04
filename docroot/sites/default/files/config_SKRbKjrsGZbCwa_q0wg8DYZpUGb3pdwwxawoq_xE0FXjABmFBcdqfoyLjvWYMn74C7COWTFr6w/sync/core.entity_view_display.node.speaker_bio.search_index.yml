@@ -5,46 +5,91 @@ dependencies:
   config:
     - core.entity_view_mode.node.search_index
     - field.field.node.speaker_bio.field_body
+    - field.field.node.speaker_bio.field_image
     - field.field.node.speaker_bio.field_index_image
+    - field.field.node.speaker_bio.field_orgnaisation
+    - field.field.node.speaker_bio.field_position
     - field.field.node.speaker_bio.field_short_name
     - field.field.node.speaker_bio.field_speaker_type
     - field.field.node.speaker_bio.field_weight
     - node.type.speaker_bio
   module:
-    - image
+    - ds
+    - ds_chains
+    - options
     - text
     - user
+third_party_settings:
+  ds:
+    layout:
+      id: layout_onecol
+      library: layout_discovery/onecol
+      disable_css: false
+      entity_classes: all_classes
+      settings: {  }
+    regions:
+      content:
+        - node_title
+        - field_body
+        - field_speaker_type
+        - field_orgnaisation
+        - field_position
+        - field_short_name
+    fields:
+      node_title:
+        plugin_id: node_title
+        weight: 0
+        label: hidden
+        formatter: default
+  ds_chains:
+    fields: {  }
 id: node.speaker_bio.search_index
 targetEntityType: node
 bundle: speaker_bio
 mode: search_index
 content:
   field_body:
-    weight: 101
-    label: above
+    weight: 1
+    label: hidden
     settings: {  }
     third_party_settings: {  }
     type: text_default
     region: content
-  field_index_image:
-    weight: 102
-    label: above
-    settings:
-      image_style: ''
-      image_link: ''
-    third_party_settings: {  }
-    type: image
+  field_orgnaisation:
+    type: string
+    weight: 3
     region: content
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  field_position:
+    type: string
+    weight: 4
+    region: content
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
   field_short_name:
-    weight: 103
-    label: above
+    weight: 5
+    label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
     type: string
     region: content
+  field_speaker_type:
+    type: list_default
+    weight: 2
+    region: content
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
 hidden:
-  field_speaker_type: true
+  content_moderation_control: true
+  field_image: true
+  field_index_image: true
   field_weight: true
   links: true
   search_api_excerpt: true

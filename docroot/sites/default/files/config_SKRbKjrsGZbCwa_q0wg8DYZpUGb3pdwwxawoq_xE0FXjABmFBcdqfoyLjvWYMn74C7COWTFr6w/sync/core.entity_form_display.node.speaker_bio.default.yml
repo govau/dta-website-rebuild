@@ -4,12 +4,16 @@ status: true
 dependencies:
   config:
     - field.field.node.speaker_bio.field_body
+    - field.field.node.speaker_bio.field_image
     - field.field.node.speaker_bio.field_index_image
+    - field.field.node.speaker_bio.field_orgnaisation
+    - field.field.node.speaker_bio.field_position
     - field.field.node.speaker_bio.field_short_name
     - field.field.node.speaker_bio.field_speaker_type
     - field.field.node.speaker_bio.field_weight
     - image.style.thumbnail
     - node.type.speaker_bio
+    - workflows.workflow.external_links
   module:
     - content_moderation
     - field_layout
@@ -41,6 +45,14 @@ content:
     third_party_settings: {  }
     type: text_textarea
     region: content
+  field_image:
+    weight: 128
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: image_image
+    region: content
   field_index_image:
     weight: 122
     settings:
@@ -48,6 +60,22 @@ content:
       preview_image_style: thumbnail
     third_party_settings: {  }
     type: image_image
+    region: content
+  field_orgnaisation:
+    weight: 127
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_position:
+    weight: 126
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
     region: content
   field_short_name:
     weight: 123

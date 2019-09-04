@@ -1,19 +1,22 @@
-uuid: e6070a9e-10a7-499f-90de-386bf6f6da1c
+uuid: 8829316f-9ee9-483e-ab66-d61098bbf47f
 langcode: en
 status: true
 dependencies:
+  config:
+    - views.view.digital_summit_speakers
   module:
     - system
+    - views
   theme:
     - dta_gov_au
-id: views_block__roadmaps_list_block_1
+id: views_block__digital_summit_speakers_block_1
 theme: dta_gov_au
 region: content
-weight: -1
+weight: 0
 provider: null
-plugin: 'views_block:roadmaps_list-block_1'
+plugin: 'views_block:digital_summit_speakers-block_1'
 settings:
-  id: 'views_block:roadmaps_list-block_1'
+  id: 'views_block:digital_summit_speakers-block_1'
   label: ''
   provider: views
   label_display: '0'
@@ -22,6 +25,6 @@ settings:
 visibility:
   request_path:
     id: request_path
-    pages: /node/373
+    pages: /help-and-advice/digital-summit-2019/speakers
     negate: false
     context_mapping: {  }

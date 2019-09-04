@@ -24,4 +24,6 @@ hidden:
   field_body: true
   field_index_image: true
   field_short_name: true
+  field_speaker_type: true
+  field_weight: true
   search_api_excerpt: true

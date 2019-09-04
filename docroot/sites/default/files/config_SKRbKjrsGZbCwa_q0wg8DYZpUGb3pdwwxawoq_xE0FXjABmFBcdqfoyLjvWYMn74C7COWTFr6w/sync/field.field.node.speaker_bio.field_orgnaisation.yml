@@ -1,0 +1,19 @@
+uuid: 54e68eef-aaaf-4fd2-b245-f1c6197e04ec
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_orgnaisation
+    - node.type.speaker_bio
+id: node.speaker_bio.field_orgnaisation
+field_name: field_orgnaisation
+entity_type: node
+bundle: speaker_bio
+label: Organisation
+description: 'Use the <em>organisation</em> field to include the name of the speaker''s organisation.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

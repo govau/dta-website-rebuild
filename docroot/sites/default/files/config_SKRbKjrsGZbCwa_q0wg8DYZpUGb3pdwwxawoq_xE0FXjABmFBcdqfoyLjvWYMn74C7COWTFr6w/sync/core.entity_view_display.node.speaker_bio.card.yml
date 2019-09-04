@@ -6,6 +6,8 @@ dependencies:
     - core.entity_view_mode.node.card
     - field.field.node.speaker_bio.field_body
     - field.field.node.speaker_bio.field_index_image
+    - field.field.node.speaker_bio.field_orgnaisation
+    - field.field.node.speaker_bio.field_position
     - field.field.node.speaker_bio.field_short_name
     - field.field.node.speaker_bio.field_speaker_type
     - field.field.node.speaker_bio.field_weight
@@ -31,6 +33,22 @@ content:
     third_party_settings: {  }
     type: image
     region: content
+  field_orgnaisation:
+    type: string
+    weight: 0
+    region: content
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  field_position:
+    type: string
+    weight: 0
+    region: content
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
 hidden:
   field_body: true
   field_short_name: true
