@@ -1,0 +1,29 @@
+uuid: 91722463-c429-4ceb-a53f-1b6e758a82b1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_speaker_type
+    - node.type.speaker_bio
+    - taxonomy.vocabulary.speaker_type
+id: node.speaker_bio.field_speaker_type
+field_name: field_speaker_type
+entity_type: node
+bundle: speaker_bio
+label: 'Speaker type'
+description: 'Use this field to select what type of speaker this is. Depending on the event, you may have different types of speakers.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      speaker_type: speaker_type
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,8 @@
+uuid: d74f980d-1ef8-474b-92ea-ebd3fde582d6
+langcode: en
+status: true
+dependencies: {  }
+name: 'Speaker type'
+vid: speaker_type
+description: 'This vocabulary stores speaker types to be used in the Speaker Bio content type.'
+weight: 0

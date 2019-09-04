@@ -1,0 +1,57 @@
+uuid: d0a12603-0ad6-4def-83b6-df9fa84ebdb9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_image
+    - node.type.speaker_bio
+  module:
+    - filefield_paths
+    - image
+third_party_settings:
+  filefield_paths:
+    enabled: true
+    file_path:
+      value: images/hero/speaker-bio
+      options:
+        slashes: true
+        pathauto: true
+        transliterate: true
+    redirect: true
+    retroactive_update: false
+    active_updating: false
+    file_name:
+      value: '[file:ffp-name-only-original].[file:ffp-extension-original]'
+      options:
+        slashes: true
+        pathauto: true
+        transliterate: true
+id: node.speaker_bio.field_image
+field_name: field_image
+entity_type: node
+bundle: speaker_bio
+label: Image
+description: 'This is the main image on the page. It stretches across so make sure the image is at least 800px wide.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'png gif jpg jpeg'
+  max_filesize: ''
+  max_resolution: ''
+  min_resolution: 800x400
+  alt_field: true
+  alt_field_required: true
+  title_field: false
+  title_field_required: false
+  default_image:
+    uuid: ''
+    alt: ''
+    title: ''
+    width: null
+    height: null
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: image

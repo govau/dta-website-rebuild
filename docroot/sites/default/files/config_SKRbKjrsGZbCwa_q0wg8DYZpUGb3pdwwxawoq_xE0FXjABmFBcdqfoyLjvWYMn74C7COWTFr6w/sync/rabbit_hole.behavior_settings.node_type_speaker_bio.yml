@@ -1,0 +1,11 @@
+uuid: 87f5bba5-7960-4cf6-ab6b-53fe510972fe
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.speaker_bio
+id: node_type_speaker_bio
+action: display_page
+allow_override: 1
+redirect: ''
+redirect_code: 301

@@ -1,0 +1,19 @@
+uuid: 931bc879-891b-4f50-b853-94ee928ab550
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_position
+    - node.type.speaker_bio
+id: node.speaker_bio.field_position
+field_name: field_position
+entity_type: node
+bundle: speaker_bio
+label: Position
+description: 'Use the <em>position</em> field to add the presenter''s position or title.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,22 @@
+uuid: 4f8ccccc-34d0-461f-b0a1-f733cebe8be3
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: speaker_bios
+label: 'Speaker bios'
+type: 'canonical_entities:node'
+pattern: 'help-and-advice/digital-summit-2019/speakers/[node:title]'
+selection_criteria:
+  6e7c4a69-6bf6-4769-a54c-de97ba22b130:
+    id: node_type
+    bundles:
+      speaker_bio: speaker_bio
+    negate: false
+    context_mapping:
+      node: node
+    uuid: 6e7c4a69-6bf6-4769-a54c-de97ba22b130
+selection_logic: and
+weight: -5
+relationships: {  }

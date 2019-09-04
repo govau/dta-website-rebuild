@@ -1,0 +1,22 @@
+uuid: a75882a1-ef94-422b-b1a9-82d45a9ad341
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.speaker_bio
+id: node.speaker_bio.status
+field_name: status
+entity_type: node
+bundle: speaker_bio
+label: Published
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean
