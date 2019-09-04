@@ -11,8 +11,8 @@ dependencies:
     - search_api.server.database_search
     - core.entity_view_mode.node.search_index
   module:
-    - node
     - taxonomy
+    - node
     - search_api
 _core:
   default_config_hash: C_H_RI-18mied-RtEfUQGN19oHD22I8Z09wKPHC6OSM
@@ -92,6 +92,7 @@ field_settings:
           media_release: search_index
           news_item: search_index
           page: search_index
+          presentation: search_index
           speaker_bio: search_index
   status:
     label: status
@@ -136,6 +137,7 @@ datasource_settings:
         - media_release
         - news_item
         - page
+        - presentation
         - speaker_bio
     languages:
       default: true
@@ -298,6 +300,7 @@ processor_settings:
           media_release: !!float 1
           news_item: !!float 5
           page: !!float 13
+          presentation: !!float 1
           speaker_bio: !!float 1
     weights:
       preprocess_index: -43

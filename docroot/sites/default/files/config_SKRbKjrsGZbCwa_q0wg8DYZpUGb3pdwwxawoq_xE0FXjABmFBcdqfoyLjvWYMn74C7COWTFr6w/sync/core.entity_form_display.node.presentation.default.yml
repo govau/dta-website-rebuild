@@ -1,22 +1,25 @@
-uuid: c4b4a4b7-9135-4bdb-87dd-fc7ef7353d38
+uuid: 30d0633b-d7fc-48bd-b21e-909d10515528
 langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.speaker_bio.field_body
-    - field.field.node.speaker_bio.field_event
-    - field.field.node.speaker_bio.field_image
-    - field.field.node.speaker_bio.field_index_image
-    - field.field.node.speaker_bio.field_orgnaisation
-    - field.field.node.speaker_bio.field_position
-    - field.field.node.speaker_bio.field_short_name
-    - field.field.node.speaker_bio.field_speaker_type
-    - field.field.node.speaker_bio.field_weight
+    - field.field.node.presentation.field_body
+    - field.field.node.presentation.field_event
+    - field.field.node.presentation.field_event_date
+    - field.field.node.presentation.field_event_location
+    - field.field.node.presentation.field_image
+    - field.field.node.presentation.field_index_image
+    - field.field.node.presentation.field_presentation_type
+    - field.field.node.presentation.field_speaker
+    - field.field.node.presentation.field_stream
+    - field.field.node.presentation.field_summary
+    - field.field.node.presentation.field_weight
     - image.style.thumbnail
-    - node.type.speaker_bio
+    - node.type.presentation
     - workflows.workflow.external_links
   module:
     - content_moderation
+    - datetime_range
     - field_layout
     - image
     - layout_discovery
@@ -27,9 +30,9 @@ third_party_settings:
   field_layout:
     id: layout_onecol
     settings: {  }
-id: node.speaker_bio.default
+id: node.presentation.default
 targetEntityType: node
-bundle: speaker_bio
+bundle: presentation
 mode: default
 content:
   created:
@@ -39,7 +42,7 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_body:
-    weight: 121
+    weight: 124
     settings:
       rows: 5
       placeholder: ''
@@ -47,28 +50,18 @@ content:
     type: text_textarea
     region: content
   field_event:
-    weight: 130
+    weight: 129
     settings: {  }
     third_party_settings: {  }
     type: options_select
     region: content
-  field_image:
-    weight: 128
-    settings:
-      progress_indicator: throbber
-      preview_image_style: thumbnail
+  field_event_date:
+    weight: 125
+    settings: {  }
     third_party_settings: {  }
-    type: image_image
+    type: daterange_default
     region: content
-  field_index_image:
-    weight: 122
-    settings:
-      progress_indicator: throbber
-      preview_image_style: thumbnail
-    third_party_settings: {  }
-    type: image_image
-    region: content
-  field_orgnaisation:
+  field_event_location:
     weight: 127
     settings:
       size: 60
@@ -76,30 +69,52 @@ content:
     third_party_settings: {  }
     type: string_textfield
     region: content
-  field_position:
-    weight: 126
+  field_image:
+    weight: 122
     settings:
-      size: 60
-      placeholder: ''
+      progress_indicator: throbber
+      preview_image_style: thumbnail
     third_party_settings: {  }
-    type: string_textfield
+    type: image_image
     region: content
-  field_short_name:
-    weight: 123
+  field_index_image:
+    weight: 121
     settings:
-      size: 60
-      placeholder: ''
+      progress_indicator: throbber
+      preview_image_style: thumbnail
     third_party_settings: {  }
-    type: string_textfield
+    type: image_image
     region: content
-  field_speaker_type:
-    weight: 129
+  field_presentation_type:
+    weight: 131
     settings: {  }
     third_party_settings: {  }
     type: options_buttons
     region: content
+  field_speaker:
+    weight: 126
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_stream:
+    weight: 128
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_summary:
+    weight: 123
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
   field_weight:
-    weight: 124
+    weight: 130
     settings: {  }
     third_party_settings: {  }
     type: weight_selector

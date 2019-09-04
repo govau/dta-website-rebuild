@@ -1,0 +1,18 @@
+uuid: b9761a87-faee-4350-b2b9-baef5f94f4e1
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.presentation
+id: node.presentation.title
+field_name: title
+entity_type: node
+bundle: presentation
+label: 'Presentation title'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

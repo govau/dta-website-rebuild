@@ -5,6 +5,7 @@ dependencies:
   config:
     - node.type.external_link
     - node.type.media_release
+    - node.type.presentation
     - node.type.speaker_bio
   module:
     - content_moderation
@@ -42,5 +43,6 @@ type_settings:
     node:
       - external_link
       - media_release
+      - presentation
       - speaker_bio
   default_moderation_state: draft

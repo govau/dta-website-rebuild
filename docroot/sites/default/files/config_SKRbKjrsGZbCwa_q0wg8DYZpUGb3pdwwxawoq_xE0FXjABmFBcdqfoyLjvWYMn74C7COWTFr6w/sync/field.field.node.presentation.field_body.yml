@@ -1,0 +1,32 @@
+uuid: 36c49122-092c-456c-a5ef-7a22c03a9e73
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_body
+    - node.type.presentation
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    commenting: commenting
+    rich_text: '0'
+    administration: '0'
+    html: '0'
+    introduction: '0'
+    plain_text: '0'
+    full_rich_text: '0'
+    summary: '0'
+id: node.presentation.field_body
+field_name: field_body
+entity_type: node
+bundle: presentation
+label: Content
+description: 'The <em>content</em> field provides further detail on the presentation or session.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

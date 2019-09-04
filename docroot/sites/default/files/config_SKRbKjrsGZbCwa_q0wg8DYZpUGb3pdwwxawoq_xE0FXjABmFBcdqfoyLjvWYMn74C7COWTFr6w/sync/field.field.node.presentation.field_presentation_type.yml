@@ -1,0 +1,29 @@
+uuid: 987df4af-529a-450c-a55a-eb6a32a8d215
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_presentation_type
+    - node.type.presentation
+    - taxonomy.vocabulary.presentation_type
+id: node.presentation.field_presentation_type
+field_name: field_presentation_type
+entity_type: node
+bundle: presentation
+label: 'Presentation type'
+description: 'Select a <em>presentation type</em> to provide a bit more detail about the presentation or session.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      presentation_type: presentation_type
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

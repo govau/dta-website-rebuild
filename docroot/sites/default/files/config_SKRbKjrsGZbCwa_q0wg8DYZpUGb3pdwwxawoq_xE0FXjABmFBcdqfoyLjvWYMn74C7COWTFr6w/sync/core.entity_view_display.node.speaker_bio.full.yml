@@ -5,11 +5,13 @@ dependencies:
   config:
     - core.entity_view_mode.node.full
     - field.field.node.speaker_bio.field_body
+    - field.field.node.speaker_bio.field_event
     - field.field.node.speaker_bio.field_image
     - field.field.node.speaker_bio.field_index_image
     - field.field.node.speaker_bio.field_orgnaisation
     - field.field.node.speaker_bio.field_position
     - field.field.node.speaker_bio.field_short_name
+    - field.field.node.speaker_bio.field_speaker_type
     - field.field.node.speaker_bio.field_weight
     - node.type.speaker_bio
     - responsive_image.styles.hero_image
@@ -69,8 +71,9 @@ content:
             lbw-el: ''
             lbw-cl: ''
             lbw-at: ''
-            ow-el: ''
-            ow-cl: ''
+            ow: true
+            ow-el: figure
+            ow-cl: au-hero
             ow-at: ''
             fis-el: ''
             fis-cl: ''
@@ -81,7 +84,6 @@ content:
             suffix: ''
             lbw: false
             lb-col: false
-            ow: false
             ow-def-at: false
             ow-def-cl: false
             fis: false
@@ -204,7 +206,9 @@ content:
     region: content
 hidden:
   content_moderation_control: true
+  field_event: true
   field_index_image: true
+  field_speaker_type: true
   field_weight: true
   links: true
   search_api_excerpt: true

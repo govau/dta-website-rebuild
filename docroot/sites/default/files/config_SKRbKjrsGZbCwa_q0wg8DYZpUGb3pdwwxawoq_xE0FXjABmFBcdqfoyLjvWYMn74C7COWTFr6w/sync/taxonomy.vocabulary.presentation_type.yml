@@ -1,0 +1,8 @@
+uuid: e8cf4045-1265-42d0-9591-4dea074281c6
+langcode: en
+status: true
+dependencies: {  }
+name: 'Presentation type'
+vid: presentation_type
+description: 'This vocabulary stores presentation types to be used in the presentation content type.'
+weight: 0
