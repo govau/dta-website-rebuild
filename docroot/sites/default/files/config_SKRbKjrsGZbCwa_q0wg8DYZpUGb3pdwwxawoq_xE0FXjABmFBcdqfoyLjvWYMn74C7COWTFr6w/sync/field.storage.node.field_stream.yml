@@ -1,4 +1,4 @@
-uuid: a1e44737-c8dc-40d2-8a36-63e50494a970
+uuid: 9be69a74-60f9-4e41-941c-e352ffc43922
 langcode: en
 status: true
 dependencies:
@@ -8,10 +8,8 @@ dependencies:
 third_party_settings:
   field_permissions:
     permission_type: public
-_core:
-  default_config_hash: e1C4rmrO-3L1I0l2J5EP0LneHwi2Ts398GxTX40rLIM
-id: node.field_event_location
-field_name: field_event_location
+id: node.field_stream
+field_name: field_stream
 entity_type: node
 type: string
 settings:

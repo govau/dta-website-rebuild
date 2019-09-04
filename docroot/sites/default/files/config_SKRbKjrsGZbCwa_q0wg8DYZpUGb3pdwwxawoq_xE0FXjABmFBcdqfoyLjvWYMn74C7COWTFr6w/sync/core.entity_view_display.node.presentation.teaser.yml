@@ -1,0 +1,41 @@
+uuid: 5d5bcb8b-c079-4ce8-8360-ece25890a71b
+langcode: en
+status: false
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.presentation.field_body
+    - field.field.node.presentation.field_event
+    - field.field.node.presentation.field_event_date
+    - field.field.node.presentation.field_event_location
+    - field.field.node.presentation.field_image
+    - field.field.node.presentation.field_index_image
+    - field.field.node.presentation.field_speaker
+    - field.field.node.presentation.field_stream
+    - field.field.node.presentation.field_summary
+    - field.field.node.presentation.field_weight
+    - node.type.presentation
+  module:
+    - user
+id: node.presentation.teaser
+targetEntityType: node
+bundle: presentation
+mode: teaser
+content:
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_body: true
+  field_event: true
+  field_event_date: true
+  field_event_location: true
+  field_image: true
+  field_index_image: true
+  field_speaker: true
+  field_stream: true
+  field_summary: true
+  field_weight: true
+  search_api_excerpt: true

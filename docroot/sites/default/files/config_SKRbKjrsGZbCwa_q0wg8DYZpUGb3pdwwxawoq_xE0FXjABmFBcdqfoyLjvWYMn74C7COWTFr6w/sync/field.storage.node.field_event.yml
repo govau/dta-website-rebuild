@@ -1,4 +1,4 @@
-uuid: a1e44737-c8dc-40d2-8a36-63e50494a970
+uuid: 25867310-7c88-4ed5-b5ec-4708abee43c2
 langcode: en
 status: true
 dependencies:
@@ -8,16 +8,12 @@ dependencies:
 third_party_settings:
   field_permissions:
     permission_type: public
-_core:
-  default_config_hash: e1C4rmrO-3L1I0l2J5EP0LneHwi2Ts398GxTX40rLIM
-id: node.field_event_location
-field_name: field_event_location
+id: node.field_event
+field_name: field_event
 entity_type: node
-type: string
+type: entity_reference
 settings:
-  max_length: 255
-  is_ascii: false
-  case_sensitive: false
+  target_type: node
 module: core
 locked: false
 cardinality: 1

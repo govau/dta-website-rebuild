@@ -1,0 +1,24 @@
+uuid: 1b342619-2c9d-4854-8c75-9dd1b84f17fb
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+    - node_title_help_text
+    - wysiwyg_template
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:menu_link_content:3b6148a8-1907-4466-a2d2-e059ef36ff78'
+  node_title_help_text:
+    title_help: ''
+  wysiwyg_template:
+    default_template: ''
+name: Presentation
+type: presentation
+description: 'This is an <em>ad hoc</em> content type for the Digital Summit 2019 . It can be expanded on in future if required.'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false

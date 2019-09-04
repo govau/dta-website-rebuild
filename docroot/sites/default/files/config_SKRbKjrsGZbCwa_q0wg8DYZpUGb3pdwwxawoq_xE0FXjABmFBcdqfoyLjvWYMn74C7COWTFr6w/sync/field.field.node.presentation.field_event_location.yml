@@ -1,0 +1,19 @@
+uuid: 5688c7cc-cb48-48a6-9eec-0ba203216dff
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_event_location
+    - node.type.presentation
+id: node.presentation.field_event_location
+field_name: field_event_location
+entity_type: node
+bundle: presentation
+label: Room
+description: 'Use the <em>room</em> field to store the room of the presentation or session.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

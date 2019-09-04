@@ -1,0 +1,24 @@
+uuid: 46f10a5a-4502-472f-88eb-930415d727ab
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_weight
+    - node.type.presentation
+  module:
+    - weight
+id: node.presentation.field_weight
+field_name: field_weight
+entity_type: node
+bundle: presentation
+label: Weighting
+description: 'Use the <em>weight</em> field to adjust the order of presentations or sessions.'
+required: false
+translatable: true
+default_value:
+  -
+    value: '0'
+default_value_callback: ''
+settings:
+  range: '20'
+field_type: weight

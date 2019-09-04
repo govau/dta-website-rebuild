@@ -1,0 +1,21 @@
+uuid: bc2b12fd-95d3-462b-92dd-15c9afad25ae
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_event_date
+    - node.type.presentation
+  module:
+    - datetime_range
+id: node.presentation.field_event_date
+field_name: field_event_date
+entity_type: node
+bundle: presentation
+label: 'Date and time'
+description: 'Use the <em>date and time</em> field to store the start and end time and date of the presentation or session.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: daterange
