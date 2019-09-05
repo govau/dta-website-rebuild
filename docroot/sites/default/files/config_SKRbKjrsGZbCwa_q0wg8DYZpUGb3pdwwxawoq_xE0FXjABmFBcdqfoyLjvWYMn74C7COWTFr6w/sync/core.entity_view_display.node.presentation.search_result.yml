@@ -1,0 +1,131 @@
+uuid: b77f042f-a4d5-4a33-b363-9f5d3184bf6c
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.search_result
+    - field.field.node.presentation.field_body
+    - field.field.node.presentation.field_event
+    - field.field.node.presentation.field_event_date
+    - field.field.node.presentation.field_event_location
+    - field.field.node.presentation.field_image
+    - field.field.node.presentation.field_index_image
+    - field.field.node.presentation.field_speaker
+    - field.field.node.presentation.field_stream
+    - field.field.node.presentation.field_summary
+    - field.field.node.presentation.field_weight
+    - node.type.presentation
+  module:
+    - ds
+    - ds_chains
+    - text
+    - user
+third_party_settings:
+  ds:
+    layout:
+      id: layout_onecol
+      library: layout_discovery/onecol
+      disable_css: false
+      entity_classes: all_classes
+      settings: {  }
+    regions:
+      content:
+        - node_title
+        - 'bundle_field:node'
+        - field_summary
+    fields:
+      'bundle_field:node':
+        plugin_id: 'bundle_field:node'
+        weight: 0
+        label: hidden
+        formatter: default
+        ft:
+          id: expert
+          settings:
+            lb: ''
+            prefix: ''
+            lbw-el: ''
+            lbw-cl: ''
+            lbw-at: ''
+            ow: true
+            ow-el: p
+            ow-cl: ''
+            ow-at: ''
+            fis: true
+            fis-el: em
+            fis-cl: ''
+            fis-at: ''
+            fi-el: ''
+            fi-cl: ''
+            fi-at: ''
+            suffix: ''
+            lbw: false
+            lb-col: false
+            ow-def-at: false
+            ow-def-cl: false
+            fis-def-at: false
+            fi: false
+            fi-def-at: false
+      node_title:
+        plugin_id: node_title
+        weight: 0
+        label: hidden
+        formatter: default
+        settings:
+          link: true
+          wrapper: h3
+          class: ''
+        ft:
+          id: expert
+          settings:
+            lb: ''
+            prefix: ''
+            lbw-el: ''
+            lbw-cl: ''
+            lbw-at: ''
+            ow-el: ''
+            ow-cl: ''
+            ow-at: ''
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fi-el: ''
+            fi-cl: ''
+            fi-at: ''
+            suffix: ''
+            lbw: false
+            lb-col: false
+            ow: false
+            ow-def-at: false
+            ow-def-cl: false
+            fis: false
+            fis-def-at: false
+            fi: false
+            fi-def-at: false
+  ds_chains:
+    fields: {  }
+id: node.presentation.search_result
+targetEntityType: node
+bundle: presentation
+mode: search_result
+content:
+  field_summary:
+    weight: 103
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+hidden:
+  content_moderation_control: true
+  field_body: true
+  field_event: true
+  field_event_date: true
+  field_event_location: true
+  field_image: true
+  field_index_image: true
+  field_speaker: true
+  field_stream: true
+  field_weight: true
+  links: true
+  search_api_excerpt: true
