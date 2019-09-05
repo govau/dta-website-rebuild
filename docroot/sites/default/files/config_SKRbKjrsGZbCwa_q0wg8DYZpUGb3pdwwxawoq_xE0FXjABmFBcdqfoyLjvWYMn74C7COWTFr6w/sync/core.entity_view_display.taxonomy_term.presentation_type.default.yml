@@ -1,0 +1,33 @@
+uuid: ba01a67b-fb09-484d-b52d-98626d617cc5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.presentation_type.field_index_image
+    - taxonomy.vocabulary.presentation_type
+  module:
+    - image
+    - text
+id: taxonomy_term.presentation_type.default
+targetEntityType: taxonomy_term
+bundle: presentation_type
+mode: default
+content:
+  description:
+    label: hidden
+    type: text_default
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_index_image:
+    weight: 1
+    label: above
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+hidden:
+  search_api_excerpt: true
