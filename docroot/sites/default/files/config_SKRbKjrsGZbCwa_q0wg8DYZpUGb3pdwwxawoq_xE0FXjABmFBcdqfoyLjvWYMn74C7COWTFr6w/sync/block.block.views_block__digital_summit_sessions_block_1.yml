@@ -25,6 +25,6 @@ settings:
 visibility:
   request_path:
     id: request_path
-    pages: /help-and-advice/digital-summit-2019/program
+    pages: /help-and-advice/digital-summit-2019/sessions
     negate: false
     context_mapping: {  }
