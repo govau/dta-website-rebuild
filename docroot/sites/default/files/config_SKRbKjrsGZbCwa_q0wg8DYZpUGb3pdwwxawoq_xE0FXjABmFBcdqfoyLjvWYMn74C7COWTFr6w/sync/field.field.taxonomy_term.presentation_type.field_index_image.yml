@@ -1,0 +1,57 @@
+uuid: 996b9924-6dbd-44c8-9a1a-a5946269d8ee
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_index_image
+    - taxonomy.vocabulary.presentation_type
+  module:
+    - filefield_paths
+    - image
+third_party_settings:
+  filefield_paths:
+    enabled: true
+    file_path:
+      value: images/index/presentations
+      options:
+        slashes: true
+        pathauto: true
+        transliterate: true
+    redirect: true
+    retroactive_update: false
+    active_updating: false
+    file_name:
+      value: '[file:ffp-name-only-original].[file:ffp-extension-original]'
+      options:
+        slashes: true
+        pathauto: true
+        transliterate: true
+id: taxonomy_term.presentation_type.field_index_image
+field_name: field_index_image
+entity_type: taxonomy_term
+bundle: presentation_type
+label: 'Index image'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'png gif jpg jpeg'
+  max_filesize: ''
+  max_resolution: 450x300
+  min_resolution: 300x200
+  alt_field: true
+  alt_field_required: true
+  title_field: false
+  title_field_required: false
+  default_image:
+    uuid: ''
+    alt: ''
+    title: ''
+    width: null
+    height: null
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: image
