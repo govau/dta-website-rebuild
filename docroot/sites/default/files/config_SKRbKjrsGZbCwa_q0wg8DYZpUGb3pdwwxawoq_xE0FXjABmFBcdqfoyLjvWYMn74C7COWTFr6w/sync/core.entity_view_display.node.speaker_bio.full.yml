@@ -14,11 +14,12 @@ dependencies:
     - field.field.node.speaker_bio.field_speaker_type
     - field.field.node.speaker_bio.field_weight
     - node.type.speaker_bio
-    - responsive_image.styles.hero_image
+    - responsive_image.styles.index_image
   module:
     - ds
     - ds_chains
     - empty_fields
+    - field_group
     - responsive_image
     - text
     - user
@@ -33,17 +34,66 @@ third_party_settings:
     regions:
       content:
         - field_image
+        - content_moderation_control
+        - field_index_image
         - field_position
         - field_orgnaisation
         - field_body
         - field_short_name
+        - group_right_column
+        - group_left_column
   ds_chains:
     fields: {  }
+  field_group:
+    group_left_column:
+      children:
+        - field_body
+        - field_short_name
+      parent_name: ''
+      weight: 20
+      format_type: html_element
+      format_settings:
+        element: div
+        show_label: false
+        label_element: h3
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+        id: ''
+        classes: 'speaker-bio-left-column col-xs-12 col-sm-8'
+      label: 'Left column'
+      region: content
+    group_right_column:
+      children:
+        - field_index_image
+        - field_position
+        - field_orgnaisation
+      parent_name: ''
+      weight: 20
+      format_type: html_element
+      format_settings:
+        id: ''
+        classes: 'right-column col-xs-12 col-sm-4'
+        element: div
+        show_label: false
+        label_element: h3
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+      label: 'Right column'
+      region: content
 id: node.speaker_bio.full
 targetEntityType: node
 bundle: speaker_bio
 mode: full
 content:
+  content_moderation_control:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   field_body:
     weight: 4
     label: hidden
@@ -84,6 +134,45 @@ content:
             suffix: ''
             lbw: false
             lb-col: false
+            ow-def-at: false
+            ow-def-cl: false
+            fis: false
+            fis-def-at: false
+            fi: false
+            fi-def-at: false
+  field_index_image:
+    type: responsive_image
+    weight: 0
+    region: content
+    label: hidden
+    settings:
+      responsive_image_style: index_image
+      image_link: ''
+    third_party_settings:
+      empty_fields:
+        handler: ''
+      ds:
+        ft:
+          id: expert
+          settings:
+            lb: ''
+            prefix: ''
+            lbw-el: ''
+            lbw-cl: ''
+            lbw-at: ''
+            ow-el: ''
+            ow-cl: ''
+            ow-at: ''
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fi-el: ''
+            fi-cl: ''
+            fi-at: ''
+            suffix: ''
+            lbw: false
+            lb-col: false
+            ow: false
             ow-def-at: false
             ow-def-cl: false
             fis: false
@@ -205,9 +294,7 @@ content:
     type: string
     region: content
 hidden:
-  content_moderation_control: true
   field_event: true
-  field_index_image: true
   field_speaker_type: true
   field_weight: true
   links: true

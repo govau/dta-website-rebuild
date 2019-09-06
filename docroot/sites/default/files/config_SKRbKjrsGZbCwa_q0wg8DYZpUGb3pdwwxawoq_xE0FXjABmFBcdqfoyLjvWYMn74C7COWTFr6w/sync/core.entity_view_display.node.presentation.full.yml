@@ -60,7 +60,7 @@ third_party_settings:
       weight: 20
       format_type: html_element
       format_settings:
-        element: aside
+        element: div
         show_label: false
         label_element: h3
         label_element_classes: ''
@@ -68,7 +68,7 @@ third_party_settings:
         effect: none
         speed: fast
         id: ''
-        classes: 'right-column col-xs-12 col-sm-4'
+        classes: 'presentation-right-column col-xs-12 col-sm-4'
       label: 'Presentation details'
       region: content
     group_body:
@@ -78,7 +78,7 @@ third_party_settings:
       weight: 19
       format_type: html_element
       format_settings:
-        element: section
+        element: div
         show_label: false
         label_element: h3
         label_element_classes: ''
@@ -86,7 +86,7 @@ third_party_settings:
         effect: none
         speed: fast
         id: ''
-        classes: 'left-column col-xs-12 col-sm-8'
+        classes: 'presentation-left-column col-xs-12 col-sm-8'
       label: Body
       region: content
 id: node.presentation.full
