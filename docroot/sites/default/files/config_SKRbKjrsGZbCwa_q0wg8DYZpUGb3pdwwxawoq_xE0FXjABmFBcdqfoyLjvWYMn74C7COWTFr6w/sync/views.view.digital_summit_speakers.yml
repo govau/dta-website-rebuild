@@ -289,7 +289,7 @@ display:
           relationship: field_speaker_type
           group_type: group
           admin_label: ''
-          order: DESC
+          order: ASC
           exposed: false
           expose:
             label: ''
