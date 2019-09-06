@@ -25,6 +25,7 @@ permissions:
   - 'edit terms in speaker_type'
   - 'revert govcms_event revisions'
   - 'revert speaker_bio revisions'
+  - 'use external_links transition archive'
   - 'use external_links transition create_new_draft'
   - 'use external_links transition publish'
   - 'use text format commenting'
