@@ -147,11 +147,13 @@ content:
             fi-def-at: false
 hidden:
   content_moderation_control: true
+  field_event: true
   field_image: true
   field_index_image: true
   field_orgnaisation: true
   field_position: true
   field_short_name: true
+  field_speaker_type: true
   field_weight: true
   links: true
   search_api_excerpt: true
