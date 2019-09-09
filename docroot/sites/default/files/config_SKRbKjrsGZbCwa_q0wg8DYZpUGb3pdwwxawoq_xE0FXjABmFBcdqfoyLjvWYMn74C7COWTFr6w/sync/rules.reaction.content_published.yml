@@ -64,6 +64,21 @@ expression:
         provides_mapping: {  }
         condition_id: rules_data_comparison
         negate: false
+      -
+        id: rules_condition
+        uuid: 946ac3e8-645e-4139-abda-736ea6566d62
+        context_values:
+          types:
+            - speaker_bio
+            - presentation
+        context_mapping:
+          node: node
+        context_processors:
+          types:
+            rules_tokens: {  }
+        provides_mapping: {  }
+        condition_id: rules_node_is_of_type
+        negate: true
   actions:
     id: rules_action_set
     uuid: d7081596-f059-4161-85d6-ade3822768a7
