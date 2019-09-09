@@ -171,6 +171,7 @@
         "drupal/typogrify": "1.0-alpha1",
         "drupal/url_embed": "1.0-alpha1",
         "drupal/video_embed_field": "2.2",
+        "drupal/views_entity_form_field": "1.0-beta7",
         "drupal/views_menu_children_filter": "1.0-beta3",
         "drupal/viewsreference": "2.0-alpha4",
         "drupal/webform": "5.4",
