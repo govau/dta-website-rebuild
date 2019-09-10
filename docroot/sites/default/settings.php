@@ -911,6 +911,28 @@ if(isset($_ENV['VCAP_SERVICES'])) {
   $config['swiftmailer.transport']['smtp_credentials']['swiftmailer']['password'] = $service[0]['credentials']['key'];
 }
 
+/*
+* The following code block gets the Slack credentials from the environment.
+* If a local.settings.php file exists, it will read that instead so make sure
+* that that file is not pushed to anything.
+*/
+
+if(isset($_ENV['VCAP_SERVICES'])) {
+  $service_blob = json_decode($_ENV['VCAP_SERVICES'], true);
+  $service = array();
+  foreach($service_blob as $service_provider => $service_list) {
+    foreach ($service_list as $some_service) {
+      // look for a service where the name is 'ups-website-redev'
+      if ($some_service['name'] === 'ups-slack') {
+        $service[] = $some_service;
+      }
+    }
+  }
+
+  // Set the relevant settings.
+  $config['slack.settings']['webhook_url'] = $service[0]['credentials']['webhook_url'];
+}
+
 $settings['install_profile'] = 'govcms';
 $config_directories['sync'] = 'sites/default/files/config_SKRbKjrsGZbCwa_q0wg8DYZpUGb3pdwwxawoq_xE0FXjABmFBcdqfoyLjvWYMn74C7COWTFr6w/sync';
 
@@ -934,12 +956,14 @@ if(isset($_ENV['ENVIRONMENT'])) {
     $config['system.performance']['css']['preprocess'] = FALSE;
     $config['system.performance']['js']['preprocess'] = FALSE;
     $config['system.logging']['error_level'] = 'verbose';
+    $config['slack.settings']['slack_channel'] = '@jesse.boyd';
   }
   if ($environment === 'test') {
     $config['s3fs.settings']['bucket'] = 'dta-www-drupal-test-20180221050325640300000001';
     $config['system.performance']['css']['preprocess'] = FALSE;
     $config['system.performance']['js']['preprocess'] = FALSE;
     $config['system.logging']['error_level'] = 'verbose';
+    $config['slack.settings']['slack_channel'] = '@jesse.boyd';
   }
 } else {
   $config['s3fs.settings']['bucket'] = '';
