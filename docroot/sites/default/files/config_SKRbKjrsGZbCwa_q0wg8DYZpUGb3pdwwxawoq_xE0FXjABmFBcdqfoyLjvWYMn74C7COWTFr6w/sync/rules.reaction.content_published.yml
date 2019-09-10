@@ -90,9 +90,9 @@ expression:
           to:
             - '{{node.uid.entity.mail.value}}'
           subject: 'Content published on dta.gov.au'
-          message: 'Good job! That content you worked so hard on has been published and is now live! Fistbump!'
-          reply: null
-          language: null
+          message: 'Good job! Your content "{{node.title.value}}" has been published and is live! Fistbump! Find it at {{ node | entity_url }}'
+          reply: ''
+          language: ''
         context_mapping: {  }
         context_processors:
           to:
