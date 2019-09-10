@@ -160,6 +160,7 @@
         "drupal/search_api_page": "1.0-alpha12",
         "drupal/seckit": "1.2",
         "drupal/simple_sitemap": "3.3",
+        "drupal/slack": "1.2",
         "drupal/social_api": "2.0-rc1",
         "drupal/social_auth_google": "2.0-beta4",
         "drupal/structure_sync": "1.16",

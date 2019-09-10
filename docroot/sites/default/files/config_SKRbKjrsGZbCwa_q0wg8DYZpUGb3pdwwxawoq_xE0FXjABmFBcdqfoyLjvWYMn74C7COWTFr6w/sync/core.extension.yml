@@ -120,6 +120,7 @@ module:
   serialization: 0
   shortcut: 0
   simple_sitemap: 0
+  slack: 0
   social_api: 0
   statistics: 0
   structure_sync: 0
