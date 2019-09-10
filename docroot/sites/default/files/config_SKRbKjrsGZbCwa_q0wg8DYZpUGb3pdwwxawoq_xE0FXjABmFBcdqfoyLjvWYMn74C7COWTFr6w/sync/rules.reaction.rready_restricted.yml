@@ -94,7 +94,7 @@ expression:
           roles:
             - digital_transformation_guide_approver
           subject: 'Content ready to publish on dta.gov.au'
-          message: 'Hi! [node:title] is ready to publish at [node:url]. Get it live!'
+          message: 'Hi! [node:title] is ready to publish at [node:url:unaliased]/latest. Get it live!'
         context_mapping:
           entity: node
         context_processors:
@@ -113,7 +113,7 @@ expression:
           roles:
             - content_approver
           subject: 'Content ready to publish on dta.gov.au'
-          message: 'Hi! [node:title] is ready to publish at [node:url]. Jump in there now!'
+          message: 'Hi! [node:title] is ready to publish at [node:url:unaliased]/latest. Get it live!'
         context_mapping:
           entity: node
         context_processors:

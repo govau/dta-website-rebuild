@@ -59,7 +59,7 @@ expression:
           roles:
             - technical_reviewer
           subject: 'Content available for technical review on dta.gov.au'
-          message: "Hi! \r\n\r\n[node:title] is ready for technical review at [node:url]. \r\n\r\nJump in there now! Don't forget to check the latest version.\r\n\r\nWith love,\r\ndta.gov.au"
+          message: "Hi! \r\n\r\n\"[node:title]\" is ready for technical review at [node:url:unaliased]/latest. \r\n\r\nJump in there now! \r\n\r\nWith love,\r\ndta.gov.au"
         context_mapping:
           entity: node
         context_processors:
