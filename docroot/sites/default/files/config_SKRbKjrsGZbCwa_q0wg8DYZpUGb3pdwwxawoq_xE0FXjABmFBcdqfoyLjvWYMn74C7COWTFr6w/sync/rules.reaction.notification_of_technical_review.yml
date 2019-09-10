@@ -88,3 +88,20 @@ expression:
             rules_tokens: {  }
         provides_mapping: {  }
         action_id: rules_system_message
+      -
+        id: rules_action
+        uuid: 88dad593-5eaf-4cf2-8b0f-7c36dbb23da6
+        context_values:
+          message: '*Lo!* {{ node.title.value }} is available for technical review at {{ node | entity_url | raw }}. Take care, for there may also be a latest version at {{ node.url ~ ''/latest'' }}, which you would do well to check.'
+          channel: '#dtagovau-authors'
+          username: ''
+        context_mapping: {  }
+        context_processors:
+          message:
+            rules_tokens: {  }
+          channel:
+            rules_tokens: {  }
+          username:
+            rules_tokens: {  }
+        provides_mapping: {  }
+        action_id: rules_slack_send_message
