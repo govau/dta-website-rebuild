@@ -524,8 +524,8 @@ display:
           label: ''
           exclude: false
           alter:
-            alter_text: false
-            text: ''
+            alter_text: true
+            text: '{{ field_publication_date__value | date(''r'') }}'
             make_link: false
             path: ''
             absolute: false
@@ -566,7 +566,7 @@ display:
           type: datetime_custom
           settings:
             timezone_override: Australia/Sydney
-            date_format: 'D, d M Y H:i:s +0000'
+            date_format: ''
           group_column: value
           group_columns: {  }
           group_rows: true
