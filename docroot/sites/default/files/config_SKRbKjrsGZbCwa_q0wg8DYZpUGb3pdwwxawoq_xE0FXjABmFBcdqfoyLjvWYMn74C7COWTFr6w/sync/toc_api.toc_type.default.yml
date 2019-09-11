@@ -13,7 +13,7 @@ options:
   header_count: 2
   header_min: 2
   header_max: 2
-  header_allowed_tags: '<em> <b> <del> <i> <mark> <s> <span> <strong> <sup> <sub> <em> <b> <del> <i> <mark> <s> <span> <strong> <sup> <sub>'
+  header_allowed_tags: ''
   header_id: title
   header_id_prefix: section
   top_min: 2

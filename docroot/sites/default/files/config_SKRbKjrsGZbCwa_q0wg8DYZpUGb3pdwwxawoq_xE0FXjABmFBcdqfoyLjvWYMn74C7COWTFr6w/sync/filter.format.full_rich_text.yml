@@ -72,7 +72,7 @@ filters:
     weight: 0
     settings:
       type: default
-      auto: top
+      auto: ''
       block: '0'
   TypogrifyFilter:
     id: TypogrifyFilter

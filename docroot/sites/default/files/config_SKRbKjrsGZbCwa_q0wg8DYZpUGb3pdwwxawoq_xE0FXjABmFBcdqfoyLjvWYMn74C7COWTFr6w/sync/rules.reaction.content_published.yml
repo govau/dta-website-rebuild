@@ -64,6 +64,21 @@ expression:
         provides_mapping: {  }
         condition_id: rules_data_comparison
         negate: false
+      -
+        id: rules_condition
+        uuid: 946ac3e8-645e-4139-abda-736ea6566d62
+        context_values:
+          types:
+            - speaker_bio
+            - presentation
+        context_mapping:
+          node: node
+        context_processors:
+          types:
+            rules_tokens: {  }
+        provides_mapping: {  }
+        condition_id: rules_node_is_of_type
+        negate: true
   actions:
     id: rules_action_set
     uuid: d7081596-f059-4161-85d6-ade3822768a7
@@ -75,9 +90,9 @@ expression:
           to:
             - '{{node.uid.entity.mail.value}}'
           subject: 'Content published on dta.gov.au'
-          message: 'Good job! That content you worked so hard on has been published and is now live! Fistbump!'
-          reply: null
-          language: null
+          message: 'Good job! Your content "{{node.title.value}}" has been published and is live! Fistbump! Find it at {{ node | entity_url }}'
+          reply: ''
+          language: ''
         context_mapping: {  }
         context_processors:
           to:
