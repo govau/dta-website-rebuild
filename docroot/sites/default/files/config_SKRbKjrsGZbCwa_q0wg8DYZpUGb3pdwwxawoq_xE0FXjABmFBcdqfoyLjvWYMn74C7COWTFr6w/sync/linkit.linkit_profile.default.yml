@@ -23,8 +23,11 @@ matchers:
         govcms_event: govcms_event
         landing_page: landing_page
         landing_page_level_2: landing_page_level_2
+        media_release: media_release
         news_item: news_item
         page: page
+        presentation: presentation
+        speaker_bio: speaker_bio
       group_by_bundle: true
       include_unpublished: true
       substitution_type: canonical
