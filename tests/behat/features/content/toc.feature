@@ -29,7 +29,6 @@ Feature: ToC
       When I am logged in as a user with the "Content author" role
       And I am on "/test-page-2"
       And I follow "Edit"
-      And I select "Full rich text" from "Text format"
       And I fill in "Body content" with "[toc]<h2>Heading 1</h2><h2>Heading 2</h2"
       And I press "Save"
       Then I should see 1 "nav.au-inpage-nav-links" element
