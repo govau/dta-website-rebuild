@@ -42,6 +42,7 @@ type_settings:
       to: draft
       weight: 0
       from:
+        - archived
         - draft
         - published
     publish:
