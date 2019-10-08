@@ -17,7 +17,7 @@ _core:
   default_config_hash: i0P0kixBSjmP-hGUl9CWnAF41dzFd6cfzsjbfaVblEI
 name: 'Rich text'
 format: rich_text
-weight: -9
+weight: -3
 filters:
   filter_autop:
     id: filter_autop
@@ -130,14 +130,14 @@ filters:
       smartypants_enabled: '1'
       smartypants_hyphens: '3'
       space_hyphens: '0'
-      widont_enabled: '0'
-      hyphenate_shy: '0'
-      space_to_nbsp: '0'
-      wrap_caps: '0'
       wrap_ampersand: '0'
+      widont_enabled: '0'
+      space_to_nbsp: '0'
+      hyphenate_shy: '0'
       wrap_abbr: '0'
-      wrap_numbers: '0'
+      wrap_caps: '0'
       wrap_initial_quotes: '1'
+      wrap_numbers: '0'
       ligatures: 'a:0:{}'
       arrows: 'a:0:{}'
       fractions: 'a:0:{}'

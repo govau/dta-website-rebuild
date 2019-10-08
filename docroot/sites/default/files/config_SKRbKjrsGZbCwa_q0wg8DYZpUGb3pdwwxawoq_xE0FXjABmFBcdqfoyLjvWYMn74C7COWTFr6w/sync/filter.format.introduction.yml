@@ -9,7 +9,7 @@ dependencies:
     - typogrify
 name: Introduction
 format: introduction
-weight: -6
+weight: -10
 filters:
   filter_html:
     id: filter_html
