@@ -40,18 +40,19 @@ third_party_settings:
     regions:
       content:
         - links
+        - content_moderation_control
         - field_introduction
         - field_agency
         - group_report_metadata
-        - field_date
         - field_pass_rationale
-        - field_assessment_method
+        - field_date
         - field_body
+        - field_assessment_method
         - field_phase
         - field_recommendations
         - field_result_assessment
-        - field_lead_assessor
         - 'dynamic_block_field:node-assessment_against_the_digital_s'
+        - field_lead_assessor
         - field_service_manager
         - field_related_content
     fields:
@@ -119,6 +120,11 @@ targetEntityType: node
 bundle: assessment_report
 mode: full
 content:
+  content_moderation_control:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   field_agency:
     weight: 2
     label: inline
@@ -196,7 +202,7 @@ content:
     type: list_default
     region: content
   field_body:
-    weight: 5
+    weight: 4
     label: hidden
     settings: {  }
     third_party_settings: {  }
@@ -317,7 +323,7 @@ content:
     type: string
     region: content
   field_pass_rationale:
-    weight: 4
+    weight: 3
     label: hidden
     settings: {  }
     third_party_settings: {  }
@@ -484,12 +490,12 @@ content:
     type: string
     region: content
   links:
-    weight: 0
+    weight: -1
     region: content
     settings: {  }
     third_party_settings: {  }
 hidden:
-  content_moderation_control: true
   field_dss_assessment: true
   field_search_keywords: true
   field_tags: true
+  search_api_excerpt: true
