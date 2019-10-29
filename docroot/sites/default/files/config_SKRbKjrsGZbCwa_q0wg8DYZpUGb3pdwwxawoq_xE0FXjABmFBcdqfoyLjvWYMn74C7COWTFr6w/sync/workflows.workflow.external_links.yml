@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - node.type.dashboard_item
     - node.type.external_link
     - node.type.media_release
     - node.type.presentation
@@ -54,6 +55,7 @@ type_settings:
         - published
   entity_types:
     node:
+      - dashboard_item
       - external_link
       - media_release
       - presentation
