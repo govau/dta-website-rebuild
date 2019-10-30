@@ -6,16 +6,16 @@ dependencies:
     - core.entity_view_mode.node.card
     - field.storage.node.field_theme
     - node.type.dashboard_item
+    - node.type.landing_page_level_2
     - workflows.workflow.external_links
   module:
     - content_moderation
     - node
-    - taxonomy
     - user
 id: dashboard
 label: Dashboard
 module: views
-description: 'Displays speakers for the Digital Summit'
+description: 'Displays dashboard items'
 tag: ''
 base_table: node_field_data
 base_field: nid
@@ -60,11 +60,7 @@ display:
       style:
         type: html_list
         options:
-          grouping:
-            -
-              field: field_speaker_type
-              rendered: false
-              rendered_strip: false
+          grouping: {  }
           row_class: 'col-xs-12 col-sm-6'
           default_row_class: false
           type: ul
@@ -137,7 +133,7 @@ display:
           group_type: group
           admin_label: ''
           label: ''
-          exclude: false
+          exclude: true
           alter:
             alter_text: true
             text: '{{ field_theme|clean_class }}'
@@ -322,21 +318,51 @@ display:
           expose:
             label: ''
           plugin_id: standard
-      title: Sessions
+      title: ''
       header: {  }
       footer: {  }
       empty: {  }
-      relationships:
-        field_presentation_type:
-          id: field_presentation_type
-          table: node__field_presentation_type
-          field: field_presentation_type
+      relationships: {  }
+      arguments:
+        field_dashboard_reference_target_id:
+          id: field_dashboard_reference_target_id
+          table: node__field_dashboard_reference
+          field: field_dashboard_reference_target_id
           relationship: none
           group_type: group
-          admin_label: 'field_presentation_type: Taxonomy term'
-          required: false
-          plugin_id: standard
-      arguments: {  }
+          admin_label: ''
+          default_action: default
+          exception:
+            value: all
+            title_enable: false
+            title: All
+          title_enable: true
+          title: '{{ arguments.field_dashboard_reference_target_id }}'
+          default_argument_type: node
+          default_argument_options: {  }
+          default_argument_skip_url: false
+          summary_options:
+            base_path: ''
+            count: true
+            items_per_page: 25
+            override: false
+          summary:
+            sort_order: asc
+            number_of_records: 0
+            format: default_summary
+          specify_validation: true
+          validate:
+            type: 'entity:node'
+            fail: summary
+          validate_options:
+            bundles:
+              landing_page_level_2: landing_page_level_2
+            operation: view
+            multiple: 0
+            access: false
+          break_phrase: false
+          not: false
+          plugin_id: numeric
       display_extenders: {  }
       css_class: au-landing-page-level-2-cards
     cache_metadata:
@@ -344,6 +370,7 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - url
         - user
         - 'user.node_grants:view'
         - user.permissions
@@ -367,7 +394,11 @@ display:
         - 'config:core.entity_view_display.node.book.search_index'
         - 'config:core.entity_view_display.node.book.search_result'
         - 'config:core.entity_view_display.node.book.teaser'
+        - 'config:core.entity_view_display.node.dashboard_item.card'
         - 'config:core.entity_view_display.node.dashboard_item.default'
+        - 'config:core.entity_view_display.node.dashboard_item.full'
+        - 'config:core.entity_view_display.node.dashboard_item.search_index'
+        - 'config:core.entity_view_display.node.dashboard_item.search_result'
         - 'config:core.entity_view_display.node.dashboard_item.teaser'
         - 'config:core.entity_view_display.node.document.card'
         - 'config:core.entity_view_display.node.document.default'
@@ -458,6 +489,7 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - url
         - user
         - 'user.node_grants:view'
         - user.permissions
@@ -481,7 +513,11 @@ display:
         - 'config:core.entity_view_display.node.book.search_index'
         - 'config:core.entity_view_display.node.book.search_result'
         - 'config:core.entity_view_display.node.book.teaser'
+        - 'config:core.entity_view_display.node.dashboard_item.card'
         - 'config:core.entity_view_display.node.dashboard_item.default'
+        - 'config:core.entity_view_display.node.dashboard_item.full'
+        - 'config:core.entity_view_display.node.dashboard_item.search_index'
+        - 'config:core.entity_view_display.node.dashboard_item.search_result'
         - 'config:core.entity_view_display.node.dashboard_item.teaser'
         - 'config:core.entity_view_display.node.document.card'
         - 'config:core.entity_view_display.node.document.default'

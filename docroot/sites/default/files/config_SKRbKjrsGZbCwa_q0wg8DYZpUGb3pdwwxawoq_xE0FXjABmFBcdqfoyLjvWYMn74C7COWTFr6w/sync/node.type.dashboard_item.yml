@@ -8,8 +8,9 @@ dependencies:
     - wysiwyg_template
 third_party_settings:
   menu_ui:
-    available_menus: {  }
-    parent: ''
+    available_menus:
+      - main
+    parent: 'main:'
   node_title_help_text:
     title_help: ''
   wysiwyg_template:
