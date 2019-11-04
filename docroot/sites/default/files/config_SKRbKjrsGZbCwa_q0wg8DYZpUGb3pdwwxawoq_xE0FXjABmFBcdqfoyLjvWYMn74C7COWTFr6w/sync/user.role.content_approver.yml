@@ -64,6 +64,7 @@ permissions:
   - 'revert news_item revisions'
   - 'revert page revisions'
   - 'revert roadmap_2_user_experience_ revisions'
+  - 'schedule publishing of nodes'
   - 'use dta_publishing transition archived'
   - 'use dta_publishing transition publish'
   - 'use dta_publishing transition ready_to_publish'
@@ -94,4 +95,5 @@ permissions:
   - 'view own unpublished content'
   - 'view page revisions'
   - 'view roadmap_2_user_experience_ revisions'
+  - 'view scheduled content'
   - 'view the administration theme'

@@ -5,6 +5,7 @@ dependencies:
   module:
     - menu_ui
     - node_title_help_text
+    - scheduler
     - wysiwyg_template
 third_party_settings:
   menu_ui:
@@ -14,10 +15,22 @@ third_party_settings:
     title_help: ''
   wysiwyg_template:
     default_template: ''
+  scheduler:
+    expand_fieldset: when_required
+    fields_display_mode: vertical_tab
+    publish_enable: true
+    publish_past_date: error
+    publish_past_date_created: false
+    publish_required: false
+    publish_revision: false
+    publish_touch: false
+    unpublish_enable: true
+    unpublish_required: false
+    unpublish_revision: false
 name: 'Home page'
 type: home_page
 description: 'Use this content type to specify content for the home page.'
 help: ''
-new_revision: false
+new_revision: true
 preview_mode: 1
 display_submitted: false
