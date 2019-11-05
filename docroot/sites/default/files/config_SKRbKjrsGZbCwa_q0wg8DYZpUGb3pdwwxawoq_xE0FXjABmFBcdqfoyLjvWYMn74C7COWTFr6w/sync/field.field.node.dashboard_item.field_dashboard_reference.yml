@@ -1,0 +1,29 @@
+uuid: 1d5f02a5-adae-4db4-9ce5-63d5aaaf8140
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_dashboard_reference
+    - node.type.dashboard_item
+    - node.type.landing_page_level_2
+id: node.dashboard_item.field_dashboard_reference
+field_name: field_dashboard_reference
+entity_type: node
+bundle: dashboard_item
+label: 'Dashboard reference'
+description: 'This field allows you to group dashboard items under a particular <strong>sub-level landing page</strong>. This serves as the ''home'' page of the dashboard.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      landing_page_level_2: landing_page_level_2
+    sort:
+      field: title
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

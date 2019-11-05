@@ -1,0 +1,22 @@
+uuid: 83b09b05-f953-425f-99b7-9074ba17ffc3
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: dashboard_item
+label: 'Dashboard item'
+type: 'canonical_entities:node'
+pattern: '[node:field_dashboard_reference:entity:menu-link:parents:join-path]/[node:field_dashboard_reference:entity:menu-link]/[node:title]'
+selection_criteria:
+  780050ef-df37-4aa9-ac27-ba24901eac71:
+    id: node_type
+    bundles:
+      dashboard_item: dashboard_item
+    negate: false
+    context_mapping:
+      node: node
+    uuid: 780050ef-df37-4aa9-ac27-ba24901eac71
+selection_logic: and
+weight: -5
+relationships: {  }

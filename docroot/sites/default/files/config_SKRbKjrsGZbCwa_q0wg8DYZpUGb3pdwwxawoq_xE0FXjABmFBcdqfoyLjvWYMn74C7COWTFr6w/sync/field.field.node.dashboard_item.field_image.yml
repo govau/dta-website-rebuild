@@ -1,10 +1,10 @@
-uuid: 6f37b5f5-7a46-4f55-88a5-5e006c135a7b
+uuid: acbb7206-ba8d-48e0-a63f-60e1725da8d4
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.node.field_image
-    - node.type.blog_post
+    - node.type.dashboard_item
   module:
     - filefield_paths
     - image
@@ -19,29 +19,29 @@ third_party_settings:
         transliterate: false
     redirect: true
     retroactive_update: false
-    active_updating: true
+    active_updating: false
     file_name:
       value: '[file:ffp-name-only-original].[file:ffp-extension-original]'
       options:
         slashes: true
         pathauto: true
         transliterate: false
-id: node.blog_post.field_image
+id: node.dashboard_item.field_image
 field_name: field_image
 entity_type: node
-bundle: blog_post
+bundle: dashboard_item
 label: Image
-description: 'This image is the ''hero'' image for the post. Make sure you don''t upload an image already existing on the site.'
+description: 'This field provides both the index image for cards, and the hero image for the top of the main display. To make editing easier, this field is not required, however make sure you do eventually provide one otherwise it will look silly. This is also why the file dimensions are so strict.'
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:
   file_directory: '[date:custom:Y]-[date:custom:m]'
   file_extensions: 'png gif jpg jpeg'
   max_filesize: '5 MB'
-  max_resolution: 800x800
-  min_resolution: ''
+  max_resolution: 800x534
+  min_resolution: 800x534
   alt_field: true
   alt_field_required: true
   title_field: false
