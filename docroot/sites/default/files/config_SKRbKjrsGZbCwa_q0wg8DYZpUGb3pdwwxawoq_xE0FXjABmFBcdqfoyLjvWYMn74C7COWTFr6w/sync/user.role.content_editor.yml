@@ -137,4 +137,5 @@ permissions:
   - 'view own unpublished content'
   - 'view page revisions'
   - 'view roadmap_2_user_experience_ revisions'
+  - 'view scheduled content'
   - 'view the administration theme'

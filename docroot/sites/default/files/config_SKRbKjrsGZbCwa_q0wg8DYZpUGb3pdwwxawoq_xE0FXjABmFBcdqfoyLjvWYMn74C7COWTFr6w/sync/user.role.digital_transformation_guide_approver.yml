@@ -29,6 +29,7 @@ permissions:
   - 'revert govcms_event revisions'
   - 'revert landing_page_level_2 revisions'
   - 'revert page revisions'
+  - 'schedule publishing of nodes'
   - 'use dta_publishing transition archived'
   - 'use dta_publishing transition publish'
   - 'use dta_publishing transition ready_to_publish'
@@ -51,3 +52,4 @@ permissions:
   - 'view latest version'
   - 'view own unpublished content'
   - 'view page revisions'
+  - 'view scheduled content'

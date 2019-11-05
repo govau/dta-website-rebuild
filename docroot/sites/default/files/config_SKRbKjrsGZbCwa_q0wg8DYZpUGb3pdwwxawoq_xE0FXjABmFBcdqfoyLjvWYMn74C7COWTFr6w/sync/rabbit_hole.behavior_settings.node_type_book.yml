@@ -1,7 +1,9 @@
 uuid: 57cc0cf9-87c9-4e98-8934-45a51e6b7589
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  config:
+    - node.type.book
 id: node_type_book
 action: display_page
 allow_override: 1
