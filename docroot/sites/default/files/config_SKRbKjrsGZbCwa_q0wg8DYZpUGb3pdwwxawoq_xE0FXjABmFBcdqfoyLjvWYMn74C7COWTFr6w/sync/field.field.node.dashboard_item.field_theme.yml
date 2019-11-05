@@ -1,0 +1,29 @@
+uuid: ad88d78d-2c2a-4035-8352-0cfd84465b33
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_theme
+    - node.type.dashboard_item
+    - taxonomy.vocabulary.roadmap_2_themes
+id: node.dashboard_item.field_theme
+field_name: field_theme
+entity_type: node
+bundle: dashboard_item
+label: Theme
+description: 'Select the theme which may apply to this dashboard item. This will add a coloured bar to the top of the card and a graphical indicator and text on the page display. It is not required as different dashboards may require different themes.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      roadmap_2_themes: roadmap_2_themes
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

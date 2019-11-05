@@ -1,0 +1,32 @@
+uuid: 328802b8-8d58-418b-b36a-3432271f533e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_summary
+    - node.type.dashboard_item
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    summary: summary
+    introduction: '0'
+    commenting: '0'
+    full_rich_text: '0'
+    administration: '0'
+    html: '0'
+    plain_text: '0'
+    rich_text: '0'
+id: node.dashboard_item.field_summary
+field_name: field_summary
+entity_type: node
+bundle: dashboard_item
+label: Summary
+description: 'The summary is displayed on search listings and page listings.'
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

@@ -5,6 +5,7 @@ dependencies:
   module:
     - menu_ui
     - node_title_help_text
+    - scheduler
     - wysiwyg_template
 third_party_settings:
   menu_ui:
@@ -14,6 +15,18 @@ third_party_settings:
     title_help: 'Titles have a limit of 65 characters and must be unique. We use this text for the <title> tag, for search engine optimisation (SEO) and to build the page address (URL).'
   wysiwyg_template:
     default_template: ''
+  scheduler:
+    expand_fieldset: when_required
+    fields_display_mode: vertical_tab
+    publish_enable: true
+    publish_past_date: error
+    publish_past_date_created: false
+    publish_required: false
+    publish_revision: false
+    publish_touch: false
+    unpublish_enable: false
+    unpublish_required: false
+    unpublish_revision: false
 _core:
   default_config_hash: cUBx0uX7mxGIyKPF4hCVoyXEBvUpWphke9KUzC9hvVs
 name: Event
