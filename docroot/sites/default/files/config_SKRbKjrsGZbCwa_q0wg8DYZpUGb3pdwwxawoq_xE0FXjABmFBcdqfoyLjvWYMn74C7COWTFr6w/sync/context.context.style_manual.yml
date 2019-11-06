@@ -25,11 +25,11 @@ reactions:
     blocks:
       16c1602a-538c-48d9-b362-a5a9c26bec8a:
         id: 'mailchimp_signup_subscribe_block:sign_up_for_style_manual_updates'
-        label: 'Mailchimp Subscription Form: Sign-up for Style Manual updates'
+        label: 'Sign-up for Style Manual updates'
         provider: mailchimp_signup
         label_display: visible
         region: sidebar_right
-        weight: '0'
+        weight: '-10'
         context_mapping: {  }
         theme: dta_gov_au
         css_class: ''
@@ -39,5 +39,5 @@ reactions:
     id: blocks
     saved: false
     uuid: de2341ef-634e-4dbc-b4b2-ac7fb599a0fb
-    include_default_blocks: 0
+    include_default_blocks: 1
 weight: 0

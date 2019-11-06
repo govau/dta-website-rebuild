@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4556c76ef19f5f65d906eea1a375fc67",
+    "content-hash": "6f057ac31d88a33bd9e8f50e13282947",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -3903,7 +3903,7 @@
                 },
                 "drupal": {
                     "version": "8.x-2.2",
-                    "datestamp": "1562512232",
+                    "datestamp": "1562240585",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -6674,7 +6674,7 @@
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
             "license": [
-                "GPL-2.0+"
+                "GPL-2.0-or-later"
             ],
             "authors": [
                 {
@@ -7405,7 +7405,7 @@
                 },
                 "drupal": {
                     "version": "8.x-1.0-alpha12",
-                    "datestamp": "1532507885",
+                    "datestamp": "1560260888",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Alpha releases are not covered by Drupal security advisories."
@@ -7433,7 +7433,7 @@
             "description": "Create search pages using Search API indexes.",
             "homepage": "https://www.drupal.org/project/search_api_page",
             "support": {
-                "source": "http://cgit.drupalcode.org/search_api_page"
+                "source": "https://git.drupalcode.org/project/search_api_page"
             }
         },
         {
@@ -9275,16 +9275,16 @@
         },
         {
             "name": "govau/dta-gov-au",
-            "version": "1.10.1",
+            "version": "1.11.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/govau/dta-gov-au.git",
-                "reference": "74f456bf449c0757c84a95628dfc566689ab4c9e"
+                "reference": "15f3495c9aeb3421d84c181c6f79e8af7acabb3f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/govau/dta-gov-au/zipball/74f456bf449c0757c84a95628dfc566689ab4c9e",
-                "reference": "74f456bf449c0757c84a95628dfc566689ab4c9e",
+                "url": "https://api.github.com/repos/govau/dta-gov-au/zipball/15f3495c9aeb3421d84c181c6f79e8af7acabb3f",
+                "reference": "15f3495c9aeb3421d84c181c6f79e8af7acabb3f",
                 "shasum": ""
             },
             "require": {
@@ -9302,20 +9302,20 @@
                 "government",
                 "theme"
             ],
-            "time": "2019-11-04T21:17:58+00:00"
+            "time": "2019-11-05T04:30:08+00:00"
         },
         {
             "name": "govau/dta-uikit-base",
-            "version": "dev-master",
+            "version": "1.2.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/govau/dta-uikit-base.git",
-                "reference": "b505ae1378f6508a043c7410acc50c33ad1080ce"
+                "reference": "10c8758ecf22f7459039a2210c7ba0ca5d99c918"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/govau/dta-uikit-base/zipball/b505ae1378f6508a043c7410acc50c33ad1080ce",
-                "reference": "b505ae1378f6508a043c7410acc50c33ad1080ce",
+                "url": "https://api.github.com/repos/govau/dta-uikit-base/zipball/10c8758ecf22f7459039a2210c7ba0ca5d99c918",
+                "reference": "10c8758ecf22f7459039a2210c7ba0ca5d99c918",
                 "shasum": ""
             },
             "type": "drupal-custom-theme",
@@ -9330,7 +9330,7 @@
                 "government",
                 "theme"
             ],
-            "time": "2018-08-17T03:21:53+00:00"
+            "time": "2019-08-21T01:39:11+00:00"
         },
         {
             "name": "govau/tadpole",
