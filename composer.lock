@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4e8cb4f306a95b9dc78f3ccf210754f3",
+    "content-hash": "6f057ac31d88a33bd9e8f50e13282947",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -3903,7 +3903,7 @@
                 },
                 "drupal": {
                     "version": "8.x-2.2",
-                    "datestamp": "1562512232",
+                    "datestamp": "1562240585",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -6674,7 +6674,7 @@
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
             "license": [
-                "GPL-2.0+"
+                "GPL-2.0-or-later"
             ],
             "authors": [
                 {
@@ -7405,7 +7405,7 @@
                 },
                 "drupal": {
                     "version": "8.x-1.0-alpha12",
-                    "datestamp": "1532507885",
+                    "datestamp": "1560260888",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Alpha releases are not covered by Drupal security advisories."
@@ -7433,7 +7433,7 @@
             "description": "Create search pages using Search API indexes.",
             "homepage": "https://www.drupal.org/project/search_api_page",
             "support": {
-                "source": "http://cgit.drupalcode.org/search_api_page"
+                "source": "https://git.drupalcode.org/project/search_api_page"
             }
         },
         {
@@ -7925,6 +7925,61 @@
             "homepage": "https://www.drupal.org/project/swiftmailer",
             "support": {
                 "source": "http://cgit.drupalcode.org/swiftmailer"
+            }
+        },
+        {
+            "name": "drupal/term_condition",
+            "version": "1.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/term_condition.git",
+                "reference": "8.x-1.2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/term_condition-8.x-1.2.zip",
+                "reference": "8.x-1.2",
+                "shasum": "7a7292a57739f4040e21a4bc35e4651a8fab2eb3"
+            },
+            "require": {
+                "drupal/core": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.2",
+                    "datestamp": "1560550081",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "DanielVeza",
+                    "homepage": "https://www.drupal.org/user/3362504"
+                },
+                {
+                    "name": "jazzslider",
+                    "homepage": "https://www.drupal.org/user/430722"
+                }
+            ],
+            "description": "Provides a Condition plugin which checks to see if a node references a particular taxonomy term.",
+            "homepage": "https://www.drupal.org/project/term_condition",
+            "keywords": [
+                "Drupal"
+            ],
+            "support": {
+                "source": "http://cgit.drupalcode.org/term_condition",
+                "issues": "http://drupal.org/project/issues/term_condition"
             }
         },
         {
@@ -9251,16 +9306,16 @@
         },
         {
             "name": "govau/dta-uikit-base",
-            "version": "dev-master",
+            "version": "1.2.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/govau/dta-uikit-base.git",
-                "reference": "b505ae1378f6508a043c7410acc50c33ad1080ce"
+                "reference": "10c8758ecf22f7459039a2210c7ba0ca5d99c918"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/govau/dta-uikit-base/zipball/b505ae1378f6508a043c7410acc50c33ad1080ce",
-                "reference": "b505ae1378f6508a043c7410acc50c33ad1080ce",
+                "url": "https://api.github.com/repos/govau/dta-uikit-base/zipball/10c8758ecf22f7459039a2210c7ba0ca5d99c918",
+                "reference": "10c8758ecf22f7459039a2210c7ba0ca5d99c918",
                 "shasum": ""
             },
             "type": "drupal-custom-theme",
@@ -9275,7 +9330,7 @@
                 "government",
                 "theme"
             ],
-            "time": "2018-08-17T03:21:53+00:00"
+            "time": "2019-08-21T01:39:11+00:00"
         },
         {
             "name": "govau/tadpole",
