@@ -9306,16 +9306,16 @@
         },
         {
             "name": "govau/dta-uikit-base",
-            "version": "1.2.3",
+            "version": "1.2.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/govau/dta-uikit-base.git",
-                "reference": "10c8758ecf22f7459039a2210c7ba0ca5d99c918"
+                "reference": "b410170ce9ccf1239b8d2db812b51e471a4733ac"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/govau/dta-uikit-base/zipball/10c8758ecf22f7459039a2210c7ba0ca5d99c918",
-                "reference": "10c8758ecf22f7459039a2210c7ba0ca5d99c918",
+                "url": "https://api.github.com/repos/govau/dta-uikit-base/zipball/b410170ce9ccf1239b8d2db812b51e471a4733ac",
+                "reference": "b410170ce9ccf1239b8d2db812b51e471a4733ac",
                 "shasum": ""
             },
             "type": "drupal-custom-theme",
@@ -9330,7 +9330,7 @@
                 "government",
                 "theme"
             ],
-            "time": "2019-08-21T01:39:11+00:00"
+            "time": "2019-11-06T05:13:03+00:00"
         },
         {
             "name": "govau/tadpole",
