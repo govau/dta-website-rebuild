@@ -28,6 +28,8 @@ visibility:
     id: node_type
     bundles:
       blog_post: blog_post
+      media_release: media_release
+      news_item: news_item
     negate: false
     context_mapping:
       node: '@node.node_route_context:node'
