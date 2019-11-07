@@ -9,7 +9,7 @@ name: updates_form
 label: 'Updates form'
 group: null
 description: 'Provides the updates form for blogs and news items.'
-requireAllConditions: false
+requireAllConditions: true
 disabled: false
 conditions:
   node_type:

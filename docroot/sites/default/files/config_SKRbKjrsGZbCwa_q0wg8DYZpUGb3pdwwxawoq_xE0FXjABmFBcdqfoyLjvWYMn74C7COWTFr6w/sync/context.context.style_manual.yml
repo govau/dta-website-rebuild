@@ -3,12 +3,13 @@ langcode: en
 status: true
 dependencies:
   module:
+    - node
     - term_condition
 name: style_manual
 label: 'Style manual'
 group: null
 description: ''
-requireAllConditions: false
+requireAllConditions: true
 disabled: false
 conditions:
   term:
@@ -18,6 +19,15 @@ conditions:
         target_id: '294'
     negate: 0
     uuid: 0395c688-d4a8-46d7-94f4-f01113ba11a1
+    context_mapping:
+      node: '@node.node_route_context:node'
+  node_type:
+    id: node_type
+    bundles:
+      blog_post: blog_post
+      news_item: news_item
+    negate: 0
+    uuid: 5ebf5c9a-d40d-4b8f-a1b9-2bc2be282947
     context_mapping:
       node: '@node.node_route_context:node'
 reactions:
