@@ -68,3 +68,7 @@ settings:
   doublein: true
   include_interest_groups: false
   safe_interest_groups: false
+  configure_groups: false
+  gdpr_consent: false
+  gdpr_checkbox_label: ''
+  gdpr_consent_required: false
