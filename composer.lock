@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "170e3f942253830bf754cd1d2da8c351",
+    "content-hash": "afc927274ad41e4e5c347b31a0447717",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1869,17 +1869,17 @@
         },
         {
             "name": "drupal/admin_toolbar",
-            "version": "1.27.0",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/admin_toolbar.git",
-                "reference": "8.x-1.27"
+                "reference": "8.x-2.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/admin_toolbar-8.x-1.27.zip",
-                "reference": "8.x-1.27",
-                "shasum": "fed1fbbdf8f805b1da63d73e7e2c54750f354d61"
+                "url": "https://ftp.drupal.org/files/projects/admin_toolbar-8.x-2.0.zip",
+                "reference": "8.x-2.0",
+                "shasum": "568de63dbaa8046a82d327dbd0b892ab79fb87aa"
             },
             "require": {
                 "drupal/core": "*"
@@ -1887,11 +1887,11 @@
             "type": "drupal-module",
             "extra": {
                 "branch-alias": {
-                    "dev-1.x": "1.x-dev"
+                    "dev-2.x": "2.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-1.27",
-                    "datestamp": "1558553350",
+                    "version": "8.x-2.0",
+                    "datestamp": "1572370984",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -4155,17 +4155,17 @@
         },
         {
             "name": "drupal/eva",
-            "version": "2.0.0-rc3",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/eva.git",
-                "reference": "8.x-2.0-rc3"
+                "reference": "8.x-2.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/eva-8.x-2.0-rc3.zip",
-                "reference": "8.x-2.0-rc3",
-                "shasum": "74a5216e6389ca8a42f769583ecbd63054cf1bff"
+                "url": "https://ftp.drupal.org/files/projects/eva-8.x-2.0.zip",
+                "reference": "8.x-2.0",
+                "shasum": "8ad6b0ee65a819a243f5f08cb6c19b436280391d"
             },
             "require": {
                 "drupal/core": "*"
@@ -4179,11 +4179,11 @@
                     "dev-2.x": "2.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-2.0-rc3",
-                    "datestamp": "1561127285",
+                    "version": "8.x-2.0",
+                    "datestamp": "1572917286",
                     "security-coverage": {
-                        "status": "not-covered",
-                        "message": "RC releases are not covered by Drupal security advisories."
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
                     }
                 }
             },
@@ -4201,12 +4201,12 @@
                     "homepage": "https://www.drupal.org/user/3190515"
                 },
                 {
-                    "name": "axel.rutz",
-                    "homepage": "https://www.drupal.org/user/229048"
-                },
-                {
                     "name": "eaton",
                     "homepage": "https://www.drupal.org/user/16496"
+                },
+                {
+                    "name": "geek.merlin aka axel.rutz",
+                    "homepage": "https://www.drupal.org/user/229048"
                 },
                 {
                     "name": "mkadin",
@@ -7248,17 +7248,17 @@
         },
         {
             "name": "drupal/search_api",
-            "version": "1.14.0",
+            "version": "1.15.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/search_api.git",
-                "reference": "8.x-1.14"
+                "reference": "8.x-1.15"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/search_api-8.x-1.14.zip",
-                "reference": "8.x-1.14",
-                "shasum": "bfc45a5ea3965cd8355927cd56a8f6a148cfc5e5"
+                "url": "https://ftp.drupal.org/files/projects/search_api-8.x-1.15.zip",
+                "reference": "8.x-1.15",
+                "shasum": "12c13141adb6b687fe36781ac9269a49ef810323"
             },
             "require": {
                 "drupal/core": "^8.6"
@@ -7267,6 +7267,7 @@
                 "drupal/search_api_solr": "2.* || 3.0 || 3.1"
             },
             "require-dev": {
+                "drupal/language_fallback_fix": "@dev",
                 "drupal/search_api_autocomplete": "@dev",
                 "drupal/search_api_db": "*"
             },
@@ -7281,8 +7282,8 @@
                     "dev-1.x": "1.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-1.14",
-                    "datestamp": "1562599986",
+                    "version": "8.x-1.15",
+                    "datestamp": "1573122785",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
