@@ -1,0 +1,54 @@
+uuid: 343b1dec-695d-422c-88a7-fc98a7afb32e
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - term_condition
+name: updates_form
+label: 'Updates form'
+group: null
+description: 'Provides the updates form for blogs and news items.'
+requireAllConditions: true
+disabled: false
+conditions:
+  node_type:
+    id: node_type
+    bundles:
+      blog_post: blog_post
+      media_release: media_release
+      news_item: news_item
+    negate: 0
+    uuid: d7e79ac4-731b-477c-9862-652145dfc346
+    context_mapping:
+      node: '@node.node_route_context:node'
+  term:
+    id: term
+    tid:
+      -
+        target_id: '294'
+    negate: 1
+    uuid: 7c196fc4-deb0-450e-89de-dd230008dbf0
+    context_mapping:
+      node: '@node.node_route_context:node'
+reactions:
+  blocks:
+    blocks:
+      c95d0b96-9b4f-460f-b5c1-975ed63e7fa6:
+        id: 'mailchimp_signup_subscribe_block:sign_up_for_updates'
+        label: 'Sign-up for DTA updates'
+        provider: mailchimp_signup
+        label_display: visible
+        region: sidebar_right
+        weight: '-5'
+        context_mapping: {  }
+        theme: dta_gov_au
+        css_class: ''
+        unique: 0
+        context_id: updates_form
+        uuid: c95d0b96-9b4f-460f-b5c1-975ed63e7fa6
+    id: blocks
+    saved: false
+    uuid: 617708ab-86d5-4fde-8545-b634453de08f
+    include_default_blocks: 1
+weight: 0
