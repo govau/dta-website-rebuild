@@ -1,32 +1,37 @@
-uuid: f0617416-2233-419f-8d0c-5aa8febe7fe8
+uuid: 874fcf4c-040f-4759-950b-fb99b8e567ca
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.node.field_metric
     - node.type.dashboard_item
+    - paragraphs.paragraphs_type.dashboard_metrics
   module:
-    - allowed_formats
-    - text
-third_party_settings:
-  allowed_formats:
-    full_rich_text: full_rich_text
-    introduction: '0'
-    summary: '0'
-    commenting: '0'
-    administration: '0'
-    html: '0'
-    plain_text: '0'
-    rich_text: '0'
+    - entity_reference_revisions
 id: node.dashboard_item.field_metric
 field_name: field_metric
 entity_type: node
 bundle: dashboard_item
 label: Metric
-description: 'This field is where you can place the metric. Depending on what the metric is, you may need to add an image, or text, or something else.'
+description: 'Add as many metrics as you need. The site will format each according to the existing Dashboard style.'
 required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
-settings: {  }
-field_type: text_long
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      dashboard_metrics: dashboard_metrics
+    target_bundles_drag_drop:
+      dashboard_metrics:
+        enabled: true
+        weight: 4
+      dss_criterion:
+        weight: 5
+        enabled: false
+      related_documents:
+        weight: 6
+        enabled: false
+field_type: entity_reference_revisions

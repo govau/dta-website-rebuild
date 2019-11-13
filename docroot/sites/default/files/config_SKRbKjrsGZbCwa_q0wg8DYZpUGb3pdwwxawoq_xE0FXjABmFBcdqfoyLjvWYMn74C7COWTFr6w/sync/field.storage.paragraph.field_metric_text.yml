@@ -1,24 +1,23 @@
-uuid: a0a19f4f-1585-401f-966b-052a070f3ac4
+uuid: f2fb5576-938f-41e8-8e2b-594a491a9f79
 langcode: en
 status: true
 dependencies:
   module:
-    - entity_reference_revisions
     - field_permissions
-    - node
     - paragraphs
+    - text
 third_party_settings:
   field_permissions:
     permission_type: public
-id: node.field_metric
-field_name: field_metric
-entity_type: node
-type: entity_reference_revisions
+id: paragraph.field_metric_text
+field_name: field_metric_text
+entity_type: paragraph
+type: text
 settings:
-  target_type: paragraph
-module: entity_reference_revisions
+  max_length: 255
+module: text
 locked: false
-cardinality: -1
+cardinality: 1
 translatable: true
 indexes: {  }
 persist_with_no_fields: false

@@ -1,0 +1,19 @@
+uuid: 9723c767-0e71-4aa7-a033-3f9526062e5a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_headline_text
+    - paragraphs.paragraphs_type.dashboard_metrics
+id: paragraph.dashboard_metrics.field_headline_text
+field_name: field_headline_text
+entity_type: paragraph
+bundle: dashboard_metrics
+label: 'Headline text'
+description: 'Use this text to provide the headline text for the metric.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

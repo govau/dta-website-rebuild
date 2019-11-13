@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.taxonomy_term.roadmap_2_themes.field_agency_website
     - field.field.taxonomy_term.roadmap_2_themes.field_alternative_name
+    - field.field.taxonomy_term.roadmap_2_themes.field_percentage_complete
     - field.field.taxonomy_term.roadmap_2_themes.field_summary
     - taxonomy.vocabulary.roadmap_2_themes
   module:
@@ -45,6 +46,13 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
+    region: content
+  field_percentage_complete:
+    weight: 7
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
     region: content
   field_summary:
     weight: 3

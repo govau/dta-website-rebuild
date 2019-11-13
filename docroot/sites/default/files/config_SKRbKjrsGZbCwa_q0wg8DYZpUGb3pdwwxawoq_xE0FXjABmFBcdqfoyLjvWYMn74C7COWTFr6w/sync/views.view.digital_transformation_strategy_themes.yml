@@ -4,10 +4,12 @@ status: true
 dependencies:
   config:
     - field.storage.taxonomy_term.field_agency_website
+    - field.storage.taxonomy_term.field_percentage_complete
     - field.storage.taxonomy_term.field_summary
     - taxonomy.vocabulary.roadmap_2_themes
   module:
     - link
+    - node
     - taxonomy
     - text
     - user

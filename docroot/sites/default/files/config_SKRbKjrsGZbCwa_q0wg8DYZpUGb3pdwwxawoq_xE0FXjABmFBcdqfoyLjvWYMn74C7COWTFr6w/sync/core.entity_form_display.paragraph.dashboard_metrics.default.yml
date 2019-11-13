@@ -1,0 +1,49 @@
+uuid: 87547a08-7040-4fc2-b489-d5ce92d3af2e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.dashboard_metrics.field_headline_figure
+    - field.field.paragraph.dashboard_metrics.field_headline_text
+    - field.field.paragraph.dashboard_metrics.field_metric_text
+    - paragraphs.paragraphs_type.dashboard_metrics
+  module:
+    - field_layout
+    - layout_discovery
+    - text
+third_party_settings:
+  field_layout:
+    id: layout_onecol
+    settings: {  }
+id: paragraph.dashboard_metrics.default
+targetEntityType: paragraph
+bundle: dashboard_metrics
+mode: default
+content:
+  field_headline_figure:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_headline_text:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_metric_text:
+    weight: 2
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textfield
+    region: content
+hidden:
+  created: true
+  status: true
