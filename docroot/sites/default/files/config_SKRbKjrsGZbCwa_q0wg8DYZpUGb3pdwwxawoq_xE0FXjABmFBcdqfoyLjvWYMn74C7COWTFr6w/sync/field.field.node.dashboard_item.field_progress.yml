@@ -1,0 +1,29 @@
+uuid: 49102346-8442-4183-86c4-43ee8bcd0ee8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_progress
+    - node.type.dashboard_item
+    - taxonomy.vocabulary.dashboard_progress
+id: node.dashboard_item.field_progress
+field_name: field_progress
+entity_type: node
+bundle: dashboard_item
+label: Progress
+description: 'Use this field to indicate the progress of this dashboard item. You may need to add terms to the dashboard progress vocabulary to accomodate the requirements of this dashboard.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      dashboard_progress: dashboard_progress
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

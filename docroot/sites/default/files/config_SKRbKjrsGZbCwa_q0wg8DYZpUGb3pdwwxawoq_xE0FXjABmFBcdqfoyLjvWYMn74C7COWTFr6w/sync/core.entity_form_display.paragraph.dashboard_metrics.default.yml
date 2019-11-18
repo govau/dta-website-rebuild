@@ -5,7 +5,7 @@ dependencies:
   config:
     - field.field.paragraph.dashboard_metrics.field_headline_figure
     - field.field.paragraph.dashboard_metrics.field_headline_text
-    - field.field.paragraph.dashboard_metrics.field_metric_text
+    - field.field.paragraph.dashboard_metrics.field_metric
     - paragraphs.paragraphs_type.dashboard_metrics
   module:
     - field_layout
@@ -36,13 +36,13 @@ content:
     third_party_settings: {  }
     type: string_textfield
     region: content
-  field_metric_text:
+  field_metric:
     weight: 2
     settings:
-      size: 60
+      rows: 5
       placeholder: ''
     third_party_settings: {  }
-    type: text_textfield
+    type: text_textarea
     region: content
 hidden:
   created: true

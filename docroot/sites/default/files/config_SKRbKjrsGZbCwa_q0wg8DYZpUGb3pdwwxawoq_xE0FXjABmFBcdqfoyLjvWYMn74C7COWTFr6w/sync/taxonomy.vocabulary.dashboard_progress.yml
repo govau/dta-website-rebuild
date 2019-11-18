@@ -1,0 +1,8 @@
+uuid: 0714fb2a-102c-4457-b620-fb610c04c804
+langcode: en
+status: true
+dependencies: {  }
+name: 'Dashboard progress'
+vid: dashboard_progress
+description: 'Allows authors to assign progress markers to dashboard items.'
+weight: 0

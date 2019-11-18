@@ -10,6 +10,7 @@ dependencies:
     - field.field.node.dashboard_item.field_image_caption
     - field.field.node.dashboard_item.field_introduction
     - field.field.node.dashboard_item.field_metric
+    - field.field.node.dashboard_item.field_progress
     - field.field.node.dashboard_item.field_summary
     - field.field.node.dashboard_item.field_theme
     - field.field.node.dashboard_item.field_weight
@@ -205,6 +206,7 @@ content:
             fi-def-at: false
 hidden:
   field_dashboard_reference: true
+  field_progress: true
   field_summary: true
   field_theme: true
   field_weight: true

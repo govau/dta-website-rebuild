@@ -4,8 +4,8 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.card
+    - field.storage.node.field_progress
     - field.storage.node.field_theme
-    - field.storage.taxonomy_term.field_percentage_complete
     - node.type.dashboard_item
     - node.type.landing_page_level_2
     - workflows.workflow.external_links
@@ -645,12 +645,12 @@ display:
             preserve_tags: ''
             html: false
           element_type: span
-          element_class: 'dts-theme-name col-xs-8'
+          element_class: dashboard-theme-name-text
           element_label_type: ''
           element_label_class: ''
           element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
+          element_wrapper_type: div
+          element_wrapper_class: dashboard-theme-name
           element_default_classes: false
           empty: ''
           hide_empty: false
@@ -674,70 +674,6 @@ display:
           entity_type: taxonomy_term
           entity_field: name
           plugin_id: term_name
-        field_percentage_complete:
-          id: field_percentage_complete
-          table: taxonomy_term__field_percentage_complete
-          field: field_percentage_complete
-          relationship: field_theme
-          group_type: group
-          admin_label: ''
-          label: progress
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: span
-          element_class: dts-theme-completion-percentage
-          element_label_type: span
-          element_label_class: dts-theme-completion-label
-          element_label_colon: true
-          element_wrapper_type: div
-          element_wrapper_class: 'dts-theme-completion col-xs-4'
-          element_default_classes: false
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: number_integer
-          settings:
-            thousand_separator: ''
-            prefix_suffix: true
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          plugin_id: field
         name_1:
           id: name_1
           table: taxonomy_term_field_data
@@ -804,6 +740,69 @@ display:
           entity_type: taxonomy_term
           entity_field: name
           plugin_id: term_name
+        field_progress:
+          id: field_progress
+          table: node__field_progress
+          field: field_progress
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: div
+          element_wrapper_class: dashboard-item-progress
+          element_default_classes: false
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: target_id
+          type: entity_reference_label
+          settings:
+            link: false
+          group_column: target_id
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
       defaults:
         fields: false
         style: false
@@ -816,7 +815,7 @@ display:
         type: default
         options:
           grouping: {  }
-          row_class: 'row col-xs-12 {{ name_1 }} '
+          row_class: '{{ name_1 }} dashboard-theme-wrapper'
           default_row_class: false
       row:
         type: fields
@@ -872,7 +871,7 @@ display:
           admin_label: 'field_theme: Taxonomy term'
           required: true
           plugin_id: standard
-      css_class: 'dts-dashboard-theme-header row'
+      css_class: dts-dashboard-theme-header
       sorts: {  }
     cache_metadata:
       max-age: -1
@@ -884,5 +883,5 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags:
-        - 'config:field.storage.taxonomy_term.field_percentage_complete'
+        - 'config:field.storage.node.field_progress'
         - 'config:workflow_list'

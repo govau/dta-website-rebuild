@@ -1,32 +1,32 @@
-uuid: 184f62f2-2ed8-4917-b94a-de3ef9964ea6
+uuid: 2fcbb5cc-9f5b-4e9d-92e2-717c18922d45
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.paragraph.field_metric_text
+    - field.storage.paragraph.field_metric
     - paragraphs.paragraphs_type.dashboard_metrics
   module:
     - allowed_formats
     - text
 third_party_settings:
   allowed_formats:
-    introduction: introduction
+    commenting: commenting
+    introduction: '0'
     summary: '0'
-    commenting: '0'
     full_rich_text: '0'
     administration: '0'
     html: '0'
     plain_text: '0'
     rich_text: '0'
-id: paragraph.dashboard_metrics.field_metric_text
-field_name: field_metric_text
+id: paragraph.dashboard_metrics.field_metric
+field_name: field_metric
 entity_type: paragraph
 bundle: dashboard_metrics
 label: 'Metric text'
-description: 'Use this field to provide the main text for the metric.'
+description: 'Use this field to add the text of a metric.'
 required: true
 translatable: false
 default_value: {  }
 default_value_callback: ''
 settings: {  }
-field_type: text
+field_type: text_long

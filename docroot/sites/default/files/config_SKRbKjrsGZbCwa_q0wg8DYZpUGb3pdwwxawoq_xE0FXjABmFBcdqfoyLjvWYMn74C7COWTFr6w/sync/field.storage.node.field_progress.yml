@@ -1,21 +1,21 @@
-uuid: f2fb5576-938f-41e8-8e2b-594a491a9f79
+uuid: 14b111c3-b45f-43ee-af29-84a715ac6fa4
 langcode: en
 status: true
 dependencies:
   module:
     - field_permissions
-    - paragraphs
-    - text
+    - node
+    - taxonomy
 third_party_settings:
   field_permissions:
     permission_type: public
-id: paragraph.field_metric_text
-field_name: field_metric_text
-entity_type: paragraph
-type: text
+id: node.field_progress
+field_name: field_progress
+entity_type: node
+type: entity_reference
 settings:
-  max_length: 255
-module: text
+  target_type: taxonomy_term
+module: core
 locked: false
 cardinality: 1
 translatable: true

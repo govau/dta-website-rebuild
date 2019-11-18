@@ -5,7 +5,7 @@ dependencies:
   config:
     - field.field.paragraph.dashboard_metrics.field_headline_figure
     - field.field.paragraph.dashboard_metrics.field_headline_text
-    - field.field.paragraph.dashboard_metrics.field_metric_text
+    - field.field.paragraph.dashboard_metrics.field_metric
     - paragraphs.paragraphs_type.dashboard_metrics
   module:
     - ds
@@ -23,21 +23,20 @@ third_party_settings:
       settings: {  }
     regions:
       content:
+        - group_metric_row
         - field_headline_figure
-        - field_headline_text
         - group_headline
-        - field_metric_text
+        - field_headline_text
+        - field_metric
   field_group:
     group_headline:
       children:
         - field_headline_figure
         - field_headline_text
-      parent_name: ''
-      weight: 20
+      parent_name: group_metric_row
+      weight: 1
       format_type: html_element
       format_settings:
-        id: ''
-        classes: dashboard-metric-headline
         element: div
         show_label: false
         label_element: h3
@@ -45,7 +44,28 @@ third_party_settings:
         attributes: ''
         effect: none
         speed: fast
+        id: ''
+        classes: dashboard-metric-headline
       label: Headline
+      region: content
+    group_metric_row:
+      children:
+        - group_headline
+        - field_metric
+      parent_name: ''
+      weight: 0
+      format_type: html_element
+      format_settings:
+        element: div
+        show_label: false
+        label_element: h3
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+        id: ''
+        classes: dashboard-metric-row
+      label: 'Metric row'
       region: content
   ds_chains:
     fields: {  }
@@ -130,8 +150,8 @@ content:
             fi-def-at: false
     type: string
     region: content
-  field_metric_text:
-    weight: 50
+  field_metric:
+    weight: 2
     label: hidden
     settings: {  }
     third_party_settings:
@@ -147,8 +167,8 @@ content:
             lbw-cl: ''
             lbw-at: ''
             ow: true
-            ow-el: span
-            ow-cl: metric-text
+            ow-el: div
+            ow-cl: dashboard-metric-text
             ow-at: ''
             fis-el: ''
             fis-cl: ''
