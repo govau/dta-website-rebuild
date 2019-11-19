@@ -1,0 +1,19 @@
+uuid: 1f08b2e2-68d8-4dca-af34-043978ab135a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_headline_figure
+    - paragraphs.paragraphs_type.dashboard_metrics
+id: paragraph.dashboard_metrics.field_headline_figure
+field_name: field_headline_figure
+entity_type: paragraph
+bundle: dashboard_metrics
+label: 'Headline figure'
+description: 'Use this text to provide a headline figure for the metric.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

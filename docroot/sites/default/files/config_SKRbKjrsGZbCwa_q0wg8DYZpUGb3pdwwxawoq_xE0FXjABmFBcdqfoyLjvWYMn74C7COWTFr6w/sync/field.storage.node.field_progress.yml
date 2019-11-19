@@ -1,24 +1,23 @@
-uuid: a0a19f4f-1585-401f-966b-052a070f3ac4
+uuid: 14b111c3-b45f-43ee-af29-84a715ac6fa4
 langcode: en
 status: true
 dependencies:
   module:
-    - entity_reference_revisions
     - field_permissions
     - node
-    - paragraphs
+    - taxonomy
 third_party_settings:
   field_permissions:
     permission_type: public
-id: node.field_metric
-field_name: field_metric
+id: node.field_progress
+field_name: field_progress
 entity_type: node
-type: entity_reference_revisions
+type: entity_reference
 settings:
-  target_type: paragraph
-module: entity_reference_revisions
+  target_type: taxonomy_term
+module: core
 locked: false
-cardinality: -1
+cardinality: 1
 translatable: true
 indexes: {  }
 persist_with_no_fields: false

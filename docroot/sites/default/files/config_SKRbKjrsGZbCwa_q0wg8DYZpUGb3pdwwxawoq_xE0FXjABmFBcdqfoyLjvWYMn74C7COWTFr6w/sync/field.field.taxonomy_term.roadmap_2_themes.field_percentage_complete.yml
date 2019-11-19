@@ -1,0 +1,23 @@
+uuid: 5de9431d-2c07-4055-9283-cfe732346e69
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_percentage_complete
+    - taxonomy.vocabulary.roadmap_2_themes
+id: taxonomy_term.roadmap_2_themes.field_percentage_complete
+field_name: field_percentage_complete
+entity_type: taxonomy_term
+bundle: roadmap_2_themes
+label: 'Percentage complete'
+description: 'We use this field to indicate how complete the theme (or priority) is. We use it together with the icon to create a quick indicator of completeness on the Dashboard page.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: 0
+  max: 100
+  prefix: ''
+  suffix: '%'
+field_type: integer
