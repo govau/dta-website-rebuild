@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.node.full
     - field.field.node.dashboard_item.field_body
+    - field.field.node.dashboard_item.field_case_studies
     - field.field.node.dashboard_item.field_dashboard_reference
     - field.field.node.dashboard_item.field_image
     - field.field.node.dashboard_item.field_image_caption
@@ -41,6 +42,7 @@ third_party_settings:
         - field_image_caption
         - group_image_and_caption
         - field_body
+        - field_case_studies
   ds_chains:
     fields: {  }
   field_group:
@@ -80,6 +82,46 @@ content:
     third_party_settings: {  }
     type: text_default
     region: content
+  field_case_studies:
+    type: entity_reference_revisions_entity_view
+    weight: 7
+    region: content
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings:
+      empty_fields:
+        handler: ''
+      ds:
+        ds_limit: ''
+        ft:
+          id: expert
+          settings:
+            lb: ''
+            prefix: ''
+            lbw: true
+            lbw-el: h2
+            lbw-cl: ''
+            lbw-at: ''
+            ow-el: ''
+            ow-cl: ''
+            ow-at: ''
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fi-el: ''
+            fi-cl: ''
+            fi-at: ''
+            suffix: ''
+            lb-col: false
+            ow: false
+            ow-def-at: false
+            ow-def-cl: false
+            fis: false
+            fis-def-at: false
+            fi: false
+            fi-def-at: false
   field_image:
     weight: 4
     label: hidden

@@ -6,6 +6,7 @@ dependencies:
     - field.storage.node.field_metric
     - node.type.dashboard_item
     - paragraphs.paragraphs_type.dashboard_metrics
+    - paragraphs.paragraphs_type.dashboard_metrics_intro
   module:
     - entity_reference_revisions
 id: node.dashboard_item.field_metric
@@ -24,6 +25,7 @@ settings:
     negate: 0
     target_bundles:
       dashboard_metrics: dashboard_metrics
+      dashboard_metrics_intro: dashboard_metrics_intro
     target_bundles_drag_drop:
       dashboard_metrics:
         enabled: true
@@ -31,6 +33,9 @@ settings:
       dss_criterion:
         weight: 5
         enabled: false
+      dashboard_metrics_intro:
+        enabled: true
+        weight: 0
       related_documents:
         weight: 6
         enabled: false

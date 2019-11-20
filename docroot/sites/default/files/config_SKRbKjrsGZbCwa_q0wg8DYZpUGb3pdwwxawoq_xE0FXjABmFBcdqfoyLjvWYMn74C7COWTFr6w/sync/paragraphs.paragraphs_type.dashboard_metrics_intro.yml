@@ -1,0 +1,9 @@
+uuid: 5cc0ed4a-0bc5-4b7a-a902-39cdc45198c9
+langcode: en
+status: true
+dependencies: {  }
+id: dashboard_metrics_intro
+label: 'Dashboard metrics intro'
+icon_uuid: null
+description: 'Use this paragraph type to add an intro to the metrics.'
+behavior_plugins: {  }

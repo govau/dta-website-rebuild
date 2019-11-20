@@ -24,7 +24,7 @@ entity_type: node
 bundle: dashboard_item
 label: Content
 description: 'This field provides the main content for this content type.'
-required: true
+required: false
 translatable: true
 default_value: {  }
 default_value_callback: ''
