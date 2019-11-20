@@ -1,0 +1,32 @@
+uuid: d013b513-3cf3-4cd0-8d2b-44febca11859
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_metric
+    - paragraphs.paragraphs_type.dashboard_metrics_intro
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    commenting: commenting
+    introduction: '0'
+    summary: '0'
+    full_rich_text: '0'
+    administration: '0'
+    html: '0'
+    plain_text: '0'
+    rich_text: '0'
+id: paragraph.dashboard_metrics_intro.field_metric
+field_name: field_metric
+entity_type: paragraph
+bundle: dashboard_metrics_intro
+label: 'Metric introduction'
+description: 'Use this field to add plain introductory text to the metric.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

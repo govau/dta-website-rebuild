@@ -1,0 +1,9 @@
+uuid: 74f8f8a7-69f9-405d-9b38-1de113e6f59d
+langcode: en
+status: true
+dependencies: {  }
+id: dashboard_case_study
+label: 'Dashboard case study'
+icon_uuid: null
+description: 'Use this paragraph to add case studies to dashboard items.'
+behavior_plugins: {  }

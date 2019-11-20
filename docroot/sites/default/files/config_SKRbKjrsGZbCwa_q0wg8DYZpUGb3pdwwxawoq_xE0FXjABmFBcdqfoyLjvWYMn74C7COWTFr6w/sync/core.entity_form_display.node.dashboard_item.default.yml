@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.dashboard_item.field_body
+    - field.field.node.dashboard_item.field_case_studies
     - field.field.node.dashboard_item.field_dashboard_reference
     - field.field.node.dashboard_item.field_image
     - field.field.node.dashboard_item.field_image_caption
@@ -50,6 +51,18 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: text_textarea
+    region: content
+  field_case_studies:
+    type: entity_reference_paragraphs
+    weight: 26
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
     region: content
   field_dashboard_reference:
     weight: 17

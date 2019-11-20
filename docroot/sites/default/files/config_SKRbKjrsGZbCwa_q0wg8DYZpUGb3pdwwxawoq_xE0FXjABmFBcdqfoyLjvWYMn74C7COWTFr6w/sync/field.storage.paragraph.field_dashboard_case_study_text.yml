@@ -1,22 +1,20 @@
-uuid: 85184c50-7c79-4b56-a809-1ca1343daf26
+uuid: ec9523f2-a076-4cfc-800a-445141323bb4
 langcode: en
 status: true
 dependencies:
   module:
     - field_permissions
     - paragraphs
+    - text
 third_party_settings:
   field_permissions:
     permission_type: public
-id: paragraph.field_title
-field_name: field_title
+id: paragraph.field_dashboard_case_study_text
+field_name: field_dashboard_case_study_text
 entity_type: paragraph
-type: string
-settings:
-  max_length: 255
-  is_ascii: false
-  case_sensitive: false
-module: core
+type: text_long
+settings: {  }
+module: text
 locked: false
 cardinality: 1
 translatable: true
