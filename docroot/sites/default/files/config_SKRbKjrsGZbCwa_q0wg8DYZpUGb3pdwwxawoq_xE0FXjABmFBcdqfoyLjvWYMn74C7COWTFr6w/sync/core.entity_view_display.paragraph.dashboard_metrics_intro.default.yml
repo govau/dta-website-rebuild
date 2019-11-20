@@ -1,0 +1,69 @@
+uuid: 1280fcb7-86fd-488a-a873-018fe59c5873
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.dashboard_metrics_intro.field_metric
+    - paragraphs.paragraphs_type.dashboard_metrics_intro
+  module:
+    - ds
+    - ds_chains
+    - empty_fields
+    - text
+third_party_settings:
+  ds:
+    layout:
+      id: layout_onecol
+      library: layout_discovery/onecol
+      disable_css: false
+      entity_classes: no_classes
+      settings: {  }
+    regions:
+      content:
+        - field_metric
+  ds_chains:
+    fields: {  }
+id: paragraph.dashboard_metrics_intro.default
+targetEntityType: paragraph
+bundle: dashboard_metrics_intro
+mode: default
+content:
+  field_metric:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings:
+      empty_fields:
+        handler: ''
+      ds:
+        ft:
+          id: expert
+          settings:
+            lb: ''
+            prefix: ''
+            lbw-el: ''
+            lbw-cl: ''
+            lbw-at: ''
+            ow: true
+            ow-el: div
+            ow-cl: dashboard-metric-introduction
+            ow-at: ''
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fi-el: ''
+            fi-cl: ''
+            fi-at: ''
+            suffix: ''
+            lbw: false
+            lb-col: false
+            ow-def-at: false
+            ow-def-cl: false
+            fis: false
+            fis-def-at: false
+            fi: false
+            fi-def-at: false
+    type: text_default
+    region: content
+hidden:
+  search_api_excerpt: true

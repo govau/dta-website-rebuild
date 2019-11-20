@@ -1,0 +1,49 @@
+uuid: 430f576f-5e1a-4e7f-b936-fa4612fde49d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.dashboard_case_study.field_agency
+    - field.field.paragraph.dashboard_case_study.field_dashboard_case_study_text
+    - field.field.paragraph.dashboard_case_study.field_title
+    - paragraphs.paragraphs_type.dashboard_case_study
+  module:
+    - field_layout
+    - layout_discovery
+    - text
+third_party_settings:
+  field_layout:
+    id: layout_onecol
+    settings: {  }
+id: paragraph.dashboard_case_study.default
+targetEntityType: paragraph
+bundle: dashboard_case_study
+mode: default
+content:
+  field_agency:
+    weight: 2
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_dashboard_case_study_text:
+    weight: 1
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  field_title:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+hidden:
+  created: true
+  status: true

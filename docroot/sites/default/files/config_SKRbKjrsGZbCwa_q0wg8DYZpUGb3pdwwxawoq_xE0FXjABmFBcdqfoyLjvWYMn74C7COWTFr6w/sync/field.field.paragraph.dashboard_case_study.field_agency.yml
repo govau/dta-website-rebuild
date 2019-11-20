@@ -1,0 +1,19 @@
+uuid: e6ed5c58-d1d7-4c28-8112-501021737105
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_agency
+    - paragraphs.paragraphs_type.dashboard_case_study
+id: paragraph.dashboard_case_study.field_agency
+field_name: field_agency
+entity_type: paragraph
+bundle: dashboard_case_study
+label: Agency
+description: 'Use this field to add a responsible agency to the case study.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
