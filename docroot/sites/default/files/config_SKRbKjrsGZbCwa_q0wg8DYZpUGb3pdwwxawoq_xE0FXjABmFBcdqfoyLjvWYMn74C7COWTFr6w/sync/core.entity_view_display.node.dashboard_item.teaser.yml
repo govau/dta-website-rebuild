@@ -37,6 +37,7 @@ hidden:
   field_image_caption: true
   field_introduction: true
   field_metric: true
+  field_progress: true
   field_summary: true
   field_theme: true
   field_weight: true
