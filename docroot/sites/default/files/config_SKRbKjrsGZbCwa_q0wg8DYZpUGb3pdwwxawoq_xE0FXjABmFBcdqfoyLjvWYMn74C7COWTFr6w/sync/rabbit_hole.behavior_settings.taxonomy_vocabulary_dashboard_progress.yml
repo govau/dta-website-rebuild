@@ -1,0 +1,11 @@
+uuid: bd624813-23de-48ca-b280-3ff157070de8
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.dashboard_progress
+id: taxonomy_vocabulary_dashboard_progress
+action: display_page
+allow_override: 1
+redirect: ''
+redirect_code: 301
