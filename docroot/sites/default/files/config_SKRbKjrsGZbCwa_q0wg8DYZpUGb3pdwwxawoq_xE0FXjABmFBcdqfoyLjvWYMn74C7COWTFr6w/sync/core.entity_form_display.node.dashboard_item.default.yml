@@ -45,7 +45,7 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_body:
-    weight: 11
+    weight: 16
     settings:
       rows: 5
       placeholder: ''
@@ -54,7 +54,7 @@ content:
     region: content
   field_case_studies:
     type: entity_reference_paragraphs
-    weight: 26
+    weight: 15
     settings:
       title: Paragraph
       title_plural: Paragraphs
@@ -65,13 +65,13 @@ content:
     third_party_settings: {  }
     region: content
   field_dashboard_reference:
-    weight: 17
+    weight: 11
     settings: {  }
     third_party_settings: {  }
     type: options_select
     region: content
   field_image:
-    weight: 13
+    weight: 17
     settings:
       preview_image_style: thumbnail
       progress_indicator: throbber
@@ -81,7 +81,7 @@ content:
     type: image_image
     region: content
   field_image_caption:
-    weight: 14
+    weight: 18
     settings:
       size: 60
       placeholder: ''
@@ -89,7 +89,7 @@ content:
     type: string_textfield
     region: content
   field_introduction:
-    weight: 9
+    weight: 12
     settings:
       rows: 5
       placeholder: ''
@@ -98,7 +98,7 @@ content:
     region: content
   field_metric:
     type: paragraphs
-    weight: 10
+    weight: 14
     settings:
       title: Paragraph
       title_plural: Paragraphs
@@ -115,13 +115,13 @@ content:
     third_party_settings: {  }
     region: content
   field_progress:
-    weight: 16
+    weight: 10
     settings: {  }
     third_party_settings: {  }
     type: options_buttons
     region: content
   field_summary:
-    weight: 12
+    weight: 13
     settings:
       rows: 5
       placeholder: ''
@@ -129,13 +129,13 @@ content:
     type: text_textarea
     region: content
   field_theme:
-    weight: 15
+    weight: 9
     settings: {  }
     third_party_settings: {  }
     type: options_buttons
     region: content
   field_weight:
-    weight: 18
+    weight: 19
     settings: {  }
     third_party_settings: {  }
     type: weight_selector
@@ -161,13 +161,13 @@ content:
     third_party_settings: {  }
   publish_on:
     type: datetime_timestamp_no_default
-    weight: 21
+    weight: 22
     region: content
     settings: {  }
     third_party_settings: {  }
   publish_state:
     type: scheduler_moderation
-    weight: 20
+    weight: 21
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -204,13 +204,13 @@ content:
     third_party_settings: {  }
   unpublish_on:
     type: datetime_timestamp_no_default
-    weight: 19
+    weight: 20
     region: content
     settings: {  }
     third_party_settings: {  }
   unpublish_state:
     type: scheduler_moderation
-    weight: 22
+    weight: 23
     region: content
     settings: {  }
     third_party_settings: {  }
