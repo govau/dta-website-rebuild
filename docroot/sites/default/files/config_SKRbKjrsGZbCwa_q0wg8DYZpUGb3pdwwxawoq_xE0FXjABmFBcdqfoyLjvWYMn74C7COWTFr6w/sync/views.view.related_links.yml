@@ -242,46 +242,6 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           plugin_id: numeric
-        moderation_state:
-          id: moderation_state
-          table: node_field_data
-          field: moderation_state
-          relationship: field_related_content
-          group_type: group
-          admin_label: ''
-          operator: 'not in'
-          value:
-            dta_publishing-archived: dta_publishing-archived
-            external_links-archived: external_links-archived
-          group: 1
-          exposed: false
-          expose:
-            operator_id: ''
-            label: ''
-            description: ''
-            use_operator: false
-            operator: ''
-            identifier: ''
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-            reduce: false
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          entity_type: node
-          plugin_id: moderation_state_filter
         status_extra:
           id: status_extra
           table: node_field_data
@@ -319,6 +279,46 @@ display:
             group_items: {  }
           entity_type: node
           plugin_id: node_status
+        moderation_state:
+          id: moderation_state
+          table: node_field_data
+          field: moderation_state
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: 'not in'
+          value:
+            dta_publishing-archived: dta_publishing-archived
+            external_links-archived: external_links-archived
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          entity_type: node
+          plugin_id: moderation_state_filter
       sorts: {  }
       title: 'Related links'
       header:
