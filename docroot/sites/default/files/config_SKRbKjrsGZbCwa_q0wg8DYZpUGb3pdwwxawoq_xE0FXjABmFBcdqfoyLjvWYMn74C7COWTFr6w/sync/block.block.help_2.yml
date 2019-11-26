@@ -9,7 +9,7 @@ dependencies:
 id: help_2
 theme: dta_gov_au
 region: content
-weight: -15
+weight: -18
 provider: null
 plugin: help_block
 settings:

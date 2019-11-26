@@ -12,7 +12,7 @@ dependencies:
 id: views_block__guides_glossary_block_1
 theme: dta_gov_au
 region: content
-weight: 0
+weight: -2
 provider: null
 plugin: 'views_block:guides_glossary-block_1'
 settings:
