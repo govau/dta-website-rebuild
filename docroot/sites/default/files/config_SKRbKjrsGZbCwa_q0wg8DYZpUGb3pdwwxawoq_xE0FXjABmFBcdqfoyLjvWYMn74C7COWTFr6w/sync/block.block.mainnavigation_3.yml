@@ -31,15 +31,14 @@ visibility:
   'entity_bundle:node':
     id: 'entity_bundle:node'
     bundles:
-      dashboard_item: dashboard_item
-      presentation: presentation
-      speaker_bio: speaker_bio
       assessment_report: assessment_report
       book: book
       govcms_event: govcms_event
       landing_page_level_2: landing_page_level_2
       page: page
       platforms_and_services: platforms_and_services
+      presentation: presentation
+      speaker_bio: speaker_bio
     negate: false
     context_mapping:
       node: '@node.node_route_context:node'
@@ -49,7 +48,6 @@ visibility:
       assessment_report: assessment_report
       blog_post: blog_post
       book: book
-      dashboard_item: dashboard_item
       govcms_event: govcms_event
       landing_page_level_2: landing_page_level_2
       news_item: news_item
