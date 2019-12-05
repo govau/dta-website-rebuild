@@ -21,6 +21,7 @@ dependencies:
     - field.field.node.page.field_twitter_image
     - image.style.thumbnail
     - node.type.page
+    - workflows.workflow.external_links
   module:
     - content_moderation
     - datetime
@@ -29,11 +30,14 @@ dependencies:
     - imce
     - layout_discovery
     - path
+    - scheduler
+    - scheduler_content_moderation_integration
     - text
 third_party_settings:
   field_layout:
     id: layout_onecol
-    settings: {  }
+    settings:
+      label: ''
 id: node.page.default
 targetEntityType: node
 bundle: page
@@ -125,6 +129,7 @@ content:
       match_operator: CONTAINS
       size: 60
       placeholder: ''
+      match_limit: 10
     third_party_settings: {  }
     type: entity_reference_autocomplete
     region: content
@@ -164,6 +169,7 @@ content:
       match_operator: CONTAINS
       size: 60
       placeholder: ''
+      match_limit: 10
     third_party_settings: {  }
     type: entity_reference_autocomplete
     region: content
@@ -196,6 +202,23 @@ content:
     weight: 13
     region: content
     third_party_settings: {  }
+  publish_on:
+    type: datetime_timestamp_no_default
+    weight: 30
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  publish_state:
+    type: scheduler_moderation
+    weight: 30
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  scheduler_settings:
+    weight: 20
+    settings: {  }
+    third_party_settings: {  }
+    region: content
   status:
     type: boolean_checkbox
     settings:
@@ -225,7 +248,20 @@ content:
       match_operator: CONTAINS
       size: 60
       placeholder: ''
+      match_limit: 10
     region: content
+    third_party_settings: {  }
+  unpublish_on:
+    type: datetime_timestamp_no_default
+    weight: 30
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  unpublish_state:
+    type: scheduler_moderation
+    weight: 30
+    region: content
+    settings: {  }
     third_party_settings: {  }
   url_redirects:
     weight: 19

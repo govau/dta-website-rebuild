@@ -13,17 +13,21 @@ dependencies:
     - field.field.node.individual_roadmap_ux.field_user_journey
     - field.field.node.individual_roadmap_ux.field_weight
     - node.type.individual_roadmap_ux
+    - workflows.workflow.external_links
   module:
     - content_moderation
     - field_layout
     - layout_discovery
     - path
+    - scheduler
+    - scheduler_content_moderation_integration
     - text
     - weight
 third_party_settings:
   field_layout:
     id: layout_onecol
-    settings: {  }
+    settings:
+      label: ''
 id: node.individual_roadmap_ux.default
 targetEntityType: node
 bundle: individual_roadmap_ux
@@ -127,6 +131,18 @@ content:
     weight: 11
     region: content
     third_party_settings: {  }
+  publish_on:
+    type: datetime_timestamp_no_default
+    weight: 30
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  publish_state:
+    type: scheduler_moderation
+    weight: 30
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   status:
     type: boolean_checkbox
     settings:
@@ -156,7 +172,20 @@ content:
       match_operator: CONTAINS
       size: 60
       placeholder: ''
+      match_limit: 10
     region: content
+    third_party_settings: {  }
+  unpublish_on:
+    type: datetime_timestamp_no_default
+    weight: 30
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  unpublish_state:
+    type: scheduler_moderation
+    weight: 30
+    region: content
+    settings: {  }
     third_party_settings: {  }
   url_redirects:
     weight: 14

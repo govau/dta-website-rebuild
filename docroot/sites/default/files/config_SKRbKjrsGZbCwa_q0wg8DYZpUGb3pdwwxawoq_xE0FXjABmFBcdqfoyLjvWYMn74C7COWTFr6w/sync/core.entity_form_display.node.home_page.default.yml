@@ -6,17 +6,21 @@ dependencies:
     - field.field.node.home_page.body
     - field.field.node.home_page.field_link_to_content
     - node.type.home_page
+    - workflows.workflow.external_links
   module:
     - content_moderation
     - field_layout
     - layout_discovery
     - link
     - path
+    - scheduler
+    - scheduler_content_moderation_integration
     - text
 third_party_settings:
   field_layout:
     id: layout_onecol
-    settings: {  }
+    settings:
+      label: ''
 id: node.home_page.default
 targetEntityType: node
 bundle: home_page
@@ -29,6 +33,7 @@ content:
       rows: 9
       summary_rows: 3
       placeholder: ''
+      show_summary: false
     third_party_settings: {  }
     region: content
   created:
@@ -64,6 +69,23 @@ content:
     weight: 15
     region: content
     third_party_settings: {  }
+  publish_on:
+    type: datetime_timestamp_no_default
+    weight: 30
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  publish_state:
+    type: scheduler_moderation
+    weight: 30
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  scheduler_settings:
+    weight: 20
+    settings: {  }
+    third_party_settings: {  }
+    region: content
   status:
     type: boolean_checkbox
     settings:
@@ -93,7 +115,20 @@ content:
       match_operator: CONTAINS
       size: 60
       placeholder: ''
+      match_limit: 10
     region: content
+    third_party_settings: {  }
+  unpublish_on:
+    type: datetime_timestamp_no_default
+    weight: 30
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  unpublish_state:
+    type: scheduler_moderation
+    weight: 30
+    region: content
+    settings: {  }
     third_party_settings: {  }
   url_redirects:
     weight: 50

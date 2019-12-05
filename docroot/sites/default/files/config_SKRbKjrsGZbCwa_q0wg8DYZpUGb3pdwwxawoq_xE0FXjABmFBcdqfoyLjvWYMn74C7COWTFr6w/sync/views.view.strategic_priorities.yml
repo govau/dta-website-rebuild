@@ -16,7 +16,6 @@ description: 'Displays the strategic priorities with a class.'
 tag: ''
 base_table: node_field_data
 base_field: nid
-core: 8.x
 display:
   default:
     display_plugin: default
@@ -141,6 +140,9 @@ display:
           entity_type: node
           entity_field: type
           plugin_id: bundle
+          expose:
+            operator_limit_selection: false
+            operator_list: {  }
       sorts: {  }
       title: ''
       header: {  }

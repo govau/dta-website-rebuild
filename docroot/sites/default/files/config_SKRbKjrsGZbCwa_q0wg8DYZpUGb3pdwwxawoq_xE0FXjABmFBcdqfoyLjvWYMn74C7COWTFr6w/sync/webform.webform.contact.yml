@@ -1,12 +1,9 @@
-uuid: 52030722-a8d5-4b63-b545-d4678d0e14be
 langcode: en
 status: open
 dependencies:
   enforced:
     module:
       - webform
-_core:
-  default_config_hash: Db1CJM6FchEqqeVz5YJThCK0WB599y4NjQ4GkPcGF5g
 open: null
 close: null
 weight: 0
@@ -83,6 +80,7 @@ settings:
   wizard_progress_pages: false
   wizard_progress_percentage: false
   wizard_progress_link: false
+  wizard_progress_states: false
   wizard_start_label: ''
   wizard_preview_link: false
   wizard_confirmation: true
@@ -130,6 +128,7 @@ settings:
   purge_days: null
   results_disabled: false
   results_disabled_ignore: false
+  token_view: false
   token_update: false
 access:
   create:
@@ -249,3 +248,6 @@ handlers:
       sender_mail: ''
       sender_name: ''
       parameters: {  }
+uuid: 52030722-a8d5-4b63-b545-d4678d0e14be
+_core:
+  default_config_hash: Db1CJM6FchEqqeVz5YJThCK0WB599y4NjQ4GkPcGF5g

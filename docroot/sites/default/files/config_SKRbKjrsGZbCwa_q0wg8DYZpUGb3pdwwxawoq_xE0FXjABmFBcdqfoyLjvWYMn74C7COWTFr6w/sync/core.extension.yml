@@ -63,6 +63,7 @@ module:
   govcms_fields_attachment: 0
   govcms_fields_featured_image: 0
   govcms_search: 0
+  hal: 0
   help: 0
   history: 0
   honeypot: 0
@@ -100,6 +101,7 @@ module:
   node_title_validation: 0
   options: 0
   path: 0
+  path_alias: 0
   rabbit_hole: 0
   redirect: 0
   redirect_404: 0
@@ -174,6 +176,7 @@ theme:
   dta_uikit_base: 0
   dta_gov_au: 0
   tadpole: 0
+  claro: 0
 profile: govcms
 _core:
   default_config_hash: R4IF-ClDHXxblLcG0L7MgsLvfBIMAvi_skumNFQwkDc
