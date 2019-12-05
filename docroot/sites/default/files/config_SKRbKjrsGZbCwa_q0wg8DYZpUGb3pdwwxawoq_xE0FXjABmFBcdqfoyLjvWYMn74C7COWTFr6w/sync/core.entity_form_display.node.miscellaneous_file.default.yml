@@ -5,16 +5,20 @@ dependencies:
   config:
     - field.field.node.miscellaneous_file.field_file
     - node.type.miscellaneous_file
+    - workflows.workflow.external_links
   module:
     - content_moderation
     - field_layout
     - file
     - layout_discovery
     - path
+    - scheduler
+    - scheduler_content_moderation_integration
 third_party_settings:
   field_layout:
     id: layout_onecol
-    settings: {  }
+    settings:
+      label: ''
 id: node.miscellaneous_file.default
 targetEntityType: node
 bundle: miscellaneous_file
@@ -52,6 +56,18 @@ content:
     weight: 15
     region: content
     third_party_settings: {  }
+  publish_on:
+    type: datetime_timestamp_no_default
+    weight: 30
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  publish_state:
+    type: scheduler_moderation
+    weight: 30
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   status:
     type: boolean_checkbox
     settings:
@@ -81,7 +97,20 @@ content:
       match_operator: CONTAINS
       size: 60
       placeholder: ''
+      match_limit: 10
     region: content
+    third_party_settings: {  }
+  unpublish_on:
+    type: datetime_timestamp_no_default
+    weight: 30
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  unpublish_state:
+    type: scheduler_moderation
+    weight: 30
+    region: content
+    settings: {  }
     third_party_settings: {  }
   url_redirects:
     weight: 50

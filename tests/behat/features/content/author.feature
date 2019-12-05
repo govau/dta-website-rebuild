@@ -12,7 +12,7 @@ Feature: Authors
     Scenario: Create content
       When I follow "Content"
       And I follow "Add content"
-      Then I should see 12 ".admin-list a" elements
+      Then I should see 13 ".admin-list a" elements
 
     @content @content-author
     Scenario: Edit content
@@ -28,6 +28,7 @@ Feature: Authors
       And I should be able to edit a "home_page"
       And I should be able to edit a "roadmap_2_user_experience_"
       And I should be able to edit an "individual_roadmap_ux"
+      And I should be able to edit a "dashboard_item"
 
     @menus @content-author
     Scenario: Edit menus

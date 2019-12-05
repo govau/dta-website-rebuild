@@ -86,6 +86,7 @@ field_settings:
           assessment_report: search_index
           blog_post: search_index
           book: search_index
+          dashboard_item: search_index
           govcms_event: search_index
           landing_page: search_index
           landing_page_level_2: search_index
@@ -131,6 +132,7 @@ datasource_settings:
         - assessment_report
         - blog_post
         - book
+        - dashboard_item
         - govcms_event
         - landing_page
         - landing_page_level_2
@@ -215,6 +217,7 @@ processor_settings:
     weights:
       preprocess_index: -49
       preprocess_query: -49
+  language_with_fallback: {  }
   rendered_item: {  }
   stopwords:
     all_fields: true
@@ -294,6 +297,7 @@ processor_settings:
           assessment_report: !!float 1
           blog_post: !!float 3
           book: !!float 1
+          dashboard_item: !!float 1
           govcms_event: !!float 1
           landing_page: !!float 8
           landing_page_level_2: !!float 8
