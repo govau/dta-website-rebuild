@@ -7,6 +7,7 @@ dependencies:
     - node.type.external_link
     - node.type.media_release
     - node.type.presentation
+    - node.type.roadmap_2_user_experience_
     - node.type.speaker_bio
   module:
     - content_moderation
@@ -59,5 +60,6 @@ type_settings:
       - external_link
       - media_release
       - presentation
+      - roadmap_2_user_experience_
       - speaker_bio
   default_moderation_state: draft
