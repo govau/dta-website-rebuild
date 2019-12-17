@@ -27,6 +27,6 @@ settings:
 visibility:
   request_path:
     id: request_path
-    pages: /digital-transformation-strategy/digital-transformation-strategy-dashboard
+    pages: /digital-transformation-strategy
     negate: false
     context_mapping: {  }
