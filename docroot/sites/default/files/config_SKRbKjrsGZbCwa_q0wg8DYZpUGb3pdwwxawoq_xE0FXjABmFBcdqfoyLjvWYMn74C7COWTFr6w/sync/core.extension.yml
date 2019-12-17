@@ -11,6 +11,7 @@ module:
   ban: 0
   better_exposed_filters: 0
   big_pipe: 0
+  bigmenu: 0
   block: 0
   block_content: 0
   block_place: 0

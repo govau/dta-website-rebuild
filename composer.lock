@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a1c3033faf5476f713c9cf8678073098",
+    "content-hash": "8f597489e874afd7c444b314fc054409",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2285,6 +2285,57 @@
             "homepage": "https://www.drupal.org/project/better_exposed_filters",
             "support": {
                 "source": "http://cgit.drupalcode.org/better_exposed_filters"
+            }
+        },
+        {
+            "name": "drupal/bigmenu",
+            "version": "1.0.0-alpha2",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/bigmenu.git",
+                "reference": "8.x-1.0-alpha2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/bigmenu-8.x-1.0-alpha2.zip",
+                "reference": "8.x-1.0-alpha2",
+                "shasum": "805107cbc3a6f30584c854358116321f49bb7440"
+            },
+            "require": {
+                "drupal/core": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.0-alpha2",
+                    "datestamp": "1571878385",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Alpha releases are not covered by Drupal security advisories."
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "acbramley",
+                    "homepage": "https://www.drupal.org/user/1036766"
+                },
+                {
+                    "name": "dman",
+                    "homepage": "https://www.drupal.org/user/33240"
+                }
+            ],
+            "description": "Scalable replacement for core menu management screen. Uses AJAX to replace the global menu management page, suitable for thousands of items",
+            "homepage": "https://www.drupal.org/project/bigmenu",
+            "support": {
+                "source": "https://git.drupalcode.org/project/bigmenu"
             }
         },
         {
@@ -9249,16 +9300,16 @@
         },
         {
             "name": "govau/dta-gov-au",
-            "version": "1.11.7",
+            "version": "1.11.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/govau/dta-gov-au.git",
-                "reference": "6f8f98a208231e7ff7866277c28f6660ce9ec6a4"
+                "reference": "23d78e91a4014329c09baccb002a5352ed2628e3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/govau/dta-gov-au/zipball/6f8f98a208231e7ff7866277c28f6660ce9ec6a4",
-                "reference": "6f8f98a208231e7ff7866277c28f6660ce9ec6a4",
+                "url": "https://api.github.com/repos/govau/dta-gov-au/zipball/23d78e91a4014329c09baccb002a5352ed2628e3",
+                "reference": "23d78e91a4014329c09baccb002a5352ed2628e3",
                 "shasum": ""
             },
             "require": {
@@ -9276,7 +9327,7 @@
                 "government",
                 "theme"
             ],
-            "time": "2019-11-27T04:45:20+00:00"
+            "time": "2019-12-17T01:17:33+00:00"
         },
         {
             "name": "govau/dta-uikit-base",
@@ -16234,6 +16285,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
+        "drupal/bigmenu": 15,
         "drupal/context_metadata": 20,
         "drupal/empty_fields": 20,
         "drupal/extlink": 20,
