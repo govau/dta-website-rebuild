@@ -693,7 +693,7 @@ display:
         arguments: false
         css_class: false
         relationships: false
-      title: Objectives
+      title: 'Digital Transformation Strategy Dashboard'
       arguments:
         field_dashboard_reference_target_id:
           id: field_dashboard_reference_target_id
