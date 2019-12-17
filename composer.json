@@ -91,6 +91,7 @@
         "drupal/allowed_formats": "1.2",
         "drupal/backup_migrate": "4.0",
         "drupal/better_exposed_filters": "3.0-alpha6",
+        "drupal/bigmenu": "^1.0@alpha",
         "drupal/chosen": "2.8",
         "drupal/chosen_lib": "^2.6",
         "drupal/ckeditor_tabletoolstoolbar": "1.0",
