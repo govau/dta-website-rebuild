@@ -38,6 +38,21 @@
             "url": "https://asset-packagist.org"
         },
         {
+            "type": "package",
+            "package": {
+                "name": "harvesthq/chosen",
+                "version": "1.8.7",
+                "type": "drupal-library",
+                "dist": {
+                    "url": "https://github.com/harvesthq/chosen/releases/download/v1.8.7/chosen_v1.8.7.zip",
+                    "type": "zip"
+                },
+                "require": {
+                    "composer/installers": "^1.2.0"
+                }
+            }
+        },
+        {
           "type": "package",
           "package": {
             "name": "ckeditor/templates",
