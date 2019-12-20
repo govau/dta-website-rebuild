@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "03be91bf91fd7ac647405e42ffd9edf8",
+    "content-hash": "c1731b94ae5042709f96192c7633260b",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -60,16 +60,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.129.3",
+            "version": "3.130.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "7f6eb26563519bb7d5a295b674f31178db64cdfd"
+                "reference": "853ecac3e1090f8564022de210afab477fa90b7e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/7f6eb26563519bb7d5a295b674f31178db64cdfd",
-                "reference": "7f6eb26563519bb7d5a295b674f31178db64cdfd",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/853ecac3e1090f8564022de210afab477fa90b7e",
+                "reference": "853ecac3e1090f8564022de210afab477fa90b7e",
                 "shasum": ""
             },
             "require": {
@@ -140,7 +140,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2019-12-18T19:23:10+00:00"
+            "time": "2019-12-19T19:09:49+00:00"
         },
         {
             "name": "caxy/php-htmldiff",
@@ -9722,14 +9722,9 @@
         {
             "name": "harvesthq/chosen",
             "version": "v1.8.7",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/harvesthq/chosen-package.git",
-                "reference": "ad86732b668627c131e61ee8f0e6e9ed52e4db8d"
-            },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/harvesthq/chosen-package/zipball/ad86732b668627c131e61ee8f0e6e9ed52e4db8d",
+                "url": "https://github.com/harvesthq/chosen/releases/download/v1.8.7/chosen_v1.8.7.zip",
                 "reference": "ad86732b668627c131e61ee8f0e6e9ed52e4db8d",
                 "shasum": ""
             },
@@ -16159,7 +16154,7 @@
         },
         {
             "name": "symfony/browser-kit",
-            "version": "v4.4.1",
+            "version": "v4.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/browser-kit.git",
