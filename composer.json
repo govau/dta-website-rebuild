@@ -185,6 +185,7 @@
         "drush/drush": "9.3.0",
         "govau/dta-gov-au": "1.11.9",
         "govau/tadpole": "1.1",
+        "harvesthq/chosen": "^1.8",
         "imperator99/superfish": "2.3",
         "oomphinc/composer-installers-extender": "1.1.2",
         "symfony/http-foundation": "~3.4.27",
