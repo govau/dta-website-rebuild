@@ -40,6 +40,7 @@ module:
   devel_generate: 0
   diff: 0
   ds_chains: 0
+  dynamic_entity_reference: 0
   editor: 0
   editor_advanced_link: 0
   embed: 0
@@ -48,6 +49,7 @@ module:
   entity_embed: 0
   entity_reference_revisions: 0
   entity_reference_views_select: 0
+  entity_usage: 0
   eva: 0
   facets: 0
   features: 0
@@ -78,6 +80,8 @@ module:
   layout_discovery: 0
   link: 0
   linkit: 0
+  linky: 0
+  linkychecker: 0
   login_emailusername: 0
   login_security: 0
   mail_safety: 0
