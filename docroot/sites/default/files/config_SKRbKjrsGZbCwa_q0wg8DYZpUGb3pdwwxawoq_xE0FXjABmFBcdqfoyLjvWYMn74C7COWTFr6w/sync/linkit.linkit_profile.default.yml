@@ -3,7 +3,9 @@ langcode: en
 status: true
 dependencies:
   module:
+    - linky
     - node
+    - taxonomy
 _core:
   default_config_hash: Tt8DtxZ3Nooo0PoWPpJvszA3R_5d8MmpUW7LM_R-BzY
 id: default
@@ -30,5 +32,36 @@ matchers:
         speaker_bio: speaker_bio
       group_by_bundle: true
       include_unpublished: true
+      substitution_type: canonical
+      limit: 100
+  4f409cbd-66cf-41ec-9bae-b6aaf5f99938:
+    uuid: 4f409cbd-66cf-41ec-9bae-b6aaf5f99938
+    id: 'entity:linky'
+    weight: 0
+    settings:
+      metadata: '[linky:link:title], [linky:url:absolute]'
+      bundles: null
+      group_by_bundle: null
+      substitution_type: canonical
+      limit: 100
+  c09e6b25-f7c7-426c-965e-510d26fee088:
+    uuid: c09e6b25-f7c7-426c-965e-510d26fee088
+    id: email
+    weight: 0
+    settings: {  }
+  4dc1a459-db37-471c-bb65-ce1c051130c7:
+    uuid: 4dc1a459-db37-471c-bb65-ce1c051130c7
+    id: front_page
+    weight: 0
+    settings: {  }
+  c29e13e9-7f0b-4cd4-9497-8eb5118eb61a:
+    uuid: c29e13e9-7f0b-4cd4-9497-8eb5118eb61a
+    id: 'entity:taxonomy_term'
+    weight: 0
+    settings:
+      metadata: ''
+      bundles:
+        tags: tags
+      group_by_bundle: false
       substitution_type: canonical
       limit: 100

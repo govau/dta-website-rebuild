@@ -14,10 +14,9 @@ dependencies:
     - field.field.node.book.field_summary
     - field.field.node.book.field_tags
     - field.field.node.book.field_theme
-    - field.field.node.book.field_view
     - image.style.thumbnail
     - node.type.book
-    - workflows.workflow.external_links
+    - workflows.workflow.dta_publishing
   module:
     - content_moderation
     - field_layout
@@ -28,7 +27,6 @@ dependencies:
     - scheduler
     - scheduler_content_moderation_integration
     - text
-    - viewsreference
 third_party_settings:
   field_layout:
     id: layout_onecol
@@ -140,16 +138,6 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: options_buttons
-    region: content
-  field_view:
-    weight: 18
-    settings:
-      match_operator: CONTAINS
-      size: '60'
-      placeholder: ''
-      match_limit: 10
-    third_party_settings: {  }
-    type: viewsreference_autocomplete
     region: content
   moderation_state:
     type: moderation_state_default
