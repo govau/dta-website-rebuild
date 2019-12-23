@@ -15,7 +15,6 @@ dependencies:
     - field.field.node.book.field_summary
     - field.field.node.book.field_tags
     - field.field.node.book.field_theme
-    - field.field.node.book.field_view
     - node.type.book
     - responsive_image.styles.hero_image
   module:
@@ -26,7 +25,6 @@ dependencies:
     - responsive_image
     - text
     - user
-    - viewsreference
 third_party_settings:
   ds:
     layout:
@@ -284,15 +282,6 @@ content:
             fis: false
             fis-def-at: false
             fi-def-at: false
-  field_view:
-    type: viewsreference_formatter
-    weight: 6
-    region: content
-    label: hidden
-    settings:
-      plugin_types:
-        - block
-    third_party_settings: {  }
   links:
     weight: 1
     region: content
@@ -306,3 +295,4 @@ hidden:
   field_summary: true
   field_tags: true
   field_theme: true
+  search_api_excerpt: true
