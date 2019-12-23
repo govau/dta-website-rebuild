@@ -263,6 +263,8 @@
           },
           "drupal/viewsreference": {
             "Updating from alpha4 to alpha5 via composer results in error.":"https://www.drupal.org/files/issues/2019-11-28/3096956-17.Unmet-service-dependencies.patch"
+          "drupal/entity_usage": {
+            "HTMLLink Plugin only works with PublicStreamWrapper":"https://www.drupal.org/files/issues/2019-09-19/entity_usage-htmllink-streamwrapper-2973297-7.patch"
           }
         }
     },
