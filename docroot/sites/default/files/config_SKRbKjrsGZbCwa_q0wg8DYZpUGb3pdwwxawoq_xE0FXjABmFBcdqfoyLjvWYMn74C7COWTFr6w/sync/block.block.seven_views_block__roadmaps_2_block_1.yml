@@ -1,0 +1,30 @@
+uuid: 793b49ec-48b8-41fa-9451-f1123798b129
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.roadmaps_2
+  module:
+    - system
+    - views
+  theme:
+    - seven
+id: seven_views_block__roadmaps_2_block_1
+theme: seven
+region: header
+weight: -14
+provider: null
+plugin: 'views_block:roadmaps_2-block_1'
+settings:
+  id: 'views_block:roadmaps_2-block_1'
+  label: ''
+  provider: views
+  label_display: '0'
+  views_label: ''
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    pages: /digital-transformation-strategy/roadmap
+    negate: false
+    context_mapping: {  }

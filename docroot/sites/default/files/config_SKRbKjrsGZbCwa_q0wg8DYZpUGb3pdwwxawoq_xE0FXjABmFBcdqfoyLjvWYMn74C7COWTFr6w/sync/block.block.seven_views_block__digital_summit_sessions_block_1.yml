@@ -1,0 +1,30 @@
+uuid: 99db5fd4-1154-40a0-a264-f35509e3f01e
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.digital_summit_sessions
+  module:
+    - system
+    - views
+  theme:
+    - seven
+id: seven_views_block__digital_summit_sessions_block_1
+theme: seven
+region: content
+weight: -4
+provider: null
+plugin: 'views_block:digital_summit_sessions-block_1'
+settings:
+  id: 'views_block:digital_summit_sessions-block_1'
+  label: ''
+  provider: views
+  label_display: '0'
+  views_label: ''
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    pages: /help-and-advice/digital-summit-2019/sessions
+    negate: false
+    context_mapping: {  }

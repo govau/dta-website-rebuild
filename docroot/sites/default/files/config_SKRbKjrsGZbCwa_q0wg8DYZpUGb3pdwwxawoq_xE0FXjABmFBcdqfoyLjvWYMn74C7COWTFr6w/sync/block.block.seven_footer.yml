@@ -1,0 +1,27 @@
+uuid: 027e9619-7ff6-41dc-a9b0-64ee72ebf59f
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.footer
+  module:
+    - system
+  theme:
+    - seven
+_core:
+  default_config_hash: ysxTHDgI78L7LIRl4ad8Wd1A5ZbMKMJZtcBG2xFobwo
+id: seven_footer
+theme: seven
+region: header
+weight: 0
+provider: null
+plugin: 'system_menu_block:footer'
+settings:
+  id: 'system_menu_block:footer'
+  label: Footer
+  provider: system
+  label_display: '0'
+  level: 1
+  depth: 1
+  expand_all_items: false
+visibility: {  }

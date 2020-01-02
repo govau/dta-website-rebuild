@@ -1,0 +1,26 @@
+uuid: 34d5dab2-f9f2-4213-9a30-f6d433325881
+langcode: en
+status: true
+dependencies:
+  module:
+    - mailchimp_signup
+    - system
+  theme:
+    - seven
+id: seven_mailchimpsubscriptionformsignupforupdates
+theme: seven
+region: content
+weight: -1
+provider: null
+plugin: 'mailchimp_signup_subscribe_block:sign_up_for_updates'
+settings:
+  id: 'mailchimp_signup_subscribe_block:sign_up_for_updates'
+  label: 'Sign-up for updates'
+  provider: mailchimp_signup
+  label_display: '0'
+visibility:
+  request_path:
+    id: request_path
+    pages: /news-and-blogs/subscribe-updates
+    negate: false
+    context_mapping: {  }

@@ -1,0 +1,33 @@
+uuid: 0a2c8068-3725-4f20-9635-0408c55081fc
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.main
+  module:
+    - menu_block
+    - system
+  theme:
+    - seven
+id: seven_mainnavigation_2
+theme: seven
+region: header
+weight: 0
+provider: null
+plugin: 'menu_block:main'
+settings:
+  id: 'menu_block:main'
+  label: 'Main navigation - DTS Dashboard'
+  provider: menu_block
+  label_display: '0'
+  level: 2
+  depth: 0
+  expand: 0
+  parent: 'main:'
+  suggestion: main
+visibility:
+  request_path:
+    id: request_path
+    pages: '/digital-transformation-strategy/digital-transformation-strategy-dashboard/*'
+    negate: false
+    context_mapping: {  }

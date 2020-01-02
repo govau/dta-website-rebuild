@@ -1,0 +1,29 @@
+uuid: e7c117cb-e919-4d68-aa05-c602bae2e753
+langcode: en
+status: true
+dependencies:
+  config:
+    - facets.facet.tags
+  module:
+    - facets
+    - system
+  theme:
+    - seven
+id: seven_tags
+theme: seven
+region: header
+weight: -16
+provider: null
+plugin: 'facet_block:tags'
+settings:
+  id: 'facet_block:tags'
+  label: 'Filter by tags'
+  provider: facets
+  label_display: visible
+  block_id: tags
+visibility:
+  request_path:
+    id: request_path
+    pages: "/news-blogs\r\n/news-blogs/*\r\n/news-blogs-*"
+    negate: false
+    context_mapping: {  }
