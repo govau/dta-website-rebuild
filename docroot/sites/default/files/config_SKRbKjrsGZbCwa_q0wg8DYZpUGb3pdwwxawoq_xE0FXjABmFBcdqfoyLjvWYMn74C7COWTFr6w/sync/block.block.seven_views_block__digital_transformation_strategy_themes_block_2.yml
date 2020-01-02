@@ -1,0 +1,24 @@
+uuid: 462a3a81-0b87-457f-a51a-f83cff11b105
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.digital_transformation_strategy_themes
+  module:
+    - views
+  theme:
+    - seven
+id: seven_views_block__digital_transformation_strategy_themes_block_2
+theme: seven
+region: header
+weight: -12
+provider: null
+plugin: 'views_block:digital_transformation_strategy_themes-block_2'
+settings:
+  id: 'views_block:digital_transformation_strategy_themes-block_2'
+  label: ''
+  provider: views
+  label_display: visible
+  views_label: ''
+  items_per_page: none
+visibility: {  }

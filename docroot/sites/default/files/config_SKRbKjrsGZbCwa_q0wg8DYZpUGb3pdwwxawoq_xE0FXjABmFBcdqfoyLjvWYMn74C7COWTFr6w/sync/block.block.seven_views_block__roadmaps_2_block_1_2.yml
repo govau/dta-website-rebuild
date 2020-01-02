@@ -1,0 +1,46 @@
+uuid: afb0389b-79de-4e34-8a28-1d3ee3bb56f3
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.roadmaps_2
+  module:
+    - ctools
+    - node
+    - system
+    - views
+  theme:
+    - seven
+id: seven_views_block__roadmaps_2_block_1_2
+theme: seven
+region: content
+weight: -6
+provider: null
+plugin: 'views_block:roadmaps_2-block_1'
+settings:
+  id: 'views_block:roadmaps_2-block_1'
+  label: ''
+  provider: views
+  label_display: '0'
+  views_label: ''
+  items_per_page: none
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    bundles:
+      book: book
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+  node_type:
+    id: node_type
+    bundles:
+      book: book
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+  request_path:
+    id: request_path
+    pages: /digital-transformation-strategy/roadmap
+    negate: false
+    context_mapping: {  }

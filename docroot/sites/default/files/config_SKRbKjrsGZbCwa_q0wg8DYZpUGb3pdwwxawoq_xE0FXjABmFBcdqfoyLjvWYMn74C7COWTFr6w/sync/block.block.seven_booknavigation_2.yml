@@ -1,0 +1,21 @@
+uuid: f8d2fd31-6a43-4001-a95a-8120ba58c580
+langcode: en
+status: true
+dependencies:
+  module:
+    - book
+  theme:
+    - seven
+id: seven_booknavigation_2
+theme: seven
+region: header
+weight: -11
+provider: null
+plugin: book_navigation
+settings:
+  id: book_navigation
+  label: 'Book navigation'
+  provider: book
+  label_display: '0'
+  block_mode: 'book pages'
+visibility: {  }

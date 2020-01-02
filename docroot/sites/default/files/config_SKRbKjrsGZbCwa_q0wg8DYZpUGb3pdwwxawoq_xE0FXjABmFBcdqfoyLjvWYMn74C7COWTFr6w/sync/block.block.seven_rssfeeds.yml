@@ -1,0 +1,35 @@
+uuid: 48514df4-b427-4519-ad01-63f5cd599d0a
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:script:a6d99dab-d0d6-42f7-9905-10b876711929'
+  module:
+    - block_content
+    - node
+  theme:
+    - seven
+id: seven_rssfeeds
+theme: seven
+region: header
+weight: 0
+provider: null
+plugin: 'block_content:a6d99dab-d0d6-42f7-9905-10b876711929'
+settings:
+  id: 'block_content:a6d99dab-d0d6-42f7-9905-10b876711929'
+  label: 'RSS feeds'
+  provider: block_content
+  label_display: visible
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  node_type:
+    id: node_type
+    bundles:
+      blog_post: blog_post
+      media_release: media_release
+      news_item: news_item
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
