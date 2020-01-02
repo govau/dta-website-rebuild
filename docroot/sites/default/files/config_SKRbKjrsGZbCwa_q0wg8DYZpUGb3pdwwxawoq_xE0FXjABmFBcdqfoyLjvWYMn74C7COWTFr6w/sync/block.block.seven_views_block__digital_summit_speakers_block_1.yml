@@ -1,0 +1,30 @@
+uuid: f8d42202-f7f2-441c-9aa8-3b8d8a0f3344
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.digital_summit_speakers
+  module:
+    - system
+    - views
+  theme:
+    - seven
+id: seven_views_block__digital_summit_speakers_block_1
+theme: seven
+region: content
+weight: -3
+provider: null
+plugin: 'views_block:digital_summit_speakers-block_1'
+settings:
+  id: 'views_block:digital_summit_speakers-block_1'
+  label: ''
+  provider: views
+  label_display: '0'
+  views_label: ''
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    pages: /help-and-advice/digital-summit-2019/speakers
+    negate: false
+    context_mapping: {  }

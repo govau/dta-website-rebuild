@@ -1,0 +1,27 @@
+uuid: 8527b2c1-f554-4fa7-a7ca-6329c970ec21
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - seven
+_core:
+  default_config_hash: SN5O4USMIjJN3W2ACICn7niq8JUUgNoMRGwhwmjMfkw
+id: seven_mainpagecontent
+theme: seven
+region: content
+weight: -14
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  provider: system
+  label_display: '0'
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: true
+    context_mapping: {  }

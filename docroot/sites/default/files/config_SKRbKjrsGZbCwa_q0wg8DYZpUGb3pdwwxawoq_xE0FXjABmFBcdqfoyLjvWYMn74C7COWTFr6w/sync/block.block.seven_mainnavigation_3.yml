@@ -1,0 +1,65 @@
+uuid: 826856cc-8dab-44c7-bcf9-0b95b45943c8
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.main
+  module:
+    - ctools
+    - menu_block
+    - node
+    - system
+  theme:
+    - seven
+id: seven_mainnavigation_3
+theme: seven
+region: header
+weight: -12
+provider: null
+plugin: 'menu_block:main'
+settings:
+  id: 'menu_block:main'
+  label: 'Main navigation'
+  provider: menu_block
+  label_display: '0'
+  level: 2
+  depth: 0
+  expand: 0
+  parent: 'main:'
+  suggestion: main
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    bundles:
+      assessment_report: assessment_report
+      book: book
+      govcms_event: govcms_event
+      landing_page_level_2: landing_page_level_2
+      page: page
+      platforms_and_services: platforms_and_services
+      presentation: presentation
+      speaker_bio: speaker_bio
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+  node_type:
+    id: node_type
+    bundles:
+      assessment_report: assessment_report
+      blog_post: blog_post
+      book: book
+      govcms_event: govcms_event
+      landing_page_level_2: landing_page_level_2
+      news_item: news_item
+      page: page
+      platforms_and_services: platforms_and_services
+      presentation: presentation
+      speaker_bio: speaker_bio
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+  request_path:
+    id: request_path
+    pages: "<front>\r\n/contact-us\r\n/accessibility\r\n/cookies\r\n/our-privacy-policy\r\n/disclaimer-and-copyright\r\n/tell-us-what-you-think\r\n/node/594"
+    negate: true
+    context_mapping: {  }
