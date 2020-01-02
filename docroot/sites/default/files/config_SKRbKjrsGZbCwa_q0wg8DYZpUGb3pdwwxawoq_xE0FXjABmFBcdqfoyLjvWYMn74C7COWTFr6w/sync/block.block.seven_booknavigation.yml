@@ -1,0 +1,37 @@
+uuid: 0f8862a8-6c1f-47c1-b43b-b5383db2798d
+langcode: en
+status: true
+dependencies:
+  module:
+    - book
+    - ctools
+    - node
+  theme:
+    - seven
+id: seven_booknavigation
+theme: seven
+region: header
+weight: -16
+provider: null
+plugin: book_navigation
+settings:
+  id: book_navigation
+  label: 'Book navigation'
+  provider: book
+  label_display: visible
+  block_mode: 'book pages'
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    bundles:
+      book: book
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+  node_type:
+    id: node_type
+    bundles:
+      book: book
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
