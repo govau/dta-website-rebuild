@@ -1,0 +1,39 @@
+uuid: a0d1f3a7-de36-4d22-a45c-9f488e6f2b8c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.basic_text.field_basic_text
+    - paragraphs.paragraphs_type.basic_text
+  module:
+    - ds
+    - ds_chains
+    - text
+third_party_settings:
+  ds:
+    layout:
+      id: layout_onecol
+      library: layout_discovery/onecol
+      disable_css: false
+      entity_classes: no_classes
+      settings:
+        label: ''
+    regions:
+      content:
+        - field_basic_text
+  ds_chains:
+    fields: {  }
+id: paragraph.basic_text.default
+targetEntityType: paragraph
+bundle: basic_text
+mode: default
+content:
+  field_basic_text:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+hidden:
+  search_api_excerpt: true

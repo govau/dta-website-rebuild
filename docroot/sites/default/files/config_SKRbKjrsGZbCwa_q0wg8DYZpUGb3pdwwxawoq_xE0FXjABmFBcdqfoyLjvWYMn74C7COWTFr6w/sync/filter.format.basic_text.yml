@@ -1,0 +1,95 @@
+uuid: 6704f3c7-c53b-4cdf-9110-c32b7a8346f0
+langcode: en
+status: true
+dependencies:
+  module:
+    - htmlawed
+    - linkit
+    - linky
+    - toc_filter
+    - typogrify
+name: 'Basic text'
+format: basic_text
+weight: 0
+filters:
+  filter_url:
+    id: filter_url
+    provider: filter
+    status: true
+    weight: 0
+    settings:
+      filter_url_length: 72
+  filter_html:
+    id: filter_html
+    provider: filter
+    status: true
+    weight: -10
+    settings:
+      allowed_html: '<em> <strong> <cite> <blockquote cite> <code> <ul type> <ol start type> <li> <dl> <dt> <dd> <h2 id> <h3 id> <h4 id> <h5 id> <h6 id> <a href hreflang data-entity-substitution data-entity-type data-entity-uuid title>'
+      filter_html_help: true
+      filter_html_nofollow: false
+  filter_autop:
+    id: filter_autop
+    provider: filter
+    status: true
+    weight: 0
+    settings: {  }
+  filter_htmlcorrector:
+    id: filter_htmlcorrector
+    provider: filter
+    status: true
+    weight: 10
+    settings: {  }
+  filter_htmlawed:
+    id: filter_htmlawed
+    provider: htmlawed
+    status: false
+    weight: 50
+    settings:
+      config: '''safe'' => 1, ''elements'' => ''a, em, strong, cite, code, ol, ul, li, dl, dt, dd, br, p'', ''deny_attribute'' => ''id, style'''
+      spec: ''
+      help: 'Allowed HTML tags: <a>, <em>, <strong>, <cite>, <code>, <ol>, <ul>, <li>, <dl>, <dt>, <dd>, <br>, <p>'
+      helplong: 'These HTML tags are allowed: <a>, <em>, <strong>, <cite>, <code>, <ol>, <ul>, <li>, <dl>, <dt>, <dd>, <br>, <p>. Javascript and the ''id'' and ''style'' HTML attributes are not permitted.'
+  linkit:
+    id: linkit
+    provider: linkit
+    status: true
+    weight: 0
+    settings:
+      title: true
+  linky_direct_link_filter:
+    id: linky_direct_link_filter
+    provider: linky
+    status: true
+    weight: 10
+    settings: {  }
+  toc_filter:
+    id: toc_filter
+    provider: toc_filter
+    status: false
+    weight: 0
+    settings:
+      type: default
+      auto: ''
+      block: '0'
+  TypogrifyFilter:
+    id: TypogrifyFilter
+    provider: typogrify
+    status: false
+    weight: 10
+    settings:
+      smartypants_enabled: '1'
+      smartypants_hyphens: '3'
+      space_hyphens: '0'
+      widont_enabled: '1'
+      hyphenate_shy: '0'
+      space_to_nbsp: '1'
+      wrap_caps: '1'
+      wrap_ampersand: '1'
+      wrap_abbr: '0'
+      wrap_numbers: '0'
+      wrap_initial_quotes: '1'
+      ligatures: 'a:0:{}'
+      arrows: 'a:0:{}'
+      fractions: 'a:0:{}'
+      quotes: 'a:0:{}'

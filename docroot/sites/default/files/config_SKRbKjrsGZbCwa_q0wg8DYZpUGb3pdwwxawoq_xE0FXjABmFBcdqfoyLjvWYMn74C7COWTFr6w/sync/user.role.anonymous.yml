@@ -17,4 +17,5 @@ permissions:
   - 'restful post comments'
   - 'search content'
   - 'use search_api_autocomplete for search'
+  - 'view media'
   - 'view search api pages'

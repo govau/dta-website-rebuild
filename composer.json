@@ -116,7 +116,7 @@
 		"drupal/field_group": "3.0-rc2",
 		"drupal/field_group_link": "3.0-rc1",
 		"drupal/field_permissions": "1.0-rc2",
-		"drupal/filefield_paths": "1.0-beta1",
+		"drupal/filefield_paths": "1.x-dev",
 		"drupal/google_analytics": "2.4",
 		"drupal/govcms8_ui": "1.0.0-alpha1",
 		"drupal/honeypot": "1.30",
@@ -164,6 +164,7 @@
 		"drupal/search_api_autocomplete": "1.2",
 		"drupal/search_api_page": "1.0-alpha12",
 		"drupal/seckit": "1.2",
+		"drupal/simple_gmap": "1.4",
 		"drupal/simple_sitemap": "3.5",
 		"drupal/social_api": "2.0-rc1",
 		"drupal/social_auth_microsoft": "2.0-alpha2",
@@ -259,6 +260,9 @@
 			},
 			"drupal/entity_usage": {
 				"HTMLLink Plugin only works with PublicStreamWrapper": "https://www.drupal.org/files/issues/2019-09-19/entity_usage-htmllink-streamwrapper-2973297-7.patch"
+			},
+			"drupal/filefield_paths": {
+				"Call to undefined method BaseFieldDefinition::getThirdPartySettings()":"https://www.drupal.org/files/issues/2019-03-07/call_to_undefined-2718783-16.patch"
 			}
 		}
 	},

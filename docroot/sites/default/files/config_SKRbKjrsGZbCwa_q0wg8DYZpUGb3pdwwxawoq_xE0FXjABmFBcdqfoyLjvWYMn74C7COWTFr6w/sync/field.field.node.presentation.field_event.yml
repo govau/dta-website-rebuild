@@ -4,7 +4,6 @@ status: true
 dependencies:
   config:
     - field.storage.node.field_event
-    - node.type.govcms_event
     - node.type.landing_page
     - node.type.landing_page_level_2
     - node.type.page
@@ -23,7 +22,6 @@ settings:
   handler: 'default:node'
   handler_settings:
     target_bundles:
-      govcms_event: govcms_event
       landing_page: landing_page
       page: page
       landing_page_level_2: landing_page_level_2
@@ -31,5 +29,5 @@ settings:
       field: title
       direction: ASC
     auto_create: false
-    auto_create_bundle: govcms_event
+    auto_create_bundle: null
 field_type: entity_reference

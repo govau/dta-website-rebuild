@@ -1,0 +1,21 @@
+uuid: f835fcdf-8cba-41a3-bbfd-844b0b6e365f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_location
+    - node.type.events
+id: node.events.field_location
+field_name: field_location
+entity_type: node
+bundle: events
+label: Location
+description: 'Use the <em>location</em> field to add a a dynamic, embedded map to the event.'
+required: false
+translatable: false
+default_value:
+  -
+    value: '50 Marcus Clarke St, Canberra, ACT 2601'
+default_value_callback: ''
+settings: {  }
+field_type: string

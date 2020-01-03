@@ -1,0 +1,26 @@
+uuid: 66aa3890-7e5e-4a10-bb04-d7ff60b2628f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_date_range
+    - node.type.events
+  module:
+    - datetime_range
+id: node.events.field_date_range
+field_name: field_date_range
+entity_type: node
+bundle: events
+label: 'Date range'
+description: 'Use the <em>date range</em> field to tell users when the event starts and finishes.'
+required: true
+translatable: false
+default_value:
+  -
+    default_date_type: now
+    default_date: now
+    default_end_date_type: relative
+    default_end_date: '+1 hour'
+default_value_callback: ''
+settings: {  }
+field_type: daterange

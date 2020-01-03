@@ -1,0 +1,11 @@
+uuid: aed0f8e5-039f-4b48-a219-5d38998007a2
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'file:file:b3d4fb4d-c9e3-461e-b917-0644877deee6'
+id: video
+label: Video
+icon_uuid: b3d4fb4d-c9e3-461e-b917-0644877deee6
+description: 'Responsive media helps create a responsive experience for users viewing images and video on different size devices. Specifically it manages video and slideshow dimensions and aspect ratios for various viewports and widths; that is, small screens, large screens and anything in between.'
+behavior_plugins: {  }

@@ -1,0 +1,11 @@
+uuid: a4a01b1c-8b34-4422-a5e5-c435b81dbca5
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'file:file:f590dfc4-64d6-49fa-b678-7f94f9a9fe36'
+id: callout
+label: Callout
+icon_uuid: f590dfc4-64d6-49fa-b678-7f94f9a9fe36
+description: 'Callouts are an excerpt of text or an article that has been pulled out and used as a visual clue to draw the eye to the text. They are used to help direct a user''s attention to important pieces of information.'
+behavior_plugins: {  }

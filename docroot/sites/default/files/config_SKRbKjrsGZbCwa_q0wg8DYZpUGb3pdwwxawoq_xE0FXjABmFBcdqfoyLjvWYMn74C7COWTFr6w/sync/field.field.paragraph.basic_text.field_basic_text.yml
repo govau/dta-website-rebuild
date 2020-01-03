@@ -1,0 +1,33 @@
+uuid: 6b4b8e55-e716-4a4a-b928-c89973a3054d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_basic_text
+    - paragraphs.paragraphs_type.basic_text
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    basic_text: basic_text
+    introduction: '0'
+    summary: '0'
+    commenting: '0'
+    full_rich_text: '0'
+    administration: '0'
+    html: '0'
+    plain_text: '0'
+    rich_text: '0'
+id: paragraph.basic_text.field_basic_text
+field_name: field_basic_text
+entity_type: paragraph
+bundle: basic_text
+label: 'Basic text'
+description: 'Use the <em>basic text</em> component to add simple text to your content.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long
