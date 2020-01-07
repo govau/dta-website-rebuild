@@ -1,0 +1,35 @@
+uuid: ebbab2fb-56f8-4983-8144-ea6247033c46
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_basic_text
+    - paragraphs.paragraphs_type.complex_table
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    complex_table_editor: complex_table_editor
+    introduction: '0'
+    summary: '0'
+    commenting: '0'
+    full_rich_text: '0'
+    administration: '0'
+    html: '0'
+    plain_text: '0'
+    rich_text: '0'
+    basic_text: '0'
+    transcript_text: '0'
+id: paragraph.complex_table.field_basic_text
+field_name: field_basic_text
+entity_type: paragraph
+bundle: complex_table
+label: Table
+description: 'This field is for entering complex tables. It uses a body text field with table controls added.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

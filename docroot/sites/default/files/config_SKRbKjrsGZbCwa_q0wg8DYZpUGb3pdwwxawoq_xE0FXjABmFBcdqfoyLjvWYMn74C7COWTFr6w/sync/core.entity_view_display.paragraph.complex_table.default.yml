@@ -1,0 +1,80 @@
+uuid: e03912e3-f930-43e9-a17f-5d9555915e3b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.complex_table.field_basic_text
+    - field.field.paragraph.complex_table.field_title
+    - paragraphs.paragraphs_type.complex_table
+  module:
+    - ds
+    - ds_chains
+    - empty_fields
+    - text
+third_party_settings:
+  ds:
+    layout:
+      id: layout_onecol
+      library: layout_discovery/onecol
+      disable_css: true
+      entity_classes: no_classes
+      settings:
+        label: ''
+    regions:
+      content:
+        - field_title
+        - field_basic_text
+  ds_chains:
+    fields: {  }
+id: paragraph.complex_table.default
+targetEntityType: paragraph
+bundle: complex_table
+mode: default
+content:
+  field_basic_text:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_title:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings:
+      empty_fields:
+        handler: ''
+      ds:
+        ft:
+          id: expert
+          settings:
+            lb: ''
+            prefix: ''
+            lbw-el: ''
+            lbw-cl: ''
+            lbw-at: ''
+            ow: true
+            ow-el: h2
+            ow-cl: ''
+            ow-at: ''
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fi-el: ''
+            fi-cl: ''
+            fi-at: ''
+            suffix: ''
+            lbw: false
+            lb-col: false
+            ow-def-at: false
+            ow-def-cl: false
+            fis: false
+            fis-def-at: false
+            fi: false
+            fi-def-at: false
+    type: string
+    region: content
+hidden:
+  search_api_excerpt: true

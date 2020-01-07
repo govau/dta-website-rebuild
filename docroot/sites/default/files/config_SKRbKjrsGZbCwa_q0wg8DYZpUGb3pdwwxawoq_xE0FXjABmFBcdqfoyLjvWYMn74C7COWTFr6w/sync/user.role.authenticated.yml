@@ -22,6 +22,7 @@ permissions:
   - 'search content'
   - 'use search_api_autocomplete for search'
   - 'use text format basic_text'
+  - 'use text format complex_table_editor'
   - 'use text format transcript_text'
   - 'view media'
   - 'view search api pages'

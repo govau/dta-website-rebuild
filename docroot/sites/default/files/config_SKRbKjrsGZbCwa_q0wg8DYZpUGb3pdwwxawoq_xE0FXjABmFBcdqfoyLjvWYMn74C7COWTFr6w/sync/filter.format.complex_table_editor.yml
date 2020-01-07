@@ -1,4 +1,4 @@
-uuid: 8738d3e0-ad4b-4575-816f-c9f796a22be7
+uuid: 61428557-1ffb-40e5-8b8a-a7919af79a96
 langcode: en
 status: true
 dependencies:
@@ -9,8 +9,8 @@ dependencies:
     - media
     - toc_filter
     - typogrify
-name: 'Transcript text'
-format: transcript_text
+name: 'Complex table editor'
+format: complex_table_editor
 weight: 0
 filters:
   filter_url:
@@ -26,7 +26,7 @@ filters:
     status: true
     weight: -10
     settings:
-      allowed_html: '<em> <strong> <ul type> <ol start type> <li> <a href hreflang data-entity-substitution data-entity-type data-entity-uuid title>'
+      allowed_html: '<em> <strong> <ul type> <ol start type> <li> <a href hreflang data-entity-substitution data-entity-type data-entity-uuid title> <table class id summary width style> <caption> <thead> <tbody> <tr class> <th class> <td class width> <tfoot>'
       filter_html_help: true
       filter_html_nofollow: false
   filter_autop:
@@ -64,6 +64,15 @@ filters:
     status: true
     weight: 10
     settings: {  }
+  media_embed:
+    id: media_embed
+    provider: media
+    status: false
+    weight: 100
+    settings:
+      default_view_mode: default
+      allowed_media_types: {  }
+      allowed_view_modes: {  }
   toc_filter:
     id: toc_filter
     provider: toc_filter
@@ -94,12 +103,3 @@ filters:
       arrows: 'a:0:{}'
       fractions: 'a:0:{}'
       quotes: 'a:0:{}'
-  media_embed:
-    id: media_embed
-    provider: media
-    status: false
-    weight: 100
-    settings:
-      default_view_mode: default
-      allowed_media_types: {  }
-      allowed_view_modes: {  }

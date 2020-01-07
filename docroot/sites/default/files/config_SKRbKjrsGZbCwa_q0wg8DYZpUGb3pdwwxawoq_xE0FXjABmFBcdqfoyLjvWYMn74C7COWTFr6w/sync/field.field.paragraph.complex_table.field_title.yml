@@ -1,0 +1,19 @@
+uuid: 81a1f946-8dbf-4bdc-b923-339b68bcedaa
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_title
+    - paragraphs.paragraphs_type.complex_table
+id: paragraph.complex_table.field_title
+field_name: field_title
+entity_type: paragraph
+bundle: complex_table
+label: Heading
+description: 'Use this field to add a heading to your complex table. It will automatically be formatted as a Heading 2.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

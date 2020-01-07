@@ -1,0 +1,11 @@
+uuid: 3dc1906e-38e3-484d-b83c-e8037d9c8a97
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'file:file:e7e6c62f-b084-46a3-bbed-b3d1acb84af4'
+id: table
+label: 'Simple table'
+icon_uuid: e7e6c62f-b084-46a3-bbed-b3d1acb84af4
+description: 'Use the <em>simple table</em> component to add a simple table to your content. For more complex tables, use the <em>complex table</em> component.'
+behavior_plugins: {  }

@@ -1,0 +1,9 @@
+uuid: 8e40432b-7da9-4b38-a0ef-d35783e093df
+langcode: en
+status: true
+dependencies: {  }
+id: chart
+label: Chart
+icon_uuid: null
+description: 'Use the <em>chart</em> component to add charts or graphs to your content.'
+behavior_plugins: {  }
