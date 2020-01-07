@@ -51,6 +51,8 @@ main() {
   esac
 
   cf run-task ${CF_APP} "source scripts/buildrc && drush updatedb -y && drush cim -y && drush cr"
+  # delete robots.txt so the website can take over.
+  rm docroot/robots.txt
 
 }
 
