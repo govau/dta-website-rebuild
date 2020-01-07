@@ -934,12 +934,14 @@ if(isset($_ENV['ENVIRONMENT'])) {
     $config['system.performance']['css']['preprocess'] = FALSE;
     $config['system.performance']['js']['preprocess'] = FALSE;
     $config['system.logging']['error_level'] = 'verbose';
+    $config['robotstxt.settings']['content'] = 'User-agent: *\r\nDisallow: /';
   }
   if ($environment === 'test') {
     $config['s3fs.settings']['bucket'] = 'dta-www-drupal-test-20180221050325640300000001';
     $config['system.performance']['css']['preprocess'] = FALSE;
     $config['system.performance']['js']['preprocess'] = FALSE;
     $config['system.logging']['error_level'] = 'verbose';
+    $config['robotstxt.settings']['content'] = 'User-agent: *\r\nDisallow: /';
   }
 } else {
   $config['s3fs.settings']['bucket'] = '';
