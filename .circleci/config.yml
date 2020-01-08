@@ -78,6 +78,16 @@ jobs:
       - run:
           name: Updating configuration and database
           command: ./scripts/post-deploy.sh
+  update_robots:
+    docker:
+      - image: govau/cf-cli
+    working_directory: /app
+    steps:
+      - attach_workspace:
+          at: /app
+      - run:
+          name: Updating robots.txt for staging
+          command: ./scripts/replace-robots.sh
   cron:
     docker:
       - image: govau/cf-cli
@@ -107,6 +117,13 @@ workflows:
             branches:
               only:
                 - master
+                - develop
+      - update_robots:
+          requires:
+            - post_deploy
+          filters:
+            branches:
+              only:
                 - develop
   run-cron:
     triggers:
