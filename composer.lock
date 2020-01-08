@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b377ad374f3a667c20040d6459621ee4",
+    "content-hash": "b0a05ab20010be2dd29ab804acbf3a2e",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -4754,7 +4754,7 @@
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
             "license": [
-                "GPL-2.0+"
+                "GPL-2.0-or-later"
             ],
             "authors": [
                 {
@@ -4765,7 +4765,7 @@
             "description": "Adds improved Token based file sorting and renaming functionalities.",
             "homepage": "https://www.drupal.org/project/filefield_paths",
             "support": {
-                "source": "http://cgit.drupalcode.org/filefield_paths"
+                "source": "https://git.drupalcode.org/project/filefield_paths"
             }
         },
         {
@@ -9573,6 +9573,37 @@
                 "theme"
             ],
             "time": "2019-11-06T05:13:03+00:00"
+        },
+        {
+            "name": "govau/tadpole",
+            "version": "1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/govau/tadpole.git",
+                "reference": "ba4b7be4291aede1d6c09dc24ba4c1b2e0848ca1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/govau/tadpole/zipball/ba4b7be4291aede1d6c09dc24ba4c1b2e0848ca1",
+                "reference": "ba4b7be4291aede1d6c09dc24ba4c1b2e0848ca1",
+                "shasum": ""
+            },
+            "require": {
+                "drupal/adminimal_theme": ">=1.4.0"
+            },
+            "type": "drupal-custom-theme",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "A small override theme to help adjust the admin theme.",
+            "homepage": "https://github.com/govau/tadpole",
+            "keywords": [
+                "drupal",
+                "government",
+                "theme"
+            ],
+            "time": "2019-04-02T04:54:58+00:00"
         },
         {
             "name": "grasmash/expander",
