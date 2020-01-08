@@ -1,0 +1,34 @@
+uuid: 88b06377-44bc-4975-a0dd-d1699654c546
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.social_media_share_images.field_image
+    - paragraphs.paragraphs_type.social_media_share_images
+  module:
+    - dynamic_entity_reference
+    - field_layout
+    - layout_discovery
+third_party_settings:
+  field_layout:
+    id: layout_onecol
+    settings:
+      label: ''
+id: paragraph.social_media_share_images.default
+targetEntityType: paragraph
+bundle: social_media_share_images
+mode: default
+content:
+  field_image:
+    weight: 0
+    settings:
+      match_operator: CONTAINS
+      size: 40
+      placeholder: ''
+      match_limit: 10
+    third_party_settings: {  }
+    type: dynamic_entity_reference_default
+    region: content
+hidden:
+  created: true
+  status: true

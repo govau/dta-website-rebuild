@@ -11,6 +11,7 @@ dependencies:
     - paragraphs.paragraphs_type.complex_table
     - paragraphs.paragraphs_type.image
     - paragraphs.paragraphs_type.related_documents
+    - paragraphs.paragraphs_type.social_media_share_images
     - paragraphs.paragraphs_type.table
     - paragraphs.paragraphs_type.video
   module:
@@ -38,6 +39,7 @@ settings:
       video: video
       table: table
       image: image
+      social_media_share_images: social_media_share_images
     target_bundles_drag_drop:
       dashboard_case_study:
         weight: 6
@@ -75,4 +77,7 @@ settings:
       image:
         enabled: true
         weight: 19
+      social_media_share_images:
+        enabled: true
+        weight: 24
 field_type: entity_reference_revisions
