@@ -50,7 +50,7 @@ main() {
       ;;
   esac
 
-  cf run-task ${CF_APP} "source scripts/buildrc && drush updatedb -y && drush cim -y && drush cr"
+  cf run-task ${CF_APP} "source scripts/buildrc && drush updatedb -y && drush cim -y && drush cr"  
 
 }
 
