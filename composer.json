@@ -283,7 +283,7 @@
 		"post-install-cmd": [
 			"PhantomInstaller\\Installer::installPhantomJS",
 			"@composer drupal-scaffold",
-			"rm -r -f docroot/robots.txt"
+			"rm -r -f docroot/robots.txt -v"
 		],
 		"post-update-cmd": [
 			"PhantomInstaller\\Installer::installPhantomJS",
