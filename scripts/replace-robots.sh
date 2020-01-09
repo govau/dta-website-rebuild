@@ -35,7 +35,7 @@ main() {
 
   login
 
-  cf run-task dta-website-staging "source scripts/buildrc && mv robots-staging.txt docroot/robots.txt && drush cr"
+  cf run-task dta-website-staging "source scripts/buildrc && mv robots-staging.txt docroot/robots.txt -v && drush cr"
 
 }
 
