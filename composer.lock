@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a7627ab495b9ee7a9d909679b920ec92",
+    "content-hash": "12d7d33f818b009f0f0c777ff99c58ac",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -3670,20 +3670,20 @@
         },
         {
             "name": "drupal/diff",
-            "version": "1.0.0-rc2",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/diff.git",
-                "reference": "8.x-1.0-rc2"
+                "reference": "8.x-1.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/diff-8.x-1.0-rc2.zip",
-                "reference": "8.x-1.0-rc2",
-                "shasum": "2e8f4efe6e7d355a3d07d33531f077348b13f68d"
+                "url": "https://ftp.drupal.org/files/projects/diff-8.x-1.0.zip",
+                "reference": "8.x-1.0",
+                "shasum": "7106ca30b7b10343fbf79a0c42fc7981b109095f"
             },
             "require": {
-                "drupal/core": "~8.0",
+                "drupal/core": "^8.7.7 || ^9",
                 "mkalkbrenner/php-htmldiff-advanced": "~0.0.8"
             },
             "type": "drupal-module",
@@ -3692,11 +3692,11 @@
                     "dev-1.x": "1.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-1.0-rc2",
-                    "datestamp": "1530178424",
+                    "version": "8.x-1.0",
+                    "datestamp": "1578322688",
                     "security-coverage": {
-                        "status": "not-covered",
-                        "message": "RC releases are not covered by Drupal security advisories."
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
                     }
                 }
             },
@@ -4895,6 +4895,57 @@
             "support": {
                 "source": "https://git.drupalcode.org/project/field_permissions",
                 "issues": "https://www.drupal.org/project/issues/field_permissions"
+            }
+        },
+        {
+            "name": "drupal/field_validation",
+            "version": "1.0.0-alpha7",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/field_validation.git",
+                "reference": "8.x-1.0-alpha7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/field_validation-8.x-1.0-alpha7.zip",
+                "reference": "8.x-1.0-alpha7",
+                "shasum": "f6525c5d039044dd52978a55b7ac855a72970460"
+            },
+            "require": {
+                "drupal/core": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.0-alpha7",
+                    "datestamp": "1552342385",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Alpha releases are not covered by Drupal security advisories."
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "g089h515r806",
+                    "homepage": "https://www.drupal.org/user/174740"
+                },
+                {
+                    "name": "manuel.adan",
+                    "homepage": "https://www.drupal.org/user/516420"
+                }
+            ],
+            "description": "Provides customizable field validation rules.",
+            "homepage": "https://www.drupal.org/project/field_validation",
+            "support": {
+                "source": "https://git.drupalcode.org/project/field_validation"
             }
         },
         {
@@ -9895,6 +9946,37 @@
                 "theme"
             ],
             "time": "2019-11-06T05:13:03+00:00"
+        },
+        {
+            "name": "govau/tadpole",
+            "version": "1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/govau/tadpole.git",
+                "reference": "ba4b7be4291aede1d6c09dc24ba4c1b2e0848ca1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/govau/tadpole/zipball/ba4b7be4291aede1d6c09dc24ba4c1b2e0848ca1",
+                "reference": "ba4b7be4291aede1d6c09dc24ba4c1b2e0848ca1",
+                "shasum": ""
+            },
+            "require": {
+                "drupal/adminimal_theme": ">=1.4.0"
+            },
+            "type": "drupal-custom-theme",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "A small override theme to help adjust the admin theme.",
+            "homepage": "https://github.com/govau/tadpole",
+            "keywords": [
+                "drupal",
+                "government",
+                "theme"
+            ],
+            "time": "2019-04-02T04:54:58+00:00"
         },
         {
             "name": "grasmash/expander",

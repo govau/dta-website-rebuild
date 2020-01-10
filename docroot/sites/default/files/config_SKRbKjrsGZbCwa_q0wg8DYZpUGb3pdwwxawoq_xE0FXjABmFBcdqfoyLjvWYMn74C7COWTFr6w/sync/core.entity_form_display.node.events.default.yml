@@ -5,10 +5,12 @@ dependencies:
   config:
     - field.field.node.events.field_component
     - field.field.node.events.field_date_range
+    - field.field.node.events.field_eventbrite_code
     - field.field.node.events.field_index_image
     - field.field.node.events.field_location
     - image.style.thumbnail
     - node.type.events
+    - workflows.workflow.dta_publishing
   module:
     - content_moderation
     - datetime_range
@@ -31,13 +33,13 @@ mode: default
 content:
   created:
     type: datetime_timestamp
-    weight: 10
+    weight: 2
     region: content
     settings: {  }
     third_party_settings: {  }
   field_component:
     type: paragraphs
-    weight: 121
+    weight: 18
     settings:
       title: Paragraph
       title_plural: Paragraphs
@@ -55,13 +57,21 @@ content:
     third_party_settings: {  }
     region: content
   field_date_range:
-    weight: 123
+    weight: 15
     settings: {  }
     third_party_settings: {  }
     type: daterange_default
     region: content
+  field_eventbrite_code:
+    weight: 17
+    settings:
+      size: 12
+      placeholder: '88888888888'
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
   field_index_image:
-    weight: 122
+    weight: 14
     settings:
       progress_indicator: throbber
       preview_image_style: thumbnail
@@ -69,7 +79,7 @@ content:
     type: image_image
     region: content
   field_location:
-    weight: 124
+    weight: 16
     settings:
       size: 60
       placeholder: ''
@@ -78,13 +88,13 @@ content:
     region: content
   moderation_state:
     type: moderation_state_default
-    weight: 100
+    weight: 12
     settings: {  }
     region: content
     third_party_settings: {  }
   path:
     type: path
-    weight: 30
+    weight: 10
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -92,23 +102,23 @@ content:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 15
+    weight: 3
     region: content
     third_party_settings: {  }
   publish_on:
     type: datetime_timestamp_no_default
-    weight: 30
+    weight: 9
     region: content
     settings: {  }
     third_party_settings: {  }
   publish_state:
     type: scheduler_moderation
-    weight: 30
+    weight: 7
     region: content
     settings: {  }
     third_party_settings: {  }
   scheduler_settings:
-    weight: 20
+    weight: 5
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -116,19 +126,19 @@ content:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 120
+    weight: 13
     region: content
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 16
+    weight: 4
     region: content
     third_party_settings: {  }
   title:
     type: string_textfield
-    weight: -5
+    weight: 0
     region: content
     settings:
       size: 60
@@ -136,7 +146,7 @@ content:
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 5
+    weight: 1
     settings:
       match_operator: CONTAINS
       size: 60
@@ -146,18 +156,18 @@ content:
     third_party_settings: {  }
   unpublish_on:
     type: datetime_timestamp_no_default
-    weight: 30
+    weight: 8
     region: content
     settings: {  }
     third_party_settings: {  }
   unpublish_state:
     type: scheduler_moderation
-    weight: 30
+    weight: 6
     region: content
     settings: {  }
     third_party_settings: {  }
   url_redirects:
-    weight: 50
+    weight: 11
     region: content
     settings: {  }
     third_party_settings: {  }

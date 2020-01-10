@@ -1,8 +1,9 @@
-uuid: 99fe8efa-1f7d-414b-bd6f-c22bf5bb8baa
+uuid: ef246173-8d14-4ebe-a5d2-d2e8852eb11e
 langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_mode.node.search_result
     - field.field.node.events.field_component
     - field.field.node.events.field_date_range
     - field.field.node.events.field_eventbrite_code
@@ -36,10 +37,10 @@ third_party_settings:
         - field_component
   ds_chains:
     fields: {  }
-id: node.events.default
+id: node.events.search_result
 targetEntityType: node
 bundle: events
-mode: default
+mode: search_result
 content:
   content_moderation_control:
     weight: 0

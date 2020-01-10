@@ -63,6 +63,7 @@ module:
   field_layout: 0
   field_permissions: 0
   field_ui: 0
+  field_validation: 0
   file: 0
   filefield_paths: 0
   filter: 0

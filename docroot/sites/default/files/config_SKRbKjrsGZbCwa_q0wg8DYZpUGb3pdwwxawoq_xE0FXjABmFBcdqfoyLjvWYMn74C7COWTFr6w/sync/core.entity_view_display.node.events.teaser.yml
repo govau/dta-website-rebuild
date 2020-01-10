@@ -1,11 +1,12 @@
 uuid: 741ed8b9-d815-445e-b8a2-bf874d5798ca
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.events.field_component
     - field.field.node.events.field_date_range
+    - field.field.node.events.field_eventbrite_code
     - field.field.node.events.field_index_image
     - field.field.node.events.field_location
     - node.type.events
@@ -16,6 +17,11 @@ targetEntityType: node
 bundle: events
 mode: teaser
 content:
+  content_moderation_control:
+    weight: -20
+    settings: {  }
+    third_party_settings: {  }
+    region: content
   links:
     weight: 100
     settings: {  }
@@ -24,6 +30,7 @@ content:
 hidden:
   field_component: true
   field_date_range: true
+  field_eventbrite_code: true
   field_index_image: true
   field_location: true
   search_api_excerpt: true
