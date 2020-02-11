@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f3140fa27da42068d6abc98ad64e7fba",
+    "content-hash": "94ee0ca61990fad7b2f0c50c35a50bd9",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -5265,17 +5265,17 @@
         },
         {
             "name": "drupal/linky",
-            "version": "1.0.0-alpha4",
+            "version": "1.0.0-alpha5",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/linky.git",
-                "reference": "8.x-1.0-alpha4"
+                "reference": "8.x-1.0-alpha5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/linky-8.x-1.0-alpha4.zip",
-                "reference": "8.x-1.0-alpha4",
-                "shasum": "9f07bf0e61ca039c60436a72988278f25110d745"
+                "url": "https://ftp.drupal.org/files/projects/linky-8.x-1.0-alpha5.zip",
+                "reference": "8.x-1.0-alpha5",
+                "shasum": "d6b1528a89ee8a4670639466146b7f01dc10cc4e"
             },
             "require": {
                 "drupal/core": "*",
@@ -5294,8 +5294,8 @@
                     "dev-1.x": "1.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-1.0-alpha4",
-                    "datestamp": "1564387985",
+                    "version": "8.x-1.0-alpha5",
+                    "datestamp": "1578534787",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Alpha releases are not covered by Drupal security advisories."
@@ -5893,8 +5893,7 @@
                         "status": "not-covered",
                         "message": "Alpha releases are not covered by Drupal security advisories."
                     }
-                },
-                "patches_applied": []
+                }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
             "license": [
@@ -7219,17 +7218,17 @@
         },
         {
             "name": "drupal/robotstxt",
-            "version": "1.2.0",
+            "version": "1.3.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/robotstxt.git",
-                "reference": "8.x-1.2"
+                "reference": "8.x-1.3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/robotstxt-8.x-1.2.zip",
-                "reference": "8.x-1.2",
-                "shasum": "d520a92abfd67b55fbffdead510a57f9c9abf46b"
+                "url": "https://ftp.drupal.org/files/projects/robotstxt-8.x-1.3.zip",
+                "reference": "8.x-1.3",
+                "shasum": "e743a9956d17b663bc69e21cb9aa6ef7c76b4235"
             },
             "require": {
                 "drupal/core": "~8.0"
@@ -7240,8 +7239,8 @@
                     "dev-1.x": "1.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-1.2",
-                    "datestamp": "1529154524",
+                    "version": "8.x-1.3",
+                    "datestamp": "1579404790",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -7273,7 +7272,7 @@
             "description": "Generates the robots.txt file dynamically and gives you the chance to edit it, on a per-site basis, from the web UI.",
             "homepage": "https://www.drupal.org/project/robotstxt",
             "support": {
-                "source": "http://git.drupal.org/project/robotstxt.git",
+                "source": "https://git.drupal.org/project/robotstxt.git",
                 "issues": "https://www.drupal.org/project/issues/robotstxt"
             }
         },
@@ -8548,20 +8547,20 @@
         },
         {
             "name": "drupal/typed_data",
-            "version": "1.0.0-alpha3",
+            "version": "1.0.0-alpha4",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/typed_data.git",
-                "reference": "8.x-1.0-alpha3"
+                "reference": "8.x-1.0-alpha4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/typed_data-8.x-1.0-alpha3.zip",
-                "reference": "8.x-1.0-alpha3",
-                "shasum": "962d53659f73de8dfa43f291ef40ec26e1b7a07f"
+                "url": "https://ftp.drupal.org/files/projects/typed_data-8.x-1.0-alpha4.zip",
+                "reference": "8.x-1.0-alpha4",
+                "shasum": "3f1db6d65098b03fc4ef9702305c3fd4ec88e0d5"
             },
             "require": {
-                "drupal/core": "~8.0"
+                "drupal/core": "^8.7"
             },
             "type": "drupal-module",
             "extra": {
@@ -8569,8 +8568,8 @@
                     "dev-1.x": "1.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-1.0-alpha3",
-                    "datestamp": "1554612486",
+                    "version": "8.x-1.0-alpha4",
+                    "datestamp": "1579072387",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Alpha releases are not covered by Drupal security advisories."
