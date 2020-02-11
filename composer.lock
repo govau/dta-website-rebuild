@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "94ee0ca61990fad7b2f0c50c35a50bd9",
+    "content-hash": "dc373cf04252f666397ff106ea3eb6b2",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -3014,16 +3014,16 @@
         },
         {
             "name": "drupal/core",
-            "version": "8.8.1",
+            "version": "8.8.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal/core.git",
-                "reference": "d339279f4c4b89477e0f4a8b775eb5dcb86b3087"
+                "reference": "f997857003276c2ae6d27db30f0eab9c7dd10e62"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drupal/core/zipball/d339279f4c4b89477e0f4a8b775eb5dcb86b3087",
-                "reference": "d339279f4c4b89477e0f4a8b775eb5dcb86b3087",
+                "url": "https://api.github.com/repos/drupal/core/zipball/f997857003276c2ae6d27db30f0eab9c7dd10e62",
+                "reference": "f997857003276c2ae6d27db30f0eab9c7dd10e62",
                 "shasum": ""
             },
             "require": {
@@ -3247,7 +3247,7 @@
                 "GPL-2.0-or-later"
             ],
             "description": "Drupal is an open source content management platform powering millions of websites and applications.",
-            "time": "2019-12-18T10:34:03+00:00"
+            "time": "2020-02-01T19:51:15+00:00"
         },
         {
             "name": "drupal/ctools",
@@ -3892,11 +3892,17 @@
         },
         {
             "name": "drupal/empty_fields",
-            "version": "dev-1.x",
+            "version": "1.0.0-alpha1",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/empty_fields.git",
-                "reference": "c0bc7c87ed42c2aa173a082557cf8e2cfbe9d14c"
+                "reference": "8.x-1.0-alpha1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/empty_fields-8.x-1.0-alpha1.zip",
+                "reference": "8.x-1.0-alpha1",
+                "shasum": "c7d0d152a503525ae14f8134b9a8168e6d97a1d9"
             },
             "require": {
                 "drupal/core": "~8.0"
@@ -3907,16 +3913,14 @@
                     "dev-1.x": "1.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-1.0-alpha1+2-dev",
-                    "datestamp": "1512852185",
+                    "version": "8.x-1.0-alpha1",
+                    "datestamp": "1469609939",
                     "security-coverage": {
                         "status": "not-covered",
-                        "message": "Dev releases are not covered by Drupal security advisories."
+                        "message": "Alpha releases are not covered by Drupal security advisories."
                     }
                 },
-                "patches_applied": {
-                    "Plugin form not shown": "https://www.drupal.org/files/issues/2927913-8.patch"
-                }
+                "patches_applied": []
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
             "license": [
@@ -3932,7 +3936,7 @@
                     "homepage": "https://www.drupal.org/user/118908"
                 },
                 {
-                    "name": "axel.rutz",
+                    "name": "geek-merlin",
                     "homepage": "https://www.drupal.org/user/229048"
                 },
                 {
@@ -3948,8 +3952,7 @@
             "homepage": "https://www.drupal.org/project/empty_fields",
             "support": {
                 "source": "https://git.drupalcode.org/project/empty_fields"
-            },
-            "time": "2017-12-09T20:38:52+00:00"
+            }
         },
         {
             "name": "drupal/entity_browser",
@@ -4379,14 +4382,20 @@
         },
         {
             "name": "drupal/extlink",
-            "version": "dev-1.x",
+            "version": "1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/extlink.git",
-                "reference": "a0fdb5b77360dcf286f4eb22fa13ba15e35e6dc1"
+                "reference": "8.x-1.2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/extlink-8.x-1.2.zip",
+                "reference": "8.x-1.2",
+                "shasum": "42252138bde4440c0edf2ceabee798f678ba2af1"
             },
             "require": {
-                "drupal/core": "~8.0"
+                "drupal/core": "^8 || ^9"
             },
             "type": "drupal-module",
             "extra": {
@@ -4394,11 +4403,11 @@
                     "dev-1.x": "1.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-1.1+33-dev",
-                    "datestamp": "1551825184",
+                    "version": "8.x-1.2",
+                    "datestamp": "1580335956",
                     "security-coverage": {
-                        "status": "not-covered",
-                        "message": "Dev releases are not covered by Drupal security advisories."
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
                     }
                 }
             },
@@ -4424,8 +4433,7 @@
             "homepage": "https://www.drupal.org/project/extlink",
             "support": {
                 "source": "https://git.drupalcode.org/project/extlink"
-            },
-            "time": "2019-03-05T22:28:28+00:00"
+            }
         },
         {
             "name": "drupal/facets",
@@ -16582,8 +16590,6 @@
     "stability-flags": {
         "drupal/bigmenu": 15,
         "drupal/context_metadata": 20,
-        "drupal/empty_fields": 20,
-        "drupal/extlink": 20,
         "drupal/ie8": 20,
         "drupal/link_css": 20,
         "drupal/mail_safety": 20
