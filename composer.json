@@ -99,7 +99,7 @@
 		"drupal/context_metadata": "2.x-dev",
 		"drupal/core": "8.8.1",
 		"drupal/devel": "2.1",
-		"drupal/diff": "1.0-rc2",
+		"drupal/diff": "1.0",
 		"drupal/ds": "3.5",
 		"drupal/ds_chains": "1.0",
 		"drupal/editor_advanced_link": "1.6",
@@ -251,9 +251,6 @@
 			},
 			"drupal/context_metadata": {
 				"Check if default metadata is not null": "https://www.drupal.org/files/issues/2018-11-26/3003858-4-Check-if-default-metadata-is-not-null.patch"
-			},
-			"drupal/masquerade_float_block": {
-				"Masquerade Float Block appears for anonymous users": "https://www.drupal.org/files/issues/masquerade_float_block-2917207-3.patch"
 			},
 			"drupal/rules": {
 				"Condition UserHasRole throws an error": "https://www.drupal.org/files/issues/2816157-10.patch"
