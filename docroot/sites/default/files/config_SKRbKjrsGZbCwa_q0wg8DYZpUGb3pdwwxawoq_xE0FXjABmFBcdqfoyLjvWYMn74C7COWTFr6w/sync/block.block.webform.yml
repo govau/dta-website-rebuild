@@ -1,0 +1,31 @@
+uuid: 8d79c6a2-d9f2-4f16-add0-dee4dfa50bd6
+langcode: en
+status: true
+dependencies:
+  config:
+    - webform.webform.mygov_beta_screener
+  module:
+    - system
+    - webform
+  theme:
+    - dta_gov_au
+id: webform
+theme: dta_gov_au
+region: content
+weight: 0
+provider: null
+plugin: webform_block
+settings:
+  id: webform_block
+  label: 'Beta enrolment'
+  provider: webform
+  label_display: visible
+  webform_id: mygov_beta_screener
+  default_data: ''
+  redirect: false
+visibility:
+  request_path:
+    id: request_path
+    pages: /our-projects/mygov/beta-enrolment
+    negate: false
+    context_mapping: {  }
