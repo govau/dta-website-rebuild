@@ -34,16 +34,6 @@ matchers:
       include_unpublished: true
       substitution_type: canonical
       limit: 100
-  4f409cbd-66cf-41ec-9bae-b6aaf5f99938:
-    uuid: 4f409cbd-66cf-41ec-9bae-b6aaf5f99938
-    id: 'entity:linky'
-    weight: 0
-    settings:
-      metadata: '[linky:link:title], [linky:url:absolute]'
-      bundles: null
-      group_by_bundle: null
-      substitution_type: canonical
-      limit: 100
   c09e6b25-f7c7-426c-965e-510d26fee088:
     uuid: c09e6b25-f7c7-426c-965e-510d26fee088
     id: email
@@ -63,5 +53,15 @@ matchers:
       bundles:
         tags: tags
       group_by_bundle: false
+      substitution_type: canonical
+      limit: 100
+  4f409cbd-66cf-41ec-9bae-b6aaf5f99938:
+    uuid: 4f409cbd-66cf-41ec-9bae-b6aaf5f99938
+    id: 'entity:linky'
+    weight: 0
+    settings:
+      metadata: '[linky:link:title], [linky:url:absolute]'
+      bundles: null
+      group_by_bundle: null
       substitution_type: canonical
       limit: 100
