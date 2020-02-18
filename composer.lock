@@ -4,11 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-<<<<<<< HEAD
-    "content-hash": "a7627ab495b9ee7a9d909679b920ec92",
-=======
     "content-hash": "0d57dedbc1e32470a49101dc8acdd763",
->>>>>>> develop
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -4116,12 +4112,7 @@
             "homepage": "https://www.drupal.org/project/empty_fields",
             "support": {
                 "source": "https://git.drupalcode.org/project/empty_fields"
-<<<<<<< HEAD
-            },
-            "time": "2017-12-09T20:38:52+00:00"
-=======
             }
->>>>>>> develop
         },
         {
             "name": "drupal/entity_browser",
@@ -4768,13 +4759,8 @@
                     "dev-3.x": "3.x-dev"
                 },
                 "drupal": {
-<<<<<<< HEAD
                     "version": "8.x-3.0-rc2",
                     "datestamp": "1574279719",
-=======
-                    "version": "8.x-3.0",
-                    "datestamp": "1580250787",
->>>>>>> develop
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -4975,12 +4961,8 @@
             "homepage": "https://www.drupal.org/project/filefield_paths",
             "support": {
                 "source": "https://git.drupalcode.org/project/filefield_paths"
-<<<<<<< HEAD
             },
             "time": "2018-06-21T05:37:12+00:00"
-=======
-            }
->>>>>>> develop
         },
         {
             "name": "drupal/google_analytics",
@@ -8503,7 +8485,6 @@
             "homepage": "https://www.drupal.org/project/swiftmailer",
             "support": {
                 "source": "https://git.drupalcode.org/project/swiftmailer"
-<<<<<<< HEAD
             }
         },
         {
@@ -8575,8 +8556,6 @@
             "homepage": "https://www.drupal.org/project/tablefield",
             "support": {
                 "source": "https://git.drupalcode.org/project/tablefield"
-=======
->>>>>>> develop
             }
         },
         {
@@ -10251,12 +10230,8 @@
             "dist": {
                 "type": "zip",
                 "url": "https://github.com/harvesthq/chosen/releases/download/v1.8.7/chosen_v1.8.7.zip",
-<<<<<<< HEAD
                 "reference": "ad86732b668627c131e61ee8f0e6e9ed52e4db8d",
                 "shasum": ""
-=======
-                "reference": "ad86732b668627c131e61ee8f0e6e9ed52e4db8d"
->>>>>>> develop
             },
             "type": "library",
             "notification-url": "https://packagist.org/downloads/",
@@ -16902,12 +16877,9 @@
     "stability-flags": {
         "drupal/bigmenu": 15,
         "drupal/context_metadata": 20,
-<<<<<<< HEAD
         "drupal/empty_fields": 20,
         "drupal/extlink": 20,
         "drupal/filefield_paths": 20,
-=======
->>>>>>> develop
         "drupal/ie8": 20,
         "drupal/link_css": 20,
         "drupal/mail_safety": 20
