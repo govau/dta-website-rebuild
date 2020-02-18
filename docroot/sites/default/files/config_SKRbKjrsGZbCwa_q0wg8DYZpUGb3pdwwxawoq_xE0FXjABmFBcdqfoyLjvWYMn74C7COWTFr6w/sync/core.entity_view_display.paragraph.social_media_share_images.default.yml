@@ -5,20 +5,11 @@ dependencies:
   config:
     - field.field.paragraph.social_media_share_images.field_image
     - paragraphs.paragraphs_type.social_media_share_images
-  module:
-    - dynamic_entity_reference
 id: paragraph.social_media_share_images.default
 targetEntityType: paragraph
 bundle: social_media_share_images
 mode: default
-content:
-  field_image:
-    weight: 0
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    type: dynamic_entity_reference_label
-    region: content
+content: {  }
 hidden:
+  field_image: true
   search_api_excerpt: true

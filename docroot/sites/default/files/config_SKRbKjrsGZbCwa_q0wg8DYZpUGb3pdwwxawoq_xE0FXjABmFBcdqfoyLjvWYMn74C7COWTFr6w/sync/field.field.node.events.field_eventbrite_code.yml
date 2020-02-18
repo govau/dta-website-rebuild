@@ -1,0 +1,19 @@
+uuid: 75d1b5f6-3980-4357-9a8a-e9c9f9d580c3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_eventbrite_code
+    - node.type.events
+id: node.events.field_eventbrite_code
+field_name: field_eventbrite_code
+entity_type: node
+bundle: events
+label: 'Eventbrite code'
+description: 'Use this field to add a register button if you have an Eventbrite event code. You can find the code in the URL of your event page on Eventbrite. Make sure you enter the correct number!'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
