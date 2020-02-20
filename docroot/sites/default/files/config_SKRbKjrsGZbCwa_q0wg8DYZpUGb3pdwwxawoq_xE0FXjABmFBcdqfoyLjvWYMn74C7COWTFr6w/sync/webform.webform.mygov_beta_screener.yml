@@ -1,6 +1,6 @@
 uuid: ab03c604-72a8-45c3-90ec-455218c89cc3
 langcode: en
-status: closed
+status: open
 dependencies:
   module:
     - honeypot
@@ -17,7 +17,7 @@ id: mygov_beta_screener
 title: 'Beta enrolment'
 description: 'We used this form to screen participants for the myGov Beta project.'
 category: myGov
-elements: "about_you:\n  '#type': webform_wizard_page\n  '#title': 'About you'\n  what_gender_do_you_identify_as_:\n    '#type': webform_select_other\n    '#title': Gender\n    '#options':\n      Male: Male\n      Female: Female\n      'I''d rather not say': 'I''d rather not say'\n    '#other__placeholder': 'Your response...'\n    '#required': true\n    '#required_error': 'We need this for demographic purposes.'\n  what_is_your_age_:\n    '#type': select\n    '#title': Age\n    '#options':\n      'Under 18': 'Under 18'\n      '18 – 25': '18 – 25'\n      '26 – 35 ': '26 – 35 '\n      '36 – 45': '36 – 45'\n      '46 – 55': '46 – 55'\n      '56 – 65': '56 – 65'\n      '66 +': '66 +'\n    '#required': true\n    '#required_error': 'We need this for demographic purposes.'\n  what_is_your_english_proficiency_level:\n    '#type': select\n    '#title': 'Is English your first language?'\n    '#options':\n      'Yes': 'Yes'\n      'No': 'No'\n    '#required': true\n  do_you_speak_any_language_s_other_than_english_:\n    '#type': webform_select_other\n    '#title': 'Do you speak language(s) other than English?'\n    '#options':\n      'No': 'No'\n    '#other__option_label': 'Yes'\n    '#other__title': 'Which other languages do you speak?'\n    '#other__placeholder': 'Your response...'\n    '#required': true\n    '#required_error': 'We need this for demographic purposes.'\n  what_is_your_current_employment_status_:\n    '#type': select\n    '#title': 'What is your current employment status?'\n    '#options':\n      'Studying or volunteering': 'Studying or volunteering'\n      'Part-time or full-time': 'Part-time or full-time'\n      Casual: Casual\n      Retired: Retired\n      'Unemployed or looking for work': 'Unemployed or looking for work'\n      'I''d rather not say': 'I''d rather not say'\n    '#required': true\n    '#required_error': 'We need this for demographic purposes.'\n  do_you_currently_work_for_any_of_the_following_government_agenci:\n    '#type': select\n    '#title': 'Do you currently work for any of the following government agencies?'\n    '#options':\n      'Services Australia / former Department of Human Services': 'Services Australia / former Department of Human Services'\n      'Australian Taxation Office': 'Australian Taxation Office'\n      'Digital Transformation Agency': 'Digital Transformation Agency'\n      'Department of Health': 'Department of Health'\n      'I don''t work at any of the above agencies': 'I don''t work at any of the above agencies'\n    '#required': true\n    '#required_error': 'We need this to make sure we are targetting the right users.'\n    '#states':\n      visible:\n        - ':input[name=\"what_is_your_current_employment_status_\"]':\n            value: 'Part-time or full-time'\n        - xor\n        - ':input[name=\"what_is_your_current_employment_status_\"]':\n            value: Casual\nyour_devices:\n  '#type': webform_wizard_page\n  '#title': 'Your devices'\n  '#open': true\n  what_devices_do_you_use_to_access_the_internet_and_or_online_pro:\n    '#type': checkboxes\n    '#title': 'What devices do you use to access the internet and/or online products or services? '\n    '#description': 'Please select as many as you need to. If you don&#39;t use any of these devices, please don&#39;t select any.'\n    '#title_display': before\n    '#description_display': before\n    '#options':\n      'Desktop computer': 'Desktop computer'\n      Laptop: Laptop\n      'Android smartphone': 'Android smartphone'\n      'iPhone smartphone': 'iPhone smartphone'\n      Tablet: Tablet\n  how_do_you_prefer_to_interact_with_government_products_and_servi:\n    '#type': select\n    '#title': 'How do you prefer to interact with government products and services?'\n    '#options':\n      'Online (via any device)': 'Online (via any device)'\n      'Face-to-face (including shopfronts and service centres)': 'Face-to-face (including shopfronts and service centres)'\n      'Over the phone': 'Over the phone'\n      'A mix of the above': 'A mix of the above'\n      Other: Other\n    '#required': true\n    '#required_error': 'We need this for demographic purposes.'\nyour_mygov_use:\n  '#type': webform_wizard_page\n  '#title': 'Your myGov use'\n  '#open': true\n  how_frequently_do_you_log_into_your_mygov_account_:\n    '#type': select\n    '#title': 'How often do you log into your myGov account? '\n    '#options':\n      'Multiple times a week': 'Multiple times a week'\n      Weekly: Weekly\n      Monthly: Monthly\n      'Once every 6 months': 'Once every 6 months'\n      'Once every 12 months': 'Once every 12 months'\n      'I don''t have a myGov account': 'I don''t have a myGov account'\n      Other: Other\n    '#required': true\n    '#required_error': 'We need to know whether you use myGov.'\n  container:\n    '#type': container\n    '#states':\n      invisible-slide:\n        ':input[name=\"how_frequently_do_you_log_into_your_mygov_account_\"]':\n          value: 'I don''t have a myGov account'\n    what_is_the_email_address_associated_with_your_mygov_account_:\n      '#type': email\n      '#title': 'What is the email address associated with your myGov account?'\n      '#description': 'We need this to give you access to our test product.'\n      '#title_display': before\n      '#description_display': after\n      '#placeholder': 'Enter a valid email address'\n    may_we_use_this_email_address_to_contact_you_for_information_reg:\n      '#type': webform_select_other\n      '#title': 'Can we use this email address to contact you for information regarding the Beta?'\n      '#options':\n        'Yes': 'Yes'\n      '#other__option_label': 'No'\n      '#other__title': 'If no, what email address should we contact you on?'\n      '#other__placeholder': 'Enter a valid email address'\n    which_services_do_you_have_linked_to_your_mygov_account_:\n      '#type': checkboxes\n      '#title': 'Which services do you have linked to your myGov account?'\n      '#options':\n        'Australian JobSearch': 'Australian JobSearch'\n        'Australian Taxation Office': 'Australian Taxation Office'\n        Centrelink: Centrelink\n        'Child Support': 'Child Support'\n        'Department of Health Applications Portal': 'Department of Health Applications Portal'\n        'Department of Veterans'' Affairs': 'Department of Veterans'' Affairs'\n        'HousingVic Online Services': 'HousingVic Online Services'\n        Medicare: Medicare\n        'My Aged Care': 'My Aged Care'\n        'My Health Record': 'My Health Record'\n        'National Disability Insurance Scheme': 'National Disability Insurance Scheme'\n        'National Redress Scheme': 'National Redress Scheme'\n        'State Revenue Office Victoria': 'State Revenue Office Victoria'\n        'I''d rather not say': 'I''d rather not say'\n  your_participation:\n    '#type': container\n    '#title': 'Your participation'\n    '#states':\n      invisible:\n        ':input[name=\"how_frequently_do_you_log_into_your_mygov_account_\"]':\n          value: 'I don''t have a myGov account'\n    what_is_the_postcode_where_you_are_currently_residing_:\n      '#type': textfield\n      '#title': 'What is your current postcode?'\n      '#size': '4'\n      '#input_mask': '9999'\n      '#required': true\n      '#required_error': 'We need this for demographic purposes.'\n    are_you_available_during_april_2020_to_participate_in_the_beta_a:\n      '#type': select\n      '#title': 'Are you available during April 2020 to participate in the Beta and provide feedback on this potential new feature?'\n      '#options':\n        'Yes': 'Yes'\n        'No': 'No'\n      '#options_display': one_column\n      '#wrapper_type': container\n    what_methods_would_you_be_happy_to_provide_feedback_via_:\n      '#type': select\n      '#title': 'How would you like to provide feedback?'\n      '#options':\n        'Remote, for example surveys': 'Remote, for example surveys'\n        'Face-to-face (you will be compensated for your time)': 'Face-to-face (you will be compensated for your time)'\n        Either: Either\n      '#states':\n        invisible-slide:\n          ':input[name=\"are_you_available_during_april_2020_to_participate_in_the_beta_a\"]':\n            value: 'No'"
+elements: "welcome:\n  '#type': webform_wizard_page\n  '#title': Welcome\n  '#open': true\n  '#next_button_label': 'Get started >'\n  processed_text_01:\n    '#type': processed_text\n    '#text': '<h1>Beta enrolment</h1>'\n    '#format': html\n  processed_text:\n    '#type': processed_text\n    '#text': |\n      <p>Thank you for your interest in participating in our trial of a new government service.</p>\n      <p>We ask that you take a moment to complete the application below truthfully.</p>\n      \n      <p>The answers you provide will help us to assess your suitability to participate. Once we’ve assessed your application, we will destroy it.</p>\n      \n      <p>We will keep data from this form to make sure we are getting diverse feedback from across the Australian community. You will remain anonymous throughout the process. It is important to note we will not store your contact details with your individual responses and we will not attribute your responses to you.</p>\n      \n      <p>If you have any concerns about the validity of this application or how we will use&nbsp;your response, you can contact <a href=\"mailto:privacy@dta.gov.au\">privacy@dta.gov.au</a>.</p>\n      \n      <p><a href=\"/help-and-advice/build-and-improve-services/user-research\">We have more information on our website</a>&nbsp;if you would like to learn more about why we do user research.</p>\n      \n    '#format': commenting\nabout_you:\n  '#type': webform_wizard_page\n  '#title': 'About you'\n  what_gender_do_you_identify_as_:\n    '#type': webform_select_other\n    '#title': Gender\n    '#options':\n      Male: Male\n      Female: Female\n      'I''d rather not say': 'I''d rather not say'\n    '#other__placeholder': 'Your response...'\n    '#required': true\n    '#required_error': 'We need this for demographic purposes.'\n  what_is_your_age_:\n    '#type': select\n    '#title': Age\n    '#options':\n      'Under 18': 'Under 18'\n      '18 – 25': '18 – 25'\n      '26 – 35 ': '26 – 35 '\n      '36 – 45': '36 – 45'\n      '46 – 55': '46 – 55'\n      '56 – 65': '56 – 65'\n      '66 +': '66 +'\n    '#required': true\n    '#required_error': 'We need this for demographic purposes.'\n  what_is_your_english_proficiency_level:\n    '#type': select\n    '#title': 'Is English your first language?'\n    '#options':\n      'Yes': 'Yes'\n      'No': 'No'\n    '#required': true\n  do_you_speak_any_language_s_other_than_english_:\n    '#type': webform_select_other\n    '#title': 'Do you speak language(s) other than English?'\n    '#options':\n      'No': 'No'\n    '#other__option_label': 'Yes'\n    '#other__title': 'Which other languages do you speak?'\n    '#other__placeholder': 'Your response...'\n    '#required': true\n    '#required_error': 'We need this for demographic purposes.'\n  what_is_your_current_employment_status_:\n    '#type': select\n    '#title': 'What is your current employment status?'\n    '#options':\n      'Studying or volunteering': 'Studying or volunteering'\n      'Part-time or full-time': 'Part-time or full-time'\n      Casual: Casual\n      Retired: Retired\n      'Unemployed or looking for work': 'Unemployed or looking for work'\n      'I''d rather not say': 'I''d rather not say'\n    '#required': true\n    '#required_error': 'We need this for demographic purposes.'\n  do_you_currently_work_for_any_of_the_following_government_agenci:\n    '#type': select\n    '#title': 'Do you currently work for any of the following government agencies?'\n    '#options':\n      'Services Australia / former Department of Human Services': 'Services Australia / former Department of Human Services'\n      'Australian Taxation Office': 'Australian Taxation Office'\n      'Digital Transformation Agency': 'Digital Transformation Agency'\n      'Department of Health': 'Department of Health'\n      'I don''t work at any of the above agencies': 'I don''t work at any of the above agencies'\n    '#required': true\n    '#required_error': 'We need this to make sure we are targetting the right users.'\n    '#states':\n      visible:\n        - ':input[name=\"what_is_your_current_employment_status_\"]':\n            value: 'Part-time or full-time'\n        - xor\n        - ':input[name=\"what_is_your_current_employment_status_\"]':\n            value: Casual\nyour_devices:\n  '#type': webform_wizard_page\n  '#title': 'Your devices'\n  '#open': true\n  what_devices_do_you_use_to_access_the_internet_and_or_online_pro:\n    '#type': checkboxes\n    '#title': 'What devices do you use to access the internet and/or online products or services? '\n    '#description': 'Please select as many as you need to. If you don&#39;t use any of these devices, please don&#39;t select any.'\n    '#title_display': before\n    '#description_display': before\n    '#options':\n      'Desktop computer': 'Desktop computer'\n      Laptop: Laptop\n      'Android smartphone': 'Android smartphone'\n      'iPhone smartphone': 'iPhone smartphone'\n      Tablet: Tablet\n  how_do_you_prefer_to_interact_with_government_products_and_servi:\n    '#type': select\n    '#title': 'How do you prefer to interact with government products and services?'\n    '#options':\n      'Online (via any device)': 'Online (via any device)'\n      'Face-to-face (including shopfronts and service centres)': 'Face-to-face (including shopfronts and service centres)'\n      'Over the phone': 'Over the phone'\n      'A mix of the above': 'A mix of the above'\n      Other: Other\n    '#required': true\n    '#required_error': 'We need this for demographic purposes.'\nyour_mygov_use:\n  '#type': webform_wizard_page\n  '#title': 'Your myGov use'\n  '#open': true\n  how_frequently_do_you_log_into_your_mygov_account_:\n    '#type': select\n    '#title': 'How often do you log into your myGov account? '\n    '#options':\n      'Multiple times a week': 'Multiple times a week'\n      Weekly: Weekly\n      Monthly: Monthly\n      'Once every 6 months': 'Once every 6 months'\n      'Once every 12 months': 'Once every 12 months'\n      'I don''t have a myGov account': 'I don''t have a myGov account'\n      Other: Other\n    '#required': true\n    '#required_error': 'We need to know whether you use myGov.'\n  container:\n    '#type': container\n    '#states':\n      invisible-slide:\n        ':input[name=\"how_frequently_do_you_log_into_your_mygov_account_\"]':\n          value: 'I don''t have a myGov account'\n    what_is_the_email_address_associated_with_your_mygov_account_:\n      '#type': email\n      '#title': 'What is the email address associated with your myGov account?'\n      '#description': 'We need this to give you access to our test product.'\n      '#title_display': before\n      '#description_display': after\n      '#placeholder': 'Enter a valid email address'\n    may_we_use_this_email_address_to_contact_you_for_information_reg:\n      '#type': webform_select_other\n      '#title': 'Can we use this email address to contact you for information regarding the Beta?'\n      '#options':\n        'Yes': 'Yes'\n      '#other__option_label': 'No'\n      '#other__title': 'If no, what email address should we contact you on?'\n      '#other__placeholder': 'Enter a valid email address'\n    which_services_do_you_have_linked_to_your_mygov_account_:\n      '#type': checkboxes\n      '#title': 'Which services do you have linked to your myGov account?'\n      '#options':\n        'Australian JobSearch': 'Australian JobSearch'\n        'Australian Taxation Office': 'Australian Taxation Office'\n        Centrelink: Centrelink\n        'Child Support': 'Child Support'\n        'Department of Health Applications Portal': 'Department of Health Applications Portal'\n        'Department of Veterans'' Affairs': 'Department of Veterans'' Affairs'\n        'HousingVic Online Services': 'HousingVic Online Services'\n        Medicare: Medicare\n        'My Aged Care': 'My Aged Care'\n        'My Health Record': 'My Health Record'\n        'National Disability Insurance Scheme': 'National Disability Insurance Scheme'\n        'National Redress Scheme': 'National Redress Scheme'\n        'State Revenue Office Victoria': 'State Revenue Office Victoria'\n        'I''d rather not say': 'I''d rather not say'\n  your_participation:\n    '#type': container\n    '#title': 'Your participation'\n    '#states':\n      invisible:\n        ':input[name=\"how_frequently_do_you_log_into_your_mygov_account_\"]':\n          value: 'I don''t have a myGov account'\n    what_is_the_postcode_where_you_are_currently_residing_:\n      '#type': textfield\n      '#title': 'What is your current postcode?'\n      '#size': '4'\n      '#input_mask': '9999'\n      '#required': true\n      '#required_error': 'We need this for demographic purposes.'\n    are_you_available_during_april_2020_to_participate_in_the_beta_a:\n      '#type': select\n      '#title': 'Are you available during April 2020 to participate in the Beta and provide feedback on this potential new feature?'\n      '#options':\n        'Yes': 'Yes'\n        'No': 'No'\n      '#options_display': one_column\n      '#wrapper_type': container\n    what_methods_would_you_be_happy_to_provide_feedback_via_:\n      '#type': select\n      '#title': 'How would you like to provide feedback?'\n      '#options':\n        'Remote, for example surveys': 'Remote, for example surveys'\n        'Face-to-face (you will be compensated for your time)': 'Face-to-face (you will be compensated for your time)'\n        Either: Either\n      '#states':\n        invisible-slide:\n          ':input[name=\"are_you_available_during_april_2020_to_participate_in_the_beta_a\"]':\n            value: 'No'"
 css: ''
 javascript: ''
 settings:
@@ -27,7 +27,7 @@ settings:
   ajax_effect: fade
   ajax_speed: 500
   page: true
-  page_submit_path: ''
+  page_submit_path: /form/beta-enrolment
   page_confirm_path: ''
   page_admin_theme: false
   form_title: source_entity_webform
@@ -36,7 +36,7 @@ settings:
   form_open_message: ''
   form_close_message: ''
   form_previous_submissions: true
-  form_confidential: false
+  form_confidential: true
   form_confidential_message: 'This is a confidential form. We will not record your IP address.'
   form_remote_addr: false
   form_convert_anonymous: false
@@ -143,43 +143,62 @@ access:
     users: {  }
     permissions: {  }
   view_any:
-    roles: {  }
+    roles:
+      - webform_author
+      - administrator
     users: {  }
     permissions: {  }
   update_any:
-    roles: {  }
+    roles:
+      - webform_author
+      - administrator
     users: {  }
     permissions: {  }
   delete_any:
-    roles: {  }
+    roles:
+      - webform_author
+      - administrator
     users: {  }
     permissions: {  }
   purge_any:
-    roles: {  }
+    roles:
+      - webform_author
+      - administrator
     users: {  }
     permissions: {  }
   view_own:
-    roles: {  }
+    roles:
+      - webform_author
+      - administrator
     users: {  }
     permissions: {  }
   update_own:
-    roles: {  }
+    roles:
+      - webform_author
+      - administrator
     users: {  }
     permissions: {  }
   delete_own:
-    roles: {  }
+    roles:
+      - webform_author
+      - administrator
     users: {  }
     permissions: {  }
   administer:
-    roles: {  }
+    roles:
+      - webform_author
+      - administrator
     users: {  }
     permissions: {  }
   test:
-    roles: {  }
+    roles:
+      - webform_author
+      - administrator
     users: {  }
     permissions: {  }
   configuration:
-    roles: {  }
+    roles:
+      - administrator
     users: {  }
     permissions: {  }
 handlers:
@@ -218,3 +237,5 @@ handlers:
       sender_name: ''
       theme_name: ''
       parameters: {  }
+      exclude_attachments: false
+variants: {  }

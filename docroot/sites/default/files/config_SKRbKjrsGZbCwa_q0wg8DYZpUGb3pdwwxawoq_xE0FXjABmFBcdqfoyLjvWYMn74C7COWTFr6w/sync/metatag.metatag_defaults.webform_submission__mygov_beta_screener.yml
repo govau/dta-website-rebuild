@@ -1,0 +1,25 @@
+uuid: a6421411-3276-41ac-95c3-735e127d5578
+langcode: en
+status: true
+dependencies: {  }
+id: webform_submission__mygov_beta_screener
+label: 'Webform submission: Beta enrolment'
+tags:
+  og_description: 'We''re trialing a new government service and we''d like users to help us out. Take a moment to complete the application below truthfully. The answers you provide will help us to assess your suitability to participate.'
+  og_image: 'https://dta-www-drupal-20180130215411153400000001.s3.ap-southeast-2.amazonaws.com/s3fs-public/images/content/dta%20screen%20socials%20no%20wordmark_Facebook-and-LinkedIn-post-1200x628.png'
+  og_image_alt: 'A hand holding a phone with DTA on the screen'
+  og_image_height: '628'
+  og_image_type: image/png
+  og_image_width: '1200'
+  og_title: 'Beta enrolment'
+  og_url: 'https://www.dta.gov.au/form/beta-enrolment'
+  twitter_cards_description: 'We''re trialing a new government service and we''d like users to help us out. Take a moment to complete the application below truthfully. The answers you provide will help us to assess your suitability to participate.'
+  twitter_cards_image: 'https://dta-www-drupal-20180130215411153400000001.s3.ap-southeast-2.amazonaws.com/s3fs-public/images/content/dta%20screen%20socials%20no%20wordmark_twitter-photo-1024x512.png'
+  twitter_cards_image_alt: 'A hand holding a phone with DTA on the screen'
+  twitter_cards_image_height: '512'
+  twitter_cards_image_width: '1024'
+  twitter_cards_page_url: 'https://www.dta.gov.au/form/beta-enrolment'
+  twitter_cards_site: '@DTA'
+  twitter_cards_site_id: '2992880664'
+  twitter_cards_title: 'Beta enrolment'
+  twitter_cards_type: summary_large_image
