@@ -1,8 +1,12 @@
+uuid: 72c178a0-06cf-4c4e-8032-4e5dcf081e28
 langcode: en
 status: open
 dependencies:
   module:
     - honeypot
+third_party_settings:
+  honeypot:
+    honeypot: true
 open: null
 close: null
 weight: 0
@@ -181,7 +185,4 @@ access:
     users: {  }
     permissions: {  }
 handlers: {  }
-uuid: 72c178a0-06cf-4c4e-8032-4e5dcf081e28
-third_party_settings:
-  honeypot:
-    honeypot: true
+variants: {  }

@@ -1,0 +1,8 @@
+entity_type_groups:
+  webform_submission:
+    mygov_beta_screener:
+      basic: basic
+      advanced: advanced
+      open_graph: open_graph
+      facebook: facebook
+      twitter_cards: twitter_cards
