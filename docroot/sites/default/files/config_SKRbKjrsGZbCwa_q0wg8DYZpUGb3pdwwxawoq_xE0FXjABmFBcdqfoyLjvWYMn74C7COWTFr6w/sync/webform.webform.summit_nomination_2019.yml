@@ -1,3 +1,4 @@
+uuid: 20abbc70-fb41-4469-adb7-9f0e06c920d8
 langcode: en
 status: closed
 dependencies: {  }
@@ -213,6 +214,7 @@ handlers:
       sender_name: ''
       theme_name: ''
       parameters: {  }
+      exclude_attachments: false
   email_1:
     id: email
     label: Email
@@ -248,4 +250,5 @@ handlers:
       sender_name: ''
       theme_name: ''
       parameters: {  }
-uuid: 20abbc70-fb41-4469-adb7-9f0e06c920d8
+      exclude_attachments: false
+variants: {  }

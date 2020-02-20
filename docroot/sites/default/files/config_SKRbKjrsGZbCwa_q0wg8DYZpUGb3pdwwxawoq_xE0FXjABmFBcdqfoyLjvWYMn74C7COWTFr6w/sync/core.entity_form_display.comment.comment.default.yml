@@ -13,7 +13,8 @@ dependencies:
 third_party_settings:
   field_layout:
     id: layout_onecol
-    settings: {  }
+    settings:
+      label: ''
 id: comment.comment.default
 targetEntityType: comment
 bundle: comment
