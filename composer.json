@@ -258,6 +258,9 @@
 			},
 			"drupal/entity_usage": {
 				"HTMLLink Plugin only works with PublicStreamWrapper": "https://www.drupal.org/files/issues/2019-09-19/entity_usage-htmllink-streamwrapper-2973297-7.patch"
+			},
+			"drupal/video_embed_field": {
+				"Youtube Privacy Enhanced Mode (using -nocookie.com) (D8)": "https://www.drupal.org/files/issues/2019-06-08/video_embed_field_youtube_nocookie_2973246_41.patch"
 			}
 		}
 	},
