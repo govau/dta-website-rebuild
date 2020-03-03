@@ -1,5 +1,5 @@
 transport: smtp
-smtp_host: smtp.hasmtp.cld.gov.au
+smtp_host: email-smtp.ap-southeast-2.amazonaws.com
 smtp_port: 587
 smtp_encryption: tls
 sendmail_path: /usr/sbin/sendmail
@@ -10,5 +10,5 @@ _core:
 smtp_credential_provider: swiftmailer
 smtp_credentials:
   swiftmailer:
-    username: website@digital.gov.au
+    username: AKIAQWONW2U7YCQTJZOI
     password: thisisnotthepassword

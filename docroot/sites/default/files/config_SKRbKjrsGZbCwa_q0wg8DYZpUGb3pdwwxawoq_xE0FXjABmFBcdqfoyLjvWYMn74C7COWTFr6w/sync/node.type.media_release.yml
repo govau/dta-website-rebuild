@@ -12,7 +12,7 @@ third_party_settings:
     available_menus: {  }
     parent: ''
   node_title_help_text:
-    title_help: 'Add your title here. This must be unique. The site will automatically add the words <em>Media release:</em> before the title. This limits how long your title can be.'
+    title_help: 'Add your title here. This must be unique. Your title is limited to 65 characters. '
   wysiwyg_template:
     default_template: ''
   scheduler:
