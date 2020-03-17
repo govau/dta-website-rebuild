@@ -255,9 +255,15 @@ libraries[c3][download][url] = https://github.com/c3js/c3/archive/v0.4.18.zip
 libraries[tabletoolstoolbar][type] = library
 libraries[tabletoolstoolbar][download][type] = get
 libraries[tabletoolstoolbar][download][url] = https://download.ckeditor.com/tabletoolstoolbar/releases/tabletoolstoolbar_0.0.1.zip
+<<<<<<< HEAD
 libraries[d3][type] = library
 libraries[d3][download][type] = get
 libraries[d3][download][url] = https://github.com/d3/d3/archive/v3.5.17.zip
+=======
+libraries[chosen][type] = library
+libraries[chosen][download][type] = get
+libraries[chosen][download][url] = https://github.com/harvesthq/chosen/releases/download/v1.8.7/chosen_v1.8.7.zip
+>>>>>>> develop
 libraries[superfish][type] = library
 libraries[superfish][download][type] = git
 libraries[superfish][download][url] = https://github.com/imperator99/Superfish-for-Drupal.git

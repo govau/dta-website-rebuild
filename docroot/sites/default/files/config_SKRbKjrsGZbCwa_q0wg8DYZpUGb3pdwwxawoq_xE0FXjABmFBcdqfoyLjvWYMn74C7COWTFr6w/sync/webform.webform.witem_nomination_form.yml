@@ -1,0 +1,241 @@
+uuid: ac2aca09-f824-4a0f-a840-738081773900
+langcode: en
+status: open
+dependencies:
+  module:
+    - honeypot
+third_party_settings:
+  honeypot:
+    honeypot: true
+open: null
+close: null
+weight: 0
+uid: 1
+template: false
+archive: false
+id: witem_nomination_form
+title: 'WITEM nomination form'
+description: 'We use this form to collect nominations for the WITEM mentoring program.'
+category: WITEM
+elements: "markup:\n  '#type': webform_markup\n  '#markup': |\n    <h1>WITEM nomination form</h1>\n    \n    <p>Thank you for taking the time to nominate yourself to participate in the WITEM program as a mentor or mentee.</p>\n    \ntitle:\n  '#type': select\n  '#title': Title\n  '#description': 'Please select your title.'\n  '#options': titles\n  '#required': true\nname:\n  '#type': textfield\n  '#title': Name\n  '#description': 'Please enter your name.'\n  '#title_display': before\n  '#description_display': before\n  '#help_display': title_after\n  '#placeholder': 'Enter your name...'\n  '#required': true\nemail:\n  '#type': email\n  '#title': Email\n  '#description': 'Enter your email address.'\n  '#title_display': before\n  '#description_display': before\n  '#help_display': title_after\n  '#required': true\noffice_phone_number:\n  '#type': textfield\n  '#title': 'Office phone number'\n  '#description': 'Please enter your office phone number.'\n  '#required': true\nmobile_phone_number:\n  '#type': textfield\n  '#title': 'Mobile phone number'\n  '#description': 'Please enter your mobile phone number.'\n  '#required': true\norganisation:\n  '#type': textfield\n  '#title': Organisation\n  '#description': 'Please enter your organisation&#39;s name.'\n  '#placeholder': 'Your organisation...'\n  '#required': true\njob_title:\n  '#type': textfield\n  '#title': 'Job title'\n  '#description': 'Please enter your job title.'\n  '#placeholder': 'Your job title...'\n  '#required': true\nlevel:\n  '#type': textfield\n  '#title': Level\n  '#description': 'Please enter your level. For example, &quot;EL1&quot;.'\n  '#placeholder': 'Your level...'\n  '#required': true\noffice_location:\n  '#type': webform_address\n  '#title': 'Office location'\n  '#description': 'Please enter your address details.'\n  '#title_display': before\n  '#required': true\n  '#address__placeholder': 'Address line 1...'\n  '#address__required': true\n  '#address_2__placeholder': 'Address line 2...'\n  '#city__placeholder': City...\n  '#city__required': true\n  '#state_province__title': State\n  '#state_province__required': true\n  '#state_province__type': textfield\n  '#postal_code__title': 'Post code'\n  '#postal_code__required': true\n  '#country__access': false\ni_wish_to_nominate_as_a:\n  '#type': select\n  '#title': 'I wish to nominate as a'\n  '#description': 'Please select whether you wish to nominate to be a mentor or a mentee.'\n  '#options':\n    Mentor: Mentor\n    Mentee: Mentee\n  '#required': true\n  '#required_error': 'You must select one.'\nmentor:\n  '#type': container\n  '#states':\n    visible-slide:\n      ':input[name=\"i_wish_to_nominate_as_a\"]':\n        value: Mentor\n  describe_how_you_actively_support_women_in_your_workplace_and_ho:\n    '#type': text_format\n    '#title': 'Describe how you actively support women in your workplace, and how you champion change in this area:'\n    '#states':\n      required:\n        ':input[name=\"i_wish_to_nominate_as_a\"]':\n          value: Mentor\n    '#allowed_formats':\n      plain_text: plain_text\n    '#hide_help': true\n  i_acknowledge_that_the_objective_of_the_program_is_to_provide_an:\n    '#type': checkbox\n    '#title': 'I acknowledge that the objective of the program is to provide an opportunity for mentees to reach their full potential and that this journey is different for everyone. The main aim of the program is staff retention and professional/personal development. Therefore, the Program outcomes are tailored to the individual and can range from improving effectiveness at level or preparing for leadership roles, this includes but is not limited to promotion.'\n    '#states':\n      required:\n        ':input[name=\"i_wish_to_nominate_as_a\"]':\n          value: Mentor\n  i_commit_to_attending_the_commencement_event_held_in_canberra_to:\n    '#type': checkbox\n    '#title': 'I commit to attending the commencement event, held in Canberra, to undertake a mentor session, clarify expectations and meet my mentee (approx. 3hrs).  I acknowledge that mentees may have school age children so sessions requiring mentee attendance may commence on or after 10am to facilitate attendance.'\n    '#states':\n      required:\n        ':input[name=\"i_wish_to_nominate_as_a\"]':\n          value: Mentor\n  i_agree_to_ask_the_program_manager_for_assistance_with_the_mento:\n    '#type': checkbox\n    '#title': 'I agree to ask the Program Manager for assistance with the mentoring relationship if required (especially if the relationship is not a good fit or if I need extra support guiding the mentee through a difficult or unfamiliar situation). '\n    '#states':\n      required:\n        ':input[name=\"i_wish_to_nominate_as_a\"]':\n          value: Mentor\nmentee:\n  '#type': container\n  '#states':\n    visible-slide:\n      ':input[name=\"i_wish_to_nominate_as_a\"]':\n        value: Mentee\n  if_outside_canberra_your_commitment_to_travel_to_canberra_at_you:\n    '#type': checkbox\n    '#title': 'If outside Canberra your commitment to travel to Canberra (at your organisations cost) to attend the commencement, mid-term and final Program sessions'\n    '#states':\n      required:\n        ':input[name=\"i_wish_to_nominate_as_a\"]':\n          value: Mentee\n  why_do_you_want_to_be_part_of_the_witem_program_:\n    '#type': text_format\n    '#title': 'Why do you want to be part of the WITEM program?'\n    '#states':\n      required:\n        ':input[name=\"i_wish_to_nominate_as_a\"]':\n          value: Mentee\n    '#allowed_formats':\n      plain_text: plain_text\n    '#hide_help': true\n  what_are_your_main_goals_for_participating_in_the_witem_program_:\n    '#type': text_format\n    '#title': 'What are your main goals for participating in the WITEM program?'\n    '#states':\n      required:\n        ':input[name=\"i_wish_to_nominate_as_a\"]':\n          value: Mentee\n    '#allowed_formats':\n      plain_text: plain_text\n    '#hide_help': true\n  i_consider_myself_to_be_a_worthy_mentee_candidate_who_is_motivat:\n    '#type': checkbox\n    '#title': 'I consider myself to be a suitable mentee candidate who is motivated to improve my effectiveness at level or progress my career.'\n    '#states':\n      required:\n        ':input[name=\"i_wish_to_nominate_as_a\"]':\n          value: Mentee\n  i_expect_to_be_working_in_government_for_the_next_5_10_years_:\n    '#type': checkbox\n    '#title': 'I expect to be working in Government for the next 5-10 years.'\n    '#states':\n      required:\n        ':input[name=\"i_wish_to_nominate_as_a\"]':\n          value: Mentee\n  delegate_approval_and_details:\n    '#type': fieldset\n    '#title': 'Delegate approval and details'\n    '#attributes':\n      style: 'padding: 1rem;'\n    this_application_has_been_approved_by_my_delegate_:\n      '#type': checkbox\n      '#title': 'This application has been approved by my delegate.'\n      '#states':\n        required:\n          ':input[name=\"i_wish_to_nominate_as_a\"]':\n            value: Mentee\n    delegate_details:\n      '#type': webform_contact\n      '#title': 'Delegate details'\n      '#title_display': before\n      '#states':\n        visible-slide:\n          ':input[name=\"this_application_has_been_approved_by_my_delegate_\"]':\n            checked: true\n      '#company__title': Organisation\n      '#phone__type': textfield\n      '#address__title': 'Job title'\n      '#address_2__title': Level\n      '#city__access': false\n      '#state_province__access': false\n      '#postal_code__access': false\n      '#country__access': false\n    my_delegate_has_approved_my_organisation_to_commit_to_paying_for:\n      '#type': checkbox\n      '#title': 'My delegate has approved my organisation to commit to paying for the program (invoiced directly by Dell).'\n      '#states':\n        required:\n          ':input[name=\"i_wish_to_nominate_as_a\"]':\n            value: Mentee\n  ses_support:\n    '#type': fieldset\n    '#title': 'SES support'\n    '#attributes':\n      style: 'padding: 1rem;'\n    i_have_support_from_this_application_from_my_ses:\n      '#type': checkbox\n      '#title': 'I have support for this application from my SES.'\n      '#states':\n        required:\n          ':input[name=\"i_wish_to_nominate_as_a\"]':\n            value: Mentee\n    ses_details_same_as_delegate:\n      '#type': checkbox\n      '#title': 'My SES details are the same as my delegate details.'\n      '#states':\n        visible-slide:\n          ':input[name=\"i_have_support_from_this_application_from_my_ses\"]':\n            checked: true\n    ses_details:\n      '#type': webform_contact\n      '#title': 'SES details'\n      '#title_display': before\n      '#states':\n        visible-slide:\n          ':input[name=\"i_have_support_from_this_application_from_my_ses\"]':\n            checked: true\n          ':input[name=\"ses_details_same_as_delegate\"]':\n            unchecked: true\n      '#company__title': Organisation\n      '#phone__type': textfield\n      '#address__title': 'Job title'\n      '#address_2__title': Level\n      '#city__access': false\n      '#state_province__access': false\n      '#postal_code__access': false\n      '#country__access': false\n  supervisor_support:\n    '#type': fieldset\n    '#title': 'Supervisor support'\n    '#attributes':\n      style: 'padding: 1rem;'\n    i_have_support_from_this_application_from_my_supervisor:\n      '#type': checkbox\n      '#title': 'My direct supervisor will support me in my participation and is open to attending program sessions if required.'\n      '#states':\n        required:\n          ':input[name=\"i_wish_to_nominate_as_a\"]':\n            value: Mentee\n    supervisor_details_same_as_delegate:\n      '#type': checkbox\n      '#title': 'My supervisor details are the same as my delegate details.'\n      '#states':\n        visible-slide:\n          ':input[name=\"i_have_support_from_this_application_from_my_supervisor\"]':\n            checked: true\n    supervisor_details:\n      '#type': webform_contact\n      '#title': 'Supervisor details'\n      '#title_display': before\n      '#states':\n        visible-slide:\n          ':input[name=\"i_have_support_from_this_application_from_my_supervisor\"]':\n            checked: true\n          ':input[name=\"supervisor_details_same_as_delegate\"]':\n            unchecked: true\n      '#company__title': Organisation\n      '#phone__type': textfield\n      '#address__title': 'Job title'\n      '#address_2__title': Level\n      '#city__access': false\n      '#state_province__access': false\n      '#postal_code__access': false\n      '#country__access': false\n  i_commit_to_attending_a_commencement_session_in_canberra_approx_:\n    '#type': checkbox\n    '#title': 'I commit to attending a commencement session in Canberra (approx. 3hr)'\n    '#states':\n      required:\n        ':input[name=\"i_wish_to_nominate_as_a\"]':\n          value: Mentee\ni_commit_to_meeting_my_mentee_preferably_in_person_or_by_phone_o:\n  '#type': checkbox\n  '#title': 'I commit to meeting my mentor/mentee (preferably in person, or by phone/online) for a minimum of 1hr each month for the duration of this program.'\n  '#required': true\ni_commit_to_attending_the_mid_program_session_held_in_canberra_a:\n  '#type': checkbox\n  '#title': 'I commit to attending the mid-program session, held in Canberra (approx. 2hrs)'\n  '#required': true\ni_commit_to_attending_the_final_program_completion_session_to_be:\n  '#type': checkbox\n  '#title': 'I commit to attending the final program completion session, to be held in Canberra (approx. 2hrs)'\n  '#required': true\ni_agree_to_maintain_confidentiality_at_all_times_:\n  '#type': checkbox\n  '#title': 'I agree to maintain confidentiality at all times.'\n  '#required': true\n  '#required_error': 'You must agree to this for us to consider you.'"
+css: ''
+javascript: ''
+settings:
+  ajax: true
+  ajax_scroll_top: form
+  ajax_progress_type: throbber
+  ajax_effect: fade
+  ajax_speed: 500
+  page: true
+  page_submit_path: /form/witem-nomination
+  page_confirm_path: ''
+  page_admin_theme: false
+  form_title: source_entity_webform
+  form_submit_once: false
+  form_exception_message: ''
+  form_open_message: ''
+  form_close_message: ''
+  form_previous_submissions: true
+  form_confidential: true
+  form_confidential_message: 'This is a confidential form. We will not record your IP address.'
+  form_remote_addr: false
+  form_convert_anonymous: false
+  form_prepopulate: false
+  form_prepopulate_source_entity: false
+  form_prepopulate_source_entity_required: false
+  form_prepopulate_source_entity_type: ''
+  form_reset: false
+  form_disable_autocomplete: false
+  form_novalidate: false
+  form_disable_inline_errors: false
+  form_required: false
+  form_unsaved: false
+  form_disable_back: false
+  form_submit_back: false
+  form_autofocus: false
+  form_details_toggle: false
+  form_access_denied: default
+  form_access_denied_title: ''
+  form_access_denied_message: ''
+  form_access_denied_attributes: {  }
+  form_file_limit: ''
+  submission_label: ''
+  submission_log: true
+  submission_views: {  }
+  submission_views_replace:
+    webform_routes: {  }
+    node_routes: {  }
+  submission_user_columns: {  }
+  submission_user_duplicate: false
+  submission_access_denied: default
+  submission_access_denied_title: ''
+  submission_access_denied_message: ''
+  submission_access_denied_attributes: {  }
+  submission_exception_message: ''
+  submission_locked_message: ''
+  submission_excluded_elements: {  }
+  submission_exclude_empty: false
+  submission_exclude_empty_checkbox: false
+  previous_submission_message: ''
+  previous_submissions_message: ''
+  autofill: false
+  autofill_message: ''
+  autofill_excluded_elements: {  }
+  wizard_progress_bar: true
+  wizard_progress_pages: false
+  wizard_progress_percentage: false
+  wizard_progress_link: true
+  wizard_progress_states: false
+  wizard_start_label: ''
+  wizard_preview_link: false
+  wizard_confirmation: true
+  wizard_confirmation_label: ''
+  wizard_track: ''
+  preview: 0
+  preview_label: ''
+  preview_title: ''
+  preview_message: ''
+  preview_attributes: {  }
+  preview_excluded_elements: {  }
+  preview_exclude_empty: true
+  preview_exclude_empty_checkbox: false
+  draft: none
+  draft_multiple: false
+  draft_auto_save: false
+  draft_saved_message: ''
+  draft_loaded_message: ''
+  draft_pending_single_message: ''
+  draft_pending_multiple_message: ''
+  confirmation_type: inline
+  confirmation_title: ''
+  confirmation_message: 'Thanks for submitting your nomination.'
+  confirmation_url: ''
+  confirmation_attributes: {  }
+  confirmation_back: false
+  confirmation_back_label: ''
+  confirmation_back_attributes: {  }
+  confirmation_exclude_query: false
+  confirmation_exclude_token: false
+  confirmation_update: false
+  limit_total: null
+  limit_total_interval: null
+  limit_total_message: ''
+  limit_total_unique: false
+  limit_user: null
+  limit_user_interval: null
+  limit_user_message: ''
+  limit_user_unique: false
+  entity_limit_total: null
+  entity_limit_total_interval: null
+  entity_limit_user: null
+  entity_limit_user_interval: null
+  purge: draft
+  purge_days: 5
+  results_disabled: false
+  results_disabled_ignore: false
+  token_view: false
+  token_update: false
+access:
+  create:
+    roles:
+      - anonymous
+      - authenticated
+    users: {  }
+    permissions: {  }
+  view_any:
+    roles:
+      - webform_author
+      - administrator
+    users: {  }
+    permissions: {  }
+  update_any:
+    roles:
+      - webform_author
+      - administrator
+    users: {  }
+    permissions: {  }
+  delete_any:
+    roles:
+      - webform_author
+      - administrator
+    users: {  }
+    permissions: {  }
+  purge_any:
+    roles:
+      - webform_author
+      - administrator
+    users: {  }
+    permissions: {  }
+  view_own:
+    roles:
+      - webform_author
+      - administrator
+    users: {  }
+    permissions: {  }
+  update_own:
+    roles:
+      - webform_author
+      - administrator
+    users: {  }
+    permissions: {  }
+  delete_own:
+    roles:
+      - webform_author
+      - administrator
+    users: {  }
+    permissions: {  }
+  administer:
+    roles:
+      - webform_author
+      - administrator
+    users: {  }
+    permissions: {  }
+  test:
+    roles:
+      - webform_author
+      - administrator
+    users: {  }
+    permissions: {  }
+  configuration:
+    roles:
+      - administrator
+    users: {  }
+    permissions: {  }
+handlers:
+  email:
+    id: email
+    label: Email
+    handler_id: email
+    status: true
+    conditions: {  }
+    weight: 0
+    settings:
+      states:
+        - completed
+      to_mail: capability@dta.gov.au
+      to_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      subject: _default
+      body: _default
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: true
+      attachments: false
+      twig: false
+      debug: false
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      theme_name: ''
+      parameters: {  }
+variants: {  }
