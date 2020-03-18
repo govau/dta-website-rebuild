@@ -6,6 +6,7 @@ dependencies:
     - node
     - search_api
   config:
+    - field.storage.node.field_date_range
     - field.storage.node.field_publication_date
     - field.storage.node.field_tags
     - search_api.server.database_search
@@ -15,6 +16,15 @@ name: 'News, blog and media release search'
 description: 'Searches only news, blog items and media releases to create a faceted search system.'
 read_only: false
 field_settings:
+  aggregated_field:
+    label: 'Aggregated field'
+    property_path: aggregated_field
+    type: date
+    configuration:
+      type: union
+      fields:
+        - 'entity:node/field_date_range'
+        - 'entity:node/field_publication_date'
   created:
     label: 'Authored on'
     datasource_id: 'entity:node'
@@ -23,6 +33,14 @@ field_settings:
     dependencies:
       module:
         - node
+  field_date_range:
+    label: 'Date range'
+    datasource_id: 'entity:node'
+    property_path: field_date_range
+    type: date
+    dependencies:
+      config:
+        - field.storage.node.field_date_range
   field_publication_date:
     label: 'Publication date'
     datasource_id: 'entity:node'
@@ -56,6 +74,7 @@ field_settings:
       view_mode:
         'entity:node':
           blog_post: card
+          events: card
           media_release: card
           news_item: card
   status:
@@ -92,6 +111,7 @@ datasource_settings:
       default: false
       selected:
         - blog_post
+        - events
         - media_release
         - news_item
     languages:
@@ -103,6 +123,7 @@ processor_settings:
   content_access:
     weights:
       preprocess_query: -30
+  language_with_fallback: {  }
   rendered_item: {  }
 tracker_settings:
   default:
