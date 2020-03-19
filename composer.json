@@ -97,7 +97,7 @@
 		"drupal/config_split": "1.2",
 		"drupal/context_active_trail": "1.0-rc2",
 		"drupal/context_metadata": "2.x-dev",
-		"drupal/core": "8.8.2",
+		"drupal/core": "8.8.4",
 		"drupal/devel": "2.1",
 		"drupal/diff": "1.0",
 		"drupal/ds": "3.5",
