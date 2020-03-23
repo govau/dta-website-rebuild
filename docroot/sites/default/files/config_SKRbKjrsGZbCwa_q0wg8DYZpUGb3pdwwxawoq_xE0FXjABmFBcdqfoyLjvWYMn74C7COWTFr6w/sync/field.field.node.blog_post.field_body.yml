@@ -11,13 +11,13 @@ dependencies:
 third_party_settings:
   allowed_formats:
     full_rich_text: full_rich_text
+    rich_text: rich_text
+    introduction: '0'
+    summary: '0'
     commenting: '0'
-    rich_text: '0'
     administration: '0'
     html: '0'
-    introduction: '0'
     plain_text: '0'
-    summary: '0'
 id: node.blog_post.field_body
 field_name: field_body
 entity_type: node

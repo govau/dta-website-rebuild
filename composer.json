@@ -184,7 +184,7 @@
 		"drupal/weight": "3.1",
 		"drupal/wysiwyg_template": "2.3",
 		"drush/drush": "9.3.0",
-		"govau/dta-gov-au": "1.11.12",
+		"govau/dta-gov-au": "1.12.0",
 		"govau/tadpole": "^1.1",
 		"harvesthq/chosen": "^1.8",
 		"imperator99/superfish": "2.3",
@@ -258,6 +258,9 @@
 			},
 			"drupal/entity_usage": {
 				"HTMLLink Plugin only works with PublicStreamWrapper": "https://www.drupal.org/files/issues/2019-09-19/entity_usage-htmllink-streamwrapper-2973297-7.patch"
+			},
+			"drupal/video_embed_field": {
+				"Youtube Privacy Enhanced Mode (using -nocookie.com) (D8)": "https://www.drupal.org/files/issues/2019-06-08/video_embed_field_youtube_nocookie_2973246_41.patch"
 			}
 		}
 	},
