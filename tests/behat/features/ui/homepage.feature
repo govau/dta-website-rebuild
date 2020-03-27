@@ -3,8 +3,8 @@ Feature: Home Page Layout
 
   Scenario: View the homepage layout
     Given I am on the homepage
-    Then I should see the heading "Get help and advice" in the content region
-    Then I should see the heading "News, blogs and media releases" in the content region
-    Then I should see the heading "Our projects" in the content region
+    Then I should see the heading "Get help and advice"
+    Then I should see the heading "News, blogs and media releases"
+    Then I should see the heading "Our projects"
 
     
