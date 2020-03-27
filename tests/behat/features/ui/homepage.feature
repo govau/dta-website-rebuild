@@ -1,11 +1,10 @@
-Feature: Home Page
+Feature: Home Page Layout
   Ensure the home page layout is rendering the blocks in the correct order
 
-  Scenario: View the homepage content
+  Scenario: View the homepage layout
     Given I am on the homepage
-    Then I should see "homepageleft" block
-    Then I should see "homepageright" block
-    Then I should see "help_and_advice" block
-    Then I should see "help_and_advice" block
-    Then I should see "news_and_blogs_facets" block
-    Then I should see "homepagebottom" block
+    Then I should see the heading "Get help and advice" in the content region
+    Then I should see the heading "News, blogs and media releases" in the content region
+    Then I should see the heading "Our projects" in the content region
+
+    
