@@ -1,4 +1,4 @@
-uuid: dd647f0e-7672-4a7a-8d02-22aab454e126
+uuid: 0b805141-f6d1-403f-b1b9-0f80c662a477
 langcode: en
 status: true
 dependencies:
@@ -6,39 +6,31 @@ dependencies:
     - node
     - search_api
   config:
-    - field.storage.node.field_publication_date
-    - field.storage.node.field_tags
+    - field.storage.node.field_date_range
+    - field.storage.node.field_location
     - search_api.server.database_search
     - core.entity_view_mode.node.card
-id: news_and_blog_search
-name: 'News, blog and media release search'
-description: 'Searches only news, blog items and media releases to create a faceted search system.'
+id: events_search
+name: 'Events search'
+description: ''
 read_only: false
 field_settings:
-  created:
-    label: 'Authored on'
+  field_date_range:
+    label: 'Date range'
     datasource_id: 'entity:node'
-    property_path: created
-    type: date
-    dependencies:
-      module:
-        - node
-  field_publication_date:
-    label: 'Publication date'
-    datasource_id: 'entity:node'
-    property_path: field_publication_date
+    property_path: field_date_range
     type: date
     dependencies:
       config:
-        - field.storage.node.field_publication_date
-  field_tags:
-    label: Tags
+        - field.storage.node.field_date_range
+  field_location:
+    label: Location
     datasource_id: 'entity:node'
-    property_path: field_tags
-    type: integer
+    property_path: field_location
+    type: string
     dependencies:
       config:
-        - field.storage.node.field_tags
+        - field.storage.node.field_location
   node_grants:
     label: 'Node access information'
     property_path: search_api_node_grants
@@ -55,12 +47,9 @@ field_settings:
         anonymous: anonymous
       view_mode:
         'entity:node':
-          blog_post: card
           events: card
-          media_release: card
-          news_item: card
   status:
-    label: Published
+    label: status
     datasource_id: 'entity:node'
     property_path: status
     type: boolean
@@ -69,10 +58,10 @@ field_settings:
     dependencies:
       module:
         - node
-  type:
-    label: 'Content type'
+  title:
+    label: Title
     datasource_id: 'entity:node'
-    property_path: type
+    property_path: title
     type: string
     dependencies:
       module:
@@ -92,10 +81,7 @@ datasource_settings:
     bundles:
       default: false
       selected:
-        - blog_post
         - events
-        - media_release
-        - news_item
     languages:
       default: true
       selected: {  }
@@ -109,7 +95,7 @@ processor_settings:
   rendered_item: {  }
 tracker_settings:
   default:
-    indexing_order: lifo
+    indexing_order: fifo
 options:
   index_directly: true
   cron_limit: 50
