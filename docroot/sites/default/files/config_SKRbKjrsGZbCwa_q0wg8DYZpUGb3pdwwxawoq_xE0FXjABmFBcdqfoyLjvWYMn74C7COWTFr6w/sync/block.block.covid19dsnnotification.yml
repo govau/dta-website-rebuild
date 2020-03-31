@@ -1,0 +1,31 @@
+uuid: dc68d8da-0571-46ec-b9c7-ba9ab90488d6
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:script:4719774a-9a57-452c-b88a-e3ca18ca3219'
+  module:
+    - block_content
+    - system
+  theme:
+    - dta_gov_au
+id: covid19dsnnotification
+theme: dta_gov_au
+region: content
+weight: -17
+provider: null
+plugin: 'block_content:4719774a-9a57-452c-b88a-e3ca18ca3219'
+settings:
+  id: 'block_content:4719774a-9a57-452c-b88a-e3ca18ca3219'
+  label: 'COVID-19 DSN notification'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: "/help-and-advice/uplifting-digital-sourcing-capability\r\n/help-and-advice/ict-procurement/digital-sourcing-framework-ict-procurement/digital-sourcing-guidance-tools-and-forums\r\n/help-and-advice/uplifting-digital-sourcing-capability/*\r\n"
+    negate: false
+    context_mapping: {  }
