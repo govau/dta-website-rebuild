@@ -97,13 +97,13 @@
 		"drupal/config_split": "1.2",
 		"drupal/context_active_trail": "1.0-rc2",
 		"drupal/context_metadata": "2.x-dev",
-		"drupal/core": "8.8.2",
+		"drupal/core": "8.8.4",
 		"drupal/devel": "2.1",
 		"drupal/diff": "1.0",
 		"drupal/ds": "3.5",
 		"drupal/ds_chains": "1.0",
 		"drupal/editor_advanced_link": "1.6",
-		"drupal/empty_fields": "1.0-alpha1",
+		"drupal/empty_fields": "dev-1.x",
 		"drupal/entity_browser": "2.4",
 		"drupal/entity_embed": "1.0",
 		"drupal/entity_reference_revisions": "1.7",
@@ -180,18 +180,19 @@
 		"drupal/video_embed_field": "2.2",
 		"drupal/views_entity_form_field": "1.0-beta7",
 		"drupal/views_menu_children_filter": "1.0-beta3",
-		"drupal/webform": "5.8",
+		"drupal/webform": "5.9",
 		"drupal/weight": "3.1",
 		"drupal/wysiwyg_template": "2.3",
 		"drush/drush": "9.3.0",
-		"govau/dta-gov-au": "1.12.5",
+		"govau/dta-gov-au": "1.12.4",
 		"govau/tadpole": "^1.1",
 		"harvesthq/chosen": "^1.8",
 		"imperator99/superfish": "2.3",
 		"oomphinc/composer-installers-extender": "1.1.2",
 		"symfony/http-foundation": "~3.4.27",
 		"symfony/http-kernel": "~3.4.14",
-		"twig/twig": "^1.38.2"
+		"twig/twig": "^1.38.2",
+		"wikimedia/composer-merge-plugin": "^1.4"
 	},
 	"require-dev": {
 		"behat/behat": "3.5.0",
@@ -238,7 +239,7 @@
 				"Invalid placeholder (version) in string": "https://www.drupal.org/files/issues/2018-03-16/2953490-invalid-placeholder-fix.patch"
 			},
 			"drupal/empty_fields": {
-				"Plugin form not shown": "https://www.drupal.org/files/issues/2927913-8.patch"
+				"Plugin form not shown": "https://www.drupal.org/files/issues/2019-10-22/2927913-18.patch"
 			},
 			"drupal/core": {
 				"Cannot use relationship for rendered entity on Views": "https://www.drupal.org/files/issues/2019-10-28/2457999-223.patch",
@@ -262,6 +263,11 @@
 			"drupal/video_embed_field": {
 				"Youtube Privacy Enhanced Mode (using -nocookie.com) (D8)": "https://www.drupal.org/files/issues/2019-06-08/video_embed_field_youtube_nocookie_2973246_41.patch"
 			}
+		},
+		"merge-plugin": {
+			"include": [
+				"docroot/modules/contrib/webform/composer.libraries.json"
+			]
 		}
 	},
 	"autoload": {
