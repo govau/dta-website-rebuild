@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2c696bf1deef4be1d3c9c1d89155025f",
+    "content-hash": "1df4aea608e6c64c561521e6e0f2791b",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -9569,16 +9569,16 @@
         },
         {
             "name": "govau/dta-gov-au",
-            "version": "1.12.4",
+            "version": "1.12.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/govau/dta-gov-au.git",
-                "reference": "ba2e532b16475ca111fe842319dea54fad080d8d"
+                "reference": "406261823df7d52d067d7aad4652a111cd850526"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/govau/dta-gov-au/zipball/ba2e532b16475ca111fe842319dea54fad080d8d",
-                "reference": "ba2e532b16475ca111fe842319dea54fad080d8d",
+                "url": "https://api.github.com/repos/govau/dta-gov-au/zipball/406261823df7d52d067d7aad4652a111cd850526",
+                "reference": "406261823df7d52d067d7aad4652a111cd850526",
                 "shasum": ""
             },
             "require": {
@@ -9596,7 +9596,7 @@
                 "government",
                 "theme"
             ],
-            "time": "2020-04-08T01:18:34+00:00"
+            "time": "2020-03-27T01:09:07+00:00"
         },
         {
             "name": "govau/dta-uikit-base",
@@ -10091,7 +10091,6 @@
                     "email": "jakub.onderka@gmail.com"
                 }
             ],
-            "abandoned": "php-parallel-lint/php-console-color",
             "time": "2018-09-29T17:23:10+00:00"
         },
         {
@@ -10138,7 +10137,6 @@
                 }
             ],
             "description": "Highlight PHP code in terminal",
-            "abandoned": "php-parallel-lint/php-console-highlighter",
             "time": "2018-09-29T18:48:56+00:00"
         },
         {
