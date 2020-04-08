@@ -1,6 +1,6 @@
 uuid: ac2aca09-f824-4a0f-a840-738081773900
 langcode: en
-status: open
+status: closed
 dependencies:
   module:
     - honeypot
@@ -135,6 +135,7 @@ settings:
   results_disabled_ignore: false
   token_view: false
   token_update: false
+  results_customize: false
 access:
   create:
     roles:
