@@ -37,7 +37,6 @@ third_party_settings:
       disable_css: false
       entity_classes: all_classes
       settings:
-        label: ''
         wrappers:
           ds_content: article
         outer_wrapper: div
@@ -110,7 +109,7 @@ third_party_settings:
         effect: none
         speed: fast
       label: Footer
-      region: ds_content
+      region: hidden
     group_link:
       children:
         - field_index_image
@@ -127,7 +126,7 @@ third_party_settings:
         custom_uri: ''
         target_attribute: default
       label: Link
-      region: ds_content
+      region: hidden
 id: node.blog_post.card
 targetEntityType: node
 bundle: blog_post
@@ -262,4 +261,3 @@ hidden:
   field_tags: true
   field_twitter_image: true
   links: true
-  search_api_excerpt: true
