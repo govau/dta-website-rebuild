@@ -104,7 +104,7 @@ third_party_settings:
         effect: none
         speed: fast
         id: ''
-        classes: 'au-card au-body au-card--shadow au-card--clickable'
+        classes: 'au-card au-card--shadow au-card--clickable'
       label: 'card wrapper'
       region: ds_content
     group_card_inner:
