@@ -689,7 +689,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "<div  class=\"au-card au-card--shadow au-card--clickable\">\r\n    <div class=\"au-card__image au-card__fullwidth\">\r\n        {{ field_index_image }}\r\n    </div>\r\n   <div class=\"au-card__inner\">\r\n    <h3 class=\"au-card__title\"><a href=\"{{ view_node }}\">{% if field_short_name %}{{ field_short_name }}{% else %}{{ title }}{% endif %}</a></h3>\r\n    <p class=\"au-card__text\">{{ field_summary }}</p>\r\n</div>\r\n</div>"
+            text: "<div  class=\"au-card au-card--shadow au-card--clickable\">\r\n    <div class=\"au-card__image au-card__fullwidth\">\r\n        {{ field_index_image }}\r\n    </div>\r\n   <diss=\"au-card__inner\">\r\n    <h3 class=\"au-card__title\"><a href=\"{{ view_nodev cla }}\">{% if field_short_name %}{{ field_short_name }}{% else %}{{ title }}{% endif %}</a></h3>\r\n    <p class=\"au-card__text\">{{ field_summary }}</p>\r\n</div>\r\n</div>"
             make_link: false
             path: ''
             absolute: false
