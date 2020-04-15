@@ -184,7 +184,7 @@
 		"drupal/weight": "3.1",
 		"drupal/wysiwyg_template": "2.3",
 		"drush/drush": "9.3.0",
-		"govau/dta-gov-au": "1.12.6",
+		"govau/dta-gov-au": "1.12.8",
 		"govau/tadpole": "^1.1",
 		"harvesthq/chosen": "^1.8",
 		"imperator99/superfish": "2.3",
