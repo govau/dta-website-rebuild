@@ -1,0 +1,35 @@
+uuid: ba14671f-576e-490f-87d3-2d9f7335159c
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_content
+    - comment
+    - content_moderation
+    - dynamic_entity_reference
+    - file
+    - linky
+    - menu_link_content
+    - node
+    - paragraphs
+    - path_alias
+    - redirect
+    - search_api
+    - shortcut
+    - taxonomy
+    - user
+    - webform
+id: node.field_title
+field_name: field_title
+entity_type: node
+type: dynamic_entity_reference
+settings:
+  exclude_entity_types: true
+  entity_type_ids: {  }
+module: dynamic_entity_reference
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

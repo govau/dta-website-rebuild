@@ -4,7 +4,8 @@ ft-default: expert
 ft-show-colon: false
 classes:
   region: {  }
-  field: {  }
+  field:
+    - au-card--clickable__link
 use_field_names: true
 _core:
   default_config_hash: xfB0qOeoAomOThclNNokdKTrVwXLcXz13SU3-4a5-FY
