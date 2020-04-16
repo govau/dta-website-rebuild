@@ -1,0 +1,11 @@
+id: card_title
+label: 'Card title'
+ui_limit: "*|card\r\n*|home_page_blog_card"
+properties:
+  content:
+    value: "<h3 class=\"au-card__title\"><a href=\"[node:url:path]\"  class=\"au-card--clickable__link\">[node:title]</a></h3>\r\n        "
+    format: html
+type: token
+type_label: 'Token field'
+entities:
+  node: node

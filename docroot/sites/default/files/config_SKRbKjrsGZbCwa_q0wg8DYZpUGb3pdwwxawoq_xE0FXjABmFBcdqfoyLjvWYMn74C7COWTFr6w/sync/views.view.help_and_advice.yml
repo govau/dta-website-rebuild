@@ -312,7 +312,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "<a href=\"{{ path }}\" class=\"au-card au-card--shadow au-card--item-{{ counter }} au-cta-link\">\r\n    <h3 class=\"au-card__title\">{{ title }}</h3>\r\n    <div class=\"au-card__text\">{{ field_summary }}</div>\r\n</a>"
+            text: "<div class=\"au-card au-body au-card--shadow au-card--clickable au-card--item-{{ counter }} au-card-top-border\">\r\n <div class=\"au-card__inner\">\r\n    <h3 class=\"au-card__title\"><a class=\"au-card--clickable__link\" href=\"{{ path }}\" >{{ title }}</a></h3>\r\n   <div class=\"au-card__text\"> {{ field_summary }}</div>\r\n </div>\r\n</div> "
             make_link: false
             path: ''
             absolute: false
