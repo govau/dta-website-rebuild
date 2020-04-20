@@ -85,13 +85,20 @@ third_party_settings:
         - group_footer
       parent_name: ''
       weight: 0
-      format_type: link
+      format_type: html_element
       format_settings:
         target: entity
         custom_uri: ''
         target_attribute: default
         id: ''
         classes: 'au-card au-card--shadow au-card--clickable'
+        element: div
+        show_label: false
+        label_element: h3
+        label_element_classes: ''
+        effect: none
+        speed: fast
+        attributes: ''
       label: 'card wrapper'
       region: ds_content
     group_card_inner:
