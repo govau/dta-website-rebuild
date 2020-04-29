@@ -16,7 +16,6 @@ dependencies:
     - field.field.node.blog_post.field_search_keywords
     - field.field.node.blog_post.field_summary
     - field.field.node.blog_post.field_tags
-    - field.field.node.blog_post.field_test
     - field.field.node.blog_post.field_title
     - field.field.node.blog_post.field_twitter_image
     - image.style.thumbnail
@@ -155,16 +154,6 @@ content:
       match_limit: 10
     third_party_settings: {  }
     type: entity_reference_autocomplete
-    region: content
-  field_test:
-    weight: 32
-    settings:
-      match_operator: CONTAINS
-      size: 40
-      placeholder: ''
-      match_limit: 10
-    third_party_settings: {  }
-    type: dynamic_entity_reference_default
     region: content
   field_title:
     weight: 31
