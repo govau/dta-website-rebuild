@@ -3,10 +3,10 @@ langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_mode.node.card
     - field.storage.node.field_author
     - field.storage.node.field_date
     - field.storage.node.field_index_image
+    - field.storage.node.field_publication_date
     - field.storage.taxonomy_term.field_author_image
     - image.style.thumbnail
     - node.type.blog_post
@@ -14,7 +14,6 @@ dependencies:
     - responsive_image.styles.index_image
   module:
     - datetime
-    - ds
     - image
     - node
     - responsive_image
@@ -90,25 +89,12 @@ display:
           wrapper_class: au-body
           class: 'au-card-list au-card-list--matchheight'
       row:
-        type: 'ds_entity:node'
+        type: fields
         options:
-          relationship: none
-          view_mode: card
-          alternating_fieldset:
-            alternating: false
-            allpages: false
-            item_0: teaser
-            item_1: teaser
-            item_2: teaser
-            item_3: teaser
-            item_4: teaser
-            item_5: teaser
-          grouping_fieldset:
-            group: false
-            group_field: node__field_date|field_date_value
-            group_field_function: ''
-          advanced_fieldset:
-            advanced: false
+          default_field_elements: false
+          inline: {  }
+          separator: ''
+          hide_empty: false
       fields:
         title:
           id: title
@@ -784,7 +770,8 @@ display:
     display_title: 'Our latest updates home block'
     position: 1
     display_options:
-      display_extenders: {  }
+      display_extenders:
+        metatag_display_extender: {  }
       display_description: 'Displays news and blog posts for the home page.'
       use_more: true
       defaults:
@@ -875,7 +862,7 @@ display:
           group_type: group
           admin_label: ''
           label: ''
-          exclude: false
+          exclude: true
           alter:
             alter_text: false
             text: 'style="background-image: url(''{{ field_author_image }}'');"'
@@ -939,7 +926,7 @@ display:
           group_type: group
           admin_label: 'Content type (machine)'
           label: ''
-          exclude: false
+          exclude: true
           alter:
             alter_text: false
             text: ''
@@ -1004,7 +991,7 @@ display:
           group_type: group
           admin_label: ''
           label: ''
-          exclude: false
+          exclude: true
           alter:
             alter_text: false
             text: ''
@@ -1135,7 +1122,7 @@ display:
           group_type: group
           admin_label: ''
           label: ''
-          exclude: false
+          exclude: true
           alter:
             alter_text: false
             text: ''
@@ -1191,6 +1178,70 @@ display:
           separator: ', '
           field_api_classes: false
           plugin_id: field
+        field_publication_date:
+          id: field_publication_date
+          table: node__field_publication_date
+          field: field_publication_date
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: datetime_default
+          settings:
+            timezone_override: ''
+            format_type: medium
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
       link_display: custom_url
       link_url: news-blogs
     cache_metadata:
@@ -1203,4 +1254,5 @@ display:
       tags:
         - 'config:field.storage.node.field_date'
         - 'config:field.storage.node.field_index_image'
+        - 'config:field.storage.node.field_publication_date'
         - 'config:field.storage.taxonomy_term.field_author_image'
