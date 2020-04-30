@@ -329,7 +329,7 @@ display:
           group_type: group
           admin_label: ''
           label: ''
-          exclude: true
+          exclude: false
           alter:
             alter_text: false
             text: ''
@@ -392,10 +392,10 @@ display:
           group_type: group
           admin_label: ''
           label: ''
-          exclude: true
+          exclude: false
           alter:
-            alter_text: false
-            text: ''
+            alter_text: true
+            text: "<header>\r\n    <h2>{{ field_related_content_heading }}</h2>\r\n</header>"
             make_link: false
             path: ''
             absolute: false
@@ -428,10 +428,10 @@ display:
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
-          empty: ''
+          empty: "<header class=\"sr-only\">\r\n    <h2>Related content</h2>\r\n</header>"
           hide_empty: false
           empty_zero: false
-          hide_alter_empty: true
+          hide_alter_empty: false
           click_sort_column: value
           type: string
           settings:

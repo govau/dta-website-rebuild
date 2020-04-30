@@ -325,8 +325,8 @@ display:
             alter_text: false
             text: ''
             make_link: true
-            path: ''
-            absolute: true
+            path: '[node:url:path]'
+            absolute: false
             external: false
             replace_spaces: false
             path_case: none
@@ -714,8 +714,8 @@ display:
             alter_text: false
             text: '<a ></a>'
             make_link: true
-            path: ''
-            absolute: true
+            path: '[node:url:path]'
+            absolute: false
             external: false
             replace_spaces: false
             path_case: none
