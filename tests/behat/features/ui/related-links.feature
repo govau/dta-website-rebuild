@@ -27,7 +27,6 @@ Feature: Related links
       And I visit "source-page"
       Then the response status code should be 200
       And I should see the heading "Source page"
-      And I should see the heading "Related content"
       And I should see the heading "Related link blog"
       And I should see the heading "Related link news"
       And I should see the text "Related link blog summary"
