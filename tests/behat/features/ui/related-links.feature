@@ -16,10 +16,12 @@ Feature: Related links
 
 
     And "page" content:
-    | title       | field_body       | status | moderation_state | field_summary       | field_related_content                | field_related_content_heading |
-    | Source page | Source page body | 1      | published        | Source page summary | Related link blog, Related link news | Related links                 |
+    | title       | field_body       | status | moderation_state | field_summary       | title               | 		      | field_summary   |
+    | Source page | Source page body | 1      | published        | Source page summary | Related link blog, Related link news | Related link blog summary, Related link news summary |
+    
 
-    And I run cron
+    
+     And I run cron
 
     @anonymous @related-links
     Scenario: Related link cards for blogs
@@ -31,7 +33,3 @@ Feature: Related links
       And I should see the heading "Related link news"
       And I should see the text "Related link blog summary"
       And I should see the text "Related link news summary"
-
-      Then print last response
-
-      Then show last response	
