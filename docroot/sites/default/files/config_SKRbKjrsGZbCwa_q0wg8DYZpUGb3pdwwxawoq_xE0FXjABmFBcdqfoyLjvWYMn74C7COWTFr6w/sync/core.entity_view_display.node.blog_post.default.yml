@@ -17,11 +17,14 @@ dependencies:
     - field.field.node.blog_post.field_search_keywords
     - field.field.node.blog_post.field_summary
     - field.field.node.blog_post.field_tags
+    - field.field.node.blog_post.field_test
+    - field.field.node.blog_post.field_title
     - field.field.node.blog_post.field_twitter_image
     - node.type.blog_post
   module:
     - comment
     - datetime
+    - dynamic_entity_reference
     - image
     - text
     - user
@@ -141,6 +144,22 @@ content:
     third_party_settings: {  }
     type: entity_reference_label
     region: content
+  field_test:
+    weight: 123
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: dynamic_entity_reference_label
+    region: content
+  field_title:
+    weight: 122
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: dynamic_entity_reference_label
+    region: content
   field_twitter_image:
     weight: 109
     label: above
@@ -155,4 +174,5 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  search_api_excerpt: true

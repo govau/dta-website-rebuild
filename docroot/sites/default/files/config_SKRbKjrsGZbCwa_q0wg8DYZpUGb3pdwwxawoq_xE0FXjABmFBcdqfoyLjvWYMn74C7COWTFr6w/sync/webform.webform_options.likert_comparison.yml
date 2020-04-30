@@ -11,4 +11,4 @@ id: likert_comparison
 label: 'Likert: Comparison'
 category: Likert
 likert: true
-options: "1: Strongly Disagree\n2: Disagree\n3: Neutral\n4: Agree\n5: Strongly Agree\n"
+options: "1: 'Strongly Disagree'\r\n2: Disagree\r\n3: 'Slightly disagree'\r\n4: 'Slightly agree'\r\n5: Agree\r\n6: 'Strongly agree'"
