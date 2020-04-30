@@ -1,5 +1,5 @@
 api_key: impy-and-chimpy
-cron: true
+cron: false
 batch_limit: 100
 api_classname: Mailchimp\Mailchimp
 test_mode: false
@@ -8,3 +8,4 @@ _core:
 enable_connected: false
 connected_id: null
 connected_paths: null
+webhook_hash: 7dc01c2b8d09cb9d20716813ebc6212e
