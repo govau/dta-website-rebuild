@@ -1,0 +1,26 @@
+uuid: 7c861509-5041-4892-9afa-27e3217b6936
+langcode: en
+status: true
+dependencies:
+  module:
+    - mailchimp_signup
+    - system
+  theme:
+    - dta_gov_au
+id: mailchimp_subscription_form__digital_professional_stream
+theme: dta_gov_au
+region: content
+weight: -1
+provider: null
+plugin: 'mailchimp_signup_subscribe_block:digital_professional_stream'
+settings:
+  id: 'mailchimp_signup_subscribe_block:digital_professional_stream'
+  label: 'Digital Professional Stream sign-up form'
+  provider: mailchimp_signup
+  label_display: visible
+visibility:
+  request_path:
+    id: request_path
+    pages: /help-and-advice/digital-professional-stream/participation-digital-professional-stream
+    negate: false
+    context_mapping: {  }
