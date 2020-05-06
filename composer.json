@@ -100,7 +100,7 @@
 		"drupal/core": "8.8.4",
 		"drupal/devel": "2.1",
 		"drupal/diff": "1.0",
-		"drupal/ds": "3.5",
+		"drupal/ds": "3.6",
 		"drupal/ds_chains": "1.0",
 		"drupal/editor_advanced_link": "1.6",
 		"drupal/empty_fields": "dev-1.x",
