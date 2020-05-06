@@ -180,7 +180,7 @@
 		"drupal/video_embed_field": "2.2",
 		"drupal/views_entity_form_field": "1.0-beta7",
 		"drupal/views_menu_children_filter": "1.0-beta3",
-		"drupal/webform": "5.9",
+		"drupal/webform": "5.11",
 		"drupal/weight": "3.1",
 		"drupal/wysiwyg_template": "2.3",
 		"drush/drush": "9.3.0",
