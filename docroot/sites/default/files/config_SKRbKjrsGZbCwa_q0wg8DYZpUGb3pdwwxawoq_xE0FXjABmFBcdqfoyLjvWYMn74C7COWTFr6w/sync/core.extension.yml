@@ -1,6 +1,7 @@
 module:
   action: 0
   admin_toolbar: 0
+  admin_toolbar_search: 0
   admin_toolbar_tools: 0
   adminimal_admin_toolbar: 0
   advagg: 0
