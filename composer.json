@@ -160,7 +160,7 @@
 		"drupal/rules_role_email": "1.0-alpha4",
 		"drupal/s3fs": "3.0-alpha14",
 		"drupal/scheduler": "1.1",
-		"drupal/scheduler_content_moderation_integration": "1.1",
+		"drupal/scheduler_content_moderation_integration": "1.2",
 		"drupal/search_api": "1.15",
 		"drupal/search_api_autocomplete": "1.2",
 		"drupal/search_api_page": "1.0-alpha12",

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "31f32fd0c481f1e93763a19d67d17db0",
+    "content-hash": "eca9a8402440383ce7bfddfb857d4dbb",
     "packages": [
         {
             "name": "algolia/places",
@@ -7634,17 +7634,17 @@
         },
         {
             "name": "drupal/scheduler_content_moderation_integration",
-            "version": "1.1.0",
+            "version": "1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/scheduler_content_moderation_integration.git",
-                "reference": "8.x-1.1"
+                "reference": "8.x-1.2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/scheduler_content_moderation_integration-8.x-1.1.zip",
-                "reference": "8.x-1.1",
-                "shasum": "861317d35ee3484f74c718e0b1c0400c46226715"
+                "url": "https://ftp.drupal.org/files/projects/scheduler_content_moderation_integration-8.x-1.2.zip",
+                "reference": "8.x-1.2",
+                "shasum": "75e482881722c12cd8b98da209bd0d2e19b5529c"
             },
             "require": {
                 "drupal/core": "*",
@@ -7656,8 +7656,8 @@
                     "dev-1.x": "1.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-1.1",
-                    "datestamp": "1569575585",
+                    "version": "8.x-1.2",
+                    "datestamp": "1583246174",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Project has not opted into security advisory coverage!"
