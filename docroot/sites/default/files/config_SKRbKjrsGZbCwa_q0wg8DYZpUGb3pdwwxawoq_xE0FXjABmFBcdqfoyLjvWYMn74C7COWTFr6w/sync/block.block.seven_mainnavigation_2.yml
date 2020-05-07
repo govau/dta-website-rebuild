@@ -20,6 +20,8 @@ settings:
   label: 'Main navigation - DTS Dashboard'
   provider: menu_block
   label_display: '0'
+  follow: false
+  follow_parent: child
   level: 2
   depth: 0
   expand: 0
