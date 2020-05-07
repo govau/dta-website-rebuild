@@ -2405,17 +2405,17 @@
         },
         {
             "name": "drupal/bigmenu",
-            "version": "1.0.0-alpha2",
+            "version": "1.0.0-alpha3",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/bigmenu.git",
-                "reference": "8.x-1.0-alpha2"
+                "reference": "8.x-1.0-alpha3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/bigmenu-8.x-1.0-alpha2.zip",
-                "reference": "8.x-1.0-alpha2",
-                "shasum": "805107cbc3a6f30584c854358116321f49bb7440"
+                "url": "https://ftp.drupal.org/files/projects/bigmenu-8.x-1.0-alpha3.zip",
+                "reference": "8.x-1.0-alpha3",
+                "shasum": "5761f224bf86fe9927420e21d706b9d73fd7b8dd"
             },
             "require": {
                 "drupal/core": "*"
@@ -2426,8 +2426,8 @@
                     "dev-1.x": "1.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-1.0-alpha2",
-                    "datestamp": "1571878385",
+                    "version": "8.x-1.0-alpha3",
+                    "datestamp": "1581892352",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Alpha releases are not covered by Drupal security advisories."
