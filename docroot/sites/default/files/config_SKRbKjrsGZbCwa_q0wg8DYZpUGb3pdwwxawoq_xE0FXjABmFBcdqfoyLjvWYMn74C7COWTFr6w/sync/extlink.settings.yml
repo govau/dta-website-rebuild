@@ -4,7 +4,7 @@ extlink_nofollow: true
 extlink_follow_no_override: true
 extlink_subdomains: false
 extlink_alert: true
-extlink_alert_text: 'You are now leaving www.dta.gov.au. Please select ''Cancel'' if you wish to stay.'
+extlink_alert_text: 'You are now leaving www.dta.gov.au. Please select cancel if you wish to stay.'
 extlink_exclude: '.*(.doc|.docx|.pdf|.zip|.png|.jpg|.jpeg)$'
 extlink_include: ''
 extlink_class: '0'
@@ -21,3 +21,6 @@ extlink_icon_placement: '0'
 extlink_font_awesome_classes:
   links: 'fa fa-external-link'
   mailto: 'fa fa-envelope-o'
+extlink_use_external_js_file: false
+extlink_noreferrer: false
+whitelisted_domains: {  }

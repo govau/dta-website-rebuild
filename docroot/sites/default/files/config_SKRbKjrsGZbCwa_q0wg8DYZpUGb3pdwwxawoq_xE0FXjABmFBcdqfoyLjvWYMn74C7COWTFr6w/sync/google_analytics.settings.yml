@@ -24,7 +24,15 @@ track:
 privacy:
   anonymizeip: true
 custom:
-  dimension: {  }
+  dimension:
+    2:
+      name: 'Site tags'
+      value: '[node:field_tags:0:entity:name] | [node:field_tags:1:entity:name] | [node:field_tags:2:entity:name]'
+      index: 2
+    3:
+      name: 'Content type'
+      value: '[node:content-type:name]'
+      index: 3
   metric: {  }
 codesnippet:
   create: {  }
