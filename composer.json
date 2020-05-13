@@ -119,7 +119,7 @@
 		"drupal/field_group_link": "3.0-rc1",
 		"drupal/field_permissions": "1.0-rc2",
 		"drupal/filefield_paths": "1.0-beta1",
-		"drupal/google_analytics": "2.4",
+		"drupal/google_analytics": "3.x-dev",
 		"drupal/govcms8_ui": "1.0.0-alpha1",
 		"drupal/honeypot": "1.30",
 		"drupal/htmlawed": "3.7",
@@ -264,6 +264,9 @@
 			},
 			"drupal/video_embed_field": {
 				"Youtube Privacy Enhanced Mode (using -nocookie.com) (D8)": "https://www.drupal.org/files/issues/2019-06-08/video_embed_field_youtube_nocookie_2973246_41.patch"
+			},
+			"drupal/google_analytics": {
+				"Allow taxonomy term name in custom dimension settings": "https://www.drupal.org/files/issues/2019-04-24/allow_taxonomy_term_name_custom_dimension_settings_305080_2.patch"
 			}
 		},
 		"merge-plugin": {
