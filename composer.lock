@@ -4,16 +4,14 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a86b8b9671ba2b0cd5d153a8a01bad59",
+    "content-hash": "e2fa42c741f4a37abad5bf5a2648c93c",
     "packages": [
         {
             "name": "algolia/places",
             "version": "1.17.1",
             "dist": {
                 "type": "tar",
-                "url": "https://registry.npmjs.org/places.js/-/places.js-1.17.1.tgz",
-                "reference": null,
-                "shasum": null
+                "url": "https://registry.npmjs.org/places.js/-/places.js-1.17.1.tgz"
             },
             "require": {
                 "composer/installers": "~1.0"
@@ -259,9 +257,7 @@
             "version": "9.0.1",
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/jshjohnson/Choices/archive/v9.0.1.zip",
-                "reference": null,
-                "shasum": null
+                "url": "https://github.com/jshjohnson/Choices/archive/v9.0.1.zip"
             },
             "require": {
                 "composer/installers": "~1.0"
@@ -276,9 +272,7 @@
             "version": "4.14.0",
             "dist": {
                 "type": "zip",
-                "url": "https://download.ckeditor.com/autogrow/releases/autogrow_4.14.0.zip",
-                "reference": null,
-                "shasum": null
+                "url": "https://download.ckeditor.com/autogrow/releases/autogrow_4.14.0.zip"
             },
             "require": {
                 "composer/installers": "~1.0"
@@ -293,9 +287,7 @@
             "version": "v1.17.12",
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/w8tcha/CKEditor-CodeMirror-Plugin/releases/download/v1.17.12/CKEditor-CodeMirror-Plugin.zip",
-                "reference": null,
-                "shasum": null
+                "url": "https://github.com/w8tcha/CKEditor-CodeMirror-Plugin/releases/download/v1.17.12/CKEditor-CodeMirror-Plugin.zip"
             },
             "require": {
                 "composer/installers": "~1.0"
@@ -310,9 +302,7 @@
             "version": "4.14.0",
             "dist": {
                 "type": "zip",
-                "url": "https://download.ckeditor.com/fakeobjects/releases/fakeobjects_4.14.0.zip",
-                "reference": null,
-                "shasum": null
+                "url": "https://download.ckeditor.com/fakeobjects/releases/fakeobjects_4.14.0.zip"
             },
             "require": {
                 "composer/installers": "~1.0"
@@ -327,9 +317,7 @@
             "version": "4.14.0",
             "dist": {
                 "type": "zip",
-                "url": "https://download.ckeditor.com/image/releases/image_4.14.0.zip",
-                "reference": null,
-                "shasum": null
+                "url": "https://download.ckeditor.com/image/releases/image_4.14.0.zip"
             },
             "require": {
                 "composer/installers": "~1.0"
@@ -344,9 +332,7 @@
             "version": "4.14.0",
             "dist": {
                 "type": "zip",
-                "url": "https://download.ckeditor.com/link/releases/link_4.14.0.zip",
-                "reference": null,
-                "shasum": null
+                "url": "https://download.ckeditor.com/link/releases/link_4.14.0.zip"
             },
             "require": {
                 "composer/installers": "~1.0"
@@ -361,9 +347,7 @@
             "version": "0.0.1",
             "dist": {
                 "type": "zip",
-                "url": "https://download.ckeditor.com/tabletoolstoolbar/releases/tabletoolstoolbar_0.0.1.zip",
-                "reference": null,
-                "shasum": null
+                "url": "https://download.ckeditor.com/tabletoolstoolbar/releases/tabletoolstoolbar_0.0.1.zip"
             },
             "type": "drupal-library"
         },
@@ -373,8 +357,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://download.ckeditor.com/templates/releases/templates_4.11.1.zip",
-                "reference": "master",
-                "shasum": null
+                "reference": "master"
             },
             "type": "drupal-library"
         },
@@ -383,9 +366,7 @@
             "version": "5.51.0",
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/components/codemirror/archive/5.51.0.zip",
-                "reference": null,
-                "shasum": null
+                "url": "https://github.com/components/codemirror/archive/5.51.0.zip"
             },
             "require": {
                 "composer/installers": "~1.0"
@@ -9225,17 +9206,17 @@
         },
         {
             "name": "drupal/webform",
-            "version": "5.11.0",
+            "version": "5.12.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/webform.git",
-                "reference": "8.x-5.11"
+                "reference": "8.x-5.12"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/webform-8.x-5.11.zip",
-                "reference": "8.x-5.11",
-                "shasum": "2a8664687d2b0b6071bab011dbbb431e15c83710"
+                "url": "https://ftp.drupal.org/files/projects/webform-8.x-5.12.zip",
+                "reference": "8.x-5.12",
+                "shasum": "5ad813c6c622993f24078db9c47e81e598c954ba"
             },
             "require": {
                 "drupal/core": "^8.7.7 || ^9"
@@ -9246,14 +9227,14 @@
                 "drupal/captcha": "~1.0",
                 "drupal/chosen": "~2.6",
                 "drupal/devel": "*",
-                "drupal/entity_print": "*",
+                "drupal/entity_print": "^2.1",
                 "drupal/gnode": "*",
-                "drupal/group": "*",
+                "drupal/group": "~1.0",
                 "drupal/mailsystem": "~4.1",
                 "drupal/select2": "~1.1",
                 "drupal/smtp": "~1.0",
                 "drupal/telephone_validation": "^2.2",
-                "drupal/token": "*",
+                "drupal/token": "~1.3",
                 "drupal/webform_access": "*",
                 "drupal/webform_attachment": "*",
                 "drupal/webform_devel": "*",
@@ -9267,8 +9248,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-5.11",
-                    "datestamp": "1588785899",
+                    "version": "8.x-5.12",
+                    "datestamp": "1589389825",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -10263,8 +10244,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://github.com/harvesthq/chosen/releases/download/v1.8.7/chosen_v1.8.7.zip",
-                "reference": "ad86732b668627c131e61ee8f0e6e9ed52e4db8d",
-                "shasum": ""
+                "reference": "ad86732b668627c131e61ee8f0e6e9ed52e4db8d"
             },
             "type": "library",
             "notification-url": "https://packagist.org/downloads/",
@@ -10373,9 +10353,7 @@
             "version": "1.8.7",
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/harvesthq/chosen/releases/download/v1.8.7/chosen_v1.8.7.zip",
-                "reference": null,
-                "shasum": null
+                "url": "https://github.com/harvesthq/chosen/releases/download/v1.8.7/chosen_v1.8.7.zip"
             },
             "require": {
                 "composer/installers": "~1.0"
@@ -10390,9 +10368,7 @@
             "version": "1.7.0",
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/ubilabs/geocomplete/archive/1.7.0.zip",
-                "reference": null,
-                "shasum": null
+                "url": "https://github.com/ubilabs/geocomplete/archive/1.7.0.zip"
             },
             "require": {
                 "composer/installers": "~1.0"
@@ -10407,9 +10383,7 @@
             "version": "0.2.0",
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/jeresig/jquery.hotkeys/archive/0.2.0.zip",
-                "reference": null,
-                "shasum": null
+                "url": "https://github.com/jeresig/jquery.hotkeys/archive/0.2.0.zip"
             },
             "require": {
                 "composer/installers": "~1.0"
@@ -10424,9 +10398,7 @@
             "version": "1.0.2 ",
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/fronteed/icheck/archive/1.0.2.zip",
-                "reference": null,
-                "shasum": null
+                "url": "https://github.com/fronteed/icheck/archive/1.0.2.zip"
             },
             "require": {
                 "composer/installers": "~1.0"
@@ -10441,9 +10413,7 @@
             "version": "0.3.0",
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/rvera/image-picker/archive/0.3.0.zip",
-                "reference": null,
-                "shasum": null
+                "url": "https://github.com/rvera/image-picker/archive/0.3.0.zip"
             },
             "require": {
                 "composer/installers": "~1.0"
@@ -10458,9 +10428,7 @@
             "version": "5.0.3",
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/RobinHerbots/jquery.inputmask/archive/5.0.3.zip",
-                "reference": null,
-                "shasum": null
+                "url": "https://github.com/RobinHerbots/jquery.inputmask/archive/5.0.3.zip"
             },
             "require": {
                 "composer/installers": "~1.0"
@@ -10475,9 +10443,7 @@
             "version": "16.1.0",
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/jackocnr/intl-tel-input/archive/v16.1.0.zip",
-                "reference": null,
-                "shasum": null
+                "url": "https://github.com/jackocnr/intl-tel-input/archive/v16.1.0.zip"
             },
             "require": {
                 "composer/installers": "~1.0"
@@ -10492,9 +10458,7 @@
             "version": "1.1.3",
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/gjunge/rateit.js/archive/1.1.3.zip",
-                "reference": null,
-                "shasum": null
+                "url": "https://github.com/gjunge/rateit.js/archive/1.1.3.zip"
             },
             "require": {
                 "composer/installers": "~1.0"
@@ -10509,9 +10473,7 @@
             "version": "4.0.12",
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/select2/select2/archive/4.0.12.zip",
-                "reference": null,
-                "shasum": null
+                "url": "https://github.com/select2/select2/archive/4.0.12.zip"
             },
             "require": {
                 "composer/installers": "~1.0"
@@ -10526,9 +10488,7 @@
             "version": "0.8.0",
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/ractoon/jQuery-Text-Counter/archive/0.8.0.zip",
-                "reference": null,
-                "shasum": null
+                "url": "https://github.com/ractoon/jQuery-Text-Counter/archive/0.8.0.zip"
             },
             "require": {
                 "composer/installers": "~1.0"
@@ -10543,9 +10503,7 @@
             "version": "1.13.0",
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/jonthornton/jquery-timepicker/archive/1.13.0.zip",
-                "reference": null,
-                "shasum": null
+                "url": "https://github.com/jonthornton/jquery-timepicker/archive/1.13.0.zip"
             },
             "require": {
                 "composer/installers": "~1.0"
@@ -10560,9 +10518,7 @@
             "version": "4.0.0",
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/simontabor/jquery-toggles/archive/v4.0.0.zip",
-                "reference": null,
-                "shasum": null
+                "url": "https://github.com/simontabor/jquery-toggles/archive/v4.0.0.zip"
             },
             "require": {
                 "composer/installers": "~1.0"
@@ -11385,9 +11341,7 @@
             "version": "1.4.0",
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/NigelOToole/progress-tracker/archive/v1.4.0.zip",
-                "reference": null,
-                "shasum": null
+                "url": "https://github.com/NigelOToole/progress-tracker/archive/v1.4.0.zip"
             },
             "require": {
                 "composer/installers": "~1.0"
@@ -11695,9 +11649,7 @@
             "version": "2.3.0",
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/szimek/signature_pad/archive/v2.3.0.zip",
-                "reference": null,
-                "shasum": null
+                "url": "https://github.com/szimek/signature_pad/archive/v2.3.0.zip"
             },
             "require": {
                 "composer/installers": "~1.0"
@@ -11811,9 +11763,7 @@
             "version": "3.6.1",
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/ariutta/svg-pan-zoom/archive/3.6.1.zip",
-                "reference": null,
-                "shasum": null
+                "url": "https://github.com/ariutta/svg-pan-zoom/archive/3.6.1.zip"
             },
             "require": {
                 "composer/installers": "~1.0"
