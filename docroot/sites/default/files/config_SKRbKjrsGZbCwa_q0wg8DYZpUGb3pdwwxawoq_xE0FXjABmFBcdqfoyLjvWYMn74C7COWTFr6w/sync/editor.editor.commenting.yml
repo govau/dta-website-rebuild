@@ -39,7 +39,7 @@ settings:
         -
           name: Media
           items:
-            - DrupalImage
+            - image2
             - video_embed
   plugins:
     stylescombo:
