@@ -64,6 +64,18 @@
 			}
 		},
 		{
+        "type": "package",
+        "package": {
+            "name": "ckeditor/image2",
+            "version": "4.14.0",
+            "type": "drupal-library",
+            "dist": {
+                "url": "https://download.ckeditor.com/image2/releases/image2_4.14.0.zip",
+                "type": "zip"
+            }
+        }
+    },
+		{
 			"type": "package",
 			"package": {
 				"name": "ckeditor/tabletoolstoolbar",
@@ -79,6 +91,7 @@
 	"require": {
 		"php": ">=7.1.0",
 		"chi-teck/drupal-code-generator": "1.25.1",
+		"ckeditor/image2": "^4.14",
 		"ckeditor/tabletoolstoolbar": "0.0.1",
 		"cweagans/composer-patches": "1.6.4",
 		"drupal-composer/drupal-scaffold": "2.4.0",
@@ -104,7 +117,7 @@
 		"drupal/ds": "3.6",
 		"drupal/ds_chains": "1.0",
 		"drupal/dynamic_entity_reference": "1.9",
-		"drupal/editor_advanced_link": "1.6",
+		"drupal/editor_advanced_link": "1.8",
 		"drupal/empty_fields": "dev-1.x",
 		"drupal/entity_browser": "2.5",
 		"drupal/entity_embed": "1.0",
