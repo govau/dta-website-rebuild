@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d6584034d7b9d41ed32d478fd101770d",
+    "content-hash": "b1e3c6174005c5564330422bf68832b8",
     "packages": [
         {
             "name": "algolia/places",
@@ -326,15 +326,6 @@
             "extra": {
                 "installer-name": "ckeditor.image"
             }
-        },
-        {
-            "name": "ckeditor/image2",
-            "version": "4.14.0",
-            "dist": {
-                "type": "zip",
-                "url": "https://download.ckeditor.com/image2/releases/image2_4.14.0.zip"
-            },
-            "type": "drupal-library"
         },
         {
             "name": "ckeditor/link",
@@ -9930,6 +9921,15 @@
             "time": "2019-11-06T05:13:03+00:00"
         },
         {
+            "name": "govau/dta-website-image-plugin",
+            "version": "1.0.0",
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/govau/dta-website-image-plugin/releases/download/v1.0.0/dta-website-image-plugin_v1.0.0.zip"
+            },
+            "type": "drupal-custom-module"
+        },
+        {
             "name": "govau/tadpole",
             "version": "1.1",
             "source": {
@@ -14742,6 +14742,15 @@
                 "behat-screenshot"
             ],
             "time": "2018-03-08T13:20:42+00:00"
+        },
+        {
+            "name": "ckeditor/image2",
+            "version": "4.14.0",
+            "dist": {
+                "type": "zip",
+                "url": "https://download.ckeditor.com/image2/releases/image2_4.14.0.zip"
+            },
+            "type": "drupal-library"
         },
         {
             "name": "dflydev/dot-access-configuration",
