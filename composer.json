@@ -64,6 +64,30 @@
 			}
 		},
 		{
+        "type": "package",
+        "package": {
+            "name": "govau/dta-website-image-plugin",
+            "version": "1.0.0",
+            "type": "drupal-custom-module",
+            "dist": {
+                "url": "https://github.com/govau/dta-website-image-plugin/releases/download/v1.0.0/dta-website-image-plugin_v1.0.0.zip",
+                "type": "zip"
+            }
+        }
+    },
+		{
+        "type": "package",
+        "package": {
+            "name": "ckeditor/image2",
+            "version": "4.14.0",
+            "type": "drupal-library",
+            "dist": {
+                "url": "https://download.ckeditor.com/image2/releases/image2_4.14.0.zip",
+                "type": "zip"
+            }
+        }
+    },
+		{
 			"type": "package",
 			"package": {
 				"name": "ckeditor/tabletoolstoolbar",
@@ -104,7 +128,7 @@
 		"drupal/ds": "3.6",
 		"drupal/ds_chains": "1.0",
 		"drupal/dynamic_entity_reference": "1.9",
-		"drupal/editor_advanced_link": "1.6",
+		"drupal/editor_advanced_link": "1.8",
 		"drupal/empty_fields": "dev-1.x",
 		"drupal/entity_browser": "2.5",
 		"drupal/entity_embed": "1.0",
@@ -187,6 +211,7 @@
 		"drupal/wysiwyg_template": "2.3",
 		"drush/drush": "9.3.0",
 		"govau/dta-gov-au": "1.13.5",
+		"govau/dta-website-image-plugin": "^1.0",
 		"govau/tadpole": "^1.1",
 		"harvesthq/chosen": "^1.8",
 		"imperator99/superfish": "2.3",
