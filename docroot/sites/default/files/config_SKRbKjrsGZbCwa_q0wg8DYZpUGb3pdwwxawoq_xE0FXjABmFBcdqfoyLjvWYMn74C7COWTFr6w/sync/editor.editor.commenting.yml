@@ -39,8 +39,8 @@ settings:
         -
           name: Media
           items:
-            - image2
             - video_embed
+            - image2
   plugins:
     stylescombo:
       styles: ''
