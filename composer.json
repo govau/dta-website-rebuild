@@ -57,7 +57,7 @@
 					"version": "1.1.0",
 					"type": "drupal-custom-module",
 					"dist": {
-							"url": "https://github.com/govau/dta_website_image_plugin/releases/download/v1.0.0/dta_website_image_plugin_v1.0.0.zip",
+							"url": "https://github.com/govau/dta_website_image_plugin/releases/download/v1.1.0/dta_website_image_plugin_v1.0.0.zip",
 							"type": "zip"
 					}
 			}
