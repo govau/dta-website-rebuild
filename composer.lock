@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "86463a542b624903479c1a53394a2ebd",
+    "content-hash": "f8c0a121d64285b683d08173bb6d8e4a",
     "packages": [
         {
             "name": "algolia/places",
@@ -8886,37 +8886,32 @@
         },
         {
             "name": "drupal/typogrify",
-            "version": "1.0.0-alpha1",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/typogrify.git",
-                "reference": "8.x-1.0-alpha1"
+                "reference": "8.x-1.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/typogrify-8.x-1.0-alpha1.zip",
-                "reference": "8.x-1.0-alpha1",
-                "shasum": "de87791555204b3af5692d939f8c199bd7164495"
+                "url": "https://ftp.drupal.org/files/projects/typogrify-8.x-1.0.zip",
+                "reference": "8.x-1.0",
+                "shasum": "4bda9b5393906c139e2bd4c4582091fbdb5e3caa"
             },
             "require": {
-                "drupal/core": "*"
+                "drupal/core": "^8 || ^9"
             },
             "type": "drupal-module",
             "extra": {
-                "branch-alias": {
-                    "dev-1.x": "1.x-dev"
-                },
                 "drupal": {
-                    "version": "8.x-1.0-alpha1",
-                    "datestamp": "1478050442",
+                    "version": "8.x-1.0",
+                    "datestamp": "1588433671",
                     "security-coverage": {
-                        "status": "not-covered",
-                        "message": "Project has not opted into security advisory coverage!"
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
                     }
                 },
-                "patches_applied": {
-                    "Invalid placeholder (version) in string": "https://www.drupal.org/files/issues/2018-03-16/2953490-invalid-placeholder-fix.patch"
-                }
+                "patches_applied": []
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
             "license": [
@@ -8927,6 +8922,10 @@
                     "name": "See contributors",
                     "homepage": "https://www.drupal.org/node/149970/committers",
                     "role": "Developer"
+                },
+                {
+                    "name": "jpamental",
+                    "homepage": "https://www.drupal.org/user/174960"
                 },
                 {
                     "name": "migmedia",
@@ -9020,35 +9019,30 @@
         },
         {
             "name": "drupal/video_embed_field",
-            "version": "2.2.0",
+            "version": "2.4.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/video_embed_field.git",
-                "reference": "8.x-2.2"
+                "reference": "8.x-2.4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/video_embed_field-8.x-2.2.zip",
-                "reference": "8.x-2.2",
-                "shasum": "1e76eeefb27f4166d3d119e8c27469bbf12c0f06"
+                "url": "https://ftp.drupal.org/files/projects/video_embed_field-8.x-2.4.zip",
+                "reference": "8.x-2.4",
+                "shasum": "96b14bb93c1bb6a07b84315a4f87367870f8b574"
             },
             "require": {
-                "drupal/core": "^8.7.0"
+                "drupal/core": "^8.8 || ^9"
             },
             "require-dev": {
-                "drupal/colorbox": "*",
-                "drupal/media_entity": "*",
-                "drupal/media_entity_embeddable_video": "*",
+                "drupal/colorbox": "^1.0",
                 "drupal/video_embed_media": "*"
             },
             "type": "drupal-module",
             "extra": {
-                "branch-alias": {
-                    "dev-2.x": "2.x-dev"
-                },
                 "drupal": {
-                    "version": "8.x-2.2",
-                    "datestamp": "1564103585",
+                    "version": "8.x-2.4",
+                    "datestamp": "1587686284",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -9188,17 +9182,17 @@
         },
         {
             "name": "drupal/webform",
-            "version": "5.12.0",
+            "version": "5.13.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/webform.git",
-                "reference": "8.x-5.12"
+                "reference": "8.x-5.13"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/webform-8.x-5.12.zip",
-                "reference": "8.x-5.12",
-                "shasum": "5ad813c6c622993f24078db9c47e81e598c954ba"
+                "url": "https://ftp.drupal.org/files/projects/webform-8.x-5.13.zip",
+                "reference": "8.x-5.13",
+                "shasum": "2dfca686adb7eea2dc1c4d96b42ea7a1e0330500"
             },
             "require": {
                 "drupal/core": "^8.7.7 || ^9"
@@ -9230,8 +9224,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-5.12",
-                    "datestamp": "1589389825",
+                    "version": "8.x-5.13",
+                    "datestamp": "1589661354",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
