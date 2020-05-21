@@ -26,12 +26,6 @@ filters:
     status: true
     weight: 0
     settings: {  }
-  filter_caption:
-    id: filter_caption
-    provider: filter
-    status: true
-    weight: 0
-    settings: {  }
   filter_html:
     id: filter_html
     provider: filter
@@ -74,8 +68,26 @@ filters:
       type: default
       auto: ''
       block: '0'
-  TypogrifyFilter:
-    id: TypogrifyFilter
+  url_embed:
+    id: url_embed
+    provider: url_embed
+    status: true
+    weight: 0
+    settings: {  }
+  video_embed_wysiwyg:
+    id: video_embed_wysiwyg
+    provider: video_embed_wysiwyg
+    status: true
+    weight: 0
+    settings: {  }
+  filter_caption:
+    id: filter_caption
+    provider: filter
+    status: true
+    weight: 0
+    settings: {  }
+  typogrify:
+    id: typogrify
     provider: typogrify
     status: false
     weight: 10
@@ -95,15 +107,3 @@ filters:
       arrows: 'a:0:{}'
       fractions: 'a:0:{}'
       quotes: 'a:0:{}'
-  url_embed:
-    id: url_embed
-    provider: url_embed
-    status: true
-    weight: 0
-    settings: {  }
-  video_embed_wysiwyg:
-    id: video_embed_wysiwyg
-    provider: video_embed_wysiwyg
-    status: true
-    weight: 0
-    settings: {  }
