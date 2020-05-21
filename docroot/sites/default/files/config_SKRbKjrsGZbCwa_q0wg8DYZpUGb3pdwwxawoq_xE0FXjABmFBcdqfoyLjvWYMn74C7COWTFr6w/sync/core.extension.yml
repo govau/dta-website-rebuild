@@ -40,6 +40,7 @@ module:
   devel_generate: 0
   diff: 0
   ds_chains: 0
+  dta_website_image_plugin: 0
   dynamic_entity_reference: 0
   editor: 0
   editor_advanced_link: 0

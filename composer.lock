@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f8c0a121d64285b683d08173bb6d8e4a",
+    "content-hash": "9dbae91335e9d7849ee59fe30ea7dde2",
     "packages": [
         {
             "name": "algolia/places",
@@ -326,6 +326,15 @@
             "extra": {
                 "installer-name": "ckeditor.image"
             }
+        },
+        {
+            "name": "ckeditor/image2",
+            "version": "4.14.0",
+            "dist": {
+                "type": "zip",
+                "url": "https://download.ckeditor.com/image2/releases/image2_4.14.0.zip"
+            },
+            "type": "drupal-library"
         },
         {
             "name": "ckeditor/link",
@@ -9898,6 +9907,15 @@
                 "theme"
             ],
             "time": "2019-11-06T05:13:03+00:00"
+        },
+        {
+            "name": "govau/dta_website_image_plugin",
+            "version": "1.1.0",
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/govau/dta_website_image_plugin/releases/download/v1.1.0/dta_website_image_plugin_v1.0.0.zip"
+            },
+            "type": "drupal-custom-module"
         },
         {
             "name": "govau/tadpole",
