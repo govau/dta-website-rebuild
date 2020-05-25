@@ -263,9 +263,6 @@
 			"drupal/swiftmailer": {
 				"Unit Testing is failing on testMassageMessageBody()": "https://www.drupal.org/files/issues/2018-03-13/swiftmailer-unittest.patch"
 			},
-			"drupal/typogrify": {
-				"Invalid placeholder (version) in string": "https://www.drupal.org/files/issues/2018-03-16/2953490-invalid-placeholder-fix.patch"
-			},
 			"drupal/empty_fields": {
 				"Plugin form not shown": "https://www.drupal.org/files/issues/2019-10-22/2927913-18.patch"
 			},
