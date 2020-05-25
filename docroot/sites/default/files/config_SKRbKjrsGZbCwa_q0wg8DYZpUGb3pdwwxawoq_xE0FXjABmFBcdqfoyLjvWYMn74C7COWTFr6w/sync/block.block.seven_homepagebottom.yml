@@ -1,0 +1,31 @@
+uuid: 52e866a2-1251-4a6b-8839-f0677bc3a172
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:node_teaser_block:29c245ca-c2a9-483f-919e-56cf0a2c26db'
+  module:
+    - block_content
+    - system
+  theme:
+    - seven
+id: seven_homepagebottom
+theme: seven
+region: content
+weight: -10
+provider: null
+plugin: 'block_content:29c245ca-c2a9-483f-919e-56cf0a2c26db'
+settings:
+  id: 'block_content:29c245ca-c2a9-483f-919e-56cf0a2c26db'
+  label: 'Home page bottom'
+  provider: block_content
+  label_display: visible
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: false
+    context_mapping: {  }

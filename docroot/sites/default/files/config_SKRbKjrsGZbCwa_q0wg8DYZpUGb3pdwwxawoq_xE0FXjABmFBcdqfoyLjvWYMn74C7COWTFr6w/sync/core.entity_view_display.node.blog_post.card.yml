@@ -17,6 +17,7 @@ dependencies:
     - field.field.node.blog_post.field_search_keywords
     - field.field.node.blog_post.field_summary
     - field.field.node.blog_post.field_tags
+    - field.field.node.blog_post.field_title
     - field.field.node.blog_post.field_twitter_image
     - node.type.blog_post
     - responsive_image.styles.index_image
@@ -37,6 +38,7 @@ third_party_settings:
       disable_css: false
       entity_classes: all_classes
       settings:
+        label: ''
         wrappers:
           ds_content: article
         outer_wrapper: div
@@ -51,6 +53,7 @@ third_party_settings:
         - field_index_image
         - field_publication_date
         - node_title
+        - group_card_inner
         - field_summary
         - group_footer
     fields:
@@ -60,9 +63,9 @@ third_party_settings:
         label: hidden
         formatter: default
         settings:
+          link: true
           wrapper: h3
           class: au-card__title
-          link: false
         ft:
           id: expert
           settings:
@@ -109,24 +112,46 @@ third_party_settings:
         effect: none
         speed: fast
       label: Footer
-      region: hidden
+      region: ds_content
     group_link:
       children:
         - field_index_image
-        - node_title
-        - field_summary
+        - group_card_inner
         - group_footer
       parent_name: ''
       weight: 0
-      format_type: link
+      format_type: html_element
+      format_settings:
+        element: div
+        show_label: false
+        label_element: h3
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+        id: ''
+        classes: 'au-card au-card--shadow au-card--clickable'
+      label: 'card wrapper'
+      region: ds_content
+    group_card_inner:
+      children:
+        - node_title
+        - field_summary
+      parent_name: group_link
+      weight: 1
+      format_type: html_element
+      region: ds_content
       format_settings:
         id: ''
-        classes: 'au-card au-card--shadow au-cta-link'
-        target: entity
-        custom_uri: ''
-        target_attribute: default
-      label: Link
-      region: hidden
+        classes: au-card__inner
+        element: div
+        show_label: false
+        label_element: h3
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+      label: 'card inner'
 id: node.blog_post.card
 targetEntityType: node
 bundle: blog_post
@@ -259,5 +284,7 @@ hidden:
   field_review_date: true
   field_search_keywords: true
   field_tags: true
+  field_title: true
   field_twitter_image: true
   links: true
+  search_api_excerpt: true

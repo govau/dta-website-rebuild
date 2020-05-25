@@ -16,7 +16,6 @@ description: 'Displays all our tags in a list, with how many content items are a
 tag: ''
 base_table: taxonomy_term_field_data
 base_field: tid
-core: 8.x
 display:
   default:
     display_plugin: default
@@ -219,6 +218,8 @@ display:
           id: status
           expose:
             operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
           group: 1
         vid:
           id: vid
@@ -229,6 +230,9 @@ display:
           entity_type: taxonomy_term
           entity_field: vid
           plugin_id: bundle
+          expose:
+            operator_limit_selection: false
+            operator_list: {  }
         field_publication_date_value:
           id: field_publication_date_value
           table: node__field_publication_date
@@ -259,6 +263,8 @@ display:
             placeholder: ''
             min_placeholder: ''
             max_placeholder: ''
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -397,6 +403,8 @@ display:
           id: status
           expose:
             operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
           group: 1
         vid:
           id: vid
@@ -407,6 +415,9 @@ display:
           entity_type: taxonomy_term
           entity_field: vid
           plugin_id: bundle
+          expose:
+            operator_limit_selection: false
+            operator_list: {  }
         field_publication_date_value:
           id: field_publication_date_value
           table: node__field_publication_date
@@ -437,6 +448,8 @@ display:
             placeholder: ''
             min_placeholder: ''
             max_placeholder: ''
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -470,6 +483,119 @@ display:
           display_id: page_1
           label: 'Current content '
           plugin_id: display_link
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url.query_args
+        - user.permissions
+      tags: {  }
+  page_3:
+    display_plugin: page
+    id: page_3
+    display_title: 'Page 3'
+    position: 3
+    display_options:
+      display_extenders:
+        metatag_display_extender: {  }
+      title: 'Tag list - all'
+      defaults:
+        title: false
+        group_by: false
+        fields: false
+        header: false
+        relationships: false
+        filters: false
+        filter_groups: false
+      group_by: false
+      path: tag-list/all
+      fields:
+        name:
+          id: name
+          table: taxonomy_term_field_data
+          field: name
+          entity_type: taxonomy_term
+          entity_field: name
+          alter:
+            alter_text: false
+            make_link: false
+            absolute: false
+            trim: false
+            word_boundary: false
+            ellipsis: false
+            strip_tags: false
+            html: false
+          hide_empty: false
+          empty_zero: false
+          type: string
+          settings:
+            link_to_entity: true
+          plugin_id: term_name
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Name
+          exclude: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_alter_empty: true
+          click_sort_column: value
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          convert_spaces: false
+      header:
+        area:
+          id: area
+          table: views
+          field: area
+          plugin_id: text
+      relationships: {  }
+      filters:
+        status:
+          value: '1'
+          table: taxonomy_term_field_data
+          field: status
+          plugin_id: boolean
+          entity_type: taxonomy_term
+          entity_field: status
+          id: status
+          expose:
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+          group: 1
+        vid:
+          id: vid
+          table: taxonomy_term_field_data
+          field: vid
+          value:
+            tags: tags
+          entity_type: taxonomy_term
+          entity_field: vid
+          plugin_id: bundle
+          expose:
+            operator_limit_selection: false
+            operator_list: {  }
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
     cache_metadata:
       max-age: -1
       contexts:

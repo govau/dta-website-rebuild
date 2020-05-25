@@ -3,9 +3,11 @@ langcode: en
 status: true
 dependencies:
   config:
+    - node.type.dashboard_item
     - node.type.external_link
     - node.type.media_release
     - node.type.presentation
+    - node.type.roadmap_2_user_experience_
     - node.type.speaker_bio
   module:
     - content_moderation
@@ -42,6 +44,7 @@ type_settings:
       to: draft
       weight: 0
       from:
+        - archived
         - draft
         - published
     publish:
@@ -53,8 +56,10 @@ type_settings:
         - published
   entity_types:
     node:
+      - dashboard_item
       - external_link
       - media_release
       - presentation
+      - roadmap_2_user_experience_
       - speaker_bio
   default_moderation_state: draft

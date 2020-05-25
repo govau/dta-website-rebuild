@@ -185,5 +185,3 @@ requirements:
   spam: true
 langcode: en
 third_party_settings: {  }
-_core:
-  default_config_hash: LfS9F5pMOujrNNKzmWTQNsr6msfNn99m26vszAjDUOo

@@ -1,0 +1,32 @@
+uuid: 507d4459-b3ad-4a4b-9349-1a06efb0f32c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_dashboard_case_study_text
+    - paragraphs.paragraphs_type.dashboard_case_study
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    commenting: commenting
+    introduction: '0'
+    summary: '0'
+    full_rich_text: '0'
+    administration: '0'
+    html: '0'
+    plain_text: '0'
+    rich_text: '0'
+id: paragraph.dashboard_case_study.field_dashboard_case_study_text
+field_name: field_dashboard_case_study_text
+entity_type: paragraph
+bundle: dashboard_case_study
+label: 'Dashboard case study text'
+description: 'Use this field to add the text for the case study.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

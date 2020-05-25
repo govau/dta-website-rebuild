@@ -9,7 +9,7 @@ dependencies:
     - typogrify
 name: Introduction
 format: introduction
-weight: -6
+weight: -10
 filters:
   filter_html:
     id: filter_html
@@ -53,8 +53,8 @@ filters:
       spec: ''
       help: 'Allowed HTML tags: <a>, <em>, <strong>, <cite>, <code>, <ol>, <ul>, <li>, <dl>, <dt>, <dd>, <br>, <p>'
       helplong: 'These HTML tags are allowed: <a>, <em>, <strong>, <cite>, <code>, <ol>, <ul>, <li>, <dl>, <dt>, <dd>, <br>, <p>. Javascript and the ''id'' and ''style'' HTML attributes are not permitted.'
-  TypogrifyFilter:
-    id: TypogrifyFilter
+  typogrify:
+    id: typogrify
     provider: typogrify
     status: true
     weight: 10

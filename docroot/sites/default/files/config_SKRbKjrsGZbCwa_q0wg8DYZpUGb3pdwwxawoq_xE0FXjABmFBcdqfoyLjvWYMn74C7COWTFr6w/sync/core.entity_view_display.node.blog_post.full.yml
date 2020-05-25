@@ -17,6 +17,7 @@ dependencies:
     - field.field.node.blog_post.field_search_keywords
     - field.field.node.blog_post.field_summary
     - field.field.node.blog_post.field_tags
+    - field.field.node.blog_post.field_title
     - field.field.node.blog_post.field_twitter_image
     - node.type.blog_post
     - responsive_image.styles.hero_image
@@ -36,7 +37,8 @@ third_party_settings:
       library: layout_discovery/onecol
       disable_css: false
       entity_classes: no_classes
-      settings: {  }
+      settings:
+        label: ''
     regions:
       content:
         - content_moderation_control
@@ -48,8 +50,9 @@ third_party_settings:
         - field_image
         - group_image_and_caption
         - field_publication_date
-        - field_body
         - field_image_caption
+        - field_body
+        - group_blog_byline
         - 'dynamic_token_field:node-author_and_position'
     fields:
       'ds_chains:node/blog_post/field_author/field_author_image':
@@ -89,9 +92,36 @@ third_party_settings:
             fi-def-at: false
       'dynamic_token_field:node-author_and_position':
         plugin_id: 'dynamic_token_field:node-author_and_position'
-        weight: 7
+        weight: 9
         label: hidden
         formatter: default
+        ft:
+          id: expert
+          settings:
+            lb: ''
+            prefix: ''
+            lbw-el: ''
+            lbw-cl: ''
+            lbw-at: ''
+            ow: true
+            ow-el: ''
+            ow-cl: byline
+            ow-at: ''
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fi-el: ''
+            fi-cl: ''
+            fi-at: ''
+            suffix: ''
+            lbw: false
+            lb-col: false
+            ow-def-at: false
+            ow-def-cl: false
+            fis: false
+            fis-def-at: false
+            fi: false
+            fi-def-at: false
   field_group:
     group_author_and_date:
       children:
@@ -129,6 +159,24 @@ third_party_settings:
         classes: au-hero
       label: 'Image and caption'
       region: content
+    group_blog_byline:
+      children:
+        - 'dynamic_token_field:node-author_and_position'
+      parent_name: ''
+      weight: 7
+      format_type: html_element
+      region: content
+      format_settings:
+        id: ''
+        classes: au-blog-post-byline
+        element: div
+        show_label: false
+        label_element: h3
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+      label: 'Blog byline'
   ds_chains:
     fields:
       field_author: field_author
@@ -384,6 +432,7 @@ hidden:
   field_review_date: true
   field_search_keywords: true
   field_summary: true
+  field_title: true
   field_twitter_image: true
   links: true
   search_api_excerpt: true

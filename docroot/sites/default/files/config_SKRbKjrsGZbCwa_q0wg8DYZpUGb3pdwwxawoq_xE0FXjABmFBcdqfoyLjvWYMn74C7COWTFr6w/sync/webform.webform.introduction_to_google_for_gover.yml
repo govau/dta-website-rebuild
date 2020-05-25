@@ -23,9 +23,13 @@ javascript: ''
 settings:
   ajax: false
   ajax_scroll_top: form
+  ajax_progress_type: ''
+  ajax_effect: ''
+  ajax_speed: null
   page: true
   page_submit_path: ''
   page_confirm_path: ''
+  page_admin_theme: false
   form_title: source_entity_webform
   form_submit_once: false
   form_exception_message: ''
@@ -81,6 +85,7 @@ settings:
   wizard_progress_pages: false
   wizard_progress_percentage: false
   wizard_progress_link: false
+  wizard_progress_states: false
   wizard_start_label: ''
   wizard_preview_link: false
   wizard_confirmation: false
@@ -99,6 +104,8 @@ settings:
   draft_auto_save: false
   draft_saved_message: ''
   draft_loaded_message: ''
+  draft_pending_single_message: ''
+  draft_pending_multiple_message: ''
   confirmation_type: url
   confirmation_title: Thanks!
   confirmation_message: '<p>Thanks for participating in our training!</p>'
@@ -111,6 +118,7 @@ settings:
       - au-btn
   confirmation_exclude_query: false
   confirmation_exclude_token: false
+  confirmation_update: false
   limit_total: null
   limit_total_interval: null
   limit_total_message: ''
@@ -127,6 +135,7 @@ settings:
   purge_days: 5
   results_disabled: false
   results_disabled_ignore: false
+  token_view: false
   token_update: false
 access:
   create:
@@ -176,3 +185,4 @@ access:
     users: {  }
     permissions: {  }
 handlers: {  }
+variants: {  }

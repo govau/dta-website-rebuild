@@ -18,6 +18,7 @@ permissions:
   - 'edit any media_release content'
   - 'edit own media_release content'
   - 'revert media_release revisions'
+  - 'schedule publishing of nodes'
   - 'use external_links transition create_new_draft'
   - 'use external_links transition publish'
   - 'use text format commenting'
@@ -26,4 +27,5 @@ permissions:
   - 'view latest version'
   - 'view media_release revisions'
   - 'view own unpublished content'
+  - 'view scheduled content'
   - 'view search api pages'

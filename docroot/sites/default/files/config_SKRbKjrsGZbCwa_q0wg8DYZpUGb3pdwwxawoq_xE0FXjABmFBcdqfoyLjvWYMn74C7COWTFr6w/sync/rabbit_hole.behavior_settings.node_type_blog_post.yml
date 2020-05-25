@@ -1,7 +1,9 @@
 uuid: c7014b85-30c0-48d2-b6b9-ea463e740230
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  config:
+    - node.type.blog_post
 id: node_type_blog_post
 action: display_page
 allow_override: 1

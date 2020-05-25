@@ -1,0 +1,11 @@
+uuid: 07f8e84f-60b0-4576-8003-b91829f0de59
+langcode: en
+status: true
+dependencies: {  }
+id: node__dashboard_item
+label: 'Content: Dashboard item'
+tags:
+  image_src: '[node:field_image:entity:url]'
+  og_image: '[node:field_image:entity:url]'
+  twitter_cards_image: '[node:field_image:entity:url]'
+  twitter_cards_type: summary_large_image

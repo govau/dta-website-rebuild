@@ -1,0 +1,25 @@
+uuid: f413a9ee-b789-4e75-bf5a-80cc186608d6
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - seven
+_core:
+  default_config_hash: aVyppJvEbReVQwb_QSKI-pGev94RbAWphTE8ZH9THEI
+id: seven_sitebranding
+theme: seven
+region: header
+weight: -1
+provider: null
+plugin: system_branding_block
+settings:
+  id: system_branding_block
+  label: 'Site branding'
+  provider: system
+  label_display: '0'
+  use_site_logo: true
+  use_site_name: true
+  use_site_slogan: true
+visibility: {  }

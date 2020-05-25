@@ -1,6 +1,6 @@
 uuid: 156564cc-8262-426d-a701-1a0d6dd8ca11
 langcode: en
-status: true
+status: false
 dependencies:
   module:
     - mailchimp_signup
@@ -10,7 +10,7 @@ dependencies:
 id: mailchimp_subscription_form_signup_for_updates
 theme: dta_gov_au
 region: sidebar_right
-weight: -12
+weight: -5
 provider: null
 plugin: 'mailchimp_signup_subscribe_block:sign_up_for_updates'
 settings:

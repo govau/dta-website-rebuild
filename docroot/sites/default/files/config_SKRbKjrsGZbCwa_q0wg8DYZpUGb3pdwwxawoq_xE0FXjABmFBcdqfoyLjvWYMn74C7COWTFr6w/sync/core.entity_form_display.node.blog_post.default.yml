@@ -16,22 +16,28 @@ dependencies:
     - field.field.node.blog_post.field_search_keywords
     - field.field.node.blog_post.field_summary
     - field.field.node.blog_post.field_tags
+    - field.field.node.blog_post.field_title
     - field.field.node.blog_post.field_twitter_image
     - image.style.thumbnail
     - node.type.blog_post
+    - workflows.workflow.dta_publishing
   module:
     - comment
     - content_moderation
     - datetime
+    - dynamic_entity_reference
     - field_layout
     - image
     - layout_discovery
     - path
+    - scheduler
+    - scheduler_content_moderation_integration
     - text
 third_party_settings:
   field_layout:
     id: layout_onecol
-    settings: {  }
+    settings:
+      label: ''
 id: node.blog_post.default
 targetEntityType: node
 bundle: blog_post
@@ -49,6 +55,7 @@ content:
       match_operator: CONTAINS
       size: 60
       placeholder: ''
+      match_limit: 10
     third_party_settings: {  }
     type: entity_reference_autocomplete
     region: content
@@ -144,8 +151,19 @@ content:
       match_operator: CONTAINS
       size: 60
       placeholder: ''
+      match_limit: 10
     third_party_settings: {  }
     type: entity_reference_autocomplete
+    region: content
+  field_title:
+    weight: 31
+    settings:
+      match_operator: CONTAINS
+      size: 40
+      placeholder: ''
+      match_limit: 10
+    third_party_settings: {  }
+    type: dynamic_entity_reference_default
     region: content
   field_twitter_image:
     weight: 10
@@ -174,6 +192,23 @@ content:
     weight: 15
     region: content
     third_party_settings: {  }
+  publish_on:
+    type: datetime_timestamp_no_default
+    weight: 30
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  publish_state:
+    type: scheduler_moderation
+    weight: 30
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  scheduler_settings:
+    weight: 20
+    settings: {  }
+    third_party_settings: {  }
+    region: content
   status:
     type: boolean_checkbox
     settings:
@@ -203,7 +238,20 @@ content:
       match_operator: CONTAINS
       size: 60
       placeholder: ''
+      match_limit: 10
     region: content
+    third_party_settings: {  }
+  unpublish_on:
+    type: datetime_timestamp_no_default
+    weight: 30
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  unpublish_state:
+    type: scheduler_moderation
+    weight: 30
+    region: content
+    settings: {  }
     third_party_settings: {  }
   url_redirects:
     weight: 17

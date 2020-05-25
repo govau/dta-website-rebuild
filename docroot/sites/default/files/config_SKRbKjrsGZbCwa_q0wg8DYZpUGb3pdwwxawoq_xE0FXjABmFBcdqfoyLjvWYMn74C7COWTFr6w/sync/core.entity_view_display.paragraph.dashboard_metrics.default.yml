@@ -1,0 +1,191 @@
+uuid: 1cd8e4c4-a3ff-4428-98e8-1d8dddd1f2a0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.dashboard_metrics.field_headline_figure
+    - field.field.paragraph.dashboard_metrics.field_headline_text
+    - field.field.paragraph.dashboard_metrics.field_metric
+    - paragraphs.paragraphs_type.dashboard_metrics
+  module:
+    - ds
+    - ds_chains
+    - empty_fields
+    - field_group
+    - text
+third_party_settings:
+  ds:
+    layout:
+      id: layout_onecol
+      library: layout_discovery/onecol
+      disable_css: false
+      entity_classes: no_classes
+      settings: {  }
+    regions:
+      content:
+        - group_metric_row
+        - field_headline_figure
+        - group_headline
+        - field_headline_text
+        - field_metric
+  field_group:
+    group_headline:
+      children:
+        - field_headline_figure
+        - field_headline_text
+      parent_name: group_metric_row
+      weight: 1
+      format_type: html_element
+      format_settings:
+        element: div
+        show_label: false
+        label_element: h3
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+        id: ''
+        classes: dashboard-metric-headline
+      label: Headline
+      region: content
+    group_metric_row:
+      children:
+        - group_headline
+        - field_metric
+      parent_name: ''
+      weight: 0
+      format_type: html_element
+      format_settings:
+        element: div
+        show_label: false
+        label_element: h3
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+        id: ''
+        classes: dashboard-metric-row
+      label: 'Metric row'
+      region: content
+  ds_chains:
+    fields: {  }
+id: paragraph.dashboard_metrics.default
+targetEntityType: paragraph
+bundle: dashboard_metrics
+mode: default
+content:
+  field_headline_figure:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings:
+      empty_fields:
+        handler: ''
+      ds:
+        ft:
+          id: expert
+          settings:
+            lb: ''
+            prefix: ''
+            lbw-el: ''
+            lbw-cl: ''
+            lbw-at: ''
+            ow: true
+            ow-el: span
+            ow-cl: headline-figure
+            ow-at: ''
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fi-el: ''
+            fi-cl: ''
+            fi-at: ''
+            suffix: ''
+            lbw: false
+            lb-col: false
+            ow-def-at: false
+            ow-def-cl: false
+            fis: false
+            fis-def-at: false
+            fi: false
+            fi-def-at: false
+    type: string
+    region: content
+  field_headline_text:
+    weight: 1
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings:
+      empty_fields:
+        handler: ''
+      ds:
+        ft:
+          id: expert
+          settings:
+            lb: ''
+            prefix: ''
+            lbw-el: ''
+            lbw-cl: ''
+            lbw-at: ''
+            ow: true
+            ow-el: span
+            ow-cl: headline-text
+            ow-at: ''
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fi-el: ''
+            fi-cl: ''
+            fi-at: ''
+            suffix: ''
+            lbw: false
+            lb-col: false
+            ow-def-at: false
+            ow-def-cl: false
+            fis: false
+            fis-def-at: false
+            fi: false
+            fi-def-at: false
+    type: string
+    region: content
+  field_metric:
+    weight: 2
+    label: hidden
+    settings: {  }
+    third_party_settings:
+      empty_fields:
+        handler: ''
+      ds:
+        ft:
+          id: expert
+          settings:
+            lb: ''
+            prefix: ''
+            lbw-el: ''
+            lbw-cl: ''
+            lbw-at: ''
+            ow: true
+            ow-el: div
+            ow-cl: dashboard-metric-text
+            ow-at: ''
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fi-el: ''
+            fi-cl: ''
+            fi-at: ''
+            suffix: ''
+            lbw: false
+            lb-col: false
+            ow-def-at: false
+            ow-def-cl: false
+            fis: false
+            fis-def-at: false
+            fi: false
+            fi-def-at: false
+    type: text_default
+    region: content
+hidden:
+  search_api_excerpt: true

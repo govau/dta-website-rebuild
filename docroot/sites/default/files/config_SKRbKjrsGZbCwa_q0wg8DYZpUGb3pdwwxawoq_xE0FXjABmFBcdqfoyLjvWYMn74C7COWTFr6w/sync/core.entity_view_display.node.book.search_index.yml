@@ -15,7 +15,6 @@ dependencies:
     - field.field.node.book.field_summary
     - field.field.node.book.field_tags
     - field.field.node.book.field_theme
-    - field.field.node.book.field_view
     - node.type.book
   module:
     - ds
@@ -171,5 +170,5 @@ hidden:
   field_short_name: true
   field_summary: true
   field_tags: true
-  field_view: true
   links: true
+  search_api_excerpt: true

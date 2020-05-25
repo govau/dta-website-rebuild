@@ -59,3 +59,4 @@ permissions:
   - 'view latest version'
   - 'view own unpublished content'
   - 'view page revisions'
+  - 'view scheduled content'

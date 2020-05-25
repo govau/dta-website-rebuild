@@ -1,0 +1,30 @@
+uuid: c880e87f-f5d9-494d-bb7f-15e55c77af40
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.latest_updates
+  module:
+    - system
+    - views
+  theme:
+    - seven
+id: seven_views_block__latest_updates_block_1
+theme: seven
+region: content
+weight: -7
+provider: null
+plugin: 'views_block:latest_updates-block_1'
+settings:
+  id: 'views_block:latest_updates-block_1'
+  label: ''
+  provider: views
+  label_display: visible
+  views_label: ''
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: false
+    context_mapping: {  }

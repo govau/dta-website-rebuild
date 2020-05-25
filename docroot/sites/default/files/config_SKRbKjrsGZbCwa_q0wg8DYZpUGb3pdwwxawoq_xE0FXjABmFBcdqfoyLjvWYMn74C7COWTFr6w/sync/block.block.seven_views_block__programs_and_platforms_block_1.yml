@@ -1,0 +1,30 @@
+uuid: f7e1beb7-5b26-4439-8446-61fa1b3a3d60
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.programs_and_platforms
+  module:
+    - system
+    - views
+  theme:
+    - seven
+id: seven_views_block__programs_and_platforms_block_1
+theme: seven
+region: content
+weight: -11
+provider: null
+plugin: 'views_block:programs_and_platforms-block_1'
+settings:
+  id: 'views_block:programs_and_platforms-block_1'
+  label: ''
+  provider: views
+  label_display: visible
+  views_label: ''
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: false
+    context_mapping: {  }

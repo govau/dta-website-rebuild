@@ -1,0 +1,29 @@
+uuid: e64839fc-f951-48c5-b32b-8a29f7b74a86
+langcode: en
+status: true
+dependencies:
+  config:
+    - facets.facet.content_type
+  module:
+    - facets
+    - system
+  theme:
+    - seven
+id: seven_contenttype
+theme: seven
+region: header
+weight: -17
+provider: null
+plugin: 'facet_block:content_type'
+settings:
+  id: 'facet_block:content_type'
+  label: 'Filter by type'
+  provider: facets
+  label_display: visible
+  block_id: contenttype
+visibility:
+  request_path:
+    id: request_path
+    pages: "/news-blogs\r\n/news-blogs/*"
+    negate: false
+    context_mapping: {  }

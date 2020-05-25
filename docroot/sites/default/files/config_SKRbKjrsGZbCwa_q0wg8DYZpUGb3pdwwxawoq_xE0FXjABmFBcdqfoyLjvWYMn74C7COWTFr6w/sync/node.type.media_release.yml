@@ -5,15 +5,28 @@ dependencies:
   module:
     - menu_ui
     - node_title_help_text
+    - scheduler
     - wysiwyg_template
 third_party_settings:
   menu_ui:
     available_menus: {  }
     parent: ''
   node_title_help_text:
-    title_help: 'Add your title here. This must be unique. The site will automatically add the words <em>Media release:</em> before the title. This limits how long your title can be.'
+    title_help: 'Add your title here. This must be unique. Your title is limited to 65 characters. '
   wysiwyg_template:
     default_template: ''
+  scheduler:
+    expand_fieldset: when_required
+    fields_display_mode: vertical_tab
+    publish_enable: true
+    publish_past_date: publish
+    publish_past_date_created: false
+    publish_required: false
+    publish_revision: false
+    publish_touch: false
+    unpublish_enable: true
+    unpublish_required: false
+    unpublish_revision: false
 name: 'Media release'
 type: media_release
 description: 'Use the <em>media release</em> content type to publish media releases on the website. These will appear on the home page along with news and blog items, in search results and on the main ''News and blogs'' page. You cannot include them in menus.'

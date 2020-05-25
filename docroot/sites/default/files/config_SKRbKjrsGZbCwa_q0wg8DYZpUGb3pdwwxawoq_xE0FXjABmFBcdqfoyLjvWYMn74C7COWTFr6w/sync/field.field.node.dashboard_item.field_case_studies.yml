@@ -1,0 +1,43 @@
+uuid: 02c78b9b-3dfd-4486-a91a-9b7642c2537c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_case_studies
+    - node.type.dashboard_item
+    - paragraphs.paragraphs_type.dashboard_case_study
+  module:
+    - entity_reference_revisions
+id: node.dashboard_item.field_case_studies
+field_name: field_case_studies
+entity_type: node
+bundle: dashboard_item
+label: 'Case studies'
+description: 'Use this field to add case studies to the dashboard item.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      dashboard_case_study: dashboard_case_study
+    target_bundles_drag_drop:
+      dashboard_case_study:
+        enabled: true
+        weight: 6
+      dashboard_metrics:
+        weight: 7
+        enabled: false
+      dashboard_metrics_intro:
+        weight: 8
+        enabled: false
+      dss_criterion:
+        weight: 9
+        enabled: false
+      related_documents:
+        weight: 10
+        enabled: false
+field_type: entity_reference_revisions

@@ -17,7 +17,7 @@ third_party_settings:
         slashes: true
         pathauto: true
         transliterate: false
-    redirect: false
+    redirect: true
     retroactive_update: false
     active_updating: true
     file_name:

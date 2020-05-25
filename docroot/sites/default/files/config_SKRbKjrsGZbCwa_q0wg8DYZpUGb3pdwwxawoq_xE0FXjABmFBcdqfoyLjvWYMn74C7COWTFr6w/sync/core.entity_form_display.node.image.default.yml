@@ -7,16 +7,20 @@ dependencies:
     - field.field.node.image.field_type
     - image.style.thumbnail
     - node.type.image
+    - workflows.workflow.external_links
   module:
     - content_moderation
     - field_layout
     - image
     - layout_discovery
     - path
+    - scheduler
+    - scheduler_content_moderation_integration
 third_party_settings:
   field_layout:
     id: layout_onecol
-    settings: {  }
+    settings:
+      label: ''
 id: node.image.default
 targetEntityType: node
 bundle: image
@@ -61,6 +65,18 @@ content:
     weight: 15
     region: content
     third_party_settings: {  }
+  publish_on:
+    type: datetime_timestamp_no_default
+    weight: 30
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  publish_state:
+    type: scheduler_moderation
+    weight: 30
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   status:
     type: boolean_checkbox
     settings:
@@ -90,7 +106,20 @@ content:
       match_operator: CONTAINS
       size: 60
       placeholder: ''
+      match_limit: 10
     region: content
+    third_party_settings: {  }
+  unpublish_on:
+    type: datetime_timestamp_no_default
+    weight: 30
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  unpublish_state:
+    type: scheduler_moderation
+    weight: 30
+    region: content
+    settings: {  }
     third_party_settings: {  }
   url_redirects:
     weight: 50

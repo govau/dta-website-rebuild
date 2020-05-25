@@ -1,0 +1,30 @@
+uuid: 66330e50-dec2-43c2-86bb-b5a34ae15ebe
+langcode: en
+status: false
+dependencies:
+  module:
+    - mailchimp_signup
+    - node
+  theme:
+    - seven
+id: seven_mailchimp_subscription_form_signup_for_updates
+theme: seven
+region: header
+weight: -5
+provider: null
+plugin: 'mailchimp_signup_subscribe_block:sign_up_for_updates'
+settings:
+  id: 'mailchimp_signup_subscribe_block:sign_up_for_updates'
+  label: 'Sign-up for DTA updates'
+  provider: mailchimp_signup
+  label_display: visible
+visibility:
+  node_type:
+    id: node_type
+    bundles:
+      blog_post: blog_post
+      media_release: media_release
+      news_item: news_item
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'

@@ -1,0 +1,11 @@
+uuid: 52b7c0cd-e7ba-4bf3-895e-c786562716e1
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.dashboard_item
+id: node_type_dashboard_item
+action: display_page
+allow_override: 1
+redirect: ''
+redirect_code: 301

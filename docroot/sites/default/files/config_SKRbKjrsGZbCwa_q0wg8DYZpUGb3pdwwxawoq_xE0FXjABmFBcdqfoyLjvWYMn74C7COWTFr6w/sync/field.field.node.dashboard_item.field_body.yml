@@ -1,0 +1,32 @@
+uuid: 144a0377-02dc-403a-9f2b-626b8d604fce
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_body
+    - node.type.dashboard_item
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    full_rich_text: full_rich_text
+    introduction: '0'
+    summary: '0'
+    commenting: '0'
+    administration: '0'
+    html: '0'
+    plain_text: '0'
+    rich_text: '0'
+id: node.dashboard_item.field_body
+field_name: field_body
+entity_type: node
+bundle: dashboard_item
+label: Content
+description: 'This field provides the main content for this content type.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

@@ -12,7 +12,7 @@ dependencies:
     - video_embed_wysiwyg
 name: 'Full rich text'
 format: full_rich_text
-weight: 0
+weight: -7
 filters:
   entity_embed:
     id: entity_embed
@@ -26,16 +26,10 @@ filters:
     status: true
     weight: 0
     settings: {  }
-  filter_caption:
-    id: filter_caption
-    provider: filter
-    status: true
-    weight: 0
-    settings: {  }
   filter_html:
     id: filter_html
     provider: filter
-    status: true
+    status: false
     weight: -10
     settings:
       allowed_html: '<em> <strong> <cite> <blockquote cite> <code> <ul type> <ol start type> <li> <dl> <dt> <dd> <h2 id> <h3 id> <h4 id> <h5 id> <h6 id> <a class href hreflang data-entity-substitution data-entity-type data-entity-uuid title> <sup> <p class> <pre> <div class id> <table class id summary> <caption> <tbody> <thead> <tfoot> <tr class> <col span> <colgroup> <th class rowspan colspan scope> <td class rowspan colspan scope> <figure> <figcaption> <img alt src class data-align data-caption>'
@@ -74,8 +68,26 @@ filters:
       type: default
       auto: ''
       block: '0'
-  TypogrifyFilter:
-    id: TypogrifyFilter
+  url_embed:
+    id: url_embed
+    provider: url_embed
+    status: true
+    weight: 0
+    settings: {  }
+  video_embed_wysiwyg:
+    id: video_embed_wysiwyg
+    provider: video_embed_wysiwyg
+    status: true
+    weight: 0
+    settings: {  }
+  filter_caption:
+    id: filter_caption
+    provider: filter
+    status: true
+    weight: 0
+    settings: {  }
+  typogrify:
+    id: typogrify
     provider: typogrify
     status: false
     weight: 10
@@ -95,15 +107,3 @@ filters:
       arrows: 'a:0:{}'
       fractions: 'a:0:{}'
       quotes: 'a:0:{}'
-  url_embed:
-    id: url_embed
-    provider: url_embed
-    status: true
-    weight: 0
-    settings: {  }
-  video_embed_wysiwyg:
-    id: video_embed_wysiwyg
-    provider: video_embed_wysiwyg
-    status: true
-    weight: 0
-    settings: {  }

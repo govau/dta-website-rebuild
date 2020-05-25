@@ -17,6 +17,7 @@ dependencies:
     - field.field.node.blog_post.field_search_keywords
     - field.field.node.blog_post.field_summary
     - field.field.node.blog_post.field_tags
+    - field.field.node.blog_post.field_title
     - field.field.node.blog_post.field_twitter_image
     - node.type.blog_post
     - responsive_image.styles.index_image
@@ -104,5 +105,7 @@ hidden:
   field_review_date: true
   field_search_keywords: true
   field_tags: true
+  field_title: true
   field_twitter_image: true
   links: true
+  search_api_excerpt: true

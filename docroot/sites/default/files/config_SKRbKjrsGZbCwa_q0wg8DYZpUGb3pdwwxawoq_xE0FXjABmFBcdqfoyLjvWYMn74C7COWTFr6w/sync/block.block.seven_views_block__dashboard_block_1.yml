@@ -1,0 +1,32 @@
+uuid: fd3e5040-8e0a-4260-9395-4cc86a7d3650
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.dashboard
+  module:
+    - system
+    - views
+  theme:
+    - seven
+id: seven_views_block__dashboard_block_1
+theme: seven
+region: content
+weight: -5
+provider: null
+plugin: 'views_block:dashboard-block_1'
+settings:
+  id: 'views_block:dashboard-block_1'
+  label: ''
+  provider: views
+  label_display: visible
+  views_label: ''
+  items_per_page: none
+  context_mapping:
+    field_dashboard_reference_target_id: '@node.node_route_context:node'
+visibility:
+  request_path:
+    id: request_path
+    pages: /digital-transformation-strategy
+    negate: false
+    context_mapping: {  }

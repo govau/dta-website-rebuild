@@ -1,0 +1,33 @@
+uuid: df64140f-6487-44f2-ae7b-80436d992ea6
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.dashboard
+  module:
+    - node
+    - views
+  theme:
+    - dta_gov_au
+id: views_block__dashboard_block_2
+theme: dta_gov_au
+region: content
+weight: -19
+provider: null
+plugin: 'views_block:dashboard-block_2'
+settings:
+  id: 'views_block:dashboard-block_2'
+  label: ''
+  provider: views
+  label_display: visible
+  views_label: ''
+  items_per_page: none
+  context_mapping: {  }
+visibility:
+  node_type:
+    id: node_type
+    bundles:
+      dashboard_item: dashboard_item
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'

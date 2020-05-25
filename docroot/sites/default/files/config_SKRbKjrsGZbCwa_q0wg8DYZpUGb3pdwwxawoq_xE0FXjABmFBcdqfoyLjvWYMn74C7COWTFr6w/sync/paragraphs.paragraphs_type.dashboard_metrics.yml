@@ -1,0 +1,9 @@
+uuid: e31c1270-6246-48be-881b-dd7b9f0148c3
+langcode: en
+status: true
+dependencies: {  }
+id: dashboard_metrics
+label: 'Dashboard metrics'
+icon_uuid: null
+description: 'Use this paragraph type to add metrics to a dashboard.'
+behavior_plugins: {  }

@@ -20,6 +20,13 @@ node_title_validation_config:
   min-wc-book: '1'
   max-wc-book: '25'
   unique-book: 0
+  comma-dashboard_item: 0
+  exclude-dashboard_item: ''
+  min-dashboard_item: '1'
+  max-dashboard_item: '255'
+  min-wc-dashboard_item: '1'
+  max-wc-dashboard_item: '25'
+  unique-dashboard_item: 0
   comma-document: 0
   exclude-document: ''
   min-document: '1'
@@ -76,6 +83,13 @@ node_title_validation_config:
   min-wc-landing_page_level_2: '1'
   max-wc-landing_page_level_2: '25'
   unique-landing_page_level_2: 0
+  comma-media_release: 0
+  exclude-media_release: ''
+  min-media_release: '1'
+  max-media_release: '65'
+  min-wc-media_release: '1'
+  max-wc-media_release: '25'
+  unique-media_release: 1
   comma-miscellaneous_file: 0
   exclude-miscellaneous_file: ''
   min-miscellaneous_file: '1'
@@ -86,7 +100,7 @@ node_title_validation_config:
   comma-news_item: 0
   exclude-news_item: ''
   min-news_item: '1'
-  max-news_item: '65'
+  max-news_item: '255'
   min-wc-news_item: '1'
   max-wc-news_item: '25'
   unique-news_item: 1
@@ -104,6 +118,13 @@ node_title_validation_config:
   min-wc-platforms_and_services: '1'
   max-wc-platforms_and_services: '25'
   unique-platforms_and_services: 0
+  comma-presentation: 0
+  exclude-presentation: ''
+  min-presentation: '1'
+  max-presentation: '255'
+  min-wc-presentation: '1'
+  max-wc-presentation: '25'
+  unique-presentation: 0
   comma-roadmap_2_user_experience_: 0
   exclude-roadmap_2_user_experience_: ''
   min-roadmap_2_user_experience_: '1'
@@ -111,6 +132,13 @@ node_title_validation_config:
   min-wc-roadmap_2_user_experience_: '1'
   max-wc-roadmap_2_user_experience_: '25'
   unique-roadmap_2_user_experience_: 0
+  comma-speaker_bio: 0
+  exclude-speaker_bio: ''
+  min-speaker_bio: '1'
+  max-speaker_bio: '255'
+  min-wc-speaker_bio: '1'
+  max-wc-speaker_bio: '25'
+  unique-speaker_bio: 0
   unique: 0
 _core:
   default_config_hash: 5p2lzpRAbNnhbgkvO2MKkxtc2QOBeMRkWubKyc7HYFE

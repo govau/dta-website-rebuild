@@ -1,0 +1,294 @@
+uuid: 248aaa5d-53ad-4ee6-991b-a63b6e741f43
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.full
+    - field.field.node.dashboard_item.field_body
+    - field.field.node.dashboard_item.field_case_studies
+    - field.field.node.dashboard_item.field_dashboard_reference
+    - field.field.node.dashboard_item.field_image
+    - field.field.node.dashboard_item.field_image_caption
+    - field.field.node.dashboard_item.field_introduction
+    - field.field.node.dashboard_item.field_metric
+    - field.field.node.dashboard_item.field_progress
+    - field.field.node.dashboard_item.field_summary
+    - field.field.node.dashboard_item.field_theme
+    - field.field.node.dashboard_item.field_weight
+    - node.type.dashboard_item
+  module:
+    - ds
+    - ds_chains
+    - empty_fields
+    - entity_reference_revisions
+    - field_group
+    - image
+    - text
+    - user
+third_party_settings:
+  ds:
+    layout:
+      id: layout_onecol
+      library: layout_discovery/onecol
+      disable_css: false
+      entity_classes: no_classes
+      settings: {  }
+    regions:
+      content:
+        - content_moderation_control
+        - field_progress
+        - field_introduction
+        - field_metric
+        - field_image
+        - group_image_and_caption
+        - field_body
+        - field_image_caption
+        - field_case_studies
+  ds_chains:
+    fields: {  }
+  field_group:
+    group_image_and_caption:
+      children:
+        - field_image
+        - field_image_caption
+      parent_name: ''
+      weight: 4
+      format_type: html_element
+      format_settings:
+        id: ''
+        classes: au-hero
+        element: figure
+        show_label: false
+        label_element: h3
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+      label: 'Image and caption'
+      region: content
+id: node.dashboard_item.full
+targetEntityType: node
+bundle: dashboard_item
+mode: full
+content:
+  content_moderation_control:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_body:
+    weight: 5
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_case_studies:
+    type: entity_reference_revisions_entity_view
+    weight: 6
+    region: content
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings:
+      empty_fields:
+        handler: ''
+      ds:
+        ds_limit: ''
+        ft:
+          id: expert
+          settings:
+            lb: ''
+            prefix: ''
+            lbw: true
+            lbw-el: h2
+            lbw-cl: ''
+            lbw-at: ''
+            ow-el: ''
+            ow-cl: ''
+            ow-at: ''
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fi-el: ''
+            fi-cl: ''
+            fi-at: ''
+            suffix: ''
+            lb-col: false
+            ow: false
+            ow-def-at: false
+            ow-def-cl: false
+            fis: false
+            fis-def-at: false
+            fi: false
+            fi-def-at: false
+  field_image:
+    weight: 4
+    label: hidden
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  field_image_caption:
+    weight: 5
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings:
+      empty_fields:
+        handler: ''
+      ds:
+        ft:
+          id: expert
+          settings:
+            lb: ''
+            prefix: ''
+            lbw-el: ''
+            lbw-cl: ''
+            lbw-at: ''
+            ow-el: ''
+            ow-cl: ''
+            ow-at: ''
+            fis: true
+            fis-el: figcaption
+            fis-cl: ''
+            fis-at: ''
+            fi: true
+            fi-el: p
+            fi-cl: ''
+            fi-at: ''
+            suffix: ''
+            lbw: false
+            lb-col: false
+            ow: false
+            ow-def-at: false
+            ow-def-cl: false
+            fis-def-at: false
+            fi-def-at: false
+    type: string
+    region: content
+  field_introduction:
+    weight: 2
+    label: hidden
+    settings: {  }
+    third_party_settings:
+      empty_fields:
+        handler: ''
+      ds:
+        ft:
+          id: expert
+          settings:
+            lb: ''
+            prefix: ''
+            lbw-el: ''
+            lbw-cl: ''
+            lbw-at: ''
+            ow-el: ''
+            ow-cl: ''
+            ow-at: ''
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fi: true
+            fi-el: p
+            fi-cl: au-introduction
+            fi-at: ''
+            suffix: ''
+            lbw: false
+            lb-col: false
+            ow: false
+            ow-def-at: false
+            ow-def-cl: false
+            fis: false
+            fis-def-at: false
+            fi-def-at: false
+    type: text_default
+    region: content
+  field_metric:
+    type: entity_reference_revisions_entity_view
+    weight: 3
+    region: content
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings:
+      empty_fields:
+        handler: ''
+      ds:
+        ds_limit: ''
+        ft:
+          id: expert
+          settings:
+            lb: ''
+            prefix: ''
+            lbw-el: ''
+            lbw-cl: ''
+            lbw-at: ''
+            ow: true
+            ow-el: div
+            ow-cl: metric-container
+            ow-at: ''
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fi-el: ''
+            fi-cl: ''
+            fi-at: ''
+            suffix: ''
+            lbw: false
+            lb-col: false
+            ow-def-at: false
+            ow-def-cl: false
+            fis: false
+            fis-def-at: false
+            fi: false
+            fi-def-at: false
+  field_progress:
+    type: entity_reference_label
+    weight: 1
+    region: content
+    label: inline
+    settings:
+      link: false
+    third_party_settings:
+      empty_fields:
+        handler: ''
+      ds:
+        ft:
+          id: expert
+          settings:
+            lb: 'Objective status'
+            prefix: ''
+            lbw: true
+            lbw-el: div
+            lbw-cl: dashboard-item-progress-label
+            lbw-at: ''
+            ow: true
+            ow-el: div
+            ow-cl: dashboard-theme-wrapper
+            ow-at: ''
+            fis: true
+            fis-el: div
+            fis-cl: 'dashboard-item-progress id-[node:field_progress:entity:tid]'
+            fis-at: ''
+            fi-el: ''
+            fi-cl: ''
+            fi-at: ''
+            suffix: ''
+            lb-col: false
+            ow-def-at: false
+            ow-def-cl: false
+            fis-def-at: false
+            fi: false
+            fi-def-at: false
+hidden:
+  field_dashboard_reference: true
+  field_summary: true
+  field_theme: true
+  field_weight: true
+  links: true
+  search_api_excerpt: true

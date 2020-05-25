@@ -1,0 +1,11 @@
+uuid: f25da730-d2c8-40bb-a40b-ffad42dc4e67
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.home_page
+id: node_type_home_page
+action: display_page
+allow_override: 1
+redirect: ''
+redirect_code: 301

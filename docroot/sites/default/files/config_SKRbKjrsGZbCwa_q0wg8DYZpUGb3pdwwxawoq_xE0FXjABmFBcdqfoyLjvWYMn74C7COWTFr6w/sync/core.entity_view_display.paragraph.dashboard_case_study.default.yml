@@ -1,0 +1,119 @@
+uuid: 14b9daa8-1c0b-44d5-aacc-f5833dab32d9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.dashboard_case_study.field_agency
+    - field.field.paragraph.dashboard_case_study.field_dashboard_case_study_text
+    - field.field.paragraph.dashboard_case_study.field_title
+    - paragraphs.paragraphs_type.dashboard_case_study
+  module:
+    - ds
+    - ds_chains
+    - empty_fields
+    - text
+third_party_settings:
+  ds:
+    layout:
+      id: layout_onecol
+      library: layout_discovery/onecol
+      disable_css: false
+      entity_classes: no_classes
+      settings: {  }
+    regions:
+      content:
+        - field_title
+        - field_dashboard_case_study_text
+        - field_agency
+  ds_chains:
+    fields: {  }
+id: paragraph.dashboard_case_study.default
+targetEntityType: paragraph
+bundle: dashboard_case_study
+mode: default
+content:
+  field_agency:
+    weight: 2
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings:
+      empty_fields:
+        handler: ''
+      ds:
+        ft:
+          id: expert
+          settings:
+            lb: ''
+            prefix: ''
+            lbw-el: ''
+            lbw-cl: ''
+            lbw-at: ''
+            ow-el: ''
+            ow-cl: ''
+            ow-at: ''
+            fis: true
+            fis-el: p
+            fis-cl: case-study-agency
+            fis-at: ''
+            fi: true
+            fi-el: em
+            fi-cl: ''
+            fi-at: ''
+            suffix: ''
+            lbw: false
+            lb-col: false
+            ow: false
+            ow-def-at: false
+            ow-def-cl: false
+            fis-def-at: false
+            fi-def-at: false
+    type: string
+    region: content
+  field_dashboard_case_study_text:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_title:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings:
+      empty_fields:
+        handler: ''
+      ds:
+        ft:
+          id: expert
+          settings:
+            lb: ''
+            prefix: ''
+            lbw-el: ''
+            lbw-cl: ''
+            lbw-at: ''
+            ow-el: ''
+            ow-cl: ''
+            ow-at: ''
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fi: true
+            fi-el: h3
+            fi-cl: ''
+            fi-at: ''
+            suffix: ''
+            lbw: false
+            lb-col: false
+            ow: false
+            ow-def-at: false
+            ow-def-cl: false
+            fis: false
+            fis-def-at: false
+            fi-def-at: false
+    type: string
+    region: content
+hidden:
+  search_api_excerpt: true
