@@ -211,7 +211,7 @@
 		"drupal/weight": "3.1",
 		"drupal/wysiwyg_template": "2.3",
 		"drush/drush": "9.3.0",
-		"govau/dta-gov-au": "1.14.0",
+		"govau/dta-gov-au": "1.13.5",
 		"govau/dta_website_image_plugin": "^1.1",
 		"govau/tadpole": "^1.1",
 		"harvesthq/chosen": "^1.8",
@@ -296,9 +296,6 @@
 			"include": [
 				"docroot/modules/contrib/webform/composer.libraries.json"
 			]
-		},
-		"symfony": {
-			"require": "3.4.*"
 		}
 	},
 	"autoload": {
