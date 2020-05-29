@@ -26,6 +26,12 @@ filters:
     status: true
     weight: 0
     settings: {  }
+  filter_caption:
+    id: filter_caption
+    provider: filter
+    status: true
+    weight: 0
+    settings: {  }
   filter_html:
     id: filter_html
     provider: filter
@@ -77,12 +83,6 @@ filters:
   video_embed_wysiwyg:
     id: video_embed_wysiwyg
     provider: video_embed_wysiwyg
-    status: true
-    weight: 0
-    settings: {  }
-  filter_caption:
-    id: filter_caption
-    provider: filter
     status: true
     weight: 0
     settings: {  }

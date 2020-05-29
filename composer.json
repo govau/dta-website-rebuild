@@ -142,7 +142,7 @@
 		"drupal/ds_chains": "1.0",
 		"drupal/dynamic_entity_reference": "1.10",
 		"drupal/editor_advanced_link": "1.8",
-		"drupal/empty_fields": "dev-1.x",
+		"drupal/empty_fields": "1.0-beta1",
 		"drupal/entity_browser": "2.5",
 		"drupal/entity_embed": "1.1",
 		"drupal/entity_reference_revisions": "1.8",
@@ -224,7 +224,7 @@
 		"drupal/weight": "3.1",
 		"drupal/wysiwyg_template": "2.3",
 		"drush/drush": "9.3.0",
-		"govau/dta-gov-au": "1.13.5",
+		"govau/dta-gov-au": "1.15.0",
 		"govau/dta_website_image_plugin": "^1.1",
 		"govau/dta_website_slack_integration": "^1.1",
 		"govau/tadpole": "^1.1",
@@ -277,12 +277,6 @@
 			"drupal/swiftmailer": {
 				"Unit Testing is failing on testMassageMessageBody()": "https://www.drupal.org/files/issues/2018-03-13/swiftmailer-unittest.patch"
 			},
-			"drupal/typogrify": {
-				"Invalid placeholder (version) in string": "https://www.drupal.org/files/issues/2018-03-16/2953490-invalid-placeholder-fix.patch"
-			},
-			"drupal/empty_fields": {
-				"Plugin form not shown": "https://www.drupal.org/files/issues/2019-10-22/2927913-18.patch"
-			},
 			"drupal/core": {
 				"Cannot use relationship for rendered entity on Views": "https://www.drupal.org/files/issues/2019-10-28/2457999-223.patch",
 				"Views RSS feeds have validation issues": "https://www.drupal.org/files/issues/d8-rss-validation-atom-link-missing-1337894-25.patch",
@@ -313,6 +307,9 @@
 			"include": [
 				"docroot/modules/contrib/webform/composer.libraries.json"
 			]
+		},
+		"symfony": {
+			"require": "3.4.*"
 		}
 	},
 	"autoload": {
@@ -346,7 +343,8 @@
 		"nuke": "rm -r -f bin docroot vendor"
 	},
 	"suggest": {
-		"hirak/prestissimo": "^0.3"
+		"hirak/prestissimo": "^0.3",
+		"rubenrua/symfony-clean-tags-composer-plugin":"^1.0"
 	},
 	"minimum-stability": "dev",
 	"prefer-stable": true
