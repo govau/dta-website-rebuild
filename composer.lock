@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9dbae91335e9d7849ee59fe30ea7dde2",
+    "content-hash": "b1241a4f89088b45a96b36a7c91e2f28",
     "packages": [
         {
             "name": "algolia/places",
@@ -9977,6 +9977,15 @@
             "type": "drupal-custom-module"
         },
         {
+            "name": "govau/dta_website_slack_integration",
+            "version": "1.1.1",
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/govau/dta_website_slack_integration/releases/download/v1.1.1/dta_website_slack_integration_v.1.1.1.zip"
+            },
+            "type": "drupal-custom-module"
+        },
+        {
             "name": "govau/tadpole",
             "version": "1.1",
             "source": {
@@ -17257,6 +17266,5 @@
     "platform": {
         "php": ">=7.1.0"
     },
-    "platform-dev": [],
-    "plugin-api-version": "1.1.0"
+    "platform-dev": []
 }
