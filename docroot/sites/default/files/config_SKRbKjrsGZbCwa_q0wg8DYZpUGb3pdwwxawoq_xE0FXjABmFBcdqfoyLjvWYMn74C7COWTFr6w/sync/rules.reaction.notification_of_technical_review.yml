@@ -54,47 +54,11 @@ expression:
     actions:
       -
         id: rules_action
-        uuid: b34022ee-4634-4b0a-a46d-aa9eba2300df
+        uuid: 963a3fbf-adc5-46b8-ac75-e3e43fb43ec8
         context_values:
-          roles:
-            - technical_reviewer
-          subject: 'Content available for technical review on dta.gov.au'
-          message: "Hi! \r\n\r\n[node:title] is ready for review at [node:url] \r\n\r\nYou may need to check the latest version at [node:url:unaliased]/latest\r\n\r\nJump in there now! \r\n\r\nWith love,\r\ndta.gov.au"
-        context_mapping:
-          entity: node
-        context_processors:
-          roles:
-            rules_tokens: {  }
-          subject:
-            rules_tokens: {  }
-          message:
-            rules_tokens: {  }
-        provides_mapping: {  }
-        action_id: role_email_action
-      -
-        id: rules_action
-        uuid: 1a565125-dae0-4165-8f4d-cc6095a68dc4
-        context_values:
-          message: 'Moderation state is now ''Technical review''. An email has been sent to the ''Technical Reviewer'' role.'
-          type: status
-          repeat: null
-        context_mapping: {  }
-        context_processors:
-          message:
-            rules_tokens: {  }
-          type:
-            rules_tokens: {  }
-          repeat:
-            rules_tokens: {  }
-        provides_mapping: {  }
-        action_id: rules_system_message
-      -
-        id: rules_action
-        uuid: 88dad593-5eaf-4cf2-8b0f-7c36dbb23da6
-        context_values:
-          message: '*Lo!* {{ node.title.value }} is available for technical review at {{ node | entity_url | raw }}. Take care, for there may also be a latest version at {{ node.url ~ ''/latest'' }}, which you would do well to check.'
+          message: testing
           channel: '#dtagovau-authors'
-          username: ''
+          username: 'Ventrutio the Flowbot'
         context_mapping: {  }
         context_processors:
           message:
