@@ -930,7 +930,7 @@ if(isset($_ENV['VCAP_SERVICES'])) {
   }
 
   // Set the relevant settings.
-  $config['slack.settings']['webhook_url'] = $service[0]['credentials']['webhook_url'];
+  $config['slack.settings']['slack_webhook_url'] = $service[0]['credentials']['slack_webhook_url'];
 }
 
 $settings['install_profile'] = 'govcms';
