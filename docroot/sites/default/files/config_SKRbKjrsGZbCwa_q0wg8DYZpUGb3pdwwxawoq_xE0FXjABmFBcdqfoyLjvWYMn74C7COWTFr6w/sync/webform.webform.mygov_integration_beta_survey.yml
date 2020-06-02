@@ -12,7 +12,7 @@ close: null
 weight: 0
 uid: 1
 template: false
-archive: false
+archive: true
 id: mygov_integration_beta_survey
 title: 'myGov integration beta survey'
 description: 'A form for users to provide feedback on the beta.'
