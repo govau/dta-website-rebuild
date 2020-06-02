@@ -1,6 +1,6 @@
 uuid: f9bf660e-15d2-4372-ba3d-56b3fd5f6166
 langcode: en
-status: open
+status: closed
 dependencies:
   module:
     - honeypot
@@ -12,7 +12,7 @@ close: null
 weight: 0
 uid: 1
 template: false
-archive: true
+archive: false
 id: mygov_integration_beta_survey
 title: 'myGov integration beta survey'
 description: 'A form for users to provide feedback on the beta.'
