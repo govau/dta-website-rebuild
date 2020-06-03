@@ -51,21 +51,4 @@ expression:
   actions:
     id: rules_action_set
     uuid: a766d393-152f-4c01-8e85-baf311c0d3bd
-    actions:
-      -
-        id: rules_action
-        uuid: 963a3fbf-adc5-46b8-ac75-e3e43fb43ec8
-        context_values:
-          message: testing
-          channel: '#dtagovau-authors'
-          username: 'Ventrutio the Flowbot'
-        context_mapping: {  }
-        context_processors:
-          message:
-            rules_tokens: {  }
-          channel:
-            rules_tokens: {  }
-          username:
-            rules_tokens: {  }
-        provides_mapping: {  }
-        action_id: rules_slack_send_message
+    actions: {  }
