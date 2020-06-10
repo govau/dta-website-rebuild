@@ -66,10 +66,10 @@
 		"type": "package",
 		"package": {
 				"name": "govau/dta_website_slack_integration",
-				"version": "1.2.0",
+				"version": "1.2.1",
 				"type": "drupal-custom-module",
 				"dist": {
-						"url": "https://github.com/govau/dta_website_slack_integration/releases/download/v1.2.0/dta_website_slack_integration_v1.2.0.zip",
+						"url": "https://github.com/govau/dta_website_slack_integration/releases/download/v1.2.1/dta_website_slack_integration_v1.2.1.zip",
 						"type": "zip"
 				}
 		}
@@ -226,7 +226,7 @@
 		"drush/drush": "9.3.0",
 		"govau/dta-gov-au": "1.15.1",
 		"govau/dta_website_image_plugin": "^1.1",
-		"govau/dta_website_slack_integration": "1.2.0",
+		"govau/dta_website_slack_integration": "1.2.1",
 		"govau/tadpole": "^1.1",
 		"harvesthq/chosen": "^1.8",
 		"imperator99/superfish": "2.3",
