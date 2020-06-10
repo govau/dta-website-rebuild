@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2e36ec00993d706036d1639e4f9be957",
+    "content-hash": "221bc69e682f5992cba9dadb27b0d540",
     "packages": [
         {
             "name": "algolia/places",
@@ -2413,29 +2413,29 @@
         },
         {
             "name": "drupal/bigmenu",
-            "version": "1.0.0-alpha3",
+            "version": "2.0.0-rc1",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/bigmenu.git",
-                "reference": "8.x-1.0-alpha3"
+                "reference": "2.0.0-rc1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/bigmenu-8.x-1.0-alpha3.zip",
-                "reference": "8.x-1.0-alpha3",
-                "shasum": "5761f224bf86fe9927420e21d706b9d73fd7b8dd"
+                "url": "https://ftp.drupal.org/files/projects/bigmenu-2.0.0-rc1.zip",
+                "reference": "2.0.0-rc1",
+                "shasum": "56981f40cb31448061c7c53ca3172435875b4c5d"
             },
             "require": {
-                "drupal/core": "*"
+                "drupal/core": "^8 || ^9"
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-1.0-alpha3",
-                    "datestamp": "1581892352",
+                    "version": "2.0.0-rc1",
+                    "datestamp": "1591655675",
                     "security-coverage": {
                         "status": "not-covered",
-                        "message": "Alpha releases are not covered by Drupal security advisories."
+                        "message": "RC releases are not covered by Drupal security advisories."
                     }
                 }
             },
@@ -3130,16 +3130,16 @@
         },
         {
             "name": "drupal/core",
-            "version": "8.8.6",
+            "version": "8.9.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal/core.git",
-                "reference": "a5daf2aa45bbc72da72e1e64d5261f746ffb508c"
+                "reference": "f90882ab0723becda2333e4d33e1a6ab27cb8f0c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drupal/core/zipball/a5daf2aa45bbc72da72e1e64d5261f746ffb508c",
-                "reference": "a5daf2aa45bbc72da72e1e64d5261f746ffb508c",
+                "url": "https://api.github.com/repos/drupal/core/zipball/f90882ab0723becda2333e4d33e1a6ab27cb8f0c",
+                "reference": "f90882ab0723becda2333e4d33e1a6ab27cb8f0c",
                 "shasum": ""
             },
             "require": {
@@ -3163,16 +3163,19 @@
                 "ext-tokenizer": "*",
                 "ext-xml": "*",
                 "guzzlehttp/guzzle": "^6.3",
+                "laminas/laminas-diactoros": "^1.8",
+                "laminas/laminas-feed": "^2.12",
                 "masterminds/html5": "^2.1",
                 "pear/archive_tar": "^1.4.9",
                 "php": ">=7.0.8",
+                "psr/log": "^1.0",
                 "stack/builder": "^1.0",
                 "symfony-cmf/routing": "^1.4",
                 "symfony/class-loader": "~3.4.0",
                 "symfony/console": "~3.4.0",
                 "symfony/dependency-injection": "~3.4.26",
                 "symfony/event-dispatcher": "~3.4.0",
-                "symfony/http-foundation": "~3.4.27",
+                "symfony/http-foundation": "~3.4.35",
                 "symfony/http-kernel": "~3.4.14",
                 "symfony/polyfill-iconv": "^1.0",
                 "symfony/process": "~3.4.0",
@@ -3183,9 +3186,7 @@
                 "symfony/validator": "~3.4.0",
                 "symfony/yaml": "~3.4.5",
                 "twig/twig": "^1.38.2",
-                "typo3/phar-stream-wrapper": "^3.1.3",
-                "zendframework/zend-diactoros": "^1.8",
-                "zendframework/zend-feed": "^2.12"
+                "typo3/phar-stream-wrapper": "^3.1.3"
             },
             "conflict": {
                 "drupal/pathauto": "<1.6",
@@ -3335,7 +3336,6 @@
                     }
                 },
                 "patches_applied": {
-                    "Cannot use relationship for rendered entity on Views": "https://www.drupal.org/files/issues/2019-10-28/2457999-223.patch",
                     "Views RSS feeds have validation issues": "https://www.drupal.org/files/issues/d8-rss-validation-atom-link-missing-1337894-25.patch",
                     "Allow users with access to unpublished nodes to create unpublished books": "https://www.drupal.org/files/issues/2019-04-03/26552-144.patch",
                     "Cannot save unpublished versions of published content for users without manage book privileges": "https://www.drupal.org/files/issues/2918537-36.patch",
@@ -3363,7 +3363,7 @@
                 "GPL-2.0-or-later"
             ],
             "description": "Drupal is an open source content management platform powering millions of websites and applications.",
-            "time": "2020-05-20T08:22:02+00:00"
+            "time": "2020-06-03T16:44:36+00:00"
         },
         {
             "name": "drupal/ctools",
@@ -17321,7 +17321,6 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "drupal/bigmenu": 15,
         "drupal/context_metadata": 20,
         "drupal/google_analytics": 20,
         "drupal/ie8": 20,
