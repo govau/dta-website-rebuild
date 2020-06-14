@@ -1,6 +1,6 @@
 uuid: f9bf660e-15d2-4372-ba3d-56b3fd5f6166
 langcode: en
-status: open
+status: closed
 dependencies:
   module:
     - honeypot

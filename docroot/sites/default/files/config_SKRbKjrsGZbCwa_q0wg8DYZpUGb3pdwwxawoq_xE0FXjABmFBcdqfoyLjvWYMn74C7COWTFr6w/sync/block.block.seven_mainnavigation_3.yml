@@ -26,7 +26,7 @@ settings:
   follow_parent: child
   level: 2
   depth: 0
-  expand: 0
+  expand: false
   parent: 'main:'
   suggestion: main
 visibility:
