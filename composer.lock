@@ -9958,10 +9958,10 @@
         },
         {
             "name": "govau/dta_website_slack_integration",
-            "version": "1.2.2",
+            "version": "1.2.3",
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/govau/dta_website_slack_integration/releases/download/v1.2.2/dta_website_slack_integration_v1.2.2.zip"
+                "url": "https://github.com/govau/dta_website_slack_integration/releases/download/v1.2.3/dta_website_slack_integration_v1.2.3.zip"
             },
             "type": "drupal-custom-module"
         },
