@@ -98,12 +98,13 @@ datasource_settings:
       default: true
       selected: {  }
 processor_settings:
+  rendered_item: {  }
   add_url: {  }
   aggregated_field: {  }
+  language_with_fallback: {  }
   content_access:
     weights:
       preprocess_query: -30
-  rendered_item: {  }
 tracker_settings:
   default:
     indexing_order: lifo

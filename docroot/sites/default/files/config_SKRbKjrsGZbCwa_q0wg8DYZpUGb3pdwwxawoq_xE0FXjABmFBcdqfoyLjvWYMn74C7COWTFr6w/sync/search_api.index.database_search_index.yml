@@ -66,7 +66,6 @@ field_settings:
         - field.storage.node.field_tags
       module:
         - taxonomy
-        - taxonomy
   node_grants:
     label: 'Node access information'
     property_path: search_api_node_grants
@@ -145,12 +144,9 @@ datasource_settings:
       default: true
       selected: {  }
 processor_settings:
+  rendered_item: {  }
   add_url: {  }
   aggregated_field: {  }
-  content_access:
-    weights:
-      preprocess_query: -50
-  entity_status: {  }
   highlight:
     highlight: always
     highlight_partial: false
@@ -161,7 +157,8 @@ processor_settings:
     suffix: '</strong>'
     weights:
       postprocess_query: 0
-  html_filter:
+  entity_status: {  }
+  tokenizer:
     all_fields: true
     fields:
       - field_body
@@ -171,54 +168,12 @@ processor_settings:
       - name
       - rendered_item
       - title
-    title: true
-    alt: true
-    tags:
-      b: 2
-      h1: 5
-      h2: 3
-      h3: 2
-      strong: 2
+    spaces: ''
+    overlap_cjk: 1
+    minimum_word_size: '3'
     weights:
-      preprocess_index: -48
-      preprocess_query: -48
-  ignore_character:
-    all_fields: true
-    fields:
-      - field_body
-      - field_introduction
-      - field_search_keywords
-      - field_summary
-      - name
-      - rendered_item
-      - title
-    ignorable: '[''¿¡!?,.:;]'
-    ignorable_classes:
-      - Pc
-      - Pd
-      - Pe
-      - Pf
-      - Pi
-      - Po
-      - Ps
-    weights:
-      preprocess_index: -46
-      preprocess_query: -46
-  ignorecase:
-    all_fields: true
-    fields:
-      - field_body
-      - field_introduction
-      - field_search_keywords
-      - field_summary
-      - name
-      - rendered_item
-      - title
-    weights:
-      preprocess_index: -49
-      preprocess_query: -49
-  language_with_fallback: {  }
-  rendered_item: {  }
+      preprocess_index: -47
+      preprocess_query: -47
   stopwords:
     all_fields: true
     fields:
@@ -273,7 +228,7 @@ processor_settings:
     weights:
       preprocess_index: -45
       preprocess_query: -44
-  tokenizer:
+  ignorecase:
     all_fields: true
     fields:
       - field_body
@@ -283,12 +238,31 @@ processor_settings:
       - name
       - rendered_item
       - title
-    spaces: ''
-    overlap_cjk: 1
-    minimum_word_size: '3'
     weights:
-      preprocess_index: -47
-      preprocess_query: -47
+      preprocess_index: -49
+      preprocess_query: -49
+  ignore_character:
+    all_fields: true
+    fields:
+      - field_body
+      - field_introduction
+      - field_search_keywords
+      - field_summary
+      - name
+      - rendered_item
+      - title
+    ignorable: '[''¿¡!?,.:;]'
+    ignorable_classes:
+      - Pc
+      - Pd
+      - Pe
+      - Pf
+      - Pi
+      - Po
+      - Ps
+    weights:
+      preprocess_index: -46
+      preprocess_query: -46
   type_boost:
     boosts:
       'entity:node':
@@ -308,6 +282,31 @@ processor_settings:
           speaker_bio: !!float 1
     weights:
       preprocess_index: -43
+  language_with_fallback: {  }
+  content_access:
+    weights:
+      preprocess_query: -50
+  html_filter:
+    all_fields: true
+    fields:
+      - field_body
+      - field_introduction
+      - field_search_keywords
+      - field_summary
+      - name
+      - rendered_item
+      - title
+    title: true
+    alt: true
+    tags:
+      b: 2
+      h1: 5
+      h2: 3
+      h3: 2
+      strong: 2
+    weights:
+      preprocess_index: -48
+      preprocess_query: -48
 tracker_settings:
   default:
     indexing_order: lifo

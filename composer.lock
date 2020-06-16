@@ -8,10 +8,10 @@
     "packages": [
         {
             "name": "algolia/places",
-            "version": "1.17.1",
+            "version": "1.18.2",
             "dist": {
                 "type": "tar",
-                "url": "https://registry.npmjs.org/places.js/-/places.js-1.17.1.tgz"
+                "url": "https://registry.npmjs.org/places.js/-/places.js-1.18.2.tgz"
             },
             "require": {
                 "composer/installers": "~1.0"
@@ -75,16 +75,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.142.1",
+            "version": "3.142.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "ab92ec111132712417cc97be06275553b10a76ab"
+                "reference": "92cf325bfabc80d919282729a25063876a73205e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/ab92ec111132712417cc97be06275553b10a76ab",
-                "reference": "ab92ec111132712417cc97be06275553b10a76ab",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/92cf325bfabc80d919282729a25063876a73205e",
+                "reference": "92cf325bfabc80d919282729a25063876a73205e",
                 "shasum": ""
             },
             "require": {
@@ -156,7 +156,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2020-06-12T18:16:31+00:00"
+            "time": "2020-06-15T18:17:20+00:00"
         },
         {
             "name": "caxy/php-htmldiff",
@@ -373,10 +373,10 @@
         },
         {
             "name": "codemirror/codemirror",
-            "version": "5.51.0",
+            "version": "5.53.2",
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/components/codemirror/archive/5.51.0.zip"
+                "url": "https://github.com/components/codemirror/archive/5.53.2.zip"
             },
             "require": {
                 "composer/installers": "~1.0"
@@ -7921,9 +7921,6 @@
             },
             "type": "drupal-module",
             "extra": {
-                "branch-alias": {
-                    "dev-1.x": "1.x-dev"
-                },
                 "drupal": {
                     "version": "8.x-1.15",
                     "datestamp": "1573122785",
@@ -7987,9 +7984,6 @@
             },
             "type": "drupal-module",
             "extra": {
-                "branch-alias": {
-                    "dev-1.x": "1.x-dev"
-                },
                 "drupal": {
                     "version": "8.x-1.2",
                     "datestamp": "1552333980",
@@ -10475,10 +10469,10 @@
         },
         {
             "name": "jquery/image-picker",
-            "version": "0.3.0",
+            "version": "0.3.1",
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/rvera/image-picker/archive/0.3.0.zip"
+                "url": "https://github.com/rvera/image-picker/archive/0.3.1.zip"
             },
             "require": {
                 "composer/installers": "~1.0"
@@ -10535,10 +10529,10 @@
         },
         {
             "name": "jquery/select2",
-            "version": "4.0.12",
+            "version": "4.0.13",
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/select2/select2/archive/4.0.12.zip"
+                "url": "https://github.com/select2/select2/archive/4.0.13.zip"
             },
             "require": {
                 "composer/installers": "~1.0"
@@ -10550,10 +10544,10 @@
         },
         {
             "name": "jquery/textcounter",
-            "version": "0.8.0",
+            "version": "0.9.0",
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/ractoon/jQuery-Text-Counter/archive/0.8.0.zip"
+                "url": "https://github.com/ractoon/jQuery-Text-Counter/archive/0.9.0.zip"
             },
             "require": {
                 "composer/installers": "~1.0"
@@ -10565,10 +10559,10 @@
         },
         {
             "name": "jquery/timepicker",
-            "version": "1.13.0",
+            "version": "1.13.10",
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/jonthornton/jquery-timepicker/archive/1.13.0.zip"
+                "url": "https://github.com/jonthornton/jquery-timepicker/archive/1.13.10.zip"
             },
             "require": {
                 "composer/installers": "~1.0"
