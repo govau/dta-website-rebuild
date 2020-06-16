@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6e045e515218cf3b20254586a052155a",
+    "content-hash": "edcc9d2347d4a1639b8d11beb6acb100",
     "packages": [
         {
             "name": "algolia/places",
@@ -9949,10 +9949,10 @@
         },
         {
             "name": "govau/dta_website_image_plugin",
-            "version": "1.1.1",
+            "version": "1.1.0",
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/govau/dta_website_image_plugin/releases/download/v1.1.1/dta_website_image_plugin_v1.1.1.zip"
+                "url": "https://github.com/govau/dta_website_image_plugin/releases/download/v1.1.0/dta_website_image_plugin_v1.0.0.zip"
             },
             "type": "drupal-custom-module"
         },
