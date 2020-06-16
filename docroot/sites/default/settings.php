@@ -911,6 +911,28 @@ if(isset($_ENV['VCAP_SERVICES'])) {
   $config['swiftmailer.transport']['smtp_credentials']['swiftmailer']['password'] = $service[0]['credentials']['key'];
 }
 
+/*
+* The following code block gets the Slack credentials from the environment.
+* If a local.settings.php file exists, it will read that instead so make sure
+* that that file is not pushed to anything.
+*/
+
+if(isset($_ENV['VCAP_SERVICES'])) {
+  $service_blob = json_decode($_ENV['VCAP_SERVICES'], true);
+  $service = array();
+  foreach($service_blob as $service_provider => $service_list) {
+    foreach ($service_list as $some_service) {
+      // look for a service where the name is 'ups-website-redev'
+      if ($some_service['name'] === 'ups-slack') {
+        $service[] = $some_service;
+      }
+    }
+  }
+
+  // Set the relevant settings.
+  $config['slack.settings']['slack_webhook_url'] = $service[0]['credentials']['slack_webhook_url'];
+}
+
 $settings['install_profile'] = 'govcms';
 $config_directories['sync'] = 'sites/default/files/config_SKRbKjrsGZbCwa_q0wg8DYZpUGb3pdwwxawoq_xE0FXjABmFBcdqfoyLjvWYMn74C7COWTFr6w/sync';
 

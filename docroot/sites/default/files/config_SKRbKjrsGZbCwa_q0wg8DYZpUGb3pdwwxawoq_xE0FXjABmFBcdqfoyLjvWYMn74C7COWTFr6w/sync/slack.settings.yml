@@ -1,0 +1,6 @@
+slack_webhook_url: 'Hook this, little fishy'
+slack_channel: '#dtagovau-authors'
+slack_username: 'Ventrutio the Flowbot'
+slack_icon_type: emoji
+slack_icon_emoji: ':robot_face:'
+slack_icon_url: ''

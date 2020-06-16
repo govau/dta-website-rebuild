@@ -11,6 +11,7 @@ applications:
   - dta-website-rebuild-staging-aws-ups
   - ups-website-redev
   - ups-smtp
+  - ups-slack
   routes:
     - route: dta-website.staging.digital.gov.au
     - route: dta-website-staging-direct.apps.y.cld.gov.au
