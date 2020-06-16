@@ -54,10 +54,10 @@
 			"type": "package",
 			"package": {
 					"name": "govau/dta_website_image_plugin",
-					"version": "1.1.1",
+					"version": "1.1.0",
 					"type": "drupal-custom-module",
 					"dist": {
-							"url": "https://github.com/govau/dta_website_image_plugin/releases/download/v1.1.1/dta_website_image_plugin_v1.1.1.zip",
+							"url": "https://github.com/govau/dta_website_image_plugin/releases/download/v1.1.0/dta_website_image_plugin_v1.0.0.zip",
 							"type": "zip"
 					}
 			}
@@ -226,7 +226,7 @@
 		"drupal/wysiwyg_template": "2.3",
 		"drush/drush": "9.3.0",
 		"govau/dta-gov-au": "1.15.1",
-		"govau/dta_website_image_plugin": "^1.1",
+		"govau/dta_website_image_plugin": "1.1.0",
 		"govau/dta_website_slack_integration": "1.2.2",
 		"govau/tadpole": "^1.1",
 		"harvesthq/chosen": "^1.8",
