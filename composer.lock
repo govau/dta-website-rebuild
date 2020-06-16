@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e470fb0baf6eed8565298b962f97dde1",
+    "content-hash": "c4898ba7ba8d99cc648b420207939446",
     "packages": [
         {
             "name": "algolia/places",
@@ -4912,11 +4912,17 @@
         },
         {
             "name": "drupal/google_analytics",
-            "version": "dev-3.x",
+            "version": "3.1.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/google_analytics.git",
-                "reference": "e20ac5843e42cf028e659953b50e18501abfe223"
+                "reference": "8.x-3.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/google_analytics-8.x-3.1.zip",
+                "reference": "8.x-3.1",
+                "shasum": "171dcac5a67cde66201754baaa52711f45e47a3b"
             },
             "require": {
                 "drupal/core": "^8.8.6|^9.0"
@@ -4926,17 +4932,16 @@
             },
             "type": "drupal-module",
             "extra": {
-                "branch-alias": {
-                    "dev-3.x": "3.x-dev",
-                    "dev-8.x-2.x": "2.x-dev"
-                },
                 "drupal": {
-                    "version": "8.x-3.0+13-dev",
-                    "datestamp": "1591297028",
+                    "version": "8.x-3.1",
+                    "datestamp": "1591298584",
                     "security-coverage": {
-                        "status": "not-covered",
-                        "message": "Dev releases are not covered by Drupal security advisories."
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
                     }
+                },
+                "branch-alias": {
+                    "dev-8.x-2.x": "2.x-dev"
                 },
                 "patches_applied": {
                     "Allow taxonomy term name in custom dimension settings": "https://www.drupal.org/files/issues/2019-04-24/allow_taxonomy_term_name_custom_dimension_settings_305080_2.patch"
@@ -4977,8 +4982,7 @@
             "support": {
                 "source": "https://git.drupal.org/project/google_analytics.git",
                 "issues": "https://www.drupal.org/project/issues/google_analytics"
-            },
-            "time": "2020-06-04T18:56:41+00:00"
+            }
         },
         {
             "name": "drupal/govcms8_ui",
@@ -17332,7 +17336,6 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "drupal/context_metadata": 20,
-        "drupal/google_analytics": 20,
         "drupal/ie8": 20,
         "drupal/link_css": 20,
         "drupal/mail_safety": 20
