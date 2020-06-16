@@ -1,0 +1,46 @@
+uuid: 3a2c728e-b17a-49cd-82d6-5f66fdf3c73a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_table
+    - node.type.page
+    - paragraphs.paragraphs_type.table
+  module:
+    - entity_reference_revisions
+id: node.page.field_table
+field_name: field_table
+entity_type: node
+bundle: page
+label: Table
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      table: table
+    target_bundles_drag_drop:
+      dashboard_case_study:
+        weight: 7
+        enabled: false
+      dashboard_metrics:
+        weight: 8
+        enabled: false
+      dashboard_metrics_intro:
+        weight: 9
+        enabled: false
+      dss_criterion:
+        weight: 10
+        enabled: false
+      related_documents:
+        weight: 11
+        enabled: false
+      table:
+        enabled: true
+        weight: 12
+field_type: entity_reference_revisions

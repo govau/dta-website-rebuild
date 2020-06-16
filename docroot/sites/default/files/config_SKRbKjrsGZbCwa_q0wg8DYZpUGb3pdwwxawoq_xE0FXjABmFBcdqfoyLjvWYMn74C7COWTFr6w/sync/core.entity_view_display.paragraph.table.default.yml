@@ -1,0 +1,25 @@
+uuid: fe8f6fb4-9cff-4d24-a2cd-6fc328674d8a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.table.field_table
+    - paragraphs.paragraphs_type.table
+  module:
+    - tablefield
+id: paragraph.table.default
+targetEntityType: paragraph
+bundle: table
+mode: default
+content:
+  field_table:
+    weight: 0
+    label: above
+    settings:
+      row_header: 1
+      column_header: 0
+    third_party_settings: {  }
+    type: tablefield
+    region: content
+hidden:
+  search_api_excerpt: true

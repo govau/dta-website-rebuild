@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "edcc9d2347d4a1639b8d11beb6acb100",
+    "content-hash": "0fde4e38760d68c7114c6da2ca7d3747",
     "packages": [
         {
             "name": "algolia/places",
@@ -8643,6 +8643,10 @@
                 "GPL-2.0-or-later"
             ],
             "authors": [
+                {
+                    "name": "JeroenT",
+                    "homepage": "https://www.drupal.org/user/2228934"
+                },
                 {
                     "name": "Kevin Hankens",
                     "homepage": "https://www.drupal.org/user/78090"
