@@ -1,12 +1,8 @@
-uuid: ac2aca09-f824-4a0f-a840-738081773900
 langcode: en
 status: closed
 dependencies:
   module:
     - honeypot
-third_party_settings:
-  honeypot:
-    honeypot: true
 open: null
 close: null
 weight: 0
@@ -59,6 +55,11 @@ settings:
   form_access_denied_message: ''
   form_access_denied_attributes: {  }
   form_file_limit: ''
+  share: false
+  share_node: false
+  share_theme_name: ''
+  share_title: true
+  share_page_body_attributes: {  }
   submission_label: ''
   submission_log: true
   submission_views: {  }
@@ -133,9 +134,9 @@ settings:
   purge_days: 5
   results_disabled: false
   results_disabled_ignore: false
+  results_customize: false
   token_view: false
   token_update: false
-  results_customize: false
 access:
   create:
     roles:
@@ -240,3 +241,7 @@ handlers:
       theme_name: ''
       parameters: {  }
 variants: {  }
+uuid: ac2aca09-f824-4a0f-a840-738081773900
+third_party_settings:
+  honeypot:
+    honeypot: true

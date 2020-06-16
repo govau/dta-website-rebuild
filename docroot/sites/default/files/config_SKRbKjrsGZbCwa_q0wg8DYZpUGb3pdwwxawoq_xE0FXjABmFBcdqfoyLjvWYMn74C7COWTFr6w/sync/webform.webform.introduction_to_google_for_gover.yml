@@ -1,12 +1,8 @@
-uuid: 72c178a0-06cf-4c4e-8032-4e5dcf081e28
 langcode: en
 status: open
 dependencies:
   module:
     - honeypot
-third_party_settings:
-  honeypot:
-    honeypot: true
 open: null
 close: null
 weight: 0
@@ -59,6 +55,11 @@ settings:
   form_access_denied_message: ''
   form_access_denied_attributes: {  }
   form_file_limit: ''
+  share: false
+  share_node: false
+  share_theme_name: ''
+  share_title: true
+  share_page_body_attributes: {  }
   submission_label: ''
   submission_log: false
   submission_views: {  }
@@ -135,6 +136,7 @@ settings:
   purge_days: 5
   results_disabled: false
   results_disabled_ignore: false
+  results_customize: false
   token_view: false
   token_update: false
 access:
@@ -186,3 +188,7 @@ access:
     permissions: {  }
 handlers: {  }
 variants: {  }
+uuid: 72c178a0-06cf-4c4e-8032-4e5dcf081e28
+third_party_settings:
+  honeypot:
+    honeypot: true
