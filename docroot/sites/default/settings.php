@@ -930,7 +930,7 @@ if(isset($_ENV['VCAP_SERVICES'])) {
   }
 
   // Set the relevant settings.
-  $config['slack.settings']['slack_webhook_url'] = $service[0]['credentials']['slack_webhook_url'];
+  $config['slack.settings']['slack_webhook_url'] = $service[0]['credentials']['webhook_url'];
 }
 
 $settings['install_profile'] = 'govcms';
@@ -950,6 +950,7 @@ if(isset($_ENV['ENVIRONMENT'])) {
     $config['mail_safety.settings']['enabled'] = false;
     $config['mail_safety.settings']['send_mail_to_dashboard'] = false;
     $config['mail_safety.settings']['send_mail_to_default_mail'] = false;
+
   }
   if ($environment === 'staging') {
     $config['s3fs.settings']['bucket'] = 'dta-www-drupal-staging-20180504063601229200000001';
