@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a8f05e0667ab09457e463eb489999afa",
+    "content-hash": "c6735a5f8e5940395428ec25965bcba6",
     "packages": [
         {
             "name": "algolia/places",
@@ -3779,27 +3779,27 @@
         },
         {
             "name": "drupal/ds_chains",
-            "version": "1.0.0",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/ds_chains.git",
-                "reference": "8.x-1.0"
+                "reference": "8.x-1.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/ds_chains-8.x-1.0.zip",
-                "reference": "8.x-1.0",
-                "shasum": "72cd3b83502c4f37178a575778c9885201028429"
+                "url": "https://ftp.drupal.org/files/projects/ds_chains-8.x-1.1.zip",
+                "reference": "8.x-1.1",
+                "shasum": "75a74682a62d74ee0b719edaad9406afb52a18cf"
             },
             "require": {
-                "drupal/core": "~8.0",
+                "drupal/core": "^8 || ^9",
                 "drupal/ds": "^3"
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-1.0",
-                    "datestamp": "1539379681",
+                    "version": "8.x-1.1",
+                    "datestamp": "1590044939",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
