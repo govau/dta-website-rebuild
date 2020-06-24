@@ -1,0 +1,32 @@
+uuid: 287c7a55-3d37-4be4-9b27-9b76cf5b7b4f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_body_content
+    - paragraphs.paragraphs_type.body_content
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    commenting: commenting
+    introduction: '0'
+    summary: '0'
+    full_rich_text: '0'
+    administration: '0'
+    html: '0'
+    plain_text: '0'
+    rich_text: '0'
+id: paragraph.body_content.field_body_content
+field_name: field_body_content
+entity_type: paragraph
+bundle: body_content
+label: 'Body content'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long
