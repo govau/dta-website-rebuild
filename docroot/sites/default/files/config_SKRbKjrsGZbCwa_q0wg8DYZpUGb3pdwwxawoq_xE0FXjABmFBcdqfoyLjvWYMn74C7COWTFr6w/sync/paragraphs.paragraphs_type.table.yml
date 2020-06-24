@@ -1,0 +1,10 @@
+uuid: 863df5ca-db6e-4366-9dde-cf3c78901d87
+langcode: en
+status: true
+dependencies: {  }
+id: table
+label: Table
+icon_uuid: null
+icon_default: null
+description: 'This paragraph adds a table to the body of a page'
+behavior_plugins: {  }

@@ -1,0 +1,10 @@
+uuid: 5f77ed20-3be0-49d3-bd5f-92af172cd419
+langcode: en
+status: true
+dependencies: {  }
+id: body_content
+label: 'Body content'
+icon_uuid: null
+icon_default: null
+description: 'This paragraph adds body content to a page'
+behavior_plugins: {  }

@@ -18,6 +18,7 @@ dependencies:
     - field.field.node.page.field_review_date
     - field.field.node.page.field_search_keywords
     - field.field.node.page.field_summary
+    - field.field.node.page.field_table
     - field.field.node.page.field_tags
     - field.field.node.page.field_twitter_image
     - node.type.page
@@ -73,6 +74,7 @@ hidden:
   field_review_date: true
   field_search_keywords: true
   field_summary: true
+  field_table: true
   field_tags: true
   field_twitter_image: true
   links: true
