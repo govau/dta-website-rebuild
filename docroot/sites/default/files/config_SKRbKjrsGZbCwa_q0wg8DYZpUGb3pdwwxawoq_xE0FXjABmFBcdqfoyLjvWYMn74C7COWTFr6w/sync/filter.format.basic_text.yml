@@ -72,8 +72,8 @@ filters:
       type: default
       auto: ''
       block: '0'
-  TypogrifyFilter:
-    id: TypogrifyFilter
+  typogrify:
+    id: typogrify
     provider: typogrify
     status: false
     weight: 10
