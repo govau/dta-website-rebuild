@@ -7,12 +7,9 @@ dependencies:
     - node.type.events
     - paragraphs.paragraphs_type.basic_text
     - paragraphs.paragraphs_type.callout
-    - paragraphs.paragraphs_type.chart
-    - paragraphs.paragraphs_type.complex_table
     - paragraphs.paragraphs_type.image
     - paragraphs.paragraphs_type.related_documents
     - paragraphs.paragraphs_type.social_media_share_images
-    - paragraphs.paragraphs_type.table
     - paragraphs.paragraphs_type.video
   module:
     - entity_reference_revisions
@@ -34,10 +31,7 @@ settings:
       basic_text: basic_text
       callout: callout
       related_documents: related_documents
-      complex_table: complex_table
-      chart: chart
       video: video
-      table: table
       image: image
       social_media_share_images: social_media_share_images
     target_bundles_drag_drop:
@@ -62,18 +56,9 @@ settings:
       related_documents:
         enabled: true
         weight: 10
-      complex_table:
-        enabled: true
-        weight: 13
-      chart:
-        enabled: true
-        weight: 15
       video:
         enabled: true
         weight: 16
-      table:
-        enabled: true
-        weight: 17
       image:
         enabled: true
         weight: 19
