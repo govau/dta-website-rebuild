@@ -183,7 +183,7 @@
 		"drupal/migrate_plus": "4.0-beta3",
 		"drupal/migrate_tools": "4.0-beta3",
 		"drupal/module_filter": "3.1",
-		"drupal/node_title_help_text": "1.1",
+		"drupal/node_title_help_text": "1.2",
 		"drupal/node_title_validation": "1.2",
 		"drupal/override_node_options": "2.4",
 		"drupal/panelizer": "4.1",
