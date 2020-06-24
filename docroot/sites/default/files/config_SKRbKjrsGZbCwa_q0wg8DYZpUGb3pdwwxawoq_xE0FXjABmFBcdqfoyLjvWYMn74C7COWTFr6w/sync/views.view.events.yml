@@ -14,7 +14,7 @@ module: views
 description: 'Displays events in various ways.'
 tag: ''
 base_table: search_api_index_events_search
-base_field: nid
+base_field: search_api_id
 display:
   default:
     display_plugin: default
@@ -52,7 +52,11 @@ display:
       style:
         type: default
       row:
-        type: fields
+        type: search_api
+        options:
+          view_modes:
+            'entity:node':
+              events: home_page_blog_card
       fields:
         field_date_range:
           table: search_api_index_events_search
@@ -126,13 +130,26 @@ display:
             multi_type: separator
             multi_separator: ', '
       filters: {  }
-      sorts: {  }
-      title: 'Home page block'
+      sorts:
+        field_date_range:
+          id: field_date_range
+          table: search_api_index_events_search
+          field: field_date_range
+          relationship: none
+          group_type: group
+          admin_label: ''
+          order: ASC
+          exposed: false
+          expose:
+            label: ''
+          plugin_id: search_api
+      title: ''
       header: {  }
       footer: {  }
       empty: {  }
       relationships: {  }
       arguments: {  }
+      display_extenders: {  }
     cache_metadata:
       max-age: -1
       contexts:
@@ -143,10 +160,12 @@ display:
   block_1:
     display_plugin: block
     id: block_1
-    display_title: Block
+    display_title: 'Home page block'
     position: 1
     display_options:
-      display_extenders: {  }
+      display_extenders:
+        metatag_display_extender: {  }
+      display_description: ''
     cache_metadata:
       max-age: -1
       contexts:

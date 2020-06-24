@@ -7,5 +7,6 @@ dependencies:
 id: callout
 label: Callout
 icon_uuid: f590dfc4-64d6-49fa-b678-7f94f9a9fe36
+icon_default: null
 description: 'Callouts are an excerpt of text or an article that has been pulled out and used as a visual clue to draw the eye to the text. They are used to help direct a user''s attention to important pieces of information.'
 behavior_plugins: {  }

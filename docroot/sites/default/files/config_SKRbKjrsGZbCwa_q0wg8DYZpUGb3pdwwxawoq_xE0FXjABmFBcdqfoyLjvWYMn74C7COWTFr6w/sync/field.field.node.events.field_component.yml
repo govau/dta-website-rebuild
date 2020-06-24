@@ -35,34 +35,34 @@ settings:
       image: image
       social_media_share_images: social_media_share_images
     target_bundles_drag_drop:
-      dashboard_case_study:
-        weight: 6
-        enabled: false
       basic_text:
         enabled: true
         weight: 7
+      callout:
+        enabled: true
+        weight: 9
+      dashboard_case_study:
+        weight: 6
+        enabled: false
       dashboard_metrics:
         weight: 7
         enabled: false
       dashboard_metrics_intro:
         weight: 8
         enabled: false
-      callout:
-        enabled: true
-        weight: 9
       dss_criterion:
         weight: 9
         enabled: false
-      related_documents:
-        enabled: true
-        weight: 10
-      video:
-        enabled: true
-        weight: 16
       image:
         enabled: true
         weight: 19
+      related_documents:
+        enabled: true
+        weight: 10
       social_media_share_images:
         enabled: true
         weight: 24
+      video:
+        enabled: true
+        weight: 16
 field_type: entity_reference_revisions

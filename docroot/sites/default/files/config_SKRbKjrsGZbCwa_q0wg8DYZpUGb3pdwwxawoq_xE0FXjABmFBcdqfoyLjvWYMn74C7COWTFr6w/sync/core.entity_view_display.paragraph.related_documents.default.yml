@@ -8,33 +8,114 @@ dependencies:
     - field.field.paragraph.related_documents.field_title
     - paragraphs.paragraphs_type.related_documents
   module:
+    - ds
+    - ds_chains
+    - empty_fields
     - text
+third_party_settings:
+  ds:
+    layout:
+      id: layout_onecol
+      library: layout_discovery/onecol
+      disable_css: false
+      entity_classes: all_classes
+      settings:
+        label: ''
+    regions:
+      content:
+        - field_title
+        - field_summary
+        - field_document
+  ds_chains:
+    fields: {  }
 id: paragraph.related_documents.default
 targetEntityType: paragraph
 bundle: related_documents
 mode: default
 content:
   field_document:
-    weight: 3
-    label: above
+    weight: 2
+    label: hidden
     settings:
       link: true
-    third_party_settings: {  }
+    third_party_settings:
+      empty_fields:
+        handler: ''
+      ds:
+        ds_limit: ''
+        ft:
+          id: expert
+          settings:
+            lb: ''
+            prefix: ''
+            lbw-el: ''
+            lbw-cl: ''
+            lbw-at: ''
+            ow-el: ''
+            ow-cl: ''
+            ow-at: ''
+            fis: true
+            fis-el: ul
+            fis-cl: ''
+            fis-at: ''
+            fi: true
+            fi-el: li
+            fi-cl: ''
+            fi-at: ''
+            suffix: ''
+            lbw: false
+            lb-col: false
+            ow: false
+            ow-def-at: false
+            ow-def-cl: false
+            fis-def-at: false
+            fi-def-at: false
     type: entity_reference_label
     region: content
   field_summary:
+    type: text_default
     weight: 1
-    label: above
+    region: content
+    label: hidden
     settings: {  }
     third_party_settings: {  }
-    type: text_default
-    region: content
   field_title:
-    weight: 2
-    label: above
+    type: string
+    weight: 0
+    region: content
+    label: hidden
     settings:
       link_to_entity: false
-    third_party_settings: {  }
-    type: string
-    region: content
-hidden: {  }
+    third_party_settings:
+      empty_fields:
+        handler: ''
+      ds:
+        ft:
+          id: expert
+          settings:
+            lb: ''
+            prefix: ''
+            lbw-el: ''
+            lbw-cl: ''
+            lbw-at: ''
+            ow-el: ''
+            ow-cl: ''
+            ow-at: ''
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fi: true
+            fi-el: h2
+            fi-cl: ''
+            fi-at: ''
+            suffix: ''
+            lbw: false
+            lb-col: false
+            ow: false
+            ow-def-at: false
+            ow-def-cl: false
+            fis: false
+            fis-def-at: false
+            fi-def-at: false
+hidden:
+  search_api_excerpt: true

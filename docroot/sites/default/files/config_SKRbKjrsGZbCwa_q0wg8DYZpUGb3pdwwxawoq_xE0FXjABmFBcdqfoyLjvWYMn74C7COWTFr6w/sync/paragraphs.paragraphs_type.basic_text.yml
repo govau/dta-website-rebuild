@@ -5,5 +5,6 @@ dependencies: {  }
 id: basic_text
 label: 'Basic text'
 icon_uuid: null
+icon_default: null
 description: 'Use this paragraph type to add a basic text component.'
 behavior_plugins: {  }
