@@ -16,7 +16,8 @@ dependencies:
 third_party_settings:
   field_layout:
     id: layout_onecol
-    settings: {  }
+    settings:
+      label: ''
 id: taxonomy_term.presentation_type.default
 targetEntityType: taxonomy_term
 bundle: presentation_type
@@ -53,5 +54,12 @@ content:
     weight: 30
     region: content
     settings: {  }
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 100
+    region: content
     third_party_settings: {  }
 hidden: {  }

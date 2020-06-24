@@ -51,40 +51,4 @@ expression:
   actions:
     id: rules_action_set
     uuid: a766d393-152f-4c01-8e85-baf311c0d3bd
-    actions:
-      -
-        id: rules_action
-        uuid: b34022ee-4634-4b0a-a46d-aa9eba2300df
-        context_values:
-          roles:
-            - technical_reviewer
-          subject: 'Content available for technical review on dta.gov.au'
-          message: "Hi! \r\n\r\n[node:title] is ready for review at [node:url] \r\n\r\nYou may need to check the latest version at [node:url:unaliased]/latest\r\n\r\nJump in there now! \r\n\r\nWith love,\r\ndta.gov.au"
-        context_mapping:
-          entity: node
-        context_processors:
-          roles:
-            rules_tokens: {  }
-          subject:
-            rules_tokens: {  }
-          message:
-            rules_tokens: {  }
-        provides_mapping: {  }
-        action_id: role_email_action
-      -
-        id: rules_action
-        uuid: 1a565125-dae0-4165-8f4d-cc6095a68dc4
-        context_values:
-          message: 'Moderation state is now ''Technical review''. An email has been sent to the ''Technical Reviewer'' role.'
-          type: status
-          repeat: null
-        context_mapping: {  }
-        context_processors:
-          message:
-            rules_tokens: {  }
-          type:
-            rules_tokens: {  }
-          repeat:
-            rules_tokens: {  }
-        provides_mapping: {  }
-        action_id: rules_system_message
+    actions: {  }
