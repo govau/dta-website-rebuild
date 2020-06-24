@@ -18,7 +18,7 @@ Feature: ToC
       When I am logged in as a user with the "Content author" role
       When I am on "/test-page-1"
       And I follow "Edit"
-      And I fill in "Body content" with "<h2>Heading 1</h2><h2>Heading 2</h2"
+      And I fill in "Body content" with "<h2>Heading 1</h2><h2>Heading 2</h2>"
       And I press "Save"
       Then I should not see a "nav.au-inpage-nav-links" element
 
@@ -28,6 +28,6 @@ Feature: ToC
       When I am logged in as a user with the "Content author" role
       And I am on "/test-page-2"
       And I follow "Edit"
-      And I fill in "Body content" with "[toc]<h2>Heading 1</h2><h2>Heading 2</h2"
+      And I fill in "Body content" with "[toc]<h2>Heading 1</h2><h2>Heading 2</h2>"
       And I press "Save"
       Then I should see 1 "nav.au-inpage-nav-links" element
