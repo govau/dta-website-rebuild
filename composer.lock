@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3bba43e5eee2529133a142bcb8f83214",
+    "content-hash": "efb67ca0e0feaa7c2b61bc63a55161cc",
     "packages": [
         {
             "name": "algolia/places",
@@ -2248,13 +2248,10 @@
                 "shasum": "50f8f80cf3326382c968521d34d3a113b37e32b3"
             },
             "require": {
-                "drupal/core": "*"
+                "drupal/core": "^8"
             },
             "type": "drupal-module",
             "extra": {
-                "branch-alias": {
-                    "dev-1.x": "1.x-dev"
-                },
                 "drupal": {
                     "version": "8.x-1.2",
                     "datestamp": "1573747386",
@@ -5601,7 +5598,7 @@
                 "shasum": "ec9e6a9b6de0e0d1047224eb644e6d02311ec6f1"
             },
             "require": {
-                "drupal/core": "*",
+                "drupal/core": "^8",
                 "drupal/dynamic_entity_reference": "*"
             },
             "conflict": {
@@ -6734,9 +6731,6 @@
             },
             "type": "drupal-module",
             "extra": {
-                "branch-alias": {
-                    "dev-1.x": "1.x-dev"
-                },
                 "drupal": {
                     "version": "8.x-1.1",
                     "datestamp": "1561335486",
@@ -8056,9 +8050,6 @@
             },
             "type": "drupal-module",
             "extra": {
-                "branch-alias": {
-                    "dev-1.x": "1.x-dev"
-                },
                 "drupal": {
                     "version": "8.x-1.0-alpha12",
                     "datestamp": "1560260888",
@@ -9997,16 +9988,16 @@
         },
         {
             "name": "govau/dta-gov-au",
-            "version": "1.16.2",
+            "version": "1.16.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/govau/dta-gov-au.git",
-                "reference": "62041ca12a5cd7ddee0e08d9175af2e39ad0e906"
+                "reference": "1c4a207d28038a5a1c37829cf7c3360df4f649f1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/govau/dta-gov-au/zipball/62041ca12a5cd7ddee0e08d9175af2e39ad0e906",
-                "reference": "62041ca12a5cd7ddee0e08d9175af2e39ad0e906",
+                "url": "https://api.github.com/repos/govau/dta-gov-au/zipball/1c4a207d28038a5a1c37829cf7c3360df4f649f1",
+                "reference": "1c4a207d28038a5a1c37829cf7c3360df4f649f1",
                 "shasum": ""
             },
             "require": {
@@ -10024,7 +10015,7 @@
                 "government",
                 "theme"
             ],
-            "time": "2020-06-24T03:26:14+00:00"
+            "time": "2020-06-25T22:31:50+00:00"
         },
         {
             "name": "govau/dta-uikit-base",
@@ -17457,5 +17448,6 @@
     "platform": {
         "php": ">=7.1.0"
     },
-    "platform-dev": []
+    "platform-dev": [],
+    "plugin-api-version": "1.1.0"
 }
