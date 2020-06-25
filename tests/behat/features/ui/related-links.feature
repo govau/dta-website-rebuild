@@ -31,7 +31,3 @@ Feature: Related links
       And I should see the heading "Related link news"
       And I should see the text "Related link blog summary"
       And I should see the text "Related link news summary"
-
-      Then print last response
-
-      Then show last response	
