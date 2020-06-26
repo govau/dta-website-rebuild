@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "87319242197a2391030a61e2839d4f68",
+    "content-hash": "bf96a957237aa3798132fc685518d5a3",
     "packages": [
         {
             "name": "algolia/places",
@@ -8060,6 +8060,9 @@
                         "status": "not-covered",
                         "message": "Beta releases are not covered by Drupal security advisories."
                     }
+                },
+                "patches_applied": {
+                    "Search block form should define a base form ID": "https://www.drupal.org/files/issues/2019-07-02/3063684-2--search_form_base_id.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -9994,16 +9997,16 @@
         },
         {
             "name": "govau/dta-gov-au",
-            "version": "1.16.3",
+            "version": "1.16.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/govau/dta-gov-au.git",
-                "reference": "1c4a207d28038a5a1c37829cf7c3360df4f649f1"
+                "reference": "28ea9e6e4027e8a7b1621b27dcc7aa81d4f0e9a9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/govau/dta-gov-au/zipball/1c4a207d28038a5a1c37829cf7c3360df4f649f1",
-                "reference": "1c4a207d28038a5a1c37829cf7c3360df4f649f1",
+                "url": "https://api.github.com/repos/govau/dta-gov-au/zipball/28ea9e6e4027e8a7b1621b27dcc7aa81d4f0e9a9",
+                "reference": "28ea9e6e4027e8a7b1621b27dcc7aa81d4f0e9a9",
                 "shasum": ""
             },
             "require": {
@@ -10021,7 +10024,7 @@
                 "government",
                 "theme"
             ],
-            "time": "2020-06-25T22:31:50+00:00"
+            "time": "2020-06-26T07:49:21+00:00"
         },
         {
             "name": "govau/dta-uikit-base",
