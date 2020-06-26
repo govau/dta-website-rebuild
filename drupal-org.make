@@ -193,6 +193,7 @@ projects[search_api][version] = 1.17
 projects[search_api_autocomplete][type] = module
 projects[search_api_autocomplete][version] = 1.3
 projects[search_api_page][type] = module
+projects[search_api_page][patch][] = https://www.drupal.org/files/issues/2019-07-02/3063684-2--search_form_base_id.patch
 projects[search_api_page][version] = 1.0-beta2
 projects[seckit][type] = module
 projects[seckit][version] = 1.2
