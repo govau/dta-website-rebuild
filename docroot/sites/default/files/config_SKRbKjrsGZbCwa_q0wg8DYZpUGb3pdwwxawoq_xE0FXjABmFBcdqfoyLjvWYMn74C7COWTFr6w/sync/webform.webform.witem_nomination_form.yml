@@ -1,8 +1,12 @@
+uuid: ac2aca09-f824-4a0f-a840-738081773900
 langcode: en
 status: closed
 dependencies:
   module:
     - honeypot
+third_party_settings:
+  honeypot:
+    honeypot: true
 open: null
 close: null
 weight: 0
@@ -247,7 +251,3 @@ handlers:
       theme_name: ''
       parameters: {  }
 variants: {  }
-uuid: ac2aca09-f824-4a0f-a840-738081773900
-third_party_settings:
-  honeypot:
-    honeypot: true

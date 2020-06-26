@@ -9,4 +9,3 @@ action: page_redirect
 allow_override: 0
 redirect: '/news-blogs/all?f%5B0%5D=tags%3A[term:tid]'
 redirect_code: 303
-redirect_fallback_action: access_denied

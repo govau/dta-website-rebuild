@@ -7,4 +7,3 @@ action: page_redirect
 allow_override: 1
 redirect: '<front>'
 redirect_code: 301
-redirect_fallback_action: access_denied

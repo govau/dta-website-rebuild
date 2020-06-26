@@ -1,8 +1,12 @@
+uuid: ab03c604-72a8-45c3-90ec-455218c89cc3
 langcode: en
 status: closed
 dependencies:
   module:
     - honeypot
+third_party_settings:
+  honeypot:
+    honeypot: true
 open: null
 close: null
 weight: 0
@@ -247,7 +251,3 @@ handlers:
       parameters: {  }
       exclude_attachments: false
 variants: {  }
-uuid: ab03c604-72a8-45c3-90ec-455218c89cc3
-third_party_settings:
-  honeypot:
-    honeypot: true

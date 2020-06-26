@@ -1,9 +1,12 @@
+uuid: 52030722-a8d5-4b63-b545-d4678d0e14be
 langcode: en
 status: open
 dependencies:
   enforced:
     module:
       - webform
+_core:
+  default_config_hash: Db1CJM6FchEqqeVz5YJThCK0WB599y4NjQ4GkPcGF5g
 open: null
 close: null
 weight: 0
@@ -263,6 +266,3 @@ handlers:
       parameters: {  }
       exclude_attachments: false
 variants: {  }
-uuid: 52030722-a8d5-4b63-b545-d4678d0e14be
-_core:
-  default_config_hash: Db1CJM6FchEqqeVz5YJThCK0WB599y4NjQ4GkPcGF5g

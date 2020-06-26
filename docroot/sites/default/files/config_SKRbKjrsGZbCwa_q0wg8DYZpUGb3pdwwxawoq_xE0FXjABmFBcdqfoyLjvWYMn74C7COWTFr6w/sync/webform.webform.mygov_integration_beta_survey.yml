@@ -1,8 +1,12 @@
+uuid: f9bf660e-15d2-4372-ba3d-56b3fd5f6166
 langcode: en
 status: closed
 dependencies:
   module:
     - honeypot
+third_party_settings:
+  honeypot:
+    honeypot: true
 open: null
 close: null
 weight: 0
@@ -228,7 +232,3 @@ handlers:
       theme_name: ''
       parameters: {  }
 variants: {  }
-uuid: f9bf660e-15d2-4372-ba3d-56b3fd5f6166
-third_party_settings:
-  honeypot:
-    honeypot: true
