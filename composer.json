@@ -278,6 +278,9 @@
 			"drupal/rabbit_hole": {
 			  "Error on empty redirect path": "https://www.drupal.org/files/issues/2020-04-27/2926929Z-29.patch"
 			},
+			"drupal/search_api_page": {
+			  "Search block form should define a base form ID": "https://www.drupal.org/files/issues/2019-07-02/3063684-2--search_form_base_id.patch"
+			},
 			"drupal/swiftmailer": {
 				"Unit Testing is failing on testMassageMessageBody()": "https://www.drupal.org/files/issues/2018-03-13/swiftmailer-unittest.patch"
 			},
