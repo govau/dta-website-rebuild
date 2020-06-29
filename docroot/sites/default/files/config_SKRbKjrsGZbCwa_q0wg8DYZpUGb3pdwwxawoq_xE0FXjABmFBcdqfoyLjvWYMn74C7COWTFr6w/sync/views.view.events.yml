@@ -6,11 +6,14 @@ dependencies:
     - field.storage.node.field_date_range
     - field.storage.node.field_index_image
     - field.storage.node.field_location
+    - field.storage.paragraph.field_summary
+    - responsive_image.styles.index_image
     - search_api.index.events_search
   module:
     - datetime_range
-    - image
+    - responsive_image
     - search_api
+    - text
     - user
 id: events
 label: Events
@@ -57,19 +60,19 @@ display:
       style:
         type: html_list
         options:
+          grouping: {  }
           row_class: 'col-xs-12 col-sm-6'
           default_row_class: false
-          uses_fields: false
           type: ul
           wrapper_class: au-body
           class: 'au-card-list au-card-list--matchheight'
       row:
         type: fields
         options:
+          default_field_elements: false
           inline: {  }
           separator: ''
           hide_empty: false
-          default_field_elements: true
       fields:
         title:
           id: title
@@ -83,8 +86,8 @@ display:
           alter:
             alter_text: false
             text: ''
-            make_link: false
-            path: ''
+            make_link: true
+            path: '[node:url:path]'
             absolute: false
             external: false
             replace_spaces: false
@@ -92,7 +95,7 @@ display:
             trim_whitespace: false
             alt: ''
             rel: ''
-            link_class: ''
+            link_class: au-card--clickable__link
             prefix: ''
             suffix: ''
             target: ''
@@ -108,7 +111,7 @@ display:
             preserve_tags: ''
             html: false
           element_type: ''
-          element_class: ''
+          element_class: au-card--clickable__link
           element_label_type: ''
           element_label_class: ''
           element_label_colon: false
@@ -191,9 +194,9 @@ display:
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: target_id
-          type: image
+          type: responsive_image
           settings:
-            image_style: ''
+            responsive_image_style: index_image
             image_link: ''
           group_column: ''
           group_columns: {  }
@@ -359,6 +362,11 @@ display:
           entity_type: null
           entity_field: null
           plugin_id: search_api_field
+        field_summary:
+          id: field_summary
+          table: search_api_index_events_search
+          field: field_summary
+          plugin_id: search_api_field
       filters:
         status_1:
           id: status_1
@@ -420,7 +428,7 @@ display:
       display_extenders: {  }
       use_more: true
       use_more_always: false
-      use_more_text: more
+      use_more_text: 'See more events'
       link_url: /events
       link_display: custom_url
       css_class: au-cards--blogs-news
@@ -434,6 +442,7 @@ display:
         - 'config:field.storage.node.field_date_range'
         - 'config:field.storage.node.field_index_image'
         - 'config:field.storage.node.field_location'
+        - 'config:field.storage.paragraph.field_summary'
   block_1:
     display_plugin: block
     id: block_1
@@ -444,6 +453,320 @@ display:
         metatag_display_extender: {  }
       display_description: ''
       block_hide_empty: true
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - user.permissions
+      tags:
+        - 'config:field.storage.node.field_date_range'
+        - 'config:field.storage.node.field_index_image'
+        - 'config:field.storage.node.field_location'
+        - 'config:field.storage.paragraph.field_summary'
+  page_1:
+    display_plugin: page
+    id: page_1
+    display_title: 'Events page'
+    position: 2
+    display_options:
+      display_extenders:
+        metatag_display_extender: {  }
+      display_description: ''
+      title: Events
+      defaults:
+        title: false
+        fields: false
+      path: events
+      fields:
+        title:
+          id: title
+          table: search_api_datasource_events_search_entity_node
+          field: title
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: true
+            path: '[node:url:path]'
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: au-card--clickable__link
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: au-card--clickable__link
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: false
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: true
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          field_rendering: false
+          fallback_handler: search_api
+          fallback_options:
+            link_to_item: true
+            use_highlighting: false
+            multi_type: separator
+            multi_separator: ', '
+          entity_type: node
+          plugin_id: search_api_field
+        field_index_image:
+          id: field_index_image
+          table: search_api_datasource_events_search_entity_node
+          field: field_index_image
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: au-responsive-media-img
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: target_id
+          type: responsive_image
+          settings:
+            responsive_image_style: index_image
+            image_link: ''
+          group_column: ''
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          field_rendering: true
+          fallback_handler: search_api
+          fallback_options:
+            link_to_item: false
+            use_highlighting: false
+            multi_type: separator
+            multi_separator: ', '
+          entity_type: node
+          plugin_id: search_api_field
+        field_location:
+          id: field_location
+          table: search_api_datasource_events_search_entity_node
+          field: field_location
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: p
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: false
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: false
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          field_rendering: true
+          fallback_handler: search_api
+          fallback_options:
+            link_to_item: false
+            use_highlighting: false
+            multi_type: separator
+            multi_separator: ', '
+          entity_type: node
+          plugin_id: search_api_field
+        field_date_range:
+          id: field_date_range
+          table: search_api_index_events_search
+          field: field_date_range
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: false
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: daterange_default
+          settings:
+            timezone_override: ''
+            format_type: date_month_year
+            separator: '-'
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          field_rendering: true
+          fallback_handler: search_api
+          fallback_options:
+            link_to_item: false
+            use_highlighting: false
+            multi_type: separator
+            multi_separator: ', '
+          entity_type: null
+          entity_field: null
+          plugin_id: search_api_field
     cache_metadata:
       max-age: -1
       contexts:

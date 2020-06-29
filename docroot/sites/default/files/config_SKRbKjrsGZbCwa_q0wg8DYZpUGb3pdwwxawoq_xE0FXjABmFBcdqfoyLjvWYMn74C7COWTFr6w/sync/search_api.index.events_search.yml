@@ -2,14 +2,17 @@ uuid: 0b805141-f6d1-403f-b1b9-0f80c662a477
 langcode: en
 status: true
 dependencies:
-  module:
-    - node
-    - search_api
   config:
+    - field.storage.node.field_component
+    - field.storage.paragraph.field_summary
     - field.storage.node.field_date_range
     - field.storage.node.field_location
     - search_api.server.database_search
     - core.entity_view_mode.node.card
+  module:
+    - paragraphs
+    - node
+    - search_api
 id: events_search
 name: 'Events search'
 description: ''
@@ -31,6 +34,17 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.field_location
+  field_summary:
+    label: 'Components » Paragraph » Summary'
+    datasource_id: 'entity:node'
+    property_path: 'field_component:entity:field_summary'
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_component
+        - field.storage.paragraph.field_summary
+      module:
+        - paragraphs
   node_grants:
     label: 'Node access information'
     property_path: search_api_node_grants
