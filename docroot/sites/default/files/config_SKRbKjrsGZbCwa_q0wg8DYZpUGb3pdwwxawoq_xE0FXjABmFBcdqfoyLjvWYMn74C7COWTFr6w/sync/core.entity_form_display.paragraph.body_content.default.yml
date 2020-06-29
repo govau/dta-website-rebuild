@@ -1,0 +1,32 @@
+uuid: 6383b610-f56a-4acb-aec5-0526eacd1768
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.body_content.field_body_content
+    - paragraphs.paragraphs_type.body_content
+  module:
+    - field_layout
+    - layout_discovery
+    - text
+third_party_settings:
+  field_layout:
+    id: layout_onecol
+    settings:
+      label: ''
+id: paragraph.body_content.default
+targetEntityType: paragraph
+bundle: body_content
+mode: default
+content:
+  field_body_content:
+    weight: 0
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+hidden:
+  created: true
+  status: true
