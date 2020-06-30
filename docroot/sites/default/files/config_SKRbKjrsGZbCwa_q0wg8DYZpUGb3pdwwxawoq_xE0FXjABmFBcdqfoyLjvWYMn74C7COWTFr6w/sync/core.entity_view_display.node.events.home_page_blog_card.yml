@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.home_page_blog_card
+    - field.field.node.events.field_category
     - field.field.node.events.field_component
     - field.field.node.events.field_date_range
     - field.field.node.events.field_eventbrite_code
@@ -145,6 +146,7 @@ content:
     region: content
 hidden:
   content_moderation_control: true
+  field_category: true
   field_component: true
   field_eventbrite_code: true
   links: true

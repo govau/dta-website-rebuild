@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.events.field_category
     - field.field.node.events.field_component
     - field.field.node.events.field_date_range
     - field.field.node.events.field_eventbrite_code
@@ -14,6 +15,7 @@ dependencies:
   module:
     - content_moderation
     - datetime_range
+    - entity_reference_views_select
     - field_layout
     - image
     - layout_discovery
@@ -37,9 +39,15 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_category:
+    weight: 16
+    settings: {  }
+    third_party_settings: {  }
+    type: erviews_options_buttons
+    region: content
   field_component:
     type: paragraphs
-    weight: 18
+    weight: 19
     settings:
       title: Paragraph
       title_plural: Paragraphs
@@ -63,7 +71,7 @@ content:
     type: daterange_default
     region: content
   field_eventbrite_code:
-    weight: 17
+    weight: 18
     settings:
       size: 12
       placeholder: '88888888888'
@@ -79,7 +87,7 @@ content:
     type: image_image
     region: content
   field_location:
-    weight: 16
+    weight: 17
     settings:
       size: 60
       placeholder: ''

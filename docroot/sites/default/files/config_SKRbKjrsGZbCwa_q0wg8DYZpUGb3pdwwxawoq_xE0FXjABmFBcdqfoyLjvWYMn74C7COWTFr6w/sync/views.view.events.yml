@@ -6,14 +6,12 @@ dependencies:
     - field.storage.node.field_date_range
     - field.storage.node.field_index_image
     - field.storage.node.field_location
-    - field.storage.paragraph.field_summary
     - responsive_image.styles.index_image
     - search_api.index.events_search
   module:
     - datetime_range
     - responsive_image
     - search_api
-    - text
     - user
 id: events
 label: Events
@@ -362,11 +360,6 @@ display:
           entity_type: null
           entity_field: null
           plugin_id: search_api_field
-        field_summary:
-          id: field_summary
-          table: search_api_index_events_search
-          field: field_summary
-          plugin_id: search_api_field
       filters:
         status_1:
           id: status_1
@@ -442,7 +435,6 @@ display:
         - 'config:field.storage.node.field_date_range'
         - 'config:field.storage.node.field_index_image'
         - 'config:field.storage.node.field_location'
-        - 'config:field.storage.paragraph.field_summary'
   block_1:
     display_plugin: block
     id: block_1
@@ -463,7 +455,6 @@ display:
         - 'config:field.storage.node.field_date_range'
         - 'config:field.storage.node.field_index_image'
         - 'config:field.storage.node.field_location'
-        - 'config:field.storage.paragraph.field_summary'
   page_1:
     display_plugin: page
     id: page_1
@@ -471,12 +462,20 @@ display:
     position: 2
     display_options:
       display_extenders:
-        metatag_display_extender: {  }
+        metatag_display_extender:
+          metatags:
+            title: Events
       display_description: ''
       title: Events
       defaults:
         title: false
         fields: false
+        pager: false
+        use_more: false
+        use_more_always: false
+        use_more_text: false
+        header: false
+        cache: false
       path: events
       fields:
         title:
@@ -767,11 +766,52 @@ display:
           entity_type: null
           entity_field: null
           plugin_id: search_api_field
+      pager:
+        type: full
+        options:
+          items_per_page: 12
+          offset: 0
+          id: 0
+          total_pages: null
+          tags:
+            previous: '‹ Previous'
+            next: 'Next ›'
+            first: '« First'
+            last: 'Last »'
+          expose:
+            items_per_page: false
+            items_per_page_label: 'Items per page'
+            items_per_page_options: '5, 10, 25, 50'
+            items_per_page_options_all: false
+            items_per_page_options_all_label: '- All -'
+            offset: false
+            offset_label: Offset
+          quantity: 9
+      use_more: false
+      use_more_always: false
+      use_more_text: 'See more events'
+      header:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: false
+          tokenize: false
+          content:
+            value: '<h1>Events</h1>'
+            format: html
+          plugin_id: text
+      cache:
+        type: none
     cache_metadata:
       max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - url.query_args
         - user.permissions
       tags:
         - 'config:field.storage.node.field_date_range'

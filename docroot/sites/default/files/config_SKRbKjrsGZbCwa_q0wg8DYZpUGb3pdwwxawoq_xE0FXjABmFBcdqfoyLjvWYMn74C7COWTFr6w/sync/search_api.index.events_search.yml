@@ -3,14 +3,12 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_component
-    - field.storage.paragraph.field_summary
+    - field.storage.node.field_category
     - field.storage.node.field_date_range
     - field.storage.node.field_location
     - search_api.server.database_search
     - core.entity_view_mode.node.card
   module:
-    - paragraphs
     - node
     - search_api
 id: events_search
@@ -18,6 +16,14 @@ name: 'Events search'
 description: ''
 read_only: false
 field_settings:
+  field_category:
+    label: Category
+    datasource_id: 'entity:node'
+    property_path: field_category
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_category
   field_date_range:
     label: 'Date range'
     datasource_id: 'entity:node'
@@ -34,17 +40,6 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.field_location
-  field_summary:
-    label: 'Components » Paragraph » Summary'
-    datasource_id: 'entity:node'
-    property_path: 'field_component:entity:field_summary'
-    type: text
-    dependencies:
-      config:
-        - field.storage.node.field_component
-        - field.storage.paragraph.field_summary
-      module:
-        - paragraphs
   node_grants:
     label: 'Node access information'
     property_path: search_api_node_grants
