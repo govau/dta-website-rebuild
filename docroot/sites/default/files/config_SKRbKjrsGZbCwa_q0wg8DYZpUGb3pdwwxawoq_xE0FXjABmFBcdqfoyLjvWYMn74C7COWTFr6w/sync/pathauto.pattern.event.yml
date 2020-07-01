@@ -11,14 +11,14 @@ label: Event
 type: 'canonical_entities:node'
 pattern: 'event/[node:title]'
 selection_criteria:
-  3c4c0c98-2ed6-4a04-9067-1a97c961a5f0:
+  35cea124-d5c5-48fe-85fa-6becb1067369:
     id: node_type
     bundles:
-      govcms_event: govcms_event
+      events: events
     negate: false
     context_mapping:
       node: node
-    uuid: 3c4c0c98-2ed6-4a04-9067-1a97c961a5f0
+    uuid: 35cea124-d5c5-48fe-85fa-6becb1067369
 selection_logic: and
 weight: -8
 relationships: {  }

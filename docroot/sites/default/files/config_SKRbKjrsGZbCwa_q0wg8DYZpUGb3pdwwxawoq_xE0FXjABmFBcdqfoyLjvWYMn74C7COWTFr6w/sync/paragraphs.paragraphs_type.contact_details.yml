@@ -1,0 +1,10 @@
+uuid: 947556c6-46c6-4bb6-9566-c0927b91ad25
+langcode: en
+status: true
+dependencies: {  }
+id: contact_details
+label: 'Contact details'
+icon_uuid: null
+icon_default: null
+description: 'Use the ''Contact details'' paragraph type to select a contact from the <em>Contacts</em> taxonomy. Due to the way this field is formatted, it works best if you place it last.'
+behavior_plugins: {  }

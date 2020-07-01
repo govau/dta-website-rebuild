@@ -10,6 +10,7 @@ dependencies:
     - field.field.node.events.field_eventbrite_code
     - field.field.node.events.field_index_image
     - field.field.node.events.field_location
+    - field.field.node.events.field_summary
     - node.type.events
   module:
     - datetime_range
@@ -17,7 +18,6 @@ dependencies:
     - ds_chains
     - empty_fields
     - entity_reference_revisions
-    - simple_gmap
     - user
 third_party_settings:
   ds:
@@ -30,12 +30,54 @@ third_party_settings:
         label: ''
     regions:
       content:
-        - content_moderation_control
-        - links
+        - node_title
         - field_date_range
-        - field_location
-        - field_eventbrite_code
+        - 'dynamic_token_field:node-summary'
         - field_component
+        - field_location
+        - field_category
+    fields:
+      'dynamic_token_field:node-summary':
+        plugin_id: 'dynamic_token_field:node-summary'
+        weight: 2
+        label: hidden
+        formatter: default
+      node_title:
+        plugin_id: node_title
+        weight: 0
+        label: hidden
+        formatter: default
+        settings:
+          wrapper: h1
+          class: ''
+          link: false
+        ft:
+          id: expert
+          settings:
+            lb: ''
+            prefix: ''
+            lbw-el: ''
+            lbw-cl: ''
+            lbw-at: ''
+            ow-el: ''
+            ow-cl: ''
+            ow-at: ''
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fi-el: ''
+            fi-cl: ''
+            fi-at: ''
+            suffix: ''
+            lbw: false
+            lb-col: false
+            ow: false
+            ow-def-at: false
+            ow-def-cl: false
+            fis: false
+            fis-def-at: false
+            fi: false
+            fi-def-at: false
   ds_chains:
     fields: {  }
 id: node.events.search_index
@@ -43,14 +85,17 @@ targetEntityType: node
 bundle: events
 mode: search_index
 content:
-  content_moderation_control:
-    weight: 0
+  field_category:
+    type: entity_reference_label
+    weight: 5
     region: content
-    settings: {  }
+    label: hidden
+    settings:
+      link: true
     third_party_settings: {  }
   field_component:
     type: entity_reference_revisions_entity_view
-    weight: 5
+    weight: 3
     label: hidden
     settings:
       view_mode: default
@@ -89,7 +134,7 @@ content:
             fi-def-at: false
     region: content
   field_date_range:
-    weight: 2
+    weight: 1
     label: hidden
     settings:
       separator: '-'
@@ -98,30 +143,11 @@ content:
     third_party_settings: {  }
     type: daterange_default
     region: content
-  field_eventbrite_code:
+  field_location:
     weight: 4
     label: hidden
     settings:
       link_to_entity: false
-    third_party_settings: {  }
-    type: string
-    region: content
-  field_location:
-    weight: 3
-    label: hidden
-    settings:
-      include_map: true
-      apikey: ''
-      iframe_width: 100%
-      iframe_height: 100%
-      static_scale: 1
-      link_text: 'View larger map'
-      zoom_level: 14
-      include_text: true
-      map_type: m
-      langcode: en
-      include_static_map: false
-      include_link: false
     third_party_settings:
       empty_fields:
         handler: ''
@@ -153,14 +179,12 @@ content:
             fis-def-at: false
             fi: false
             fi-def-at: false
-    type: simple_gmap
+    type: string
     region: content
-  links:
-    weight: 1
-    region: content
-    settings: {  }
-    third_party_settings: {  }
 hidden:
-  field_category: true
+  content_moderation_control: true
+  field_eventbrite_code: true
   field_index_image: true
+  field_summary: true
+  links: true
   search_api_excerpt: true

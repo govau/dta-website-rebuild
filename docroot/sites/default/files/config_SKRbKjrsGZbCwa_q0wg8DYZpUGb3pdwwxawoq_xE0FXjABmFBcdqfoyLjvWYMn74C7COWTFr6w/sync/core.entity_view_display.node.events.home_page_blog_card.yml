@@ -10,6 +10,7 @@ dependencies:
     - field.field.node.events.field_eventbrite_code
     - field.field.node.events.field_index_image
     - field.field.node.events.field_location
+    - field.field.node.events.field_summary
     - node.type.events
     - responsive_image.styles.index_image
   module:
@@ -149,5 +150,6 @@ hidden:
   field_category: true
   field_component: true
   field_eventbrite_code: true
+  field_summary: true
   links: true
   search_api_excerpt: true

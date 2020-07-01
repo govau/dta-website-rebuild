@@ -9,6 +9,7 @@ dependencies:
     - field.field.node.events.field_eventbrite_code
     - field.field.node.events.field_index_image
     - field.field.node.events.field_location
+    - field.field.node.events.field_summary
     - image.style.thumbnail
     - node.type.events
     - workflows.workflow.dta_publishing
@@ -23,6 +24,7 @@ dependencies:
     - path
     - scheduler
     - scheduler_content_moderation_integration
+    - text
 third_party_settings:
   field_layout:
     id: layout_onecol
@@ -40,14 +42,14 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_category:
-    weight: 16
+    weight: 17
     settings: {  }
     third_party_settings: {  }
     type: erviews_options_buttons
     region: content
   field_component:
     type: paragraphs
-    weight: 19
+    weight: 20
     settings:
       title: Paragraph
       title_plural: Paragraphs
@@ -71,7 +73,7 @@ content:
     type: daterange_default
     region: content
   field_eventbrite_code:
-    weight: 18
+    weight: 19
     settings:
       size: 12
       placeholder: '88888888888'
@@ -87,12 +89,20 @@ content:
     type: image_image
     region: content
   field_location:
-    weight: 17
+    weight: 18
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
+    region: content
+  field_summary:
+    weight: 16
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
     region: content
   moderation_state:
     type: moderation_state_default

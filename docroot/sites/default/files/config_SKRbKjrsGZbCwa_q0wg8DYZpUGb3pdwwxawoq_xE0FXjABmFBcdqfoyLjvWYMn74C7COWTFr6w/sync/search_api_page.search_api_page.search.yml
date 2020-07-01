@@ -19,7 +19,7 @@ view_mode_configuration:
   'entity:node_blog_post': search_result
   'entity:node_book': search_result
   'entity:node_dashboard_item': search_result
-  'entity:node_govcms_event': search_result
+  'entity:node_events': search_result
   'entity:node_landing_page': search_result
   'entity:node_landing_page_level_2': search_result
   'entity:node_media_release': search_result

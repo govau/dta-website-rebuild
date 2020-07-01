@@ -7,6 +7,7 @@ dependencies:
     - node.type.events
     - paragraphs.paragraphs_type.basic_text
     - paragraphs.paragraphs_type.callout
+    - paragraphs.paragraphs_type.contact_details
     - paragraphs.paragraphs_type.image
     - paragraphs.paragraphs_type.related_documents
     - paragraphs.paragraphs_type.social_media_share_images
@@ -31,6 +32,7 @@ settings:
       basic_text: basic_text
       callout: callout
       related_documents: related_documents
+      contact_details: contact_details
       video: video
       image: image
       social_media_share_images: social_media_share_images
@@ -41,6 +43,9 @@ settings:
       callout:
         enabled: true
         weight: 9
+      contact_details:
+        enabled: true
+        weight: 14
       dashboard_case_study:
         weight: 6
         enabled: false

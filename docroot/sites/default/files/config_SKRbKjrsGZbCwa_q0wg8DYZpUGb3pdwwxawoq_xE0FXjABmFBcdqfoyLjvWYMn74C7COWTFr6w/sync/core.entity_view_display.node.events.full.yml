@@ -10,6 +10,7 @@ dependencies:
     - field.field.node.events.field_eventbrite_code
     - field.field.node.events.field_index_image
     - field.field.node.events.field_location
+    - field.field.node.events.field_summary
     - node.type.events
   module:
     - datetime_range
@@ -290,5 +291,6 @@ content:
     region: content
 hidden:
   field_index_image: true
+  field_summary: true
   links: true
   search_api_excerpt: true

@@ -17,8 +17,18 @@ suggester_settings:
       - title
     view_modes:
       'entity:node':
+        assessment_report: ''
+        blog_post: ''
+        book: ''
+        dashboard_item: ''
+        events: ''
         landing_page: ''
         landing_page_level_2: ''
+        media_release: ''
+        news_item: ''
+        page: ''
+        presentation: ''
+        speaker_bio: ''
   server:
     fields:
       - rendered_item

@@ -37,7 +37,8 @@ content:
     weight: 2
     label: hidden
     settings:
-      link: true
+      view_mode: file_download
+      link: false
     third_party_settings:
       empty_fields:
         handler: ''
@@ -70,7 +71,7 @@ content:
             ow-def-cl: false
             fis-def-at: false
             fi-def-at: false
-    type: entity_reference_label
+    type: entity_reference_entity_view
     region: content
   field_summary:
     type: text_default

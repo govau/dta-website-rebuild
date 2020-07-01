@@ -1,0 +1,10 @@
+uuid: 50ec3359-d714-456d-9ca7-016f4997eb5a
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.file_download
+label: 'File download'
+targetEntityType: node
+cache: true

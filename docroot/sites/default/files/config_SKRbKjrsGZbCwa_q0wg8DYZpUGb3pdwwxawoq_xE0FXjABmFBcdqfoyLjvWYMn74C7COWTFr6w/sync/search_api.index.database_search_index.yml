@@ -4,6 +4,9 @@ status: true
 dependencies:
   config:
     - field.storage.node.field_body
+    - field.storage.node.field_category
+    - field.storage.node.field_component
+    - field.storage.node.field_date_range
     - field.storage.node.field_introduction
     - field.storage.node.field_search_keywords
     - field.storage.node.field_summary
@@ -11,8 +14,8 @@ dependencies:
     - search_api.server.database_search
     - core.entity_view_mode.node.search_index
   module:
-    - taxonomy
     - node
+    - taxonomy
     - search_api
 _core:
   default_config_hash: C_H_RI-18mied-RtEfUQGN19oHD22I8Z09wKPHC6OSM
@@ -29,6 +32,30 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.field_body
+  field_category:
+    label: Category
+    datasource_id: 'entity:node'
+    property_path: field_category
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_category
+  field_component:
+    label: Components
+    datasource_id: 'entity:node'
+    property_path: field_component
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_component
+  field_date_range:
+    label: 'Date range'
+    datasource_id: 'entity:node'
+    property_path: field_date_range
+    type: date
+    dependencies:
+      config:
+        - field.storage.node.field_date_range
   field_introduction:
     label: Introduction
     datasource_id: 'entity:node'
@@ -87,7 +114,7 @@ field_settings:
           blog_post: search_index
           book: search_index
           dashboard_item: search_index
-          govcms_event: search_index
+          events: search_index
           landing_page: search_index
           landing_page_level_2: search_index
           media_release: search_index
@@ -133,7 +160,7 @@ datasource_settings:
         - blog_post
         - book
         - dashboard_item
-        - govcms_event
+        - events
         - landing_page
         - landing_page_level_2
         - media_release
@@ -165,6 +192,8 @@ processor_settings:
     all_fields: true
     fields:
       - field_body
+      - field_category
+      - field_component
       - field_introduction
       - field_search_keywords
       - field_summary
@@ -186,6 +215,8 @@ processor_settings:
     all_fields: true
     fields:
       - field_body
+      - field_category
+      - field_component
       - field_introduction
       - field_search_keywords
       - field_summary
@@ -208,6 +239,8 @@ processor_settings:
     all_fields: true
     fields:
       - field_body
+      - field_category
+      - field_component
       - field_introduction
       - field_search_keywords
       - field_summary
@@ -223,6 +256,8 @@ processor_settings:
     all_fields: true
     fields:
       - field_body
+      - field_category
+      - field_component
       - field_introduction
       - field_search_keywords
       - field_summary
@@ -277,6 +312,8 @@ processor_settings:
     all_fields: true
     fields:
       - field_body
+      - field_category
+      - field_component
       - field_introduction
       - field_search_keywords
       - field_summary
@@ -298,7 +335,7 @@ processor_settings:
           blog_post: !!float 3
           book: !!float 1
           dashboard_item: !!float 1
-          govcms_event: !!float 1
+          events: !!float 1
           landing_page: !!float 8
           landing_page_level_2: !!float 8
           media_release: !!float 1

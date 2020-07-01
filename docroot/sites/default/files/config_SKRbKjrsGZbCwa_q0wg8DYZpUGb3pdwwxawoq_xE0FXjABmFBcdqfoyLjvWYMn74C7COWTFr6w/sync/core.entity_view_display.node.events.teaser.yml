@@ -10,6 +10,7 @@ dependencies:
     - field.field.node.events.field_eventbrite_code
     - field.field.node.events.field_index_image
     - field.field.node.events.field_location
+    - field.field.node.events.field_summary
     - node.type.events
   module:
     - user
@@ -35,4 +36,5 @@ hidden:
   field_eventbrite_code: true
   field_index_image: true
   field_location: true
+  field_summary: true
   search_api_excerpt: true

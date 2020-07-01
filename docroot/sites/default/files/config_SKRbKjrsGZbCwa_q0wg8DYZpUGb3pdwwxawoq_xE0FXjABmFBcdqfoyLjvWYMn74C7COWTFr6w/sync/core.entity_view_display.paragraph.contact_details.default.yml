@@ -1,0 +1,60 @@
+uuid: 29d23a05-8a3b-43be-81ae-97b025465ffd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.contact_details.field_contact
+    - paragraphs.paragraphs_type.contact_details
+  module:
+    - ds
+    - ds_chains
+    - empty_fields
+third_party_settings:
+  ds_chains:
+    fields: {  }
+id: paragraph.contact_details.default
+targetEntityType: paragraph
+bundle: contact_details
+mode: default
+content:
+  field_contact:
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: full
+      link: false
+    third_party_settings:
+      empty_fields:
+        handler: ''
+      ds:
+        ft:
+          id: expert
+          settings:
+            lb: ''
+            prefix: ''
+            lbw-el: ''
+            lbw-cl: ''
+            lbw-at: ''
+            ow-el: ''
+            ow-cl: ''
+            ow-at: ''
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fi-el: ''
+            fi-cl: ''
+            fi-at: ''
+            suffix: ''
+            lbw: false
+            lb-col: false
+            ow: false
+            ow-def-at: false
+            ow-def-cl: false
+            fis: false
+            fis-def-at: false
+            fi: false
+            fi-def-at: false
+    type: entity_reference_entity_view
+    region: content
+hidden:
+  search_api_excerpt: true

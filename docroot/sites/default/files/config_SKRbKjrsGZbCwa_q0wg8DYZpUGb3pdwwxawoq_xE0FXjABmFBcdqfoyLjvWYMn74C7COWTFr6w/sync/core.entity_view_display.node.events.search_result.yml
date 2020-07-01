@@ -10,14 +10,14 @@ dependencies:
     - field.field.node.events.field_eventbrite_code
     - field.field.node.events.field_index_image
     - field.field.node.events.field_location
+    - field.field.node.events.field_summary
     - node.type.events
   module:
     - datetime_range
     - ds
     - ds_chains
     - empty_fields
-    - entity_reference_revisions
-    - simple_gmap
+    - text
     - user
 third_party_settings:
   ds:
@@ -30,12 +30,80 @@ third_party_settings:
         label: ''
     regions:
       content:
-        - content_moderation_control
-        - links
+        - node_title
+        - 'bundle_field:node'
+        - field_summary
         - field_date_range
         - field_location
-        - field_eventbrite_code
-        - field_component
+    fields:
+      'bundle_field:node':
+        plugin_id: 'bundle_field:node'
+        weight: 1
+        label: hidden
+        formatter: default
+        ft:
+          id: expert
+          settings:
+            lb: ''
+            prefix: ''
+            lbw-el: ''
+            lbw-cl: ''
+            lbw-at: ''
+            ow-el: ''
+            ow-cl: ''
+            ow-at: ''
+            fis: true
+            fis-el: p
+            fis-cl: ''
+            fis-at: ''
+            fi: true
+            fi-el: em
+            fi-cl: ''
+            fi-at: ''
+            suffix: ''
+            lbw: false
+            lb-col: false
+            ow: false
+            ow-def-at: false
+            ow-def-cl: false
+            fis-def-at: false
+            fi-def-at: false
+      node_title:
+        plugin_id: node_title
+        weight: 0
+        label: hidden
+        formatter: default
+        settings:
+          link: true
+          wrapper: h3
+          class: ''
+        ft:
+          id: expert
+          settings:
+            lb: ''
+            prefix: ''
+            lbw-el: ''
+            lbw-cl: ''
+            lbw-at: ''
+            ow-el: ''
+            ow-cl: ''
+            ow-at: ''
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fi-el: ''
+            fi-cl: ''
+            fi-at: ''
+            suffix: ''
+            lbw: false
+            lb-col: false
+            ow: false
+            ow-def-at: false
+            ow-def-cl: false
+            fis: false
+            fis-def-at: false
+            fi: false
+            fi-def-at: false
   ds_chains:
     fields: {  }
 id: node.events.search_result
@@ -43,23 +111,17 @@ targetEntityType: node
 bundle: events
 mode: search_result
 content:
-  content_moderation_control:
-    weight: 0
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  field_component:
-    type: entity_reference_revisions_entity_view
-    weight: 5
+  field_date_range:
+    weight: 3
     label: hidden
     settings:
-      view_mode: default
-      link: ''
+      timezone_override: ''
+      format_type: date_month_year
+      separator: ' to '
     third_party_settings:
       empty_fields:
         handler: ''
       ds:
-        ds_limit: ''
         ft:
           id: expert
           settings:
@@ -71,7 +133,8 @@ content:
             ow-el: ''
             ow-cl: ''
             ow-at: ''
-            fis-el: ''
+            fis: true
+            fis-el: p
             fis-cl: ''
             fis-at: ''
             fi-el: ''
@@ -83,45 +146,55 @@ content:
             ow: false
             ow-def-at: false
             ow-def-cl: false
-            fis: false
             fis-def-at: false
             fi: false
             fi-def-at: false
-    region: content
-  field_date_range:
-    weight: 2
-    label: hidden
-    settings:
-      separator: '-'
-      format_type: medium
-      timezone_override: ''
-    third_party_settings: {  }
     type: daterange_default
     region: content
-  field_eventbrite_code:
+  field_location:
     weight: 4
     label: hidden
     settings:
       link_to_entity: false
-    third_party_settings: {  }
+    third_party_settings:
+      empty_fields:
+        handler: ''
+      ds:
+        ft:
+          id: expert
+          settings:
+            lb: ''
+            prefix: ''
+            lbw-el: ''
+            lbw-cl: ''
+            lbw-at: ''
+            ow-el: ''
+            ow-cl: ''
+            ow-at: ''
+            fis: true
+            fis-el: p
+            fis-cl: ''
+            fis-at: ''
+            fi-el: ''
+            fi-cl: ''
+            fi-at: ''
+            suffix: ''
+            lbw: false
+            lb-col: false
+            ow: false
+            ow-def-at: false
+            ow-def-cl: false
+            fis-def-at: false
+            fi: false
+            fi-def-at: false
     type: string
     region: content
-  field_location:
-    weight: 3
+  field_summary:
+    type: text_default
+    weight: 2
+    region: content
     label: hidden
-    settings:
-      include_map: true
-      apikey: ''
-      iframe_width: 100%
-      iframe_height: 100%
-      static_scale: 1
-      link_text: 'View larger map'
-      zoom_level: 14
-      include_text: true
-      map_type: m
-      langcode: en
-      include_static_map: false
-      include_link: false
+    settings: {  }
     third_party_settings:
       empty_fields:
         handler: ''
@@ -153,14 +226,11 @@ content:
             fis-def-at: false
             fi: false
             fi-def-at: false
-    type: simple_gmap
-    region: content
-  links:
-    weight: 1
-    region: content
-    settings: {  }
-    third_party_settings: {  }
 hidden:
+  content_moderation_control: true
   field_category: true
+  field_component: true
+  field_eventbrite_code: true
   field_index_image: true
+  links: true
   search_api_excerpt: true

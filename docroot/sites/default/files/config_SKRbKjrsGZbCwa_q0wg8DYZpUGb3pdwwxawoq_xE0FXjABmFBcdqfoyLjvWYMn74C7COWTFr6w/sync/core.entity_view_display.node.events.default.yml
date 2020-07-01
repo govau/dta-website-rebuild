@@ -9,6 +9,7 @@ dependencies:
     - field.field.node.events.field_eventbrite_code
     - field.field.node.events.field_index_image
     - field.field.node.events.field_location
+    - field.field.node.events.field_summary
     - node.type.events
   module:
     - datetime_range
@@ -17,6 +18,7 @@ dependencies:
     - empty_fields
     - entity_reference_revisions
     - simple_gmap
+    - text
     - user
 third_party_settings:
   ds:
@@ -161,6 +163,13 @@ content:
             fi: false
             fi-def-at: false
     type: simple_gmap
+    region: content
+  field_summary:
+    weight: 7
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
     region: content
   links:
     weight: 1
