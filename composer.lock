@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "bf96a957237aa3798132fc685518d5a3",
+    "content-hash": "733c358b186f8a1935bacc3e8de29a65",
     "packages": [
         {
             "name": "algolia/places",
@@ -1414,6 +1414,20 @@
                 "redis",
                 "xcache"
             ],
+            "funding": [
+                {
+                    "url": "https://www.doctrine-project.org/sponsorship.html",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://www.patreon.com/phpdoctrine",
+                    "type": "patreon"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/doctrine%2Fcache",
+                    "type": "tidelift"
+                }
+            ],
             "time": "2020-05-27T16:24:54+00:00"
         },
         {
@@ -1478,6 +1492,20 @@
                 "collections",
                 "iterators",
                 "php"
+            ],
+            "funding": [
+                {
+                    "url": "https://www.doctrine-project.org/sponsorship.html",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://www.patreon.com/phpdoctrine",
+                    "type": "patreon"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/doctrine%2Fcollections",
+                    "type": "tidelift"
+                }
             ],
             "time": "2020-05-25T19:24:35+00:00"
         },
@@ -2359,13 +2387,10 @@
                 "shasum": "0cd9849aa28eea822e18555107e4539d755d95ef"
             },
             "require": {
-                "drupal/core": "*"
+                "drupal/core": "^8"
             },
             "type": "drupal-module",
             "extra": {
-                "branch-alias": {
-                    "dev-3.x": "3.x-dev"
-                },
                 "drupal": {
                     "version": "8.x-3.0-alpha6",
                     "datestamp": "1550449381",
@@ -9997,16 +10022,16 @@
         },
         {
             "name": "govau/dta-gov-au",
-            "version": "1.16.4",
+            "version": "1.16.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/govau/dta-gov-au.git",
-                "reference": "28ea9e6e4027e8a7b1621b27dcc7aa81d4f0e9a9"
+                "reference": "f32c9cade683a8f9a67e441d11f6bdcb0301e15f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/govau/dta-gov-au/zipball/28ea9e6e4027e8a7b1621b27dcc7aa81d4f0e9a9",
-                "reference": "28ea9e6e4027e8a7b1621b27dcc7aa81d4f0e9a9",
+                "url": "https://api.github.com/repos/govau/dta-gov-au/zipball/f32c9cade683a8f9a67e441d11f6bdcb0301e15f",
+                "reference": "f32c9cade683a8f9a67e441d11f6bdcb0301e15f",
                 "shasum": ""
             },
             "require": {
@@ -10024,7 +10049,7 @@
                 "government",
                 "theme"
             ],
-            "time": "2020-06-26T07:49:21+00:00"
+            "time": "2020-07-08T05:05:49+00:00"
         },
         {
             "name": "govau/dta-uikit-base",
