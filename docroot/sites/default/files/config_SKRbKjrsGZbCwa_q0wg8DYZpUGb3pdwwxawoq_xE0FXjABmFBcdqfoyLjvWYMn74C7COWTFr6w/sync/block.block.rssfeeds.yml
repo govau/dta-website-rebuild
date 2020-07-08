@@ -12,7 +12,7 @@ dependencies:
 id: rssfeeds
 theme: dta_gov_au
 region: sidebar_right
-weight: 0
+weight: -21
 provider: null
 plugin: 'block_content:a6d99dab-d0d6-42f7-9905-10b876711929'
 settings:

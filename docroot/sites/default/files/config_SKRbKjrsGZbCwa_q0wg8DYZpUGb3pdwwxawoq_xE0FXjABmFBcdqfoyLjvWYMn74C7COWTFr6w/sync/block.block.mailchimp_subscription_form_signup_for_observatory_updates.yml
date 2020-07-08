@@ -1,0 +1,26 @@
+uuid: e0b16e95-f34b-47d2-989a-9b3885d0109d
+langcode: en
+status: true
+dependencies:
+  module:
+    - mailchimp_signup
+    - system
+  theme:
+    - dta_gov_au
+id: mailchimp_subscription_form_signup_for_observatory_updates
+theme: dta_gov_au
+region: sidebar_right
+weight: -19
+provider: null
+plugin: 'mailchimp_signup_subscribe_block:signup_for_observatory_updates'
+settings:
+  id: 'mailchimp_signup_subscribe_block:signup_for_observatory_updates'
+  label: 'Sign-up for updates from gov.au Observatory'
+  provider: mailchimp_signup
+  label_display: visible
+visibility:
+  request_path:
+    id: request_path
+    pages: /blogs/learning-users-through-discovery-research
+    negate: false
+    context_mapping: {  }
