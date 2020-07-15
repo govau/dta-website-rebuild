@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "24e9ced47addffcc64478126f6c9da83",
+    "content-hash": "1c22f5001637acb45a0b70b43adb8e57",
     "packages": [
         {
             "name": "algolia/places",
@@ -3878,6 +3878,9 @@
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
                     }
+                },
+                "patches_applied": {
+                    "Errors when new entity types are added (in certain cases)": "https://www.drupal.org/files/issues/2020-05-31/3099176-2.x-9.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",

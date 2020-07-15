@@ -303,6 +303,9 @@
 			},
 			"drupal/google_analytics": {
 				"Allow taxonomy term name in custom dimension settings": "https://www.drupal.org/files/issues/2019-04-24/allow_taxonomy_term_name_custom_dimension_settings_305080_2.patch"
+			},
+			"drupal/dynamic_entity_reference": {
+				"Errors when new entity types are added (in certain cases)":"https://www.drupal.org/files/issues/2020-05-31/3099176-2.x-9.patch"
 			}
 		},
 		"merge-plugin": {

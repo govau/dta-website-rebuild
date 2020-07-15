@@ -50,6 +50,7 @@ projects[ds][version] = 3.7
 projects[ds_chains][type] = module
 projects[ds_chains][version] = 1.1
 projects[dynamic_entity_reference][type] = module
+projects[dynamic_entity_reference][patch][] = https://www.drupal.org/files/issues/2020-05-31/3099176-2.x-9.patch
 projects[dynamic_entity_reference][version] = 1.10
 projects[editor_advanced_link][type] = module
 projects[editor_advanced_link][version] = 1.8
