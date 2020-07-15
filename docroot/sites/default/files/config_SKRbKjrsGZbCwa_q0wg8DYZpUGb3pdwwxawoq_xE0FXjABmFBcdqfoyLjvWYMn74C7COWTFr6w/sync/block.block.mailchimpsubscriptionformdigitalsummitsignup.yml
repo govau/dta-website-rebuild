@@ -1,0 +1,26 @@
+uuid: 00566e06-6482-4fe6-93dc-79acb959bb4a
+langcode: en
+status: true
+dependencies:
+  module:
+    - mailchimp_signup
+    - system
+  theme:
+    - dta_gov_au
+id: mailchimpsubscriptionformdigitalsummitsignup
+theme: dta_gov_au
+region: content
+weight: 0
+provider: null
+plugin: 'mailchimp_signup_subscribe_block:digital_summit_signup'
+settings:
+  id: 'mailchimp_signup_subscribe_block:digital_summit_signup'
+  label: 'Register your interest'
+  provider: mailchimp_signup
+  label_display: visible
+visibility:
+  request_path:
+    id: request_path
+    pages: /help-and-advice/digital-summit-and-awards-2020
+    negate: false
+    context_mapping: {  }
