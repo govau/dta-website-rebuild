@@ -1,0 +1,27 @@
+uuid: d814ac45-ba70-4db2-ac53-8fd82a2490e8
+langcode: en
+status: true
+dependencies:
+  module:
+    - dynamic_entity_reference
+    - field_permissions
+    - media
+    - paragraphs
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: paragraph.field_image
+field_name: field_image
+entity_type: paragraph
+type: dynamic_entity_reference
+settings:
+  exclude_entity_types: false
+  entity_type_ids:
+    media: media
+module: dynamic_entity_reference
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

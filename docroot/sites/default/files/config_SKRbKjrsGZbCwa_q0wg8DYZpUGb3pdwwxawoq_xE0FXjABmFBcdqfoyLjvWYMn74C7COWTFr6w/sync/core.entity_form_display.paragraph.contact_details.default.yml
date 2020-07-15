@@ -1,0 +1,29 @@
+uuid: ad1189ea-b6ea-47a3-8f21-b7948f1eee3b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.contact_details.field_contact
+    - paragraphs.paragraphs_type.contact_details
+  module:
+    - field_layout
+    - layout_discovery
+third_party_settings:
+  field_layout:
+    id: layout_onecol
+    settings:
+      label: ''
+id: paragraph.contact_details.default
+targetEntityType: paragraph
+bundle: contact_details
+mode: default
+content:
+  field_contact:
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    type: options_buttons
+    region: content
+hidden:
+  created: true
+  status: true

@@ -5,5 +5,6 @@ dependencies: {  }
 id: related_documents
 label: 'Related documents'
 icon_uuid: null
-description: ''
+icon_default: null
+description: 'Use this paragraph type to add attachments to your content. The document you want to add must already exist on the site. If you can''t find it, <a href="/node/add/document/">please add it</a>.'
 behavior_plugins: {  }

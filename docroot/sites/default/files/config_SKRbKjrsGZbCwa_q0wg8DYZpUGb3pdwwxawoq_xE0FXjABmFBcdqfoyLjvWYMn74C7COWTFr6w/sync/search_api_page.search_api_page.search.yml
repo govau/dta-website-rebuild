@@ -18,17 +18,17 @@ view_mode_configuration:
   'entity:node':
     default: search_result
     overrides:
-      assessment_report: search_result
-      blog_post: search_result
-      book: search_result
-      dashboard_item: search_result
-      govcms_event: search_result
-      landing_page: search_result
-      landing_page_level_2: search_result
-      media_release: search_result
-      news_item: search_result
-      page: search_result
-      presentation: search_result
-      speaker_bio: search_result
+      assessment_report: ''
+      blog_post: ''
+      book: ''
+      dashboard_item: ''
+      events: ''
+      landing_page: ''
+      landing_page_level_2: ''
+      media_release: ''
+      news_item: ''
+      page: ''
+      presentation: ''
+      speaker_bio: ''
 show_search_form: true
 parse_mode: direct

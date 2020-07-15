@@ -1,0 +1,57 @@
+uuid: 429d6a60-baf8-447d-a899-043469e4c3fd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.media.field_media_image_1
+    - media.type.social_media_images
+  module:
+    - filefield_paths
+    - image
+third_party_settings:
+  filefield_paths:
+    enabled: true
+    file_path:
+      value: images/social/twitter
+      options:
+        slashes: true
+        pathauto: true
+        transliterate: false
+    redirect: true
+    retroactive_update: false
+    active_updating: false
+    file_name:
+      value: '[file:ffp-name-only-original].[file:ffp-extension-original]'
+      options:
+        slashes: true
+        pathauto: true
+        transliterate: false
+id: media.social_media_images.field_media_image_1
+field_name: field_media_image_1
+entity_type: media
+bundle: social_media_images
+label: 'Twitter image'
+description: 'This image is for Twitter sharing and posting.'
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'png gif jpg jpeg'
+  max_filesize: '5 MB'
+  max_resolution: 1024x1024
+  min_resolution: 100x100
+  alt_field: true
+  alt_field_required: true
+  title_field: false
+  title_field_required: false
+  default_image:
+    uuid: ''
+    alt: ''
+    title: ''
+    width: null
+    height: null
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: image

@@ -1,0 +1,12 @@
+uuid: 6d1f7032-e262-47b4-875a-0e83a184d294
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'file:file:b6162ccf-438f-4400-8053-88bc56c26fb7'
+id: social_media_share_images
+label: 'Social media share images'
+icon_uuid: b6162ccf-438f-4400-8053-88bc56c26fb7
+icon_default: null
+description: 'Use this paragraph type to add social media sharing images.'
+behavior_plugins: {  }

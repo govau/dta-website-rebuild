@@ -1,0 +1,34 @@
+uuid: 2ab1edfd-3b74-49a0-9b85-c6bb78df6f23
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_summary
+    - node.type.events
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    summary: summary
+    introduction: '0'
+    commenting: '0'
+    full_rich_text: '0'
+    administration: '0'
+    html: '0'
+    plain_text: '0'
+    rich_text: '0'
+    basic_text: '0'
+    transcript_text: '0'
+id: node.events.field_summary
+field_name: field_summary
+entity_type: node
+bundle: events
+label: Summary
+description: 'The summary is displayed on search listings and page listings.'
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

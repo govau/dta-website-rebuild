@@ -56,6 +56,7 @@ field_settings:
       view_mode:
         'entity:node':
           blog_post: card
+          events: card
           media_release: card
           news_item: card
   status:
@@ -92,6 +93,7 @@ datasource_settings:
       default: false
       selected:
         - blog_post
+        - events
         - media_release
         - news_item
     languages:
@@ -103,6 +105,7 @@ processor_settings:
   content_access:
     weights:
       preprocess_query: -30
+  language_with_fallback: {  }
   rendered_item: {  }
 tracker_settings:
   default:

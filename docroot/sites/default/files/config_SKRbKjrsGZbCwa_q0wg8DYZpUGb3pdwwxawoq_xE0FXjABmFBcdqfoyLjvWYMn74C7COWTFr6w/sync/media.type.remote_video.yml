@@ -1,0 +1,17 @@
+uuid: 81b2ad73-4f6d-4127-939a-8ee1d5c78e93
+langcode: en
+status: false
+dependencies: {  }
+id: remote_video
+label: 'Remote video'
+description: 'Use this media type to add a remote video to the site.'
+source: 'oembed:video'
+queue_thumbnail_downloads: true
+new_revision: true
+source_configuration:
+  thumbnails_directory: 'public://oembed_thumbnails'
+  providers:
+    - YouTube
+    - Vimeo
+  source_field: field_media_oembed_video
+field_map: {  }

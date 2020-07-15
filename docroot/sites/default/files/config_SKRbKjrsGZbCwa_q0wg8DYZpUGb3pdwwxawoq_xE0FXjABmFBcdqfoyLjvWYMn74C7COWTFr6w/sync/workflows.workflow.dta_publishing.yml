@@ -6,7 +6,7 @@ dependencies:
     - node.type.assessment_report
     - node.type.blog_post
     - node.type.book
-    - node.type.govcms_event
+    - node.type.events
     - node.type.home_page
     - node.type.individual_roadmap_ux
     - node.type.landing_page
@@ -103,7 +103,7 @@ type_settings:
       - assessment_report
       - blog_post
       - book
-      - govcms_event
+      - events
       - home_page
       - individual_roadmap_ux
       - landing_page

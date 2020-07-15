@@ -1,0 +1,29 @@
+uuid: 13797b6e-8875-4419-ba99-650d57b79d89
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_contact
+    - paragraphs.paragraphs_type.contact_details
+    - taxonomy.vocabulary.contacts
+id: paragraph.contact_details.field_contact
+field_name: field_contact
+entity_type: paragraph
+bundle: contact_details
+label: Contact
+description: 'Select a contact.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      contacts: contacts
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

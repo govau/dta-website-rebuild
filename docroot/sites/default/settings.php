@@ -963,7 +963,7 @@ if(isset($_ENV['ENVIRONMENT'])) {
     $config['system.performance']['css']['preprocess'] = FALSE;
     $config['system.performance']['js']['preprocess'] = FALSE;
     $config['system.logging']['error_level'] = 'verbose';
-    $config['robotstxt.settings']['content'] = 'User-agent: *\r\nDisallow: /';
+    $config['robotstxt.settings']['content'] = 'User-agent: *' . PHP_EOL . 'Disallow: /';
   }
 } else {
   $config['s3fs.settings']['bucket'] = '';

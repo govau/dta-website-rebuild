@@ -1,0 +1,32 @@
+uuid: 160bdc76-29a7-47c1-b40b-0486111bba3d
+langcode: en
+status: true
+dependencies: {  }
+name: node_events
+label: 'node events validation'
+entity_type: node
+bundle: events
+field_validation_rules:
+  ad1c580a-08d4-4adb-99cf-45b89fc000a5:
+    uuid: ad1c580a-08d4-4adb-99cf-45b89fc000a5
+    id: numeric_field_validation_rule
+    title: 'Eventbrite code'
+    weight: 1
+    field_name: field_eventbrite_code
+    column: value
+    error_message: 'You need to enter a number between 80000000000 and 99999999999'
+    data:
+      min: '80000000000'
+      max: '99999999999'
+      step: '1'
+  6e863ca8-7626-4f0f-8e8f-8606f79488d9:
+    uuid: 6e863ca8-7626-4f0f-8e8f-8606f79488d9
+    id: length_field_validation_rule
+    title: 'Eventbrite code'
+    weight: 2
+    field_name: field_eventbrite_code
+    column: value
+    error_message: 'Your number needs to be at least 11 digits long.'
+    data:
+      min: '11'
+      max: '12'

@@ -7,7 +7,7 @@ dependencies:
     - node.type.blog_post
     - node.type.book
     - node.type.external_link
-    - node.type.govcms_event
+    - node.type.events
     - node.type.landing_page
     - node.type.landing_page_level_2
     - node.type.media_release

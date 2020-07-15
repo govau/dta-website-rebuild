@@ -1,0 +1,29 @@
+uuid: 4349ab35-2027-4a2a-83e7-716c7b0e5d42
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_category
+    - node.type.events
+    - taxonomy.vocabulary.event_categories
+id: node.events.field_category
+field_name: field_category
+entity_type: node
+bundle: events
+label: Category
+description: 'Select the category this event belongs to. You may need to <a href="/admin/structure/taxonomy/manage/event_categories/add">create a new category</a>.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      event_categories: event_categories
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

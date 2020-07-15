@@ -1,0 +1,12 @@
+uuid: ddf3b01b-3542-487c-a53c-ed9847fd42be
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'file:file:d8c49ed0-ae4f-4758-9cdb-714b8a6cd268'
+id: image
+label: Image
+icon_uuid: d8c49ed0-ae4f-4758-9cdb-714b8a6cd268
+icon_default: null
+description: 'Use this component to add an image. If you can''t find the image, you may need to <a href="/media/add/image">add it to the media library</a>.'
+behavior_plugins: {  }

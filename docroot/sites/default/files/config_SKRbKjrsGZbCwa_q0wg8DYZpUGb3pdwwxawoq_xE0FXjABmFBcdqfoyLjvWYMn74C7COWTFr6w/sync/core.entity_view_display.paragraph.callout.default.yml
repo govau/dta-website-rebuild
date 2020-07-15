@@ -1,0 +1,70 @@
+uuid: 76e83dbf-be9c-47a6-ad46-16d70149caef
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.callout.field_basic_text
+    - paragraphs.paragraphs_type.callout
+  module:
+    - ds
+    - ds_chains
+    - empty_fields
+    - text
+third_party_settings:
+  ds:
+    layout:
+      id: layout_onecol
+      library: layout_discovery/onecol
+      disable_css: false
+      entity_classes: no_classes
+      settings:
+        label: ''
+    regions:
+      content:
+        - field_basic_text
+  ds_chains:
+    fields: {  }
+id: paragraph.callout.default
+targetEntityType: paragraph
+bundle: callout
+mode: default
+content:
+  field_basic_text:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings:
+      empty_fields:
+        handler: ''
+      ds:
+        ft:
+          id: expert
+          settings:
+            lb: ''
+            prefix: ''
+            lbw-el: ''
+            lbw-cl: ''
+            lbw-at: ''
+            ow: true
+            ow-el: div
+            ow-cl: au-callout
+            ow-at: ''
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fi-el: ''
+            fi-cl: ''
+            fi-at: ''
+            suffix: ''
+            lbw: false
+            lb-col: false
+            ow-def-at: false
+            ow-def-cl: false
+            fis: false
+            fis-def-at: false
+            fi: false
+            fi-def-at: false
+    type: text_default
+    region: content
+hidden:
+  search_api_excerpt: true
