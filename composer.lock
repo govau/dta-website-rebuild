@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1c22f5001637acb45a0b70b43adb8e57",
+    "content-hash": "671a6eeb247c882d1cdae075748a6103",
     "packages": [
         {
             "name": "algolia/places",
@@ -2408,7 +2408,7 @@
                 "shasum": "0cd9849aa28eea822e18555107e4539d755d95ef"
             },
             "require": {
-                "drupal/core": "^8"
+                "drupal/core": "*"
             },
             "type": "drupal-module",
             "extra": {
@@ -3564,6 +3564,85 @@
             "homepage": "https://www.drupal.org/project/ctools",
             "support": {
                 "source": "https://git.drupalcode.org/project/ctools"
+            }
+        },
+        {
+            "name": "drupal/delete_all",
+            "version": "2.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/delete_all.git",
+                "reference": "2.0.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/delete_all-2.0.0.zip",
+                "reference": "2.0.0",
+                "shasum": "dda46b576a45158906243668e3b386a788f9bf73"
+            },
+            "require": {
+                "drupal/core": "^8 || ^9",
+                "php": ">=5.6.0"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "2.0.0",
+                    "datestamp": "1593336394",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                },
+                "drush": {
+                    "services": {
+                        "drush.services.yml": "^9"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Author name",
+                    "homepage": "https://www.drupal.org/user/3196009",
+                    "email": "author@example.com"
+                },
+                {
+                    "name": "coderintherye",
+                    "homepage": "https://www.drupal.org/user/297478"
+                },
+                {
+                    "name": "danylevskyi",
+                    "homepage": "https://www.drupal.org/user/322039"
+                },
+                {
+                    "name": "dipakmdhrm",
+                    "homepage": "https://www.drupal.org/user/1687410"
+                },
+                {
+                    "name": "douggreen",
+                    "homepage": "https://www.drupal.org/user/29191"
+                },
+                {
+                    "name": "kbahey",
+                    "homepage": "https://www.drupal.org/user/4063"
+                },
+                {
+                    "name": "realityloop",
+                    "homepage": "https://www.drupal.org/user/139189"
+                },
+                {
+                    "name": "wafaa",
+                    "homepage": "https://www.drupal.org/user/50133"
+                }
+            ],
+            "description": "This extension provides new commands for Drush.",
+            "homepage": "https://www.drupal.org/project/delete_all",
+            "support": {
+                "source": "https://git.drupalcode.org/project/delete_all"
             }
         },
         {
@@ -6692,6 +6771,50 @@
                 "source": "http://cgit.drupalcode.org/migrate_tools",
                 "issues": "http://drupal.org/project/migrate_tools",
                 "irc": "irc://irc.freenode.org/drupal-migrate"
+            }
+        },
+        {
+            "name": "drupal/moderated_content_bulk_publish",
+            "version": "1.0.0-beta4",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/moderated_content_bulk_publish.git",
+                "reference": "8.x-1.0-beta4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/moderated_content_bulk_publish-8.x-1.0-beta4.zip",
+                "reference": "8.x-1.0-beta4",
+                "shasum": "f8bab6ca78dc2b6c6a2985b0251b6610c7139625"
+            },
+            "require": {
+                "drupal/core": "^8 || ^9"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-1.0-beta4",
+                    "datestamp": "1590775952",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Project has not opted into security advisory coverage!"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "joseph.olstad",
+                    "homepage": "https://www.drupal.org/user/1321830"
+                }
+            ],
+            "description": "Provides general administration features that Drupal 8 core does not provide.",
+            "homepage": "https://www.drupal.org/project/moderated_content_bulk_publish",
+            "support": {
+                "source": "https://git.drupalcode.org/project/moderated_content_bulk_publish"
             }
         },
         {
@@ -10067,16 +10190,16 @@
         },
         {
             "name": "govau/dta-gov-au",
-            "version": "1.16.11",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/govau/dta-gov-au.git",
-                "reference": "15fce481aa4a88c150075b0a1844e6bbdddcecbb"
+                "reference": "72ff5ba37b116851f07b33233b140514fdf88cd4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/govau/dta-gov-au/zipball/15fce481aa4a88c150075b0a1844e6bbdddcecbb",
-                "reference": "15fce481aa4a88c150075b0a1844e6bbdddcecbb",
+                "url": "https://api.github.com/repos/govau/dta-gov-au/zipball/72ff5ba37b116851f07b33233b140514fdf88cd4",
+                "reference": "72ff5ba37b116851f07b33233b140514fdf88cd4",
                 "shasum": ""
             },
             "require": {
@@ -10094,7 +10217,7 @@
                 "government",
                 "theme"
             ],
-            "time": "2020-07-14T22:47:36+00:00"
+            "time": "2020-07-15T04:22:35+00:00"
         },
         {
             "name": "govau/dta-uikit-base",
@@ -17602,7 +17725,8 @@
         "drupal/context_metadata": 20,
         "drupal/field_validation": 15,
         "drupal/ie8": 20,
-        "drupal/link_css": 20
+        "drupal/link_css": 20,
+        "drupal/moderated_content_bulk_publish": 10
     },
     "prefer-stable": true,
     "prefer-lowest": false,
