@@ -123,7 +123,7 @@
 		"drupal/adminimal_admin_toolbar": "1.11",
 		"drupal/adminimal_theme": "^1.5",
 		"drupal/advagg": "4.1",
-		"drupal/allowed_formats": "1.2",
+		"drupal/allowed_formats": "1.3",
 		"drupal/backup_migrate": "4.1",
 		"drupal/better_exposed_filters": "3.0-alpha6",
 		"drupal/bigmenu": "^2.0",
@@ -184,7 +184,7 @@
 		"drupal/migrate_plus": "4.0-beta3",
 		"drupal/migrate_tools": "4.0-beta3",
 		"drupal/module_filter": "3.1",
-		"drupal/node_title_help_text": "1.1",
+		"drupal/node_title_help_text": "1.2",
 		"drupal/node_title_validation": "1.2",
 		"drupal/override_node_options": "2.4",
 		"drupal/panelizer": "4.1",
@@ -192,7 +192,7 @@
 		"drupal/paragraphs_entity_embed": "1.0-alpha6",
 		"drupal/password_policy": "3.0-alpha4",
 		"drupal/pathauto": "1.8",
-		"drupal/rabbit_hole": "1.0-beta6",
+		"drupal/rabbit_hole": "1.0-beta7",
 		"drupal/redirect": " 1.6",
 		"drupal/robotstxt": " 1.4",
 		"drupal/rules": "3.0-alpha5",
@@ -200,9 +200,9 @@
 		"drupal/s3fs": "^3.0",
 		"drupal/scheduler": "1.3",
 		"drupal/scheduler_content_moderation_integration": "1.3",
-		"drupal/search_api": "1.15",
-		"drupal/search_api_autocomplete": "1.2",
-		"drupal/search_api_page": "1.0-alpha12",
+		"drupal/search_api": "1.17",
+		"drupal/search_api_autocomplete": "1.3",
+		"drupal/search_api_page": "1.0-beta2",
 		"drupal/seckit": "1.2",
 		"drupal/simple_gmap": "^3.0",
 		"drupal/simple_sitemap": "3.7",
@@ -212,6 +212,7 @@
 		"drupal/structure_sync": "1.16",
 		"drupal/superfish": "1.4",
 		"drupal/swiftmailer": "1.0-beta2",
+		"drupal/tablefield": "2.1",
 		"drupal/term_condition": "1.2",
 		"drupal/toc_filter": "2.0-beta1",
 		"drupal/token": "1.7",
@@ -222,11 +223,11 @@
 		"drupal/video_embed_field": " 2.4",
 		"drupal/views_entity_form_field": "1.0-beta7",
 		"drupal/views_menu_children_filter": "1.0-beta3",
-		"drupal/webform": "5.16",
+		"drupal/webform": "5.18",
 		"drupal/weight": "3.1",
 		"drupal/wysiwyg_template": "2.3",
 		"drush/drush": "9.3.0",
-		"govau/dta-gov-au": "1.15.1",
+		"govau/dta-gov-au": "1.16.11",
 		"govau/dta_website_image_plugin": "1.1.0",
 		"govau/dta_website_slack_integration": "1.2.3",
 		"govau/tadpole": "^1.1",
@@ -276,6 +277,12 @@
 			"drush/contrib/{$name}": ["type:drupal-drush"]
 		},
 		"patches": {
+			"drupal/rabbit_hole": {
+			  "Error on empty redirect path": "https://www.drupal.org/files/issues/2020-04-27/2926929Z-29.patch"
+			},
+			"drupal/search_api_page": {
+			  "Search block form should define a base form ID": "https://www.drupal.org/files/issues/2019-07-02/3063684-2--search_form_base_id.patch"
+			},
 			"drupal/swiftmailer": {
 				"Unit Testing is failing on testMassageMessageBody()": "https://www.drupal.org/files/issues/2018-03-13/swiftmailer-unittest.patch"
 			},

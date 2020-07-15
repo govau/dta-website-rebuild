@@ -28,3 +28,4 @@ view_mode_configuration:
   'entity:node_presentation': search_result
   'entity:node_speaker_bio': search_result
 show_search_form: true
+parse_mode: direct
