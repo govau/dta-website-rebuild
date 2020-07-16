@@ -476,11 +476,13 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - 'user.node_grants:view'
         - user.permissions
       tags:
         - 'config:field.storage.node.field_date_range'
         - 'config:field.storage.node.field_index_image'
         - 'config:field.storage.node.field_location'
+        - 'config:search_api.index.events_search'
   block_1:
     display_plugin: block
     id: block_1
@@ -491,16 +493,36 @@ display:
         metatag_display_extender: {  }
       display_description: ''
       block_hide_empty: true
+      title: 'Upcoming events'
+      defaults:
+        title: false
+        header: false
+      header:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: false
+          tokenize: false
+          content:
+            value: '<h2>[view:title]</h2>'
+            format: commenting
+          plugin_id: text
     cache_metadata:
       max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - 'user.node_grants:view'
         - user.permissions
       tags:
         - 'config:field.storage.node.field_date_range'
         - 'config:field.storage.node.field_index_image'
         - 'config:field.storage.node.field_location'
+        - 'config:search_api.index.events_search'
   page_1:
     display_plugin: page
     id: page_1
@@ -876,11 +898,13 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url.query_args
+        - 'user.node_grants:view'
         - user.permissions
       tags:
         - 'config:field.storage.node.field_date_range'
         - 'config:field.storage.node.field_index_image'
         - 'config:field.storage.node.field_location'
+        - 'config:search_api.index.events_search'
   page_2:
     display_plugin: page
     id: page_2
@@ -1346,8 +1370,10 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url.query_args
+        - 'user.node_grants:view'
         - user.permissions
       tags:
         - 'config:field.storage.node.field_date_range'
         - 'config:field.storage.node.field_index_image'
         - 'config:field.storage.node.field_location'
+        - 'config:search_api.index.events_search'
