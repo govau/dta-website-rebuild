@@ -1,0 +1,15 @@
+uuid: 0cdb9c65-91e9-48ee-9eea-41c1392befa8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.social_media_share_images.field_image
+    - paragraphs.paragraphs_type.social_media_share_images
+id: paragraph.social_media_share_images.default
+targetEntityType: paragraph
+bundle: social_media_share_images
+mode: default
+content: {  }
+hidden:
+  field_image: true
+  search_api_excerpt: true

@@ -1,0 +1,29 @@
+uuid: 37f615f5-f4f4-43f2-aa8f-6ec4837d0a5b
+langcode: en
+status: true
+dependencies:
+  config:
+    - facets.facet.category
+  module:
+    - facets
+    - system
+  theme:
+    - dta_gov_au
+id: category
+theme: dta_gov_au
+region: sidebar_off_canvas
+weight: 0
+provider: null
+plugin: 'facet_block:category'
+settings:
+  id: 'facet_block:category'
+  label: 'Filter by category'
+  provider: facets
+  label_display: visible
+  block_id: category
+visibility:
+  request_path:
+    id: request_path
+    pages: /events
+    negate: false
+    context_mapping: {  }

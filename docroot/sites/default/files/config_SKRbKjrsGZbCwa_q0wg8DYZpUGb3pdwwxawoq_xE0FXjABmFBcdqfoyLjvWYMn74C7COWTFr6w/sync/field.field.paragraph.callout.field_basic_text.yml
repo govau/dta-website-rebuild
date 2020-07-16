@@ -1,0 +1,33 @@
+uuid: 15a6eef9-d5d5-4508-ad77-99be616cda37
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_basic_text
+    - paragraphs.paragraphs_type.callout
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    basic_text: basic_text
+    introduction: '0'
+    summary: '0'
+    commenting: '0'
+    full_rich_text: '0'
+    administration: '0'
+    html: '0'
+    plain_text: '0'
+    rich_text: '0'
+id: paragraph.callout.field_basic_text
+field_name: field_basic_text
+entity_type: paragraph
+bundle: callout
+label: 'Callout text'
+description: 'Add your callout text here. You can use simple formatting.'
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

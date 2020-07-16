@@ -1,0 +1,33 @@
+uuid: 4f322f6f-1086-437d-b4ed-bbe0229bb99a
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.media_library
+    - field.field.media.social_media_images.field_media_image
+    - field.field.media.social_media_images.field_media_image_1
+    - image.style.medium
+    - media.type.social_media_images
+  module:
+    - image
+id: media.social_media_images.media_library
+targetEntityType: media
+bundle: social_media_images
+mode: media_library
+content:
+  thumbnail:
+    type: image
+    label: hidden
+    settings:
+      image_style: medium
+      image_link: ''
+    weight: 0
+    third_party_settings: {  }
+    region: content
+hidden:
+  created: true
+  field_media_image: true
+  field_media_image_1: true
+  name: true
+  search_api_excerpt: true
+  uid: true

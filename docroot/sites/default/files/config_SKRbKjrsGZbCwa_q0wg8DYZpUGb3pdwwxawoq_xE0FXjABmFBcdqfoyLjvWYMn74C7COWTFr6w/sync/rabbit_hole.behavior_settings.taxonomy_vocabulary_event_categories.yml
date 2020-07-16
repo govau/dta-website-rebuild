@@ -1,0 +1,11 @@
+uuid: 6ab3798b-8b3e-4765-ae6d-2e8a562da962
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.event_categories
+id: taxonomy_vocabulary_event_categories
+action: display_page
+allow_override: 1
+redirect: ''
+redirect_code: 301

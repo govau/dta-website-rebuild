@@ -1,0 +1,73 @@
+uuid: a799a482-978e-41a0-98ef-b63edc752a54
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_component
+    - node.type.events
+    - paragraphs.paragraphs_type.basic_text
+    - paragraphs.paragraphs_type.callout
+    - paragraphs.paragraphs_type.contact_details
+    - paragraphs.paragraphs_type.image
+    - paragraphs.paragraphs_type.related_documents
+    - paragraphs.paragraphs_type.social_media_share_images
+    - paragraphs.paragraphs_type.video
+  module:
+    - entity_reference_revisions
+id: node.events.field_component
+field_name: field_component
+entity_type: node
+bundle: events
+label: Components
+description: 'Add components to the event using this widget.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      basic_text: basic_text
+      callout: callout
+      related_documents: related_documents
+      contact_details: contact_details
+      video: video
+      image: image
+      social_media_share_images: social_media_share_images
+    target_bundles_drag_drop:
+      basic_text:
+        enabled: true
+        weight: 7
+      callout:
+        enabled: true
+        weight: 9
+      contact_details:
+        enabled: true
+        weight: 14
+      dashboard_case_study:
+        weight: 6
+        enabled: false
+      dashboard_metrics:
+        weight: 7
+        enabled: false
+      dashboard_metrics_intro:
+        weight: 8
+        enabled: false
+      dss_criterion:
+        weight: 9
+        enabled: false
+      image:
+        enabled: true
+        weight: 19
+      related_documents:
+        enabled: true
+        weight: 10
+      social_media_share_images:
+        enabled: true
+        weight: 24
+      video:
+        enabled: true
+        weight: 16
+field_type: entity_reference_revisions

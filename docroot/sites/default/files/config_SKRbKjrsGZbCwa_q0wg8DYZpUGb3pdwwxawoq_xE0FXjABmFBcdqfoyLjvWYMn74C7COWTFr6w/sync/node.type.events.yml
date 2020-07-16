@@ -1,0 +1,37 @@
+uuid: 5462594e-1529-49c4-a64c-792dbcec3775
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+    - node_title_help_text
+    - scheduler
+    - wysiwyg_template
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+  node_title_help_text:
+    title_help: 'Titles have a limit of 65 characters and must be unique. We use this text for the <title> tag, for search engine optimisation (SEO) and to build the page address (URL).'
+  scheduler:
+    expand_fieldset: when_required
+    fields_display_mode: vertical_tab
+    publish_enable: true
+    publish_past_date: error
+    publish_past_date_created: false
+    publish_required: false
+    publish_revision: false
+    publish_touch: false
+    unpublish_enable: true
+    unpublish_required: false
+    unpublish_revision: false
+  wysiwyg_template:
+    default_template: ''
+name: Events
+type: events
+description: 'Use the <em>Events</em> content type to add an event to the site. It appears on the home page and with other carded content such as blogs, news items and media releases. It will also be included in the RSS feed.'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false
