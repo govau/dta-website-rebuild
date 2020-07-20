@@ -5,6 +5,7 @@ dependencies:
   module:
     - mailchimp_signup
     - system
+    - term_condition
   theme:
     - dta_gov_au
 id: mailchimp_subscription_form_signup_for_observatory_updates
@@ -21,6 +22,14 @@ settings:
 visibility:
   request_path:
     id: request_path
-    pages: "/blogs/learning-users-through-discovery-research\r\n/blogs/using-raw-data-meet-user-needs-during-covid-19"
+    pages: "/blogs/learning-users-through-discovery-research\r\n/blogs/using-raw-data-meet-user-needs-during-covid-19\r\n/blogs/generating-data-and-ideas-analysts"
     negate: false
     context_mapping: {  }
+  term:
+    id: term
+    tid:
+      -
+        target_id: '412'
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'

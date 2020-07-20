@@ -61,26 +61,19 @@ display:
           text_input_required: 'Select any filter and click on Apply to see results'
           bef:
             general:
+              allow_secondary: false
+              secondary_label: 'Advanced options'
               autosubmit: true
               autosubmit_exclude_textfield: false
               autosubmit_hide: true
-              input_required: false
-              text_input_required: 'Select any filter and click on Apply to see results'
-              text_input_required_format: basic_html
-              allow_secondary: false
-              secondary_label: 'Advanced options'
-            filter:
-              field_theme_target_id:
-                plugin_id: bef
-                select_all_none: false
-                select_all_none_nested: false
-                advanced:
-                  collapsible: false
-                  is_secondary: false
-                  placeholder_text: ''
-                  rewrite:
-                    filter_rewrite_values: ''
-                  sort_options: false
+            field_theme_target_id:
+              bef_format: bef
+              more_options:
+                bef_select_all_none: false
+                bef_collapsible: false
+                is_secondary: false
+                rewrite:
+                  filter_rewrite_values: ''
           text_input_required_format: commenting
       pager:
         type: none
