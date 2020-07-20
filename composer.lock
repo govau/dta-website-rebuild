@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "fec727a522bd4d04b73b738cd0d45240",
+    "content-hash": "4fcaa23d1308cf6e858a996d8bed18dd",
     "packages": [
         {
             "name": "algolia/places",
@@ -5635,17 +5635,17 @@
         },
         {
             "name": "drupal/linky",
-            "version": "1.0.0-alpha8",
+            "version": "1.0.0-alpha10",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/linky.git",
-                "reference": "8.x-1.0-alpha8"
+                "reference": "8.x-1.0-alpha10"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/linky-8.x-1.0-alpha8.zip",
-                "reference": "8.x-1.0-alpha8",
-                "shasum": "4349ed86005c57b2c7101eff5b41029f8a6b297a"
+                "url": "https://ftp.drupal.org/files/projects/linky-8.x-1.0-alpha10.zip",
+                "reference": "8.x-1.0-alpha10",
+                "shasum": "cb9fcb7e3e9acf91e344194edeed59fca60d12de"
             },
             "require": {
                 "drupal/core": "^8 || ^9",
@@ -5656,13 +5656,14 @@
             },
             "suggest": {
                 "drupal/ds": "Plugin is available to show Linky title as a DsField.",
-                "drupal/linkit": "Integration with Linkit suggestions."
+                "drupal/linkit": "Integration with Linkit suggestions.",
+                "drupal/linky_revision_ui": "Adds a Revision UI (tab) for Managed Links."
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-1.0-alpha8",
-                    "datestamp": "1592960301",
+                    "version": "8.x-1.0-alpha10",
+                    "datestamp": "1594868738",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Alpha releases are not covered by Drupal security advisories."

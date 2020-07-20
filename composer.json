@@ -166,7 +166,7 @@
 		"drupal/imce": "1.8",
 		"drupal/link_css": "1.x-dev",
 		"drupal/linkit": "5.0-beta11",
-		"drupal/linky": "^1.0",
+		"drupal/linky": "1.0-alpha10",
 		"drupal/linkychecker": "1.0-alpha2",
 		"drupal/login_emailusername": "1.1",
 		"drupal/login_security": "1.5",
