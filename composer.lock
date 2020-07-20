@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "bdf1dc895448b8af01ae64c29c2b61ea",
+    "content-hash": "af32af059a94c6c0aec4ddee756f648e",
     "packages": [
         {
             "name": "algolia/places",
@@ -7758,17 +7758,17 @@
         },
         {
             "name": "drupal/s3fs",
-            "version": "3.0.0-alpha15",
+            "version": "3.0.0-alpha16",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/s3fs.git",
-                "reference": "8.x-3.0-alpha15"
+                "reference": "8.x-3.0-alpha16"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/s3fs-8.x-3.0-alpha15.zip",
-                "reference": "8.x-3.0-alpha15",
-                "shasum": "a044918424e9d88ff88a5742194079c49c1d660c"
+                "url": "https://ftp.drupal.org/files/projects/s3fs-8.x-3.0-alpha16.zip",
+                "reference": "8.x-3.0-alpha16",
+                "shasum": "ac7256f5c3022d13251f52339f43384c8f530988"
             },
             "require": {
                 "aws/aws-sdk-php": "^3.18",
@@ -7777,8 +7777,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-3.0-alpha15",
-                    "datestamp": "1582114486",
+                    "version": "8.x-3.0-alpha16",
+                    "datestamp": "1594732480",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Alpha releases are not covered by Drupal security advisories."
@@ -9135,17 +9135,17 @@
         },
         {
             "name": "drupal/typogrify",
-            "version": "1.0.0",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/typogrify.git",
-                "reference": "8.x-1.0"
+                "reference": "8.x-1.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/typogrify-8.x-1.0.zip",
-                "reference": "8.x-1.0",
-                "shasum": "4bda9b5393906c139e2bd4c4582091fbdb5e3caa"
+                "url": "https://ftp.drupal.org/files/projects/typogrify-8.x-1.1.zip",
+                "reference": "8.x-1.1",
+                "shasum": "433bb2fe45829030b9b049d0a5fdc7fcda59ae35"
             },
             "require": {
                 "drupal/core": "^8 || ^9"
@@ -9153,8 +9153,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-1.0",
-                    "datestamp": "1588433671",
+                    "version": "8.x-1.1",
+                    "datestamp": "1594566835",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -9430,17 +9430,17 @@
         },
         {
             "name": "drupal/webform",
-            "version": "5.18.0",
+            "version": "5.19.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/webform.git",
-                "reference": "8.x-5.18"
+                "reference": "8.x-5.19"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/webform-8.x-5.18.zip",
-                "reference": "8.x-5.18",
-                "shasum": "539d0ba5bacc402cf6ea2a3419ae164703a09aa0"
+                "url": "https://ftp.drupal.org/files/projects/webform-8.x-5.19.zip",
+                "reference": "8.x-5.19",
+                "shasum": "90a2084c2647bca791cc8b18a7e2a3b49f3da7ea"
             },
             "require": {
                 "drupal/core": "^8.8"
@@ -9479,8 +9479,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-5.18",
-                    "datestamp": "1593034084",
+                    "version": "8.x-5.19",
+                    "datestamp": "1593681136",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
