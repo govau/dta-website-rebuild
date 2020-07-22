@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5d4be0fa202d9e033210549f8f51acb8",
+    "content-hash": "3209cdcc366c1d32ae78251052f95586",
     "packages": [
         {
             "name": "algolia/places",
@@ -510,16 +510,6 @@
                 "yawik",
                 "zend",
                 "zikula"
-            ],
-            "funding": [
-                {
-                    "url": "https://packagist.com",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/composer/composer",
-                    "type": "tidelift"
-                }
             ],
             "time": "2020-04-07T06:57:05+00:00"
         },
@@ -1885,20 +1875,6 @@
                 "odm",
                 "orm",
                 "persistence"
-            ],
-            "funding": [
-                {
-                    "url": "https://www.doctrine-project.org/sponsorship.html",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://www.patreon.com/phpdoctrine",
-                    "type": "patreon"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/doctrine%2Fpersistence",
-                    "type": "tidelift"
-                }
             ],
             "time": "2020-03-21T15:13:52+00:00"
         },
@@ -10117,16 +10093,16 @@
         },
         {
             "name": "govau/dta-gov-au",
-            "version": "2.0.1",
+            "version": "2.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/govau/dta-gov-au.git",
-                "reference": "ada666b6766ca8f57e2b6188c0e8a1dad16a2891"
+                "reference": "827c5e42090935051803c01903b1e26beb8e19e6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/govau/dta-gov-au/zipball/ada666b6766ca8f57e2b6188c0e8a1dad16a2891",
-                "reference": "ada666b6766ca8f57e2b6188c0e8a1dad16a2891",
+                "url": "https://api.github.com/repos/govau/dta-gov-au/zipball/827c5e42090935051803c01903b1e26beb8e19e6",
+                "reference": "827c5e42090935051803c01903b1e26beb8e19e6",
                 "shasum": ""
             },
             "require": {
@@ -10144,7 +10120,7 @@
                 "government",
                 "theme"
             ],
-            "time": "2020-07-15T23:55:46+00:00"
+            "time": "2020-07-22T05:38:25+00:00"
         },
         {
             "name": "govau/dta-uikit-base",
