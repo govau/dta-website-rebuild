@@ -10,7 +10,7 @@ dependencies:
 id: mailchimp_subscription_form__digital_professional_stream
 theme: dta_gov_au
 region: content
-weight: -1
+weight: -3
 provider: null
 plugin: 'mailchimp_signup_subscribe_block:digital_professional_stream'
 settings:

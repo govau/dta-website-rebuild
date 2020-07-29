@@ -933,6 +933,30 @@ if(isset($_ENV['VCAP_SERVICES'])) {
   $config['slack.settings']['slack_webhook_url'] = $service[0]['credentials']['webhook_url'];
 }
 
+/*
+* The following code block gets the Zendesk credentials from the environment.
+* If a local.settings.php file exists, it will read that instead so make sure
+* that that file is not pushed to anything.
+*/
+
+if(isset($_ENV['VCAP_SERVICES'])) {
+  $service_blob = json_decode($_ENV['VCAP_SERVICES'], true);
+  $service = array();
+  foreach($service_blob as $service_provider => $service_list) {
+    foreach ($service_list as $some_service) {
+      // look for a service where the name is 'ups-website-redev'
+      if ($some_service['name'] === 'ups-zendesk') {
+        $service[] = $some_service;
+      }
+    }
+  }
+
+  // Set the relevant settings.
+  $config['zendesk_forms.settings']['api_token'] = $service[0]['credentials']['api_token'];
+  $config['zendesk_forms.settings']['user_name'] = $service[0]['credentials']['user_name'];
+  $config['zendesk_forms.settings']['subdomain'] = $service[0]['credentials']['subdomain'];
+}
+
 $settings['install_profile'] = 'govcms';
 $config_directories['sync'] = 'sites/default/files/config_SKRbKjrsGZbCwa_q0wg8DYZpUGb3pdwwxawoq_xE0FXjABmFBcdqfoyLjvWYMn74C7COWTFr6w/sync';
 

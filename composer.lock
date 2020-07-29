@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5d4be0fa202d9e033210549f8f51acb8",
+    "content-hash": "2cd95182ffe55d37aa84549f512ae3ab",
     "packages": [
         {
             "name": "algolia/places",
@@ -9789,6 +9789,63 @@
             }
         },
         {
+            "name": "drupal/zendesk_forms",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/zendesk_forms.git",
+                "reference": "8.x-1.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/zendesk_forms-8.x-1.0.zip",
+                "reference": "8.x-1.0",
+                "shasum": "de3a9e02f4d95be4659504ce955224ff37dfd46e"
+            },
+            "require": {
+                "drupal/core": "^8.6",
+                "zendesk/zendesk_api_client_php": "^2.2.9"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-1.0",
+                    "datestamp": "1570096986",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "achton",
+                    "homepage": "https://www.drupal.org/user/712454"
+                },
+                {
+                    "name": "joachim",
+                    "homepage": "https://www.drupal.org/user/107701"
+                },
+                {
+                    "name": "naxoc",
+                    "homepage": "https://www.drupal.org/user/297068"
+                },
+                {
+                    "name": "sc_cojocari",
+                    "homepage": "https://www.drupal.org/user/3193133"
+                }
+            ],
+            "description": "TODO.",
+            "homepage": "http://drupal.org/project/zendesk_forms",
+            "support": {
+                "source": "https://git.drupalcode.org/project/zendesk_forms"
+            }
+        },
+        {
             "name": "drush/drush",
             "version": "9.3.0",
             "source": {
@@ -10117,16 +10174,16 @@
         },
         {
             "name": "govau/dta-gov-au",
-            "version": "2.0.1",
+            "version": "2.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/govau/dta-gov-au.git",
-                "reference": "ada666b6766ca8f57e2b6188c0e8a1dad16a2891"
+                "reference": "1bb237115a3415c6572681537060841e00dd9c4b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/govau/dta-gov-au/zipball/ada666b6766ca8f57e2b6188c0e8a1dad16a2891",
-                "reference": "ada666b6766ca8f57e2b6188c0e8a1dad16a2891",
+                "url": "https://api.github.com/repos/govau/dta-gov-au/zipball/1bb237115a3415c6572681537060841e00dd9c4b",
+                "reference": "1bb237115a3415c6572681537060841e00dd9c4b",
                 "shasum": ""
             },
             "require": {
@@ -10144,7 +10201,7 @@
                 "government",
                 "theme"
             ],
-            "time": "2020-07-15T23:55:46+00:00"
+            "time": "2020-07-29T03:23:55+00:00"
         },
         {
             "name": "govau/dta-uikit-base",
@@ -11458,6 +11515,56 @@
                 "html"
             ],
             "time": "2016-07-25T17:07:32+00:00"
+        },
+        {
+            "name": "mmucklo/inflect",
+            "version": "v0.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mmucklo/inflect.git",
+                "reference": "b665bcd3d4c23b6aa1990b6405ff96dd437689e9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mmucklo/inflect/zipball/b665bcd3d4c23b6aa1990b6405ff96dd437689e9",
+                "reference": "b665bcd3d4c23b6aa1990b6405ff96dd437689e9",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.17"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "3.7.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Inflect": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Sho Kuwamoto",
+                    "email": "sho@kuwamoto.org"
+                },
+                {
+                    "name": "Matthew J. Mucklo",
+                    "email": "mmucklo@gmail.com"
+                }
+            ],
+            "description": "inflect - a memoizing inflector for php",
+            "keywords": [
+                "inflect",
+                "inflector",
+                "pluralize",
+                "singularize",
+                "urlify"
+            ],
+            "time": "2015-05-16T04:16:08+00:00"
         },
         {
             "name": "mtdowling/jmespath.php",
@@ -14621,6 +14728,47 @@
             ],
             "description": "Composer plugin to merge multiple composer.json files",
             "time": "2017-04-25T02:31:25+00:00"
+        },
+        {
+            "name": "zendesk/zendesk_api_client_php",
+            "version": "v2.2.9",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/zendesk/zendesk_api_client_php.git",
+                "reference": "1ed38d1ab7597902ab86a6088ce9b171ac82f0a8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/zendesk/zendesk_api_client_php/zipball/1ed38d1ab7597902ab86a6088ce9b171ac82f0a8",
+                "reference": "1ed38d1ab7597902ab86a6088ce9b171ac82f0a8",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "^6.0",
+                "mmucklo/inflect": "0.3.*",
+                "php": ">=5.5.0"
+            },
+            "require-dev": {
+                "fzaninotto/faker": ">=1.5.0",
+                "phpmd/phpmd": "@stable",
+                "phpunit/phpunit": "4.5.*",
+                "psy/psysh": "@stable",
+                "squizlabs/php_codesniffer": "2.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Zendesk\\API\\": "src/",
+                    "Zendesk\\Console\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "description": "PHP Client for Zendesk REST API. See https://developer.zendesk.com/rest_api/docs/core/introduction .",
+            "homepage": "https://github.com/zendesk/zendesk_api_client_php",
+            "time": "2019-06-30T23:20:48+00:00"
         }
     ],
     "packages-dev": [

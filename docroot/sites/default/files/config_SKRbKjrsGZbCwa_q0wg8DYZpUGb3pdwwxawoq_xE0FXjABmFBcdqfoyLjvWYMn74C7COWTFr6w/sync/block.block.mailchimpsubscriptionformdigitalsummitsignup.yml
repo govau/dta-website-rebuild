@@ -10,7 +10,7 @@ dependencies:
 id: mailchimpsubscriptionformdigitalsummitsignup
 theme: dta_gov_au
 region: content
-weight: 0
+weight: -1
 provider: null
 plugin: 'mailchimp_signup_subscribe_block:digital_summit_signup'
 settings:
