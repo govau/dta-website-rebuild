@@ -12,6 +12,7 @@ applications:
   - ups-website-redev
   - ups-smtp
   - ups-slack
+  - ups-zendesk
   buildpack: php_buildpack
   routes:
     - route: www.dta.gov.au

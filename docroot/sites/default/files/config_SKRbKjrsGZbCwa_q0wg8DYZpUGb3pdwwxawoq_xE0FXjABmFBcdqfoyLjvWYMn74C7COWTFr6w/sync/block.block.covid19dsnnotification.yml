@@ -12,7 +12,7 @@ dependencies:
 id: covid19dsnnotification
 theme: dta_gov_au
 region: content
-weight: -17
+weight: -19
 provider: null
 plugin: 'block_content:4719774a-9a57-452c-b88a-e3ca18ca3219'
 settings:

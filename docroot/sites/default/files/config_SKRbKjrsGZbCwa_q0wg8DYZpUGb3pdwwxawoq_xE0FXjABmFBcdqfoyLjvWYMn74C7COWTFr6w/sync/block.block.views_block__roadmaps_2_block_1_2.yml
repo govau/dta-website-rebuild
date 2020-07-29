@@ -14,7 +14,7 @@ dependencies:
 id: views_block__roadmaps_2_block_1_2
 theme: dta_gov_au
 region: content
-weight: -7
+weight: -9
 provider: null
 plugin: 'views_block:roadmaps_2-block_1'
 settings:
