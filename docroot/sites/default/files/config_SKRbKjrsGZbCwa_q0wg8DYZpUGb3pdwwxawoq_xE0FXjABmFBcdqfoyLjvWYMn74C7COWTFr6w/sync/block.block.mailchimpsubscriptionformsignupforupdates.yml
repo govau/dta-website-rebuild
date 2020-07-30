@@ -10,7 +10,7 @@ dependencies:
 id: mailchimpsubscriptionformsignupforupdates
 theme: dta_gov_au
 region: content
-weight: -2
+weight: -4
 provider: null
 plugin: 'mailchimp_signup_subscribe_block:sign_up_for_updates'
 settings:

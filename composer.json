@@ -227,8 +227,9 @@
 		"drupal/webform": "5.19",
 		"drupal/weight": "3.1",
 		"drupal/wysiwyg_template": "2.3",
+		"drupal/zendesk_forms": "1.0",
 		"drush/drush": "9.3.0",
-		"govau/dta-gov-au": "2.0.1",
+		"govau/dta-gov-au": "2.1.1",
 		"govau/dta_website_image_plugin": "1.1.0",
 		"govau/dta_website_slack_integration": "1.2.3",
 		"govau/tadpole": "^1.1",
@@ -288,10 +289,10 @@
 				"Unit Testing is failing on testMassageMessageBody()": "https://www.drupal.org/files/issues/2018-03-13/swiftmailer-unittest.patch"
 			},
 			"drupal/core": {
-				"Cannot use relationship for rendered entity on Views": "https://www.drupal.org/files/issues/2019-10-28/2457999-223.patch",
+				"Cannot use relationship for rendered entity on Views": "https://www.drupal.org/files/issues/2020-05-30/cannot-use-relationship-2457999-236.patch",
 				"Views RSS feeds have validation issues": "https://www.drupal.org/files/issues/d8-rss-validation-atom-link-missing-1337894-25.patch",
 				"Allow users with access to unpublished nodes to create unpublished books": "https://www.drupal.org/files/issues/2019-04-03/26552-144.patch",
-				"Cannot save unpublished versions of published content for users without manage book privileges": "https://www.drupal.org/files/issues/2918537-36.patch",
+				"Cannot save unpublished versions of published content for users without manage book privileges": "https://www.drupal.org/files/issues/2020-07-14/2918537-61.patch",
 				"Allow menu items which link to unpublished nodes to be selected in the parent item selector": "https://www.drupal.org/files/issues/drupal-core-allow-menu-items-to-link-to-unpublished-2807629-7-8.3.x.patch"
 			},
 			"drupal/ie8": {
