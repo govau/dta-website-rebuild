@@ -1,0 +1,7 @@
+uuid: 4540a67d-636b-49db-958b-aa2c61d7e148
+langcode: en
+status: true
+dependencies: {  }
+formId: zendesk_support_form
+captchaType: recaptcha/reCAPTCHA
+label: zendesk_support_form
