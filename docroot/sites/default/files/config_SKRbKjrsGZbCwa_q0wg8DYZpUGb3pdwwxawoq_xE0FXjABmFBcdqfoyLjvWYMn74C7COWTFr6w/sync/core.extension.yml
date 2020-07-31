@@ -18,6 +18,7 @@ module:
   block_place: 0
   book: 0
   breakpoint: 0
+  captcha: 0
   chosen: 0
   chosen_lib: 0
   ckeditor: 0
@@ -75,7 +76,6 @@ module:
   history: 0
   honeypot: 0
   htmlawed: 0
-  ie8: 0
   image: 0
   image_style_quality: 0
   imce: 0
@@ -114,6 +114,7 @@ module:
   path: 0
   path_alias: 0
   rabbit_hole: 0
+  recaptcha: 0
   redirect: 0
   redirect_404: 0
   responsive_image: 0
