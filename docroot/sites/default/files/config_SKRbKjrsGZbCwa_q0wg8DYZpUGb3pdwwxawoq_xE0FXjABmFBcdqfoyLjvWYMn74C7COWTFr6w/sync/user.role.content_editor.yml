@@ -22,6 +22,7 @@ permissions:
   - 'add linky entities'
   - 'administer book outlines'
   - 'administer footer menu items'
+  - 'administer linky entities'
   - 'administer main menu items'
   - 'bypass honeypot protection'
   - 'create assessment_report content'

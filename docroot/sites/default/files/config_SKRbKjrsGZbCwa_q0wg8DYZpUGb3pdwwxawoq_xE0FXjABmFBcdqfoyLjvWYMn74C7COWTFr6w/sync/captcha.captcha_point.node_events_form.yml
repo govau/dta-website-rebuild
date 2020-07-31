@@ -1,0 +1,7 @@
+uuid: 9c21fce4-6e53-4dfc-8254-2f1f85ab40f3
+langcode: en
+status: false
+dependencies: {  }
+formId: node_events_form
+captchaType: default
+label: null
