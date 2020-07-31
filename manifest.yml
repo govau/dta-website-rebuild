@@ -13,6 +13,7 @@ applications:
   - ups-smtp
   - ups-slack
   - ups-zendesk
+  - ups-recaptcha
   buildpack: php_buildpack
   env:
     DRUPAL_UUID: "59f85df3-5f18-45dd-bf6a-40977b57a842"

@@ -13,6 +13,7 @@ applications:
   - ups-smtp
   - ups-slack
   - ups-zendesk
+  - ups-recaptcha
   routes:
     - route: dta-website.staging.digital.gov.au
     - route: dta-website-staging-direct.apps.y.cld.gov.au
