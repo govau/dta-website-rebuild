@@ -969,7 +969,7 @@ if(isset($_ENV['VCAP_SERVICES'])) {
   foreach($service_blob as $service_provider => $service_list) {
     foreach ($service_list as $some_service) {
       // look for a service where the name is 'ups-website-redev'
-      if ($some_service['name'] === 'ups-zendesk') {
+      if ($some_service['name'] === 'ups-recaptcha') {
         $service[] = $some_service;
       }
     }
