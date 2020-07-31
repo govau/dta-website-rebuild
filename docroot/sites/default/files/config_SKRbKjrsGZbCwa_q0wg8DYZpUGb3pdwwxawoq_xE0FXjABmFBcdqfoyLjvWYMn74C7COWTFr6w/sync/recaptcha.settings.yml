@@ -1,6 +1,6 @@
 site_key: get-up-on-outta-here
 secret_key: with-my-eyeholes
-verify_hostname: true
+verify_hostname: false
 use_globally: false
 widget:
   theme: light
