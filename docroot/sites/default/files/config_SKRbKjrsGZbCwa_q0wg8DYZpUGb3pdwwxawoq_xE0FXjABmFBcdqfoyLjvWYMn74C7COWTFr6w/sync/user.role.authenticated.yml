@@ -20,6 +20,7 @@ permissions:
   - 'restful patch comment'
   - 'restful put comment'
   - 'search content'
+  - 'skip CAPTCHA'
   - 'use search_api_autocomplete for search'
   - 'use text format basic_text'
   - 'use text format complex_table_editor'
