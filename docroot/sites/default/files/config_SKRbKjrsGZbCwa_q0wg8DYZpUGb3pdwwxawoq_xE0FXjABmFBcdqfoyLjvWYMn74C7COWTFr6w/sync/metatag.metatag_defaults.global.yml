@@ -7,45 +7,45 @@ _core:
 id: global
 label: Global
 tags:
-  abstract: 'Online government services are a simple, clear and fast way to get things done. '
-  canonical_url: '[current-page:url]'
+  title: '[current-page:title] | [site:name]'
   content_language: en-au
-  description: 'Online government services are a simple, clear and fast way to get things done. We want to improve people’s experience of government services. This means improving the skills in government and helping agencies create services that are simple, clear and fast.'
-  image_src: '[site:url]/themes/custom/dta-gov-au/images/dta-twitter.png'
+  robots: 'index, follow'
+  canonical_url: '[current-page:url]'
   news_keywords: 'digital transformation, government, australia'
   rights: 'CC BY 4.0'
-  robots: 'index, follow'
-  title: '[current-page:title] | [site:name]'
-  dcterms_contributor: 'Digital Transformation Agency'
-  dcterms_coverage: Australia
-  dcterms_creator: 'Digital Transformation Agency'
-  dcterms_date: '[current-date:html_year]'
-  dcterms_description: 'We want to improve people’s experience of government services. This means improving the skills in government and helping agencies create services that are simple, clear and fast.'
-  dcterms_format: text/html
+  description: 'Online government services are a simple, clear and fast way to get things done. We want to improve people’s experience of government services. This means improving the skills in government and helping agencies create services that are simple, clear and fast.'
+  image_src: '[site:url]themes/custom/dta-gov-au/images/dta-twitter.png'
+  abstract: 'Online government services are a simple, clear and fast way to get things done. '
   dcterms_identifier: '[current-page:url]'
-  dcterms_language: en
-  dcterms_publisher: 'Commonwealth of Australia'
-  dcterms_rights: 'CC BY 4.0'
-  dcterms_subject: 'digital transformation, government'
   dcterms_title: '[current-page:title]'
   dcterms_type: Collection
-  og_country_name: Australia
-  og_description: 'The DTA wants to improve people’s experience of government services. This means improving skills in government and helping agencies create services that are simple, clear and fast.'
-  og_image: '[site:url]/themes/custom/dta-gov-au/images/dta-opengraph.png'
-  og_image_height: '128'
-  og_image_secure_url: '[site:url]/themes/custom/dta-gov-au/images/dta-opengraph.png'
-  og_image_type: image/png
+  dcterms_contributor: 'Digital Transformation Agency'
+  dcterms_publisher: 'Commonwealth of Australia'
+  dcterms_date: '[current-date:html_year]'
+  dcterms_rights: 'CC BY 4.0'
+  dcterms_description: 'We want to improve people’s experience of government services. This means improving the skills in government and helping agencies create services that are simple, clear and fast.'
+  dcterms_language: en
+  dcterms_creator: 'Digital Transformation Agency'
+  dcterms_coverage: Australia
+  dcterms_format: text/html
+  dcterms_subject: 'digital transformation, government'
   og_image_width: '601'
-  og_site_name: '[site:name]'
-  og_title: '[current-page:title]'
+  og_image: '[site:url]themes/custom/dta-gov-au/images/dta-opengraph.png'
+  og_image_height: '128'
+  og_image_secure_url: '[site:url]themes/custom/dta-gov-au/images/dta-opengraph.png'
   og_url: '[current-page:url]'
-  twitter_cards_description: 'Online government services are a simple, clear and fast way to get things done. We want to improve people’s experience of government services. This means improving the skills in government and helping agencies create services that are simple, clear and fa'
-  twitter_cards_image: '[site:url]/themes/custom/dta-gov-au/images/dta-twitter.png'
-  twitter_cards_image_alt: 'Digital Transformation Agency'
-  twitter_cards_image_height: '128'
+  og_description: 'The DTA wants to improve people’s experience of government services. This means improving skills in government and helping agencies create services that are simple, clear and fast.'
+  og_country_name: Australia
+  og_site_name: '[site:name]'
+  og_image_type: image/png
+  og_title: '[current-page:title]'
+  twitter_cards_image: '[site:url]themes/custom/dta-gov-au/images/dta-twitter.png'
   twitter_cards_image_width: '601'
-  twitter_cards_page_url: '[current-page:url]'
   twitter_cards_site: '@DTA'
-  twitter_cards_site_id: '2992880664'
-  twitter_cards_title: '[current-page:title]'
+  twitter_cards_page_url: '[current-page:url]'
+  twitter_cards_description: 'Online government services are a simple, clear and fast way to get things done. We want to improve people’s experience of government services. This means improving the skills in government and helping agencies create services that are simple, clear and fa'
+  twitter_cards_image_alt: 'Digital Transformation Agency'
   twitter_cards_type: summary_large_image
+  twitter_cards_site_id: '2992880664'
+  twitter_cards_image_height: '128'
+  twitter_cards_title: '[current-page:title]'

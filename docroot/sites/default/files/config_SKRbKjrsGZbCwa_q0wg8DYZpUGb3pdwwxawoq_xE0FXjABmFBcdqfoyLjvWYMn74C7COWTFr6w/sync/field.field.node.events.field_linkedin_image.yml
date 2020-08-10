@@ -1,10 +1,10 @@
-uuid: 94148842-3948-43d0-a7d7-4386f73bbb34
+uuid: f2815646-b2b4-453e-92af-c079eec17a49
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.media.field_media_image
-    - media.type.social_media_images
+    - field.storage.node.field_linkedin_image
+    - node.type.events
   module:
     - filefield_paths
     - image
@@ -14,7 +14,7 @@ third_party_settings:
     file_path:
       value: images/social/open-graph
       options:
-        slashes: false
+        slashes: true
         pathauto: true
         transliterate: false
     redirect: true
@@ -26,10 +26,10 @@ third_party_settings:
         slashes: true
         pathauto: true
         transliterate: false
-id: media.social_media_images.field_media_image
-field_name: field_media_image
-entity_type: media
-bundle: social_media_images
+id: node.events.field_linkedin_image
+field_name: field_linkedin_image
+entity_type: node
+bundle: events
 label: 'Open Graph image'
 description: "<p>This image is used for sharing and posting content on social sites using the <em><a href=\"http://ogp.me/\" target=\"_blank\">Open Graph</a></em> (OG) protocol. This includes <strong>LinkedIn</strong> and <strong>Facebook</strong>. It does this through the <code>og:image</code> meta tag.</p>\r\n<p>Image sizes are calculated to cater to images for both platforms, so ensure there is a safe zone. Generally, Facebook is much more forgiving than LinkedIn with respect to image size.</p>"
 required: false

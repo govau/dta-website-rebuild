@@ -9,8 +9,10 @@ dependencies:
     - field.field.node.events.field_date_range
     - field.field.node.events.field_eventbrite_code
     - field.field.node.events.field_index_image
+    - field.field.node.events.field_linkedin_image
     - field.field.node.events.field_location
     - field.field.node.events.field_summary
+    - field.field.node.events.field_twitter_image
     - node.type.events
   module:
     - datetime_range
@@ -35,19 +37,19 @@ third_party_settings:
         - content_moderation_control
         - group_content
         - group_left_column
-        - field_eventbrite_code
-        - field_location
         - group_sidebar_right
-        - field_date_range
+        - field_eventbrite_code
         - field_category
+        - field_location
+        - field_date_range
         - field_component
   ds_chains:
     fields: {  }
   field_group:
     group_left_column:
       children:
-        - field_date_range
         - field_category
+        - field_date_range
         - field_component
       parent_name: group_content
       weight: 2
@@ -153,7 +155,7 @@ content:
             fi-def-at: false
   field_component:
     type: entity_reference_revisions_entity_view
-    weight: 6
+    weight: 7
     label: hidden
     settings:
       view_mode: default
@@ -192,7 +194,7 @@ content:
             fi-def-at: false
     region: content
   field_date_range:
-    weight: 4
+    weight: 6
     label: hidden
     settings:
       timezone_override: ''
@@ -232,7 +234,7 @@ content:
     type: daterange_custom
     region: content
   field_eventbrite_code:
-    weight: 3
+    weight: 5
     label: hidden
     settings:
       link_to_entity: false
@@ -240,13 +242,14 @@ content:
     type: string
     region: content
   field_location:
-    weight: 4
+    weight: 6
     label: above
     settings:
       include_map: true
       apikey: ''
       iframe_width: 100%
       iframe_height: 100%
+      iframe_title: '[address]'
       static_scale: 2
       link_text: 'View larger map'
       zoom_level: 14
@@ -255,7 +258,6 @@ content:
       langcode: en
       include_static_map: false
       include_link: false
-      iframe_title: ''
     third_party_settings:
       empty_fields:
         handler: ''
@@ -291,6 +293,8 @@ content:
     region: content
 hidden:
   field_index_image: true
+  field_linkedin_image: true
   field_summary: true
+  field_twitter_image: true
   links: true
   search_api_excerpt: true

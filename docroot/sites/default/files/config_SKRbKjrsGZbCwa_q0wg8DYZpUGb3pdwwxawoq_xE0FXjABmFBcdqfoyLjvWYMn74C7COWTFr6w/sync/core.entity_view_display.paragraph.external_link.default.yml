@@ -1,0 +1,64 @@
+uuid: 348310cf-3c6c-40d8-a060-ebf351aecec1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.external_link.field_link
+    - paragraphs.paragraphs_type.external_link
+  module:
+    - ds
+    - ds_chains
+    - empty_fields
+    - link
+third_party_settings:
+  ds_chains:
+    fields: {  }
+id: paragraph.external_link.default
+targetEntityType: paragraph
+bundle: external_link
+mode: default
+content:
+  field_link:
+    weight: 0
+    label: hidden
+    settings:
+      trim_length: null
+      url_only: false
+      url_plain: false
+      rel: '0'
+      target: '0'
+    third_party_settings:
+      empty_fields:
+        handler: ''
+      ds:
+        ft:
+          id: expert
+          settings:
+            lb: ''
+            prefix: ''
+            lbw-el: ''
+            lbw-cl: ''
+            lbw-at: ''
+            ow-el: ''
+            ow-cl: ''
+            ow-at: ''
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fi-el: a
+            fi-cl: au-btn
+            fi-at: ''
+            suffix: ''
+            lbw: false
+            lb-col: false
+            ow: false
+            ow-def-at: false
+            ow-def-cl: false
+            fis: false
+            fis-def-at: false
+            fi: false
+            fi-def-at: false
+    type: link
+    region: content
+hidden:
+  search_api_excerpt: true

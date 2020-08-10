@@ -1,0 +1,32 @@
+uuid: d5691edc-ad5c-4e41-8d14-6dd74ff09f4d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.external_link.field_link
+    - paragraphs.paragraphs_type.external_link
+  module:
+    - field_layout
+    - layout_discovery
+    - link
+third_party_settings:
+  field_layout:
+    id: layout_onecol
+    settings:
+      label: ''
+id: paragraph.external_link.default
+targetEntityType: paragraph
+bundle: external_link
+mode: default
+content:
+  field_link:
+    weight: 0
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+hidden:
+  created: true
+  status: true
