@@ -8,8 +8,10 @@ dependencies:
     - field.field.node.events.field_date_range
     - field.field.node.events.field_eventbrite_code
     - field.field.node.events.field_index_image
+    - field.field.node.events.field_linkedin_image
     - field.field.node.events.field_location
     - field.field.node.events.field_summary
+    - field.field.node.events.field_twitter_image
     - image.style.thumbnail
     - node.type.events
     - workflows.workflow.dta_publishing
@@ -19,6 +21,7 @@ dependencies:
     - entity_reference_views_select
     - field_layout
     - image
+    - imce
     - layout_discovery
     - paragraphs
     - path
@@ -42,14 +45,14 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_category:
-    weight: 17
+    weight: 19
     settings: {  }
     third_party_settings: {  }
     type: erviews_options_buttons
     region: content
   field_component:
     type: paragraphs
-    weight: 20
+    weight: 22
     settings:
       title: Paragraph
       title_plural: Paragraphs
@@ -67,13 +70,13 @@ content:
     third_party_settings: {  }
     region: content
   field_date_range:
-    weight: 15
+    weight: 17
     settings: {  }
     third_party_settings: {  }
     type: daterange_default
     region: content
   field_eventbrite_code:
-    weight: 19
+    weight: 21
     settings:
       size: 12
       placeholder: '88888888888'
@@ -83,13 +86,25 @@ content:
   field_index_image:
     weight: 14
     settings:
-      progress_indicator: throbber
       preview_image_style: thumbnail
-    third_party_settings: {  }
+      progress_indicator: throbber
+    third_party_settings:
+      imce:
+        enabled: true
+    type: image_image
+    region: content
+  field_linkedin_image:
+    weight: 15
+    settings:
+      preview_image_style: thumbnail
+      progress_indicator: throbber
+    third_party_settings:
+      imce:
+        enabled: true
     type: image_image
     region: content
   field_location:
-    weight: 18
+    weight: 20
     settings:
       size: 60
       placeholder: ''
@@ -97,12 +112,22 @@ content:
     type: string_textfield
     region: content
   field_summary:
-    weight: 16
+    weight: 18
     settings:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
     type: text_textarea
+    region: content
+  field_twitter_image:
+    weight: 16
+    settings:
+      preview_image_style: thumbnail
+      progress_indicator: throbber
+    third_party_settings:
+      imce:
+        enabled: true
+    type: image_image
     region: content
   moderation_state:
     type: moderation_state_default

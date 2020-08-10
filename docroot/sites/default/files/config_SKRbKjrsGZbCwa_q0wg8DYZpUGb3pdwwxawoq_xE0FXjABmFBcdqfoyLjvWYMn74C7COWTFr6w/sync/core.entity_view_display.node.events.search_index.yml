@@ -9,8 +9,10 @@ dependencies:
     - field.field.node.events.field_date_range
     - field.field.node.events.field_eventbrite_code
     - field.field.node.events.field_index_image
+    - field.field.node.events.field_linkedin_image
     - field.field.node.events.field_location
     - field.field.node.events.field_summary
+    - field.field.node.events.field_twitter_image
     - node.type.events
   module:
     - datetime_range
@@ -185,6 +187,8 @@ hidden:
   content_moderation_control: true
   field_eventbrite_code: true
   field_index_image: true
+  field_linkedin_image: true
   field_summary: true
+  field_twitter_image: true
   links: true
   search_api_excerpt: true

@@ -1,0 +1,19 @@
+uuid: 684cac4b-ad04-4468-98aa-3ddb6278153c
+langcode: en
+status: true
+dependencies: {  }
+id: node__events
+label: 'Content: Events'
+tags:
+  og_image_width: '[node:field_linkedin_image:width]'
+  og_image: '[node:field_linkedin_image:entity:url]'
+  og_image_height: '[node:field_linkedin_image:height]'
+  og_image_alt: '[node:field_linkedin_image:alt]'
+  og_image_secure_url: '[node:field_linkedin_image:entity:url]'
+  og_updated_time: '[node:changed]'
+  og_image_type: 'image/[node:field_index_image:entity:extension]'
+  twitter_cards_image: '[node:field_twitter_image:entity:url]'
+  twitter_cards_image_width: '[node:field_twitter_image:width]'
+  twitter_cards_image_alt: '[node:field_twitter_image:alt]'
+  twitter_cards_type: summary_large_image
+  twitter_cards_image_height: '[node:field_twitter_image:height]'
