@@ -1,10 +1,10 @@
-uuid: 429d6a60-baf8-447d-a899-043469e4c3fd
+uuid: 98c29462-efd9-40f0-bcc4-0a353bd27607
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.media.field_media_image_1
-    - media.type.social_media_images
+    - field.storage.node.field_twitter_image
+    - node.type.events
   module:
     - filefield_paths
     - image
@@ -26,13 +26,13 @@ third_party_settings:
         slashes: true
         pathauto: true
         transliterate: false
-id: media.social_media_images.field_media_image_1
-field_name: field_media_image_1
-entity_type: media
-bundle: social_media_images
+id: node.events.field_twitter_image
+field_name: field_twitter_image
+entity_type: node
+bundle: events
 label: 'Twitter image'
 description: 'This image is for Twitter sharing and posting.'
-required: true
+required: false
 translatable: true
 default_value: {  }
 default_value_callback: ''

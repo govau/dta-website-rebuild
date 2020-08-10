@@ -1,0 +1,10 @@
+uuid: f512f721-2d6a-4baf-a728-56c39fb08c2a
+langcode: en
+status: true
+dependencies: {  }
+id: external_link
+label: 'External link'
+icon_uuid: null
+icon_default: null
+description: 'Adds an external link.'
+behavior_plugins: {  }

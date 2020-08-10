@@ -8,8 +8,10 @@ dependencies:
     - field.field.node.events.field_date_range
     - field.field.node.events.field_eventbrite_code
     - field.field.node.events.field_index_image
+    - field.field.node.events.field_linkedin_image
     - field.field.node.events.field_location
     - field.field.node.events.field_summary
+    - field.field.node.events.field_twitter_image
     - node.type.events
   module:
     - datetime_range
@@ -17,6 +19,7 @@ dependencies:
     - ds_chains
     - empty_fields
     - entity_reference_revisions
+    - image
     - simple_gmap
     - text
     - user
@@ -115,6 +118,15 @@ content:
     third_party_settings: {  }
     type: string
     region: content
+  field_linkedin_image:
+    weight: 8
+    label: above
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
   field_location:
     weight: 3
     label: hidden
@@ -170,6 +182,15 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: text_default
+    region: content
+  field_twitter_image:
+    weight: 9
+    label: above
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
     region: content
   links:
     weight: 1

@@ -1,0 +1,23 @@
+uuid: a7c0fa23-0594-4f35-8c22-d3bdfdf044b1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_link
+    - paragraphs.paragraphs_type.external_link
+  module:
+    - link
+id: paragraph.external_link.field_link
+field_name: field_link
+entity_type: paragraph
+bundle: external_link
+label: Link
+description: 'Use this field to add a link to this item. The site will format the link as a button.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 2
+field_type: link
