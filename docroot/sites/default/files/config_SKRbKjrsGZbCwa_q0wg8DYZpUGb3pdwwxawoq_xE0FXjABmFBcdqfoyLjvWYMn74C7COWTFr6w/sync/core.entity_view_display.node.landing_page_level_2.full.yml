@@ -37,7 +37,6 @@ third_party_settings:
         - links
         - node_links
         - field_introduction
-        - 'dynamic_block_field:node-recrtuierbox_positions_block'
         - field_body
         - 'dynamic_block_field:node-landing_page_cards_2_card_row'
         - 'dynamic_block_field:node-related_links_block'
@@ -74,17 +73,6 @@ third_party_settings:
             fis: false
             fis-def-at: false
             fi-def-at: false
-      'dynamic_block_field:node-recrtuierbox_positions_block':
-        plugin_id: 'dynamic_block_field:node-recrtuierbox_positions_block'
-        weight: 4
-        label: above
-        formatter: default
-        ft:
-          id: default
-          settings:
-            lb: 'Current vacancies'
-            lb-col: false
-            classes: {  }
       'dynamic_block_field:node-related_links_block':
         plugin_id: 'dynamic_block_field:node-related_links_block'
         weight: 7
