@@ -5,6 +5,7 @@ dependencies:
   config:
     - node.type.dashboard_item
     - node.type.external_link
+    - node.type.image
     - node.type.media_release
     - node.type.presentation
     - node.type.roadmap_2_user_experience_
@@ -58,6 +59,7 @@ type_settings:
     node:
       - dashboard_item
       - external_link
+      - image
       - media_release
       - presentation
       - roadmap_2_user_experience_
