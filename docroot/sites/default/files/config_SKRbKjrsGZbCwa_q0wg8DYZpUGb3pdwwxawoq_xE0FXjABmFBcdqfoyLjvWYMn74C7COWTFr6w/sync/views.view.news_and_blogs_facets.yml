@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.storage.node.field_index_image
+    - field.storage.node.field_media_release_image
     - field.storage.node.field_publication_date
     - search_api.index.news_and_blog_search
     - system.menu.main
@@ -262,8 +263,10 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
+        - 'user.node_grants:view'
         - user.permissions
-      tags: {  }
+      tags:
+        - 'config:search_api.index.news_and_blog_search'
   block_1:
     display_plugin: block
     id: block_1
@@ -284,6 +287,7 @@ display:
         style: false
         row: false
         fields: false
+        relationships: false
       display_description: ''
       pager:
         type: some
@@ -455,6 +459,138 @@ display:
             multi_separator: ', '
           entity_type: node
           plugin_id: search_api_field
+        field_media_release_image:
+          id: field_media_release_image
+          table: search_api_datasource_news_and_blog_search_entity_node
+          field: field_media_release_image
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: target_id
+          type: entity_reference_entity_view
+          settings:
+            view_mode: default
+          group_column: target_id
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          field_rendering: true
+          fallback_handler: search_api_entity
+          fallback_options:
+            link_to_item: false
+            use_highlighting: false
+            multi_type: separator
+            multi_separator: ', '
+            display_methods:
+              assessment_report:
+                display_method: label
+                view_mode: default
+              blog_post:
+                display_method: label
+                view_mode: default
+              book:
+                display_method: label
+                view_mode: default
+              dashboard_item:
+                display_method: label
+                view_mode: default
+              document:
+                display_method: label
+                view_mode: default
+              events:
+                display_method: label
+                view_mode: default
+              external_link:
+                display_method: label
+                view_mode: default
+              home_page:
+                display_method: label
+                view_mode: default
+              image:
+                display_method: label
+                view_mode: default
+              individual_roadmap_ux:
+                display_method: label
+                view_mode: default
+              landing_page:
+                display_method: label
+                view_mode: default
+              landing_page_level_2:
+                display_method: label
+                view_mode: default
+              media_release:
+                display_method: label
+                view_mode: default
+              miscellaneous_file:
+                display_method: label
+                view_mode: default
+              news_item:
+                display_method: label
+                view_mode: default
+              page:
+                display_method: label
+                view_mode: default
+              platforms_and_services:
+                display_method: label
+                view_mode: default
+              presentation:
+                display_method: label
+                view_mode: default
+              roadmap_2_user_experience_:
+                display_method: label
+                view_mode: default
+              speaker_bio:
+                display_method: label
+                view_mode: default
+          entity_type: node
+          plugin_id: search_api_field
         field_publication_date:
           id: field_publication_date
           table: search_api_datasource_news_and_blog_search_entity_node
@@ -527,15 +663,19 @@ display:
             multi_separator: ', '
           entity_type: node
           plugin_id: search_api_field
+      relationships: {  }
     cache_metadata:
       max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - 'user.node_grants:view'
         - user.permissions
       tags:
         - 'config:field.storage.node.field_index_image'
+        - 'config:field.storage.node.field_media_release_image'
         - 'config:field.storage.node.field_publication_date'
+        - 'config:search_api.index.news_and_blog_search'
   page_1:
     display_plugin: page
     id: page_1
@@ -844,6 +984,138 @@ display:
             multi_separator: ', '
           entity_type: node
           plugin_id: search_api_field
+        field_media_release_image:
+          id: field_media_release_image
+          table: search_api_datasource_news_and_blog_search_entity_node
+          field: field_media_release_image
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: target_id
+          type: entity_reference_entity_view
+          settings:
+            view_mode: default
+          group_column: target_id
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          field_rendering: true
+          fallback_handler: search_api_entity
+          fallback_options:
+            link_to_item: false
+            use_highlighting: false
+            multi_type: separator
+            multi_separator: ', '
+            display_methods:
+              assessment_report:
+                display_method: label
+                view_mode: default
+              blog_post:
+                display_method: label
+                view_mode: default
+              book:
+                display_method: label
+                view_mode: default
+              dashboard_item:
+                display_method: label
+                view_mode: default
+              document:
+                display_method: label
+                view_mode: default
+              events:
+                display_method: label
+                view_mode: default
+              external_link:
+                display_method: label
+                view_mode: default
+              home_page:
+                display_method: label
+                view_mode: default
+              image:
+                display_method: label
+                view_mode: default
+              individual_roadmap_ux:
+                display_method: label
+                view_mode: default
+              landing_page:
+                display_method: label
+                view_mode: default
+              landing_page_level_2:
+                display_method: label
+                view_mode: default
+              media_release:
+                display_method: label
+                view_mode: default
+              miscellaneous_file:
+                display_method: label
+                view_mode: default
+              news_item:
+                display_method: label
+                view_mode: default
+              page:
+                display_method: label
+                view_mode: default
+              platforms_and_services:
+                display_method: label
+                view_mode: default
+              presentation:
+                display_method: label
+                view_mode: default
+              roadmap_2_user_experience_:
+                display_method: label
+                view_mode: default
+              speaker_bio:
+                display_method: label
+                view_mode: default
+          entity_type: node
+          plugin_id: search_api_field
         field_publication_date:
           id: field_publication_date
           table: search_api_datasource_news_and_blog_search_entity_node
@@ -923,10 +1195,13 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
+        - 'user.node_grants:view'
         - user.permissions
       tags:
         - 'config:field.storage.node.field_index_image'
+        - 'config:field.storage.node.field_media_release_image'
         - 'config:field.storage.node.field_publication_date'
+        - 'config:search_api.index.news_and_blog_search'
   page_2:
     display_plugin: page
     id: page_2
@@ -1142,6 +1417,138 @@ display:
             multi_separator: ', '
           entity_type: node
           plugin_id: search_api_field
+        field_media_release_image:
+          id: field_media_release_image
+          table: search_api_datasource_news_and_blog_search_entity_node
+          field: field_media_release_image
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: target_id
+          type: entity_reference_entity_view
+          settings:
+            view_mode: default
+          group_column: target_id
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          field_rendering: true
+          fallback_handler: search_api_entity
+          fallback_options:
+            link_to_item: false
+            use_highlighting: false
+            multi_type: separator
+            multi_separator: ', '
+            display_methods:
+              assessment_report:
+                display_method: label
+                view_mode: default
+              blog_post:
+                display_method: label
+                view_mode: default
+              book:
+                display_method: label
+                view_mode: default
+              dashboard_item:
+                display_method: label
+                view_mode: default
+              document:
+                display_method: label
+                view_mode: default
+              events:
+                display_method: label
+                view_mode: default
+              external_link:
+                display_method: label
+                view_mode: default
+              home_page:
+                display_method: label
+                view_mode: default
+              image:
+                display_method: label
+                view_mode: default
+              individual_roadmap_ux:
+                display_method: label
+                view_mode: default
+              landing_page:
+                display_method: label
+                view_mode: default
+              landing_page_level_2:
+                display_method: label
+                view_mode: default
+              media_release:
+                display_method: label
+                view_mode: default
+              miscellaneous_file:
+                display_method: label
+                view_mode: default
+              news_item:
+                display_method: label
+                view_mode: default
+              page:
+                display_method: label
+                view_mode: default
+              platforms_and_services:
+                display_method: label
+                view_mode: default
+              presentation:
+                display_method: label
+                view_mode: default
+              roadmap_2_user_experience_:
+                display_method: label
+                view_mode: default
+              speaker_bio:
+                display_method: label
+                view_mode: default
+          entity_type: node
+          plugin_id: search_api_field
         title:
           id: title
           table: search_api_datasource_news_and_blog_search_entity_node
@@ -1291,7 +1698,10 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url.query_args
+        - 'user.node_grants:view'
         - user.permissions
       tags:
         - 'config:field.storage.node.field_index_image'
+        - 'config:field.storage.node.field_media_release_image'
         - 'config:field.storage.node.field_publication_date'
+        - 'config:search_api.index.news_and_blog_search'
