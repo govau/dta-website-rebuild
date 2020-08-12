@@ -128,6 +128,10 @@ AddEncoding gzip svgz
   RewriteCond %{REQUEST_URI} !core
   RewriteRule ^ %1/core/%2 [L,QSA,R=301]
 
+  # Rewrite to prevent Outlook trying to access autodiscover.xml
+  RewriteCond %{REQUEST_URI} /autodiscover/autodiscover.xml [NC]
+  RewriteRule ^ - [F,L]
+
   # Rewrite install.php during installation to see if mod_rewrite is working
   RewriteRule ^core/install.php core/install.php?rewrite=ok [QSA,L]
 

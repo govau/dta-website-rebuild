@@ -9,9 +9,24 @@ dependencies:
     - responsive_image.styles.index_image
   module:
     - ds
+    - ds_chains
     - empty_fields
     - responsive_image
     - user
+third_party_settings:
+  ds:
+    layout:
+      id: layout_onecol
+      library: layout_discovery/onecol
+      disable_css: true
+      entity_classes: no_classes
+      settings:
+        label: ''
+    regions:
+      content:
+        - field_image
+  ds_chains:
+    fields: {  }
 id: node.image.default
 targetEntityType: node
 bundle: image
@@ -57,6 +72,7 @@ content:
     type: responsive_image
     region: content
 hidden:
+  content_moderation_control: true
   field_type: true
   links: true
   search_api_excerpt: true
