@@ -317,6 +317,9 @@
 			},
 			"drupal/dynamic_entity_reference": {
 				"Errors when new entity types are added (in certain cases)":"https://www.drupal.org/files/issues/2020-05-31/3099176-2.x-9.patch"
+			},
+			"drupal/captcha": {
+				"Captcha Session ID broken with cacheable captcha backends":"https://www.drupal.org/files/issues/2020-07-30/3089263-48.patch"
 			}
 		},
 		"merge-plugin": {
