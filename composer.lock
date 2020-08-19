@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "328954edf89d0f74406365aabf2c9817",
+    "content-hash": "47843c3b7b7feb7131d2b763791198ae",
     "packages": [
         {
             "name": "algolia/places",
@@ -510,16 +510,6 @@
                 "yawik",
                 "zend",
                 "zikula"
-            ],
-            "funding": [
-                {
-                    "url": "https://packagist.com",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/composer/composer",
-                    "type": "tidelift"
-                }
             ],
             "time": "2020-04-07T06:57:05+00:00"
         },
@@ -10365,16 +10355,16 @@
         },
         {
             "name": "govau/dta-gov-au",
-            "version": "2.1.5",
+            "version": "2.1.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/govau/dta-gov-au.git",
-                "reference": "2b528c012f5083297f36f5766537efe17a6d408e"
+                "reference": "fe52fdaffee78868059d06bd9cc861fec87b180f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/govau/dta-gov-au/zipball/2b528c012f5083297f36f5766537efe17a6d408e",
-                "reference": "2b528c012f5083297f36f5766537efe17a6d408e",
+                "url": "https://api.github.com/repos/govau/dta-gov-au/zipball/fe52fdaffee78868059d06bd9cc861fec87b180f",
+                "reference": "fe52fdaffee78868059d06bd9cc861fec87b180f",
                 "shasum": ""
             },
             "require": {
@@ -10392,7 +10382,7 @@
                 "government",
                 "theme"
             ],
-            "time": "2020-08-13T05:16:57+00:00"
+            "time": "2020-08-19T01:18:05+00:00"
         },
         {
             "name": "govau/dta-uikit-base",
@@ -17464,6 +17454,7 @@
             "keywords": [
                 "tokenizer"
             ],
+            "abandoned": true,
             "time": "2017-12-04T08:55:13+00:00"
         },
         {
@@ -18155,6 +18146,20 @@
             ],
             "description": "Symfony BrowserKit Component",
             "homepage": "https://symfony.com",
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
             "time": "2020-05-22T17:28:00+00:00"
         },
         {
