@@ -30,7 +30,8 @@ third_party_settings:
       library: layout_discovery/onecol
       disable_css: false
       entity_classes: all_classes
-      settings: {  }
+      settings:
+        label: ''
     regions:
       content:
         - content_moderation_control
@@ -43,7 +44,7 @@ third_party_settings:
     fields:
       'dynamic_block_field:node-landing_page_cards_2_card_row':
         plugin_id: 'dynamic_block_field:node-landing_page_cards_2_card_row'
-        weight: 6
+        weight: 5
         label: above
         formatter: default
         ft:
@@ -75,7 +76,7 @@ third_party_settings:
             fi-def-at: false
       'dynamic_block_field:node-related_links_block':
         plugin_id: 'dynamic_block_field:node-related_links_block'
-        weight: 7
+        weight: 6
         label: hidden
         formatter: default
         ft:
@@ -124,7 +125,7 @@ content:
     third_party_settings: {  }
   field_body:
     type: text_default
-    weight: 5
+    weight: 4
     region: content
     label: hidden
     settings: {  }
