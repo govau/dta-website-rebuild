@@ -181,7 +181,7 @@
 		"drupal/menu_block": "1.6",
 		"drupal/menu_link_attributes": "1.1",
 		"drupal/menu_trail_by_path": "1.1",
-		"drupal/metatag": " 1.13",
+		"drupal/metatag": "1.14",
 		"drupal/migrate_plus": "4.0-beta3",
 		"drupal/migrate_tools": "4.0-beta3",
 		"drupal/moderated_content_bulk_publish": "^1.0@beta",
