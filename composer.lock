@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7410f7b8a5be1e359e0636495297d327",
+    "content-hash": "54763473438fa3f528279089eeba8647",
     "packages": [
         {
             "name": "algolia/places",
@@ -10349,16 +10349,16 @@
         },
         {
             "name": "govau/dta-gov-au",
-            "version": "2.1.8",
+            "version": "2.1.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/govau/dta-gov-au.git",
-                "reference": "7ae6353a29c35e6089bda198384097de88fbff90"
+                "reference": "6d34ee408ffc73d2180d8224dd89ae00df734056"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/govau/dta-gov-au/zipball/7ae6353a29c35e6089bda198384097de88fbff90",
-                "reference": "7ae6353a29c35e6089bda198384097de88fbff90",
+                "url": "https://api.github.com/repos/govau/dta-gov-au/zipball/6d34ee408ffc73d2180d8224dd89ae00df734056",
+                "reference": "6d34ee408ffc73d2180d8224dd89ae00df734056",
                 "shasum": ""
             },
             "require": {
@@ -10376,7 +10376,7 @@
                 "government",
                 "theme"
             ],
-            "time": "2020-08-20T04:49:41+00:00"
+            "time": "2020-08-24T08:36:30+00:00"
         },
         {
             "name": "govau/dta-uikit-base",
