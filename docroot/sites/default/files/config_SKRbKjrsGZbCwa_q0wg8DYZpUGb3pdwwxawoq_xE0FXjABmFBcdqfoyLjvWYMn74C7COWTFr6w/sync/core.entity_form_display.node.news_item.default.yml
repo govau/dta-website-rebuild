@@ -16,7 +16,7 @@ dependencies:
     - field.field.node.news_item.field_twitter_image
     - image.style.thumbnail
     - node.type.news_item
-    - workflows.workflow.dta_publishing
+    - workflows.workflow.external_links
   module:
     - content_moderation
     - datetime
@@ -173,9 +173,9 @@ content:
     third_party_settings: {  }
   scheduler_settings:
     weight: 20
-    region: content
     settings: {  }
     third_party_settings: {  }
+    region: content
   status:
     type: boolean_checkbox
     settings:
@@ -195,7 +195,7 @@ content:
     weight: 0
     region: content
     settings:
-      size: 65
+      size: 60
       placeholder: ''
     third_party_settings: {  }
   uid:
