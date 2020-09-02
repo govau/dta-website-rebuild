@@ -3,7 +3,6 @@ langcode: en
 status: true
 dependencies:
   module:
-    - system
     - zendesk_forms
   theme:
     - dta_gov_au
@@ -18,9 +17,4 @@ settings:
   label: 'Zendesk Form'
   provider: zendesk_forms
   label_display: '0'
-visibility:
-  request_path:
-    id: request_path
-    pages: /contact-us
-    negate: false
-    context_mapping: {  }
+visibility: {  }
