@@ -15,4 +15,4 @@ Feature: Report checks
 
     @version @core
     Scenario: Check Drupal version
-      Then I see the text "Drupal Version 8.9.5"
+      Then I see the text "Drupal Version 8.9.6"
