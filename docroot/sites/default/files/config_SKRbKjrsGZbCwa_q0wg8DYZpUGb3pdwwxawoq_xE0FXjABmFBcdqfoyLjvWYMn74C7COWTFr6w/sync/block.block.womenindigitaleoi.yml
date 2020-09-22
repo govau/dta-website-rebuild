@@ -1,0 +1,26 @@
+uuid: 4a17bdf5-efa8-4fad-a28d-f4071ef0d39c
+langcode: en
+status: true
+dependencies:
+  module:
+    - mailchimp_signup
+    - system
+  theme:
+    - dta_gov_au
+id: womenindigitaleoi
+theme: dta_gov_au
+region: content
+weight: 0
+provider: null
+plugin: 'mailchimp_signup_subscribe_block:_women_in_digital_eoi'
+settings:
+  id: 'mailchimp_signup_subscribe_block:_women_in_digital_eoi'
+  label: 'Mailchimp Subscription Form:  Women in Digital EOI'
+  provider: mailchimp_signup
+  label_display: '0'
+visibility:
+  request_path:
+    id: request_path
+    pages: /help-and-advice/learning-and-development/women-it-coaching-and-mentoring/expression-interest-coaching-women-digital-program
+    negate: false
+    context_mapping: {  }
