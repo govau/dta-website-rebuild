@@ -21,6 +21,6 @@ settings:
 visibility:
   request_path:
     id: request_path
-    pages: /help-and-advice/learning-and-development/women-it-coaching-and-mentoring/expression-interest-coaching-women-digital-program
+    pages: /help-and-advice/learning-and-development/women-digital-coaching-and-mentoring/expression-interest-coaching-women-digital-program
     negate: false
     context_mapping: {  }
