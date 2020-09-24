@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c7a899f1a743bd9f020067d7165082de",
+    "content-hash": "242f6005a1c238a969a5e2e5019cbcbf",
     "packages": [
         {
             "name": "algolia/places",
@@ -2036,7 +2036,7 @@
                 "GPL-2.0+"
             ],
             "description": "Composer Plugin for updating the Drupal scaffold files when using drupal/core",
-            "abandoned": "drupal / core-composer-scaffold",
+            "abandoned": "drupal/core-composer-scaffold",
             "time": "2017-12-08T22:53:11+00:00"
         },
         {
@@ -10289,16 +10289,16 @@
         },
         {
             "name": "govau/dta-gov-au",
-            "version": "2.1.11",
+            "version": "2.1.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/govau/dta-gov-au.git",
-                "reference": "22cbc26675fa596fe0e7c3bf85e56b3133d0822a"
+                "reference": "c752ebb5b3be8088d1432600b418eb8b176716ff"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/govau/dta-gov-au/zipball/22cbc26675fa596fe0e7c3bf85e56b3133d0822a",
-                "reference": "22cbc26675fa596fe0e7c3bf85e56b3133d0822a",
+                "url": "https://api.github.com/repos/govau/dta-gov-au/zipball/c752ebb5b3be8088d1432600b418eb8b176716ff",
+                "reference": "c752ebb5b3be8088d1432600b418eb8b176716ff",
                 "shasum": ""
             },
             "require": {
@@ -10316,7 +10316,7 @@
                 "government",
                 "theme"
             ],
-            "time": "2020-09-22T03:14:43+00:00"
+            "time": "2020-09-23T05:22:03+00:00"
         },
         {
             "name": "govau/dta-uikit-base",
