@@ -217,7 +217,7 @@ content:
             fi-el: span
             fi-cl: author
             fi-at: ''
-            suffix: '&nbsp;&mdash;&nbsp;'
+            suffix: '&nbsp;&ndash;&nbsp;'
             lbw: false
             lb-col: false
             ow: false
