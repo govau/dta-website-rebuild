@@ -7,7 +7,6 @@ title: ' Women in Digital EOI'
 mc_lists:
   7f4c81343e: 7f4c81343e
   f069d2cdfc: '0'
-  b1278319fd: '0'
   a9a17467b5: '0'
   fa5e478ca8: '0'
   1b92e67061: '0'
@@ -50,6 +49,8 @@ mc_lists:
   fb384192ba: '0'
   447d8117f7: '0'
   19a3862961: '0'
+  9dd783e78c: '0'
+  b1278319fd: '0'
   9d34a3e2a0: '0'
   b78b65de02: '0'
   d3b35b802f: '0'
@@ -79,8 +80,8 @@ include_interest_groups: true
 settings:
   path: ''
   submit_button: 'Submit your EOI'
-  confirmation_message: ''
-  destination: ''
+  confirmation_message: 'You have been successfully subscribed.'
+  destination: expression-interest-submission-successful
   mergefields:
     EMAIL: "O:8:\"stdClass\":8:{s:3:\"tag\";s:5:\"EMAIL\";s:4:\"name\";O:48:\"Drupal\\Core\\StringTranslation\\TranslatableMarkup\":3:{s:9:\"\0*\0string\";s:13:\"Email Address\";s:12:\"\0*\0arguments\";a:0:{}s:10:\"\0*\0options\";a:0:{}}s:4:\"type\";s:5:\"email\";s:8:\"required\";b:1;s:13:\"default_value\";s:0:\"\";s:6:\"public\";b:1;s:13:\"display_order\";i:1;s:7:\"options\";O:8:\"stdClass\":1:{s:4:\"size\";i:25;}}"
     AGENCY: 'O:8:"stdClass":12:{s:8:"merge_id";i:3;s:3:"tag";s:6:"AGENCY";s:4:"name";s:20:"Agency or department";s:4:"type";s:4:"text";s:8:"required";b:1;s:13:"default_value";s:0:"";s:6:"public";b:1;s:13:"display_order";i:6;s:7:"options";O:8:"stdClass":1:{s:4:"size";i:25;}s:9:"help_text";s:67:"The name of your agency or department. Please avoid using acronyms.";s:7:"list_id";s:10:"7f4c81343e";s:6:"_links";a:4:{i:0;O:8:"stdClass":4:{s:3:"rel";s:4:"self";s:4:"href";s:66:"https://us12.api.mailchimp.com/3.0/lists/7f4c81343e/merge-fields/3";s:6:"method";s:3:"GET";s:12:"targetSchema";s:85:"https://us12.api.mailchimp.com/schema/3.0/Definitions/Lists/MergeFields/Response.json";}i:1;O:8:"stdClass":5:{s:3:"rel";s:6:"parent";s:4:"href";s:64:"https://us12.api.mailchimp.com/3.0/lists/7f4c81343e/merge-fields";s:6:"method";s:3:"GET";s:12:"targetSchema";s:95:"https://us12.api.mailchimp.com/schema/3.0/Definitions/Lists/MergeFields/CollectionResponse.json";s:6:"schema";s:80:"https://us12.api.mailchimp.com/schema/3.0/CollectionLinks/Lists/MergeFields.json";}i:2;O:8:"stdClass":5:{s:3:"rel";s:6:"update";s:4:"href";s:66:"https://us12.api.mailchimp.com/3.0/lists/7f4c81343e/merge-fields/3";s:6:"method";s:5:"PATCH";s:12:"targetSchema";s:85:"https://us12.api.mailchimp.com/schema/3.0/Definitions/Lists/MergeFields/Response.json";s:6:"schema";s:82:"https://us12.api.mailchimp.com/schema/3.0/Definitions/Lists/MergeFields/PATCH.json";}i:3;O:8:"stdClass":3:{s:3:"rel";s:6:"delete";s:4:"href";s:66:"https://us12.api.mailchimp.com/3.0/lists/7f4c81343e/merge-fields/3";s:6:"method";s:6:"DELETE";}}}'
