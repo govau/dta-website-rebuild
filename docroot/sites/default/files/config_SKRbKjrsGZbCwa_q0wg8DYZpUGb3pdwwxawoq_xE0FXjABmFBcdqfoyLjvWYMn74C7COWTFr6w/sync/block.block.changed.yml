@@ -1,0 +1,37 @@
+uuid: c5ce8b68-f397-4185-865e-0d6eb47b8b60
+langcode: en
+status: true
+dependencies:
+  module:
+    - ctools_block
+    - system
+  theme:
+    - dta_gov_au
+id: changed
+theme: dta_gov_au
+region: content
+weight: 0
+provider: null
+plugin: 'entity_field:node:changed'
+settings:
+  id: 'entity_field:node:changed'
+  label: 'Last updated date'
+  provider: ctools_block
+  label_display: '0'
+  formatter:
+    label: inline
+    type: timestamp
+    settings:
+      date_format: date_month_year
+      custom_date_format: ''
+      timezone: ''
+    third_party_settings: {  }
+    weight: 0
+  context_mapping:
+    entity: '@node.node_route_context:node'
+visibility:
+  request_path:
+    id: request_path
+    pages: /our-privacy-policy
+    negate: false
+    context_mapping: {  }
