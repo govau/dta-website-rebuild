@@ -8,6 +8,7 @@ module:
   advagg_css_minify: 0
   advagg_js_minify: 0
   allowed_formats: 0
+  auditfiles: 0
   backup_migrate: 0
   ban: 0
   better_exposed_filters: 0
