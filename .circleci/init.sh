@@ -22,9 +22,9 @@ echo "memory_limit=256M" > /usr/local/etc/php/conf.d/memory-limit.ini
 chown -R www-data:www-data  ${SCRIPT_DIR}/../docroot/sites/default/files/
 # The govCMS installer requires write permissions to sites/default/settings.php
 chown -R www-data:www-data  ${SCRIPT_DIR}/../docroot/sites/default/settings.php
+apt install -y libncurses5 
+drush -y site-install
 
-apt install -y libncurses5
- drush -y site-install
 
 # Fix for error "Entities exist of type <em class="placeholder">Shortcut link</em> and
 # <em class="placeholder">Shortcut set</em> <em class="placeholder">Default</em>.
