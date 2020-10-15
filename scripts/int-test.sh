@@ -13,4 +13,4 @@ set -x
 # Include build env vars
 source "$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )/buildrc"
 
-behat --strict --stop-on-failure --config tests/behat/behat.yml
+behat --stop-on-failure --config tests/behat/behat.yml
