@@ -113,7 +113,7 @@
 		}
 	],
 	"require": {
-		"php": ">=7.3.0",
+		"php": ">=7.1.0",
 		"chi-teck/drupal-code-generator": "1.25.1",
 		"ckeditor/image2": "^4.14",
 		"ckeditor/tabletoolstoolbar": "0.0.1",
@@ -137,7 +137,7 @@
 		"drupal/config_update": "1.7",
 		"drupal/context_active_trail": "1.0-rc2",
 		"drupal/context_metadata": "2.x-dev",
-		"drupal/core": "8.9.6",
+		"drupal/core": "8.9.7",
 		"drupal/devel": "2.1",
 		"drupal/diff": "1.0",
 		"drupal/ds": "3.7",
@@ -260,6 +260,7 @@
 		"se/selenium-server-standalone": "3.10.0",
 		"squizlabs/php_codesniffer": "2.9.1"
 	},
+
 	"extra": {
 		"drupal-scaffold": {
 			"initial": {
@@ -341,7 +342,10 @@
 		"bin-dir": "bin/",
 		"sort-packages": true,
 		"optimize-autoloader": true,
-		"secure-http": false
+		"secure-http": false,
+		"platform": {
+				"php": "7.1.20"
+		}
 	},
 	"conflict": {
 		"drupal/core": "7.*",
