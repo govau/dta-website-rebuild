@@ -132,7 +132,7 @@
 		"drupal/chosen": "2.10",
 		"drupal/ckeditor_tabletoolstoolbar": "1.0",
 		"drupal/composer_deploy": "1.4",
-		"drupal/config_filter": "1.5",
+		"drupal/config_filter": "1.7",
 		"drupal/config_split": "1.2",
 		"drupal/config_update": "1.7",
 		"drupal/context_active_trail": "1.0-rc2",
