@@ -223,7 +223,7 @@
 		"drupal/twig_tweak": "1.10",
 		"drupal/typed_data": "1.0-alpha5",
 		"drupal/typogrify": "1.1",
-		"drupal/url_embed": "1.0-alpha1",
+		"drupal/url_embed": "1.0-beta1",
 		"drupal/video_embed_field": " 2.4",
 		"drupal/views_entity_form_field": "1.0-beta8",
 		"drupal/views_menu_children_filter": "1.0-beta3",
