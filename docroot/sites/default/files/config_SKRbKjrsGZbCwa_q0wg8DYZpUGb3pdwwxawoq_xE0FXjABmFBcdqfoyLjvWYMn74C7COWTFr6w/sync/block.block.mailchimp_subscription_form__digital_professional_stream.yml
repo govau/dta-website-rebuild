@@ -15,12 +15,12 @@ provider: null
 plugin: 'mailchimp_signup_subscribe_block:digital_professional_stream'
 settings:
   id: 'mailchimp_signup_subscribe_block:digital_professional_stream'
-  label: 'Digital Professional Stream sign-up form'
+  label: 'Digital Profession sign-up form'
   provider: mailchimp_signup
   label_display: visible
 visibility:
   request_path:
     id: request_path
-    pages: /help-and-advice/digital-professional-stream/participation-digital-professional-stream
+    pages: /help-and-advice/digital-profession/join-digital-profession
     negate: false
     context_mapping: {  }
