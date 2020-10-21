@@ -15,7 +15,7 @@ provider: null
 plugin: 'entity_field:node:changed'
 settings:
   id: 'entity_field:node:changed'
-  label: Changed
+  label: 'Last updated date privacy policy'
   provider: ctools_block
   label_display: '0'
   formatter:

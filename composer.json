@@ -137,7 +137,7 @@
 		"drupal/config_update": "1.7",
 		"drupal/context_active_trail": "1.0-rc2",
 		"drupal/context_metadata": "2.x-dev",
-		"drupal/core": "8.9.6",
+		"drupal/core": "8.9.7",
 		"drupal/devel": "2.1",
 		"drupal/diff": "1.0",
 		"drupal/ds": "3.7",
@@ -232,7 +232,7 @@
 		"drupal/wysiwyg_template": "2.3",
 		"drupal/zendesk_forms": "1.0",
 		"drush/drush": "9.3.0",
-		"govau/dta-gov-au": "2.1.13",
+		"govau/dta-gov-au": "2.1.14",
 		"govau/dta_website_image_plugin": "1.1.0",
 		"govau/dta_website_slack_integration": "1.2.3",
 		"govau/tadpole": "^1.1",
@@ -260,6 +260,7 @@
 		"se/selenium-server-standalone": "3.10.0",
 		"squizlabs/php_codesniffer": "2.9.1"
 	},
+
 	"extra": {
 		"drupal-scaffold": {
 			"initial": {
@@ -341,7 +342,10 @@
 		"bin-dir": "bin/",
 		"sort-packages": true,
 		"optimize-autoloader": true,
-		"secure-http": false
+		"secure-http": false,
+		"platform": {
+				"php": "7.1.20"
+		}
 	},
 	"conflict": {
 		"drupal/core": "7.*",
