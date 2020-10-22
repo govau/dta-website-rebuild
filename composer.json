@@ -232,7 +232,7 @@
 		"drupal/wysiwyg_template": "2.3",
 		"drupal/zendesk_forms": "1.0",
 		"drush/drush": "9.3.0",
-		"govau/dta-gov-au": "2.1.13",
+		"govau/dta-gov-au": "2.1.14",
 		"govau/dta_website_image_plugin": "1.1.0",
 		"govau/dta_website_slack_integration": "1.2.3",
 		"govau/tadpole": "^1.1",
