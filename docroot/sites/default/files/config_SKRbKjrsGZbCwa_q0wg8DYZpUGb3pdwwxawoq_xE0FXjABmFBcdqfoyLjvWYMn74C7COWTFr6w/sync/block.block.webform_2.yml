@@ -1,0 +1,42 @@
+uuid: 2da1a791-c3d1-4bd0-917d-1b51fbf20f10
+langcode: en
+status: true
+dependencies:
+  config:
+    - webform.webform.dts_2_0_discussion_paper
+  module:
+    - context
+    - system
+    - webform
+  theme:
+    - dta_gov_au
+id: webform_2
+theme: dta_gov_au
+region: content
+weight: 0
+provider: null
+plugin: webform_block
+settings:
+  id: webform_block
+  label: 'Strategy 2.0 discussion paper Feedback'
+  provider: webform
+  label_display: '0'
+  webform_id: dts_2_0_discussion_paper
+  default_data: ''
+  redirect: false
+visibility:
+  request_path_exclusion:
+    id: request_path_exclusion
+    pages: ''
+    negate: null
+    context_mapping: {  }
+  view_inclusion:
+    id: view_inclusion
+    negate: null
+    view_inclusion: {  }
+    context_mapping: {  }
+  request_path:
+    id: request_path
+    pages: /digital-transformation-strategy-20-discussion-paper
+    negate: false
+    context_mapping: {  }
