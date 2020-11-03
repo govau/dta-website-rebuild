@@ -24,3 +24,4 @@ extlink_font_awesome_classes:
 extlink_use_external_js_file: false
 extlink_noreferrer: false
 whitelisted_domains: {  }
+extlink_exclude_admin_routes: false
