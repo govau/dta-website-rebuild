@@ -18,7 +18,7 @@ conditions:
       blog_post: blog_post
       media_release: media_release
       news_item: news_item
-    negate: false
+    negate: 0
     uuid: d7e79ac4-731b-477c-9862-652145dfc346
     context_mapping:
       node: '@node.node_route_context:node'
@@ -47,7 +47,6 @@ reactions:
         unique: 0
         context_id: updates_form
         uuid: c95d0b96-9b4f-460f-b5c1-975ed63e7fa6
-        custom_id: mailchimp_signup_subscribe_block_sign_up_for_updates
     id: blocks
     saved: false
     uuid: 617708ab-86d5-4fde-8545-b634453de08f

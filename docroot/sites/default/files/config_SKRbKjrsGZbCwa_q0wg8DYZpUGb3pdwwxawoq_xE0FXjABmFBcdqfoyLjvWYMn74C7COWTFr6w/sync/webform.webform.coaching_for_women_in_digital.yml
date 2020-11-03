@@ -12,7 +12,7 @@ id: coaching_for_women_in_digital
 title: 'Coaching for women in digital EOI'
 description: ''
 category: WITEM
-elements: "first_name:\n  '#type': textfield\n  '#title': 'First name'\nlast_name:\n  '#type': textfield\n  '#title': 'Last name'\nwork_email_address:\n  '#type': textfield\n  '#title': 'Work email address'\nrole_title:\n  '#type': textfield\n  '#title': 'Role title'\nsubstantive_role_level:\n  '#type': textfield\n  '#title': 'Substantive role level'\nagency_or_department:\n  '#type': textfield\n  '#title': 'Agency or department'\nmanagers_email:\n  '#type': textfield\n  '#title': 'Managers email'\nclosest_capital_city:\n  '#type': select\n  '#title': 'Closest capital city'\n  '#options':\n    Canberra: Canberra\n    Sydney: Sydney\n    Melbourne: Melbourne\n    Perth: Perth\n    Adelaide: Adelaide\n    Brisbane: Brisbane\n    Darwin: Darwin\nwhat_do_you_hope_to_get_out_of_this_program:\n  '#type': textarea\n  '#title': 'What do you hope to get out of this program?'\nwhen_are_you_interested_in_participating_:\n  '#type': checkboxes\n  '#title': 'When are you interested in participating?'\n  '#options':\n    'false': 'In the next program (2020)'\n    'true': 'In future programs (2021 and beyond)'"
+elements: "first_name:\n  '#type': textfield\n  '#title': 'First name'\nlast_name:\n  '#type': textfield\n  '#title': 'Last name'\nwork_email_address:\n  '#type': textfield\n  '#title': 'Work email address'\nrole_title:\n  '#type': textfield\n  '#title': 'Role title'\nsubstantive_role_level:\n  '#type': textfield\n  '#title': 'Substantive role level'\nagency_or_department:\n  '#type': textfield\n  '#title': 'Agency or department'\nmanagers_email:\n  '#type': textfield\n  '#title': 'Managers email'\nclosest_capital_city:\n  '#type': select\n  '#title': 'Closest capital city'\n  '#options':\n    Canberra: Canberra\n    Sydney: Sydney\n    Melbourne: Melbourne\n    Perth: Perth\n    Adelaide: Adelaide\n    Brisbane: Brisbane\n    Darwin: Darwin\nwhat_do_you_hope_to_get_out_of_this_program:\n  '#type': textarea\n  '#title': 'What do you hope to get out of this program?'\nwhen_are_you_interested_in_participating_:\n  '#type': checkboxes\n  '#title': 'When are you interested in participating?'\n  '#options':\n    'false': 'In the next program (2020)'\n    'true': 'In future programs (2021 and beyond)'\n  '#options_all_value': ''\n  '#options_all_text': ''\n  '#options_none_value': ''\n  '#options_none_text': ''"
 css: ''
 javascript: ''
 settings:
@@ -85,8 +85,6 @@ settings:
   wizard_progress_link: false
   wizard_progress_states: false
   wizard_auto_forward: true
-  wizard_auto_forward_hide_next_button: false
-  wizard_keyboard: true
   wizard_start_label: ''
   wizard_preview_link: false
   wizard_confirmation: true
@@ -142,7 +140,6 @@ settings:
   results_customize: false
   token_view: false
   token_update: false
-  serial_disabled: false
 access:
   create:
     roles:
