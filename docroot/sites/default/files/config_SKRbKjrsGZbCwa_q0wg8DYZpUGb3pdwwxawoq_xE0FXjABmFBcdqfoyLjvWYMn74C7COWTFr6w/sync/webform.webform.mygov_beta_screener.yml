@@ -92,8 +92,6 @@ settings:
   wizard_progress_link: true
   wizard_progress_states: false
   wizard_auto_forward: true
-  wizard_auto_forward_hide_next_button: false
-  wizard_keyboard: true
   wizard_start_label: ''
   wizard_preview_link: false
   wizard_confirmation: true
@@ -149,7 +147,6 @@ settings:
   results_customize: false
   token_view: false
   token_update: false
-  serial_disabled: false
 access:
   create:
     roles:
@@ -220,7 +217,6 @@ handlers:
   email:
     id: email
     label: Email
-    notes: ''
     handler_id: email
     status: true
     conditions: {  }
@@ -243,7 +239,6 @@ handlers:
       ignore_access: false
       exclude_empty: true
       exclude_empty_checkbox: false
-      exclude_attachments: false
       html: true
       attachments: false
       twig: false
@@ -254,4 +249,5 @@ handlers:
       sender_name: ''
       theme_name: ''
       parameters: {  }
+      exclude_attachments: false
 variants: {  }

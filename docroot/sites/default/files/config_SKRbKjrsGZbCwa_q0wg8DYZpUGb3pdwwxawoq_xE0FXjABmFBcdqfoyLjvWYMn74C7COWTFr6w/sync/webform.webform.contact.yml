@@ -5,6 +5,8 @@ dependencies:
   enforced:
     module:
       - webform
+_core:
+  default_config_hash: Db1CJM6FchEqqeVz5YJThCK0WB599y4NjQ4GkPcGF5g
 open: null
 close: null
 weight: 0
@@ -88,8 +90,6 @@ settings:
   wizard_progress_link: false
   wizard_progress_states: false
   wizard_auto_forward: true
-  wizard_auto_forward_hide_next_button: false
-  wizard_keyboard: true
   wizard_start_label: ''
   wizard_preview_link: false
   wizard_confirmation: true
@@ -145,7 +145,6 @@ settings:
   results_customize: false
   token_view: false
   token_update: false
-  serial_disabled: false
 access:
   create:
     roles:
@@ -197,7 +196,6 @@ handlers:
   email_confirmation:
     id: email
     label: 'Email confirmation'
-    notes: ''
     handler_id: email_confirmation
     status: true
     conditions: {  }
@@ -220,21 +218,20 @@ handlers:
       ignore_access: false
       exclude_empty: true
       exclude_empty_checkbox: false
-      exclude_attachments: false
       html: true
       attachments: false
       twig: false
+      theme_name: ''
       debug: false
       reply_to: ''
       return_path: ''
       sender_mail: ''
       sender_name: ''
-      theme_name: ''
       parameters: {  }
+      exclude_attachments: false
   email_notification:
     id: email
     label: 'Email notification'
-    notes: ''
     handler_id: email_notification
     status: true
     conditions: {  }
@@ -257,17 +254,15 @@ handlers:
       ignore_access: false
       exclude_empty: true
       exclude_empty_checkbox: false
-      exclude_attachments: false
       html: true
       attachments: false
       twig: false
+      theme_name: ''
       debug: false
       reply_to: ''
       return_path: ''
       sender_mail: ''
       sender_name: ''
-      theme_name: ''
       parameters: {  }
+      exclude_attachments: false
 variants: {  }
-_core:
-  default_config_hash: Db1CJM6FchEqqeVz5YJThCK0WB599y4NjQ4GkPcGF5g
