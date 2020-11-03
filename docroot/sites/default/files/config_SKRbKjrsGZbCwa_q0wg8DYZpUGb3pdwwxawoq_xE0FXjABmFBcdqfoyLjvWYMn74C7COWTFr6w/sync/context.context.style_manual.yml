@@ -26,7 +26,7 @@ conditions:
     bundles:
       blog_post: blog_post
       news_item: news_item
-    negate: 0
+    negate: false
     uuid: 5ebf5c9a-d40d-4b8f-a1b9-2bc2be282947
     context_mapping:
       node: '@node.node_route_context:node'
@@ -46,6 +46,7 @@ reactions:
         unique: 0
         context_id: style_manual
         uuid: 16c1602a-538c-48d9-b362-a5a9c26bec8a
+        custom_id: mailchimp_signup_subscribe_block_sign_up_for_style_manual_updates
     id: blocks
     saved: false
     uuid: de2341ef-634e-4dbc-b4b2-ac7fb599a0fb

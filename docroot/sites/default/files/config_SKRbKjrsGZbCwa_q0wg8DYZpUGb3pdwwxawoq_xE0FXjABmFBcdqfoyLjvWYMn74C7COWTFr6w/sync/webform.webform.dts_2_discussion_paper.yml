@@ -1,0 +1,194 @@
+uuid: 8a5eead4-fe2c-467f-85d1-450a5cff88aa
+langcode: en
+status: closed
+dependencies: {  }
+open: null
+close: null
+weight: 0
+uid: 11177
+template: false
+archive: false
+id: dts_2_discussion_paper
+title: 'Digital Transformation Strategy 2.0 Discussion Paper feedback'
+description: ''
+category: 'DTS 2.0'
+elements: "intro:\n  '#type': webform_wizard_page\n  '#title': Introduction\n  markup_17:\n    '#type': webform_markup\n    '#markup': |\n      <p>\n        Since 2018 the 5 principles have been a foundation for agencies across whole-of-government and helped guide digital transformation including delivery of over 140 initiatives.&nbsp;</p>\n      \n  intro_question:\n    '#type': textarea\n    '#title': 'As the rate of transformation accelerates in the next 5 years, are there additional principles beyond the 5 that we should consider in the next iteration of the Strategy?'\ndrivers:\n  '#type': webform_wizard_page\n  '#title': Drivers\n  processed_text:\n    '#type': processed_text\n    '#text': |\n      \n      <p>During the global pandemic the government rapidly responded to improve people’s interactions through a broad range of digital service improvements. As our country moves through the recovery phase, maintaining momentum will be critical.</p>\n      \n    '#format': full_rich_text\n  during_the_global_pandemic_the_government_rapidly_responded_to_i:\n    '#type': textarea\n    '#title': 'Are there examples from other sectors or jurisdictions that provide exemplars on how momentum has been maintained and accelerated? '\n  markup:\n    '#type': webform_markup\n    '#markup': '<p>The Australian government has made significant progress on the development of a whole of government architecture that will support the standardisation of technology approaches across government.</p>'\n  the_australian_government_has_made_significant_progress_on_the_d:\n    '#type': textarea\n    '#title': 'In order to deliver simple, helpful, transparent and respectful services for our users, are there examples of standardisation and reuse that should be considered in the refresh of the Strategy?  '\n  markup_01:\n    '#type': webform_markup\n    '#markup': '<p>The global challenges of 2020 created many opportunities for government to work with industry to co-design better digital services quickly. The Strategy and the Digital Service Standard both emphasise the importance of collaboration and provide guidance on how to achieve it.</p>'\n  the_global_challenges_of_2020_created_many_opportunities_for_gov:\n    '#type': textarea\n    '#title': 'Are there examples of approaches to collaborative co-design between government and industry that we should consider helping guide technology investment?'\n  markup_02:\n    '#type': webform_markup\n    '#markup': '<p>Throughout the delivery of the Strategy to date, innovation has been built into our approach through the incorporation of user centric design, iteration and collaboration. New technology is providing even greater opportunities for innovation.</p>'\n  throughout_the_delivery_of_the_strategy_to_date_innovation_has_b:\n    '#type': textarea\n    '#title': 'Are there better practice examples of how to further embed innovation to deliver faster, simpler and tailored experiences for users?'\n  markup_03:\n    '#type': webform_markup\n    '#markup': '<p>Under the Digital Service Standard over the past few years, government has made progress in agile delivery, moving towards faster deployment and iteration of solutions for people and businesses. We need to capitalise on this progress and increase the rate of change to achieve truly agile management of government products.</p>'\n  context_of_government:\n    '#type': textarea\n    '#title': 'How is true agility achievable in the context of government? '\n  what_lessons_in_agility_can_government_learn_from_the_private_se:\n    '#type': textarea\n    '#title': 'What lessons in agility can government learn from the private sector?'\n  markup_04:\n    '#type': webform_markup\n    '#markup': '<p>Maintaining and improving Australia&rsquo;s national security is a key priority for government. Work on initiatives such as Hardening Government IT and the Australian Defence Force Cyber Gap Program contributes to this priority. Digital transformation provides both opportunities and risks to our security posture.</p>'\n  are_there_exemplars_from_industry_where_a_balanced_security_post:\n    '#type': textarea\n    '#title': 'Are there exemplars from industry where a balanced security posture has been achieved, that should be considered in the development of the strategy?'\n3_strategic_context:\n  '#type': webform_wizard_page\n  '#title': \"3.\\tStrategic Context\"\n  markup_05:\n    '#type': webform_markup\n    '#markup': '<p>The Strategy has helped to drive the wide range of achievements outlined in this year&rsquo;s update. As the rate of change increases, we need to move beyond our current achievements in digital transformation to be innovative, imaginative and inventive.</p>'\n  are_there_examples_from_other_industries_that_we_can_learn_from_:\n    '#type': textarea\n    '#title': 'Are there examples from other industries that we can learn from to encourage and harness innovation for government?'\n  markup_06:\n    '#type': webform_markup\n    '#markup': '<p>Digital service improvement and transformation is a priority for the Australia government. This is demonstrated in the Digital Transformation Roadmap of Initiatives where both small and large-scale agencies are achieving change through a broad range of digital initiatives. &nbsp;Establishing a portfolio management approach has been critical to ensure the initiatives remain aligned.<p>'\n  are_there_examples_or_insights_on_the_blend_between_agility_bein:\n    '#type': textarea\n    '#title': 'Are there examples or insights on the blend between agility, being adaptive and still remaining integrated and aligned that we should consider?'\n  markup_07:\n    '#type': webform_markup\n    '#markup': '<p>The refreshed Strategy will keep guiding government investment in technology with the aim of being in front of emerging advances in technology, processes and capability.</p>'\n  which_game_changing_technologies_do_you_think_will_be_the_most_i:\n    '#type': textarea\n    '#title': 'Which game changing technologies do you think will be the most important for government over the next 5 years and what do you think their impact will be?'\n  markup_08:\n    '#type': webform_markup\n    '#markup': '<p>The Strategy has driven collaboration across and between governments by focussing services on key events in people''s lives.</p>'\n  are_there_examples_or_learnings_that_encourage_and_nurture_colla:\n    '#type': textarea\n    '#title': 'Are there examples or learnings that encourage and nurture collaboration across whole-of-government, industry, and academia that the strategy should consider?'\n  markup_09:\n    '#type': webform_markup\n    '#markup': '<p>The government has invested heavily in building digital and data capability within government and industry.</p>'\n  how_do_we_make_digital_and_data_capability_an_integral_part_of_e:\n    '#type': textarea\n    '#title': 'How do we make digital and data capability an integral part of everyone’s professional skills?'\n  markup_10:\n    '#type': webform_markup\n    '#markup': '<p>The Strategy and current work on a whole-of-government architecture are helping to move from siloed capabilities to a landscape of connected platforms and services.</p>'\n4_opportunities:\n  '#type': webform_wizard_page\n  '#title': \"4.\\tOpportunities\"\n  markup_15:\n    '#type': webform_markup\n    '#markup': '<p>The refreshed Strategy will help us develop deeper relationships and long-term alliances with our stakeholders, so they become core collaborators in the digital transformation of government</p>'\n  are_there_enterprise_wide_examples_of_where_there_has_been_a_suc:\n    '#type': textarea\n    '#title': 'Are there enterprise wide examples of where there has been a successful transition from silo driven approaches through to cohesive and connected enterprise foundations?'\n  markup_11:\n    '#type': webform_markup\n    '#markup': '<p>The Digital Review in early 2021 will give us a baseline of the current digital capability of the Australian Public Service. The refreshed Strategy will build on this by providing guidance on selecting appropriate new technology to meet the needs of the people we serve.</p>'\n  what_are_the_known_and_anticipated_advancements_in_technology_ar:\n    '#type': textarea\n    '#title': 'What are the known and anticipated advancements in technology are you aware of?'\n  are_you_planning_on_investing_in_these_areas_:\n    '#type': textarea\n    '#title': 'Are you planning on investing in these areas?'\n  markup_12:\n    '#type': webform_markup\n    '#markup': '<p>The refreshed Strategy will work to overcome barriers to digital transformation particularly in funding and business case processes.</p>'\n  are_there_examples_of_new_and_innovative_approaches_to_digital_s:\n    '#type': textarea\n    '#title': 'Are there examples of new and innovative approaches to digital service delivery that you think would achieve better outcomes for the people of Australia? '\n  markup_13:\n    '#type': webform_markup\n    '#markup': '<p>In the Strategy, a key pillar was the concept of a government that is fit for the digital age. Ensuring that digital and data policy supports contemporary digital government will form an important part of the refreshed Strategy.</p>'\n  what_policy_barriers_to_digital_transformation_have_you_encounte:\n    '#type': textarea\n    '#title': 'What policy barriers to digital transformation have you encountered?'\n  markup_14:\n    '#type': webform_markup\n    '#markup': '<p>The Strategy puts people at the heart of digital transformation, not just those engaging with government services but those designing, building and implementing those services. The refreshed Strategy will build on our current work to help develop the professions we need now and in the future.</p>'\n  are_there_opportunities_that_you_see_for_how_government_can_coll:\n    '#type': textarea\n    '#title': 'Are there opportunities that you see for how government can collaborate better with industry and academia to better understand and develop the digital profession for the future?'\n  markup_16:\n    '#type': webform_markup\n    '#markup': '<p>The refreshed Strategy will help us develop deeper relationships and long-term alliances with our stakeholders, so they become core collaborators in the digital transformation of government</p>'\n  do_you_see_any_opportunities_for_how_we_can_challenge_traditiona:\n    '#type': textarea\n    '#title': 'Do you see any opportunities for how we can challenge traditional approaches to stakeholder engagement?'"
+css: ''
+javascript: ''
+settings:
+  ajax: false
+  ajax_scroll_top: form
+  ajax_progress_type: ''
+  ajax_effect: ''
+  ajax_speed: null
+  page: true
+  page_submit_path: ''
+  page_confirm_path: ''
+  page_theme_name: ''
+  form_title: both
+  form_submit_once: false
+  form_exception_message: ''
+  form_open_message: ''
+  form_close_message: ''
+  form_previous_submissions: true
+  form_confidential: false
+  form_confidential_message: ''
+  form_remote_addr: true
+  form_convert_anonymous: false
+  form_prepopulate: false
+  form_prepopulate_source_entity: false
+  form_prepopulate_source_entity_required: false
+  form_prepopulate_source_entity_type: ''
+  form_reset: false
+  form_disable_autocomplete: false
+  form_novalidate: false
+  form_disable_inline_errors: false
+  form_required: false
+  form_unsaved: false
+  form_disable_back: false
+  form_submit_back: false
+  form_autofocus: false
+  form_details_toggle: false
+  form_access_denied: default
+  form_access_denied_title: ''
+  form_access_denied_message: ''
+  form_access_denied_attributes: {  }
+  form_file_limit: ''
+  share: false
+  share_node: false
+  share_theme_name: ''
+  share_title: true
+  share_page_body_attributes: {  }
+  submission_label: ''
+  submission_log: false
+  submission_views: {  }
+  submission_views_replace: {  }
+  submission_user_columns: {  }
+  submission_user_duplicate: false
+  submission_access_denied: default
+  submission_access_denied_title: ''
+  submission_access_denied_message: ''
+  submission_access_denied_attributes: {  }
+  submission_exception_message: ''
+  submission_locked_message: ''
+  submission_excluded_elements: {  }
+  submission_exclude_empty: false
+  submission_exclude_empty_checkbox: false
+  previous_submission_message: ''
+  previous_submissions_message: ''
+  autofill: false
+  autofill_message: ''
+  autofill_excluded_elements: {  }
+  wizard_progress_bar: true
+  wizard_progress_pages: false
+  wizard_progress_percentage: false
+  wizard_progress_link: false
+  wizard_progress_states: false
+  wizard_auto_forward: true
+  wizard_auto_forward_hide_next_button: false
+  wizard_keyboard: true
+  wizard_start_label: ''
+  wizard_preview_link: false
+  wizard_confirmation: true
+  wizard_confirmation_label: ''
+  wizard_track: ''
+  wizard_prev_button_label: ''
+  wizard_next_button_label: ''
+  wizard_toggle: false
+  wizard_toggle_show_label: ''
+  wizard_toggle_hide_label: ''
+  preview: 0
+  preview_label: ''
+  preview_title: ''
+  preview_message: ''
+  preview_attributes: {  }
+  preview_excluded_elements: {  }
+  preview_exclude_empty: true
+  preview_exclude_empty_checkbox: false
+  draft: none
+  draft_multiple: false
+  draft_auto_save: false
+  draft_saved_message: ''
+  draft_loaded_message: ''
+  draft_pending_single_message: ''
+  draft_pending_multiple_message: ''
+  confirmation_type: page
+  confirmation_title: ''
+  confirmation_message: ''
+  confirmation_url: ''
+  confirmation_attributes: {  }
+  confirmation_back: true
+  confirmation_back_label: ''
+  confirmation_back_attributes: {  }
+  confirmation_exclude_query: false
+  confirmation_exclude_token: false
+  confirmation_update: false
+  limit_total: null
+  limit_total_interval: null
+  limit_total_message: ''
+  limit_total_unique: false
+  limit_user: null
+  limit_user_interval: null
+  limit_user_message: ''
+  limit_user_unique: false
+  entity_limit_total: null
+  entity_limit_total_interval: null
+  entity_limit_user: null
+  entity_limit_user_interval: null
+  purge: none
+  purge_days: null
+  results_disabled: false
+  results_disabled_ignore: false
+  results_customize: false
+  token_view: false
+  token_update: false
+  serial_disabled: false
+access:
+  create:
+    roles:
+      - anonymous
+      - authenticated
+    users: {  }
+    permissions: {  }
+  view_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  update_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  delete_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  purge_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  view_own:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  update_own:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  delete_own:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  administer:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  test:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  configuration:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+handlers: {  }
+variants: {  }
