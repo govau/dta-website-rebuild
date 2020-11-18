@@ -22,7 +22,7 @@ Feature: Events
     Scenario: Viewing all events
       When I visit "events"
       Then I should see the text "Events" in the "breadcrumbs" region
-      And I should see 1 "li.col-xs-12" element
+      And I should see 1 "li.col-xs-12.col-sm-6.col-md-4" element
       And I should see the text "This page shows our upcoming events. If you would like to view our past events, please head to our events archive."
       And I should see the link "please head to our events archive"
       And I should see the heading "Filter by category"
@@ -33,7 +33,7 @@ Feature: Events
     Scenario: Viewing archived events
       When I visit "events/archive"
       Then I should see the text "Past events" in the "breadcrumbs" region
-      And I should see 1 "li.col-xs-12" elements
+      And I should see 1 "li.col-xs-12.col-sm-6.col-md-4" elements
       And I should see the text "This page lists past events. We provide them for your information only. If you would like to see our upcoming events, please head to our Events page."
       And I should see the link "please head to our Events page"
       And I should see the heading "Filter by category"
