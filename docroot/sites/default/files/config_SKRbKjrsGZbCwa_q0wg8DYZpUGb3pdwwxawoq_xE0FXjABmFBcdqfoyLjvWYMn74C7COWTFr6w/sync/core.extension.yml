@@ -72,6 +72,7 @@ module:
   govcms_fields_attachment: 0
   govcms_fields_featured_image: 0
   govcms_search: 0
+  gtm: 0
   hal: 0
   help: 0
   history: 0

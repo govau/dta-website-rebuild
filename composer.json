@@ -161,6 +161,7 @@
 		"drupal/filefield_paths": "^1.0",
 		"drupal/google_analytics": "^3.1",
 		"drupal/govcms8_ui": "1.0.0-alpha1",
+		"drupal/gtm": "1.6",
 		"drupal/honeypot": "1.30",
 		"drupal/htmlawed": "3.7",
 		"drupal/ie8": "1.x-dev",
