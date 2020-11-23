@@ -1,0 +1,46 @@
+uuid: fe72dfc2-385b-4291-b68c-d71eb7b2b56a
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.main
+  module:
+    - context
+    - menu_block
+    - system
+  theme:
+    - dta_gov_au
+id: mainnavigation
+theme: dta_gov_au
+region: sidebar_left
+weight: 0
+provider: null
+plugin: 'menu_block:main'
+settings:
+  id: 'menu_block:main'
+  label: 'Main navigation - DTS Year 2'
+  provider: menu_block
+  label_display: '0'
+  follow: false
+  follow_parent: child
+  level: 1
+  depth: 0
+  expand: false
+  parent: 'main:'
+  suggestion: main
+visibility:
+  request_path_exclusion:
+    id: request_path_exclusion
+    pages: ''
+    negate: null
+    context_mapping: {  }
+  view_inclusion:
+    id: view_inclusion
+    negate: null
+    view_inclusion: {  }
+    context_mapping: {  }
+  request_path:
+    id: request_path
+    pages: '/digital-transformation-strategy/digital-transformation-strategy-dashboard-0/*'
+    negate: false
+    context_mapping: {  }

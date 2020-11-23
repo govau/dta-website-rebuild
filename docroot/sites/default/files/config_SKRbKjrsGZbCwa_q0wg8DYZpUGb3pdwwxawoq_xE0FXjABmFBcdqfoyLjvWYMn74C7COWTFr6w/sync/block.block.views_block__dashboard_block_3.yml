@@ -1,0 +1,42 @@
+uuid: b674ce2a-0abe-4169-a1e4-4204f6ba24be
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.dashboard
+  module:
+    - context
+    - system
+    - views
+  theme:
+    - dta_gov_au
+id: views_block__dashboard_block_3
+theme: dta_gov_au
+region: content
+weight: 0
+provider: null
+plugin: 'views_block:dashboard-block_3'
+settings:
+  id: 'views_block:dashboard-block_3'
+  label: ''
+  provider: views
+  label_display: visible
+  views_label: ''
+  items_per_page: none
+  context_mapping: {  }
+visibility:
+  request_path_exclusion:
+    id: request_path_exclusion
+    pages: ''
+    negate: null
+    context_mapping: {  }
+  view_inclusion:
+    id: view_inclusion
+    negate: null
+    view_inclusion: {  }
+    context_mapping: {  }
+  request_path:
+    id: request_path
+    pages: /digital-transformation-strategy-dashboard-0
+    negate: false
+    context_mapping: {  }

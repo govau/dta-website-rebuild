@@ -564,7 +564,7 @@ display:
             min: ''
             max: ''
             value: today
-            type: date
+            type: offset
           group: 1
           exposed: false
           expose:
