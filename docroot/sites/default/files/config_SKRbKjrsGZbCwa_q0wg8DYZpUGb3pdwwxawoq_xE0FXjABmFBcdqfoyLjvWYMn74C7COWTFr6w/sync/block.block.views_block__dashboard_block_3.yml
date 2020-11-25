@@ -37,6 +37,6 @@ visibility:
     context_mapping: {  }
   request_path:
     id: request_path
-    pages: /digital-transformation-strategy-dashboard-0
+    pages: /digital-transformation-strategy
     negate: false
     context_mapping: {  }
