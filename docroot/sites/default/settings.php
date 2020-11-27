@@ -999,7 +999,7 @@ if(isset($_ENV['ENVIRONMENT'])) {
     $config['mail_safety.settings']['send_mail_to_default_mail'] = false;
   }
   if ($environment === 'staging') {
-    $config['s3fs.settings']['bucket'] = 'dta-www-drupal-staging-20180504063601229200000001';
+    $config['s3fs.settings']['Bucket'] = 'dta-www-drupal-staging-20180504063601229200000001';
     $config['system.performance']['css']['preprocess'] = FALSE;
     $config['system.performance']['js']['preprocess'] = FALSE;
     $config['system.logging']['error_level'] = 'verbose';
