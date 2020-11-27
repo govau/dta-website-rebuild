@@ -1006,14 +1006,14 @@ if(isset($_ENV['ENVIRONMENT'])) {
     $config['robotstxt.settings']['content'] = 'User-agent: *' . PHP_EOL . 'Disallow: /';
   }
   if ($environment === 'test') {
-    $config['s3fs.settings']['bucket'] = 'dta-www-drupal-test-20180221050325640300000001';
+    $config['s3fs.settings']['Bucket'] = 'dta-www-drupal-test-20180221050325640300000001';
     $config['system.performance']['css']['preprocess'] = FALSE;
     $config['system.performance']['js']['preprocess'] = FALSE;
     $config['system.logging']['error_level'] = 'verbose';
     $config['robotstxt.settings']['content'] = 'User-agent: *' . PHP_EOL . 'Disallow: /';
   }
 } else {
-  $config['s3fs.settings']['bucket'] = '';
+  $config['s3fs.settings']['Bucket'] = '';
 }
 
 /**
