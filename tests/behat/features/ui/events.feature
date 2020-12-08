@@ -22,8 +22,6 @@ Feature: Events
     Scenario: Viewing all events
       When I visit "events"
       Then I should see the text "Events" in the "breadcrumbs" region
-      Then print last response
-      Then show last response
       And I should see 2 "li.col-xs-12.col-sm-6" element
       And I should see the text "This page shows our upcoming events. If you would like to view our past events, please head to our events archive."
       And I should see the link "please head to our events archive"

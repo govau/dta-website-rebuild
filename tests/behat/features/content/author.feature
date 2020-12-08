@@ -10,6 +10,8 @@ Feature: Authors
 
     @content @content-author
     Scenario: Create content
+    Then print last response
+    Then show last response
       When I follow "Content"
       And I follow "Add content"
       Then I should see 12 ".admin-list a" elements
