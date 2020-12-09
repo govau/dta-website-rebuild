@@ -34,7 +34,7 @@ parameters:
     # the cookie domain should start with a dot.
     #
     # @default none
-    cookie_domain: ".dta.gov.au"
+    cookie_domain: '.dta.gov.au'
     #
   twig.config:
     # Twig debugging:
