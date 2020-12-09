@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "50fe22c2308a256cbcceb5ad8256ef4f",
+    "content-hash": "0fd3ac0ee7af60bd66a52e48df387e58",
     "packages": [
         {
             "name": "algolia/places",
@@ -6054,17 +6054,17 @@
         },
         {
             "name": "drupal/mail_safety",
-            "version": "1.1.0",
+            "version": "1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/mail_safety.git",
-                "reference": "8.x-1.1"
+                "reference": "8.x-1.2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/mail_safety-8.x-1.1.zip",
-                "reference": "8.x-1.1",
-                "shasum": "4e791fadcf94f88b0dcc9abfe0504e818249c696"
+                "url": "https://ftp.drupal.org/files/projects/mail_safety-8.x-1.2.zip",
+                "reference": "8.x-1.2",
+                "shasum": "0b1aade706fb28707c02c59a31761b1c9319f878"
             },
             "require": {
                 "drupal/core": "^8 || ^9"
@@ -6072,8 +6072,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-1.1",
-                    "datestamp": "1592299249",
+                    "version": "8.x-1.2",
+                    "datestamp": "1606290882",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -6990,26 +6990,26 @@
         },
         {
             "name": "drupal/node_title_validation",
-            "version": "1.2.0",
+            "version": "1.22.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/node_title_validation.git",
-                "reference": "8.x-1.2"
+                "reference": "8.x-1.22"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/node_title_validation-8.x-1.2.zip",
-                "reference": "8.x-1.2",
-                "shasum": "c706ab31eed0c479e5e17bca785720da8c468841"
+                "url": "https://ftp.drupal.org/files/projects/node_title_validation-8.x-1.22.zip",
+                "reference": "8.x-1.22",
+                "shasum": "0cb94e5c21fe0bb033b314aabb723787be042543"
             },
             "require": {
-                "drupal/core": "~8.0"
+                "drupal/core": "^8 || ^9"
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-1.2",
-                    "datestamp": "1570825384",
+                    "version": "8.x-1.22",
+                    "datestamp": "1605654981",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -7058,10 +7058,14 @@
                     "homepage": "https://www.drupal.org/user/2598494"
                 }
             ],
-            "description": "This module helps to validate node titles with min/max characters, Blacklist characters/words and unique node titles.",
+            "description": "Node Title Validation is used to validate node titles with min/max characters, Blacklist special characters/words and unique node titles.",
             "homepage": "https://www.drupal.org/project/node_title_validation",
+            "keywords": [
+                "Drupal"
+            ],
             "support": {
-                "source": "https://git.drupalcode.org/project/node_title_validation"
+                "source": "https://git.drupalcode.org/project/node_title_validation",
+                "issues": "https://www.drupal.org/project/issues/node_title_validation"
             }
         },
         {
