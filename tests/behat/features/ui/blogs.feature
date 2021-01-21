@@ -30,6 +30,8 @@ Feature: Blogs and news items
     Scenario: Viewing all blogs and news items
       When I visit "news-blogs/all"
       Then I should see the text "News and blogs" in the "breadcrumbs" region
+      Then print last response
+      Then show last response     
       And I should see 3 "li.col-xs-12" elements
       And I should see the text "We only display blog posts and news items from the last year. For older items, please visit our archive page."
       And I should see the link "archive page"
