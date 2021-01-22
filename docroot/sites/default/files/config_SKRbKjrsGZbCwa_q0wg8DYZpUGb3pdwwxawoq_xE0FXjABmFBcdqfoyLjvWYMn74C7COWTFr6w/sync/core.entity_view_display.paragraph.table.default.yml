@@ -16,8 +16,8 @@ content:
     weight: 0
     label: above
     settings:
-      row_header: true
-      column_header: false
+      row_header: 1
+      column_header: 0
     third_party_settings: {  }
     type: tablefield
     region: content
