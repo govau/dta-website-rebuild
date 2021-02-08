@@ -10,9 +10,9 @@ Feature: Blogs and news items
     | title       | field_body       | field_publication_date | status | moderation_state | field_summary  |
     | test blog 1 | test blog 1 body | 1/1/2017   | 1      | published        | test summary 1 |
     | test blog 2 | test blog 2 body | 1/1/2017   | 1      | published        | test summary 2 |
-    | test blog 3 | test blog 3 body | 1/1/2020   | 1      | published        | test summary 3 |
-    | test blog 4 | test blog 4 body | 1/1/2020   | 1      | published        | test summary 4 |
-    | test blog 5 | test blog 5 body | 1/1/2020   | 1      | published        | test summary 5 |
+    | test blog 3 | test blog 3 body | 1/1/2021   | 1      | published        | test summary 3 |
+    | test blog 4 | test blog 4 body | 1/1/2021   | 1      | published        | test summary 4 |
+    | test blog 5 | test blog 5 body | 1/1/2021   | 1      | published        | test summary 5 |
     And I run cron
 
     @taxonomy
@@ -30,6 +30,9 @@ Feature: Blogs and news items
     Scenario: Viewing all blogs and news items
       When I visit "news-blogs/all"
       Then I should see the text "News and blogs" in the "breadcrumbs" region
+      Then print last response
+
+Then show last response
       And I should see 3 "li.col-xs-12" elements
       And I should see the text "We only display blog posts and news items from the last year. For older items, please visit our archive page."
       And I should see the link "archive page"
