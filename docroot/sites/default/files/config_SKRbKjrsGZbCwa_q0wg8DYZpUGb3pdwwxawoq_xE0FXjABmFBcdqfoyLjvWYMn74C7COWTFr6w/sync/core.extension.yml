@@ -68,7 +68,6 @@ module:
   file: 0
   filefield_paths: 0
   filter: 0
-  google_analytics: 0
   govcms_fields_attachment: 0
   govcms_fields_featured_image: 0
   govcms_search: 0
