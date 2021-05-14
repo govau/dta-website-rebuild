@@ -138,6 +138,7 @@
 		"drupal/context_active_trail": "1.0-rc2",
 		"drupal/context_metadata": "2.x-dev",
 		"drupal/core": "8.9.14",
+		"drupal/ctools": "^3.6",
 		"drupal/devel": "2.1",
 		"drupal/diff": "1.0",
 		"drupal/ds": "3.9",
