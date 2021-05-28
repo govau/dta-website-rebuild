@@ -33,6 +33,7 @@ jobs:
           keys:
             - composer-v1-{{ checksum "composer.lock" }}
       - run: rm -rf docroot/themes/custom/dta-gov-au
+      - run: php -d memory_limit=-1 /usr/local/bin/composer install
       - run: composer install -n --prefer-dist --no-progress
       - save_cache:
           key: composer-v1-{{ checksum "composer.lock" }}
