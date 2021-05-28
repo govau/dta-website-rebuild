@@ -113,7 +113,7 @@
 		}
 	],
 	"require": {
-		"php": ">=7.2.5",
+		"php": ">=7.1.0",
 		"chi-teck/drupal-code-generator": "1.25.1",
 		"ckeditor/image2": "^4.14",
 		"ckeditor/tabletoolstoolbar": "0.0.1",
@@ -345,7 +345,7 @@
 		"optimize-autoloader": true,
 		"secure-http": false,
 		"platform": {
-				"php": "7.2.5"
+				"php": "7.1.0"
 		}
 	},
 	"conflict": {
