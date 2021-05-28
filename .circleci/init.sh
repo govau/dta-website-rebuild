@@ -15,7 +15,7 @@ source "$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )/../scripts/buildrc"
 
 # Increase memory limit for php to resolve
 # `drush config-import` memory usage limit
-echo "memory_limit=256M" > /usr/local/etc/php/conf.d/memory-limit.ini
+echo "memory_limit=-1" > /usr/local/etc/php/conf.d/memory-limit.ini
 
 # Fixup circleci permissions for drupal
 # The directory <em class="placeholder">sites/default/files</em> is not writable
