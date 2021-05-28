@@ -242,8 +242,8 @@
 		"oomphinc/composer-installers-extender": "1.1.2",
 		"symfony/http-foundation": "~3.4.27",
 		"symfony/http-kernel": "~3.4.14",
-		"twig/twig": "1.39.0",
-		"wikimedia/composer-merge-plugin": "2.0.1"
+		"twig/twig": "^1.38.2",
+		"wikimedia/composer-merge-plugin": "^1.4"
 	},
 	"require-dev": {
 		"behat/behat": "3.5.0",
