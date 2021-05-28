@@ -337,15 +337,7 @@
 		"psr-4": {
 			"govCMS\\Core\\": "src"
 		}
-	},
-	"config": {
-		"bin-dir": "bin/",
-		"sort-packages": true,
-		"optimize-autoloader": true,
-		"secure-http": false,
-		"platform": {
-				"php": "7.2.34"
-		}
+
 	},
 	"conflict": {
 		"drupal/core": "7.*",
