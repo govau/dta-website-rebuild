@@ -113,7 +113,7 @@
 		}
 	],
 	"require": {
-		"php": ">=7.2.0",
+		"php": ">=7.1.0",
 		"chi-teck/drupal-code-generator": "1.25.1",
 		"ckeditor/image2": "^4.14",
 		"ckeditor/tabletoolstoolbar": "0.0.1",
@@ -239,11 +239,11 @@
 		"govau/tadpole": "^1.1",
 		"harvesthq/chosen": "^1.8",
 		"imperator99/superfish": "2.3",
-		"oomphinc/composer-installers-extender": "2.0.0",
+		"oomphinc/composer-installers-extender": "1.1.2",
 		"symfony/http-foundation": "~3.4.27",
 		"symfony/http-kernel": "~3.4.14",
 		"twig/twig": "^1.38.2",
-		"wikimedia/composer-merge-plugin": "2.0.1"
+		"wikimedia/composer-merge-plugin": "^1.4"
 	},
 	"require-dev": {
 		"behat/behat": "3.5.0",
@@ -345,7 +345,7 @@
 		"optimize-autoloader": true,
 		"secure-http": false,
 		"platform": {
-				"php": "7.2.0"
+				"php": "7.1.20"
 		}
 	},
 	"conflict": {
