@@ -30,12 +30,12 @@ Feature: Mailchimp signup
   @anon @mailchimp @news
   Scenario: Form on news pages
     When I am on "news/test-news"
-    Then I should see an "form#mailchimp-signup-subscribe-block-sign-up-for-updates-form-1" element
+    Then I should see an "form#mailchimp-signup-subscribe-block-sign-up-for-updates-form" element
 
   @anon @mailchimp @blogs
   Scenario: Form on blogs pages
     When I am on "blogs/test-blog"
-    Then I should see an "form#mailchimp-signup-subscribe-block-sign-up-for-updates-form-1" element
+    Then I should see an "form#mailchimp-signup-subscribe-block-sign-up-for-updates-form" element
 
   @anon @mailchimp
   Scenario: Standalone form

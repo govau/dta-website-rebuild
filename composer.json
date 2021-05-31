@@ -113,12 +113,10 @@
 		}
 	],
 	"require": {
-		"php": ">=7.1.0",
 		"chi-teck/drupal-code-generator": "1.25.1",
 		"ckeditor/image2": "^4.14",
 		"ckeditor/tabletoolstoolbar": "0.0.1",
-		"cweagans/composer-patches": "1.6.4",
-		"drupal-composer/drupal-scaffold": "2.4.0",
+		"cweagans/composer-patches": "1.7.0",
 		"drupal/admin_toolbar": "2.4",
 		"drupal/adminimal_admin_toolbar": "1.11",
 		"drupal/adminimal_theme": "^1.5",
@@ -131,13 +129,13 @@
 		"drupal/captcha": "1.1",
 		"drupal/chosen": "2.10",
 		"drupal/ckeditor_tabletoolstoolbar": "1.0",
-		"drupal/composer_deploy": "1.4",
 		"drupal/config_filter": "1.7",
 		"drupal/config_split": "1.2",
 		"drupal/config_update": "1.7",
 		"drupal/context_active_trail": "1.0-rc2",
 		"drupal/context_metadata": "2.x-dev",
-		"drupal/core": "8.9.14",
+		"drupal/core": "8.9.16",
+		"drupal/core-composer-scaffold": "8.9.7",
 		"drupal/ctools": "^3.6",
 		"drupal/devel": "2.1",
 		"drupal/diff": "1.0",
@@ -239,11 +237,10 @@
 		"govau/tadpole": "^1.1",
 		"harvesthq/chosen": "^1.8",
 		"imperator99/superfish": "2.3",
-		"oomphinc/composer-installers-extender": "1.1.2",
+		"oomphinc/composer-installers-extender": "2.0.0",
 		"symfony/http-foundation": "~3.4.27",
 		"symfony/http-kernel": "~3.4.14",
-		"twig/twig": "^1.38.2",
-		"wikimedia/composer-merge-plugin": "^1.4"
+		"twig/twig": "^1.38.2"
 	},
 	"require-dev": {
 		"behat/behat": "3.5.0",
@@ -252,7 +249,6 @@
 		"drupal/coder": "8.2.12",
 		"drupal/console": "1.8.0",
 		"drupal/drupal-extension": "3.4.1",
-		"grasmash/drupal-security-warning": "1.1.1",
 		"jakoch/phantomjs-installer": "2.1.1-p09",
 		"jcalderonzumba/mink-phantomjs-driver": "0.3.3",
 		"mikey179/vfsstream": "1.6.5",
@@ -345,7 +341,7 @@
 		"optimize-autoloader": true,
 		"secure-http": false,
 		"platform": {
-				"php": "7.1.20"
+				"php": "7.1.0"
 		}
 	},
 	"conflict": {
