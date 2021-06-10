@@ -10,7 +10,6 @@ RUN apt-get update && apt-get install -y \
 	libfontconfig \
 	libpng-dev; \
 	docker-php-ext-install bz2 gd;
-
 # Install composer
 RUN set -ex; \
 	php -r "copy('https://getcomposer.org/download/1.6.3/composer.phar', 'composer.phar');" && \
