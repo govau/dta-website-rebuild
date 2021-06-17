@@ -16,7 +16,6 @@ source "$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )/../scripts/buildrc"
 # Increase memory limit for php to resolve
 # `drush config-import` memory usage limit
 echo "memory_limit=-1" > /usr/local/etc/php/conf.d/memory-limit.ini
-# `drush config-import` memory usage limit
 php -d memory_limit=-1 /usr/local/bin/composer install
 
 
