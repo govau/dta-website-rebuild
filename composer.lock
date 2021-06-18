@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f686d86f85e93ba0819b1bf6f0ced741",
+    "content-hash": "8196a56df6345d9308920b96bcf2a81c",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -5711,17 +5711,17 @@
         },
         {
             "name": "drupal/linkychecker",
-            "version": "1.0.0-alpha2",
+            "version": "2.0.0-beta1",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/linkychecker.git",
-                "reference": "8.x-1.0-alpha2"
+                "reference": "2.0.0-beta1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/linkychecker-8.x-1.0-alpha2.zip",
-                "reference": "8.x-1.0-alpha2",
-                "shasum": "b39b0bd7eab7c44b9088a94c0cd7b4aec9d97aa3"
+                "url": "https://ftp.drupal.org/files/projects/linkychecker-2.0.0-beta1.zip",
+                "reference": "2.0.0-beta1",
+                "shasum": "4a6eeb150f7de2b438445f513e2f567ff152a13a"
             },
             "require": {
                 "drupal/core": "^8.8 || ^9",
@@ -5731,11 +5731,11 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-1.0-alpha2",
-                    "datestamp": "1591073709",
+                    "version": "2.0.0-beta1",
+                    "datestamp": "1614062805",
                     "security-coverage": {
                         "status": "not-covered",
-                        "message": "Alpha releases are not covered by Drupal security advisories."
+                        "message": "Beta releases are not covered by Drupal security advisories."
                     }
                 },
                 "drush": {
@@ -17786,6 +17786,7 @@
         "drupal/field_validation": 15,
         "drupal/ie8": 20,
         "drupal/link_css": 20,
+        "drupal/linkychecker": 10,
         "drupal/moderated_content_bulk_publish": 10
     },
     "prefer-stable": true,
