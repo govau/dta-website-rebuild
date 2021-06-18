@@ -16,7 +16,6 @@ source "$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )/../scripts/buildrc"
 # Increase memory limit for php to resolve
 # `drush config-import` memory usage limit
 echo "memory_limit=-1" > /usr/local/etc/php/conf.d/memory-limit.ini
-# `drush config-import` memory usage limit
 php -d memory_limit=-1 /usr/local/bin/composer install
 
 
@@ -25,9 +24,7 @@ php -d memory_limit=-1 /usr/local/bin/composer install
 chown -R www-data:www-data  ${SCRIPT_DIR}/../docroot/sites/default/files/
 # The govCMS installer requires write permissions to sites/default/settings.php
 chown -R www-data:www-data  ${SCRIPT_DIR}/../docroot/sites/default/settings.php
-
 drush -y site-install
-
 
 
 # Fix for error "Entities exist of type <em class="placeholder">Shortcut link</em> and
