@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f67f7720c426541d390668d0aea22042",
+    "content-hash": "d39f51d2d909c784f328de8ac3c0213b",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -60,16 +60,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.183.9",
+            "version": "3.184.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "3b3aafdceac4cb820e2ae65a8785e4d07db471a7"
+                "reference": "0b7187c96ced465d400ad9427157e05ddee68edc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/3b3aafdceac4cb820e2ae65a8785e4d07db471a7",
-                "reference": "3b3aafdceac4cb820e2ae65a8785e4d07db471a7",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/0b7187c96ced465d400ad9427157e05ddee68edc",
+                "reference": "0b7187c96ced465d400ad9427157e05ddee68edc",
                 "shasum": ""
             },
             "require": {
@@ -141,7 +141,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2021-05-28T18:28:19+00:00"
+            "time": "2021-06-17T18:24:56+00:00"
         },
         {
             "name": "caxy/php-htmldiff",
@@ -268,16 +268,16 @@
         },
         {
             "name": "composer/ca-bundle",
-            "version": "1.2.9",
+            "version": "1.2.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/ca-bundle.git",
-                "reference": "78a0e288fdcebf92aa2318a8d3656168da6ac1a5"
+                "reference": "9fdb22c2e97a614657716178093cd1da90a64aa8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/ca-bundle/zipball/78a0e288fdcebf92aa2318a8d3656168da6ac1a5",
-                "reference": "78a0e288fdcebf92aa2318a8d3656168da6ac1a5",
+                "url": "https://api.github.com/repos/composer/ca-bundle/zipball/9fdb22c2e97a614657716178093cd1da90a64aa8",
+                "reference": "9fdb22c2e97a614657716178093cd1da90a64aa8",
                 "shasum": ""
             },
             "require": {
@@ -321,7 +321,7 @@
                 "ssl",
                 "tls"
             ],
-            "time": "2021-01-12T12:10:35+00:00"
+            "time": "2021-06-07T13:58:28+00:00"
         },
         {
             "name": "composer/installers",
@@ -3476,7 +3476,7 @@
         },
         {
             "name": "drupal/ctools_block",
-            "version": "3.6.0",
+            "version": "3.7.0",
             "require": {
                 "drupal/core": "^8.8 || ^9",
                 "drupal/ctools": "*"
@@ -3484,8 +3484,8 @@
             "type": "metapackage",
             "extra": {
                 "drupal": {
-                    "version": "8.x-3.6",
-                    "datestamp": "1620838181",
+                    "version": "8.x-3.7",
+                    "datestamp": "1623860918",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -8297,17 +8297,17 @@
         },
         {
             "name": "drupal/simple_gmap",
-            "version": "3.0.0",
+            "version": "3.0.1",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/simple_gmap.git",
-                "reference": "3.0.0"
+                "reference": "3.0.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/simple_gmap-3.0.0.zip",
-                "reference": "3.0.0",
-                "shasum": "ad74aaec5a1eec64cc72a8d4a272564c53ee7594"
+                "url": "https://ftp.drupal.org/files/projects/simple_gmap-3.0.1.zip",
+                "reference": "3.0.1",
+                "shasum": "16c3d3a2f3470312e8e82d5d95cb70ba7cb54ff1"
             },
             "require": {
                 "drupal/core": "^8 || ^9"
@@ -8318,8 +8318,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "3.0.0",
-                    "datestamp": "1591439940",
+                    "version": "3.0.1",
+                    "datestamp": "1622931515",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -8784,41 +8784,42 @@
         },
         {
             "name": "drupal/swiftmailer",
-            "version": "1.0.0-beta2",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/swiftmailer.git",
-                "reference": "8.x-1.0-beta2"
+                "reference": "8.x-2.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/swiftmailer-8.x-1.0-beta2.zip",
-                "reference": "8.x-1.0-beta2",
-                "shasum": "a63a91e7816a06bf8e52ac9b5e48a892a1e6b1d4"
+                "url": "https://ftp.drupal.org/files/projects/swiftmailer-8.x-2.0.zip",
+                "reference": "8.x-2.0",
+                "shasum": "9a4d9f511885246262224a81ec736c9c6aa2b466"
             },
             "require": {
-                "drupal/core": "~8.0",
-                "drupal/mailsystem": "*",
-                "html2text/html2text": "~4.0.1",
-                "swiftmailer/swiftmailer": "~5.4.5"
+                "drupal/core": "^8.9.11 || ^9.0.10",
+                "drupal/mailsystem": "^4.1.0",
+                "egulias/email-validator": "^2.0",
+                "html2text/html2text": "^4.0.1",
+                "php": ">=7.0.0",
+                "swiftmailer/swiftmailer": "^6.1.3",
+                "tijsverkoyen/css-to-inline-styles": "^2.2"
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-1.0-beta2",
-                    "datestamp": "1519655459",
+                    "version": "8.x-2.0",
+                    "datestamp": "1609585507",
                     "security-coverage": {
-                        "status": "not-covered",
-                        "message": "Beta releases are not covered by Drupal security advisories."
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
                     }
                 },
-                "patches_applied": {
-                    "Unit Testing is failing on testMassageMessageBody()": "https://www.drupal.org/files/issues/2018-03-13/swiftmailer-unittest.patch"
-                }
+                "patches_applied": []
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
             "license": [
-                "GPL-2.0+"
+                "GPL-2.0-or-later"
             ],
             "authors": [
                 {
@@ -10153,16 +10154,16 @@
         },
         {
             "name": "embed/embed",
-            "version": "v3.4.16",
+            "version": "3.4.17",
             "source": {
                 "type": "git",
                 "url": "https://github.com/oscarotero/Embed.git",
-                "reference": "fe226113966ed8af98000a4514c775492e40a944"
+                "reference": "2c0e112f7332597ec6a55174f2353e04859ba356"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oscarotero/Embed/zipball/fe226113966ed8af98000a4514c775492e40a944",
-                "reference": "fe226113966ed8af98000a4514c775492e40a944",
+                "url": "https://api.github.com/repos/oscarotero/Embed/zipball/2c0e112f7332597ec6a55174f2353e04859ba356",
+                "reference": "2c0e112f7332597ec6a55174f2353e04859ba356",
                 "shasum": ""
             },
             "require": {
@@ -10203,7 +10204,7 @@
                 "opengraph",
                 "twitter cards"
             ],
-            "time": "2021-05-07T12:38:54+00:00"
+            "time": "2021-05-30T11:21:47+00:00"
         },
         {
             "name": "ezyang/htmlpurifier",
@@ -10708,16 +10709,16 @@
         },
         {
             "name": "html2text/html2text",
-            "version": "4.0.1",
+            "version": "4.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mtibben/html2text.git",
-                "reference": "f55104b7c9f99b0937f0e20fe051b19f9c0ecad1"
+                "reference": "61ad68e934066a6f8df29a3d23a6460536d0855c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mtibben/html2text/zipball/f55104b7c9f99b0937f0e20fe051b19f9c0ecad1",
-                "reference": "f55104b7c9f99b0937f0e20fe051b19f9c0ecad1",
+                "url": "https://api.github.com/repos/mtibben/html2text/zipball/61ad68e934066a6f8df29a3d23a6460536d0855c",
+                "reference": "61ad68e934066a6f8df29a3d23a6460536d0855c",
                 "shasum": ""
             },
             "require-dev": {
@@ -10738,10 +10739,10 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "GPLv2"
+                "GPL-2.0-or-later"
             ],
             "description": "Converts HTML to formatted plain text",
-            "time": "2016-03-16T23:24:34+00:00"
+            "time": "2020-04-16T23:44:31+00:00"
         },
         {
             "name": "imperator99/superfish",
@@ -12369,29 +12370,36 @@
         },
         {
             "name": "swiftmailer/swiftmailer",
-            "version": "v5.4.12",
+            "version": "v6.2.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/swiftmailer/swiftmailer.git",
-                "reference": "181b89f18a90f8925ef805f950d47a7190e9b950"
+                "reference": "15f7faf8508e04471f666633addacf54c0ab5933"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/181b89f18a90f8925ef805f950d47a7190e9b950",
-                "reference": "181b89f18a90f8925ef805f950d47a7190e9b950",
+                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/15f7faf8508e04471f666633addacf54c0ab5933",
+                "reference": "15f7faf8508e04471f666633addacf54c0ab5933",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.3"
+                "egulias/email-validator": "^2.0|^3.1",
+                "php": ">=7.0.0",
+                "symfony/polyfill-iconv": "^1.0",
+                "symfony/polyfill-intl-idn": "^1.10",
+                "symfony/polyfill-mbstring": "^1.0"
             },
             "require-dev": {
-                "mockery/mockery": "~0.9.1",
-                "symfony/phpunit-bridge": "~3.2"
+                "mockery/mockery": "^1.0",
+                "symfony/phpunit-bridge": "^4.4|^5.0"
+            },
+            "suggest": {
+                "ext-intl": "Needed to support internationalized email addresses"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "5.4-dev"
+                    "dev-master": "6.2-dev"
                 }
             },
             "autoload": {
@@ -12419,7 +12427,7 @@
                 "mail",
                 "mailer"
             ],
-            "time": "2018-07-31T09:26:32+00:00"
+            "time": "2021-03-09T12:30:35+00:00"
         },
         {
             "name": "symfony-cmf/routing",
@@ -12654,6 +12662,54 @@
                 }
             ],
             "description": "Symfony Console Component",
+            "homepage": "https://symfony.com",
+            "time": "2020-10-24T10:57:07+00:00"
+        },
+        {
+            "name": "symfony/css-selector",
+            "version": "v3.4.47",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/css-selector.git",
+                "reference": "da3d9da2ce0026771f5fe64cb332158f1bd2bc33"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/css-selector/zipball/da3d9da2ce0026771f5fe64cb332158f1bd2bc33",
+                "reference": "da3d9da2ce0026771f5fe64cb332158f1bd2bc33",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.5.9|>=7.0.8"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\CssSelector\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Jean-François Simon",
+                    "email": "jeanfrancois.simon@sensiolabs.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony CssSelector Component",
             "homepage": "https://symfony.com",
             "time": "2020-10-24T10:57:07+00:00"
         },
@@ -14098,6 +14154,55 @@
             "time": "2018-02-27T17:52:03+00:00"
         },
         {
+            "name": "tijsverkoyen/css-to-inline-styles",
+            "version": "2.2.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/tijsverkoyen/CssToInlineStyles.git",
+                "reference": "b43b05cf43c1b6d849478965062b6ef73e223bb5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/tijsverkoyen/CssToInlineStyles/zipball/b43b05cf43c1b6d849478965062b6ef73e223bb5",
+                "reference": "b43b05cf43c1b6d849478965062b6ef73e223bb5",
+                "shasum": ""
+            },
+            "require": {
+                "ext-dom": "*",
+                "ext-libxml": "*",
+                "php": "^5.5 || ^7.0 || ^8.0",
+                "symfony/css-selector": "^2.7 || ^3.0 || ^4.0 || ^5.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.8.35 || ^5.7 || ^6.0 || ^7.5"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.2.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "TijsVerkoyen\\CssToInlineStyles\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Tijs Verkoyen",
+                    "email": "css_to_inline_styles@verkoyen.eu",
+                    "role": "Developer"
+                }
+            ],
+            "description": "CssToInlineStyles is a class that enables you to convert HTML-pages/files into HTML-pages/files with inline styles. This is very useful when you're sending emails.",
+            "homepage": "https://github.com/tijsverkoyen/CssToInlineStyles",
+            "time": "2020-07-13T06:12:54+00:00"
+        },
+        {
             "name": "twig/twig",
             "version": "v1.39.1",
             "source": {
@@ -14455,21 +14560,6 @@
                 "zip"
             ],
             "time": "2016-11-03T16:10:31+00:00"
-        },
-        {
-            "name": "algolia/places",
-            "version": "1.19.0",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/places.js/-/places.js-1.19.0.tgz"
-            },
-            "require": {
-                "composer/installers": "~1.0"
-            },
-            "type": "drupal-library",
-            "extra": {
-                "installer-name": "algolia.places"
-            }
         },
         {
             "name": "behat/behat",
@@ -15062,111 +15152,6 @@
                 "behat-screenshot"
             ],
             "time": "2018-03-08T13:20:42+00:00"
-        },
-        {
-            "name": "choices/choices",
-            "version": "9.0.1",
-            "dist": {
-                "type": "zip",
-                "url": "https://github.com/jshjohnson/Choices/archive/v9.0.1.zip"
-            },
-            "require": {
-                "composer/installers": "~1.0"
-            },
-            "type": "drupal-library",
-            "extra": {
-                "installer-name": "choices"
-            }
-        },
-        {
-            "name": "ckeditor/autogrow",
-            "version": "4.14.1",
-            "dist": {
-                "type": "zip",
-                "url": "https://download.ckeditor.com/autogrow/releases/autogrow_4.14.1.zip"
-            },
-            "require": {
-                "composer/installers": "~1.0"
-            },
-            "type": "drupal-library",
-            "extra": {
-                "installer-name": "ckeditor.autogrow"
-            }
-        },
-        {
-            "name": "ckeditor/codemirror",
-            "version": "v1.17.12",
-            "dist": {
-                "type": "zip",
-                "url": "https://github.com/w8tcha/CKEditor-CodeMirror-Plugin/releases/download/v1.17.12/CKEditor-CodeMirror-Plugin.zip"
-            },
-            "require": {
-                "composer/installers": "~1.0"
-            },
-            "type": "drupal-library",
-            "extra": {
-                "installer-name": "ckeditor.codemirror"
-            }
-        },
-        {
-            "name": "ckeditor/fakeobjects",
-            "version": "4.14.1",
-            "dist": {
-                "type": "zip",
-                "url": "https://download.ckeditor.com/fakeobjects/releases/fakeobjects_4.14.1.zip"
-            },
-            "require": {
-                "composer/installers": "~1.0"
-            },
-            "type": "drupal-library",
-            "extra": {
-                "installer-name": "ckeditor.fakeobjects"
-            }
-        },
-        {
-            "name": "ckeditor/image",
-            "version": "4.14.1",
-            "dist": {
-                "type": "zip",
-                "url": "https://download.ckeditor.com/image/releases/image_4.14.1.zip"
-            },
-            "require": {
-                "composer/installers": "~1.0"
-            },
-            "type": "drupal-library",
-            "extra": {
-                "installer-name": "ckeditor.image"
-            }
-        },
-        {
-            "name": "ckeditor/link",
-            "version": "4.14.1",
-            "dist": {
-                "type": "zip",
-                "url": "https://download.ckeditor.com/link/releases/link_4.14.1.zip"
-            },
-            "require": {
-                "composer/installers": "~1.0"
-            },
-            "type": "drupal-library",
-            "extra": {
-                "installer-name": "ckeditor.link"
-            }
-        },
-        {
-            "name": "codemirror/codemirror",
-            "version": "5.53.2",
-            "dist": {
-                "type": "zip",
-                "url": "https://github.com/components/codemirror/archive/5.53.2.zip"
-            },
-            "require": {
-                "composer/installers": "~1.0"
-            },
-            "type": "drupal-library",
-            "extra": {
-                "installer-name": "codemirror"
-            }
         },
         {
             "name": "dflydev/dot-access-configuration",
@@ -16126,186 +16111,6 @@
             "time": "2016-12-01T10:57:30+00:00"
         },
         {
-            "name": "jquery/chosen",
-            "version": "1.8.7",
-            "dist": {
-                "type": "zip",
-                "url": "https://github.com/harvesthq/chosen/releases/download/v1.8.7/chosen_v1.8.7.zip"
-            },
-            "require": {
-                "composer/installers": "~1.0"
-            },
-            "type": "drupal-library",
-            "extra": {
-                "installer-name": "jquery.chosen"
-            }
-        },
-        {
-            "name": "jquery/geocomplete",
-            "version": "1.7.0",
-            "dist": {
-                "type": "zip",
-                "url": "https://github.com/ubilabs/geocomplete/archive/1.7.0.zip"
-            },
-            "require": {
-                "composer/installers": "~1.0"
-            },
-            "type": "drupal-library",
-            "extra": {
-                "installer-name": "jquery.geocomplete"
-            }
-        },
-        {
-            "name": "jquery/hotkeys",
-            "version": "0.2.0",
-            "dist": {
-                "type": "zip",
-                "url": "https://github.com/jeresig/jquery.hotkeys/archive/0.2.0.zip"
-            },
-            "require": {
-                "composer/installers": "~1.0"
-            },
-            "type": "drupal-library",
-            "extra": {
-                "installer-name": "jquery.hotkeys"
-            }
-        },
-        {
-            "name": "jquery/icheck",
-            "version": "1.0.2 ",
-            "dist": {
-                "type": "zip",
-                "url": "https://github.com/fronteed/icheck/archive/1.0.2.zip"
-            },
-            "require": {
-                "composer/installers": "~1.0"
-            },
-            "type": "drupal-library",
-            "extra": {
-                "installer-name": "jquery.icheck"
-            }
-        },
-        {
-            "name": "jquery/image-picker",
-            "version": "0.3.1",
-            "dist": {
-                "type": "zip",
-                "url": "https://github.com/rvera/image-picker/archive/0.3.1.zip"
-            },
-            "require": {
-                "composer/installers": "~1.0"
-            },
-            "type": "drupal-library",
-            "extra": {
-                "installer-name": "jquery.image-picker"
-            }
-        },
-        {
-            "name": "jquery/inputmask",
-            "version": "5.0.5",
-            "dist": {
-                "type": "zip",
-                "url": "https://github.com/RobinHerbots/jquery.inputmask/archive/5.0.5.zip"
-            },
-            "require": {
-                "composer/installers": "~1.0"
-            },
-            "type": "drupal-library",
-            "extra": {
-                "installer-name": "jquery.inputmask"
-            }
-        },
-        {
-            "name": "jquery/intl-tel-input",
-            "version": "16.1.0",
-            "dist": {
-                "type": "zip",
-                "url": "https://github.com/jackocnr/intl-tel-input/archive/v16.1.0.zip"
-            },
-            "require": {
-                "composer/installers": "~1.0"
-            },
-            "type": "drupal-library",
-            "extra": {
-                "installer-name": "jquery.intl-tel-input"
-            }
-        },
-        {
-            "name": "jquery/rateit",
-            "version": "1.1.3",
-            "dist": {
-                "type": "zip",
-                "url": "https://github.com/gjunge/rateit.js/archive/1.1.3.zip"
-            },
-            "require": {
-                "composer/installers": "~1.0"
-            },
-            "type": "drupal-library",
-            "extra": {
-                "installer-name": "jquery.rateit"
-            }
-        },
-        {
-            "name": "jquery/select2",
-            "version": "4.0.13",
-            "dist": {
-                "type": "zip",
-                "url": "https://github.com/select2/select2/archive/4.0.13.zip"
-            },
-            "require": {
-                "composer/installers": "~1.0"
-            },
-            "type": "drupal-library",
-            "extra": {
-                "installer-name": "jquery.select2"
-            }
-        },
-        {
-            "name": "jquery/textcounter",
-            "version": "0.9.0",
-            "dist": {
-                "type": "zip",
-                "url": "https://github.com/ractoon/jQuery-Text-Counter/archive/0.9.0.zip"
-            },
-            "require": {
-                "composer/installers": "~1.0"
-            },
-            "type": "drupal-library",
-            "extra": {
-                "installer-name": "jquery.textcounter"
-            }
-        },
-        {
-            "name": "jquery/timepicker",
-            "version": "1.13.14",
-            "dist": {
-                "type": "zip",
-                "url": "https://github.com/jonthornton/jquery-timepicker/archive/1.13.14.zip"
-            },
-            "require": {
-                "composer/installers": "~1.0"
-            },
-            "type": "drupal-library",
-            "extra": {
-                "installer-name": "jquery.timepicker"
-            }
-        },
-        {
-            "name": "jquery/toggles",
-            "version": "4.0.0",
-            "dist": {
-                "type": "zip",
-                "url": "https://github.com/simontabor/jquery-toggles/archive/v4.0.0.zip"
-            },
-            "require": {
-                "composer/installers": "~1.0"
-            },
-            "type": "drupal-library",
-            "extra": {
-                "installer-name": "jquery.toggles"
-            }
-        },
-        {
             "name": "mikey179/vfsstream",
             "version": "v1.6.5",
             "source": {
@@ -17034,21 +16839,6 @@
             "time": "2015-10-02T06:51:40+00:00"
         },
         {
-            "name": "progress-tracker/progress-tracker",
-            "version": "1.4.0",
-            "dist": {
-                "type": "zip",
-                "url": "https://github.com/NigelOToole/progress-tracker/archive/v1.4.0.zip"
-            },
-            "require": {
-                "composer/installers": "~1.0"
-            },
-            "type": "drupal-library",
-            "extra": {
-                "installer-name": "progress-tracker"
-            }
-        },
-        {
             "name": "se/selenium-server-standalone",
             "version": "3.10.0",
             "source": {
@@ -17429,21 +17219,6 @@
             "time": "2016-10-03T07:41:43+00:00"
         },
         {
-            "name": "signature_pad/signature_pad",
-            "version": "2.3.0",
-            "dist": {
-                "type": "zip",
-                "url": "https://github.com/szimek/signature_pad/archive/v2.3.0.zip"
-            },
-            "require": {
-                "composer/installers": "~1.0"
-            },
-            "type": "drupal-library",
-            "extra": {
-                "installer-name": "signature_pad"
-            }
-        },
-        {
             "name": "squizlabs/php_codesniffer",
             "version": "2.9.1",
             "source": {
@@ -17567,21 +17342,6 @@
             "time": "2019-11-24T17:03:06+00:00"
         },
         {
-            "name": "svg-pan-zoom/svg-pan-zoom",
-            "version": "3.6.1",
-            "dist": {
-                "type": "zip",
-                "url": "https://github.com/ariutta/svg-pan-zoom/archive/3.6.1.zip"
-            },
-            "require": {
-                "composer/installers": "~1.0"
-            },
-            "type": "drupal-library",
-            "extra": {
-                "installer-name": "svg-pan-zoom"
-            }
-        },
-        {
             "name": "symfony/browser-kit",
             "version": "v3.4.47",
             "source": {
@@ -17630,54 +17390,6 @@
                 }
             ],
             "description": "Symfony BrowserKit Component",
-            "homepage": "https://symfony.com",
-            "time": "2020-10-24T10:57:07+00:00"
-        },
-        {
-            "name": "symfony/css-selector",
-            "version": "v3.4.47",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/css-selector.git",
-                "reference": "da3d9da2ce0026771f5fe64cb332158f1bd2bc33"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/css-selector/zipball/da3d9da2ce0026771f5fe64cb332158f1bd2bc33",
-                "reference": "da3d9da2ce0026771f5fe64cb332158f1bd2bc33",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^5.5.9|>=7.0.8"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Symfony\\Component\\CssSelector\\": ""
-                },
-                "exclude-from-classmap": [
-                    "/Tests/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
-                },
-                {
-                    "name": "Jean-François Simon",
-                    "email": "jeanfrancois.simon@sensiolabs.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
-                }
-            ],
-            "description": "Symfony CssSelector Component",
             "homepage": "https://symfony.com",
             "time": "2020-10-24T10:57:07+00:00"
         },
