@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d39f51d2d909c784f328de8ac3c0213b",
+    "content-hash": "9d7d180578b2c9c4f88c4730b131a632",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -60,16 +60,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.184.6",
+            "version": "3.185.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "0b7187c96ced465d400ad9427157e05ddee68edc"
+                "reference": "953bbd1b5f7fd3f1601ad0a83f93358f635c57f4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/0b7187c96ced465d400ad9427157e05ddee68edc",
-                "reference": "0b7187c96ced465d400ad9427157e05ddee68edc",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/953bbd1b5f7fd3f1601ad0a83f93358f635c57f4",
+                "reference": "953bbd1b5f7fd3f1601ad0a83f93358f635c57f4",
                 "shasum": ""
             },
             "require": {
@@ -141,7 +141,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2021-06-17T18:24:56+00:00"
+            "time": "2021-06-24T18:22:42+00:00"
         },
         {
             "name": "caxy/php-htmldiff",
@@ -8815,7 +8815,9 @@
                         "message": "Covered by Drupal's security advisory policy"
                     }
                 },
-                "patches_applied": []
+                "patches_applied": {
+                    "Unidentified index error": "https://www.drupal.org/files/issues/2021-01-05/3179656-fixed-undefined-index-notices-9.patch"
+                }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
             "license": [
@@ -9556,17 +9558,17 @@
         },
         {
             "name": "drupal/webform",
-            "version": "5.26.0",
+            "version": "5.27.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/webform.git",
-                "reference": "8.x-5.26"
+                "reference": "8.x-5.27"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/webform-8.x-5.26.zip",
-                "reference": "8.x-5.26",
-                "shasum": "bad9019e2c23cc2e9195e340a0cc4e8eda36a2a6"
+                "url": "https://ftp.drupal.org/files/projects/webform-8.x-5.27.zip",
+                "reference": "8.x-5.27",
+                "shasum": "5c3df517a9f20bc06b7d89ed18d4cc20ea9ae818"
             },
             "require": {
                 "drupal/core": "^8.8"
@@ -9607,8 +9609,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-5.26",
-                    "datestamp": "1620250064",
+                    "version": "8.x-5.27",
+                    "datestamp": "1624460854",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -9616,7 +9618,7 @@
                 },
                 "drush": {
                     "services": {
-                        "drush.services.yml": "^9"
+                        "drush.services.yml": "^9 || ^10"
                     }
                 }
             },
@@ -11514,16 +11516,16 @@
         },
         {
             "name": "mtdowling/jmespath.php",
-            "version": "2.6.0",
+            "version": "2.6.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/jmespath/jmespath.php.git",
-                "reference": "42dae2cbd13154083ca6d70099692fef8ca84bfb"
+                "reference": "9b87907a81b87bc76d19a7fb2d61e61486ee9edb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jmespath/jmespath.php/zipball/42dae2cbd13154083ca6d70099692fef8ca84bfb",
-                "reference": "42dae2cbd13154083ca6d70099692fef8ca84bfb",
+                "url": "https://api.github.com/repos/jmespath/jmespath.php/zipball/9b87907a81b87bc76d19a7fb2d61e61486ee9edb",
+                "reference": "9b87907a81b87bc76d19a7fb2d61e61486ee9edb",
                 "shasum": ""
             },
             "require": {
@@ -11531,7 +11533,7 @@
                 "symfony/polyfill-mbstring": "^1.17"
             },
             "require-dev": {
-                "composer/xdebug-handler": "^1.4",
+                "composer/xdebug-handler": "^1.4 || ^2.0",
                 "phpunit/phpunit": "^4.8.36 || ^7.5.15"
             },
             "bin": [
@@ -11567,7 +11569,7 @@
                 "json",
                 "jsonpath"
             ],
-            "time": "2020-07-31T21:01:56+00:00"
+            "time": "2021-06-14T00:11:39+00:00"
         },
         {
             "name": "nikic/php-parser",
