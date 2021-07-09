@@ -214,7 +214,7 @@
 		"drupal/social_auth_microsoft": "2.0-alpha2",
 		"drupal/structure_sync": "^2.0",
 		"drupal/superfish": "1.4",
-		"drupal/swiftmailer": "^2.0",
+		"drupal/swiftmailer": "^1.0@beta",
 		"drupal/tablefield": "2.1",
 		"drupal/term_condition": "1.2",
 		"drupal/toc_filter": "2.0-beta1",
@@ -285,10 +285,6 @@
 			},
 			"drupal/search_api_page": {
 			  "Search block form should define a base form ID": "https://www.drupal.org/files/issues/2019-07-02/3063684-2--search_form_base_id.patch"
-			},
-			"drupal/swiftmailer": {
-				"Unit Testing is failing on testMassageMessageBody()": "https://www.drupal.org/files/issues/2018-03-13/swiftmailer-unittest.patch",
-				 "Reply-to not set": "https://www.drupal.org/files/issues/swiftmailer-add_reply_to_support-2909588.patch"
 			},
 			"drupal/core": {
 				"Cannot use relationship for rendered entity on Views": "https://www.drupal.org/files/issues/2020-05-30/cannot-use-relationship-2457999-236.patch",
