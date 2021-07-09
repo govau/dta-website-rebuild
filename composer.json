@@ -287,7 +287,8 @@
 			  "Search block form should define a base form ID": "https://www.drupal.org/files/issues/2019-07-02/3063684-2--search_form_base_id.patch"
 			},
 			"drupal/swiftmailer": {
-				"Unit Testing is failing on testMassageMessageBody()": "https://www.drupal.org/files/issues/2018-03-13/swiftmailer-unittest.patch"
+				"Unit Testing is failing on testMassageMessageBody()": "https://www.drupal.org/files/issues/2018-03-13/swiftmailer-unittest.patch",
+				 "Reply-to not set": "https://www.drupal.org/files/issues/swiftmailer-add_reply_to_support-2909588.patch"
 			},
 			"drupal/core": {
 				"Cannot use relationship for rendered entity on Views": "https://www.drupal.org/files/issues/2020-05-30/cannot-use-relationship-2457999-236.patch",
