@@ -11,9 +11,15 @@ dependencies:
 third_party_settings:
   allowed_formats:
     introduction: introduction
-    rich_text: '0'
+    html: html
+    summary: '0'
+    commenting: '0'
+    full_rich_text: '0'
     administration: '0'
     plain_text: '0'
+    rich_text: '0'
+    basic_text: '0'
+    transcript_text: '0'
 id: node.page.field_introduction
 field_name: field_introduction
 entity_type: node

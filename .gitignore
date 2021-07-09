@@ -49,3 +49,12 @@ secrets-*
 disqus.settings.yml
 console
 tests/screenshots
+/.csslintrc
+/.editorconfig
+/.eslintignore
+/.eslintrc.json
+/.gitattributes
+/.ht.router.php
+/.htaccess
+/example.gitignore
+/robots.txt

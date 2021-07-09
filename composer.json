@@ -164,11 +164,11 @@
 		"drupal/htmlawed": "3.7",
 		"drupal/ie8": "1.x-dev",
 		"drupal/image_style_quality": "1.4",
-		"drupal/imce": "1.8",
+		"drupal/imce": "^2.4",
 		"drupal/link_css": "1.x-dev",
 		"drupal/linkit": "5.0-beta11",
 		"drupal/linky": "1.0-alpha10",
-		"drupal/linkychecker": "1.0-alpha2",
+		"drupal/linkychecker": "^2.0@beta",
 		"drupal/login_emailusername": "1.1",
 		"drupal/login_security": "1.5",
 		"drupal/mail_safety": "1.1",
@@ -212,9 +212,9 @@
 		"drupal/slack": "1.2",
 		"drupal/social_api": "2.0-rc1",
 		"drupal/social_auth_microsoft": "2.0-alpha2",
-		"drupal/structure_sync": "1.16",
+		"drupal/structure_sync": "^2.0",
 		"drupal/superfish": "1.4",
-		"drupal/swiftmailer": "1.0-beta2",
+		"drupal/swiftmailer": "^2.0",
 		"drupal/tablefield": "2.1",
 		"drupal/term_condition": "1.2",
 		"drupal/toc_filter": "2.0-beta1",
@@ -231,7 +231,7 @@
 		"drupal/wysiwyg_template": "2.3",
 		"drupal/zendesk_forms": "1.0",
 		"drush/drush": "9.3.0",
-		"govau/dta-gov-au": "2.2.2",
+		"govau/dta-gov-au": "2.2.4",
 		"govau/dta_website_image_plugin": "1.1.0",
 		"govau/dta_website_slack_integration": "1.2.3",
 		"govau/tadpole": "^1.1",
@@ -316,6 +316,9 @@
 			},
 			"drupal/dynamic_entity_reference": {
 				"Errors when new entity types are added (in certain cases)":"https://www.drupal.org/files/issues/2020-05-31/3099176-2.x-9.patch"
+			},
+			"drupal/swiftmailer": {
+				"Unidentified index error":"https://www.drupal.org/files/issues/2021-01-05/3179656-fixed-undefined-index-notices-9.patch"
 			},
 			"drupal/captcha": {
 				"Captcha Session ID broken with cacheable captcha backends":"https://www.drupal.org/files/issues/2020-07-30/3089263-48.patch"

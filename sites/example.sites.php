@@ -50,6 +50,7 @@
  * URL: https://www.drupal.org:8080/mysite/test/
  * $sites['8080.www.drupal.org.mysite.test'] = 'example.com';
  * @endcode
+ *
  * @see default.settings.php
  * @see \Drupal\Core\DrupalKernel::getSitePath()
  * @see https://www.drupal.org/documentation/install/multi-site
