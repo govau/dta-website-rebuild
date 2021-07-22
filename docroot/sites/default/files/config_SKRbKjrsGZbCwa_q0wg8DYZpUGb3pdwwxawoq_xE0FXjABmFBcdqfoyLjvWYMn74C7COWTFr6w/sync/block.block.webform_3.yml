@@ -1,0 +1,31 @@
+uuid: 76ba85e8-938f-4b8c-bfc1-657526a54551
+langcode: en
+status: true
+dependencies:
+  config:
+    - webform.webform.aga_registration
+  module:
+    - system
+    - webform
+  theme:
+    - dta_gov_au
+id: webform_3
+theme: dta_gov_au
+region: content
+weight: 0
+provider: null
+plugin: webform_block
+settings:
+  id: webform_block
+  label: 'Register for the AGA Community of Practice'
+  provider: webform
+  label_display: '0'
+  webform_id: aga_registration
+  default_data: ''
+  redirect: false
+visibility:
+  request_path:
+    id: request_path
+    pages: /register-australian-government-architecture-community-practice
+    negate: false
+    context_mapping: {  }

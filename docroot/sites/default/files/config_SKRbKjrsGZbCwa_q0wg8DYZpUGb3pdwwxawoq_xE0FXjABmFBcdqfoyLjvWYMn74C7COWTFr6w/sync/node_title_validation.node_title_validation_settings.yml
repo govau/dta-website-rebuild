@@ -34,6 +34,13 @@ node_title_validation_config:
   min-wc-document: '1'
   max-wc-document: '25'
   unique-document: 0
+  comma-events: 0
+  exclude-events: ''
+  min-events: '1'
+  max-events: '255'
+  min-wc-events: '1'
+  max-wc-events: '25'
+  unique-events: 0
   comma-external_link: 0
   exclude-external_link: ''
   min-external_link: '1'
@@ -41,13 +48,6 @@ node_title_validation_config:
   min-wc-external_link: '1'
   max-wc-external_link: '25'
   unique-external_link: 0
-  comma-govcms_event: 0
-  exclude-govcms_event: ''
-  min-govcms_event: '1'
-  max-govcms_event: '65'
-  min-wc-govcms_event: '1'
-  max-wc-govcms_event: '25'
-  unique-govcms_event: 1
   comma-home_page: 0
   exclude-home_page: ''
   min-home_page: '1'
@@ -107,7 +107,7 @@ node_title_validation_config:
   comma-page: 0
   exclude-page: ''
   min-page: '1'
-  max-page: '65'
+  max-page: '255'
   min-wc-page: '1'
   max-wc-page: '25'
   unique-page: 1
