@@ -171,7 +171,6 @@ module:
   workflows: 0
   wysiwyg_template: 0
   wysiwyg_template_core: 0
-  zendesk_forms: 0
   ds: 1
   extlink: 1
   menu_admin_per_menu: 1
