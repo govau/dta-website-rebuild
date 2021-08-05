@@ -74,3 +74,4 @@ docroot/sites/default/settings.php
 .DS_Store
 docroot/sites/.DS_Store
 *.yml
+docroot/sites/default/settings.php
